@@ -17,7 +17,9 @@ from ingest.feature_detector import detect_features
 from ingest.input_loader import load_text_input
 from ingest.source_registry import register_source_document
 from extract.curriculum_extractor import run_curriculum_extraction
+from report.markdown_reporter import generate_markdown_reports
 from validate.package_validator import validate_demo_package
+from validate.schema_validator import validate_outputs
 
 
 ALLOWED_MODES = {
@@ -119,6 +121,15 @@ def _run_packaging_stage(output_dir: Path) -> None:
     _write_json(output_dir / "performance_tracking_package.json", tracking_package)
 
 
+def _run_reporting_validation_stage(output_dir: Path) -> None:
+    preliminary_validation = validate_outputs(output_dir)
+    _write_json(output_dir / "validation_report.json", preliminary_validation)
+    generate_markdown_reports(output_dir, preliminary_validation)
+    final_validation = validate_outputs(output_dir)
+    _write_json(output_dir / "validation_report.json", final_validation)
+    generate_markdown_reports(output_dir, final_validation)
+
+
 def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
@@ -188,8 +199,9 @@ def main() -> int:
         mode=args.mode,
     )
     _run_packaging_stage(output_dir)
+    _run_reporting_validation_stage(output_dir)
 
-    print(f"Wrote input, extraction, and packaging-stage demo outputs to {output_dir.as_posix()}")
+    print(f"Wrote full non-live demo outputs to {output_dir.as_posix()}")
     return 0
 
 

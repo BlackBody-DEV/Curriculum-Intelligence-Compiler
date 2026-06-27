@@ -1,0 +1,50 @@
+{
+  "status": "demo_unverified",
+  "validation_status": "completed",
+  "files_checked": [
+    "source_document.json",
+    "source_interpretation.json",
+    "source_feature_flags.json",
+    "curriculum_extraction_package.json",
+    "topic_candidates.json",
+    "micro_skill_candidates.json",
+    "practice_targets.json",
+    "assessment_targets.json",
+    "performance_tracking_targets.json",
+    "content_gaps.json",
+    "practice_module_package.json",
+    "practice_assessment_package.json",
+    "performance_tracking_package.json",
+    "content_gap_report.md",
+    "demo_report.md",
+    "validation_report.json"
+  ],
+  "missing_files": [],
+  "required_field_errors": [],
+  "warnings": [],
+  "forbidden_zone_check": {
+    "backend_app_touched": false,
+    "frontend_src_touched": false,
+    "operational_alpha_touched": false,
+    "notes": "Validation inspected demo output files only.",
+    "status": "demo_unverified"
+  },
+  "demo_label_check": {
+    "top_level_status_required": "demo_unverified",
+    "failures": [],
+    "passed": true,
+    "status": "demo_unverified"
+  },
+  "db_contact_check": {
+    "db_contact_performed": false,
+    "status": "demo_unverified"
+  },
+  "stage_boundary_check": {
+    "validation_report_generated": true,
+    "demo_report_generated": true,
+    "content_gap_report_generated": true,
+    "live_or_operational_outputs_present": [],
+    "status": "demo_unverified"
+  },
+  "overall_result": "pass"
+}
