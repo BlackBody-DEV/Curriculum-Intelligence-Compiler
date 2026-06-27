@@ -1,0 +1,68 @@
+{
+  "manifest_id": "EXPECTED_FINAL_DEMO_OUTPUTS_001",
+  "status": "demo_unverified",
+  "description": "Frozen expected-output checks for the non-live AxiomIQ Course Compiler math demo MVP.",
+  "required_output_files": [
+    "source_document.json",
+    "source_interpretation.json",
+    "source_feature_flags.json",
+    "curriculum_extraction_package.json",
+    "topic_candidates.json",
+    "micro_skill_candidates.json",
+    "practice_targets.json",
+    "assessment_targets.json",
+    "performance_tracking_targets.json",
+    "content_gaps.json",
+    "practice_module_package.json",
+    "practice_assessment_package.json",
+    "performance_tracking_package.json",
+    "content_gap_report.md",
+    "demo_report.md",
+    "validation_report.json"
+  ],
+  "required_top_level_status": "demo_unverified",
+  "minimum_counts": {
+    "topic_count": 1,
+    "micro_skill_count": 3,
+    "practice_item_count": 1,
+    "assessment_item_count": 1
+  },
+  "accepted_validation_results": [
+    "pass",
+    "pass_with_warnings"
+  ],
+  "required_report_text_markers": {
+    "demo_report.md": [
+      "demo_unverified",
+      "Non-Live",
+      "This is not canonical curriculum.",
+      "This is not production-ready content.",
+      "This does not update operational Alpha readiness or mastery.",
+      "No database contact occurred."
+    ],
+    "content_gap_report.md": [
+      "Content Gap",
+      "demo_unverified",
+      "does not update operational Alpha readiness or mastery"
+    ]
+  },
+  "required_non_live_boundary_markers": [
+    "demo_unverified",
+    "non-live",
+    "not canonical curriculum",
+    "not production-ready content",
+    "does not update operational Alpha readiness or mastery",
+    "No database contact"
+  ],
+  "forbidden_generated_files_or_claims": [
+    "production_ready",
+    "canonical_curriculum_approved",
+    "\"operational_alpha_updates\": true",
+    "\"readiness_updated\": true",
+    "\"mastery_updated\": true",
+    "\"database_write\": true",
+    "\"live_api_call\": true",
+    "backend/app",
+    "frontend/src"
+  ]
+}
