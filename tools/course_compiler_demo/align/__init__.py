@@ -1,0 +1,1 @@
+"""Demo canonical alignment placeholders."""

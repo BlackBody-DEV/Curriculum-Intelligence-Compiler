@@ -1,0 +1,56 @@
+{
+  "demo_only": true,
+  "status": "demo_unverified",
+  "registry_name": "course_compiler_demo_canonical_registry",
+  "description": "Local demo-only registry for non-live Course Compiler Demo alignment. Not production canonical content.",
+  "subjects": [
+    {
+      "demo_only": true,
+      "status": "demo_unverified",
+      "subject": "MATHEMATICS",
+      "courses": [
+        {
+          "demo_only": true,
+          "status": "demo_unverified",
+          "course": "ALGEBRA_I",
+          "topics": [
+            {
+              "demo_only": true,
+              "status": "demo_unverified",
+              "topic": "Linear Equations",
+              "micro_skills": [
+                {
+                  "demo_only": true,
+                  "status": "demo_unverified",
+                  "name": "Isolate the Variable"
+                },
+                {
+                  "demo_only": true,
+                  "status": "demo_unverified",
+                  "name": "Combine Like Terms"
+                }
+              ]
+            },
+            {
+              "demo_only": true,
+              "status": "demo_unverified",
+              "topic": "Graphing Lines",
+              "micro_skills": [
+                {
+                  "demo_only": true,
+                  "status": "demo_unverified",
+                  "name": "Compute Slope"
+                },
+                {
+                  "demo_only": true,
+                  "status": "demo_unverified",
+                  "name": "Identify Y-Intercept"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

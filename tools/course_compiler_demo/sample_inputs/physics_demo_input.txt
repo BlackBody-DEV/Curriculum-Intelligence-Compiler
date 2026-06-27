@@ -1,0 +1,10 @@
+Demo Physics Review
+
+Topics:
+- Vectors
+- Kinematics
+- Newton's laws
+
+Problems:
+1. Resolve a 10 N force at 30 degrees into x and y components.
+2. Find acceleration when a 20 N net force acts on a 5 kg mass.

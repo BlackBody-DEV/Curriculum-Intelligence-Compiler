@@ -1,0 +1,6 @@
+{
+  "status": "demo_unverified",
+  "schema_name": "source_interpretation.schema.json",
+  "description": "Placeholder schema for non-live Course Compiler Demo.",
+  "non_live": true
+}
