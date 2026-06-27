@@ -1,0 +1,46 @@
+{
+  "status": "demo_unverified",
+  "source_id": "SRC_DEMO_001",
+  "content_gaps": [
+    {
+      "gap_id": "GAP_001",
+      "gap_type": "missing_reviewed_procedure",
+      "description": "Detected skills do not yet have reviewed procedure content in the demo lane.",
+      "recommended_action": "Create reviewed procedure candidates in a later package stage.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_002",
+      "gap_type": "missing_reviewed_question_bank",
+      "description": "Questions are source-derived only; no reviewed question bank is attached.",
+      "recommended_action": "Generate and review a demo question bank before live use.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_003",
+      "gap_type": "demo_only_content",
+      "description": "All extracted content is local demo content and remains unverified.",
+      "recommended_action": "Keep status demo_unverified until reviewed.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_004",
+      "gap_type": "thin_assessment_coverage",
+      "description": "The source is not an assessment document, so assessment coverage is inferred.",
+      "recommended_action": "Add assessment-specific source material in a later stage.",
+      "confidence": "medium",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_005",
+      "gap_type": "thin_practice_coverage",
+      "description": "The demo source covers a small number of candidate topics and skills.",
+      "recommended_action": "Use additional sources before broad practice generation.",
+      "confidence": "medium",
+      "status": "demo_unverified"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-"""CLI for the non-live Course Compiler Demo input stage."""
+"""CLI for the non-live Course Compiler Demo input and extraction stages."""
 
 from __future__ import annotations
 
@@ -15,6 +15,7 @@ from ingest.document_classifier import (
 from ingest.feature_detector import detect_features
 from ingest.input_loader import load_text_input
 from ingest.source_registry import register_source_document
+from extract.curriculum_extractor import run_curriculum_extraction
 
 
 ALLOWED_MODES = {
@@ -29,7 +30,7 @@ ALLOWED_MODES = {
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="AxiomIQ Course Compiler Demo input-stage CLI."
+        description="AxiomIQ Course Compiler Demo input and extraction-stage CLI."
     )
     parser.add_argument("--input", help="Path to a .txt or .md demo source file.")
     parser.add_argument("--subject", choices=sorted(ALLOWED_SUBJECTS), help="Subject orientation.")
@@ -75,7 +76,7 @@ def main() -> int:
         if getattr(args, name) is None
     ]
     if missing:
-        parser.error("the following arguments are required for input-stage execution: " + ", ".join(f"--{name}" for name in missing))
+        parser.error("the following arguments are required for demo execution: " + ", ".join(f"--{name}" for name in missing))
 
     loaded_input = load_text_input(args.input)
     classification = classify_document(loaded_input["raw_text"])
@@ -126,8 +127,13 @@ def main() -> int:
     _write_json(output_dir / "source_document.json", source_document)
     _write_json(output_dir / "source_interpretation.json", source_interpretation)
     _write_json(output_dir / "source_feature_flags.json", source_feature_flags)
+    run_curriculum_extraction(
+        raw_text=loaded_input["raw_text"],
+        output_dir=output_dir,
+        mode=args.mode,
+    )
 
-    print(f"Wrote input-stage demo outputs to {output_dir.as_posix()}")
+    print(f"Wrote input and extraction-stage demo outputs to {output_dir.as_posix()}")
     return 0
 
 
