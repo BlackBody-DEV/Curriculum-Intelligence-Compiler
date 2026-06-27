@@ -1,8 +1,9 @@
-"""CLI for the non-live Course Compiler Demo input and extraction stages."""
+"""CLI for the non-live Course Compiler Demo pipeline stages."""
 
 from __future__ import annotations
 
 import argparse
+import importlib
 import json
 from pathlib import Path
 
@@ -16,6 +17,7 @@ from ingest.feature_detector import detect_features
 from ingest.input_loader import load_text_input
 from ingest.source_registry import register_source_document
 from extract.curriculum_extractor import run_curriculum_extraction
+from validate.package_validator import validate_demo_package
 
 
 ALLOWED_MODES = {
@@ -62,6 +64,59 @@ def _primary_use(source_type: str, mode: str) -> list[str]:
     }:
         uses.append("assessment_preparation")
     return uses or ["source_interpretation"]
+
+
+def _run_packaging_stage(output_dir: Path) -> None:
+    practice_builder = importlib.import_module("package.practice_module_builder")
+    assessment_builder = importlib.import_module("package.assessment_builder")
+    tracking_builder = importlib.import_module("package.performance_tracking_builder")
+
+    practice_package = practice_builder.build_practice_module_package(output_dir)
+    validate_demo_package(
+        practice_package,
+        [
+            "package_id",
+            "status",
+            "module_title",
+            "module_type",
+            "source_context",
+            "target_curriculum",
+            "practice_sequence",
+        ],
+    )
+    _write_json(output_dir / "practice_module_package.json", practice_package)
+
+    assessment_package = assessment_builder.build_practice_assessment_package(output_dir)
+    validate_demo_package(
+        assessment_package,
+        [
+            "package_id",
+            "status",
+            "assessment_title",
+            "assessment_type",
+            "covered_curriculum",
+            "assessment_blueprint",
+            "assessment_items",
+            "scoring_policy",
+        ],
+    )
+    _write_json(output_dir / "practice_assessment_package.json", assessment_package)
+
+    tracking_package = tracking_builder.build_performance_tracking_package(output_dir)
+    validate_demo_package(
+        tracking_package,
+        [
+            "package_id",
+            "status",
+            "tracking_title",
+            "tracking_type",
+            "linked_packages",
+            "attempt_record_schema",
+            "metric_definitions",
+            "readiness_model",
+        ],
+    )
+    _write_json(output_dir / "performance_tracking_package.json", tracking_package)
 
 
 def main() -> int:
@@ -132,8 +187,9 @@ def main() -> int:
         output_dir=output_dir,
         mode=args.mode,
     )
+    _run_packaging_stage(output_dir)
 
-    print(f"Wrote input and extraction-stage demo outputs to {output_dir.as_posix()}")
+    print(f"Wrote input, extraction, and packaging-stage demo outputs to {output_dir.as_posix()}")
     return 0
 
 
