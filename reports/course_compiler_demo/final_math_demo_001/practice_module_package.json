@@ -1,0 +1,342 @@
+{
+  "package_id": "PM_DEMO_001",
+  "status": "demo_unverified",
+  "module_title": "Demo Algebra Skills Practice",
+  "module_type": "skill_practice",
+  "source_context": {
+    "source_id": "SRC_DEMO_001",
+    "source_title": "Demo Algebra Homework",
+    "source_type": "homework",
+    "detected_subject": "MATHEMATICS",
+    "detected_course_level": "ALGEBRA_I",
+    "rights_status": "owned_by_axiomiq",
+    "privacy_status": "non_private"
+  },
+  "target_curriculum": {
+    "topics": [
+      {
+        "candidate_id": "TOPIC_001",
+        "topic_name": "Linear Equations",
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "description": "Candidate topic detected from demo source language for Linear Equations.",
+        "source_position": {
+          "line_start": 4,
+          "line_end": 10
+        },
+        "confidence": "high",
+        "evidence_refs": [
+          "EV_TOPIC_001_001",
+          "EV_TOPIC_001_002",
+          "EV_TOPIC_001_003"
+        ],
+        "possible_canonical_matches": [
+          {
+            "match_name": "Linear Equations",
+            "match_scope": "demo_registry",
+            "confidence": "high",
+            "status": "demo_unverified"
+          }
+        ],
+        "alignment_status": "matched_existing_demo",
+        "status": "demo_unverified"
+      },
+      {
+        "candidate_id": "TOPIC_002",
+        "topic_name": "Graphing Lines",
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "description": "Candidate topic detected from demo source language for Graphing Lines.",
+        "source_position": {
+          "line_start": 6,
+          "line_end": 12
+        },
+        "confidence": "high",
+        "evidence_refs": [
+          "EV_TOPIC_002_001",
+          "EV_TOPIC_002_002",
+          "EV_TOPIC_002_003"
+        ],
+        "possible_canonical_matches": [
+          {
+            "match_name": "Graphing Lines",
+            "match_scope": "demo_registry",
+            "confidence": "high",
+            "status": "demo_unverified"
+          }
+        ],
+        "alignment_status": "matched_existing_demo",
+        "status": "demo_unverified"
+      }
+    ],
+    "micro_skills": [
+      {
+        "candidate_id": "MSKILL_001",
+        "micro_skill_name": "Isolate the Variable",
+        "micro_skill_description": "Candidate micro-skill detected for Linear Equations.",
+        "parent_topic_candidate_id": "TOPIC_001",
+        "parent_subtopic_candidate_id": null,
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "difficulty_estimate": "introductory",
+        "prerequisite_micro_skill_candidates": [],
+        "evidence_refs": [
+          "EV_SKILL_001_001",
+          "EV_SKILL_001_002",
+          "EV_SKILL_001_003"
+        ],
+        "confidence": "high",
+        "alignment_status": "matched_existing_demo",
+        "status": "demo_unverified"
+      },
+      {
+        "candidate_id": "MSKILL_002",
+        "micro_skill_name": "Combine Like Terms",
+        "micro_skill_description": "Candidate micro-skill detected for Linear Equations.",
+        "parent_topic_candidate_id": "TOPIC_001",
+        "parent_subtopic_candidate_id": null,
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "difficulty_estimate": "introductory",
+        "prerequisite_micro_skill_candidates": [],
+        "evidence_refs": [
+          "EV_SKILL_002_001"
+        ],
+        "confidence": "high",
+        "alignment_status": "matched_existing_demo",
+        "status": "demo_unverified"
+      },
+      {
+        "candidate_id": "MSKILL_003",
+        "micro_skill_name": "Solve a Two-Step Equation",
+        "micro_skill_description": "Candidate micro-skill detected for Linear Equations.",
+        "parent_topic_candidate_id": "TOPIC_001",
+        "parent_subtopic_candidate_id": null,
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "difficulty_estimate": "introductory",
+        "prerequisite_micro_skill_candidates": [],
+        "evidence_refs": [
+          "EV_SKILL_003_001",
+          "EV_SKILL_003_002"
+        ],
+        "confidence": "high",
+        "alignment_status": "candidate_new",
+        "status": "demo_unverified"
+      },
+      {
+        "candidate_id": "MSKILL_004",
+        "micro_skill_name": "Compute Slope",
+        "micro_skill_description": "Candidate micro-skill detected for Graphing Lines.",
+        "parent_topic_candidate_id": "TOPIC_002",
+        "parent_subtopic_candidate_id": null,
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "difficulty_estimate": "introductory",
+        "prerequisite_micro_skill_candidates": [],
+        "evidence_refs": [
+          "EV_SKILL_004_001"
+        ],
+        "confidence": "high",
+        "alignment_status": "matched_existing_demo",
+        "status": "demo_unverified"
+      },
+      {
+        "candidate_id": "MSKILL_005",
+        "micro_skill_name": "Identify Y-Intercept",
+        "micro_skill_description": "Candidate micro-skill detected for Graphing Lines.",
+        "parent_topic_candidate_id": "TOPIC_002",
+        "parent_subtopic_candidate_id": null,
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "difficulty_estimate": "introductory",
+        "prerequisite_micro_skill_candidates": [],
+        "evidence_refs": [
+          "EV_SKILL_005_001"
+        ],
+        "confidence": "high",
+        "alignment_status": "matched_existing_demo",
+        "status": "demo_unverified"
+      },
+      {
+        "candidate_id": "MSKILL_006",
+        "micro_skill_name": "Graph a Line from an Equation",
+        "micro_skill_description": "Candidate micro-skill detected for Graphing Lines.",
+        "parent_topic_candidate_id": "TOPIC_002",
+        "parent_subtopic_candidate_id": null,
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "difficulty_estimate": "introductory",
+        "prerequisite_micro_skill_candidates": [],
+        "evidence_refs": [
+          "EV_SKILL_006_001",
+          "EV_SKILL_006_002"
+        ],
+        "confidence": "high",
+        "alignment_status": "candidate_new",
+        "status": "demo_unverified"
+      }
+    ]
+  },
+  "prerequisites": [
+    "Basic arithmetic fluency",
+    "Familiarity with variables and coordinate points"
+  ],
+  "practice_sequence": [
+    {
+      "item_id": "PM_ITEM_001",
+      "item_type": "generated_demo_question",
+      "prompt": "Solve for x: x + 9 = 14.",
+      "answer": "x = 5",
+      "solution_summary": "Subtract 9 from both sides to isolate x.",
+      "target_micro_skill_candidate_id": "MSKILL_001",
+      "difficulty": 1,
+      "estimated_time_seconds": 90,
+      "rights_status": "generated_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "item_id": "PM_ITEM_002",
+      "item_type": "generated_demo_question",
+      "prompt": "Simplify: 4x + 3x - 2.",
+      "answer": "7x - 2",
+      "solution_summary": "Combine the like x-terms: 4x + 3x = 7x.",
+      "target_micro_skill_candidate_id": "MSKILL_002",
+      "difficulty": 1,
+      "estimated_time_seconds": 90,
+      "rights_status": "generated_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "item_id": "PM_ITEM_003",
+      "item_type": "generated_demo_question",
+      "prompt": "Find the slope of the line through (2, 3) and (6, 11).",
+      "answer": "2",
+      "solution_summary": "Use rise over run: (11 - 3) / (6 - 2) = 8 / 4 = 2.",
+      "target_micro_skill_candidate_id": "MSKILL_004",
+      "difficulty": 2,
+      "estimated_time_seconds": 90,
+      "rights_status": "generated_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "item_id": "PM_ITEM_004",
+      "item_type": "generated_demo_question",
+      "prompt": "Identify the y-intercept of y = -3x + 8.",
+      "answer": "8",
+      "solution_summary": "In slope-intercept form y = mx + b, the y-intercept is b.",
+      "target_micro_skill_candidate_id": "MSKILL_005",
+      "difficulty": 1,
+      "estimated_time_seconds": 90,
+      "rights_status": "generated_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "item_id": "PM_ITEM_005",
+      "item_type": "generated_demo_question",
+      "prompt": "Solve for x: 5x - 4 = 21.",
+      "answer": "x = 5",
+      "solution_summary": "Add 4 to both sides, then divide by 5.",
+      "target_micro_skill_candidate_id": "MSKILL_003",
+      "difficulty": 2,
+      "estimated_time_seconds": 90,
+      "rights_status": "generated_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "item_id": "PM_ITEM_006",
+      "item_type": "generated_demo_question",
+      "prompt": "For y = 2x - 1, name one point on the line.",
+      "answer": "(0, -1)",
+      "solution_summary": "Set x = 0 to find the y-intercept point.",
+      "target_micro_skill_candidate_id": "MSKILL_006",
+      "difficulty": 2,
+      "estimated_time_seconds": 90,
+      "rights_status": "generated_demo",
+      "status": "demo_unverified"
+    }
+  ],
+  "difficulty_plan": {
+    "difficulty_scale": "1_to_5",
+    "sequence_strategy": "warmup_to_target",
+    "difficulty_sequence": [
+      1,
+      1,
+      2,
+      2,
+      3
+    ]
+  },
+  "readiness_condition": "3 correct in a row in demo mode",
+  "feedback_policy": {
+    "policy_type": "basic",
+    "show_solution_summary": true,
+    "operational_alpha_updates": false
+  },
+  "performance_metrics": [
+    "attempt_count",
+    "correct_count",
+    "accuracy",
+    "current_streak",
+    "accuracy_by_micro_skill"
+  ],
+  "evidence_refs": [
+    "EV_SKILL_001_001",
+    "EV_SKILL_001_002",
+    "EV_SKILL_001_003",
+    "EV_SKILL_002_001",
+    "EV_SKILL_003_001",
+    "EV_SKILL_003_002",
+    "EV_SKILL_004_001",
+    "EV_SKILL_005_001",
+    "EV_SKILL_006_001",
+    "EV_SKILL_006_002"
+  ],
+  "content_gaps": [
+    {
+      "gap_id": "GAP_001",
+      "gap_type": "missing_reviewed_procedure",
+      "description": "Detected skills do not yet have reviewed procedure content in the demo lane.",
+      "recommended_action": "Create reviewed procedure candidates in a later package stage.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_002",
+      "gap_type": "missing_reviewed_question_bank",
+      "description": "Questions are source-derived only; no reviewed question bank is attached.",
+      "recommended_action": "Generate and review a demo question bank before live use.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_003",
+      "gap_type": "demo_only_content",
+      "description": "All extracted content is local demo content and remains unverified.",
+      "recommended_action": "Keep status demo_unverified until reviewed.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_004",
+      "gap_type": "thin_assessment_coverage",
+      "description": "The source is not an assessment document, so assessment coverage is inferred.",
+      "recommended_action": "Add assessment-specific source material in a later stage.",
+      "confidence": "medium",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_005",
+      "gap_type": "thin_practice_coverage",
+      "description": "The demo source covers a small number of candidate topics and skills.",
+      "recommended_action": "Use additional sources before broad practice generation.",
+      "confidence": "medium",
+      "status": "demo_unverified"
+    }
+  ],
+  "limitations": [
+    "Generated demo practice only; not reviewed for live instruction.",
+    "Does not update operational Alpha readiness or mastery."
+  ],
+  "created_at": "2026-06-27T03:17:37.546205+00:00"
+}

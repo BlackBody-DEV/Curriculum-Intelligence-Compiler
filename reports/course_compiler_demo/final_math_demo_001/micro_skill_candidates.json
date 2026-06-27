@@ -1,0 +1,112 @@
+{
+  "status": "demo_unverified",
+  "source_id": "SRC_DEMO_001",
+  "micro_skill_candidates": [
+    {
+      "candidate_id": "MSKILL_001",
+      "micro_skill_name": "Isolate the Variable",
+      "micro_skill_description": "Candidate micro-skill detected for Linear Equations.",
+      "parent_topic_candidate_id": "TOPIC_001",
+      "parent_subtopic_candidate_id": null,
+      "subject_candidate": "MATHEMATICS",
+      "course_level_candidate": "ALGEBRA_I",
+      "difficulty_estimate": "introductory",
+      "prerequisite_micro_skill_candidates": [],
+      "evidence_refs": [
+        "EV_SKILL_001_001",
+        "EV_SKILL_001_002",
+        "EV_SKILL_001_003"
+      ],
+      "confidence": "high",
+      "alignment_status": "matched_existing_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "candidate_id": "MSKILL_002",
+      "micro_skill_name": "Combine Like Terms",
+      "micro_skill_description": "Candidate micro-skill detected for Linear Equations.",
+      "parent_topic_candidate_id": "TOPIC_001",
+      "parent_subtopic_candidate_id": null,
+      "subject_candidate": "MATHEMATICS",
+      "course_level_candidate": "ALGEBRA_I",
+      "difficulty_estimate": "introductory",
+      "prerequisite_micro_skill_candidates": [],
+      "evidence_refs": [
+        "EV_SKILL_002_001"
+      ],
+      "confidence": "high",
+      "alignment_status": "matched_existing_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "candidate_id": "MSKILL_003",
+      "micro_skill_name": "Solve a Two-Step Equation",
+      "micro_skill_description": "Candidate micro-skill detected for Linear Equations.",
+      "parent_topic_candidate_id": "TOPIC_001",
+      "parent_subtopic_candidate_id": null,
+      "subject_candidate": "MATHEMATICS",
+      "course_level_candidate": "ALGEBRA_I",
+      "difficulty_estimate": "introductory",
+      "prerequisite_micro_skill_candidates": [],
+      "evidence_refs": [
+        "EV_SKILL_003_001",
+        "EV_SKILL_003_002"
+      ],
+      "confidence": "high",
+      "alignment_status": "candidate_new",
+      "status": "demo_unverified"
+    },
+    {
+      "candidate_id": "MSKILL_004",
+      "micro_skill_name": "Compute Slope",
+      "micro_skill_description": "Candidate micro-skill detected for Graphing Lines.",
+      "parent_topic_candidate_id": "TOPIC_002",
+      "parent_subtopic_candidate_id": null,
+      "subject_candidate": "MATHEMATICS",
+      "course_level_candidate": "ALGEBRA_I",
+      "difficulty_estimate": "introductory",
+      "prerequisite_micro_skill_candidates": [],
+      "evidence_refs": [
+        "EV_SKILL_004_001"
+      ],
+      "confidence": "high",
+      "alignment_status": "matched_existing_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "candidate_id": "MSKILL_005",
+      "micro_skill_name": "Identify Y-Intercept",
+      "micro_skill_description": "Candidate micro-skill detected for Graphing Lines.",
+      "parent_topic_candidate_id": "TOPIC_002",
+      "parent_subtopic_candidate_id": null,
+      "subject_candidate": "MATHEMATICS",
+      "course_level_candidate": "ALGEBRA_I",
+      "difficulty_estimate": "introductory",
+      "prerequisite_micro_skill_candidates": [],
+      "evidence_refs": [
+        "EV_SKILL_005_001"
+      ],
+      "confidence": "high",
+      "alignment_status": "matched_existing_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "candidate_id": "MSKILL_006",
+      "micro_skill_name": "Graph a Line from an Equation",
+      "micro_skill_description": "Candidate micro-skill detected for Graphing Lines.",
+      "parent_topic_candidate_id": "TOPIC_002",
+      "parent_subtopic_candidate_id": null,
+      "subject_candidate": "MATHEMATICS",
+      "course_level_candidate": "ALGEBRA_I",
+      "difficulty_estimate": "introductory",
+      "prerequisite_micro_skill_candidates": [],
+      "evidence_refs": [
+        "EV_SKILL_006_001",
+        "EV_SKILL_006_002"
+      ],
+      "confidence": "high",
+      "alignment_status": "candidate_new",
+      "status": "demo_unverified"
+    }
+  ]
+}
