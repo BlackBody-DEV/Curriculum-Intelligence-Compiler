@@ -1,0 +1,203 @@
+{
+  "schema_version": "ACEF_PROCEDURE_SCAFFOLDS_v0_1",
+  "status": "human_review_required",
+  "human_review_required": true,
+  "procedures": [
+    {
+      "schema_version": "ACEF_PROCEDURE_v0_1",
+      "artifact_type": "procedure",
+      "status": "human_review_required",
+      "procedure_id": "PROC_INTAKE_20260630_041840_001_001",
+      "subject_code": "MATHEMATICS",
+      "topic_code": "LINEAR_EQUATIONS",
+      "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+      "micro_skill": "ISOLATE_THE_VARIABLE",
+      "micro_skill_name": "Isolate the Variable",
+      "source_refs": [
+        "EV_SKILL_001_001",
+        "EV_SKILL_001_002",
+        "EV_SKILL_001_003"
+      ],
+      "concept": "Human reviewer must confirm concept statement.",
+      "procedure": "Human reviewer must author or approve procedure.",
+      "procedure_steps": [],
+      "common_errors": [],
+      "failure_signal_mappings": [
+        "unclassified"
+      ],
+      "diagnostic_signal_annotations": [
+        "Failure signals are scaffold placeholders and require review."
+      ],
+      "generation_invariants": [],
+      "validation": {
+        "human_review_required": true,
+        "worked_example_checked": false,
+        "student_visible": false,
+        "live_deployable": false,
+        "canonical_approval": false
+      }
+    },
+    {
+      "schema_version": "ACEF_PROCEDURE_v0_1",
+      "artifact_type": "procedure",
+      "status": "human_review_required",
+      "procedure_id": "PROC_INTAKE_20260630_041840_001_002",
+      "subject_code": "MATHEMATICS",
+      "topic_code": "LINEAR_EQUATIONS",
+      "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+      "micro_skill": "COMBINE_LIKE_TERMS",
+      "micro_skill_name": "Combine Like Terms",
+      "source_refs": [
+        "EV_SKILL_002_001"
+      ],
+      "concept": "Human reviewer must confirm concept statement.",
+      "procedure": "Human reviewer must author or approve procedure.",
+      "procedure_steps": [],
+      "common_errors": [],
+      "failure_signal_mappings": [
+        "unclassified"
+      ],
+      "diagnostic_signal_annotations": [
+        "Failure signals are scaffold placeholders and require review."
+      ],
+      "generation_invariants": [],
+      "validation": {
+        "human_review_required": true,
+        "worked_example_checked": false,
+        "student_visible": false,
+        "live_deployable": false,
+        "canonical_approval": false
+      }
+    },
+    {
+      "schema_version": "ACEF_PROCEDURE_v0_1",
+      "artifact_type": "procedure",
+      "status": "human_review_required",
+      "procedure_id": "PROC_INTAKE_20260630_041840_001_003",
+      "subject_code": "MATHEMATICS",
+      "topic_code": "LINEAR_EQUATIONS",
+      "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+      "micro_skill": "SOLVE_A_TWO_STEP_EQUATION",
+      "micro_skill_name": "Solve a Two-Step Equation",
+      "source_refs": [
+        "EV_SKILL_003_001",
+        "EV_SKILL_003_002"
+      ],
+      "concept": "Human reviewer must confirm concept statement.",
+      "procedure": "Human reviewer must author or approve procedure.",
+      "procedure_steps": [],
+      "common_errors": [],
+      "failure_signal_mappings": [
+        "unclassified"
+      ],
+      "diagnostic_signal_annotations": [
+        "Failure signals are scaffold placeholders and require review."
+      ],
+      "generation_invariants": [],
+      "validation": {
+        "human_review_required": true,
+        "worked_example_checked": false,
+        "student_visible": false,
+        "live_deployable": false,
+        "canonical_approval": false
+      }
+    },
+    {
+      "schema_version": "ACEF_PROCEDURE_v0_1",
+      "artifact_type": "procedure",
+      "status": "human_review_required",
+      "procedure_id": "PROC_INTAKE_20260630_041840_001_004",
+      "subject_code": "MATHEMATICS",
+      "topic_code": "GRAPHING_LINES",
+      "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+      "micro_skill": "COMPUTE_SLOPE",
+      "micro_skill_name": "Compute Slope",
+      "source_refs": [
+        "EV_SKILL_004_001"
+      ],
+      "concept": "Human reviewer must confirm concept statement.",
+      "procedure": "Human reviewer must author or approve procedure.",
+      "procedure_steps": [],
+      "common_errors": [],
+      "failure_signal_mappings": [
+        "unclassified"
+      ],
+      "diagnostic_signal_annotations": [
+        "Failure signals are scaffold placeholders and require review."
+      ],
+      "generation_invariants": [],
+      "validation": {
+        "human_review_required": true,
+        "worked_example_checked": false,
+        "student_visible": false,
+        "live_deployable": false,
+        "canonical_approval": false
+      }
+    },
+    {
+      "schema_version": "ACEF_PROCEDURE_v0_1",
+      "artifact_type": "procedure",
+      "status": "human_review_required",
+      "procedure_id": "PROC_INTAKE_20260630_041840_001_005",
+      "subject_code": "MATHEMATICS",
+      "topic_code": "GRAPHING_LINES",
+      "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+      "micro_skill": "IDENTIFY_Y_INTERCEPT",
+      "micro_skill_name": "Identify Y-Intercept",
+      "source_refs": [
+        "EV_SKILL_005_001"
+      ],
+      "concept": "Human reviewer must confirm concept statement.",
+      "procedure": "Human reviewer must author or approve procedure.",
+      "procedure_steps": [],
+      "common_errors": [],
+      "failure_signal_mappings": [
+        "unclassified"
+      ],
+      "diagnostic_signal_annotations": [
+        "Failure signals are scaffold placeholders and require review."
+      ],
+      "generation_invariants": [],
+      "validation": {
+        "human_review_required": true,
+        "worked_example_checked": false,
+        "student_visible": false,
+        "live_deployable": false,
+        "canonical_approval": false
+      }
+    },
+    {
+      "schema_version": "ACEF_PROCEDURE_v0_1",
+      "artifact_type": "procedure",
+      "status": "human_review_required",
+      "procedure_id": "PROC_INTAKE_20260630_041840_001_006",
+      "subject_code": "MATHEMATICS",
+      "topic_code": "GRAPHING_LINES",
+      "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+      "micro_skill": "GRAPH_A_LINE_FROM_AN_EQUATION",
+      "micro_skill_name": "Graph a Line from an Equation",
+      "source_refs": [
+        "EV_SKILL_006_001",
+        "EV_SKILL_006_002"
+      ],
+      "concept": "Human reviewer must confirm concept statement.",
+      "procedure": "Human reviewer must author or approve procedure.",
+      "procedure_steps": [],
+      "common_errors": [],
+      "failure_signal_mappings": [
+        "unclassified"
+      ],
+      "diagnostic_signal_annotations": [
+        "Failure signals are scaffold placeholders and require review."
+      ],
+      "generation_invariants": [],
+      "validation": {
+        "human_review_required": true,
+        "worked_example_checked": false,
+        "student_visible": false,
+        "live_deployable": false,
+        "canonical_approval": false
+      }
+    }
+  ]
+}

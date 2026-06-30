@@ -1,0 +1,23 @@
+{
+  "schema_version": "INTAKE_RECORD_v0_1",
+  "intake_id": "INTAKE_20260630_041840_001",
+  "status": "processed_non_live",
+  "original_filename": "demo_algebra_homework.txt",
+  "original_artifact_path": "original_artifacts/INTAKE_20260630_041840_001_demo_algebra_homework.txt",
+  "input_path": "incoming/demo_algebra_homework.txt",
+  "compiler_output_path": "compiler_output/intake_runs/INTAKE_20260630_041840_001/",
+  "detected_file_type": "txt",
+  "detected_subject": "MATHEMATICS",
+  "detected_document_type": "homework",
+  "processing_mode": "student_practice",
+  "rights_status": "owned_by_axiomiq_or_synthetic_demo",
+  "privacy_status": "non_private",
+  "db_contact": false,
+  "operational_alpha_contact": false,
+  "human_review_required": true,
+  "created_at": "2026-06-30T04:18:40.351580+00:00",
+  "notes": [
+    "Non-live intake engine v0.1 output.",
+    "No compiler output becomes active without human review."
+  ]
+}

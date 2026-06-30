@@ -1,0 +1,127 @@
+{
+  "schema_version": "ACEF_GENERATION_FAMILY_SCAFFOLDS_v0_1",
+  "status": "human_review_required",
+  "human_review_required": true,
+  "generation_families": [
+    {
+      "schema_version": "ACEF_GENERATION_FAMILY_v0_1",
+      "artifact_type": "generation_family",
+      "status": "human_review_required",
+      "generation_family_id": "GENFAM_INTAKE_20260630_041840_001_001",
+      "seed_question_id": "Q_INTAKE_20260630_041840_001_001",
+      "allowed_failure_signals": [
+        "axis_confusion",
+        "sign_or_placement_error",
+        "simple_average_used",
+        "unclassified"
+      ],
+      "generation_policy": "review_before_commit",
+      "student_visible": false,
+      "live_deployable": false,
+      "human_review_required": true,
+      "review_notes": [
+        "Generation family scaffold 1 for INTAKE_20260630_041840_001; not active content."
+      ]
+    },
+    {
+      "schema_version": "ACEF_GENERATION_FAMILY_v0_1",
+      "artifact_type": "generation_family",
+      "status": "human_review_required",
+      "generation_family_id": "GENFAM_INTAKE_20260630_041840_001_002",
+      "seed_question_id": "Q_INTAKE_20260630_041840_001_002",
+      "allowed_failure_signals": [
+        "axis_confusion",
+        "sign_or_placement_error",
+        "simple_average_used",
+        "unclassified"
+      ],
+      "generation_policy": "review_before_commit",
+      "student_visible": false,
+      "live_deployable": false,
+      "human_review_required": true,
+      "review_notes": [
+        "Generation family scaffold 2 for INTAKE_20260630_041840_001; not active content."
+      ]
+    },
+    {
+      "schema_version": "ACEF_GENERATION_FAMILY_v0_1",
+      "artifact_type": "generation_family",
+      "status": "human_review_required",
+      "generation_family_id": "GENFAM_INTAKE_20260630_041840_001_003",
+      "seed_question_id": "Q_INTAKE_20260630_041840_001_003",
+      "allowed_failure_signals": [
+        "axis_confusion",
+        "sign_or_placement_error",
+        "simple_average_used",
+        "unclassified"
+      ],
+      "generation_policy": "review_before_commit",
+      "student_visible": false,
+      "live_deployable": false,
+      "human_review_required": true,
+      "review_notes": [
+        "Generation family scaffold 3 for INTAKE_20260630_041840_001; not active content."
+      ]
+    },
+    {
+      "schema_version": "ACEF_GENERATION_FAMILY_v0_1",
+      "artifact_type": "generation_family",
+      "status": "human_review_required",
+      "generation_family_id": "GENFAM_INTAKE_20260630_041840_001_004",
+      "seed_question_id": "Q_INTAKE_20260630_041840_001_004",
+      "allowed_failure_signals": [
+        "axis_confusion",
+        "sign_or_placement_error",
+        "simple_average_used",
+        "unclassified"
+      ],
+      "generation_policy": "review_before_commit",
+      "student_visible": false,
+      "live_deployable": false,
+      "human_review_required": true,
+      "review_notes": [
+        "Generation family scaffold 4 for INTAKE_20260630_041840_001; not active content."
+      ]
+    },
+    {
+      "schema_version": "ACEF_GENERATION_FAMILY_v0_1",
+      "artifact_type": "generation_family",
+      "status": "human_review_required",
+      "generation_family_id": "GENFAM_INTAKE_20260630_041840_001_005",
+      "seed_question_id": "Q_INTAKE_20260630_041840_001_005",
+      "allowed_failure_signals": [
+        "axis_confusion",
+        "sign_or_placement_error",
+        "simple_average_used",
+        "unclassified"
+      ],
+      "generation_policy": "review_before_commit",
+      "student_visible": false,
+      "live_deployable": false,
+      "human_review_required": true,
+      "review_notes": [
+        "Generation family scaffold 5 for INTAKE_20260630_041840_001; not active content."
+      ]
+    },
+    {
+      "schema_version": "ACEF_GENERATION_FAMILY_v0_1",
+      "artifact_type": "generation_family",
+      "status": "human_review_required",
+      "generation_family_id": "GENFAM_INTAKE_20260630_041840_001_006",
+      "seed_question_id": "Q_INTAKE_20260630_041840_001_006",
+      "allowed_failure_signals": [
+        "axis_confusion",
+        "sign_or_placement_error",
+        "simple_average_used",
+        "unclassified"
+      ],
+      "generation_policy": "review_before_commit",
+      "student_visible": false,
+      "live_deployable": false,
+      "human_review_required": true,
+      "review_notes": [
+        "Generation family scaffold 6 for INTAKE_20260630_041840_001; not active content."
+      ]
+    }
+  ]
+}

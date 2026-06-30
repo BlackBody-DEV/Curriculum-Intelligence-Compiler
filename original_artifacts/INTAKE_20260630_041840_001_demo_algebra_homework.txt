@@ -1,0 +1,12 @@
+Demo Algebra Homework
+
+Topics:
+- Solving linear equations
+- Combining like terms
+- Graphing lines
+
+Problems:
+1. Solve for x: 3x + 5 = 20.
+2. Solve for x: 2x - 7 = 11.
+3. Find the slope of the line through (1, 2) and (3, 6).
+4. Identify the y-intercept of y = 2x + 3.
