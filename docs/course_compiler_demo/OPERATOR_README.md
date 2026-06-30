@@ -50,6 +50,14 @@ reports/course_compiler_demo/smoke_test_run/
 
 It exits `0` when the current MVP output shape passes the expected-output checks. It exits nonzero if required files, labels, counts, report markers, validation results, or forbidden-zone checks fail.
 
+## Run the Intake Engine
+
+For operator-facing intake workflow guidance, see:
+
+```text
+docs/course_compiler_demo/INTAKE_ENGINE_USAGE_GUIDE.md
+```
+
 ## Output Files
 
 The demo output folder contains these files:
