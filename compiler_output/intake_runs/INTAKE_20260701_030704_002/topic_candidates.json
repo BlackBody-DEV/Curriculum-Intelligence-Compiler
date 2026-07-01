@@ -1,0 +1,60 @@
+{
+  "status": "demo_unverified",
+  "source_id": "SRC_DEMO_001",
+  "topic_candidates": [
+    {
+      "candidate_id": "TOPIC_001",
+      "topic_name": "Linear Equations",
+      "subject_candidate": "MATHEMATICS",
+      "course_level_candidate": "ALGEBRA_I",
+      "description": "Candidate topic detected from demo source language for Linear Equations.",
+      "source_position": {
+        "line_start": 12,
+        "line_end": 22
+      },
+      "confidence": "high",
+      "evidence_refs": [
+        "EV_TOPIC_001_001",
+        "EV_TOPIC_001_002"
+      ],
+      "possible_canonical_matches": [
+        {
+          "match_name": "Linear Equations",
+          "match_scope": "demo_registry",
+          "confidence": "high",
+          "status": "demo_unverified"
+        }
+      ],
+      "alignment_status": "matched_existing_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "candidate_id": "TOPIC_002",
+      "topic_name": "Graphing Lines",
+      "subject_candidate": "MATHEMATICS",
+      "course_level_candidate": "ALGEBRA_I",
+      "description": "Candidate topic detected from demo source language for Graphing Lines.",
+      "source_position": {
+        "line_start": 5,
+        "line_end": 22
+      },
+      "confidence": "high",
+      "evidence_refs": [
+        "EV_TOPIC_002_001",
+        "EV_TOPIC_002_002",
+        "EV_TOPIC_002_003",
+        "EV_TOPIC_002_004"
+      ],
+      "possible_canonical_matches": [
+        {
+          "match_name": "Graphing Lines",
+          "match_scope": "demo_registry",
+          "confidence": "high",
+          "status": "demo_unverified"
+        }
+      ],
+      "alignment_status": "matched_existing_demo",
+      "status": "demo_unverified"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "status": "demo_unverified",
+  "source_id": "SRC_DEMO_001",
+  "detected_source_type": "problem_set",
+  "source_type_confidence": "medium",
+  "classification_evidence": [
+    "Detected 3 numbered problems."
+  ],
+  "detected_subject": "MATHEMATICS",
+  "subject_confidence": "high",
+  "detected_course_level": "ALGEBRA_I",
+  "course_level_confidence": "high",
+  "detected_primary_use": [
+    "practice_generation",
+    "performance_tracking"
+  ],
+  "feature_flags": {
+    "has_timeline": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_topics": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_subtopics": {
+      "value": true,
+      "confidence": "medium",
+      "evidence": [
+        "Detected indented list or Subtopics section."
+      ]
+    },
+    "has_questions": {
+      "value": true,
+      "confidence": "high",
+      "evidence": [
+        "Detected Problems section or numbered problems."
+      ]
+    },
+    "has_answers": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_worked_solutions": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_formulas": {
+      "value": true,
+      "confidence": "high",
+      "evidence": [
+        "Detected equation-like text."
+      ]
+    },
+    "has_diagrams": {
+      "value": true,
+      "confidence": "medium",
+      "evidence": [
+        "Detected diagram or figure language."
+      ]
+    },
+    "has_learning_objectives": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_rubric": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_exam_dates": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_homework_due_dates": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_practice_potential": {
+      "value": true,
+      "confidence": "high",
+      "evidence": [
+        "Source can support practice generation."
+      ]
+    },
+    "has_assessment_potential": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_corpus_value": {
+      "value": true,
+      "confidence": "high",
+      "evidence": [
+        "Detected reusable topics or questions."
+      ]
+    }
+  },
+  "rights_status": "owned_by_axiomiq",
+  "privacy_status": "non_private",
+  "processing_recommendation": "extraction_ready",
+  "blocking_issues": [],
+  "notes": []
+}

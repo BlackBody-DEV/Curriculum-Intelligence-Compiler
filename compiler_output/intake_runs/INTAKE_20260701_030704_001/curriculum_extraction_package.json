@@ -1,0 +1,325 @@
+{
+  "package_id": "EXTRACT_DEMO_001",
+  "status": "demo_unverified",
+  "source_id": "SRC_DEMO_001",
+  "source_title": "Algebra I homework check",
+  "source_type": "homework",
+  "source_scale": "single_document",
+  "detected_subject": "MATHEMATICS",
+  "detected_course_level": "ALGEBRA_I",
+  "extraction_mode": "student_practice",
+  "extraction_status": "completed",
+  "subject_candidates": [
+    {
+      "subject": "MATHEMATICS",
+      "confidence": "high",
+      "status": "demo_unverified"
+    }
+  ],
+  "topic_candidates": [
+    {
+      "candidate_id": "TOPIC_001",
+      "topic_name": "Linear Equations",
+      "subject_candidate": "MATHEMATICS",
+      "course_level_candidate": "ALGEBRA_I",
+      "description": "Candidate topic detected from demo source language for Linear Equations.",
+      "source_position": {
+        "line_start": 3,
+        "line_end": 5
+      },
+      "confidence": "high",
+      "evidence_refs": [
+        "EV_TOPIC_001_001",
+        "EV_TOPIC_001_002"
+      ],
+      "possible_canonical_matches": [
+        {
+          "match_name": "Linear Equations",
+          "match_scope": "demo_registry",
+          "confidence": "high",
+          "status": "demo_unverified"
+        }
+      ],
+      "alignment_status": "matched_existing_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "candidate_id": "TOPIC_002",
+      "topic_name": "Graphing Lines",
+      "subject_candidate": "MATHEMATICS",
+      "course_level_candidate": "ALGEBRA_I",
+      "description": "Candidate topic detected from demo source language for Graphing Lines.",
+      "source_position": {
+        "line_start": 5,
+        "line_end": 5
+      },
+      "confidence": "high",
+      "evidence_refs": [
+        "EV_TOPIC_002_001"
+      ],
+      "possible_canonical_matches": [
+        {
+          "match_name": "Graphing Lines",
+          "match_scope": "demo_registry",
+          "confidence": "high",
+          "status": "demo_unverified"
+        }
+      ],
+      "alignment_status": "matched_existing_demo",
+      "status": "demo_unverified"
+    }
+  ],
+  "subtopic_candidates": [],
+  "micro_skill_candidates": [
+    {
+      "candidate_id": "MSKILL_001",
+      "micro_skill_name": "Isolate the Variable",
+      "micro_skill_description": "Candidate micro-skill detected for Linear Equations.",
+      "parent_topic_candidate_id": "TOPIC_001",
+      "parent_subtopic_candidate_id": null,
+      "subject_candidate": "MATHEMATICS",
+      "course_level_candidate": "ALGEBRA_I",
+      "difficulty_estimate": "introductory",
+      "prerequisite_micro_skill_candidates": [],
+      "evidence_refs": [
+        "EV_SKILL_001_001",
+        "EV_SKILL_001_002"
+      ],
+      "confidence": "high",
+      "alignment_status": "matched_existing_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "candidate_id": "MSKILL_002",
+      "micro_skill_name": "Compute Slope",
+      "micro_skill_description": "Candidate micro-skill detected for Graphing Lines.",
+      "parent_topic_candidate_id": "TOPIC_002",
+      "parent_subtopic_candidate_id": null,
+      "subject_candidate": "MATHEMATICS",
+      "course_level_candidate": "ALGEBRA_I",
+      "difficulty_estimate": "introductory",
+      "prerequisite_micro_skill_candidates": [],
+      "evidence_refs": [
+        "EV_SKILL_002_001"
+      ],
+      "confidence": "high",
+      "alignment_status": "matched_existing_demo",
+      "status": "demo_unverified"
+    }
+  ],
+  "formula_candidates": [],
+  "procedure_candidates": [],
+  "worked_example_candidates": [],
+  "question_candidates": [],
+  "timeline_candidates": [],
+  "dependency_candidates": [],
+  "practice_target_candidates": [
+    {
+      "candidate_id": "PRACTICE_TARGET_001",
+      "target_type": "student_practice_sequence",
+      "target_name": "Algebra Line Skills Practice",
+      "target_topic_candidate_ids": [
+        "TOPIC_001",
+        "TOPIC_002"
+      ],
+      "target_micro_skill_candidate_ids": [
+        "MSKILL_001",
+        "MSKILL_002"
+      ],
+      "recommended_practice_count": 6,
+      "recommended_difficulty_sequence": [
+        "introductory",
+        "guided",
+        "independent"
+      ],
+      "readiness_condition": "Student completes source-aligned practice with reviewed explanations.",
+      "rationale": "Detected source questions and math micro-skills support a demo practice sequence.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    }
+  ],
+  "assessment_target_candidates": [
+    {
+      "candidate_id": "ASSESS_TARGET_001",
+      "assessment_type": "demo_readiness_check",
+      "target_goal": "Check readiness on extracted algebra skills before practice packaging.",
+      "covered_topic_candidate_ids": [
+        "TOPIC_001",
+        "TOPIC_002"
+      ],
+      "covered_micro_skill_candidate_ids": [
+        "MSKILL_001",
+        "MSKILL_002"
+      ],
+      "recommended_question_count": 4,
+      "difficulty_distribution": {
+        "introductory": 0.6,
+        "intermediate": 0.4,
+        "advanced": 0.0
+      },
+      "scoring_policy": "demo_unverified_simple_accuracy",
+      "weakness_detection_rules": [
+        "Flag any micro-skill with fewer than 2 correct responses in reviewed assessment."
+      ],
+      "confidence": "medium",
+      "status": "demo_unverified"
+    }
+  ],
+  "performance_tracking_targets": [
+    {
+      "candidate_id": "TRACK_TARGET_001",
+      "tracked_entity_type": "micro_skill_candidate",
+      "tracked_entity_id": "MSKILL_001",
+      "metrics": [
+        "attempt_count",
+        "accuracy_rate",
+        "latest_confidence"
+      ],
+      "weakness_thresholds": {
+        "accuracy_rate_below": 0.7,
+        "minimum_attempts": 3
+      },
+      "confidence": "medium",
+      "status": "demo_unverified"
+    },
+    {
+      "candidate_id": "TRACK_TARGET_002",
+      "tracked_entity_type": "micro_skill_candidate",
+      "tracked_entity_id": "MSKILL_002",
+      "metrics": [
+        "attempt_count",
+        "accuracy_rate",
+        "latest_confidence"
+      ],
+      "weakness_thresholds": {
+        "accuracy_rate_below": 0.7,
+        "minimum_attempts": 3
+      },
+      "confidence": "medium",
+      "status": "demo_unverified"
+    }
+  ],
+  "content_gaps": [
+    {
+      "gap_id": "GAP_001",
+      "gap_type": "missing_reviewed_procedure",
+      "description": "Detected skills do not yet have reviewed procedure content in the demo lane.",
+      "recommended_action": "Create reviewed procedure candidates in a later package stage.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_002",
+      "gap_type": "missing_reviewed_question_bank",
+      "description": "Questions are source-derived only; no reviewed question bank is attached.",
+      "recommended_action": "Generate and review a demo question bank before live use.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_003",
+      "gap_type": "demo_only_content",
+      "description": "All extracted content is local demo content and remains unverified.",
+      "recommended_action": "Keep status demo_unverified until reviewed.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_004",
+      "gap_type": "thin_assessment_coverage",
+      "description": "The source is not an assessment document, so assessment coverage is inferred.",
+      "recommended_action": "Add assessment-specific source material in a later stage.",
+      "confidence": "medium",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_005",
+      "gap_type": "thin_practice_coverage",
+      "description": "The demo source covers a small number of candidate topics and skills.",
+      "recommended_action": "Use additional sources before broad practice generation.",
+      "confidence": "medium",
+      "status": "demo_unverified"
+    }
+  ],
+  "source_evidence": [
+    {
+      "evidence_id": "EV_TOPIC_001_001",
+      "source_id": "SRC_DEMO_001",
+      "evidence_type": "topic_candidate",
+      "line_start": 3,
+      "line_end": 3,
+      "section_heading": "Topic: Linear equations and coordinate graphing.",
+      "short_excerpt": "Topic: Linear equations and coordinate graphing.",
+      "confidence": "high"
+    },
+    {
+      "evidence_id": "EV_TOPIC_001_002",
+      "source_id": "SRC_DEMO_001",
+      "evidence_type": "topic_candidate",
+      "line_start": 5,
+      "line_end": 5,
+      "section_heading": "Students should practice solving one-step and two-step linear equations, plotting points on a coordinate plane, and identifying simple slope patterns from tables.",
+      "short_excerpt": "Students should practice solving one-step and two-step linear equations, plotting points on a coordinate plane, and i...",
+      "confidence": "high"
+    },
+    {
+      "evidence_id": "EV_TOPIC_002_001",
+      "source_id": "SRC_DEMO_001",
+      "evidence_type": "topic_candidate",
+      "line_start": 5,
+      "line_end": 5,
+      "section_heading": "Students should practice solving one-step and two-step linear equations, plotting points on a coordinate plane, and identifying simple slope patterns from tables.",
+      "short_excerpt": "Students should practice solving one-step and two-step linear equations, plotting points on a coordinate plane, and i...",
+      "confidence": "high"
+    },
+    {
+      "evidence_id": "EV_SKILL_001_001",
+      "source_id": "SRC_DEMO_001",
+      "evidence_type": "micro_skill_candidate",
+      "line_start": 3,
+      "line_end": 3,
+      "section_heading": "Topic: Linear equations and coordinate graphing.",
+      "short_excerpt": "Topic: Linear equations and coordinate graphing.",
+      "confidence": "high"
+    },
+    {
+      "evidence_id": "EV_SKILL_001_002",
+      "source_id": "SRC_DEMO_001",
+      "evidence_type": "micro_skill_candidate",
+      "line_start": 5,
+      "line_end": 5,
+      "section_heading": "Students should practice solving one-step and two-step linear equations, plotting points on a coordinate plane, and identifying simple slope patterns from tables.",
+      "short_excerpt": "Students should practice solving one-step and two-step linear equations, plotting points on a coordinate plane, and i...",
+      "confidence": "high"
+    },
+    {
+      "evidence_id": "EV_SKILL_002_001",
+      "source_id": "SRC_DEMO_001",
+      "evidence_type": "micro_skill_candidate",
+      "line_start": 5,
+      "line_end": 5,
+      "section_heading": "Students should practice solving one-step and two-step linear equations, plotting points on a coordinate plane, and identifying simple slope patterns from tables.",
+      "short_excerpt": "Students should practice solving one-step and two-step linear equations, plotting points on a coordinate plane, and i...",
+      "confidence": "high"
+    }
+  ],
+  "confidence_summary": {
+    "topic_candidate_count": 2,
+    "micro_skill_candidate_count": 2,
+    "overall_confidence": "medium",
+    "rationale": "Rule-based demo extraction from explicit topic and problem text.",
+    "status": "demo_unverified"
+  },
+  "rights_summary": {
+    "rights_status": "owned_by_axiomiq",
+    "privacy_status": "non_private",
+    "allowed_for_demo_processing": true,
+    "status": "demo_unverified"
+  },
+  "limitations": [
+    "Rule-based candidate extraction only.",
+    "No reviewed practice, assessment, or performance package generated in this stage.",
+    "Demo-only canonical matching; production canonical content was not consulted."
+  ],
+  "created_at": "2026-07-01T03:07:04.798335+00:00"
+}

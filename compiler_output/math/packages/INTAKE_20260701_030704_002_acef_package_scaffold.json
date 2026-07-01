@@ -1,0 +1,48 @@
+{
+  "schema_version": "ACEF_PACKAGE_v0_1",
+  "package_id": "PKG_INTAKE_20260701_030704_002",
+  "status": "human_review_required",
+  "subject_code": "MATHEMATICS",
+  "topic_code": "LINEAR_EQUATIONS",
+  "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+  "micro_skill": "ISOLATE_THE_VARIABLE",
+  "artifacts": {
+    "procedures": [
+      "PROC_INTAKE_20260701_030704_002_001",
+      "PROC_INTAKE_20260701_030704_002_002",
+      "PROC_INTAKE_20260701_030704_002_003"
+    ],
+    "questions": [
+      "Q_INTAKE_20260701_030704_002_001",
+      "Q_INTAKE_20260701_030704_002_002",
+      "Q_INTAKE_20260701_030704_002_003"
+    ],
+    "generation_families": [
+      "GENFAM_INTAKE_20260701_030704_002_001",
+      "GENFAM_INTAKE_20260701_030704_002_002",
+      "GENFAM_INTAKE_20260701_030704_002_003"
+    ],
+    "validation_reports": [
+      "ACEF_VALIDATION_INTAKE_20260701_030704_002"
+    ]
+  },
+  "compiler_summary": {
+    "source_materials_used": [
+      "intake_record.json",
+      "source_document.json"
+    ],
+    "human_review_required": true,
+    "known_gaps": [
+      "missing_reviewed_procedure",
+      "missing_reviewed_question_bank",
+      "demo_only_content",
+      "thin_assessment_coverage",
+      "thin_practice_coverage",
+      "textbook_extraction_not_implemented",
+      "pdf_docx_not_supported",
+      "procedure_review_required",
+      "question_review_required"
+    ],
+    "promotion_recommendation": "review_before_commit"
+  }
+}

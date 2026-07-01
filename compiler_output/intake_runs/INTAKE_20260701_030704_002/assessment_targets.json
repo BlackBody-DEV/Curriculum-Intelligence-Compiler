@@ -1,0 +1,32 @@
+{
+  "status": "demo_unverified",
+  "source_id": "SRC_DEMO_001",
+  "assessment_target_candidates": [
+    {
+      "candidate_id": "ASSESS_TARGET_001",
+      "assessment_type": "demo_readiness_check",
+      "target_goal": "Check readiness on extracted algebra skills before practice packaging.",
+      "covered_topic_candidate_ids": [
+        "TOPIC_001",
+        "TOPIC_002"
+      ],
+      "covered_micro_skill_candidate_ids": [
+        "MSKILL_001",
+        "MSKILL_002",
+        "MSKILL_003"
+      ],
+      "recommended_question_count": 4,
+      "difficulty_distribution": {
+        "introductory": 0.6,
+        "intermediate": 0.4,
+        "advanced": 0.0
+      },
+      "scoring_policy": "demo_unverified_simple_accuracy",
+      "weakness_detection_rules": [
+        "Flag any micro-skill with fewer than 2 correct responses in reviewed assessment."
+      ],
+      "confidence": "medium",
+      "status": "demo_unverified"
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "package_id": "PA_DEMO_001",
+  "status": "demo_unverified",
+  "assessment_title": "Demo Algebra Skills Checkpoint",
+  "assessment_type": "checkpoint_assessment",
+  "source_context": {
+    "source_id": "SRC_DEMO_001",
+    "source_title": "# Algebra I Review Notes",
+    "detected_subject": "MATHEMATICS",
+    "detected_course_level": "ALGEBRA_I",
+    "rights_status": "owned_by_axiomiq",
+    "privacy_status": "non_private"
+  },
+  "target_goal": "Check readiness on extracted algebra skills before practice packaging.",
+  "covered_curriculum": {
+    "topics": [
+      {
+        "candidate_id": "TOPIC_001",
+        "topic_name": "Linear Equations",
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "description": "Candidate topic detected from demo source language for Linear Equations.",
+        "source_position": {
+          "line_start": 12,
+          "line_end": 22
+        },
+        "confidence": "high",
+        "evidence_refs": [
+          "EV_TOPIC_001_001",
+          "EV_TOPIC_001_002"
+        ],
+        "possible_canonical_matches": [
+          {
+            "match_name": "Linear Equations",
+            "match_scope": "demo_registry",
+            "confidence": "high",
+            "status": "demo_unverified"
+          }
+        ],
+        "alignment_status": "matched_existing_demo",
+        "status": "demo_unverified"
+      },
+      {
+        "candidate_id": "TOPIC_002",
+        "topic_name": "Graphing Lines",
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "description": "Candidate topic detected from demo source language for Graphing Lines.",
+        "source_position": {
+          "line_start": 5,
+          "line_end": 22
+        },
+        "confidence": "high",
+        "evidence_refs": [
+          "EV_TOPIC_002_001",
+          "EV_TOPIC_002_002",
+          "EV_TOPIC_002_003",
+          "EV_TOPIC_002_004"
+        ],
+        "possible_canonical_matches": [
+          {
+            "match_name": "Graphing Lines",
+            "match_scope": "demo_registry",
+            "confidence": "high",
+            "status": "demo_unverified"
+          }
+        ],
+        "alignment_status": "matched_existing_demo",
+        "status": "demo_unverified"
+      }
+    ],
+    "micro_skills": [
+      {
+        "candidate_id": "MSKILL_001",
+        "micro_skill_name": "Isolate the Variable",
+        "micro_skill_description": "Candidate micro-skill detected for Linear Equations.",
+        "parent_topic_candidate_id": "TOPIC_001",
+        "parent_subtopic_candidate_id": null,
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "difficulty_estimate": "introductory",
+        "prerequisite_micro_skill_candidates": [],
+        "evidence_refs": [
+          "EV_SKILL_001_001"
+        ],
+        "confidence": "high",
+        "alignment_status": "matched_existing_demo",
+        "status": "demo_unverified"
+      },
+      {
+        "candidate_id": "MSKILL_002",
+        "micro_skill_name": "Solve a Two-Step Equation",
+        "micro_skill_description": "Candidate micro-skill detected for Linear Equations.",
+        "parent_topic_candidate_id": "TOPIC_001",
+        "parent_subtopic_candidate_id": null,
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "difficulty_estimate": "introductory",
+        "prerequisite_micro_skill_candidates": [],
+        "evidence_refs": [
+          "EV_SKILL_002_001"
+        ],
+        "confidence": "high",
+        "alignment_status": "candidate_new",
+        "status": "demo_unverified"
+      },
+      {
+        "candidate_id": "MSKILL_003",
+        "micro_skill_name": "Compute Slope",
+        "micro_skill_description": "Candidate micro-skill detected for Graphing Lines.",
+        "parent_topic_candidate_id": "TOPIC_002",
+        "parent_subtopic_candidate_id": null,
+        "subject_candidate": "MATHEMATICS",
+        "course_level_candidate": "ALGEBRA_I",
+        "difficulty_estimate": "introductory",
+        "prerequisite_micro_skill_candidates": [],
+        "evidence_refs": [
+          "EV_SKILL_003_001",
+          "EV_SKILL_003_002",
+          "EV_SKILL_003_003",
+          "EV_SKILL_003_004"
+        ],
+        "confidence": "high",
+        "alignment_status": "matched_existing_demo",
+        "status": "demo_unverified"
+      }
+    ]
+  },
+  "assessment_blueprint": {
+    "recommended_question_count": 5,
+    "difficulty_distribution": {
+      "introductory": 0.6,
+      "intermediate": 0.4,
+      "advanced": 0.0
+    },
+    "coverage_strategy": "one_or_more_items_per_detected_micro_skill"
+  },
+  "assessment_items": [
+    {
+      "item_id": "PA_ITEM_001",
+      "item_type": "generated_demo_question",
+      "prompt": "Solve for x: x - 6 = 13.",
+      "answer": "x = 19",
+      "solution_summary": "Add 6 to both sides.",
+      "target_topic_candidate_id": "TOPIC_001",
+      "target_micro_skill_candidate_ids": [
+        "MSKILL_001"
+      ],
+      "difficulty": 2,
+      "question_type": "short_response",
+      "answer_type": "text",
+      "points": 1,
+      "estimated_time_seconds": 120,
+      "rights_status": "generated_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "item_id": "PA_ITEM_002",
+      "item_type": "generated_demo_question",
+      "prompt": "Solve for x: 3x + 2 = 17.",
+      "answer": "x = 5",
+      "solution_summary": "Subtract 2, then divide by 3.",
+      "target_topic_candidate_id": "TOPIC_001",
+      "target_micro_skill_candidate_ids": [
+        "MSKILL_002"
+      ],
+      "difficulty": 2,
+      "question_type": "short_response",
+      "answer_type": "text",
+      "points": 1,
+      "estimated_time_seconds": 120,
+      "rights_status": "generated_demo",
+      "status": "demo_unverified"
+    },
+    {
+      "item_id": "PA_ITEM_003",
+      "item_type": "generated_demo_question",
+      "prompt": "Find the slope through (1, 4) and (5, 12).",
+      "answer": "2",
+      "solution_summary": "Compute (12 - 4) / (5 - 1) = 8 / 4.",
+      "target_topic_candidate_id": "TOPIC_002",
+      "target_micro_skill_candidate_ids": [
+        "MSKILL_003"
+      ],
+      "difficulty": 2,
+      "question_type": "short_response",
+      "answer_type": "text",
+      "points": 1,
+      "estimated_time_seconds": 120,
+      "rights_status": "generated_demo",
+      "status": "demo_unverified"
+    }
+  ],
+  "scoring_policy": {
+    "scoring_type": "percent_correct",
+    "passing_threshold": 0.8,
+    "readiness_threshold": 0.8,
+    "points_per_item": 1
+  },
+  "weakness_detection_rules": [
+    "If micro-skill accuracy is below 70%, recommend targeted practice."
+  ],
+  "performance_report_template": {
+    "include_overall_accuracy": true,
+    "include_accuracy_by_micro_skill": true,
+    "include_next_actions": true,
+    "status": "demo_unverified"
+  },
+  "recommended_next_actions": [
+    "assign_practice_module",
+    "repeat_assessment",
+    "manual_review"
+  ],
+  "evidence_refs": [
+    "EV_SKILL_001_001",
+    "EV_SKILL_002_001",
+    "EV_SKILL_003_001",
+    "EV_SKILL_003_002",
+    "EV_SKILL_003_003",
+    "EV_SKILL_003_004"
+  ],
+  "content_gaps": [
+    {
+      "gap_id": "GAP_001",
+      "gap_type": "missing_reviewed_procedure",
+      "description": "Detected skills do not yet have reviewed procedure content in the demo lane.",
+      "recommended_action": "Create reviewed procedure candidates in a later package stage.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_002",
+      "gap_type": "missing_reviewed_question_bank",
+      "description": "Questions are source-derived only; no reviewed question bank is attached.",
+      "recommended_action": "Generate and review a demo question bank before live use.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_003",
+      "gap_type": "demo_only_content",
+      "description": "All extracted content is local demo content and remains unverified.",
+      "recommended_action": "Keep status demo_unverified until reviewed.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_004",
+      "gap_type": "thin_assessment_coverage",
+      "description": "The source is not an assessment document, so assessment coverage is inferred.",
+      "recommended_action": "Add assessment-specific source material in a later stage.",
+      "confidence": "medium",
+      "status": "demo_unverified"
+    },
+    {
+      "gap_id": "GAP_005",
+      "gap_type": "thin_practice_coverage",
+      "description": "The demo source covers a small number of candidate topics and skills.",
+      "recommended_action": "Use additional sources before broad practice generation.",
+      "confidence": "medium",
+      "status": "demo_unverified"
+    }
+  ],
+  "limitations": [
+    "Generated demo assessment only; not reviewed for live grading.",
+    "Does not update operational Alpha readiness or mastery."
+  ],
+  "created_at": "2026-07-01T03:07:05.171707+00:00"
+}

@@ -1,0 +1,85 @@
+{
+  "status": "demo_unverified",
+  "source_id": "SRC_DEMO_001",
+  "feature_flags": {
+    "has_timeline": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_topics": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_subtopics": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_questions": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_answers": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_worked_solutions": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_formulas": {
+      "value": true,
+      "confidence": "high",
+      "evidence": [
+        "Detected equation-like text."
+      ]
+    },
+    "has_diagrams": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_learning_objectives": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_rubric": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_exam_dates": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_homework_due_dates": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_practice_potential": {
+      "value": true,
+      "confidence": "high",
+      "evidence": [
+        "Source can support practice generation."
+      ]
+    },
+    "has_assessment_potential": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    },
+    "has_corpus_value": {
+      "value": false,
+      "confidence": "medium",
+      "evidence": []
+    }
+  }
+}

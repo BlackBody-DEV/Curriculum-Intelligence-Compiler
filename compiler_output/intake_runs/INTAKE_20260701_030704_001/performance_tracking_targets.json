@@ -1,0 +1,38 @@
+{
+  "status": "demo_unverified",
+  "source_id": "SRC_DEMO_001",
+  "performance_tracking_targets": [
+    {
+      "candidate_id": "TRACK_TARGET_001",
+      "tracked_entity_type": "micro_skill_candidate",
+      "tracked_entity_id": "MSKILL_001",
+      "metrics": [
+        "attempt_count",
+        "accuracy_rate",
+        "latest_confidence"
+      ],
+      "weakness_thresholds": {
+        "accuracy_rate_below": 0.7,
+        "minimum_attempts": 3
+      },
+      "confidence": "medium",
+      "status": "demo_unverified"
+    },
+    {
+      "candidate_id": "TRACK_TARGET_002",
+      "tracked_entity_type": "micro_skill_candidate",
+      "tracked_entity_id": "MSKILL_002",
+      "metrics": [
+        "attempt_count",
+        "accuracy_rate",
+        "latest_confidence"
+      ],
+      "weakness_thresholds": {
+        "accuracy_rate_below": 0.7,
+        "minimum_attempts": 3
+      },
+      "confidence": "medium",
+      "status": "demo_unverified"
+    }
+  ]
+}

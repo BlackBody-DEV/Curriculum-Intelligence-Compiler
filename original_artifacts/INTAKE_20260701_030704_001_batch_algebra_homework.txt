@@ -1,0 +1,16 @@
+Algebra I homework check
+
+Topic: Linear equations and coordinate graphing.
+
+Students should practice solving one-step and two-step linear equations, plotting points on a coordinate plane, and identifying simple slope patterns from tables.
+
+Practice prompts:
+- Solve x + 7 = 19.
+- Solve 3x = 24.
+- Plot the points (0, 2), (1, 4), and (2, 6).
+- Explain whether the table x: 0, 1, 2 and y: 5, 7, 9 has a constant rate of change.
+
+Common errors to watch:
+- Mixing up x- and y-coordinates.
+- Applying the inverse operation to only one side of an equation.
+- Using a simple average instead of checking rate of change.

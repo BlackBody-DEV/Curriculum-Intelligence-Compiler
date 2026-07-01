@@ -1,0 +1,151 @@
+{
+  "schema_version": "ACEF_QUESTION_SCAFFOLDS_v0_1",
+  "status": "human_review_required",
+  "human_review_required": true,
+  "questions": [
+    {
+      "schema_version": "ACEF_QUESTION_v0_1",
+      "artifact_type": "canonical_seed_question",
+      "status": "human_review_required",
+      "question_id": "Q_INTAKE_20260701_030704_002_001",
+      "source_ref": "PA_ITEM_001",
+      "classification": {
+        "subject_code": "MATHEMATICS",
+        "topic_code": "LINEAR_EQUATIONS",
+        "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+        "micro_skill": "ISOLATE_THE_VARIABLE",
+        "procedure_id": "PROC_INTAKE_20260701_030704_002_001",
+        "difficulty_level": 2,
+        "question_type": "short_response",
+        "answer_type": "text",
+        "attempt_type_default": "single_attempt",
+        "is_active": false
+      },
+      "question_payload": {
+        "prompt": "Solve for x: x - 6 = 13.",
+        "source_item_id": "PA_ITEM_001",
+        "rights_status": "generated_demo"
+      },
+      "answer": "x = 19",
+      "solution": "Add 6 to both sides.",
+      "procedure_step_refs": [],
+      "feedback_step_refs": [],
+      "failure_signals": [
+        "unclassified"
+      ],
+      "diagnostic_signal_annotations": [
+        "Generated demo question requires human review before any use."
+      ],
+      "generation_family": "GENFAM_INTAKE_20260701_030704_002_001",
+      "non_live_status": {
+        "student_visible": false,
+        "live_deployable": false,
+        "exposure_status": "not_exposed",
+        "activation_performed": false
+      },
+      "validation": {
+        "human_review_required": true,
+        "worked_example_checked": false,
+        "student_visible": false,
+        "live_deployable": false,
+        "canonical_approval": false
+      }
+    },
+    {
+      "schema_version": "ACEF_QUESTION_v0_1",
+      "artifact_type": "canonical_seed_question",
+      "status": "human_review_required",
+      "question_id": "Q_INTAKE_20260701_030704_002_002",
+      "source_ref": "PA_ITEM_002",
+      "classification": {
+        "subject_code": "MATHEMATICS",
+        "topic_code": "LINEAR_EQUATIONS",
+        "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+        "micro_skill": "SOLVE_A_TWO_STEP_EQUATION",
+        "procedure_id": "PROC_INTAKE_20260701_030704_002_002",
+        "difficulty_level": 2,
+        "question_type": "short_response",
+        "answer_type": "text",
+        "attempt_type_default": "single_attempt",
+        "is_active": false
+      },
+      "question_payload": {
+        "prompt": "Solve for x: 3x + 2 = 17.",
+        "source_item_id": "PA_ITEM_002",
+        "rights_status": "generated_demo"
+      },
+      "answer": "x = 5",
+      "solution": "Subtract 2, then divide by 3.",
+      "procedure_step_refs": [],
+      "feedback_step_refs": [],
+      "failure_signals": [
+        "unclassified"
+      ],
+      "diagnostic_signal_annotations": [
+        "Generated demo question requires human review before any use."
+      ],
+      "generation_family": "GENFAM_INTAKE_20260701_030704_002_002",
+      "non_live_status": {
+        "student_visible": false,
+        "live_deployable": false,
+        "exposure_status": "not_exposed",
+        "activation_performed": false
+      },
+      "validation": {
+        "human_review_required": true,
+        "worked_example_checked": false,
+        "student_visible": false,
+        "live_deployable": false,
+        "canonical_approval": false
+      }
+    },
+    {
+      "schema_version": "ACEF_QUESTION_v0_1",
+      "artifact_type": "canonical_seed_question",
+      "status": "human_review_required",
+      "question_id": "Q_INTAKE_20260701_030704_002_003",
+      "source_ref": "PA_ITEM_003",
+      "classification": {
+        "subject_code": "MATHEMATICS",
+        "topic_code": "GRAPHING_LINES",
+        "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+        "micro_skill": "COMPUTE_SLOPE",
+        "procedure_id": "PROC_INTAKE_20260701_030704_002_003",
+        "difficulty_level": 2,
+        "question_type": "short_response",
+        "answer_type": "text",
+        "attempt_type_default": "single_attempt",
+        "is_active": false
+      },
+      "question_payload": {
+        "prompt": "Find the slope through (1, 4) and (5, 12).",
+        "source_item_id": "PA_ITEM_003",
+        "rights_status": "generated_demo"
+      },
+      "answer": "2",
+      "solution": "Compute (12 - 4) / (5 - 1) = 8 / 4.",
+      "procedure_step_refs": [],
+      "feedback_step_refs": [],
+      "failure_signals": [
+        "unclassified"
+      ],
+      "diagnostic_signal_annotations": [
+        "Generated demo question requires human review before any use."
+      ],
+      "generation_family": "GENFAM_INTAKE_20260701_030704_002_003",
+      "non_live_status": {
+        "student_visible": false,
+        "live_deployable": false,
+        "exposure_status": "not_exposed",
+        "activation_performed": false
+      },
+      "validation": {
+        "human_review_required": true,
+        "worked_example_checked": false,
+        "student_visible": false,
+        "live_deployable": false,
+        "canonical_approval": false
+      }
+    }
+  ]
+}

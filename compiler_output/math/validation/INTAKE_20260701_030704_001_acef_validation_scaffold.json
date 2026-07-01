@@ -1,0 +1,21 @@
+{
+  "schema_version": "ACEF_VALIDATION_v0_1",
+  "artifact_type": "validation_report",
+  "status": "human_review_required",
+  "intake_id": "INTAKE_20260701_030704_001",
+  "compiler_validation_result": "pass",
+  "procedure_scaffold_count": 2,
+  "question_scaffold_count": 2,
+  "known_gaps": [
+    "textbook_extraction_not_implemented",
+    "pdf_docx_not_supported",
+    "procedure_review_required",
+    "question_review_required"
+  ],
+  "promotion_recommendation": "review_before_commit",
+  "db_contact": false,
+  "operational_alpha_contact": false,
+  "human_review_required": true,
+  "student_visible": false,
+  "live_deployable": false
+}

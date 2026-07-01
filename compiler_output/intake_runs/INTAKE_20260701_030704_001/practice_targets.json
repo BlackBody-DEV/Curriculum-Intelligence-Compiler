@@ -1,0 +1,29 @@
+{
+  "status": "demo_unverified",
+  "source_id": "SRC_DEMO_001",
+  "practice_target_candidates": [
+    {
+      "candidate_id": "PRACTICE_TARGET_001",
+      "target_type": "student_practice_sequence",
+      "target_name": "Algebra Line Skills Practice",
+      "target_topic_candidate_ids": [
+        "TOPIC_001",
+        "TOPIC_002"
+      ],
+      "target_micro_skill_candidate_ids": [
+        "MSKILL_001",
+        "MSKILL_002"
+      ],
+      "recommended_practice_count": 6,
+      "recommended_difficulty_sequence": [
+        "introductory",
+        "guided",
+        "independent"
+      ],
+      "readiness_condition": "Student completes source-aligned practice with reviewed explanations.",
+      "rationale": "Detected source questions and math micro-skills support a demo practice sequence.",
+      "confidence": "high",
+      "status": "demo_unverified"
+    }
+  ]
+}

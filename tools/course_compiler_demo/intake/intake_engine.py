@@ -16,8 +16,10 @@ from artifact_router import (
     verify_required_outputs,
 )
 from intake_registry import (
+    build_batch_summary,
     build_intake_record,
     load_json,
+    make_batch_id,
     make_intake_id,
     timestamp_utc,
     write_json,
@@ -143,20 +145,55 @@ def main() -> int:
 
     supported_files = supported_input_files(incoming_dir, SUPPORTED_SUFFIXES)
     unsupported_files = unsupported_input_files(incoming_dir, SUPPORTED_SUFFIXES)
+    batch_created_at = timestamp_utc()
+    batch_id = make_batch_id(created_at=batch_created_at)
+    batch_summary_path = folders["intake_runs"] / f"batch_summary_{batch_created_at.strftime('%Y%m%d_%H%M%S')}.json"
 
     processed: list[dict[str, str]] = []
+    failed_files: list[dict[str, str]] = []
     for sequence, source_path in enumerate(supported_files, start=1):
-        processed.append(
-            process_file(
-                source_path=source_path,
-                sequence=sequence,
-                folders=folders,
-                subject=args.subject,
-                mode=args.mode,
+        try:
+            processed.append(
+                process_file(
+                    source_path=source_path,
+                    sequence=sequence,
+                    folders=folders,
+                    subject=args.subject,
+                    mode=args.mode,
+                )
             )
-        )
+        except Exception as exc:
+            failed_files.append(
+                {
+                    "path": _relative(source_path).as_posix(),
+                    "filename": source_path.name,
+                    "reason": str(exc),
+                }
+            )
+
+    skipped_files = [
+        {
+            "path": _relative(path).as_posix(),
+            "filename": path.name,
+            "reason": f"unsupported file type: {path.suffix.lower() or 'none'}",
+        }
+        for path in unsupported_files
+    ]
+    write_json(
+        batch_summary_path,
+        build_batch_summary(
+            batch_id=batch_id,
+            incoming_path=_relative(incoming_dir),
+            processed=processed,
+            skipped_files=skipped_files,
+            failed_files=failed_files,
+            created_at=batch_created_at,
+        ),
+    )
 
     print("Curriculum Intake Engine result")
+    print(f"batch id: {batch_id}")
+    print(f"batch summary: {_relative(batch_summary_path).as_posix()}")
     print(f"processed files: {len(processed)}")
     for item in processed:
         print(
@@ -167,6 +204,11 @@ def main() -> int:
         print("unsupported files left in incoming:")
         for path in unsupported_files:
             print(f"- {_relative(path).as_posix()}")
+    if failed_files:
+        print("failed files:")
+        for item in failed_files:
+            print(f"- {item['path']}: {item['reason']}")
+        return 1
     return 0
 
 

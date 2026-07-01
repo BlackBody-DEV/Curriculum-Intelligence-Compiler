@@ -1,0 +1,18 @@
+{
+  "source_id": "SRC_DEMO_001",
+  "source_title": "Algebra I homework check",
+  "source_type": "homework",
+  "source_scale": "single_document",
+  "subject_guess": "MATHEMATICS",
+  "course_guess": null,
+  "course_level_guess": "ALGEBRA_I",
+  "institution_or_origin": null,
+  "file_path": "incoming/batch_algebra_homework.txt",
+  "input_format": "txt",
+  "rights_status": "owned_by_axiomiq",
+  "privacy_status": "non_private",
+  "processing_status": "registered",
+  "status": "demo_unverified",
+  "created_at": "2026-07-01T03:07:04.788981+00:00",
+  "notes": []
+}

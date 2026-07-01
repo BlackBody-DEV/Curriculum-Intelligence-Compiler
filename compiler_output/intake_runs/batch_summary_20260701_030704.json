@@ -1,0 +1,46 @@
+{
+  "schema_version": "INTAKE_BATCH_SUMMARY_v0_1",
+  "status": "processed_non_live",
+  "batch_id": "BATCH_20260701_030704",
+  "supported_formats": [
+    ".txt",
+    ".md"
+  ],
+  "incoming_path": "incoming/",
+  "processed_count": 2,
+  "skipped_count": 1,
+  "failed_count": 0,
+  "processed_intake_ids": [
+    "INTAKE_20260701_030704_001",
+    "INTAKE_20260701_030704_002"
+  ],
+  "processed_files": [
+    {
+      "intake_id": "INTAKE_20260701_030704_001",
+      "original_artifact_path": "original_artifacts/INTAKE_20260701_030704_001_batch_algebra_homework.txt",
+      "compiler_output_path": "compiler_output/intake_runs/INTAKE_20260701_030704_001"
+    },
+    {
+      "intake_id": "INTAKE_20260701_030704_002",
+      "original_artifact_path": "original_artifacts/INTAKE_20260701_030704_002_batch_algebra_review.md",
+      "compiler_output_path": "compiler_output/intake_runs/INTAKE_20260701_030704_002"
+    }
+  ],
+  "skipped_files": [
+    {
+      "path": "incoming/unsupported_demo.pdf",
+      "filename": "unsupported_demo.pdf",
+      "reason": "unsupported file type: .pdf"
+    }
+  ],
+  "failed_files": [],
+  "db_contact": false,
+  "operational_alpha_contact": false,
+  "human_review_required": true,
+  "created_at": "2026-07-01T03:07:04.471527+00:00",
+  "notes": [
+    "Non-live multi-file intake batch summary.",
+    "Unsupported files are not parsed as compiler sources.",
+    "No compiler output becomes active without human review."
+  ]
+}
