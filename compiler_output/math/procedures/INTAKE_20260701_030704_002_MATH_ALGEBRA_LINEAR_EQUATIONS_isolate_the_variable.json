@@ -1,0 +1,125 @@
+{
+  "schema_version": "ACEF_PROCEDURE_v0_1",
+  "artifact_type": "procedure",
+  "status": "human_review_required",
+  "procedure_id": "PROC_INTAKE_20260701_030704_002_001",
+  "subject_code": "MATHEMATICS",
+  "topic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS",
+  "subtopic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS_BASIC",
+  "micro_skill": "ISOLATE_THE_VARIABLE",
+  "micro_skill_name": "Isolate the Variable",
+  "source_refs": [
+    {
+      "source_type": "synthetic_demo",
+      "source_name": "batch_algebra_review.md",
+      "evidence_refs": [
+        "EV_SKILL_001_001"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "concept": "Candidate micro-skill detected for Linear Equations.",
+  "formula": "inverse operations preserve equality",
+  "given_required": [
+    "a linear equation with one variable",
+    "visible constants and coefficients"
+  ],
+  "procedure": [
+    "Locate the variable term and the constants in the equation.",
+    "Use inverse operations to move constants away from the variable term.",
+    "If needed, divide or multiply to isolate the variable.",
+    "Apply each operation to both sides of the equation.",
+    "Substitute the result back into the original equation to check it."
+  ],
+  "procedure_steps": [
+    {
+      "step_index": 1,
+      "step_id": "PROC_INTAKE_20260701_030704_002_001_STEP_01",
+      "title": "Step 1",
+      "instruction": "Locate the variable term and the constants in the equation.",
+      "student_visible": false
+    },
+    {
+      "step_index": 2,
+      "step_id": "PROC_INTAKE_20260701_030704_002_001_STEP_02",
+      "title": "Step 2",
+      "instruction": "Use inverse operations to move constants away from the variable term.",
+      "student_visible": false
+    },
+    {
+      "step_index": 3,
+      "step_id": "PROC_INTAKE_20260701_030704_002_001_STEP_03",
+      "title": "Step 3",
+      "instruction": "If needed, divide or multiply to isolate the variable.",
+      "student_visible": false
+    },
+    {
+      "step_index": 4,
+      "step_id": "PROC_INTAKE_20260701_030704_002_001_STEP_04",
+      "title": "Step 4",
+      "instruction": "Apply each operation to both sides of the equation.",
+      "student_visible": false
+    },
+    {
+      "step_index": 5,
+      "step_id": "PROC_INTAKE_20260701_030704_002_001_STEP_05",
+      "title": "Step 5",
+      "instruction": "Substitute the result back into the original equation to check it.",
+      "student_visible": false
+    }
+  ],
+  "worked_example": {
+    "status": "human_review_required",
+    "prompt": "Human reviewer must approve or author a worked example.",
+    "steps": [],
+    "answer": null
+  },
+  "common_errors": [
+    {
+      "label": "Sign or placement error",
+      "description": "Student changes only one side or applies the inverse operation with the wrong sign.",
+      "signal": "sign_or_placement_error"
+    },
+    {
+      "label": "Unclassified procedural gap",
+      "description": "Student response requires human review because the error does not fit a canonical signal.",
+      "signal": "unclassified"
+    }
+  ],
+  "failure_signal_mappings": [
+    {
+      "signal": "sign_or_placement_error",
+      "review_note": "Use only for sign, side, or inverse-operation placement mistakes."
+    },
+    {
+      "signal": "unclassified",
+      "review_note": "Use when the scaffold cannot confidently map the error."
+    }
+  ],
+  "diagnostic_signal_annotations": [
+    "Rich diagnostic labels are review annotations only and are not live routing labels.",
+    "Failure signal mappings use only canonical live values."
+  ],
+  "generation_invariants": [
+    "The problem must target the same micro-skill.",
+    "The solution must be reachable by the listed procedure steps.",
+    "Generated variants must preserve the same answer type.",
+    "Generated variants must remain appropriate for the detected course level."
+  ],
+  "author_notes": [
+    "Procedure scaffold generated from synthetic demo material.",
+    "Human review is required before any canonical or active use."
+  ],
+  "review_notes": [
+    "Confirm concept, formula, givens, steps, worked example, and failure mappings."
+  ],
+  "validation": {
+    "solvable_by_procedure": false,
+    "worked_example_checked": false,
+    "human_review_required": true,
+    "known_gaps": [],
+    "student_visible": false,
+    "live_deployable": false,
+    "canonical_approval": false
+  }
+}

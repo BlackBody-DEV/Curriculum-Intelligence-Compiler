@@ -12,6 +12,10 @@ from intake_registry import write_json
 
 
 CANONICAL_FAILURE_SIGNALS = {"axis_confusion", "sign_or_placement_error", "simple_average_used", "unclassified"}
+TOPIC_CODE_OVERRIDES = {
+    "LINEAR_EQUATIONS": "MATH_ALGEBRA_LINEAR_EQUATIONS",
+    "GRAPHING_LINES": "MATH_ALGEBRA_GRAPHING_LINES",
+}
 
 
 def _load(run_dir: Path, filename: str) -> dict[str, Any]:
@@ -22,6 +26,143 @@ def _slug(value: str | None, fallback: str) -> str:
     raw = value or fallback
     slug = re.sub(r"[^A-Z0-9]+", "_", raw.upper()).strip("_")
     return slug or fallback
+
+
+def _topic_code(topic: dict[str, Any]) -> str:
+    slug = _slug(topic.get("topic_name"), "TOPIC_REVIEW_REQUIRED")
+    return TOPIC_CODE_OVERRIDES.get(slug, f"MATH_ALGEBRA_{slug}")
+
+
+def _subtopic_code(topic_code: str) -> str:
+    if topic_code.startswith("MATH_ALGEBRA_"):
+        return f"{topic_code}_BASIC"
+    return "SUBTOPIC_REVIEW_REQUIRED"
+
+
+def _source_refs(skill: dict[str, Any], intake_record: dict[str, Any]) -> list[dict[str, Any]]:
+    source_name = intake_record.get("original_filename") or "synthetic_demo_source"
+    return [
+        {
+            "source_type": "synthetic_demo",
+            "source_name": source_name,
+            "evidence_refs": skill.get("evidence_refs", []),
+            "confidence": skill.get("confidence", "medium"),
+        }
+    ]
+
+
+def _procedure_guidance(micro_skill_name: str) -> dict[str, Any]:
+    skill_key = _slug(micro_skill_name, "REVIEW_REQUIRED")
+    if "SLOPE" in skill_key:
+        return {
+            "formula": "slope = (change in y) / (change in x)",
+            "given_required": [
+                "two ordered pairs or a table with at least two points",
+                "clear x-values and y-values",
+            ],
+            "procedure": [
+                "Identify two points or two rows from the representation.",
+                "Find the change in y between the two points.",
+                "Find the change in x between the same two points.",
+                "Divide change in y by change in x and simplify if appropriate.",
+                "Check that the direction of movement was not reversed.",
+            ],
+            "common_errors": [
+                {
+                    "label": "Axis confusion",
+                    "description": "Student reverses x- and y-change when computing slope.",
+                    "signal": "axis_confusion",
+                },
+                {
+                    "label": "Simple average used",
+                    "description": "Student averages values instead of comparing rates of change.",
+                    "signal": "simple_average_used",
+                },
+            ],
+            "failure_signal_mappings": [
+                {
+                    "signal": "axis_confusion",
+                    "review_note": "Use only when x/y movement is reversed.",
+                },
+                {
+                    "signal": "simple_average_used",
+                    "review_note": "Use only when rate is replaced by an average.",
+                },
+            ],
+        }
+    if "VARIABLE" in skill_key or "EQUATION" in skill_key:
+        return {
+            "formula": "inverse operations preserve equality",
+            "given_required": [
+                "a linear equation with one variable",
+                "visible constants and coefficients",
+            ],
+            "procedure": [
+                "Locate the variable term and the constants in the equation.",
+                "Use inverse operations to move constants away from the variable term.",
+                "If needed, divide or multiply to isolate the variable.",
+                "Apply each operation to both sides of the equation.",
+                "Substitute the result back into the original equation to check it.",
+            ],
+            "common_errors": [
+                {
+                    "label": "Sign or placement error",
+                    "description": "Student changes only one side or applies the inverse operation with the wrong sign.",
+                    "signal": "sign_or_placement_error",
+                },
+                {
+                    "label": "Unclassified procedural gap",
+                    "description": "Student response requires human review because the error does not fit a canonical signal.",
+                    "signal": "unclassified",
+                },
+            ],
+            "failure_signal_mappings": [
+                {
+                    "signal": "sign_or_placement_error",
+                    "review_note": "Use only for sign, side, or inverse-operation placement mistakes.",
+                },
+                {
+                    "signal": "unclassified",
+                    "review_note": "Use when the scaffold cannot confidently map the error.",
+                },
+            ],
+        }
+    return {
+        "formula": "review_required",
+        "given_required": ["human reviewer must confirm required givens"],
+        "procedure": [
+            "Read the problem and identify the target micro-skill.",
+            "Select the relevant given information.",
+            "Apply the reviewer-approved procedure for the micro-skill.",
+            "Check that the answer type matches the prompt.",
+        ],
+        "common_errors": [
+            {
+                "label": "Unclassified procedural gap",
+                "description": "Human reviewer must classify likely errors for this scaffold.",
+                "signal": "unclassified",
+            }
+        ],
+        "failure_signal_mappings": [
+            {
+                "signal": "unclassified",
+                "review_note": "Placeholder signal until a reviewer classifies the error pattern.",
+            }
+        ],
+    }
+
+
+def _procedure_steps(*, procedure_id: str, procedure: list[str]) -> list[dict[str, Any]]:
+    return [
+        {
+            "step_index": index,
+            "step_id": f"{procedure_id}_STEP_{index:02d}",
+            "title": f"Step {index}",
+            "instruction": instruction,
+            "student_visible": False,
+        }
+        for index, instruction in enumerate(procedure, start=1)
+    ]
 
 
 def _topic_for_skill(
@@ -41,6 +182,18 @@ def _base_validation() -> dict[str, Any]:
     }
 
 
+def _procedure_validation() -> dict[str, Any]:
+    return {
+        "solvable_by_procedure": False,
+        "worked_example_checked": False,
+        "human_review_required": True,
+        "known_gaps": [],
+        "student_visible": False,
+        "live_deployable": False,
+        "canonical_approval": False,
+    }
+
+
 def _procedure_scaffold(
     *,
     intake_id: str,
@@ -48,10 +201,18 @@ def _procedure_scaffold(
     subject_code: str,
     skill: dict[str, Any],
     topic: dict[str, Any],
+    intake_record: dict[str, Any],
 ) -> dict[str, Any]:
-    topic_code = _slug(topic.get("topic_name"), "TOPIC_REVIEW_REQUIRED")
+    topic_code = _topic_code(topic)
+    subtopic_code = _subtopic_code(topic_code)
     micro_skill = _slug(skill.get("micro_skill_name"), f"MICRO_SKILL_{index:03d}")
+    micro_skill_name = skill.get("micro_skill_name", "Review required")
     procedure_id = f"PROC_{intake_id}_{index:03d}"
+    guidance = _procedure_guidance(micro_skill_name)
+    procedure = guidance["procedure"]
+    failure_signal_mappings = guidance["failure_signal_mappings"]
+    for mapping in failure_signal_mappings:
+        assert mapping["signal"] in CANONICAL_FAILURE_SIGNALS
     return {
         "schema_version": "ACEF_PROCEDURE_v0_1",
         "artifact_type": "procedure",
@@ -59,20 +220,44 @@ def _procedure_scaffold(
         "procedure_id": procedure_id,
         "subject_code": subject_code,
         "topic_code": topic_code,
-        "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+        "subtopic_code": subtopic_code,
         "micro_skill": micro_skill,
-        "micro_skill_name": skill.get("micro_skill_name", "Review required"),
-        "source_refs": skill.get("evidence_refs", []),
-        "concept": "Human reviewer must confirm concept statement.",
-        "procedure": "Human reviewer must author or approve procedure.",
-        "procedure_steps": [],
-        "common_errors": [],
-        "failure_signal_mappings": ["unclassified"],
+        "micro_skill_name": micro_skill_name,
+        "source_refs": _source_refs(skill, intake_record),
+        "concept": skill.get(
+            "micro_skill_description",
+            "Human reviewer must confirm concept statement.",
+        ),
+        "formula": guidance["formula"],
+        "given_required": guidance["given_required"],
+        "procedure": procedure,
+        "procedure_steps": _procedure_steps(procedure_id=procedure_id, procedure=procedure),
+        "worked_example": {
+            "status": "human_review_required",
+            "prompt": "Human reviewer must approve or author a worked example.",
+            "steps": [],
+            "answer": None,
+        },
+        "common_errors": guidance["common_errors"],
+        "failure_signal_mappings": failure_signal_mappings,
         "diagnostic_signal_annotations": [
-            "Failure signals are scaffold placeholders and require review."
+            "Rich diagnostic labels are review annotations only and are not live routing labels.",
+            "Failure signal mappings use only canonical live values.",
         ],
-        "generation_invariants": [],
-        "validation": _base_validation(),
+        "generation_invariants": [
+            "The problem must target the same micro-skill.",
+            "The solution must be reachable by the listed procedure steps.",
+            "Generated variants must preserve the same answer type.",
+            "Generated variants must remain appropriate for the detected course level.",
+        ],
+        "author_notes": [
+            "Procedure scaffold generated from synthetic demo material.",
+            "Human review is required before any canonical or active use.",
+        ],
+        "review_notes": [
+            "Confirm concept, formula, givens, steps, worked example, and failure mappings.",
+        ],
+        "validation": _procedure_validation(),
     }
 
 
@@ -197,6 +382,7 @@ def _validation_scaffold(
 
 def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake_id: str) -> dict[str, Path]:
     source_interpretation = _load(run_dir, "source_interpretation.json")
+    intake_record = _load(run_dir, "intake_record.json") if (run_dir / "intake_record.json").exists() else {}
     topics = _load(run_dir, "topic_candidates.json").get("topic_candidates", [])
     skills = _load(run_dir, "micro_skill_candidates.json").get("micro_skill_candidates", [])
     practice_items = _load(run_dir, "practice_module_package.json").get("practice_sequence", [])
@@ -215,6 +401,7 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
             subject_code=subject_code,
             skill=skill,
             topic=_topic_for_skill(skill, topics_by_id),
+            intake_record=intake_record,
         )
         for index, skill in enumerate(skills, start=1)
     ]
@@ -259,6 +446,10 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
         "micro_skill": _slug(first_skill.get("micro_skill_name"), "MICRO_SKILL_REVIEW_REQUIRED"),
         "artifacts": {
             "procedures": [procedure["procedure_id"] for procedure in procedures],
+            "procedure_scaffold_paths": [
+                f"compiler_output/math/procedures/{intake_id}_{procedure['topic_code']}_{procedure['micro_skill'].lower()}.json"
+                for procedure in procedures
+            ],
             "questions": [question["question_id"] for question in questions],
             "generation_families": [
                 family["generation_family_id"] for family in generation_families
@@ -284,7 +475,7 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
     outputs: dict[str, Any] = {
         "acef_package_scaffold.json": package,
         "acef_procedure_scaffolds.json": {
-            "schema_version": "ACEF_PROCEDURE_SCAFFOLDS_v0_1",
+            "schema_version": "ACEF_PROCEDURE_SCAFFOLD_COLLECTION_v0_1",
             "status": "human_review_required",
             "human_review_required": True,
             "procedures": procedures,
@@ -309,14 +500,17 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
         write_json(path, payload)
         output_paths[filename] = path
 
-    staging_map = {
-        "acef_package_scaffold.json": staging_dirs["packages"] / f"{intake_id}_acef_package_scaffold.json",
-        "acef_procedure_scaffolds.json": staging_dirs["procedures"] / f"{intake_id}_acef_procedure_scaffolds.json",
-        "acef_question_scaffolds.json": staging_dirs["questions"] / f"{intake_id}_acef_question_scaffolds.json",
-        "acef_generation_family_scaffolds.json": staging_dirs["generation_families"] / f"{intake_id}_acef_generation_family_scaffolds.json",
-        "acef_validation_scaffold.json": staging_dirs["validation"] / f"{intake_id}_acef_validation_scaffold.json",
-    }
-    for filename, staging_path in staging_map.items():
-        shutil.copy2(output_paths[filename], staging_path)
+    shutil.copy2(
+        output_paths["acef_package_scaffold.json"],
+        staging_dirs["packages"] / f"{intake_id}_acef_package_scaffold.json",
+    )
+    legacy_collection = staging_dirs["procedures"] / f"{intake_id}_acef_procedure_scaffolds.json"
+    if legacy_collection.exists():
+        legacy_collection.unlink()
+    for procedure in procedures:
+        staging_path = (
+            staging_dirs["procedures"]
+            / f"{intake_id}_{procedure['topic_code']}_{procedure['micro_skill'].lower()}.json"
+        )
+        write_json(staging_path, procedure)
     return output_paths
-

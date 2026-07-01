@@ -11,6 +11,10 @@
       "PROC_INTAKE_20260701_030704_001_001",
       "PROC_INTAKE_20260701_030704_001_002"
     ],
+    "procedure_scaffold_paths": [
+      "compiler_output/math/procedures/INTAKE_20260701_030704_001_MATH_ALGEBRA_LINEAR_EQUATIONS_isolate_the_variable.json",
+      "compiler_output/math/procedures/INTAKE_20260701_030704_001_MATH_ALGEBRA_GRAPHING_LINES_compute_slope.json"
+    ],
     "questions": [
       "Q_INTAKE_20260701_030704_001_001",
       "Q_INTAKE_20260701_030704_001_002"

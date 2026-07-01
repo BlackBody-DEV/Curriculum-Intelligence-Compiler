@@ -1,0 +1,125 @@
+{
+  "schema_version": "ACEF_PROCEDURE_v0_1",
+  "artifact_type": "procedure",
+  "status": "human_review_required",
+  "procedure_id": "PROC_INTAKE_20260701_030704_001_002",
+  "subject_code": "MATHEMATICS",
+  "topic_code": "MATH_ALGEBRA_GRAPHING_LINES",
+  "subtopic_code": "MATH_ALGEBRA_GRAPHING_LINES_BASIC",
+  "micro_skill": "COMPUTE_SLOPE",
+  "micro_skill_name": "Compute Slope",
+  "source_refs": [
+    {
+      "source_type": "synthetic_demo",
+      "source_name": "batch_algebra_homework.txt",
+      "evidence_refs": [
+        "EV_SKILL_002_001"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "concept": "Candidate micro-skill detected for Graphing Lines.",
+  "formula": "slope = (change in y) / (change in x)",
+  "given_required": [
+    "two ordered pairs or a table with at least two points",
+    "clear x-values and y-values"
+  ],
+  "procedure": [
+    "Identify two points or two rows from the representation.",
+    "Find the change in y between the two points.",
+    "Find the change in x between the same two points.",
+    "Divide change in y by change in x and simplify if appropriate.",
+    "Check that the direction of movement was not reversed."
+  ],
+  "procedure_steps": [
+    {
+      "step_index": 1,
+      "step_id": "PROC_INTAKE_20260701_030704_001_002_STEP_01",
+      "title": "Step 1",
+      "instruction": "Identify two points or two rows from the representation.",
+      "student_visible": false
+    },
+    {
+      "step_index": 2,
+      "step_id": "PROC_INTAKE_20260701_030704_001_002_STEP_02",
+      "title": "Step 2",
+      "instruction": "Find the change in y between the two points.",
+      "student_visible": false
+    },
+    {
+      "step_index": 3,
+      "step_id": "PROC_INTAKE_20260701_030704_001_002_STEP_03",
+      "title": "Step 3",
+      "instruction": "Find the change in x between the same two points.",
+      "student_visible": false
+    },
+    {
+      "step_index": 4,
+      "step_id": "PROC_INTAKE_20260701_030704_001_002_STEP_04",
+      "title": "Step 4",
+      "instruction": "Divide change in y by change in x and simplify if appropriate.",
+      "student_visible": false
+    },
+    {
+      "step_index": 5,
+      "step_id": "PROC_INTAKE_20260701_030704_001_002_STEP_05",
+      "title": "Step 5",
+      "instruction": "Check that the direction of movement was not reversed.",
+      "student_visible": false
+    }
+  ],
+  "worked_example": {
+    "status": "human_review_required",
+    "prompt": "Human reviewer must approve or author a worked example.",
+    "steps": [],
+    "answer": null
+  },
+  "common_errors": [
+    {
+      "label": "Axis confusion",
+      "description": "Student reverses x- and y-change when computing slope.",
+      "signal": "axis_confusion"
+    },
+    {
+      "label": "Simple average used",
+      "description": "Student averages values instead of comparing rates of change.",
+      "signal": "simple_average_used"
+    }
+  ],
+  "failure_signal_mappings": [
+    {
+      "signal": "axis_confusion",
+      "review_note": "Use only when x/y movement is reversed."
+    },
+    {
+      "signal": "simple_average_used",
+      "review_note": "Use only when rate is replaced by an average."
+    }
+  ],
+  "diagnostic_signal_annotations": [
+    "Rich diagnostic labels are review annotations only and are not live routing labels.",
+    "Failure signal mappings use only canonical live values."
+  ],
+  "generation_invariants": [
+    "The problem must target the same micro-skill.",
+    "The solution must be reachable by the listed procedure steps.",
+    "Generated variants must preserve the same answer type.",
+    "Generated variants must remain appropriate for the detected course level."
+  ],
+  "author_notes": [
+    "Procedure scaffold generated from synthetic demo material.",
+    "Human review is required before any canonical or active use."
+  ],
+  "review_notes": [
+    "Confirm concept, formula, givens, steps, worked example, and failure mappings."
+  ],
+  "validation": {
+    "solvable_by_procedure": false,
+    "worked_example_checked": false,
+    "human_review_required": true,
+    "known_gaps": [],
+    "student_visible": false,
+    "live_deployable": false,
+    "canonical_approval": false
+  }
+}

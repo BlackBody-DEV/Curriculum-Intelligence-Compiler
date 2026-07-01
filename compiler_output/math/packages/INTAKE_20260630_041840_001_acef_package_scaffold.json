@@ -15,6 +15,14 @@
       "PROC_INTAKE_20260630_041840_001_005",
       "PROC_INTAKE_20260630_041840_001_006"
     ],
+    "procedure_scaffold_paths": [
+      "compiler_output/math/procedures/INTAKE_20260630_041840_001_MATH_ALGEBRA_LINEAR_EQUATIONS_isolate_the_variable.json",
+      "compiler_output/math/procedures/INTAKE_20260630_041840_001_MATH_ALGEBRA_LINEAR_EQUATIONS_combine_like_terms.json",
+      "compiler_output/math/procedures/INTAKE_20260630_041840_001_MATH_ALGEBRA_LINEAR_EQUATIONS_solve_a_two_step_equation.json",
+      "compiler_output/math/procedures/INTAKE_20260630_041840_001_MATH_ALGEBRA_GRAPHING_LINES_compute_slope.json",
+      "compiler_output/math/procedures/INTAKE_20260630_041840_001_MATH_ALGEBRA_GRAPHING_LINES_identify_y_intercept.json",
+      "compiler_output/math/procedures/INTAKE_20260630_041840_001_MATH_ALGEBRA_GRAPHING_LINES_graph_a_line_from_an_equation.json"
+    ],
     "questions": [
       "Q_INTAKE_20260630_041840_001_001",
       "Q_INTAKE_20260630_041840_001_002",
