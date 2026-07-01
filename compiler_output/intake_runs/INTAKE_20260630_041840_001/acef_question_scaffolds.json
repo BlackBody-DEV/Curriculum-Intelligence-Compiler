@@ -1,5 +1,5 @@
 {
-  "schema_version": "ACEF_QUESTION_SCAFFOLDS_v0_1",
+  "schema_version": "ACEF_QUESTION_SCAFFOLD_COLLECTION_v0_1",
   "status": "human_review_required",
   "human_review_required": true,
   "questions": [
@@ -8,35 +8,150 @@
       "artifact_type": "canonical_seed_question",
       "status": "human_review_required",
       "question_id": "Q_INTAKE_20260630_041840_001_001",
-      "source_ref": "PA_ITEM_001",
+      "source_ref": {
+        "source_type": "compiler_generated_from_demo",
+        "source_name": "demo_algebra_homework.txt",
+        "source_item_id": "PA_ITEM_001",
+        "rights_status": "generated_demo"
+      },
       "classification": {
         "subject_code": "MATHEMATICS",
-        "topic_code": "LINEAR_EQUATIONS",
-        "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+        "topic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS",
+        "subtopic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS_BASIC",
         "micro_skill": "ISOLATE_THE_VARIABLE",
         "procedure_id": "PROC_INTAKE_20260630_041840_001_001",
         "difficulty_level": 2,
         "question_type": "short_response",
         "answer_type": "text",
-        "attempt_type_default": "single_attempt",
+        "attempt_type_default": "module_practice",
         "is_active": false
       },
       "question_payload": {
         "prompt": "Solve for x: x - 6 = 13.",
+        "given": [],
+        "ask": "Solve for x: x - 6 = 13.",
+        "diagram_required": false,
+        "image_ref": null,
         "source_item_id": "PA_ITEM_001",
+        "source_type": "compiler_generated_from_demo",
+        "source_name": "demo_algebra_homework.txt",
         "rights_status": "generated_demo"
       },
-      "answer": "x = 19",
-      "solution": "Add 6 to both sides.",
-      "procedure_step_refs": [],
-      "feedback_step_refs": [],
+      "answer": {
+        "verified_answer": "x = 19",
+        "unit": null,
+        "tolerance": null,
+        "answer_parts": [],
+        "grading_notes": [
+          "Answer is carried from demo source generation and requires human verification before use."
+        ]
+      },
+      "solution": {
+        "procedure_id": "PROC_INTAKE_20260630_041840_001_001",
+        "solution_steps": [
+          {
+            "step_index": 1,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_01",
+            "explanation": "Add 6 to both sides.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 2,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_02",
+            "explanation": "Add 6 to both sides.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 3,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_03",
+            "explanation": "Add 6 to both sides.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 4,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_04",
+            "explanation": "Add 6 to both sides.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 5,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_05",
+            "explanation": "Add 6 to both sides.",
+            "human_review_required": true
+          }
+        ],
+        "final_answer": "x = 19"
+      },
+      "procedure_step_refs": [
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_01",
+          "step_index": 1
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_02",
+          "step_index": 2
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_03",
+          "step_index": 3
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_04",
+          "step_index": 4
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_05",
+          "step_index": 5
+        }
+      ],
+      "feedback_step_refs": [
+        {
+          "failure_signal": "sign_or_placement_error",
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_01",
+          "step_index": 1,
+          "feedback": "Human reviewer must approve feedback before this scaffold can be used."
+        },
+        {
+          "failure_signal": "unclassified",
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_01",
+          "step_index": 1,
+          "feedback": "Human reviewer must approve feedback before this scaffold can be used."
+        }
+      ],
       "failure_signals": [
+        "sign_or_placement_error",
         "unclassified"
       ],
       "diagnostic_signal_annotations": [
-        "Generated demo question requires human review before any use."
+        "Generated demo question requires human review before any use.",
+        "Rich diagnostic labels remain annotations; live failure signals use only canonical values."
       ],
-      "generation_family": "GENFAM_INTAKE_20260630_041840_001_001",
+      "generation_family": {
+        "family_id": "GENFAM_INTAKE_20260630_041840_001_001",
+        "canonical_seed_id": "Q_INTAKE_20260630_041840_001_001",
+        "parameterization": {
+          "variable_fields": [
+            "prompt",
+            "given",
+            "ask",
+            "verified_answer"
+          ],
+          "constraints": [
+            "Generated variants must remain non-live until human review.",
+            "Generated variants must preserve the same micro-skill and procedure link."
+          ],
+          "invariants": {
+            "micro_skill": "ISOLATE_THE_VARIABLE",
+            "procedure_id": "PROC_INTAKE_20260630_041840_001_001",
+            "answer_type": "text",
+            "question_type": "short_response"
+          }
+        },
+        "difficulty_range": {
+          "min": 2,
+          "max": 2
+        }
+      },
       "non_live_status": {
         "student_visible": false,
         "live_deployable": false,
@@ -44,8 +159,17 @@
         "activation_performed": false
       },
       "validation": {
+        "fully_classified": true,
+        "procedure_exists": true,
+        "solvable_by_procedure": false,
+        "answer_verified": false,
+        "diagram_status": "not_required",
         "human_review_required": true,
-        "worked_example_checked": false,
+        "known_gaps": [
+          "answer_not_machine_verified",
+          "solution_not_human_reviewed",
+          "question_not_canonical_or_active"
+        ],
         "student_visible": false,
         "live_deployable": false,
         "canonical_approval": false
@@ -56,35 +180,133 @@
       "artifact_type": "canonical_seed_question",
       "status": "human_review_required",
       "question_id": "Q_INTAKE_20260630_041840_001_002",
-      "source_ref": "PA_ITEM_002",
+      "source_ref": {
+        "source_type": "compiler_generated_from_demo",
+        "source_name": "demo_algebra_homework.txt",
+        "source_item_id": "PA_ITEM_002",
+        "rights_status": "generated_demo"
+      },
       "classification": {
         "subject_code": "MATHEMATICS",
-        "topic_code": "LINEAR_EQUATIONS",
-        "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+        "topic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS",
+        "subtopic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS_BASIC",
         "micro_skill": "COMBINE_LIKE_TERMS",
         "procedure_id": "PROC_INTAKE_20260630_041840_001_002",
         "difficulty_level": 2,
         "question_type": "short_response",
         "answer_type": "text",
-        "attempt_type_default": "single_attempt",
+        "attempt_type_default": "module_practice",
         "is_active": false
       },
       "question_payload": {
         "prompt": "Simplify: 8a - 3a + 4.",
+        "given": [],
+        "ask": "Simplify: 8a - 3a + 4.",
+        "diagram_required": false,
+        "image_ref": null,
         "source_item_id": "PA_ITEM_002",
+        "source_type": "compiler_generated_from_demo",
+        "source_name": "demo_algebra_homework.txt",
         "rights_status": "generated_demo"
       },
-      "answer": "5a + 4",
-      "solution": "Combine 8a and -3a.",
-      "procedure_step_refs": [],
-      "feedback_step_refs": [],
+      "answer": {
+        "verified_answer": "5a + 4",
+        "unit": null,
+        "tolerance": null,
+        "answer_parts": [],
+        "grading_notes": [
+          "Answer is carried from demo source generation and requires human verification before use."
+        ]
+      },
+      "solution": {
+        "procedure_id": "PROC_INTAKE_20260630_041840_001_002",
+        "solution_steps": [
+          {
+            "step_index": 1,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_002_STEP_01",
+            "explanation": "Combine 8a and -3a.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 2,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_002_STEP_02",
+            "explanation": "Combine 8a and -3a.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 3,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_002_STEP_03",
+            "explanation": "Combine 8a and -3a.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 4,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_002_STEP_04",
+            "explanation": "Combine 8a and -3a.",
+            "human_review_required": true
+          }
+        ],
+        "final_answer": "5a + 4"
+      },
+      "procedure_step_refs": [
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_002_STEP_01",
+          "step_index": 1
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_002_STEP_02",
+          "step_index": 2
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_002_STEP_03",
+          "step_index": 3
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_002_STEP_04",
+          "step_index": 4
+        }
+      ],
+      "feedback_step_refs": [
+        {
+          "failure_signal": "unclassified",
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_002_STEP_01",
+          "step_index": 1,
+          "feedback": "Human reviewer must approve feedback before this scaffold can be used."
+        }
+      ],
       "failure_signals": [
         "unclassified"
       ],
       "diagnostic_signal_annotations": [
-        "Generated demo question requires human review before any use."
+        "Generated demo question requires human review before any use.",
+        "Rich diagnostic labels remain annotations; live failure signals use only canonical values."
       ],
-      "generation_family": "GENFAM_INTAKE_20260630_041840_001_002",
+      "generation_family": {
+        "family_id": "GENFAM_INTAKE_20260630_041840_001_002",
+        "canonical_seed_id": "Q_INTAKE_20260630_041840_001_002",
+        "parameterization": {
+          "variable_fields": [
+            "prompt",
+            "given",
+            "ask",
+            "verified_answer"
+          ],
+          "constraints": [
+            "Generated variants must remain non-live until human review.",
+            "Generated variants must preserve the same micro-skill and procedure link."
+          ],
+          "invariants": {
+            "micro_skill": "COMBINE_LIKE_TERMS",
+            "procedure_id": "PROC_INTAKE_20260630_041840_001_002",
+            "answer_type": "text",
+            "question_type": "short_response"
+          }
+        },
+        "difficulty_range": {
+          "min": 2,
+          "max": 2
+        }
+      },
       "non_live_status": {
         "student_visible": false,
         "live_deployable": false,
@@ -92,8 +314,17 @@
         "activation_performed": false
       },
       "validation": {
+        "fully_classified": true,
+        "procedure_exists": true,
+        "solvable_by_procedure": false,
+        "answer_verified": false,
+        "diagram_status": "not_required",
         "human_review_required": true,
-        "worked_example_checked": false,
+        "known_gaps": [
+          "answer_not_machine_verified",
+          "solution_not_human_reviewed",
+          "question_not_canonical_or_active"
+        ],
         "student_visible": false,
         "live_deployable": false,
         "canonical_approval": false
@@ -104,35 +335,150 @@
       "artifact_type": "canonical_seed_question",
       "status": "human_review_required",
       "question_id": "Q_INTAKE_20260630_041840_001_003",
-      "source_ref": "PA_ITEM_003",
+      "source_ref": {
+        "source_type": "compiler_generated_from_demo",
+        "source_name": "demo_algebra_homework.txt",
+        "source_item_id": "PA_ITEM_003",
+        "rights_status": "generated_demo"
+      },
       "classification": {
         "subject_code": "MATHEMATICS",
-        "topic_code": "LINEAR_EQUATIONS",
-        "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+        "topic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS",
+        "subtopic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS_BASIC",
         "micro_skill": "SOLVE_A_TWO_STEP_EQUATION",
         "procedure_id": "PROC_INTAKE_20260630_041840_001_003",
         "difficulty_level": 2,
         "question_type": "short_response",
         "answer_type": "text",
-        "attempt_type_default": "single_attempt",
+        "attempt_type_default": "module_practice",
         "is_active": false
       },
       "question_payload": {
         "prompt": "Solve for x: 3x + 2 = 17.",
+        "given": [],
+        "ask": "Solve for x: 3x + 2 = 17.",
+        "diagram_required": false,
+        "image_ref": null,
         "source_item_id": "PA_ITEM_003",
+        "source_type": "compiler_generated_from_demo",
+        "source_name": "demo_algebra_homework.txt",
         "rights_status": "generated_demo"
       },
-      "answer": "x = 5",
-      "solution": "Subtract 2, then divide by 3.",
-      "procedure_step_refs": [],
-      "feedback_step_refs": [],
+      "answer": {
+        "verified_answer": "x = 5",
+        "unit": null,
+        "tolerance": null,
+        "answer_parts": [],
+        "grading_notes": [
+          "Answer is carried from demo source generation and requires human verification before use."
+        ]
+      },
+      "solution": {
+        "procedure_id": "PROC_INTAKE_20260630_041840_001_003",
+        "solution_steps": [
+          {
+            "step_index": 1,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_003_STEP_01",
+            "explanation": "Subtract 2, then divide by 3.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 2,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_003_STEP_02",
+            "explanation": "Subtract 2, then divide by 3.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 3,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_003_STEP_03",
+            "explanation": "Subtract 2, then divide by 3.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 4,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_003_STEP_04",
+            "explanation": "Subtract 2, then divide by 3.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 5,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_003_STEP_05",
+            "explanation": "Subtract 2, then divide by 3.",
+            "human_review_required": true
+          }
+        ],
+        "final_answer": "x = 5"
+      },
+      "procedure_step_refs": [
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_003_STEP_01",
+          "step_index": 1
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_003_STEP_02",
+          "step_index": 2
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_003_STEP_03",
+          "step_index": 3
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_003_STEP_04",
+          "step_index": 4
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_003_STEP_05",
+          "step_index": 5
+        }
+      ],
+      "feedback_step_refs": [
+        {
+          "failure_signal": "sign_or_placement_error",
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_003_STEP_01",
+          "step_index": 1,
+          "feedback": "Human reviewer must approve feedback before this scaffold can be used."
+        },
+        {
+          "failure_signal": "unclassified",
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_003_STEP_01",
+          "step_index": 1,
+          "feedback": "Human reviewer must approve feedback before this scaffold can be used."
+        }
+      ],
       "failure_signals": [
+        "sign_or_placement_error",
         "unclassified"
       ],
       "diagnostic_signal_annotations": [
-        "Generated demo question requires human review before any use."
+        "Generated demo question requires human review before any use.",
+        "Rich diagnostic labels remain annotations; live failure signals use only canonical values."
       ],
-      "generation_family": "GENFAM_INTAKE_20260630_041840_001_003",
+      "generation_family": {
+        "family_id": "GENFAM_INTAKE_20260630_041840_001_003",
+        "canonical_seed_id": "Q_INTAKE_20260630_041840_001_003",
+        "parameterization": {
+          "variable_fields": [
+            "prompt",
+            "given",
+            "ask",
+            "verified_answer"
+          ],
+          "constraints": [
+            "Generated variants must remain non-live until human review.",
+            "Generated variants must preserve the same micro-skill and procedure link."
+          ],
+          "invariants": {
+            "micro_skill": "SOLVE_A_TWO_STEP_EQUATION",
+            "procedure_id": "PROC_INTAKE_20260630_041840_001_003",
+            "answer_type": "text",
+            "question_type": "short_response"
+          }
+        },
+        "difficulty_range": {
+          "min": 2,
+          "max": 2
+        }
+      },
       "non_live_status": {
         "student_visible": false,
         "live_deployable": false,
@@ -140,8 +486,17 @@
         "activation_performed": false
       },
       "validation": {
+        "fully_classified": true,
+        "procedure_exists": true,
+        "solvable_by_procedure": false,
+        "answer_verified": false,
+        "diagram_status": "not_required",
         "human_review_required": true,
-        "worked_example_checked": false,
+        "known_gaps": [
+          "answer_not_machine_verified",
+          "solution_not_human_reviewed",
+          "question_not_canonical_or_active"
+        ],
         "student_visible": false,
         "live_deployable": false,
         "canonical_approval": false
@@ -152,35 +507,150 @@
       "artifact_type": "canonical_seed_question",
       "status": "human_review_required",
       "question_id": "Q_INTAKE_20260630_041840_001_004",
-      "source_ref": "PA_ITEM_004",
+      "source_ref": {
+        "source_type": "compiler_generated_from_demo",
+        "source_name": "demo_algebra_homework.txt",
+        "source_item_id": "PA_ITEM_004",
+        "rights_status": "generated_demo"
+      },
       "classification": {
         "subject_code": "MATHEMATICS",
-        "topic_code": "GRAPHING_LINES",
-        "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+        "topic_code": "MATH_ALGEBRA_GRAPHING_LINES",
+        "subtopic_code": "MATH_ALGEBRA_GRAPHING_LINES_BASIC",
         "micro_skill": "COMPUTE_SLOPE",
         "procedure_id": "PROC_INTAKE_20260630_041840_001_004",
         "difficulty_level": 2,
         "question_type": "short_response",
         "answer_type": "text",
-        "attempt_type_default": "single_attempt",
+        "attempt_type_default": "module_practice",
         "is_active": false
       },
       "question_payload": {
         "prompt": "Find the slope through (1, 4) and (5, 12).",
+        "given": [],
+        "ask": "Find the slope through (1, 4) and (5, 12).",
+        "diagram_required": false,
+        "image_ref": null,
         "source_item_id": "PA_ITEM_004",
+        "source_type": "compiler_generated_from_demo",
+        "source_name": "demo_algebra_homework.txt",
         "rights_status": "generated_demo"
       },
-      "answer": "2",
-      "solution": "Compute (12 - 4) / (5 - 1) = 8 / 4.",
-      "procedure_step_refs": [],
-      "feedback_step_refs": [],
+      "answer": {
+        "verified_answer": "2",
+        "unit": null,
+        "tolerance": null,
+        "answer_parts": [],
+        "grading_notes": [
+          "Answer is carried from demo source generation and requires human verification before use."
+        ]
+      },
+      "solution": {
+        "procedure_id": "PROC_INTAKE_20260630_041840_001_004",
+        "solution_steps": [
+          {
+            "step_index": 1,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_004_STEP_01",
+            "explanation": "Compute (12 - 4) / (5 - 1) = 8 / 4.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 2,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_004_STEP_02",
+            "explanation": "Compute (12 - 4) / (5 - 1) = 8 / 4.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 3,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_004_STEP_03",
+            "explanation": "Compute (12 - 4) / (5 - 1) = 8 / 4.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 4,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_004_STEP_04",
+            "explanation": "Compute (12 - 4) / (5 - 1) = 8 / 4.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 5,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_004_STEP_05",
+            "explanation": "Compute (12 - 4) / (5 - 1) = 8 / 4.",
+            "human_review_required": true
+          }
+        ],
+        "final_answer": "2"
+      },
+      "procedure_step_refs": [
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_004_STEP_01",
+          "step_index": 1
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_004_STEP_02",
+          "step_index": 2
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_004_STEP_03",
+          "step_index": 3
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_004_STEP_04",
+          "step_index": 4
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_004_STEP_05",
+          "step_index": 5
+        }
+      ],
+      "feedback_step_refs": [
+        {
+          "failure_signal": "axis_confusion",
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_004_STEP_01",
+          "step_index": 1,
+          "feedback": "Human reviewer must approve feedback before this scaffold can be used."
+        },
+        {
+          "failure_signal": "simple_average_used",
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_004_STEP_01",
+          "step_index": 1,
+          "feedback": "Human reviewer must approve feedback before this scaffold can be used."
+        }
+      ],
       "failure_signals": [
-        "unclassified"
+        "axis_confusion",
+        "simple_average_used"
       ],
       "diagnostic_signal_annotations": [
-        "Generated demo question requires human review before any use."
+        "Generated demo question requires human review before any use.",
+        "Rich diagnostic labels remain annotations; live failure signals use only canonical values."
       ],
-      "generation_family": "GENFAM_INTAKE_20260630_041840_001_004",
+      "generation_family": {
+        "family_id": "GENFAM_INTAKE_20260630_041840_001_004",
+        "canonical_seed_id": "Q_INTAKE_20260630_041840_001_004",
+        "parameterization": {
+          "variable_fields": [
+            "prompt",
+            "given",
+            "ask",
+            "verified_answer"
+          ],
+          "constraints": [
+            "Generated variants must remain non-live until human review.",
+            "Generated variants must preserve the same micro-skill and procedure link."
+          ],
+          "invariants": {
+            "micro_skill": "COMPUTE_SLOPE",
+            "procedure_id": "PROC_INTAKE_20260630_041840_001_004",
+            "answer_type": "text",
+            "question_type": "short_response"
+          }
+        },
+        "difficulty_range": {
+          "min": 2,
+          "max": 2
+        }
+      },
       "non_live_status": {
         "student_visible": false,
         "live_deployable": false,
@@ -188,8 +658,17 @@
         "activation_performed": false
       },
       "validation": {
+        "fully_classified": true,
+        "procedure_exists": true,
+        "solvable_by_procedure": false,
+        "answer_verified": false,
+        "diagram_status": "not_required",
         "human_review_required": true,
-        "worked_example_checked": false,
+        "known_gaps": [
+          "answer_not_machine_verified",
+          "solution_not_human_reviewed",
+          "question_not_canonical_or_active"
+        ],
         "student_visible": false,
         "live_deployable": false,
         "canonical_approval": false
@@ -200,35 +679,133 @@
       "artifact_type": "canonical_seed_question",
       "status": "human_review_required",
       "question_id": "Q_INTAKE_20260630_041840_001_005",
-      "source_ref": "PA_ITEM_005",
+      "source_ref": {
+        "source_type": "compiler_generated_from_demo",
+        "source_name": "demo_algebra_homework.txt",
+        "source_item_id": "PA_ITEM_005",
+        "rights_status": "generated_demo"
+      },
       "classification": {
         "subject_code": "MATHEMATICS",
-        "topic_code": "GRAPHING_LINES",
-        "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+        "topic_code": "MATH_ALGEBRA_GRAPHING_LINES",
+        "subtopic_code": "MATH_ALGEBRA_GRAPHING_LINES_BASIC",
         "micro_skill": "IDENTIFY_Y_INTERCEPT",
         "procedure_id": "PROC_INTAKE_20260630_041840_001_005",
         "difficulty_level": 2,
         "question_type": "short_response",
         "answer_type": "text",
-        "attempt_type_default": "single_attempt",
+        "attempt_type_default": "module_practice",
         "is_active": false
       },
       "question_payload": {
         "prompt": "What is the y-intercept of y = 4x - 7?",
+        "given": [],
+        "ask": "What is the y-intercept of y = 4x - 7?",
+        "diagram_required": false,
+        "image_ref": null,
         "source_item_id": "PA_ITEM_005",
+        "source_type": "compiler_generated_from_demo",
+        "source_name": "demo_algebra_homework.txt",
         "rights_status": "generated_demo"
       },
-      "answer": "-7",
-      "solution": "The y-intercept is b in y = mx + b.",
-      "procedure_step_refs": [],
-      "feedback_step_refs": [],
+      "answer": {
+        "verified_answer": "-7",
+        "unit": null,
+        "tolerance": null,
+        "answer_parts": [],
+        "grading_notes": [
+          "Answer is carried from demo source generation and requires human verification before use."
+        ]
+      },
+      "solution": {
+        "procedure_id": "PROC_INTAKE_20260630_041840_001_005",
+        "solution_steps": [
+          {
+            "step_index": 1,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_005_STEP_01",
+            "explanation": "The y-intercept is b in y = mx + b.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 2,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_005_STEP_02",
+            "explanation": "The y-intercept is b in y = mx + b.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 3,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_005_STEP_03",
+            "explanation": "The y-intercept is b in y = mx + b.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 4,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_005_STEP_04",
+            "explanation": "The y-intercept is b in y = mx + b.",
+            "human_review_required": true
+          }
+        ],
+        "final_answer": "-7"
+      },
+      "procedure_step_refs": [
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_005_STEP_01",
+          "step_index": 1
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_005_STEP_02",
+          "step_index": 2
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_005_STEP_03",
+          "step_index": 3
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_005_STEP_04",
+          "step_index": 4
+        }
+      ],
+      "feedback_step_refs": [
+        {
+          "failure_signal": "unclassified",
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_005_STEP_01",
+          "step_index": 1,
+          "feedback": "Human reviewer must approve feedback before this scaffold can be used."
+        }
+      ],
       "failure_signals": [
         "unclassified"
       ],
       "diagnostic_signal_annotations": [
-        "Generated demo question requires human review before any use."
+        "Generated demo question requires human review before any use.",
+        "Rich diagnostic labels remain annotations; live failure signals use only canonical values."
       ],
-      "generation_family": "GENFAM_INTAKE_20260630_041840_001_005",
+      "generation_family": {
+        "family_id": "GENFAM_INTAKE_20260630_041840_001_005",
+        "canonical_seed_id": "Q_INTAKE_20260630_041840_001_005",
+        "parameterization": {
+          "variable_fields": [
+            "prompt",
+            "given",
+            "ask",
+            "verified_answer"
+          ],
+          "constraints": [
+            "Generated variants must remain non-live until human review.",
+            "Generated variants must preserve the same micro-skill and procedure link."
+          ],
+          "invariants": {
+            "micro_skill": "IDENTIFY_Y_INTERCEPT",
+            "procedure_id": "PROC_INTAKE_20260630_041840_001_005",
+            "answer_type": "text",
+            "question_type": "short_response"
+          }
+        },
+        "difficulty_range": {
+          "min": 2,
+          "max": 2
+        }
+      },
       "non_live_status": {
         "student_visible": false,
         "live_deployable": false,
@@ -236,8 +813,17 @@
         "activation_performed": false
       },
       "validation": {
+        "fully_classified": true,
+        "procedure_exists": true,
+        "solvable_by_procedure": false,
+        "answer_verified": false,
+        "diagram_status": "not_required",
         "human_review_required": true,
-        "worked_example_checked": false,
+        "known_gaps": [
+          "answer_not_machine_verified",
+          "solution_not_human_reviewed",
+          "question_not_canonical_or_active"
+        ],
         "student_visible": false,
         "live_deployable": false,
         "canonical_approval": false
@@ -248,35 +834,150 @@
       "artifact_type": "canonical_seed_question",
       "status": "human_review_required",
       "question_id": "Q_INTAKE_20260630_041840_001_006",
-      "source_ref": "PA_ITEM_006",
+      "source_ref": {
+        "source_type": "compiler_generated_from_demo",
+        "source_name": "demo_algebra_homework.txt",
+        "source_item_id": "PA_ITEM_006",
+        "rights_status": "generated_demo"
+      },
       "classification": {
         "subject_code": "MATHEMATICS",
-        "topic_code": "GRAPHING_LINES",
-        "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+        "topic_code": "MATH_ALGEBRA_GRAPHING_LINES",
+        "subtopic_code": "MATH_ALGEBRA_GRAPHING_LINES_BASIC",
         "micro_skill": "GRAPH_A_LINE_FROM_AN_EQUATION",
         "procedure_id": "PROC_INTAKE_20260630_041840_001_006",
         "difficulty_level": 2,
         "question_type": "short_response",
         "answer_type": "text",
-        "attempt_type_default": "single_attempt",
+        "attempt_type_default": "module_practice",
         "is_active": false
       },
       "question_payload": {
         "prompt": "Which point is on y = x + 2?",
+        "given": [],
+        "ask": "Which point is on y = x + 2?",
+        "diagram_required": false,
+        "image_ref": null,
         "source_item_id": "PA_ITEM_006",
+        "source_type": "compiler_generated_from_demo",
+        "source_name": "demo_algebra_homework.txt",
         "rights_status": "generated_demo"
       },
-      "answer": "(0, 2)",
-      "solution": "Substitute x = 0 to get y = 2.",
-      "procedure_step_refs": [],
-      "feedback_step_refs": [],
+      "answer": {
+        "verified_answer": "(0, 2)",
+        "unit": null,
+        "tolerance": null,
+        "answer_parts": [],
+        "grading_notes": [
+          "Answer is carried from demo source generation and requires human verification before use."
+        ]
+      },
+      "solution": {
+        "procedure_id": "PROC_INTAKE_20260630_041840_001_006",
+        "solution_steps": [
+          {
+            "step_index": 1,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_006_STEP_01",
+            "explanation": "Substitute x = 0 to get y = 2.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 2,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_006_STEP_02",
+            "explanation": "Substitute x = 0 to get y = 2.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 3,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_006_STEP_03",
+            "explanation": "Substitute x = 0 to get y = 2.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 4,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_006_STEP_04",
+            "explanation": "Substitute x = 0 to get y = 2.",
+            "human_review_required": true
+          },
+          {
+            "step_index": 5,
+            "procedure_step_id": "PROC_INTAKE_20260630_041840_001_006_STEP_05",
+            "explanation": "Substitute x = 0 to get y = 2.",
+            "human_review_required": true
+          }
+        ],
+        "final_answer": "(0, 2)"
+      },
+      "procedure_step_refs": [
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_006_STEP_01",
+          "step_index": 1
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_006_STEP_02",
+          "step_index": 2
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_006_STEP_03",
+          "step_index": 3
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_006_STEP_04",
+          "step_index": 4
+        },
+        {
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_006_STEP_05",
+          "step_index": 5
+        }
+      ],
+      "feedback_step_refs": [
+        {
+          "failure_signal": "sign_or_placement_error",
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_006_STEP_01",
+          "step_index": 1,
+          "feedback": "Human reviewer must approve feedback before this scaffold can be used."
+        },
+        {
+          "failure_signal": "unclassified",
+          "procedure_step_id": "PROC_INTAKE_20260630_041840_001_006_STEP_01",
+          "step_index": 1,
+          "feedback": "Human reviewer must approve feedback before this scaffold can be used."
+        }
+      ],
       "failure_signals": [
+        "sign_or_placement_error",
         "unclassified"
       ],
       "diagnostic_signal_annotations": [
-        "Generated demo question requires human review before any use."
+        "Generated demo question requires human review before any use.",
+        "Rich diagnostic labels remain annotations; live failure signals use only canonical values."
       ],
-      "generation_family": "GENFAM_INTAKE_20260630_041840_001_006",
+      "generation_family": {
+        "family_id": "GENFAM_INTAKE_20260630_041840_001_006",
+        "canonical_seed_id": "Q_INTAKE_20260630_041840_001_006",
+        "parameterization": {
+          "variable_fields": [
+            "prompt",
+            "given",
+            "ask",
+            "verified_answer"
+          ],
+          "constraints": [
+            "Generated variants must remain non-live until human review.",
+            "Generated variants must preserve the same micro-skill and procedure link."
+          ],
+          "invariants": {
+            "micro_skill": "GRAPH_A_LINE_FROM_AN_EQUATION",
+            "procedure_id": "PROC_INTAKE_20260630_041840_001_006",
+            "answer_type": "text",
+            "question_type": "short_response"
+          }
+        },
+        "difficulty_range": {
+          "min": 2,
+          "max": 2
+        }
+      },
       "non_live_status": {
         "student_visible": false,
         "live_deployable": false,
@@ -284,8 +985,17 @@
         "activation_performed": false
       },
       "validation": {
+        "fully_classified": true,
+        "procedure_exists": true,
+        "solvable_by_procedure": false,
+        "answer_verified": false,
+        "diagram_status": "not_required",
         "human_review_required": true,
-        "worked_example_checked": false,
+        "known_gaps": [
+          "answer_not_machine_verified",
+          "solution_not_human_reviewed",
+          "question_not_canonical_or_active"
+        ],
         "student_visible": false,
         "live_deployable": false,
         "canonical_approval": false

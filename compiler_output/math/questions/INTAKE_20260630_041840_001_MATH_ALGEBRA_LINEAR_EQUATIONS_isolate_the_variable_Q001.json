@@ -1,0 +1,172 @@
+{
+  "schema_version": "ACEF_QUESTION_v0_1",
+  "artifact_type": "canonical_seed_question",
+  "status": "human_review_required",
+  "question_id": "Q_INTAKE_20260630_041840_001_001",
+  "source_ref": {
+    "source_type": "compiler_generated_from_demo",
+    "source_name": "demo_algebra_homework.txt",
+    "source_item_id": "PA_ITEM_001",
+    "rights_status": "generated_demo"
+  },
+  "classification": {
+    "subject_code": "MATHEMATICS",
+    "topic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS",
+    "subtopic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS_BASIC",
+    "micro_skill": "ISOLATE_THE_VARIABLE",
+    "procedure_id": "PROC_INTAKE_20260630_041840_001_001",
+    "difficulty_level": 2,
+    "question_type": "short_response",
+    "answer_type": "text",
+    "attempt_type_default": "module_practice",
+    "is_active": false
+  },
+  "question_payload": {
+    "prompt": "Solve for x: x - 6 = 13.",
+    "given": [],
+    "ask": "Solve for x: x - 6 = 13.",
+    "diagram_required": false,
+    "image_ref": null,
+    "source_item_id": "PA_ITEM_001",
+    "source_type": "compiler_generated_from_demo",
+    "source_name": "demo_algebra_homework.txt",
+    "rights_status": "generated_demo"
+  },
+  "answer": {
+    "verified_answer": "x = 19",
+    "unit": null,
+    "tolerance": null,
+    "answer_parts": [],
+    "grading_notes": [
+      "Answer is carried from demo source generation and requires human verification before use."
+    ]
+  },
+  "solution": {
+    "procedure_id": "PROC_INTAKE_20260630_041840_001_001",
+    "solution_steps": [
+      {
+        "step_index": 1,
+        "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_01",
+        "explanation": "Add 6 to both sides.",
+        "human_review_required": true
+      },
+      {
+        "step_index": 2,
+        "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_02",
+        "explanation": "Add 6 to both sides.",
+        "human_review_required": true
+      },
+      {
+        "step_index": 3,
+        "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_03",
+        "explanation": "Add 6 to both sides.",
+        "human_review_required": true
+      },
+      {
+        "step_index": 4,
+        "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_04",
+        "explanation": "Add 6 to both sides.",
+        "human_review_required": true
+      },
+      {
+        "step_index": 5,
+        "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_05",
+        "explanation": "Add 6 to both sides.",
+        "human_review_required": true
+      }
+    ],
+    "final_answer": "x = 19"
+  },
+  "procedure_step_refs": [
+    {
+      "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_01",
+      "step_index": 1
+    },
+    {
+      "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_02",
+      "step_index": 2
+    },
+    {
+      "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_03",
+      "step_index": 3
+    },
+    {
+      "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_04",
+      "step_index": 4
+    },
+    {
+      "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_05",
+      "step_index": 5
+    }
+  ],
+  "feedback_step_refs": [
+    {
+      "failure_signal": "sign_or_placement_error",
+      "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_01",
+      "step_index": 1,
+      "feedback": "Human reviewer must approve feedback before this scaffold can be used."
+    },
+    {
+      "failure_signal": "unclassified",
+      "procedure_step_id": "PROC_INTAKE_20260630_041840_001_001_STEP_01",
+      "step_index": 1,
+      "feedback": "Human reviewer must approve feedback before this scaffold can be used."
+    }
+  ],
+  "failure_signals": [
+    "sign_or_placement_error",
+    "unclassified"
+  ],
+  "diagnostic_signal_annotations": [
+    "Generated demo question requires human review before any use.",
+    "Rich diagnostic labels remain annotations; live failure signals use only canonical values."
+  ],
+  "generation_family": {
+    "family_id": "GENFAM_INTAKE_20260630_041840_001_001",
+    "canonical_seed_id": "Q_INTAKE_20260630_041840_001_001",
+    "parameterization": {
+      "variable_fields": [
+        "prompt",
+        "given",
+        "ask",
+        "verified_answer"
+      ],
+      "constraints": [
+        "Generated variants must remain non-live until human review.",
+        "Generated variants must preserve the same micro-skill and procedure link."
+      ],
+      "invariants": {
+        "micro_skill": "ISOLATE_THE_VARIABLE",
+        "procedure_id": "PROC_INTAKE_20260630_041840_001_001",
+        "answer_type": "text",
+        "question_type": "short_response"
+      }
+    },
+    "difficulty_range": {
+      "min": 2,
+      "max": 2
+    }
+  },
+  "non_live_status": {
+    "student_visible": false,
+    "live_deployable": false,
+    "exposure_status": "not_exposed",
+    "activation_performed": false
+  },
+  "validation": {
+    "fully_classified": true,
+    "procedure_exists": true,
+    "solvable_by_procedure": false,
+    "answer_verified": false,
+    "diagram_status": "not_required",
+    "human_review_required": true,
+    "known_gaps": [
+      "answer_not_machine_verified",
+      "solution_not_human_reviewed",
+      "question_not_canonical_or_active"
+    ],
+    "student_visible": false,
+    "live_deployable": false,
+    "canonical_approval": false
+  }
+}

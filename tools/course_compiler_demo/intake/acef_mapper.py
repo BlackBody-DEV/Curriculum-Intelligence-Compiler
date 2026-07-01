@@ -172,10 +172,21 @@ def _topic_for_skill(
     return topics_by_id.get(skill.get("parent_topic_candidate_id", ""), {})
 
 
-def _base_validation() -> dict[str, Any]:
+def _base_validation(
+    *,
+    fully_classified: bool,
+    procedure_exists: bool,
+    diagram_required: bool,
+    known_gaps: list[str] | None = None,
+) -> dict[str, Any]:
     return {
+        "fully_classified": fully_classified,
+        "procedure_exists": procedure_exists,
+        "solvable_by_procedure": False,
+        "answer_verified": False,
+        "diagram_status": "not_reviewed" if diagram_required else "not_required",
         "human_review_required": True,
-        "worked_example_checked": False,
+        "known_gaps": known_gaps or [],
         "student_visible": False,
         "live_deployable": False,
         "canonical_approval": False,
@@ -261,11 +272,150 @@ def _procedure_scaffold(
     }
 
 
-def _question_payload(item: dict[str, Any]) -> dict[str, Any]:
+def _question_source_ref(item: dict[str, Any], intake_record: dict[str, Any]) -> dict[str, Any]:
+    source_name = intake_record.get("original_filename") or "synthetic_demo_source"
     return {
-        "prompt": item.get("prompt"),
+        "source_type": "compiler_generated_from_demo",
+        "source_name": source_name,
         "source_item_id": item.get("item_id"),
         "rights_status": item.get("rights_status", "generated_demo"),
+    }
+
+
+def _question_payload(item: dict[str, Any], intake_record: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "prompt": item.get("prompt"),
+        "given": item.get("given", []),
+        "ask": item.get("ask") or item.get("prompt"),
+        "diagram_required": bool(item.get("diagram_required", False)),
+        "image_ref": item.get("image_ref"),
+        "source_item_id": item.get("item_id"),
+        "source_type": "compiler_generated_from_demo",
+        "source_name": intake_record.get("original_filename") or "synthetic_demo_source",
+        "rights_status": item.get("rights_status", "generated_demo"),
+    }
+
+
+def _answer_block(item: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "verified_answer": item.get("answer"),
+        "unit": item.get("unit"),
+        "tolerance": item.get("tolerance"),
+        "answer_parts": item.get("answer_parts", []),
+        "grading_notes": [
+            "Answer is carried from demo source generation and requires human verification before use."
+        ],
+    }
+
+
+def _procedure_step_refs(procedure: dict[str, Any] | None) -> list[dict[str, Any]]:
+    if not procedure:
+        return []
+    return [
+        {
+            "procedure_step_id": step.get("step_id"),
+            "step_index": step.get("step_index"),
+        }
+        for step in procedure.get("procedure_steps", [])
+    ]
+
+
+def _solution_block(
+    *,
+    item: dict[str, Any],
+    procedure_id: str,
+    procedure: dict[str, Any] | None,
+) -> dict[str, Any]:
+    procedure_steps = _procedure_step_refs(procedure)
+    summary = item.get("solution_summary") or "Human reviewer must author or approve the solution."
+    solution_steps = []
+    if procedure_steps:
+        for ref in procedure_steps:
+            solution_steps.append(
+                {
+                    "step_index": ref["step_index"],
+                    "procedure_step_id": ref["procedure_step_id"],
+                    "explanation": summary,
+                    "human_review_required": True,
+                }
+            )
+    else:
+        solution_steps.append(
+            {
+                "step_index": 1,
+                "procedure_step_id": None,
+                "explanation": summary,
+                "human_review_required": True,
+            }
+        )
+    return {
+        "procedure_id": procedure_id,
+        "solution_steps": solution_steps,
+        "final_answer": item.get("answer"),
+    }
+
+
+def _canonical_failure_signals(procedure: dict[str, Any] | None) -> list[str]:
+    if not procedure:
+        return ["unclassified"]
+    signals = [
+        mapping.get("signal")
+        for mapping in procedure.get("failure_signal_mappings", [])
+        if mapping.get("signal") in CANONICAL_FAILURE_SIGNALS
+    ]
+    return signals or ["unclassified"]
+
+
+def _feedback_step_refs(
+    *,
+    procedure: dict[str, Any] | None,
+    failure_signals: list[str],
+) -> list[dict[str, Any]]:
+    step_refs = _procedure_step_refs(procedure)
+    fallback_ref = step_refs[0] if step_refs else {"procedure_step_id": None, "step_index": None}
+    return [
+        {
+            "failure_signal": signal,
+            "procedure_step_id": fallback_ref["procedure_step_id"],
+            "step_index": fallback_ref["step_index"],
+            "feedback": "Human reviewer must approve feedback before this scaffold can be used.",
+        }
+        for signal in failure_signals
+    ]
+
+
+def _generation_family_block(
+    *,
+    intake_id: str,
+    index: int,
+    question_id: str,
+    classification: dict[str, Any],
+) -> dict[str, Any]:
+    return {
+        "family_id": f"GENFAM_{intake_id}_{index:03d}",
+        "canonical_seed_id": question_id,
+        "parameterization": {
+            "variable_fields": [
+                "prompt",
+                "given",
+                "ask",
+                "verified_answer",
+            ],
+            "constraints": [
+                "Generated variants must remain non-live until human review.",
+                "Generated variants must preserve the same micro-skill and procedure link.",
+            ],
+            "invariants": {
+                "micro_skill": classification["micro_skill"],
+                "procedure_id": classification["procedure_id"],
+                "answer_type": classification["answer_type"],
+                "question_type": classification["question_type"],
+            },
+        },
+        "difficulty_range": {
+            "min": classification["difficulty_level"],
+            "max": classification["difficulty_level"],
+        },
     }
 
 
@@ -276,54 +426,77 @@ def _question_scaffold(
     item: dict[str, Any],
     skill_by_id: dict[str, dict[str, Any]],
     topics_by_id: dict[str, dict[str, Any]],
-    procedure_by_skill_id: dict[str, str],
+    procedure_by_skill_id: dict[str, dict[str, Any]],
     subject_code: str,
+    intake_record: dict[str, Any],
 ) -> dict[str, Any]:
     skill_ids = item.get("target_micro_skill_candidate_ids") or [item.get("target_micro_skill_candidate_id")]
     skill_id = next((candidate for candidate in skill_ids if candidate), None)
     skill = skill_by_id.get(skill_id or "", {})
     topic = _topic_for_skill(skill, topics_by_id)
-    topic_code = _slug(topic.get("topic_name"), "TOPIC_REVIEW_REQUIRED")
+    topic_code = _topic_code(topic)
+    subtopic_code = _subtopic_code(topic_code)
     micro_skill = _slug(skill.get("micro_skill_name"), "MICRO_SKILL_REVIEW_REQUIRED")
-    procedure_id = procedure_by_skill_id.get(skill_id or "", "PROCEDURE_REVIEW_REQUIRED")
-    generation_family = f"GENFAM_{intake_id}_{index:03d}"
-    failure_signals = ["unclassified"]
+    procedure = procedure_by_skill_id.get(skill_id or "")
+    procedure_id = procedure.get("procedure_id", "PROCEDURE_REVIEW_REQUIRED") if procedure else "PROCEDURE_REVIEW_REQUIRED"
+    question_id = f"Q_{intake_id}_{index:03d}"
+    classification = {
+        "subject_code": subject_code,
+        "topic_code": topic_code,
+        "subtopic_code": subtopic_code,
+        "micro_skill": micro_skill,
+        "procedure_id": procedure_id,
+        "difficulty_level": item.get("difficulty", "review_required"),
+        "question_type": item.get("question_type", "short_response"),
+        "answer_type": item.get("answer_type", "text"),
+        "attempt_type_default": "module_practice",
+        "is_active": False,
+    }
+    failure_signals = _canonical_failure_signals(procedure)
     assert set(failure_signals).issubset(CANONICAL_FAILURE_SIGNALS)
+    diagram_required = bool(item.get("diagram_required", False))
+    known_gaps = [
+        "answer_not_machine_verified",
+        "solution_not_human_reviewed",
+        "question_not_canonical_or_active",
+    ]
+    if not procedure:
+        known_gaps.append("procedure_match_review_required")
     return {
         "schema_version": "ACEF_QUESTION_v0_1",
         "artifact_type": "canonical_seed_question",
         "status": "human_review_required",
-        "question_id": f"Q_{intake_id}_{index:03d}",
-        "source_ref": item.get("item_id"),
-        "classification": {
-            "subject_code": subject_code,
-            "topic_code": topic_code,
-            "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
-            "micro_skill": micro_skill,
-            "procedure_id": procedure_id,
-            "difficulty_level": item.get("difficulty", "review_required"),
-            "question_type": item.get("question_type", "short_response"),
-            "answer_type": item.get("answer_type", "text"),
-            "attempt_type_default": "single_attempt",
-            "is_active": False,
-        },
-        "question_payload": _question_payload(item),
-        "answer": item.get("answer"),
-        "solution": item.get("solution_summary"),
-        "procedure_step_refs": [],
-        "feedback_step_refs": [],
+        "question_id": question_id,
+        "source_ref": _question_source_ref(item, intake_record),
+        "classification": classification,
+        "question_payload": _question_payload(item, intake_record),
+        "answer": _answer_block(item),
+        "solution": _solution_block(item=item, procedure_id=procedure_id, procedure=procedure),
+        "procedure_step_refs": _procedure_step_refs(procedure),
+        "feedback_step_refs": _feedback_step_refs(procedure=procedure, failure_signals=failure_signals),
         "failure_signals": failure_signals,
         "diagnostic_signal_annotations": [
-            "Generated demo question requires human review before any use."
+            "Generated demo question requires human review before any use.",
+            "Rich diagnostic labels remain annotations; live failure signals use only canonical values.",
         ],
-        "generation_family": generation_family,
+        "generation_family": _generation_family_block(
+            intake_id=intake_id,
+            index=index,
+            question_id=question_id,
+            classification=classification,
+        ),
         "non_live_status": {
             "student_visible": False,
             "live_deployable": False,
             "exposure_status": "not_exposed",
             "activation_performed": False,
         },
-        "validation": _base_validation(),
+        "validation": _base_validation(
+            fully_classified=bool(skill and topic and procedure),
+            procedure_exists=bool(procedure),
+            diagram_required=diagram_required,
+            known_gaps=known_gaps,
+        ),
     }
 
 
@@ -333,11 +506,13 @@ def _generation_family_scaffold(
     index: int,
     question: dict[str, Any],
 ) -> dict[str, Any]:
+    family = question["generation_family"]
+    family_id = family["family_id"] if isinstance(family, dict) else family
     return {
         "schema_version": "ACEF_GENERATION_FAMILY_v0_1",
         "artifact_type": "generation_family",
         "status": "human_review_required",
-        "generation_family_id": question["generation_family"],
+        "generation_family_id": family_id,
         "seed_question_id": question["question_id"],
         "allowed_failure_signals": sorted(CANONICAL_FAILURE_SIGNALS),
         "generation_policy": "review_before_commit",
@@ -406,7 +581,7 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
         for index, skill in enumerate(skills, start=1)
     ]
     procedure_by_skill_id = {
-        skill["candidate_id"]: procedure["procedure_id"]
+        skill["candidate_id"]: procedure
         for skill, procedure in zip(skills, procedures)
     }
 
@@ -420,6 +595,7 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
             topics_by_id=topics_by_id,
             procedure_by_skill_id=procedure_by_skill_id,
             subject_code=subject_code,
+            intake_record=intake_record,
         )
         for index, item in enumerate(raw_question_items, start=1)
     ]
@@ -436,13 +612,14 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
 
     first_topic = topics[0] if topics else {}
     first_skill = skills[0] if skills else {}
+    first_topic_code = _topic_code(first_topic)
     package = {
         "schema_version": "ACEF_PACKAGE_v0_1",
         "package_id": f"PKG_{intake_id}",
         "status": "human_review_required",
         "subject_code": subject_code,
-        "topic_code": _slug(first_topic.get("topic_name"), "TOPIC_REVIEW_REQUIRED"),
-        "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+        "topic_code": first_topic_code,
+        "subtopic_code": _subtopic_code(first_topic_code),
         "micro_skill": _slug(first_skill.get("micro_skill_name"), "MICRO_SKILL_REVIEW_REQUIRED"),
         "artifacts": {
             "procedures": [procedure["procedure_id"] for procedure in procedures],
@@ -451,6 +628,10 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
                 for procedure in procedures
             ],
             "questions": [question["question_id"] for question in questions],
+            "question_scaffold_paths": [
+                f"compiler_output/math/questions/{intake_id}_{question['classification']['topic_code']}_{question['classification']['micro_skill'].lower()}_Q{index:03d}.json"
+                for index, question in enumerate(questions, start=1)
+            ],
             "generation_families": [
                 family["generation_family_id"] for family in generation_families
             ],
@@ -481,7 +662,7 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
             "procedures": procedures,
         },
         "acef_question_scaffolds.json": {
-            "schema_version": "ACEF_QUESTION_SCAFFOLDS_v0_1",
+            "schema_version": "ACEF_QUESTION_SCAFFOLD_COLLECTION_v0_1",
             "status": "human_review_required",
             "human_review_required": True,
             "questions": questions,
@@ -513,4 +694,14 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
             / f"{intake_id}_{procedure['topic_code']}_{procedure['micro_skill'].lower()}.json"
         )
         write_json(staging_path, procedure)
+    legacy_question_collection = staging_dirs["questions"] / f"{intake_id}_acef_question_scaffolds.json"
+    if legacy_question_collection.exists():
+        legacy_question_collection.unlink()
+    for index, question in enumerate(questions, start=1):
+        classification = question["classification"]
+        staging_path = (
+            staging_dirs["questions"]
+            / f"{intake_id}_{classification['topic_code']}_{classification['micro_skill'].lower()}_Q{index:03d}.json"
+        )
+        write_json(staging_path, question)
     return output_paths

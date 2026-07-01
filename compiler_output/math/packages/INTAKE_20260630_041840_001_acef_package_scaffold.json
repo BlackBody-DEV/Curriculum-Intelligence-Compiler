@@ -3,8 +3,8 @@
   "package_id": "PKG_INTAKE_20260630_041840_001",
   "status": "human_review_required",
   "subject_code": "MATHEMATICS",
-  "topic_code": "LINEAR_EQUATIONS",
-  "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+  "topic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS",
+  "subtopic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS_BASIC",
   "micro_skill": "ISOLATE_THE_VARIABLE",
   "artifacts": {
     "procedures": [
@@ -30,6 +30,14 @@
       "Q_INTAKE_20260630_041840_001_004",
       "Q_INTAKE_20260630_041840_001_005",
       "Q_INTAKE_20260630_041840_001_006"
+    ],
+    "question_scaffold_paths": [
+      "compiler_output/math/questions/INTAKE_20260630_041840_001_MATH_ALGEBRA_LINEAR_EQUATIONS_isolate_the_variable_Q001.json",
+      "compiler_output/math/questions/INTAKE_20260630_041840_001_MATH_ALGEBRA_LINEAR_EQUATIONS_combine_like_terms_Q002.json",
+      "compiler_output/math/questions/INTAKE_20260630_041840_001_MATH_ALGEBRA_LINEAR_EQUATIONS_solve_a_two_step_equation_Q003.json",
+      "compiler_output/math/questions/INTAKE_20260630_041840_001_MATH_ALGEBRA_GRAPHING_LINES_compute_slope_Q004.json",
+      "compiler_output/math/questions/INTAKE_20260630_041840_001_MATH_ALGEBRA_GRAPHING_LINES_identify_y_intercept_Q005.json",
+      "compiler_output/math/questions/INTAKE_20260630_041840_001_MATH_ALGEBRA_GRAPHING_LINES_graph_a_line_from_an_equation_Q006.json"
     ],
     "generation_families": [
       "GENFAM_INTAKE_20260630_041840_001_001",

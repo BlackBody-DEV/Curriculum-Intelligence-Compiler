@@ -3,8 +3,8 @@
   "package_id": "PKG_INTAKE_20260701_030704_001",
   "status": "human_review_required",
   "subject_code": "MATHEMATICS",
-  "topic_code": "LINEAR_EQUATIONS",
-  "subtopic_code": "SUBTOPIC_REVIEW_REQUIRED",
+  "topic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS",
+  "subtopic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS_BASIC",
   "micro_skill": "ISOLATE_THE_VARIABLE",
   "artifacts": {
     "procedures": [
@@ -18,6 +18,10 @@
     "questions": [
       "Q_INTAKE_20260701_030704_001_001",
       "Q_INTAKE_20260701_030704_001_002"
+    ],
+    "question_scaffold_paths": [
+      "compiler_output/math/questions/INTAKE_20260701_030704_001_MATH_ALGEBRA_LINEAR_EQUATIONS_isolate_the_variable_Q001.json",
+      "compiler_output/math/questions/INTAKE_20260701_030704_001_MATH_ALGEBRA_GRAPHING_LINES_compute_slope_Q002.json"
     ],
     "generation_families": [
       "GENFAM_INTAKE_20260701_030704_001_001",
