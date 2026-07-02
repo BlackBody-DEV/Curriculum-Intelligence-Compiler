@@ -26,7 +26,11 @@
     "given": [],
     "ask": "Which point is on y = x + 2?",
     "diagram_required": false,
-    "image_ref": null,
+    "image_ref": {
+      "type": "not_required",
+      "value": null,
+      "alt_text": "No diagram required for this scaffold-level generated demo question."
+    },
     "source_item_id": "PA_ITEM_006",
     "source_type": "compiler_generated_from_demo",
     "source_name": "demo_algebra_homework.txt",

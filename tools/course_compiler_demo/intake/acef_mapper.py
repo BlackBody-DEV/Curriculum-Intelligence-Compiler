@@ -282,13 +282,41 @@ def _question_source_ref(item: dict[str, Any], intake_record: dict[str, Any]) ->
     }
 
 
-def _question_payload(item: dict[str, Any], intake_record: dict[str, Any]) -> dict[str, Any]:
+def _image_ref(item: dict[str, Any], micro_skill: str) -> dict[str, Any]:
+    existing_ref = item.get("image_ref")
+    if isinstance(existing_ref, dict) and "value" in existing_ref:
+        return {
+            "type": existing_ref.get("type", "provided"),
+            "value": existing_ref.get("value"),
+            "alt_text": existing_ref.get(
+                "alt_text",
+                "Diagram or visual reference placeholder for human review.",
+            ),
+        }
+    if bool(item.get("diagram_required", False)):
+        return {
+            "type": "generated_later",
+            "value": None,
+            "alt_text": f"Generated-later visual placeholder for the micro-skill: {micro_skill.lower()}.",
+        }
+    return {
+        "type": "not_required",
+        "value": None,
+        "alt_text": "No diagram required for this scaffold-level generated demo question.",
+    }
+
+
+def _question_payload(
+    item: dict[str, Any],
+    intake_record: dict[str, Any],
+    micro_skill: str,
+) -> dict[str, Any]:
     return {
         "prompt": item.get("prompt"),
         "given": item.get("given", []),
         "ask": item.get("ask") or item.get("prompt"),
         "diagram_required": bool(item.get("diagram_required", False)),
-        "image_ref": item.get("image_ref"),
+        "image_ref": _image_ref(item, micro_skill),
         "source_item_id": item.get("item_id"),
         "source_type": "compiler_generated_from_demo",
         "source_name": intake_record.get("original_filename") or "synthetic_demo_source",
@@ -469,7 +497,7 @@ def _question_scaffold(
         "question_id": question_id,
         "source_ref": _question_source_ref(item, intake_record),
         "classification": classification,
-        "question_payload": _question_payload(item, intake_record),
+        "question_payload": _question_payload(item, intake_record, micro_skill),
         "answer": _answer_block(item),
         "solution": _solution_block(item=item, procedure_id=procedure_id, procedure=procedure),
         "procedure_step_refs": _procedure_step_refs(procedure),
