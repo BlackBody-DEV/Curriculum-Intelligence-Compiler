@@ -27,6 +27,10 @@
       "GENFAM_INTAKE_20260701_030704_001_001",
       "GENFAM_INTAKE_20260701_030704_001_002"
     ],
+    "generation_family_scaffold_paths": [
+      "compiler_output/math/generation_families/INTAKE_20260701_030704_001_MATH_ALGEBRA_LINEAR_EQUATIONS_isolate_the_variable_GEN001.json",
+      "compiler_output/math/generation_families/INTAKE_20260701_030704_001_MATH_ALGEBRA_GRAPHING_LINES_compute_slope_GEN002.json"
+    ],
     "validation_reports": [
       "ACEF_VALIDATION_INTAKE_20260701_030704_001"
     ]

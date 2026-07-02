@@ -536,19 +536,104 @@ def _generation_family_scaffold(
 ) -> dict[str, Any]:
     family = question["generation_family"]
     family_id = family["family_id"] if isinstance(family, dict) else family
+    classification = question["classification"]
+    parameterization = family.get("parameterization", {}) if isinstance(family, dict) else {}
+    difficulty = classification.get("difficulty_level", 2)
+    if isinstance(difficulty, (int, float)):
+        difficulty_range = [max(1, int(difficulty) - 1), min(4, int(difficulty) + 1)]
+    else:
+        difficulty_range = [1, 3]
+    source_ref = question.get("source_ref")
+    source_refs = [source_ref] if isinstance(source_ref, dict) else []
+    procedure_id = classification.get("procedure_id", "PROCEDURE_REVIEW_REQUIRED")
+    seed_question_id = question["question_id"]
+    question_type = classification.get("question_type", "short_response")
+    answer_type = classification.get("answer_type", "text")
+    variable_fields = parameterization.get(
+        "variable_fields",
+        [
+            "question_payload.prompt",
+            "question_payload.given",
+            "question_payload.ask",
+            "answer.verified_answer",
+        ],
+    )
+    constraints = [
+        "Generated variants must preserve the same micro-skill.",
+        "Generated variants must preserve the same procedure_id.",
+        "Generated variants must preserve the same answer_type.",
+        "Generated variants must remain appropriate for the detected course level.",
+        "Generated variants must be solvable by the linked procedure after human review.",
+    ]
+    invariants = [
+        "same subject_code",
+        "same topic_code",
+        "same subtopic_code",
+        "same micro_skill",
+        "same procedure_id",
+        "same question_type",
+        "same answer_type",
+        "same feedback signal policy",
+    ]
+    procedure_exists = procedure_id != "PROCEDURE_REVIEW_REQUIRED"
     return {
         "schema_version": "ACEF_GENERATION_FAMILY_v0_1",
         "artifact_type": "generation_family",
         "status": "human_review_required",
-        "generation_family_id": family_id,
-        "seed_question_id": question["question_id"],
+        "family_id": family_id,
+        "family_name": f"{classification.get('micro_skill', 'review_required').lower()} generation family",
+        "subject_code": classification.get("subject_code", "SUBJECT_REVIEW_REQUIRED"),
+        "topic_code": classification.get("topic_code", "TOPIC_REVIEW_REQUIRED"),
+        "subtopic_code": classification.get("subtopic_code", "SUBTOPIC_REVIEW_REQUIRED"),
+        "micro_skill": classification.get("micro_skill", "MICRO_SKILL_REVIEW_REQUIRED"),
+        "micro_skill_name": classification.get("micro_skill", "MICRO_SKILL_REVIEW_REQUIRED").replace("_", " ").title(),
+        "procedure_id": procedure_id,
+        "canonical_seed_ids": [seed_question_id],
+        "source_question_ids": [seed_question_id],
+        "parameterization": {
+            "variable_fields": variable_fields,
+            "constraints": constraints,
+            "invariants": invariants,
+        },
+        "difficulty_range": difficulty_range,
+        "invariants": invariants,
+        "constraints": constraints,
+        "linked_artifacts": {
+            "procedure_id": procedure_id,
+            "seed_question_ids": [seed_question_id],
+            "source_question_ids": [seed_question_id],
+            "question_type": question_type,
+            "answer_type": answer_type,
+        },
+        "source_refs": source_refs,
         "allowed_failure_signals": sorted(CANONICAL_FAILURE_SIGNALS),
         "generation_policy": "review_before_commit",
-        "student_visible": False,
-        "live_deployable": False,
-        "human_review_required": True,
-        "review_notes": [
-            f"Generation family scaffold {index} for {intake_id}; not active content."
+        "non_live_status": {
+            "student_visible": False,
+            "live_deployable": False,
+            "exposure_status": "not_exposed",
+            "activation_performed": False,
+        },
+        "validation": {
+            "human_review_required": True,
+            "seed_questions_exist": True,
+            "procedure_exists": procedure_exists,
+            "parameterization_complete": bool(variable_fields and constraints and invariants),
+            "variants_generated": False,
+            "variants_verified": False,
+            "ready_for_generation": False,
+            "known_gaps": [
+                "generation_variants_not_generated",
+                "generation_variants_not_verified",
+                "human_review_required_before_generation",
+            ]
+            + ([] if procedure_exists else ["procedure_link_requires_review"]),
+        },
+        "created_by": "course_compiler_demo.acef_mapper",
+        "notes": [
+            f"Generation family scaffold {index} for {intake_id}; not active content.",
+            "Subject → Topic → Subtopic → Micro-skill → Procedure → Question linkage is scaffold-level.",
+            "Human review is required before variant generation or canonical use.",
         ],
     }
 
@@ -661,7 +746,11 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
                 for index, question in enumerate(questions, start=1)
             ],
             "generation_families": [
-                family["generation_family_id"] for family in generation_families
+                family["family_id"] for family in generation_families
+            ],
+            "generation_family_scaffold_paths": [
+                f"compiler_output/math/generation_families/{intake_id}_{family['topic_code']}_{family['micro_skill'].lower()}_GEN{index:03d}.json"
+                for index, family in enumerate(generation_families, start=1)
             ],
             "validation_reports": [f"ACEF_VALIDATION_{intake_id}"],
         },
@@ -732,4 +821,13 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
             / f"{intake_id}_{classification['topic_code']}_{classification['micro_skill'].lower()}_Q{index:03d}.json"
         )
         write_json(staging_path, question)
+    legacy_generation_collection = staging_dirs["generation_families"] / f"{intake_id}_acef_generation_family_scaffolds.json"
+    if legacy_generation_collection.exists():
+        legacy_generation_collection.unlink()
+    for index, family in enumerate(generation_families, start=1):
+        staging_path = (
+            staging_dirs["generation_families"]
+            / f"{intake_id}_{family['topic_code']}_{family['micro_skill'].lower()}_GEN{index:03d}.json"
+        )
+        write_json(staging_path, family)
     return output_paths

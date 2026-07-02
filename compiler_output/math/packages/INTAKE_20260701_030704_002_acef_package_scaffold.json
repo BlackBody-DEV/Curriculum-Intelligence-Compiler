@@ -32,6 +32,11 @@
       "GENFAM_INTAKE_20260701_030704_002_002",
       "GENFAM_INTAKE_20260701_030704_002_003"
     ],
+    "generation_family_scaffold_paths": [
+      "compiler_output/math/generation_families/INTAKE_20260701_030704_002_MATH_ALGEBRA_LINEAR_EQUATIONS_isolate_the_variable_GEN001.json",
+      "compiler_output/math/generation_families/INTAKE_20260701_030704_002_MATH_ALGEBRA_LINEAR_EQUATIONS_solve_a_two_step_equation_GEN002.json",
+      "compiler_output/math/generation_families/INTAKE_20260701_030704_002_MATH_ALGEBRA_GRAPHING_LINES_compute_slope_GEN003.json"
+    ],
     "validation_reports": [
       "ACEF_VALIDATION_INTAKE_20260701_030704_002"
     ]

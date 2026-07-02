@@ -1,0 +1,117 @@
+{
+  "schema_version": "ACEF_GENERATION_FAMILY_v0_1",
+  "artifact_type": "generation_family",
+  "status": "human_review_required",
+  "family_id": "GENFAM_INTAKE_20260630_041840_001_002",
+  "family_name": "combine_like_terms generation family",
+  "subject_code": "MATHEMATICS",
+  "topic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS",
+  "subtopic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS_BASIC",
+  "micro_skill": "COMBINE_LIKE_TERMS",
+  "micro_skill_name": "Combine Like Terms",
+  "procedure_id": "PROC_INTAKE_20260630_041840_001_002",
+  "canonical_seed_ids": [
+    "Q_INTAKE_20260630_041840_001_002"
+  ],
+  "source_question_ids": [
+    "Q_INTAKE_20260630_041840_001_002"
+  ],
+  "parameterization": {
+    "variable_fields": [
+      "prompt",
+      "given",
+      "ask",
+      "verified_answer"
+    ],
+    "constraints": [
+      "Generated variants must preserve the same micro-skill.",
+      "Generated variants must preserve the same procedure_id.",
+      "Generated variants must preserve the same answer_type.",
+      "Generated variants must remain appropriate for the detected course level.",
+      "Generated variants must be solvable by the linked procedure after human review."
+    ],
+    "invariants": [
+      "same subject_code",
+      "same topic_code",
+      "same subtopic_code",
+      "same micro_skill",
+      "same procedure_id",
+      "same question_type",
+      "same answer_type",
+      "same feedback signal policy"
+    ]
+  },
+  "difficulty_range": [
+    1,
+    3
+  ],
+  "invariants": [
+    "same subject_code",
+    "same topic_code",
+    "same subtopic_code",
+    "same micro_skill",
+    "same procedure_id",
+    "same question_type",
+    "same answer_type",
+    "same feedback signal policy"
+  ],
+  "constraints": [
+    "Generated variants must preserve the same micro-skill.",
+    "Generated variants must preserve the same procedure_id.",
+    "Generated variants must preserve the same answer_type.",
+    "Generated variants must remain appropriate for the detected course level.",
+    "Generated variants must be solvable by the linked procedure after human review."
+  ],
+  "linked_artifacts": {
+    "procedure_id": "PROC_INTAKE_20260630_041840_001_002",
+    "seed_question_ids": [
+      "Q_INTAKE_20260630_041840_001_002"
+    ],
+    "source_question_ids": [
+      "Q_INTAKE_20260630_041840_001_002"
+    ],
+    "question_type": "short_response",
+    "answer_type": "text"
+  },
+  "source_refs": [
+    {
+      "source_type": "compiler_generated_from_demo",
+      "source_name": "demo_algebra_homework.txt",
+      "source_item_id": "PA_ITEM_002",
+      "rights_status": "generated_demo"
+    }
+  ],
+  "allowed_failure_signals": [
+    "axis_confusion",
+    "sign_or_placement_error",
+    "simple_average_used",
+    "unclassified"
+  ],
+  "generation_policy": "review_before_commit",
+  "non_live_status": {
+    "student_visible": false,
+    "live_deployable": false,
+    "exposure_status": "not_exposed",
+    "activation_performed": false
+  },
+  "validation": {
+    "human_review_required": true,
+    "seed_questions_exist": true,
+    "procedure_exists": true,
+    "parameterization_complete": true,
+    "variants_generated": false,
+    "variants_verified": false,
+    "ready_for_generation": false,
+    "known_gaps": [
+      "generation_variants_not_generated",
+      "generation_variants_not_verified",
+      "human_review_required_before_generation"
+    ]
+  },
+  "created_by": "course_compiler_demo.acef_mapper",
+  "notes": [
+    "Generation family scaffold 2 for INTAKE_20260630_041840_001; not active content.",
+    "Subject \u2192 Topic \u2192 Subtopic \u2192 Micro-skill \u2192 Procedure \u2192 Question linkage is scaffold-level.",
+    "Human review is required before variant generation or canonical use."
+  ]
+}
