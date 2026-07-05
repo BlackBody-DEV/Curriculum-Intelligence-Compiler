@@ -881,9 +881,14 @@ def _validation_scaffold(
         "human_review_check": {
             "human_review_required": True,
             "package_status": package.get("status"),
-            "production_ready": False,
-            "canonical_ready": False,
             "live_deployable": False,
+            "readiness_certification": {
+                "public_release_certified": False,
+                "canonical_promotion_certified": False,
+                "live_delivery_certified": False,
+                "student_delivery_certified": False,
+                "review_required_before_any_promotion": True,
+            },
         },
         "known_gaps": unique_known_gaps,
         "promotion_recommendation": "review_before_commit",

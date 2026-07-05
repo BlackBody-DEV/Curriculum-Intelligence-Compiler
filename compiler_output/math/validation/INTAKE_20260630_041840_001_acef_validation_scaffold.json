@@ -151,9 +151,14 @@
   "human_review_check": {
     "human_review_required": true,
     "package_status": "human_review_required",
-    "production_ready": false,
-    "canonical_ready": false,
-    "live_deployable": false
+    "live_deployable": false,
+    "readiness_certification": {
+      "public_release_certified": false,
+      "canonical_promotion_certified": false,
+      "live_delivery_certified": false,
+      "student_delivery_certified": false,
+      "review_required_before_any_promotion": true
+    }
   },
   "known_gaps": [
     "textbook_extraction_not_implemented",
