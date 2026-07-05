@@ -1,21 +1,163 @@
 {
-  "schema_version": "ACEF_VALIDATION_v0_1",
+  "schema_version": "ACEF_VALIDATION_REPORT_v0_1",
   "artifact_type": "validation_report",
   "status": "human_review_required",
-  "intake_id": "INTAKE_20260701_030704_002",
-  "compiler_validation_result": "pass",
-  "procedure_scaffold_count": 3,
-  "question_scaffold_count": 3,
+  "validation_id": "ACEF_VALIDATION_INTAKE_20260701_030704_002",
+  "package_id": "PKG_INTAKE_20260701_030704_002",
+  "subject_code": "MATHEMATICS",
+  "topic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS",
+  "subtopic_code": "MATH_ALGEBRA_LINEAR_EQUATIONS_BASIC",
+  "micro_skill": "ISOLATE_THE_VARIABLE",
+  "procedure_id": "PROC_INTAKE_20260701_030704_002_001",
+  "source_refs": [
+    {
+      "source_type": "synthetic_demo",
+      "source_name": "batch_algebra_review.md",
+      "evidence_refs": [
+        "EV_SKILL_001_001"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "checked_artifacts": {
+    "package_scaffold_path": "compiler_output/intake_runs/INTAKE_20260701_030704_002/acef_package_scaffold.json",
+    "run_validation_report_path": "compiler_output/intake_runs/INTAKE_20260701_030704_002/acef_validation_scaffold.json",
+    "staged_validation_report_path": "compiler_output/math/validation/INTAKE_20260701_030704_002_acef_validation_scaffold.json",
+    "procedure_ids": [
+      "PROC_INTAKE_20260701_030704_002_001",
+      "PROC_INTAKE_20260701_030704_002_002",
+      "PROC_INTAKE_20260701_030704_002_003"
+    ],
+    "question_ids": [
+      "Q_INTAKE_20260701_030704_002_001",
+      "Q_INTAKE_20260701_030704_002_002",
+      "Q_INTAKE_20260701_030704_002_003"
+    ],
+    "generation_family_ids": [
+      "GENFAM_INTAKE_20260701_030704_002_001",
+      "GENFAM_INTAKE_20260701_030704_002_002",
+      "GENFAM_INTAKE_20260701_030704_002_003"
+    ],
+    "procedure_scaffold_paths": [
+      "compiler_output/math/procedures/INTAKE_20260701_030704_002_MATH_ALGEBRA_LINEAR_EQUATIONS_isolate_the_variable.json",
+      "compiler_output/math/procedures/INTAKE_20260701_030704_002_MATH_ALGEBRA_LINEAR_EQUATIONS_solve_a_two_step_equation.json",
+      "compiler_output/math/procedures/INTAKE_20260701_030704_002_MATH_ALGEBRA_GRAPHING_LINES_compute_slope.json"
+    ],
+    "question_scaffold_paths": [
+      "compiler_output/math/questions/INTAKE_20260701_030704_002_MATH_ALGEBRA_LINEAR_EQUATIONS_isolate_the_variable_Q001.json",
+      "compiler_output/math/questions/INTAKE_20260701_030704_002_MATH_ALGEBRA_LINEAR_EQUATIONS_solve_a_two_step_equation_Q002.json",
+      "compiler_output/math/questions/INTAKE_20260701_030704_002_MATH_ALGEBRA_GRAPHING_LINES_compute_slope_Q003.json"
+    ],
+    "generation_family_scaffold_paths": [
+      "compiler_output/math/generation_families/INTAKE_20260701_030704_002_MATH_ALGEBRA_LINEAR_EQUATIONS_isolate_the_variable_GEN001.json",
+      "compiler_output/math/generation_families/INTAKE_20260701_030704_002_MATH_ALGEBRA_LINEAR_EQUATIONS_solve_a_two_step_equation_GEN002.json",
+      "compiler_output/math/generation_families/INTAKE_20260701_030704_002_MATH_ALGEBRA_GRAPHING_LINES_compute_slope_GEN003.json"
+    ],
+    "validation_report_refs": [
+      "compiler_output/math/validation/INTAKE_20260701_030704_002_acef_validation_scaffold.json"
+    ]
+  },
+  "artifact_counts": {
+    "procedure_count": 3,
+    "question_count": 3,
+    "generation_family_count": 3,
+    "validation_report_count": 1,
+    "package_reference_count": 10,
+    "known_gap_count": 12
+  },
+  "minimum_useful_output_check": {
+    "procedure_object_present": true,
+    "seed_question_count": 3,
+    "required_seed_question_count": 3,
+    "generation_family_present": true,
+    "validation_report_present": true,
+    "scaffold_present": true,
+    "human_review_required": true,
+    "minimum_seed_question_standard_met": false,
+    "known_gap": "minimum_seed_question_count_not_met"
+  },
+  "package_structure_check": {
+    "package_scaffold_exists": true,
+    "schema_version": "ACEF_PACKAGE_v0_1",
+    "schema_version_valid": true,
+    "status": "human_review_required",
+    "status_human_review_required": true,
+    "promotion_recommendation_review_before_commit": true,
+    "procedure_artifacts_referenced": true,
+    "question_artifacts_referenced": true,
+    "generation_family_artifacts_referenced": true,
+    "validation_report_artifact_referenced": true
+  },
+  "procedure_object_check": {
+    "procedure_scaffolds_exist": true,
+    "required_procedure_fields_present": true,
+    "human_review_required": true
+  },
+  "question_object_check": {
+    "question_scaffolds_exist": true,
+    "required_question_fields_present": true,
+    "human_review_required": true
+  },
+  "generation_family_check": {
+    "generation_family_scaffolds_exist": true,
+    "required_generation_family_fields_present": true,
+    "human_review_required": true,
+    "variants_generated": false,
+    "variants_verified": false,
+    "ready_for_generation": false
+  },
+  "signal_policy_check": {
+    "canonical_four_policy_respected": true,
+    "allowed_failure_signals": [
+      "axis_confusion",
+      "sign_or_placement_error",
+      "simple_average_used",
+      "unclassified"
+    ],
+    "non_canonical_live_signals": []
+  },
+  "non_live_boundary_check": {
+    "non_live_status_present": true,
+    "student_visible": false,
+    "live_deployable": false,
+    "student_visible_false": true,
+    "live_deployable_false": true,
+    "activation_performed": false,
+    "active_or_canonical_promotion_performed": false,
+    "variants_generated": false,
+    "variants_verified": false,
+    "ready_for_generation": false
+  },
+  "human_review_check": {
+    "human_review_required": true,
+    "package_status": "human_review_required",
+    "production_ready": false,
+    "canonical_ready": false,
+    "live_deployable": false
+  },
   "known_gaps": [
     "textbook_extraction_not_implemented",
     "pdf_docx_not_supported",
     "procedure_review_required",
-    "question_review_required"
+    "question_review_required",
+    "generation_family_review_required",
+    "package_validation_review_required",
+    "minimum_seed_question_count_not_met",
+    "missing_reviewed_procedure",
+    "missing_reviewed_question_bank",
+    "demo_only_content",
+    "thin_assessment_coverage",
+    "thin_practice_coverage"
   ],
   "promotion_recommendation": "review_before_commit",
+  "overall_result": "pass_with_known_gaps",
   "db_contact": false,
   "operational_alpha_contact": false,
-  "human_review_required": true,
-  "student_visible": false,
-  "live_deployable": false
+  "created_by": "course_compiler_demo.acef_mapper",
+  "notes": [
+    "Validation scaffold for INTAKE_20260701_030704_002; not active content.",
+    "Checks package-level ACEF structure only and does not certify production readiness.",
+    "Procedure, question, and generation family artifacts remain human_review_required.",
+    "Source compiler validation result: pass"
+  ]
 }

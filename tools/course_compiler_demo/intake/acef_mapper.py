@@ -642,29 +642,261 @@ def _validation_scaffold(
     *,
     intake_id: str,
     validation_report: dict[str, Any],
-    procedure_count: int,
-    question_count: int,
+    package: dict[str, Any],
+    procedures: list[dict[str, Any]],
+    questions: list[dict[str, Any]],
+    generation_families: list[dict[str, Any]],
+    validation_report_path: str,
+    content_gaps: list[dict[str, Any]],
 ) -> dict[str, Any]:
+    artifacts = package.get("artifacts", {})
+    package_id = package.get("package_id", f"PKG_{intake_id}")
+    first_procedure = procedures[0] if procedures else {}
+    first_question = questions[0] if questions else {}
+    first_classification = first_question.get("classification", {}) if first_question else {}
+    procedure_ids = [procedure.get("procedure_id") for procedure in procedures if procedure.get("procedure_id")]
+    question_ids = [question.get("question_id") for question in questions if question.get("question_id")]
+    generation_family_ids = [
+        family.get("family_id") for family in generation_families if family.get("family_id")
+    ]
+    question_counts_by_skill: dict[str, int] = {}
+    for question in questions:
+        classification = question.get("classification", {})
+        skill = classification.get("micro_skill", "MICRO_SKILL_REVIEW_REQUIRED")
+        question_counts_by_skill[skill] = question_counts_by_skill.get(skill, 0) + 1
+    minimum_seed_question_standard_met = bool(question_counts_by_skill) and all(
+        count >= 3 for count in question_counts_by_skill.values()
+    )
+    procedure_fields = {
+        "schema_version",
+        "artifact_type",
+        "status",
+        "procedure_id",
+        "subject_code",
+        "topic_code",
+        "subtopic_code",
+        "micro_skill",
+        "source_refs",
+        "procedure_steps",
+        "validation",
+    }
+    question_fields = {
+        "schema_version",
+        "artifact_type",
+        "status",
+        "question_id",
+        "classification",
+        "question_payload",
+        "answer",
+        "solution",
+        "procedure_step_refs",
+        "feedback_step_refs",
+        "generation_family",
+        "non_live_status",
+        "validation",
+    }
+    generation_family_fields = {
+        "schema_version",
+        "artifact_type",
+        "status",
+        "family_id",
+        "subject_code",
+        "topic_code",
+        "subtopic_code",
+        "micro_skill",
+        "procedure_id",
+        "source_question_ids",
+        "parameterization",
+        "constraints",
+        "invariants",
+        "difficulty_range",
+        "non_live_status",
+        "validation",
+    }
+    required_procedure_fields_present = all(
+        procedure_fields.issubset(procedure.keys()) for procedure in procedures
+    )
+    required_question_fields_present = all(
+        question_fields.issubset(question.keys()) for question in questions
+    )
+    required_generation_family_fields_present = all(
+        generation_family_fields.issubset(family.keys()) for family in generation_families
+    )
+    signal_values: list[str] = []
+    for procedure in procedures:
+        signal_values.extend(
+            mapping.get("signal")
+            for mapping in procedure.get("failure_signal_mappings", [])
+            if isinstance(mapping.get("signal"), str)
+        )
+    for question in questions:
+        signal_values.extend(
+            signal for signal in question.get("failure_signals", []) if isinstance(signal, str)
+        )
+        signal_values.extend(
+            ref.get("failure_signal")
+            for ref in question.get("feedback_step_refs", [])
+            if isinstance(ref.get("failure_signal"), str)
+        )
+    signal_policy_respected = set(signal_values).issubset(CANONICAL_FAILURE_SIGNALS)
+    non_live_objects = [
+        *[question.get("non_live_status", {}) for question in questions],
+        *[family.get("non_live_status", {}) for family in generation_families],
+    ]
+    non_live_present = bool(non_live_objects) and all(bool(item) for item in non_live_objects)
+    student_visible_false = all(item.get("student_visible") is False for item in non_live_objects)
+    live_deployable_false = all(item.get("live_deployable") is False for item in non_live_objects)
+    variants_generated_false = all(
+        family.get("validation", {}).get("variants_generated") is False
+        for family in generation_families
+    )
+    variants_verified_false = all(
+        family.get("validation", {}).get("variants_verified") is False
+        for family in generation_families
+    )
+    ready_for_generation_false = all(
+        family.get("validation", {}).get("ready_for_generation") is False
+        for family in generation_families
+    )
+    known_gaps = [
+        "textbook_extraction_not_implemented",
+        "pdf_docx_not_supported",
+        "procedure_review_required",
+        "question_review_required",
+        "generation_family_review_required",
+        "package_validation_review_required",
+    ]
+    if not minimum_seed_question_standard_met:
+        known_gaps.append("minimum_seed_question_count_not_met")
+    known_gaps.extend(gap.get("gap_type", "review_required") for gap in content_gaps)
+    unique_known_gaps = list(dict.fromkeys(known_gaps))
+    overall_result = (
+        "pass_with_known_gaps"
+        if unique_known_gaps
+        else "pass_with_human_review_required"
+    )
     return {
-        "schema_version": "ACEF_VALIDATION_v0_1",
+        "schema_version": "ACEF_VALIDATION_REPORT_v0_1",
         "artifact_type": "validation_report",
         "status": "human_review_required",
-        "intake_id": intake_id,
-        "compiler_validation_result": validation_report.get("overall_result"),
-        "procedure_scaffold_count": procedure_count,
-        "question_scaffold_count": question_count,
-        "known_gaps": [
-            "textbook_extraction_not_implemented",
-            "pdf_docx_not_supported",
-            "procedure_review_required",
-            "question_review_required",
-        ],
+        "validation_id": f"ACEF_VALIDATION_{intake_id}",
+        "package_id": package_id,
+        "subject_code": package.get("subject_code", "SUBJECT_REVIEW_REQUIRED"),
+        "topic_code": package.get("topic_code", "TOPIC_REVIEW_REQUIRED"),
+        "subtopic_code": package.get("subtopic_code", "SUBTOPIC_REVIEW_REQUIRED"),
+        "micro_skill": package.get("micro_skill", "MICRO_SKILL_REVIEW_REQUIRED"),
+        "procedure_id": first_procedure.get(
+            "procedure_id",
+            first_classification.get("procedure_id", "PROCEDURE_REVIEW_REQUIRED"),
+        ),
+        "source_refs": first_procedure.get("source_refs", []),
+        "checked_artifacts": {
+            "package_scaffold_path": f"compiler_output/intake_runs/{intake_id}/acef_package_scaffold.json",
+            "run_validation_report_path": f"compiler_output/intake_runs/{intake_id}/acef_validation_scaffold.json",
+            "staged_validation_report_path": validation_report_path,
+            "procedure_ids": procedure_ids,
+            "question_ids": question_ids,
+            "generation_family_ids": generation_family_ids,
+            "procedure_scaffold_paths": artifacts.get("procedure_scaffold_paths", []),
+            "question_scaffold_paths": artifacts.get("question_scaffold_paths", []),
+            "generation_family_scaffold_paths": artifacts.get("generation_family_scaffold_paths", []),
+            "validation_report_refs": artifacts.get("validation_reports", []),
+        },
+        "artifact_counts": {
+            "procedure_count": len(procedures),
+            "question_count": len(questions),
+            "generation_family_count": len(generation_families),
+            "validation_report_count": 1,
+            "package_reference_count": sum(
+                len(artifacts.get(key, []))
+                for key in (
+                    "procedures",
+                    "questions",
+                    "generation_families",
+                    "validation_reports",
+                )
+            ),
+            "known_gap_count": len(unique_known_gaps),
+        },
+        "minimum_useful_output_check": {
+            "procedure_object_present": len(procedures) >= 1,
+            "seed_question_count": len(questions),
+            "required_seed_question_count": 3,
+            "generation_family_present": len(generation_families) >= 1,
+            "validation_report_present": True,
+            "scaffold_present": True,
+            "human_review_required": True,
+            "minimum_seed_question_standard_met": minimum_seed_question_standard_met,
+            "known_gap": None if minimum_seed_question_standard_met else "minimum_seed_question_count_not_met",
+        },
+        "package_structure_check": {
+            "package_scaffold_exists": True,
+            "schema_version": package.get("schema_version"),
+            "schema_version_valid": package.get("schema_version") == "ACEF_PACKAGE_v0_1",
+            "status": package.get("status"),
+            "status_human_review_required": package.get("status") == "human_review_required",
+            "promotion_recommendation_review_before_commit": package.get("compiler_summary", {}).get("promotion_recommendation") == "review_before_commit",
+            "procedure_artifacts_referenced": bool(artifacts.get("procedures")),
+            "question_artifacts_referenced": bool(artifacts.get("questions")),
+            "generation_family_artifacts_referenced": bool(artifacts.get("generation_families")),
+            "validation_report_artifact_referenced": bool(artifacts.get("validation_reports")),
+        },
+        "procedure_object_check": {
+            "procedure_scaffolds_exist": bool(procedures),
+            "required_procedure_fields_present": required_procedure_fields_present,
+            "human_review_required": all(procedure.get("status") == "human_review_required" for procedure in procedures),
+        },
+        "question_object_check": {
+            "question_scaffolds_exist": bool(questions),
+            "required_question_fields_present": required_question_fields_present,
+            "human_review_required": all(question.get("status") == "human_review_required" for question in questions),
+        },
+        "generation_family_check": {
+            "generation_family_scaffolds_exist": bool(generation_families),
+            "required_generation_family_fields_present": required_generation_family_fields_present,
+            "human_review_required": all(family.get("status") == "human_review_required" for family in generation_families),
+            "variants_generated": False,
+            "variants_verified": False,
+            "ready_for_generation": False,
+        },
+        "signal_policy_check": {
+            "canonical_four_policy_respected": signal_policy_respected,
+            "allowed_failure_signals": sorted(CANONICAL_FAILURE_SIGNALS),
+            "non_canonical_live_signals": sorted(
+                set(signal_values) - CANONICAL_FAILURE_SIGNALS
+            ),
+        },
+        "non_live_boundary_check": {
+            "non_live_status_present": non_live_present,
+            "student_visible": False if student_visible_false else "review_required",
+            "live_deployable": False if live_deployable_false else "review_required",
+            "student_visible_false": student_visible_false,
+            "live_deployable_false": live_deployable_false,
+            "activation_performed": False,
+            "active_or_canonical_promotion_performed": False,
+            "variants_generated": False if variants_generated_false else "review_required",
+            "variants_verified": False if variants_verified_false else "review_required",
+            "ready_for_generation": False if ready_for_generation_false else "review_required",
+        },
+        "human_review_check": {
+            "human_review_required": True,
+            "package_status": package.get("status"),
+            "production_ready": False,
+            "canonical_ready": False,
+            "live_deployable": False,
+        },
+        "known_gaps": unique_known_gaps,
         "promotion_recommendation": "review_before_commit",
+        "overall_result": overall_result,
         "db_contact": False,
         "operational_alpha_contact": False,
-        "human_review_required": True,
-        "student_visible": False,
-        "live_deployable": False,
+        "created_by": "course_compiler_demo.acef_mapper",
+        "notes": [
+            f"Validation scaffold for {intake_id}; not active content.",
+            "Checks package-level ACEF structure only and does not certify production readiness.",
+            "Procedure, question, and generation family artifacts remain human_review_required.",
+            f"Source compiler validation result: {validation_report.get('overall_result')}",
+        ],
     }
 
 
@@ -716,16 +948,11 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
         _generation_family_scaffold(intake_id=intake_id, index=index, question=question)
         for index, question in enumerate(questions, start=1)
     ]
-    validation = _validation_scaffold(
-        intake_id=intake_id,
-        validation_report=validation_report,
-        procedure_count=len(procedures),
-        question_count=len(questions),
-    )
 
     first_topic = topics[0] if topics else {}
     first_skill = skills[0] if skills else {}
     first_topic_code = _topic_code(first_topic)
+    validation_report_path = f"compiler_output/math/validation/{intake_id}_acef_validation_scaffold.json"
     package = {
         "schema_version": "ACEF_PACKAGE_v0_1",
         "package_id": f"PKG_{intake_id}",
@@ -752,7 +979,8 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
                 f"compiler_output/math/generation_families/{intake_id}_{family['topic_code']}_{family['micro_skill'].lower()}_GEN{index:03d}.json"
                 for index, family in enumerate(generation_families, start=1)
             ],
-            "validation_reports": [f"ACEF_VALIDATION_{intake_id}"],
+            "validation_reports": [validation_report_path],
+            "validation_report_ids": [f"ACEF_VALIDATION_{intake_id}"],
         },
         "compiler_summary": {
             "source_materials_used": ["intake_record.json", "source_document.json"],
@@ -769,6 +997,16 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
             "promotion_recommendation": "review_before_commit",
         },
     }
+    validation = _validation_scaffold(
+        intake_id=intake_id,
+        validation_report=validation_report,
+        package=package,
+        procedures=procedures,
+        questions=questions,
+        generation_families=generation_families,
+        validation_report_path=validation_report_path,
+        content_gaps=content_gaps,
+    )
 
     outputs: dict[str, Any] = {
         "acef_package_scaffold.json": package,
@@ -830,4 +1068,5 @@ def write_acef_scaffolds(*, run_dir: Path, staging_dirs: dict[str, Path], intake
             / f"{intake_id}_{family['topic_code']}_{family['micro_skill'].lower()}_GEN{index:03d}.json"
         )
         write_json(staging_path, family)
+    write_json(staging_dirs["validation"] / f"{intake_id}_acef_validation_scaffold.json", validation)
     return output_paths

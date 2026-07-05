@@ -38,6 +38,9 @@
       "compiler_output/math/generation_families/INTAKE_20260701_030704_002_MATH_ALGEBRA_GRAPHING_LINES_compute_slope_GEN003.json"
     ],
     "validation_reports": [
+      "compiler_output/math/validation/INTAKE_20260701_030704_002_acef_validation_scaffold.json"
+    ],
+    "validation_report_ids": [
       "ACEF_VALIDATION_INTAKE_20260701_030704_002"
     ]
   },

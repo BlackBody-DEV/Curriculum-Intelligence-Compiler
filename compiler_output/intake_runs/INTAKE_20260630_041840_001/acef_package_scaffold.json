@@ -56,6 +56,9 @@
       "compiler_output/math/generation_families/INTAKE_20260630_041840_001_MATH_ALGEBRA_GRAPHING_LINES_graph_a_line_from_an_equation_GEN006.json"
     ],
     "validation_reports": [
+      "compiler_output/math/validation/INTAKE_20260630_041840_001_acef_validation_scaffold.json"
+    ],
+    "validation_report_ids": [
       "ACEF_VALIDATION_INTAKE_20260630_041840_001"
     ]
   },
