@@ -126,12 +126,7 @@
     "active_or_canonical_promotion_performed": false,
     "variants_generated": false,
     "variants_verified": false,
-    "ready_for_generation": false
-  },
-  "human_review_check": {
-    "human_review_required": true,
-    "package_status": "human_review_required",
-    "live_deployable": false,
+    "ready_for_generation": false,
     "readiness_certification": {
       "public_release_certified": false,
       "canonical_promotion_certified": false,
@@ -139,6 +134,11 @@
       "student_delivery_certified": false,
       "review_required_before_any_promotion": true
     }
+  },
+  "human_review_check": {
+    "human_review_required": true,
+    "package_status": "human_review_required",
+    "live_deployable": false
   },
   "known_gaps": [
     "textbook_extraction_not_implemented",

@@ -877,11 +877,6 @@ def _validation_scaffold(
             "variants_generated": False if variants_generated_false else "review_required",
             "variants_verified": False if variants_verified_false else "review_required",
             "ready_for_generation": False if ready_for_generation_false else "review_required",
-        },
-        "human_review_check": {
-            "human_review_required": True,
-            "package_status": package.get("status"),
-            "live_deployable": False,
             "readiness_certification": {
                 "public_release_certified": False,
                 "canonical_promotion_certified": False,
@@ -889,6 +884,11 @@ def _validation_scaffold(
                 "student_delivery_certified": False,
                 "review_required_before_any_promotion": True,
             },
+        },
+        "human_review_check": {
+            "human_review_required": True,
+            "package_status": package.get("status"),
+            "live_deployable": False,
         },
         "known_gaps": unique_known_gaps,
         "promotion_recommendation": "review_before_commit",
