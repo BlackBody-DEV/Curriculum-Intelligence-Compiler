@@ -173,6 +173,7 @@ def main() -> int:
 
     skipped_files = [
         {
+            "status": "skipped_unsupported_format",
             "path": _relative(path).as_posix(),
             "filename": path.name,
             "reason": f"unsupported file type: {path.suffix.lower() or 'none'}",

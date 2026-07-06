@@ -174,6 +174,7 @@ def main() -> int:
         "subject_confidence": subject["subject_confidence"],
         "detected_course_level": course_level["detected_course_level"],
         "course_level_confidence": course_level["course_level_confidence"],
+        "input_format": source_document["input_format"],
         "detected_primary_use": _primary_use(classification["detected_source_type"], args.mode),
         "feature_flags": feature_flags,
         "rights_status": source_document["rights_status"],
