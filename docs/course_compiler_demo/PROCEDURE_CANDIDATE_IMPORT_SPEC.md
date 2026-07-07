@@ -183,6 +183,21 @@ Pedagogical review must confirm conceptual clarity, step sequencing, learner-fac
 
 Pedagogical review must also confirm that common-error and failure-signal candidates are useful for instruction rather than merely descriptive.
 
+Required procedure candidate review gates:
+
+1. schema validation
+2. source evidence validation
+3. rights/privacy validation
+4. micro-skill alignment review
+5. formula correctness review
+6. step completeness review
+7. worked-example computation review
+8. common-error/failure-signal review
+9. pedagogical clarity review
+10. human sign-off
+
+These gates are required before any future non-live procedure candidate could be considered for review advancement. Passing these gates would not authorize import, copying, canonical promotion, operational Alpha integration, database writes, OCR, or student-visible delivery.
+
 ## Procedure Preservation Gate
 
 The import process must preserve enough structural information to support review while avoiding verbatim transfer of protected source wording.
