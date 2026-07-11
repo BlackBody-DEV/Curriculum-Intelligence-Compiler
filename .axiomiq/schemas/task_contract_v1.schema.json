@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "task_contract_v1",
+  "title": "AxiomIQ Compiler Task Contract v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id",
+    "repository",
+    "risk_class",
+    "baseline",
+    "policy_refs",
+    "allowed_paths",
+    "actions",
+    "source_snapshot",
+    "safety_flags",
+    "report"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repository": {
+      "type": "string",
+      "enum": [
+        "Curriculum-Intelligence-Compiler"
+      ]
+    },
+    "risk_class": {
+      "type": "string",
+      "enum": [
+        "docs_only",
+        "non_live_compiler_implementation",
+        "alpha_integration_scope_lock"
+      ]
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "expected_head",
+        "branch"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "exact_commit",
+            "current_synced_main"
+          ]
+        },
+        "expected_head": {
+          "type": "string",
+          "minLength": 7
+        },
+        "branch": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "policy_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "compiler_non_live_v1"
+        ]
+      },
+      "contains": {
+        "const": "compiler_non_live_v1"
+      }
+    },
+    "allowed_paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "create_or_update_files",
+          "validate",
+          "commit",
+          "push",
+          "audit",
+          "closeout"
+        ]
+      }
+    },
+    "source_snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "snapshot_id",
+        "source_type",
+        "live_alpha_access"
+      ],
+      "properties": {
+        "snapshot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "live_alpha_access": {
+          "type": "string",
+          "default": "forbidden",
+          "enum": [
+            "forbidden",
+            "advisory_only",
+            "current_required"
+          ]
+        }
+      }
+    },
+    "safety_flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allow_alpha_write",
+        "allow_adaptive_platform_write",
+        "allow_database_contact",
+        "allow_canonical_promotion",
+        "allow_student_visible_output",
+        "allow_live_deployable_output",
+        "allow_ocr",
+        "allow_parser_implementation",
+        "allow_dependency_addition",
+        "allow_mvp_tag_move"
+      ],
+      "properties": {
+        "allow_alpha_write": {
+          "type": "boolean",
+          "default": false,
+          "description": "Normal compiler docs-only tasks set this to false."
+        },
+        "allow_adaptive_platform_write": {
+          "type": "boolean",
+          "default": false,
+          "description": "Normal compiler docs-only tasks set this to false."
+        },
+        "allow_database_contact": {
+          "type": "boolean",
+          "default": false,
+          "description": "Normal compiler docs-only tasks set this to false."
+        },
+        "allow_canonical_promotion": {
+          "type": "boolean",
+          "default": false,
+          "description": "Normal compiler docs-only tasks set this to false."
+        },
+        "allow_student_visible_output": {
+          "type": "boolean",
+          "default": false,
+          "description": "Normal compiler docs-only tasks set this to false."
+        },
+        "allow_live_deployable_output": {
+          "type": "boolean",
+          "default": false,
+          "description": "Normal compiler docs-only tasks set this to false."
+        },
+        "allow_ocr": {
+          "type": "boolean",
+          "default": false,
+          "description": "Normal compiler docs-only tasks set this to false."
+        },
+        "allow_parser_implementation": {
+          "type": "boolean",
+          "default": false,
+          "description": "Normal compiler docs-only tasks set this to false."
+        },
+        "allow_dependency_addition": {
+          "type": "boolean",
+          "default": false,
+          "description": "Normal compiler docs-only tasks set this to false."
+        },
+        "allow_mvp_tag_move": {
+          "type": "boolean",
+          "default": false,
+          "description": "Normal compiler docs-only tasks set this to false."
+        }
+      }
+    },
+    "report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "format",
+        "recommended_next_task"
+      ],
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "codex_task_report",
+            "codex_commit_report",
+            "codex_push_report",
+            "codex_readiness_audit_report"
+          ]
+        },
+        "recommended_next_task": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
