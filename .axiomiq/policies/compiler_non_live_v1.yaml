@@ -1,0 +1,81 @@
+policy_id: compiler_non_live_v1
+policy_status: draft
+applies_to: Curriculum-Intelligence-Compiler
+
+risk_tiers:
+  - docs_only
+  - non_live_compiler_implementation
+  - alpha_integration_scope_lock
+
+protected_boundaries:
+  - no_alpha_write
+  - no_adaptive_platform_write
+  - no_operational_alpha_touch
+  - no_database_contact
+  - no_canonical_promotion
+  - no_student_visible_output
+  - no_live_deployable_output
+  - no_ocr
+  - no_parser_implementation_unless_authorized
+  - no_dependency_addition_unless_authorized
+  - no_mvp_tag_move
+  - no_source_content_copying
+  - no_alpha_staging_implementation
+
+default_candidate_values:
+  status: human_review_required
+  review_status: review_pending
+  canonical_promotion_status: not_authorized
+  copying_allowed_now: false
+  student_visible: false
+  live_deployable: false
+
+required_evidence_fields:
+  - source_repo_root
+  - source_file_path
+  - source_file_sha256
+  - source_artifact_type
+  - source_heading_or_key
+  - source_reference_note
+  - extraction_method
+  - confidence
+  - reviewer_required
+
+advisory_alpha_state:
+  statement: "Alpha HEAD and Alpha worktree state are advisory for compiler documentation/spec audits when policy conditions are satisfied."
+  exact_phrase_for_audit: "Alpha HEAD and Alpha worktree state are advisory"
+  conditions:
+    - compiler repo is clean
+    - compiler remote main matches local HEAD
+    - MVP tag is unchanged
+    - allowed compiler-side paths are respected
+    - no Alpha files were modified by the compiler task
+    - no Alpha files were copied into compiler
+    - no Alpha content was imported
+    - no operational Alpha integration occurred
+    - no DB contact occurred
+
+allowed_paths_by_tier:
+  docs_only:
+    - docs/course_compiler_demo/
+    - reports/course_compiler_demo/
+    - .axiomiq/policies/
+  non_live_compiler_implementation:
+    - tools/course_compiler_demo/
+    - reports/course_compiler_demo/
+    - compiler_output/
+    - incoming/
+    - original_artifacts/
+  alpha_integration_scope_lock:
+    - docs/course_compiler_demo/
+    - .axiomiq/policies/
+
+always_forbidden_without_explicit_authorization:
+  - backend/app/
+  - frontend/src/
+  - migrations
+  - operational Alpha
+  - adaptive-platform writes
+  - database contact
+  - MVP tag movement
+  - live deployment
