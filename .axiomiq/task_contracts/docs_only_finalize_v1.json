@@ -1,0 +1,47 @@
+{
+  "task_id": "DOCS-ONLY-FINALIZE-CONTRACT-v1",
+  "repository": "Curriculum-Intelligence-Compiler",
+  "risk_class": "docs_only",
+  "baseline": {
+    "mode": "current_synced_main",
+    "expected_head": "53363fbf4d5c0a18e4c201e3acd1ee3b6a6eba70",
+    "branch": "main"
+  },
+  "policy_refs": [
+    "compiler_non_live_v1"
+  ],
+  "allowed_paths": [
+    "docs/course_compiler_demo/*.md",
+    ".axiomiq/policies/*.yaml",
+    ".axiomiq/schemas/*.json",
+    ".axiomiq/task_contracts/*.json"
+  ],
+  "actions": [
+    "create_or_update_files",
+    "validate",
+    "commit",
+    "push"
+  ],
+  "source_snapshot": {
+    "snapshot_id": "committed_compiler_side_artifacts_only",
+    "source_type": "compiler_side_snapshot",
+    "live_alpha_access": "forbidden"
+  },
+  "safety_flags": {
+    "allow_alpha_write": false,
+    "allow_adaptive_platform_write": false,
+    "allow_database_contact": false,
+    "allow_canonical_promotion": false,
+    "allow_student_visible_output": false,
+    "allow_live_deployable_output": false,
+    "allow_ocr": false,
+    "allow_parser_implementation": false,
+    "allow_dependency_addition": false,
+    "allow_mvp_tag_move": false
+  },
+  "report": {
+    "required": true,
+    "format": "codex_task_report",
+    "recommended_next_task": "COURSE-COMPILER-DOCS-ONLY-FINALIZE-CONTRACT-COMMIT-001"
+  }
+}
