@@ -1,0 +1,148 @@
+{
+  "package_id": "DAY2_VECTOR_COMPONENTS_2D_SEED_PACKET_001",
+  "package_type": "internal_release_seed_packet",
+  "selected_micro_skill_code": "vector_components_2d",
+  "subject": "statics",
+  "topic_guess": "force_vectors",
+  "subtopic_guess": "two_dimensional_vector_components",
+  "status": "human_review_required",
+  "review_status": "review_pending",
+  "canonical_promotion_status": "not_authorized",
+  "copying_allowed_now": false,
+  "student_visible": false,
+  "live_deployable": false,
+  "rights_status": {
+    "source_basis": "original_axiomiq_seed_wording",
+    "third_party_copying": "not_used",
+    "rights_review_required": true
+  },
+  "privacy_status": {
+    "contains_student_data": false,
+    "contains_personal_data": false,
+    "privacy_review_required": false
+  },
+  "evidence_refs": [
+    {
+      "ref_id": "release_day1_procedure_set_lock",
+      "path": "docs/course_compiler_demo/internal_release/RELEASE_DAY1_STATICS_PROCEDURE_SET_LOCK.md"
+    },
+    {
+      "ref_id": "release_day1_one_micro_skill_target",
+      "path": "docs/course_compiler_demo/internal_release/RELEASE_DAY1_ONE_MICRO_SKILL_PROOF_TARGET.md"
+    },
+    {
+      "ref_id": "compiler_package_boundary_probe",
+      "path": "reports/course_compiler_demo/release_day1_probe/COMPILER_PACKAGE_BOUNDARY_PROBE_001.md"
+    }
+  ],
+  "procedure_seed": {
+    "procedure_seed_id": "PROC_SEED_VECTOR_COMPONENTS_2D_001",
+    "procedure_reference_status": "candidate_seed",
+    "description": "Resolve a two-dimensional vector into horizontal and vertical components by using the vector magnitude, the angle measured from the positive x axis, and the standard component relationships Fx = F cos(theta) and Fy = F sin(theta). Preserve the sign of each component according to the quadrant or stated direction convention.",
+    "steps": [
+      "Identify the vector magnitude and the angle reference.",
+      "Confirm that the angle is measured from the positive x axis or convert the reference before computing components.",
+      "Compute the x component with Fx = F cos(theta).",
+      "Compute the y component with Fy = F sin(theta).",
+      "Apply the correct signs based on the vector direction.",
+      "Report both components with units and appropriate rounding."
+    ],
+    "human_review_required": true
+  },
+  "question_seed": {
+    "question_seed_id": "Q_SEED_VECTOR_COMPONENTS_2D_001",
+    "question_type": "numeric_pair",
+    "practice_item": {
+      "prompt": "A 10 N force acts at an angle of 30 degrees above the positive x axis. Determine the x and y components of the force.",
+      "vector_magnitude": 10,
+      "angle_from_positive_x_degrees": 30,
+      "expected_x_component": 8.66,
+      "expected_y_component": 5.0,
+      "units": "N",
+      "tolerance": 0.05,
+      "correct_answer_pair": {
+        "Fx": 8.66,
+        "Fy": 5.0
+      }
+    },
+    "student_visible": false,
+    "human_review_required": true
+  },
+  "generation_family_seed": {
+    "generation_family_seed_id": "GF_SEED_VECTOR_COMPONENTS_2D_001",
+    "family_type": "component_resolution_numeric_pair",
+    "variable_fields": [
+      "magnitude",
+      "angle",
+      "quadrant",
+      "units",
+      "sign_convention",
+      "answer_tolerance"
+    ],
+    "variation_rules": {
+      "magnitude": "Use positive scalar magnitudes appropriate for introductory statics practice.",
+      "angle": "Vary angles measured from the positive x axis or explicitly state a different reference.",
+      "quadrant": "Include quadrant changes only when signs can be reviewed and validated.",
+      "units": "Use force units consistently across prompt and answer.",
+      "sign_convention": "Require signed components when the vector points outside the first quadrant.",
+      "answer_tolerance": "Use numeric-pair tolerance suitable for rounded component values."
+    },
+    "human_review_required": true
+  },
+  "answer_logic": {
+    "formula_x": "Fx = F * cos(theta)",
+    "formula_y": "Fy = F * sin(theta)",
+    "angle_units": "degrees",
+    "sign_rule": "Apply signs according to the vector quadrant or stated direction convention.",
+    "worked_check": {
+      "Fx": "10 * cos(30 deg) = 8.660254...",
+      "Fy": "10 * sin(30 deg) = 5.000000..."
+    }
+  },
+  "grading_expectation": {
+    "answer_type": "numeric_pair",
+    "expected_pair_order": [
+      "Fx",
+      "Fy"
+    ],
+    "tolerance": 0.05,
+    "requires_units_in_runtime": false,
+    "pass_condition": "Both component values are within tolerance after normalization."
+  },
+  "failure_signal_mapping": [
+    {
+      "failure_signal": "component_swap_error",
+      "meaning": "Learner reports Fy as Fx or Fx as Fy."
+    },
+    {
+      "failure_signal": "sign_error",
+      "meaning": "Learner computes magnitudes correctly but assigns an incorrect sign."
+    },
+    {
+      "failure_signal": "trig_function_error",
+      "meaning": "Learner uses sine for the x component or cosine for the y component when the angle is from +x."
+    },
+    {
+      "failure_signal": "degree_radian_or_angle_reference_error",
+      "meaning": "Learner uses the wrong angle mode or treats the angle as measured from the wrong axis."
+    },
+    {
+      "failure_signal": "rounding_or_precision_error",
+      "meaning": "Learner uses the correct method but rounds outside the accepted tolerance."
+    }
+  ],
+  "known_limitations": [
+    "This is a seed packet, not an executable package emitter output.",
+    "Question and generation family seeds require human review before any runtime use.",
+    "Failure signals are proposed for the Day 2 proof and are not promoted into canonical Alpha.",
+    "No Alpha staging implementation, DB write, or student-visible publishing is authorized by this packet."
+  ],
+  "release_use": {
+    "intended_use": "Day 2 one-micro-skill internal proof package input",
+    "proof_chain_target": "compiler package or simulated package to controlled Alpha practice proof",
+    "alpha_staging_authorized": false,
+    "db_contact_authorized": false,
+    "canonical_promotion_authorized": false,
+    "student_visible_publishing_authorized": false
+  }
+}
