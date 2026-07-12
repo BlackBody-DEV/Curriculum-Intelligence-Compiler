@@ -1,0 +1,89 @@
+{
+  "schema_version": "COMPILER_PACKAGE_BOUNDARY_PROBE_v0_1",
+  "task_id": "COMPILER-PACKAGE-BOUNDARY-PROBE-001",
+  "baseline": "7b0bee9324db635e7da457cd8b91e56a5de0abc4",
+  "selected_micro_skill_code": "vector_components_2d",
+  "selection_reason": "First preferred proof target with locked Day 1 release-set membership and committed compiler-side Alpha reference census entries.",
+  "existing_package_available": false,
+  "package_assembled_or_simulated": true,
+  "package_mode": "simulated_import_boundary_shape",
+  "package_validates": true,
+  "reaches_import_boundary_shape": true,
+  "simulated_package": {
+    "package_id": "RELEASE_DAY1_VECTOR_COMPONENTS_2D_IMPORT_BOUNDARY_PROBE_001",
+    "selected_micro_skill_code": "vector_components_2d",
+    "subject": "STATICS",
+    "topic_code": "STATICS_VECTORS",
+    "subtopic_code": "STATICS_VECTORS:SCALARS_AND_VECTOR_OPERATIONS",
+    "procedure_candidate": {
+      "candidate_type": "procedure_reference",
+      "micro_skill_code": "vector_components_2d",
+      "source": "committed_reference_census",
+      "reference_paths": [
+        "reports/project_ops/phase_d_vector_components_2d_procedure_draft_001_validation_v1.json",
+        "reports/project_ops/phase_d_vector_components_2d_procedure_draft_001_v1.md"
+      ],
+      "candidate_body_copied": false,
+      "review_status": "human_review_required"
+    },
+    "question_candidate": {
+      "candidate_type": "question_seed_placeholder",
+      "source": "not_present_in_existing_compiler_release_package",
+      "review_status": "human_review_required",
+      "known_limitation": "Day 1 probe can represent the boundary field, but a target-specific question seed still needs an authorized content packet."
+    },
+    "generation_family_candidate": {
+      "candidate_type": "generation_family_placeholder",
+      "source": "not_present_in_existing_compiler_release_package",
+      "review_status": "human_review_required",
+      "known_limitation": "Day 1 probe can represent the boundary field, but a target-specific generation family still needs an authorized content packet."
+    },
+    "evidence_refs": [
+      "docs/course_compiler_demo/internal_release/RELEASE_DAY1_STATICS_PROCEDURE_SET_LOCK.md",
+      "docs/course_compiler_demo/internal_release/RELEASE_DAY1_EXECUTION_BOARD.md",
+      "reports/course_compiler_demo/alpha2_reference_census_001/alpha2_candidate_file_inventory.json",
+      "reports/course_compiler_demo/alpha2_reference_census_001/alpha2_reuse_matrix.json",
+      "reports/course_compiler_demo/final_math_demo_001/practice_module_package.json",
+      "reports/course_compiler_demo/final_math_demo_001/practice_assessment_package.json",
+      "reports/course_compiler_demo/final_math_demo_001/performance_tracking_package.json"
+    ],
+    "rights_status": "reference_only_not_cleared_for_copying",
+    "privacy_status": "no_student_data_no_pii",
+    "review_status": "human_review_required",
+    "status": "human_review_required",
+    "canonical_promotion_status": "not_authorized",
+    "copying_allowed_now": false,
+    "student_visible": false,
+    "live_deployable": false,
+    "validation_result": {
+      "result": "pass_for_simulated_import_boundary_shape",
+      "required_fields_present": true,
+      "non_live_defaults_present": true,
+      "alpha_write_required": false,
+      "db_contact_required": false
+    },
+    "known_limitations": [
+      "No existing Statics release package artifact was found.",
+      "Question candidate is represented as a placeholder rather than a reviewed seed.",
+      "Generation family candidate is represented as a placeholder rather than a reviewed seed.",
+      "This probe does not execute Alpha import, database writes, learner sessions, grading, readiness persistence, or performance retrieval."
+    ]
+  },
+  "boundary_field_assessment": {
+    "package_id": "present",
+    "selected_micro_skill_code": "present",
+    "subject_topic_subtopic": "present",
+    "procedure_candidate_or_reference": "present_as_reference",
+    "question_candidate_or_seed_reference": "present_as_placeholder_missing_but_easily_added_compiler_side",
+    "generation_family_candidate_or_reference": "present_as_placeholder_missing_but_easily_added_compiler_side",
+    "evidence_refs": "present",
+    "rights_status": "present",
+    "privacy_status": "present",
+    "review_status": "present",
+    "non_live_defaults": "present",
+    "validation_result": "present",
+    "known_limitations": "present"
+  },
+  "smallest_missing_compiler_side_task": "RELEASE-DAY1-CONTENT-BATCH-0-SEED-PACKET-001",
+  "recommended_next_task": "ALPHA-INTERNAL-VERTICAL-SLICE-GAP-AUDIT-001"
+}
