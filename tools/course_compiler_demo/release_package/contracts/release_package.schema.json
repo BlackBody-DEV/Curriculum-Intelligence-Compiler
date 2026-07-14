@@ -1,0 +1,1 @@
+{"$id":"compiler_release_package_v1/release_package.schema.json","$schema":"https://json-schema.org/draft/2020-12/schema","additionalProperties":false,"properties":{"manifest":{"$ref":"release_manifest.schema.json"}},"required":["manifest"],"title":"Portable Compiler Release Package v1","type":"object"}
