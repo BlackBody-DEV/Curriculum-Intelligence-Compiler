@@ -1,0 +1,138 @@
+{
+  "schema_version": "COMPILER_INTEGRATION_READINESS_BASELINE_REPORT_v0_1",
+  "task_id": "COMPILER-INTEGRATION-READINESS-BASELINE-INVENTORY-001",
+  "final_verdict": "COMPILER_INTEGRATION_READINESS_BASELINE_BLOCKED",
+  "created_date": "2026-07-13",
+  "compiler": {
+    "branch": "main",
+    "head": "bccbb126193f49d628c7db8efbd82fffbb6695ff",
+    "origin_main": "bccbb126193f49d628c7db8efbd82fffbb6695ff",
+    "worktree_before_baseline_files": "clean",
+    "mvp_tag_target": "c7837b3eb9afff6cebca9536311844abe382a737"
+  },
+  "adaptive_platform": {
+    "branch": "main",
+    "head": "49de63aedf6148ea1486d81eea63a18fe3bd1d8d",
+    "origin_main": "49de63aedf6148ea1486d81eea63a18fe3bd1d8d",
+    "worktree": "dirty_untracked_only",
+    "untracked_files": [
+      "curriculum/statics/procedures/STATICS_CENTROIDS_centroid_composite_areas.json"
+    ],
+    "unstaged_tracked_files": [],
+    "staged_files": [],
+    "c25ef8a7_containment": [
+      "quarantine/compiler-staging-c25ef8a7"
+    ],
+    "e8956efc_containment": [
+      "quarantine/compiler-staging-e8956efc"
+    ],
+    "pause_boundary_intact": true,
+    "files_modified_by_this_task": false
+  },
+  "real_source_selection": {
+    "selected": false,
+    "source_title": null,
+    "source_path": null,
+    "source_type": null,
+    "rights_status": "unresolved_no_approved_real_source_present",
+    "privacy_status": "unresolved_no_approved_real_source_present",
+    "subject_course_orientation": "Statics required",
+    "suitable": false,
+    "text_extraction_already_supported": null,
+    "original_artifact_can_be_preserved": null,
+    "blocker": "No legally and operationally safe real Statics source was found in the compiler repository. Existing supported inputs are demo/sample text or generated seed/report material.",
+    "acceptable_source_needed": "rights-cleared, privacy-safe real Statics source available in or explicitly accessible to the compiler repository, preferably .txt or .md for the current supported extraction path"
+  },
+  "selected_14_procedure_set_confirmed": true,
+  "selected_14_procedure_set": [
+    "vector_components_2d",
+    "resultant_2d_addition",
+    "resultant_magnitude",
+    "resultant_direction_2d",
+    "equilibrant_force",
+    "solve_particle_equil_2d",
+    "moment_of_force_scalar_2d",
+    "couple_moment",
+    "principle_of_moments_varignon",
+    "resultant_line_of_action",
+    "beam_reactions",
+    "simple_distributed_load_resultant",
+    "centroid_first_moments",
+    "composite_centroid"
+  ],
+  "inventory_summary": {
+    "existing_real_source_inputs": "missing_for_statics",
+    "source_preservation_logic": "partial",
+    "source_metadata_and_interpretation_outputs": "complete_for_demo_flows",
+    "topic_subtopic_micro_skill_extraction": "partial",
+    "procedure_candidate_objects": "partial",
+    "question_candidate_objects": "partial",
+    "generation_family_objects": "partial",
+    "performance_tracking_targets": "partial",
+    "review_packages": "partial",
+    "package_contracts_and_schemas": "partial",
+    "manifests": "partial",
+    "checksums_or_integrity_support": "partial",
+    "semantic_validators": "missing",
+    "golden_fixtures": "missing",
+    "offline_reference_consumers": "missing",
+    "determinism_tests": "missing",
+    "clean_checkout_reproduction_scripts": "missing",
+    "compatibility_reports": "partial",
+    "scope_lock_request_materials": "missing",
+    "selected_14_procedure_content_set": "partial"
+  },
+  "gap_matrix": {
+    "real-source end-to-end run": "BLOCKED",
+    "portable package contract": "MISSING",
+    "manifest and integrity model": "PARTIAL",
+    "minimal valid golden package": "MISSING",
+    "normal multi-artifact golden package": "MISSING",
+    "known-gap golden package": "MISSING",
+    "invalid golden package": "MISSING",
+    "safety-violation golden package": "MISSING",
+    "semantic package validator": "MISSING",
+    "reference-integrity validator": "MISSING",
+    "provenance validator": "PARTIAL",
+    "signal-policy validator": "PARTIAL",
+    "safety-boundary validator": "PARTIAL",
+    "deterministic manifest validator": "MISSING",
+    "offline reference consumer": "MISSING",
+    "dry-run import planner": "MISSING",
+    "clean-checkout reproduction": "MISSING",
+    "14-procedure content package": "PARTIAL",
+    "read-only compatibility report": "PARTIAL",
+    "protected scope-lock request package": "MISSING",
+    "zero-boundary-contact evidence": "PARTIAL"
+  },
+  "parallel_lanes_opened": [
+    "COMPILER-PORTABLE-RELEASE-PACKAGE-CONTRACT-001",
+    "COMPILER-STATICS-CONTENT-READINESS-14-001",
+    "COMPILER-INTEGRATION-COMPATIBILITY-SCOPE-LOCK-001",
+    "COMPILER-INTEGRATION-REPRODUCTION-HARNESS-001"
+  ],
+  "blocked_lanes": [
+    {
+      "task_id": "COMPILER-REAL-STATICS-SOURCE-PIPELINE-001",
+      "reason": "real_statics_source_missing"
+    }
+  ],
+  "waiting_lanes": [
+    {
+      "task_id": "COMPILER-SEMANTIC-RELEASE-PACKAGE-VALIDATION-001",
+      "reason": "waiting_on_lane_b_contract"
+    },
+    {
+      "task_id": "COMPILER-OFFLINE-REFERENCE-CONSUMER-001",
+      "reason": "waiting_on_lane_b_contract"
+    }
+  ],
+  "exclusive_ownership_conflicts": [],
+  "tests_run": [
+    "PYTHONDONTWRITEBYTECODE=1 python3 -m pytest -p no:cacheprovider tests/course_compiler_demo",
+    "PYTHONDONTWRITEBYTECODE=1 python3 tools/course_compiler_demo/validate_docs_only_contract.py .axiomiq/task_contracts/docs_only_finalize_v1.json"
+  ],
+  "blockers": [
+    "Real Statics source missing. A rights-cleared, privacy-safe real Statics source is required before Lane A can execute."
+  ]
+}

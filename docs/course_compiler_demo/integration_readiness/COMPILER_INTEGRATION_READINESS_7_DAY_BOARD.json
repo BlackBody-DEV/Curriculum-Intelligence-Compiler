@@ -1,0 +1,200 @@
+{
+  "schema_version": "COMPILER_INTEGRATION_READINESS_BOARD_v0_1",
+  "task_id": "COMPILER-INTEGRATION-READINESS-BASELINE-INVENTORY-001",
+  "created_date": "2026-07-13",
+  "repository": "Curriculum-Intelligence-Compiler",
+  "boundary": {
+    "compiler_repository_writable": true,
+    "adaptive_platform_read_only": true,
+    "adaptive_platform_writes_forbidden": true,
+    "database_contact_forbidden": true,
+    "canonical_promotion_forbidden": true,
+    "student_visible_publication_forbidden": true
+  },
+  "selected_content_set": [
+    "vector_components_2d",
+    "resultant_2d_addition",
+    "resultant_magnitude",
+    "resultant_direction_2d",
+    "equilibrant_force",
+    "solve_particle_equil_2d",
+    "moment_of_force_scalar_2d",
+    "couple_moment",
+    "principle_of_moments_varignon",
+    "resultant_line_of_action",
+    "beam_reactions",
+    "simple_distributed_load_resultant",
+    "centroid_first_moments",
+    "composite_centroid"
+  ],
+  "baseline_findings": {
+    "real_statics_source_available": false,
+    "real_source_blocker": "No legally and operationally safe real Statics source was found in the compiler repository. Existing supported inputs are demo/sample text or generated seed/report material.",
+    "adaptive_platform_pause_boundary_intact": true
+  },
+  "lanes": [
+    {
+      "task_id": "COMPILER-INTEGRATION-READINESS-BASELINE-INVENTORY-001",
+      "lane": "baseline",
+      "owner": "Codex",
+      "dependency": "none",
+      "deliverable": "baseline reports, board, ownership map",
+      "acceptance_test": "JSON validates, tests pass, compiler push succeeds",
+      "estimated_focused_duration_hours": 3,
+      "parallel_eligibility": "no",
+      "owned_paths": [
+        "docs/course_compiler_demo/integration_readiness/COMPILER_INTEGRATION_READINESS_*"
+      ],
+      "forbidden_overlapping_paths": [
+        "adaptive-platform/**"
+      ],
+      "status": "complete"
+    },
+    {
+      "task_id": "COMPILER-REAL-STATICS-SOURCE-PIPELINE-001",
+      "lane": "A",
+      "owner": "real-source pipeline agent",
+      "dependency": "baseline complete and real source supplied",
+      "deliverable": "real source proof run with preserved source, extraction, candidates, review package, validation report",
+      "acceptance_test": "deterministic run with provenance identity and non-live validation",
+      "estimated_focused_duration_hours": 6,
+      "parallel_eligibility": "yes_after_real_source_blocker_resolved",
+      "owned_paths": [
+        "tools/course_compiler_demo/intake/",
+        "tools/course_compiler_demo/extract/",
+        "tools/course_compiler_demo/sample_inputs/real_statics/",
+        "reports/course_compiler_demo/integration_readiness/real_source/",
+        "tests/course_compiler_demo/test_real_source_pipeline*"
+      ],
+      "forbidden_overlapping_paths": [
+        "adaptive-platform/**",
+        "tools/course_compiler_demo/release_package/**",
+        "tools/course_compiler_demo/reference_consumer/**"
+      ],
+      "status": "blocked_real_source_missing"
+    },
+    {
+      "task_id": "COMPILER-PORTABLE-RELEASE-PACKAGE-CONTRACT-001",
+      "lane": "B",
+      "owner": "package contract agent",
+      "dependency": "baseline complete",
+      "deliverable": "versioned package and manifest contract plus five golden packages",
+      "acceptance_test": "contract and fixtures validate with expected safe/unsafe labels",
+      "estimated_focused_duration_hours": 6,
+      "parallel_eligibility": "yes",
+      "owned_paths": [
+        "tools/course_compiler_demo/release_package/contracts/",
+        "tools/course_compiler_demo/release_package/manifest/",
+        "docs/course_compiler_demo/integration_readiness/package_contract/",
+        "tests/course_compiler_demo/test_release_package_contract*"
+      ],
+      "forbidden_overlapping_paths": [
+        "tools/course_compiler_demo/intake/**",
+        "tools/course_compiler_demo/extract/**",
+        "adaptive-platform/**"
+      ],
+      "status": "ready"
+    },
+    {
+      "task_id": "COMPILER-SEMANTIC-RELEASE-PACKAGE-VALIDATION-001",
+      "lane": "C",
+      "owner": "semantic validation agent",
+      "dependency": "Lane B contract published or versioned draft interface",
+      "deliverable": "semantic validator, CLI/subcommand, fixture reports",
+      "acceptance_test": "minimal_valid and normal fixtures accept; known gaps warn; invalid and safety fixtures reject",
+      "estimated_focused_duration_hours": 6,
+      "parallel_eligibility": "after_lane_b",
+      "owned_paths": [
+        "tools/course_compiler_demo/release_package/validate/",
+        "tests/course_compiler_demo/test_release_package_validation*",
+        "reports/course_compiler_demo/integration_readiness/validation/"
+      ],
+      "forbidden_overlapping_paths": [
+        "tools/course_compiler_demo/release_package/contracts/** except read-only",
+        "adaptive-platform/**"
+      ],
+      "status": "waiting_on_lane_b"
+    },
+    {
+      "task_id": "COMPILER-OFFLINE-REFERENCE-CONSUMER-001",
+      "lane": "D",
+      "owner": "offline reference consumer agent",
+      "dependency": "Lane B contract published or versioned draft interface",
+      "deliverable": "offline consumer, dry-run import plan, rejection reports",
+      "acceptance_test": "consumer validates manifest/checksums/refs and rejects unsafe packages without adaptive-platform access",
+      "estimated_focused_duration_hours": 6,
+      "parallel_eligibility": "after_lane_b",
+      "owned_paths": [
+        "tools/course_compiler_demo/reference_consumer/",
+        "tests/course_compiler_demo/test_reference_consumer*",
+        "reports/course_compiler_demo/integration_readiness/reference_consumer/"
+      ],
+      "forbidden_overlapping_paths": [
+        "adaptive-platform/**",
+        "tools/course_compiler_demo/release_package/contracts/** except read-only"
+      ],
+      "status": "waiting_on_lane_b"
+    },
+    {
+      "task_id": "COMPILER-STATICS-CONTENT-READINESS-14-001",
+      "lane": "E",
+      "owner": "content readiness agent",
+      "dependency": "baseline complete",
+      "deliverable": "14-procedure manifest, coverage matrix, missing-component report, review-priority report",
+      "acceptance_test": "all selected procedures have status and missing components recorded without fabrication",
+      "estimated_focused_duration_hours": 6,
+      "parallel_eligibility": "yes",
+      "owned_paths": [
+        "reports/course_compiler_demo/integration_readiness/content_set/",
+        "docs/course_compiler_demo/integration_readiness/content_set/",
+        "tests/course_compiler_demo/test_integration_content_set*"
+      ],
+      "forbidden_overlapping_paths": [
+        "adaptive-platform/**",
+        "Lane A core extraction/package builders"
+      ],
+      "status": "ready"
+    },
+    {
+      "task_id": "COMPILER-INTEGRATION-COMPATIBILITY-SCOPE-LOCK-001",
+      "lane": "F",
+      "owner": "compatibility and scope-lock agent",
+      "dependency": "baseline complete",
+      "deliverable": "compatibility matrix and protected scope-lock request package",
+      "acceptance_test": "read-only evidence only; request explicitly authorizes nothing",
+      "estimated_focused_duration_hours": 6,
+      "parallel_eligibility": "yes",
+      "owned_paths": [
+        "docs/course_compiler_demo/integration_readiness/compatibility/",
+        "docs/course_compiler_demo/integration_readiness/scope_lock/",
+        "reports/course_compiler_demo/integration_readiness/compatibility/"
+      ],
+      "forbidden_overlapping_paths": [
+        "adaptive-platform writes",
+        "runtime route work"
+      ],
+      "status": "ready"
+    },
+    {
+      "task_id": "COMPILER-INTEGRATION-REPRODUCTION-HARNESS-001",
+      "lane": "G",
+      "owner": "reproducibility and release QA agent",
+      "dependency": "baseline complete",
+      "deliverable": "harness skeleton, determinism comparison interfaces, boundary evidence schema",
+      "acceptance_test": "pytest passes and boundary evidence reports all adaptive-platform write fields false",
+      "estimated_focused_duration_hours": 6,
+      "parallel_eligibility": "yes",
+      "owned_paths": [
+        "tools/course_compiler_demo/integration_readiness/",
+        "tests/course_compiler_demo/test_integration_readiness_reproduction*",
+        "reports/course_compiler_demo/integration_readiness/reproduction/",
+        "docs/course_compiler_demo/integration_readiness/release_qa/"
+      ],
+      "forbidden_overlapping_paths": [
+        "adaptive-platform/**",
+        "Lane B/C/D implementation files"
+      ],
+      "status": "ready"
+    }
+  ]
+}
