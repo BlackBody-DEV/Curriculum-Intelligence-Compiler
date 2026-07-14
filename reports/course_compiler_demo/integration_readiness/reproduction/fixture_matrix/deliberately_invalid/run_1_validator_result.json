@@ -1,0 +1,199 @@
+{
+  "artifact_inventory_status": "fail",
+  "artifact_results": [
+    {
+      "artifact_id": "DUPLICATE_ARTIFACT_ID",
+      "artifact_type": "curriculum_extraction",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/curriculum/curriculum_extraction.json"
+    },
+    {
+      "artifact_id": "DUPLICATE_ARTIFACT_ID",
+      "artifact_type": "source_interpretation",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/sources/source_interpretation.json"
+    },
+    {
+      "artifact_id": "SOURCE_METADATA",
+      "artifact_type": "source_metadata",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/sources/source_metadata.json"
+    }
+  ],
+  "boundary_evidence": {
+    "adaptive_platform_accessed": false,
+    "adaptive_platform_modified": false,
+    "canonical_promotion_performed": false,
+    "database_contacted": false,
+    "learner_loop_implemented": false,
+    "network_contacted": false,
+    "runtime_route_created": false,
+    "student_visible_output_created": false
+  },
+  "determinism_status": "fail",
+  "errors": [
+    {
+      "artifact_id": "package",
+      "evidence": "generation_family_candidate, performance_tracking_target, procedure_candidate, question_candidate, review_record, signal_mapping, validation_report",
+      "field": "artifact_inventory",
+      "message": "Required artifact categories are missing.",
+      "path": "artifact_inventory",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "ARTIFACT_INVENTORY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": null,
+      "field": "integrity.package_manifest_sha256",
+      "message": "Manifest finalization does not reproduce declared checksum.",
+      "path": "integrity.package_manifest_sha256",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "DETERMINISM",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": null,
+      "field": "artifact_inventory",
+      "message": "Duplicate artifact IDs found.",
+      "path": "artifact_inventory",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "IDENTIFIER_UNIQUENESS",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "DUPLICATE_ARTIFACT_ID",
+      "evidence": null,
+      "field": "sha256",
+      "message": "Artifact checksum mismatch.",
+      "path": "sha256",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "INTEGRITY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": null,
+      "field": "integrity.package_manifest_sha256",
+      "message": "Manifest integrity checksum mismatch.",
+      "path": "integrity.package_manifest_sha256",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "INTEGRITY",
+      "severity": "error"
+    }
+  ],
+  "generation_family_linkage_status": "pass",
+  "identifier_status": "fail",
+  "integrity_status": "fail",
+  "known_gap_status": "pass",
+  "manifest_status": "pass",
+  "overall_verdict": "reject",
+  "package_contract": "compiler_release_package_v1",
+  "package_id": "PKG_DELIBERATELY_INVALID_001",
+  "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid",
+  "package_version": "0.1.0-fixture",
+  "procedure_question_linkage_status": "pass",
+  "provenance_status": "pass",
+  "reference_integrity_status": "pass",
+  "review_state_status": "pass",
+  "rights_status": "pass",
+  "rule_results": [
+    {
+      "message": "Contract/version fields checked.",
+      "rule_id": "CONTRACT_VERSION",
+      "status": "pass"
+    },
+    {
+      "message": "Rule did not run.",
+      "rule_id": "JSON_PARSE",
+      "status": "not_run"
+    },
+    {
+      "message": "Structural fields checked.",
+      "rule_id": "STRUCTURAL_SCHEMA",
+      "status": "pass"
+    },
+    {
+      "message": "Artifact inventory checked.",
+      "rule_id": "ARTIFACT_INVENTORY",
+      "status": "fail"
+    },
+    {
+      "message": "Path containment checked.",
+      "rule_id": "PATH_CONTAINMENT",
+      "status": "pass"
+    },
+    {
+      "message": "Identifier uniqueness checked.",
+      "rule_id": "IDENTIFIER_UNIQUENESS",
+      "status": "fail"
+    },
+    {
+      "message": "Reference integrity checked.",
+      "rule_id": "REFERENCE_INTEGRITY",
+      "status": "pass"
+    },
+    {
+      "message": "Source provenance checked.",
+      "rule_id": "PROVENANCE",
+      "status": "pass"
+    },
+    {
+      "message": "Procedure/question linkage checked.",
+      "rule_id": "PROCEDURE_QUESTION_LINKAGE",
+      "status": "pass"
+    },
+    {
+      "message": "Generation-family linkage checked.",
+      "rule_id": "GENERATION_FAMILY_LINKAGE",
+      "status": "pass"
+    },
+    {
+      "message": "Signal policy checked.",
+      "rule_id": "SIGNAL_POLICY",
+      "status": "pass"
+    },
+    {
+      "message": "Review state checked.",
+      "rule_id": "REVIEW_STATE",
+      "status": "pass"
+    },
+    {
+      "message": "Rights and privacy safety checked.",
+      "rule_id": "RIGHTS_SAFETY",
+      "status": "pass"
+    },
+    {
+      "message": "Safety boundary checked.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "status": "pass"
+    },
+    {
+      "message": "Checksums and byte sizes checked.",
+      "rule_id": "INTEGRITY",
+      "status": "fail"
+    },
+    {
+      "message": "Determinism checked.",
+      "rule_id": "DETERMINISM",
+      "status": "fail"
+    },
+    {
+      "message": "Known gaps classified.",
+      "rule_id": "KNOWN_GAPS",
+      "status": "pass"
+    }
+  ],
+  "safety_boundary_status": "pass",
+  "schema_status": "pass",
+  "signal_policy_status": "pass",
+  "validation_completed_at": "2026-07-14T15:39:03Z",
+  "validation_started_at": "2026-07-14T15:39:03Z",
+  "validator_name": "compiler_release_package_semantic_validator",
+  "validator_version": "1.0.0",
+  "warnings": []
+}

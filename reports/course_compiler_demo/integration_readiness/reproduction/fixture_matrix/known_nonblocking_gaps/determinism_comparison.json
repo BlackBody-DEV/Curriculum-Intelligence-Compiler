@@ -1,0 +1,34 @@
+{
+  "artifact_digest_match": true,
+  "artifact_order_match": true,
+  "dependency_order_match": true,
+  "deterministic_fields_compared": [
+    "package identity",
+    "contract and version",
+    "validator and consumer verdicts",
+    "artifact inventory and type counts",
+    "reference-resolution sets",
+    "dependency ordering",
+    "artifact classifications",
+    "known gaps",
+    "errors, warnings, and rule IDs",
+    "manifest and artifact checksums",
+    "dry-run plan status",
+    "prohibited-operation declarations",
+    "boundary booleans"
+  ],
+  "error_order_match": true,
+  "manifest_digest_match": true,
+  "package_non_mutation_confirmed": true,
+  "reference_resolution_match": true,
+  "volatile_fields_excluded": [
+    "validation_started_at",
+    "validation_completed_at",
+    "consumption_started_at",
+    "consumption_completed_at",
+    "reproduction_started_at",
+    "reproduction_completed_at",
+    "package_path"
+  ],
+  "warning_order_match": true
+}

@@ -1,0 +1,219 @@
+{
+  "artifact_inventory_status": "fail",
+  "artifact_results": [
+    {
+      "artifact_id": "CURRICULUM_EXTRACTION",
+      "artifact_type": "curriculum_extraction",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/curriculum/curriculum_extraction.json"
+    },
+    {
+      "artifact_id": "SOURCE_INTERPRETATION",
+      "artifact_type": "source_interpretation",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/sources/source_interpretation.json"
+    },
+    {
+      "artifact_id": "SOURCE_METADATA",
+      "artifact_type": "source_metadata",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/sources/source_metadata.json"
+    }
+  ],
+  "boundary_evidence": {
+    "adaptive_platform_accessed": false,
+    "adaptive_platform_modified": false,
+    "canonical_promotion_performed": false,
+    "database_contacted": false,
+    "learner_loop_implemented": false,
+    "network_contacted": false,
+    "runtime_route_created": false,
+    "student_visible_output_created": false
+  },
+  "determinism_status": "pass",
+  "errors": [
+    {
+      "artifact_id": "package",
+      "evidence": "generation_family_candidate, performance_tracking_target, procedure_candidate, question_candidate, review_record, signal_mapping, validation_report",
+      "field": "artifact_inventory",
+      "message": "Required artifact categories are missing.",
+      "path": "artifact_inventory",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "ARTIFACT_INVENTORY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": "canonical_approved",
+      "field": "content_status",
+      "message": "content_status must be non_live_candidate.",
+      "path": "content_status",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "REVIEW_STATE",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": "/Users/fanarichardson/adaptive-platform",
+      "field": "package_text",
+      "message": "Forbidden safety marker found.",
+      "path": "package_text",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": "canonical_approved",
+      "field": "package_text",
+      "message": "Forbidden safety marker found.",
+      "path": "package_text",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": "True",
+      "field": "safety_boundary.adaptive_platform_contact_required",
+      "message": "Safety boundary value is unsafe.",
+      "path": "safety_boundary.adaptive_platform_contact_required",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": "True",
+      "field": "safety_boundary.student_visible",
+      "message": "Safety boundary value is unsafe.",
+      "path": "safety_boundary.student_visible",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": null,
+      "field": "package_text",
+      "message": "Student-visible true claim found.",
+      "path": "package_text",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "severity": "error"
+    }
+  ],
+  "generation_family_linkage_status": "pass",
+  "identifier_status": "pass",
+  "integrity_status": "pass",
+  "known_gap_status": "pass",
+  "manifest_status": "pass",
+  "overall_verdict": "reject",
+  "package_contract": "compiler_release_package_v1",
+  "package_id": "PKG_SAFETY_BOUNDARY_VIOLATION_001",
+  "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/safety_boundary_violation",
+  "package_version": "0.1.0-fixture",
+  "procedure_question_linkage_status": "pass",
+  "provenance_status": "pass",
+  "reference_integrity_status": "pass",
+  "review_state_status": "fail",
+  "rights_status": "pass",
+  "rule_results": [
+    {
+      "message": "Contract/version fields checked.",
+      "rule_id": "CONTRACT_VERSION",
+      "status": "pass"
+    },
+    {
+      "message": "Rule did not run.",
+      "rule_id": "JSON_PARSE",
+      "status": "not_run"
+    },
+    {
+      "message": "Structural fields checked.",
+      "rule_id": "STRUCTURAL_SCHEMA",
+      "status": "pass"
+    },
+    {
+      "message": "Artifact inventory checked.",
+      "rule_id": "ARTIFACT_INVENTORY",
+      "status": "fail"
+    },
+    {
+      "message": "Path containment checked.",
+      "rule_id": "PATH_CONTAINMENT",
+      "status": "pass"
+    },
+    {
+      "message": "Identifier uniqueness checked.",
+      "rule_id": "IDENTIFIER_UNIQUENESS",
+      "status": "pass"
+    },
+    {
+      "message": "Reference integrity checked.",
+      "rule_id": "REFERENCE_INTEGRITY",
+      "status": "pass"
+    },
+    {
+      "message": "Source provenance checked.",
+      "rule_id": "PROVENANCE",
+      "status": "pass"
+    },
+    {
+      "message": "Procedure/question linkage checked.",
+      "rule_id": "PROCEDURE_QUESTION_LINKAGE",
+      "status": "pass"
+    },
+    {
+      "message": "Generation-family linkage checked.",
+      "rule_id": "GENERATION_FAMILY_LINKAGE",
+      "status": "pass"
+    },
+    {
+      "message": "Signal policy checked.",
+      "rule_id": "SIGNAL_POLICY",
+      "status": "pass"
+    },
+    {
+      "message": "Review state checked.",
+      "rule_id": "REVIEW_STATE",
+      "status": "fail"
+    },
+    {
+      "message": "Rights and privacy safety checked.",
+      "rule_id": "RIGHTS_SAFETY",
+      "status": "pass"
+    },
+    {
+      "message": "Safety boundary checked.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "status": "fail"
+    },
+    {
+      "message": "Checksums and byte sizes checked.",
+      "rule_id": "INTEGRITY",
+      "status": "pass"
+    },
+    {
+      "message": "Determinism checked.",
+      "rule_id": "DETERMINISM",
+      "status": "pass"
+    },
+    {
+      "message": "Known gaps classified.",
+      "rule_id": "KNOWN_GAPS",
+      "status": "pass"
+    }
+  ],
+  "safety_boundary_status": "fail",
+  "schema_status": "pass",
+  "signal_policy_status": "pass",
+  "validation_completed_at": "2026-07-14T15:39:03Z",
+  "validation_started_at": "2026-07-14T15:39:03Z",
+  "validator_name": "compiler_release_package_semantic_validator",
+  "validator_version": "1.0.0",
+  "warnings": []
+}

@@ -1,0 +1,112 @@
+{
+  "artifact_count": 0,
+  "artifact_type_counts": {},
+  "boundary_evidence": {
+    "adaptive_platform_accessed": false,
+    "adaptive_platform_git_activity": false,
+    "adaptive_platform_modified": false,
+    "canonical_promotion_performed": false,
+    "database_contacted": false,
+    "learner_state_modified": false,
+    "network_endpoint_contacted": false,
+    "package_modified": false,
+    "runtime_route_called": false,
+    "student_visible_output_created": false
+  },
+  "compatibility_warnings": [],
+  "consumer_name": "compiler_offline_reference_consumer",
+  "consumer_verdict": "rejected_without_plan",
+  "consumer_version": "1.0.0",
+  "consumption_completed_at": "2026-07-14T15:39:03Z",
+  "consumption_started_at": "2026-07-14T15:39:03Z",
+  "declared_artifacts": [],
+  "dependency_order": [],
+  "dry_run_plan_status": "not_generated_package_rejected",
+  "errors": [
+    {
+      "artifact_id": "package",
+      "evidence": "generation_family_candidate, performance_tracking_target, procedure_candidate, question_candidate, review_record, signal_mapping, validation_report",
+      "field": "artifact_inventory",
+      "message": "Required artifact categories are missing.",
+      "path": "artifact_inventory",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "ARTIFACT_INVENTORY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": "canonical_approved",
+      "field": "content_status",
+      "message": "content_status must be non_live_candidate.",
+      "path": "content_status",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "REVIEW_STATE",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": "/Users/fanarichardson/adaptive-platform",
+      "field": "package_text",
+      "message": "Forbidden safety marker found.",
+      "path": "package_text",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": "canonical_approved",
+      "field": "package_text",
+      "message": "Forbidden safety marker found.",
+      "path": "package_text",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": "True",
+      "field": "safety_boundary.adaptive_platform_contact_required",
+      "message": "Safety boundary value is unsafe.",
+      "path": "safety_boundary.adaptive_platform_contact_required",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": "True",
+      "field": "safety_boundary.student_visible",
+      "message": "Safety boundary value is unsafe.",
+      "path": "safety_boundary.student_visible",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": null,
+      "field": "package_text",
+      "message": "Student-visible true claim found.",
+      "path": "package_text",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "severity": "error"
+    }
+  ],
+  "importable_artifacts": [],
+  "known_gaps": [],
+  "manifest_loaded": false,
+  "non_importable_artifacts": [],
+  "package_contract": "compiler_release_package_v1",
+  "package_id": "PKG_SAFETY_BOUNDARY_VIOLATION_001",
+  "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/safety_boundary_violation",
+  "package_version": "0.1.0-fixture",
+  "resolved_references": [],
+  "review_only_artifacts": [],
+  "unresolved_references": [],
+  "validator_name": "compiler_release_package_semantic_validator",
+  "validator_verdict": "reject",
+  "validator_version": "1.0.0",
+  "warnings": []
+}

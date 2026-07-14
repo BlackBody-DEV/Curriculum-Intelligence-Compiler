@@ -1,0 +1,21 @@
+{
+  "input_artifact_digests": {
+    "README.md": "072cf48ba068cbc2dd8dcb2f47eddd829642e214fbf752083efb88d2363f5205",
+    "artifacts/assets/worked_example_reference.json": "10be69856529badf7ec5a3f900504b28b63731b26ab276af542514238a7c5803",
+    "artifacts/curriculum/curriculum_extraction.json": "09cfb20d02a0f741bb68eceb779870bab5bab39967c6dcb30391d84b85c97a19",
+    "artifacts/generation_families/generation_family_resultant.json": "e15c6b970a5e203ab6e4fb767b0ac2648270404322e17b2b883ef45fb261ef11",
+    "artifacts/generation_families/generation_family_vector_components.json": "93602e2ce825d6f4ace46262744f9e9368e5cf9ace6b467bad5e30ff62cd4466",
+    "artifacts/performance/performance_target_vector_components.json": "a36096e6aaea9f56e4891510b6b8d388def5764611614505e436a0a3d0b9e748",
+    "artifacts/procedures/procedure_candidate_resultant.json": "0d8dd6268f1bb5d0552490c2ce1bd91569cf93c118f8c37801fdeaa4f5b45196",
+    "artifacts/procedures/procedure_candidate_vector_components.json": "5530612a6c77adbc7327216944d0ea639f8d3867abfc4440e8c8137a3a443473",
+    "artifacts/questions/question_candidate_resultant.json": "6aa4f1dc3388521db05f2c298dbee2960800e580a76f0fde414abf3bd3e36ed8",
+    "artifacts/questions/question_candidate_vector_components.json": "e0d290f7611e4014e79a92f8dba6024a45bcea95c4f017b71af85609cbd8a3f5",
+    "artifacts/review/review_record.json": "7fd3923557d2dcafb81a4d76e34848fd31c5504bd8a9a60230e73a62a31ebc1a",
+    "artifacts/signals/signal_mapping_resultant.json": "8b4921af3dcc90d997ed76c91e96e67b01c71004aca9fd287cd2863c096534bb",
+    "artifacts/signals/signal_mapping_vector_components.json": "5974a32175bbd1ca753f61d2d7be236571cd5587b3671b03a1d91e258fe8691a",
+    "artifacts/sources/source_interpretation.json": "9af4901b0ecc84fe96ef19a9e1bbee82f4674e5cd9d7739cc06b9f01a497caf4",
+    "artifacts/sources/source_metadata.json": "b5cb51da054fbc27a41d5b6c0c7fdb40bbc23699659082487a5a5b1bae28c684",
+    "artifacts/validation/validation_report.json": "75bec2a1f20b3492a4e3cf9089b55b6d02aa2dddc08dc3db2a57c303b619691d"
+  },
+  "input_inventory_digest": "d242fc6e1bacf5d77f1b104abe2b90d26c7fe55c1392b359191fd290a60e728a"
+}

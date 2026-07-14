@@ -1,0 +1,235 @@
+{
+  "artifact_inventory_status": "pass",
+  "artifact_results": [
+    {
+      "artifact_id": "CURRICULUM_EXTRACTION",
+      "artifact_type": "curriculum_extraction",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/curriculum/curriculum_extraction.json"
+    },
+    {
+      "artifact_id": "GF_VECTOR_COMPONENTS_001",
+      "artifact_type": "generation_family_candidate",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/generation_families/generation_family_vector_components.json"
+    },
+    {
+      "artifact_id": "KNOWN_GAPS_001",
+      "artifact_type": "known_gap_report",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/review/known_gap_report.json"
+    },
+    {
+      "artifact_id": "PERF_VECTOR_COMPONENTS_001",
+      "artifact_type": "performance_tracking_target",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/performance/performance_target_vector_components.json"
+    },
+    {
+      "artifact_id": "PROC_VECTOR_COMPONENTS_001",
+      "artifact_type": "procedure_candidate",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/procedures/procedure_candidate_vector_components.json"
+    },
+    {
+      "artifact_id": "Q_VECTOR_COMPONENTS_001",
+      "artifact_type": "question_candidate",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/questions/question_candidate_vector_components.json"
+    },
+    {
+      "artifact_id": "REV_VECTOR_COMPONENTS_001",
+      "artifact_type": "review_record",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/review/review_record.json"
+    },
+    {
+      "artifact_id": "SIG_VECTOR_COMPONENTS_001",
+      "artifact_type": "signal_mapping",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/signals/signal_mapping_vector_components.json"
+    },
+    {
+      "artifact_id": "SOURCE_INTERPRETATION",
+      "artifact_type": "source_interpretation",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/sources/source_interpretation.json"
+    },
+    {
+      "artifact_id": "SOURCE_METADATA",
+      "artifact_type": "source_metadata",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/sources/source_metadata.json"
+    },
+    {
+      "artifact_id": "VAL_VECTOR_COMPONENTS_001",
+      "artifact_type": "validation_report",
+      "declared": true,
+      "exists": true,
+      "relative_path": "artifacts/validation/validation_report.json"
+    }
+  ],
+  "boundary_evidence": {
+    "adaptive_platform_accessed": false,
+    "adaptive_platform_modified": false,
+    "canonical_promotion_performed": false,
+    "database_contacted": false,
+    "learner_loop_implemented": false,
+    "network_contacted": false,
+    "runtime_route_created": false,
+    "student_visible_output_created": false
+  },
+  "determinism_status": "pass",
+  "errors": [],
+  "generation_family_linkage_status": "pass",
+  "identifier_status": "pass",
+  "integrity_status": "pass",
+  "known_gap_status": "pass",
+  "manifest_status": "pass",
+  "overall_verdict": "accept_with_warnings",
+  "package_contract": "compiler_release_package_v1",
+  "package_id": "PKG_KNOWN_NONBLOCKING_GAPS_001",
+  "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/known_nonblocking_gaps",
+  "package_version": "0.1.0-fixture",
+  "procedure_question_linkage_status": "pass",
+  "provenance_status": "pass",
+  "reference_integrity_status": "pass",
+  "review_state_status": "pass",
+  "rights_status": "pass",
+  "rule_results": [
+    {
+      "message": "Contract/version fields checked.",
+      "rule_id": "CONTRACT_VERSION",
+      "status": "pass"
+    },
+    {
+      "message": "Rule did not run.",
+      "rule_id": "JSON_PARSE",
+      "status": "not_run"
+    },
+    {
+      "message": "Structural fields checked.",
+      "rule_id": "STRUCTURAL_SCHEMA",
+      "status": "pass"
+    },
+    {
+      "message": "Artifact inventory checked.",
+      "rule_id": "ARTIFACT_INVENTORY",
+      "status": "pass"
+    },
+    {
+      "message": "Path containment checked.",
+      "rule_id": "PATH_CONTAINMENT",
+      "status": "pass"
+    },
+    {
+      "message": "Identifier uniqueness checked.",
+      "rule_id": "IDENTIFIER_UNIQUENESS",
+      "status": "pass"
+    },
+    {
+      "message": "Reference integrity checked.",
+      "rule_id": "REFERENCE_INTEGRITY",
+      "status": "pass"
+    },
+    {
+      "message": "Source provenance checked.",
+      "rule_id": "PROVENANCE",
+      "status": "pass"
+    },
+    {
+      "message": "Procedure/question linkage checked.",
+      "rule_id": "PROCEDURE_QUESTION_LINKAGE",
+      "status": "pass"
+    },
+    {
+      "message": "Generation-family linkage checked.",
+      "rule_id": "GENERATION_FAMILY_LINKAGE",
+      "status": "pass"
+    },
+    {
+      "message": "Signal policy checked.",
+      "rule_id": "SIGNAL_POLICY",
+      "status": "pass"
+    },
+    {
+      "message": "Review state checked.",
+      "rule_id": "REVIEW_STATE",
+      "status": "pass"
+    },
+    {
+      "message": "Rights and privacy safety checked.",
+      "rule_id": "RIGHTS_SAFETY",
+      "status": "pass"
+    },
+    {
+      "message": "Safety boundary checked.",
+      "rule_id": "SAFETY_BOUNDARY",
+      "status": "pass"
+    },
+    {
+      "message": "Checksums and byte sizes checked.",
+      "rule_id": "INTEGRITY",
+      "status": "pass"
+    },
+    {
+      "message": "Determinism checked.",
+      "rule_id": "DETERMINISM",
+      "status": "pass"
+    },
+    {
+      "message": "Known gaps classified.",
+      "rule_id": "KNOWN_GAPS",
+      "status": "pass"
+    }
+  ],
+  "safety_boundary_status": "pass",
+  "schema_status": "pass",
+  "signal_policy_status": "pass",
+  "validation_completed_at": "2026-07-14T15:39:03Z",
+  "validation_started_at": "2026-07-14T15:39:03Z",
+  "validator_name": "compiler_release_package_semantic_validator",
+  "validator_version": "1.0.0",
+  "warnings": [
+    {
+      "artifact_id": "package",
+      "evidence": "GAP_ADDITIONAL_REVIEW_REQUESTED",
+      "field": "known_gaps",
+      "message": "Declared nonblocking gap.",
+      "path": "known_gaps",
+      "recommended_action": "Review the warning before protected integration review.",
+      "rule_id": "KNOWN_GAPS",
+      "severity": "warning"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": "GAP_OPTIONAL_DIAGRAM_ABSENT",
+      "field": "known_gaps",
+      "message": "Declared nonblocking gap.",
+      "path": "known_gaps",
+      "recommended_action": "Review the warning before protected integration review.",
+      "rule_id": "KNOWN_GAPS",
+      "severity": "warning"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": "GAP_THIN_QUESTION_COVERAGE",
+      "field": "known_gaps",
+      "message": "Declared nonblocking gap.",
+      "path": "known_gaps",
+      "recommended_action": "Review the warning before protected integration review.",
+      "rule_id": "KNOWN_GAPS",
+      "severity": "warning"
+    }
+  ]
+}

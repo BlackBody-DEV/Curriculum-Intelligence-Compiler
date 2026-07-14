@@ -1,0 +1,92 @@
+{
+  "artifact_count": 0,
+  "artifact_type_counts": {},
+  "boundary_evidence": {
+    "adaptive_platform_accessed": false,
+    "adaptive_platform_git_activity": false,
+    "adaptive_platform_modified": false,
+    "canonical_promotion_performed": false,
+    "database_contacted": false,
+    "learner_state_modified": false,
+    "network_endpoint_contacted": false,
+    "package_modified": false,
+    "runtime_route_called": false,
+    "student_visible_output_created": false
+  },
+  "compatibility_warnings": [],
+  "consumer_name": "compiler_offline_reference_consumer",
+  "consumer_verdict": "rejected_without_plan",
+  "consumer_version": "1.0.0",
+  "consumption_completed_at": "2026-07-14T15:39:03Z",
+  "consumption_started_at": "2026-07-14T15:39:03Z",
+  "declared_artifacts": [],
+  "dependency_order": [],
+  "dry_run_plan_status": "not_generated_package_rejected",
+  "errors": [
+    {
+      "artifact_id": "package",
+      "evidence": "generation_family_candidate, performance_tracking_target, procedure_candidate, question_candidate, review_record, signal_mapping, validation_report",
+      "field": "artifact_inventory",
+      "message": "Required artifact categories are missing.",
+      "path": "artifact_inventory",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "ARTIFACT_INVENTORY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": null,
+      "field": "integrity.package_manifest_sha256",
+      "message": "Manifest finalization does not reproduce declared checksum.",
+      "path": "integrity.package_manifest_sha256",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "DETERMINISM",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": null,
+      "field": "artifact_inventory",
+      "message": "Duplicate artifact IDs found.",
+      "path": "artifact_inventory",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "IDENTIFIER_UNIQUENESS",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "DUPLICATE_ARTIFACT_ID",
+      "evidence": null,
+      "field": "sha256",
+      "message": "Artifact checksum mismatch.",
+      "path": "sha256",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "INTEGRITY",
+      "severity": "error"
+    },
+    {
+      "artifact_id": "package",
+      "evidence": null,
+      "field": "integrity.package_manifest_sha256",
+      "message": "Manifest integrity checksum mismatch.",
+      "path": "integrity.package_manifest_sha256",
+      "recommended_action": "Correct the package and rerun validation.",
+      "rule_id": "INTEGRITY",
+      "severity": "error"
+    }
+  ],
+  "importable_artifacts": [],
+  "known_gaps": [],
+  "manifest_loaded": false,
+  "non_importable_artifacts": [],
+  "package_contract": "compiler_release_package_v1",
+  "package_id": "PKG_DELIBERATELY_INVALID_001",
+  "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid",
+  "package_version": "0.1.0-fixture",
+  "resolved_references": [],
+  "review_only_artifacts": [],
+  "unresolved_references": [],
+  "validator_name": "compiler_release_package_semantic_validator",
+  "validator_verdict": "reject",
+  "validator_version": "1.0.0",
+  "warnings": []
+}

@@ -1,0 +1,9 @@
+{
+  "input_artifact_digests": {
+    "README.md": "168921e729547b206d8d38d68b968df5d9bc14a33d3eda7b250857bb41f5f5ee",
+    "artifacts/curriculum/curriculum_extraction.json": "09cfb20d02a0f741bb68eceb779870bab5bab39967c6dcb30391d84b85c97a19",
+    "artifacts/sources/source_interpretation.json": "9af4901b0ecc84fe96ef19a9e1bbee82f4674e5cd9d7739cc06b9f01a497caf4",
+    "artifacts/sources/source_metadata.json": "b5cb51da054fbc27a41d5b6c0c7fdb40bbc23699659082487a5a5b1bae28c684"
+  },
+  "input_inventory_digest": "3b0a2e6df05849e32f3f14612a2900d93812d4b5375fbc0906b886d33bd767b2"
+}

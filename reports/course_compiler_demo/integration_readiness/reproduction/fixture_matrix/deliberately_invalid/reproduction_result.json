@@ -1,0 +1,830 @@
+{
+  "actual_consumer_verdicts": [
+    "rejected_without_plan",
+    "rejected_without_plan"
+  ],
+  "actual_plan_statuses": [
+    "not_generated_package_rejected",
+    "not_generated_package_rejected"
+  ],
+  "actual_validator_verdicts": [
+    "reject",
+    "reject"
+  ],
+  "artifact_digest_match": true,
+  "artifact_order_match": true,
+  "blockers": [],
+  "boundary_evidence": {
+    "adaptive_platform_accessed": false,
+    "adaptive_platform_commit_created": false,
+    "adaptive_platform_commit_prepared": false,
+    "adaptive_platform_files_staged": false,
+    "adaptive_platform_git_activity": false,
+    "adaptive_platform_modified": false,
+    "adaptive_platform_push_performed": false,
+    "adaptive_platform_staging_directory_written": false,
+    "allowed_output_root": "/Users/fanarichardson/Documents/AxiomIQ/reports/course_compiler_demo/integration_readiness/reproduction/fixture_matrix/deliberately_invalid",
+    "canonical_promotion_performed": false,
+    "commands_executed": [
+      "python-interface:consume_package",
+      "python-interface:validate_package"
+    ],
+    "compiler_repository_root": "/Users/fanarichardson/Documents/AxiomIQ",
+    "database_contacted": false,
+    "environment_variable_names_consulted": [],
+    "external_modules_imported": [
+      "tools.course_compiler_demo",
+      "tools.course_compiler_demo.integration_readiness",
+      "tools.course_compiler_demo.integration_readiness.boundary_evidence",
+      "tools.course_compiler_demo.integration_readiness.compare_reproduction",
+      "tools.course_compiler_demo.integration_readiness.models",
+      "tools.course_compiler_demo.integration_readiness.reproduction_runner",
+      "tools.course_compiler_demo.reference_consumer",
+      "tools.course_compiler_demo.reference_consumer.artifact_classifier",
+      "tools.course_compiler_demo.reference_consumer.consume_release_package",
+      "tools.course_compiler_demo.reference_consumer.dry_run_planner",
+      "tools.course_compiler_demo.reference_consumer.models",
+      "tools.course_compiler_demo.reference_consumer.package_reader",
+      "tools.course_compiler_demo.reference_consumer.reference_resolver",
+      "tools.course_compiler_demo.release_package",
+      "tools.course_compiler_demo.release_package.manifest",
+      "tools.course_compiler_demo.release_package.manifest.integrity",
+      "tools.course_compiler_demo.release_package.validate",
+      "tools.course_compiler_demo.release_package.validate.models",
+      "tools.course_compiler_demo.release_package.validate.package_validator",
+      "tools.course_compiler_demo.release_package.validate.semantic_rules"
+    ],
+    "files_read": [
+      "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid/README.md",
+      "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid/artifacts/curriculum/curriculum_extraction.json",
+      "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid/artifacts/sources/source_interpretation.json",
+      "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid/artifacts/sources/source_metadata.json",
+      "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid/manifest.json"
+    ],
+    "files_written": [
+      "/Users/fanarichardson/Documents/AxiomIQ/reports/course_compiler_demo/integration_readiness/reproduction/fixture_matrix/deliberately_invalid/boundary_evidence.json",
+      "/Users/fanarichardson/Documents/AxiomIQ/reports/course_compiler_demo/integration_readiness/reproduction/fixture_matrix/deliberately_invalid/determinism_comparison.json",
+      "/Users/fanarichardson/Documents/AxiomIQ/reports/course_compiler_demo/integration_readiness/reproduction/fixture_matrix/deliberately_invalid/input_inventory.json",
+      "/Users/fanarichardson/Documents/AxiomIQ/reports/course_compiler_demo/integration_readiness/reproduction/fixture_matrix/deliberately_invalid/reproduction_report.md",
+      "/Users/fanarichardson/Documents/AxiomIQ/reports/course_compiler_demo/integration_readiness/reproduction/fixture_matrix/deliberately_invalid/reproduction_result.json",
+      "/Users/fanarichardson/Documents/AxiomIQ/reports/course_compiler_demo/integration_readiness/reproduction/fixture_matrix/deliberately_invalid/run_1_consumer_result.json",
+      "/Users/fanarichardson/Documents/AxiomIQ/reports/course_compiler_demo/integration_readiness/reproduction/fixture_matrix/deliberately_invalid/run_1_validator_result.json",
+      "/Users/fanarichardson/Documents/AxiomIQ/reports/course_compiler_demo/integration_readiness/reproduction/fixture_matrix/deliberately_invalid/run_2_consumer_result.json",
+      "/Users/fanarichardson/Documents/AxiomIQ/reports/course_compiler_demo/integration_readiness/reproduction/fixture_matrix/deliberately_invalid/run_2_validator_result.json"
+    ],
+    "grading_work_performed": false,
+    "learner_loop_work_performed": false,
+    "network_endpoint_contacted": false,
+    "persistence_work_performed": false,
+    "retrieval_work_performed": false,
+    "runtime_route_created_or_called": false,
+    "source_package_modified": false,
+    "student_visible_output_created": false
+  },
+  "clean_state": "clean_source_state",
+  "consumer_name": "compiler_offline_reference_consumer",
+  "consumer_version": "1.0.0",
+  "dependency_order_match": true,
+  "deterministic_fields_compared": [
+    "package identity",
+    "contract and version",
+    "validator and consumer verdicts",
+    "artifact inventory and type counts",
+    "reference-resolution sets",
+    "dependency ordering",
+    "artifact classifications",
+    "known gaps",
+    "errors, warnings, and rule IDs",
+    "manifest and artifact checksums",
+    "dry-run plan status",
+    "prohibited-operation declarations",
+    "boundary booleans"
+  ],
+  "error_order_match": true,
+  "expected_consumer_verdict": "rejected_without_plan",
+  "expected_plan_status": "not_generated_package_rejected",
+  "expected_validator_verdict": "reject",
+  "harness_name": "compiler_integration_reproduction_harness",
+  "harness_version": "1.0.0",
+  "input_artifact_digests": {
+    "README.md": "168921e729547b206d8d38d68b968df5d9bc14a33d3eda7b250857bb41f5f5ee",
+    "artifacts/curriculum/curriculum_extraction.json": "09cfb20d02a0f741bb68eceb779870bab5bab39967c6dcb30391d84b85c97a19",
+    "artifacts/sources/source_interpretation.json": "9af4901b0ecc84fe96ef19a9e1bbee82f4674e5cd9d7739cc06b9f01a497caf4",
+    "artifacts/sources/source_metadata.json": "b5cb51da054fbc27a41d5b6c0c7fdb40bbc23699659082487a5a5b1bae28c684"
+  },
+  "input_inventory_digest": "3b0a2e6df05849e32f3f14612a2900d93812d4b5375fbc0906b886d33bd767b2",
+  "input_type": "frozen_fixture",
+  "manifest_digest_match": true,
+  "mode": "fixture_reproduction",
+  "package_contract": "compiler_release_package_v1",
+  "package_id": "PKG_DELIBERATELY_INVALID_001",
+  "package_non_mutation_confirmed": true,
+  "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid",
+  "package_version": "0.1.0-fixture",
+  "reference_resolution_match": true,
+  "repeat_count": 2,
+  "reproduction_completed_at": "2026-07-14T15:39:03Z",
+  "reproduction_started_at": "2026-07-14T15:39:03Z",
+  "reproduction_verdict": "reproduced_expected_rejection",
+  "run_results": [
+    {
+      "consumer_result": {
+        "artifact_count": 0,
+        "artifact_type_counts": {},
+        "boundary_evidence": {
+          "adaptive_platform_accessed": false,
+          "adaptive_platform_git_activity": false,
+          "adaptive_platform_modified": false,
+          "canonical_promotion_performed": false,
+          "database_contacted": false,
+          "learner_state_modified": false,
+          "network_endpoint_contacted": false,
+          "package_modified": false,
+          "runtime_route_called": false,
+          "student_visible_output_created": false
+        },
+        "compatibility_warnings": [],
+        "consumer_name": "compiler_offline_reference_consumer",
+        "consumer_verdict": "rejected_without_plan",
+        "consumer_version": "1.0.0",
+        "consumption_completed_at": "2026-07-14T15:39:03Z",
+        "consumption_started_at": "2026-07-14T15:39:03Z",
+        "declared_artifacts": [],
+        "dependency_order": [],
+        "dry_run_plan_status": "not_generated_package_rejected",
+        "errors": [
+          {
+            "artifact_id": "package",
+            "evidence": "generation_family_candidate, performance_tracking_target, procedure_candidate, question_candidate, review_record, signal_mapping, validation_report",
+            "field": "artifact_inventory",
+            "message": "Required artifact categories are missing.",
+            "path": "artifact_inventory",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "ARTIFACT_INVENTORY",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "package",
+            "evidence": null,
+            "field": "integrity.package_manifest_sha256",
+            "message": "Manifest finalization does not reproduce declared checksum.",
+            "path": "integrity.package_manifest_sha256",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "DETERMINISM",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "package",
+            "evidence": null,
+            "field": "artifact_inventory",
+            "message": "Duplicate artifact IDs found.",
+            "path": "artifact_inventory",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "IDENTIFIER_UNIQUENESS",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "DUPLICATE_ARTIFACT_ID",
+            "evidence": null,
+            "field": "sha256",
+            "message": "Artifact checksum mismatch.",
+            "path": "sha256",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "INTEGRITY",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "package",
+            "evidence": null,
+            "field": "integrity.package_manifest_sha256",
+            "message": "Manifest integrity checksum mismatch.",
+            "path": "integrity.package_manifest_sha256",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "INTEGRITY",
+            "severity": "error"
+          }
+        ],
+        "importable_artifacts": [],
+        "known_gaps": [],
+        "manifest_loaded": false,
+        "non_importable_artifacts": [],
+        "package_contract": "compiler_release_package_v1",
+        "package_id": "PKG_DELIBERATELY_INVALID_001",
+        "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid",
+        "package_version": "0.1.0-fixture",
+        "resolved_references": [],
+        "review_only_artifacts": [],
+        "unresolved_references": [],
+        "validator_name": "compiler_release_package_semantic_validator",
+        "validator_verdict": "reject",
+        "validator_version": "1.0.0",
+        "warnings": []
+      },
+      "input_inventory": {
+        "artifact_digests": {
+          "README.md": "168921e729547b206d8d38d68b968df5d9bc14a33d3eda7b250857bb41f5f5ee",
+          "artifacts/curriculum/curriculum_extraction.json": "09cfb20d02a0f741bb68eceb779870bab5bab39967c6dcb30391d84b85c97a19",
+          "artifacts/sources/source_interpretation.json": "9af4901b0ecc84fe96ef19a9e1bbee82f4674e5cd9d7739cc06b9f01a497caf4",
+          "artifacts/sources/source_metadata.json": "b5cb51da054fbc27a41d5b6c0c7fdb40bbc23699659082487a5a5b1bae28c684"
+        },
+        "file_count": 5,
+        "files": [
+          {
+            "byte_size": 106,
+            "file_mode": "0o644",
+            "relative_path": "README.md",
+            "sha256": "168921e729547b206d8d38d68b968df5d9bc14a33d3eda7b250857bb41f5f5ee",
+            "symlink_target": null
+          },
+          {
+            "byte_size": 102,
+            "file_mode": "0o644",
+            "relative_path": "artifacts/curriculum/curriculum_extraction.json",
+            "sha256": "09cfb20d02a0f741bb68eceb779870bab5bab39967c6dcb30391d84b85c97a19",
+            "symlink_target": null
+          },
+          {
+            "byte_size": 91,
+            "file_mode": "0o644",
+            "relative_path": "artifacts/sources/source_interpretation.json",
+            "sha256": "9af4901b0ecc84fe96ef19a9e1bbee82f4674e5cd9d7739cc06b9f01a497caf4",
+            "symlink_target": null
+          },
+          {
+            "byte_size": 117,
+            "file_mode": "0o644",
+            "relative_path": "artifacts/sources/source_metadata.json",
+            "sha256": "b5cb51da054fbc27a41d5b6c0c7fdb40bbc23699659082487a5a5b1bae28c684",
+            "symlink_target": null
+          },
+          {
+            "byte_size": 3445,
+            "file_mode": "0o644",
+            "relative_path": "manifest.json",
+            "sha256": "0379a112e1272c406f9eb1e37e78c3e835d7255ff4f31b9dfe515102cfccfbe1",
+            "symlink_target": null
+          }
+        ],
+        "input_inventory_digest": "3b0a2e6df05849e32f3f14612a2900d93812d4b5375fbc0906b886d33bd767b2",
+        "manifest_digest": "0379a112e1272c406f9eb1e37e78c3e835d7255ff4f31b9dfe515102cfccfbe1",
+        "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid"
+      },
+      "run_index": 1,
+      "validator_result": {
+        "artifact_inventory_status": "fail",
+        "artifact_results": [
+          {
+            "artifact_id": "DUPLICATE_ARTIFACT_ID",
+            "artifact_type": "curriculum_extraction",
+            "declared": true,
+            "exists": true,
+            "relative_path": "artifacts/curriculum/curriculum_extraction.json"
+          },
+          {
+            "artifact_id": "DUPLICATE_ARTIFACT_ID",
+            "artifact_type": "source_interpretation",
+            "declared": true,
+            "exists": true,
+            "relative_path": "artifacts/sources/source_interpretation.json"
+          },
+          {
+            "artifact_id": "SOURCE_METADATA",
+            "artifact_type": "source_metadata",
+            "declared": true,
+            "exists": true,
+            "relative_path": "artifacts/sources/source_metadata.json"
+          }
+        ],
+        "boundary_evidence": {
+          "adaptive_platform_accessed": false,
+          "adaptive_platform_modified": false,
+          "canonical_promotion_performed": false,
+          "database_contacted": false,
+          "learner_loop_implemented": false,
+          "network_contacted": false,
+          "runtime_route_created": false,
+          "student_visible_output_created": false
+        },
+        "determinism_status": "fail",
+        "errors": [
+          {
+            "artifact_id": "package",
+            "evidence": "generation_family_candidate, performance_tracking_target, procedure_candidate, question_candidate, review_record, signal_mapping, validation_report",
+            "field": "artifact_inventory",
+            "message": "Required artifact categories are missing.",
+            "path": "artifact_inventory",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "ARTIFACT_INVENTORY",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "package",
+            "evidence": null,
+            "field": "integrity.package_manifest_sha256",
+            "message": "Manifest finalization does not reproduce declared checksum.",
+            "path": "integrity.package_manifest_sha256",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "DETERMINISM",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "package",
+            "evidence": null,
+            "field": "artifact_inventory",
+            "message": "Duplicate artifact IDs found.",
+            "path": "artifact_inventory",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "IDENTIFIER_UNIQUENESS",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "DUPLICATE_ARTIFACT_ID",
+            "evidence": null,
+            "field": "sha256",
+            "message": "Artifact checksum mismatch.",
+            "path": "sha256",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "INTEGRITY",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "package",
+            "evidence": null,
+            "field": "integrity.package_manifest_sha256",
+            "message": "Manifest integrity checksum mismatch.",
+            "path": "integrity.package_manifest_sha256",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "INTEGRITY",
+            "severity": "error"
+          }
+        ],
+        "generation_family_linkage_status": "pass",
+        "identifier_status": "fail",
+        "integrity_status": "fail",
+        "known_gap_status": "pass",
+        "manifest_status": "pass",
+        "overall_verdict": "reject",
+        "package_contract": "compiler_release_package_v1",
+        "package_id": "PKG_DELIBERATELY_INVALID_001",
+        "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid",
+        "package_version": "0.1.0-fixture",
+        "procedure_question_linkage_status": "pass",
+        "provenance_status": "pass",
+        "reference_integrity_status": "pass",
+        "review_state_status": "pass",
+        "rights_status": "pass",
+        "rule_results": [
+          {
+            "message": "Contract/version fields checked.",
+            "rule_id": "CONTRACT_VERSION",
+            "status": "pass"
+          },
+          {
+            "message": "Rule did not run.",
+            "rule_id": "JSON_PARSE",
+            "status": "not_run"
+          },
+          {
+            "message": "Structural fields checked.",
+            "rule_id": "STRUCTURAL_SCHEMA",
+            "status": "pass"
+          },
+          {
+            "message": "Artifact inventory checked.",
+            "rule_id": "ARTIFACT_INVENTORY",
+            "status": "fail"
+          },
+          {
+            "message": "Path containment checked.",
+            "rule_id": "PATH_CONTAINMENT",
+            "status": "pass"
+          },
+          {
+            "message": "Identifier uniqueness checked.",
+            "rule_id": "IDENTIFIER_UNIQUENESS",
+            "status": "fail"
+          },
+          {
+            "message": "Reference integrity checked.",
+            "rule_id": "REFERENCE_INTEGRITY",
+            "status": "pass"
+          },
+          {
+            "message": "Source provenance checked.",
+            "rule_id": "PROVENANCE",
+            "status": "pass"
+          },
+          {
+            "message": "Procedure/question linkage checked.",
+            "rule_id": "PROCEDURE_QUESTION_LINKAGE",
+            "status": "pass"
+          },
+          {
+            "message": "Generation-family linkage checked.",
+            "rule_id": "GENERATION_FAMILY_LINKAGE",
+            "status": "pass"
+          },
+          {
+            "message": "Signal policy checked.",
+            "rule_id": "SIGNAL_POLICY",
+            "status": "pass"
+          },
+          {
+            "message": "Review state checked.",
+            "rule_id": "REVIEW_STATE",
+            "status": "pass"
+          },
+          {
+            "message": "Rights and privacy safety checked.",
+            "rule_id": "RIGHTS_SAFETY",
+            "status": "pass"
+          },
+          {
+            "message": "Safety boundary checked.",
+            "rule_id": "SAFETY_BOUNDARY",
+            "status": "pass"
+          },
+          {
+            "message": "Checksums and byte sizes checked.",
+            "rule_id": "INTEGRITY",
+            "status": "fail"
+          },
+          {
+            "message": "Determinism checked.",
+            "rule_id": "DETERMINISM",
+            "status": "fail"
+          },
+          {
+            "message": "Known gaps classified.",
+            "rule_id": "KNOWN_GAPS",
+            "status": "pass"
+          }
+        ],
+        "safety_boundary_status": "pass",
+        "schema_status": "pass",
+        "signal_policy_status": "pass",
+        "validation_completed_at": "2026-07-14T15:39:03Z",
+        "validation_started_at": "2026-07-14T15:39:03Z",
+        "validator_name": "compiler_release_package_semantic_validator",
+        "validator_version": "1.0.0",
+        "warnings": []
+      }
+    },
+    {
+      "consumer_result": {
+        "artifact_count": 0,
+        "artifact_type_counts": {},
+        "boundary_evidence": {
+          "adaptive_platform_accessed": false,
+          "adaptive_platform_git_activity": false,
+          "adaptive_platform_modified": false,
+          "canonical_promotion_performed": false,
+          "database_contacted": false,
+          "learner_state_modified": false,
+          "network_endpoint_contacted": false,
+          "package_modified": false,
+          "runtime_route_called": false,
+          "student_visible_output_created": false
+        },
+        "compatibility_warnings": [],
+        "consumer_name": "compiler_offline_reference_consumer",
+        "consumer_verdict": "rejected_without_plan",
+        "consumer_version": "1.0.0",
+        "consumption_completed_at": "2026-07-14T15:39:03Z",
+        "consumption_started_at": "2026-07-14T15:39:03Z",
+        "declared_artifacts": [],
+        "dependency_order": [],
+        "dry_run_plan_status": "not_generated_package_rejected",
+        "errors": [
+          {
+            "artifact_id": "package",
+            "evidence": "generation_family_candidate, performance_tracking_target, procedure_candidate, question_candidate, review_record, signal_mapping, validation_report",
+            "field": "artifact_inventory",
+            "message": "Required artifact categories are missing.",
+            "path": "artifact_inventory",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "ARTIFACT_INVENTORY",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "package",
+            "evidence": null,
+            "field": "integrity.package_manifest_sha256",
+            "message": "Manifest finalization does not reproduce declared checksum.",
+            "path": "integrity.package_manifest_sha256",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "DETERMINISM",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "package",
+            "evidence": null,
+            "field": "artifact_inventory",
+            "message": "Duplicate artifact IDs found.",
+            "path": "artifact_inventory",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "IDENTIFIER_UNIQUENESS",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "DUPLICATE_ARTIFACT_ID",
+            "evidence": null,
+            "field": "sha256",
+            "message": "Artifact checksum mismatch.",
+            "path": "sha256",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "INTEGRITY",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "package",
+            "evidence": null,
+            "field": "integrity.package_manifest_sha256",
+            "message": "Manifest integrity checksum mismatch.",
+            "path": "integrity.package_manifest_sha256",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "INTEGRITY",
+            "severity": "error"
+          }
+        ],
+        "importable_artifacts": [],
+        "known_gaps": [],
+        "manifest_loaded": false,
+        "non_importable_artifacts": [],
+        "package_contract": "compiler_release_package_v1",
+        "package_id": "PKG_DELIBERATELY_INVALID_001",
+        "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid",
+        "package_version": "0.1.0-fixture",
+        "resolved_references": [],
+        "review_only_artifacts": [],
+        "unresolved_references": [],
+        "validator_name": "compiler_release_package_semantic_validator",
+        "validator_verdict": "reject",
+        "validator_version": "1.0.0",
+        "warnings": []
+      },
+      "input_inventory": {
+        "artifact_digests": {
+          "README.md": "168921e729547b206d8d38d68b968df5d9bc14a33d3eda7b250857bb41f5f5ee",
+          "artifacts/curriculum/curriculum_extraction.json": "09cfb20d02a0f741bb68eceb779870bab5bab39967c6dcb30391d84b85c97a19",
+          "artifacts/sources/source_interpretation.json": "9af4901b0ecc84fe96ef19a9e1bbee82f4674e5cd9d7739cc06b9f01a497caf4",
+          "artifacts/sources/source_metadata.json": "b5cb51da054fbc27a41d5b6c0c7fdb40bbc23699659082487a5a5b1bae28c684"
+        },
+        "file_count": 5,
+        "files": [
+          {
+            "byte_size": 106,
+            "file_mode": "0o644",
+            "relative_path": "README.md",
+            "sha256": "168921e729547b206d8d38d68b968df5d9bc14a33d3eda7b250857bb41f5f5ee",
+            "symlink_target": null
+          },
+          {
+            "byte_size": 102,
+            "file_mode": "0o644",
+            "relative_path": "artifacts/curriculum/curriculum_extraction.json",
+            "sha256": "09cfb20d02a0f741bb68eceb779870bab5bab39967c6dcb30391d84b85c97a19",
+            "symlink_target": null
+          },
+          {
+            "byte_size": 91,
+            "file_mode": "0o644",
+            "relative_path": "artifacts/sources/source_interpretation.json",
+            "sha256": "9af4901b0ecc84fe96ef19a9e1bbee82f4674e5cd9d7739cc06b9f01a497caf4",
+            "symlink_target": null
+          },
+          {
+            "byte_size": 117,
+            "file_mode": "0o644",
+            "relative_path": "artifacts/sources/source_metadata.json",
+            "sha256": "b5cb51da054fbc27a41d5b6c0c7fdb40bbc23699659082487a5a5b1bae28c684",
+            "symlink_target": null
+          },
+          {
+            "byte_size": 3445,
+            "file_mode": "0o644",
+            "relative_path": "manifest.json",
+            "sha256": "0379a112e1272c406f9eb1e37e78c3e835d7255ff4f31b9dfe515102cfccfbe1",
+            "symlink_target": null
+          }
+        ],
+        "input_inventory_digest": "3b0a2e6df05849e32f3f14612a2900d93812d4b5375fbc0906b886d33bd767b2",
+        "manifest_digest": "0379a112e1272c406f9eb1e37e78c3e835d7255ff4f31b9dfe515102cfccfbe1",
+        "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid"
+      },
+      "run_index": 2,
+      "validator_result": {
+        "artifact_inventory_status": "fail",
+        "artifact_results": [
+          {
+            "artifact_id": "DUPLICATE_ARTIFACT_ID",
+            "artifact_type": "curriculum_extraction",
+            "declared": true,
+            "exists": true,
+            "relative_path": "artifacts/curriculum/curriculum_extraction.json"
+          },
+          {
+            "artifact_id": "DUPLICATE_ARTIFACT_ID",
+            "artifact_type": "source_interpretation",
+            "declared": true,
+            "exists": true,
+            "relative_path": "artifacts/sources/source_interpretation.json"
+          },
+          {
+            "artifact_id": "SOURCE_METADATA",
+            "artifact_type": "source_metadata",
+            "declared": true,
+            "exists": true,
+            "relative_path": "artifacts/sources/source_metadata.json"
+          }
+        ],
+        "boundary_evidence": {
+          "adaptive_platform_accessed": false,
+          "adaptive_platform_modified": false,
+          "canonical_promotion_performed": false,
+          "database_contacted": false,
+          "learner_loop_implemented": false,
+          "network_contacted": false,
+          "runtime_route_created": false,
+          "student_visible_output_created": false
+        },
+        "determinism_status": "fail",
+        "errors": [
+          {
+            "artifact_id": "package",
+            "evidence": "generation_family_candidate, performance_tracking_target, procedure_candidate, question_candidate, review_record, signal_mapping, validation_report",
+            "field": "artifact_inventory",
+            "message": "Required artifact categories are missing.",
+            "path": "artifact_inventory",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "ARTIFACT_INVENTORY",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "package",
+            "evidence": null,
+            "field": "integrity.package_manifest_sha256",
+            "message": "Manifest finalization does not reproduce declared checksum.",
+            "path": "integrity.package_manifest_sha256",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "DETERMINISM",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "package",
+            "evidence": null,
+            "field": "artifact_inventory",
+            "message": "Duplicate artifact IDs found.",
+            "path": "artifact_inventory",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "IDENTIFIER_UNIQUENESS",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "DUPLICATE_ARTIFACT_ID",
+            "evidence": null,
+            "field": "sha256",
+            "message": "Artifact checksum mismatch.",
+            "path": "sha256",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "INTEGRITY",
+            "severity": "error"
+          },
+          {
+            "artifact_id": "package",
+            "evidence": null,
+            "field": "integrity.package_manifest_sha256",
+            "message": "Manifest integrity checksum mismatch.",
+            "path": "integrity.package_manifest_sha256",
+            "recommended_action": "Correct the package and rerun validation.",
+            "rule_id": "INTEGRITY",
+            "severity": "error"
+          }
+        ],
+        "generation_family_linkage_status": "pass",
+        "identifier_status": "fail",
+        "integrity_status": "fail",
+        "known_gap_status": "pass",
+        "manifest_status": "pass",
+        "overall_verdict": "reject",
+        "package_contract": "compiler_release_package_v1",
+        "package_id": "PKG_DELIBERATELY_INVALID_001",
+        "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/deliberately_invalid",
+        "package_version": "0.1.0-fixture",
+        "procedure_question_linkage_status": "pass",
+        "provenance_status": "pass",
+        "reference_integrity_status": "pass",
+        "review_state_status": "pass",
+        "rights_status": "pass",
+        "rule_results": [
+          {
+            "message": "Contract/version fields checked.",
+            "rule_id": "CONTRACT_VERSION",
+            "status": "pass"
+          },
+          {
+            "message": "Rule did not run.",
+            "rule_id": "JSON_PARSE",
+            "status": "not_run"
+          },
+          {
+            "message": "Structural fields checked.",
+            "rule_id": "STRUCTURAL_SCHEMA",
+            "status": "pass"
+          },
+          {
+            "message": "Artifact inventory checked.",
+            "rule_id": "ARTIFACT_INVENTORY",
+            "status": "fail"
+          },
+          {
+            "message": "Path containment checked.",
+            "rule_id": "PATH_CONTAINMENT",
+            "status": "pass"
+          },
+          {
+            "message": "Identifier uniqueness checked.",
+            "rule_id": "IDENTIFIER_UNIQUENESS",
+            "status": "fail"
+          },
+          {
+            "message": "Reference integrity checked.",
+            "rule_id": "REFERENCE_INTEGRITY",
+            "status": "pass"
+          },
+          {
+            "message": "Source provenance checked.",
+            "rule_id": "PROVENANCE",
+            "status": "pass"
+          },
+          {
+            "message": "Procedure/question linkage checked.",
+            "rule_id": "PROCEDURE_QUESTION_LINKAGE",
+            "status": "pass"
+          },
+          {
+            "message": "Generation-family linkage checked.",
+            "rule_id": "GENERATION_FAMILY_LINKAGE",
+            "status": "pass"
+          },
+          {
+            "message": "Signal policy checked.",
+            "rule_id": "SIGNAL_POLICY",
+            "status": "pass"
+          },
+          {
+            "message": "Review state checked.",
+            "rule_id": "REVIEW_STATE",
+            "status": "pass"
+          },
+          {
+            "message": "Rights and privacy safety checked.",
+            "rule_id": "RIGHTS_SAFETY",
+            "status": "pass"
+          },
+          {
+            "message": "Safety boundary checked.",
+            "rule_id": "SAFETY_BOUNDARY",
+            "status": "pass"
+          },
+          {
+            "message": "Checksums and byte sizes checked.",
+            "rule_id": "INTEGRITY",
+            "status": "fail"
+          },
+          {
+            "message": "Determinism checked.",
+            "rule_id": "DETERMINISM",
+            "status": "fail"
+          },
+          {
+            "message": "Known gaps classified.",
+            "rule_id": "KNOWN_GAPS",
+            "status": "pass"
+          }
+        ],
+        "safety_boundary_status": "pass",
+        "schema_status": "pass",
+        "signal_policy_status": "pass",
+        "validation_completed_at": "2026-07-14T15:39:03Z",
+        "validation_started_at": "2026-07-14T15:39:03Z",
+        "validator_name": "compiler_release_package_semantic_validator",
+        "validator_version": "1.0.0",
+        "warnings": []
+      }
+    }
+  ],
+  "validator_name": "compiler_release_package_semantic_validator",
+  "validator_version": "1.0.0",
+  "volatile_fields_excluded": [
+    "validation_started_at",
+    "validation_completed_at",
+    "consumption_started_at",
+    "consumption_completed_at",
+    "reproduction_started_at",
+    "reproduction_completed_at",
+    "package_path"
+  ],
+  "warning_order_match": true,
+  "warnings": []
+}

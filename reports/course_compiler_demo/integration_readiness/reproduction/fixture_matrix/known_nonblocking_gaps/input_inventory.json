@@ -1,0 +1,17 @@
+{
+  "input_artifact_digests": {
+    "README.md": "3c629697d12026de52cb59e384b04f7023d8481750416ee4de5908344ad2b740",
+    "artifacts/curriculum/curriculum_extraction.json": "09cfb20d02a0f741bb68eceb779870bab5bab39967c6dcb30391d84b85c97a19",
+    "artifacts/generation_families/generation_family_vector_components.json": "93602e2ce825d6f4ace46262744f9e9368e5cf9ace6b467bad5e30ff62cd4466",
+    "artifacts/performance/performance_target_vector_components.json": "a36096e6aaea9f56e4891510b6b8d388def5764611614505e436a0a3d0b9e748",
+    "artifacts/procedures/procedure_candidate_vector_components.json": "5530612a6c77adbc7327216944d0ea639f8d3867abfc4440e8c8137a3a443473",
+    "artifacts/questions/question_candidate_vector_components.json": "e0d290f7611e4014e79a92f8dba6024a45bcea95c4f017b71af85609cbd8a3f5",
+    "artifacts/review/known_gap_report.json": "d130b727cbe03e03fd864d8ec3342833d7161885e293fd5f696e86e3e9306f26",
+    "artifacts/review/review_record.json": "7fd3923557d2dcafb81a4d76e34848fd31c5504bd8a9a60230e73a62a31ebc1a",
+    "artifacts/signals/signal_mapping_vector_components.json": "5974a32175bbd1ca753f61d2d7be236571cd5587b3671b03a1d91e258fe8691a",
+    "artifacts/sources/source_interpretation.json": "9af4901b0ecc84fe96ef19a9e1bbee82f4674e5cd9d7739cc06b9f01a497caf4",
+    "artifacts/sources/source_metadata.json": "b5cb51da054fbc27a41d5b6c0c7fdb40bbc23699659082487a5a5b1bae28c684",
+    "artifacts/validation/validation_report.json": "75bec2a1f20b3492a4e3cf9089b55b6d02aa2dddc08dc3db2a57c303b619691d"
+  },
+  "input_inventory_digest": "8902eacbb37e34f0469bfa4f7940a286e0c3beab544baf38a6386b637869b9a8"
+}
