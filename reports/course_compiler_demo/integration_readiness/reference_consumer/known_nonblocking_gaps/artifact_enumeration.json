@@ -1,0 +1,181 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "CURRICULUM_EXTRACTION",
+      "artifact_type": "curriculum_extraction",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Curriculum extraction is package metadata for review.",
+      "consumer_classification": "non_importable_metadata",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/curriculum/curriculum_extraction.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "GF_VECTOR_COMPONENTS_001",
+      "artifact_type": "generation_family_candidate",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Generation family candidate may be mapped by a future non-live importer.",
+      "consumer_classification": "future_integration_candidate",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/generation_families/generation_family_vector_components.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "KNOWN_GAPS_001",
+      "artifact_type": "known_gap_report",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Known gap report preserves nonblocking review context.",
+      "consumer_classification": "known_gap_record",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/review/known_gap_report.json",
+      "required": false,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "PERF_VECTOR_COMPONENTS_001",
+      "artifact_type": "performance_tracking_target",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Performance target may inform future non-live telemetry design.",
+      "consumer_classification": "future_integration_candidate",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/performance/performance_target_vector_components.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "PROC_VECTOR_COMPONENTS_001",
+      "artifact_type": "procedure_candidate",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Procedure candidate may be mapped by a future non-live importer.",
+      "consumer_classification": "future_integration_candidate",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/procedures/procedure_candidate_vector_components.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "Q_VECTOR_COMPONENTS_001",
+      "artifact_type": "question_candidate",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Question candidate may be mapped by a future non-live importer.",
+      "consumer_classification": "future_integration_candidate",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/questions/question_candidate_vector_components.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "REV_VECTOR_COMPONENTS_001",
+      "artifact_type": "review_record",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Review metadata is evidence, not an importable learner artifact.",
+      "consumer_classification": "review_record",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/review/review_record.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "SIG_VECTOR_COMPONENTS_001",
+      "artifact_type": "signal_mapping",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Signal mapping may inform future non-live feedback mapping.",
+      "consumer_classification": "future_integration_candidate",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/signals/signal_mapping_vector_components.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "SOURCE_INTERPRETATION",
+      "artifact_type": "source_interpretation",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Source interpretation records provenance context.",
+      "consumer_classification": "source_or_provenance_record",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/sources/source_interpretation.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "SOURCE_METADATA",
+      "artifact_type": "source_metadata",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Source metadata records provenance only.",
+      "consumer_classification": "source_or_provenance_record",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/sources/source_metadata.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "VAL_VECTOR_COMPONENTS_001",
+      "artifact_type": "validation_report",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Validation report is audit evidence.",
+      "consumer_classification": "validation_evidence",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/validation/validation_report.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    }
+  ],
+  "package_id": "PKG_KNOWN_NONBLOCKING_GAPS_001"
+}

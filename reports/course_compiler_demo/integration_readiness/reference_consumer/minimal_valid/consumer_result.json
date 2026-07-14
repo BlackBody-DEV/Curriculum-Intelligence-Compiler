@@ -1,0 +1,446 @@
+{
+  "artifact_count": 10,
+  "artifact_type_counts": {
+    "curriculum_extraction": 1,
+    "generation_family_candidate": 1,
+    "performance_tracking_target": 1,
+    "procedure_candidate": 1,
+    "question_candidate": 1,
+    "review_record": 1,
+    "signal_mapping": 1,
+    "source_interpretation": 1,
+    "source_metadata": 1,
+    "validation_report": 1
+  },
+  "boundary_evidence": {
+    "adaptive_platform_accessed": false,
+    "adaptive_platform_git_activity": false,
+    "adaptive_platform_modified": false,
+    "canonical_promotion_performed": false,
+    "database_contacted": false,
+    "learner_state_modified": false,
+    "network_endpoint_contacted": false,
+    "package_modified": false,
+    "runtime_route_called": false,
+    "student_visible_output_created": false
+  },
+  "compatibility_warnings": [
+    "future destination mapping required",
+    "human review outstanding",
+    "optional assets absent"
+  ],
+  "consumer_name": "compiler_offline_reference_consumer",
+  "consumer_verdict": "accepted_for_offline_planning",
+  "consumer_version": "1.0.0",
+  "consumption_completed_at": "2026-07-14T10:08:38Z",
+  "consumption_started_at": "2026-07-14T10:08:38Z",
+  "declared_artifacts": [
+    {
+      "artifact_id": "CURRICULUM_EXTRACTION",
+      "artifact_type": "curriculum_extraction",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Curriculum extraction is package metadata for review.",
+      "consumer_classification": "non_importable_metadata",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/curriculum/curriculum_extraction.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "GF_VECTOR_COMPONENTS_001",
+      "artifact_type": "generation_family_candidate",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Generation family candidate may be mapped by a future non-live importer.",
+      "consumer_classification": "future_integration_candidate",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/generation_families/generation_family_vector_components.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "PERF_VECTOR_COMPONENTS_001",
+      "artifact_type": "performance_tracking_target",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Performance target may inform future non-live telemetry design.",
+      "consumer_classification": "future_integration_candidate",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/performance/performance_target_vector_components.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "PROC_VECTOR_COMPONENTS_001",
+      "artifact_type": "procedure_candidate",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Procedure candidate may be mapped by a future non-live importer.",
+      "consumer_classification": "future_integration_candidate",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/procedures/procedure_candidate_vector_components.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "Q_VECTOR_COMPONENTS_001",
+      "artifact_type": "question_candidate",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Question candidate may be mapped by a future non-live importer.",
+      "consumer_classification": "future_integration_candidate",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/questions/question_candidate_vector_components.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "REV_VECTOR_COMPONENTS_001",
+      "artifact_type": "review_record",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Review metadata is evidence, not an importable learner artifact.",
+      "consumer_classification": "review_record",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/review/review_record.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "SIG_VECTOR_COMPONENTS_001",
+      "artifact_type": "signal_mapping",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Signal mapping may inform future non-live feedback mapping.",
+      "consumer_classification": "future_integration_candidate",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/signals/signal_mapping_vector_components.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "SOURCE_INTERPRETATION",
+      "artifact_type": "source_interpretation",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Source interpretation records provenance context.",
+      "consumer_classification": "source_or_provenance_record",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/sources/source_interpretation.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "SOURCE_METADATA",
+      "artifact_type": "source_metadata",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Source metadata records provenance only.",
+      "consumer_classification": "source_or_provenance_record",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/sources/source_metadata.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    },
+    {
+      "artifact_id": "VAL_VECTOR_COMPONENTS_001",
+      "artifact_type": "validation_report",
+      "byte_size_verified": true,
+      "checksum_verified": true,
+      "classification_reason": "Validation report is audit evidence.",
+      "consumer_classification": "validation_evidence",
+      "depends_on_artifact_ids": [],
+      "reference_resolution_status": "resolved",
+      "relative_path": "artifacts/validation/validation_report.json",
+      "required": true,
+      "source_reference_ids": [
+        "SRC_SYNTH_STATICS_001"
+      ],
+      "status": "human_review_required"
+    }
+  ],
+  "dependency_order": [
+    "CURRICULUM_EXTRACTION",
+    "GF_VECTOR_COMPONENTS_001",
+    "PERF_VECTOR_COMPONENTS_001",
+    "PROC_VECTOR_COMPONENTS_001",
+    "Q_VECTOR_COMPONENTS_001",
+    "REV_VECTOR_COMPONENTS_001",
+    "SIG_VECTOR_COMPONENTS_001",
+    "SOURCE_INTERPRETATION",
+    "SOURCE_METADATA",
+    "VAL_VECTOR_COMPONENTS_001"
+  ],
+  "dry_run_plan_status": "generated",
+  "errors": [],
+  "importable_artifacts": [
+    "GF_VECTOR_COMPONENTS_001",
+    "PERF_VECTOR_COMPONENTS_001",
+    "PROC_VECTOR_COMPONENTS_001",
+    "Q_VECTOR_COMPONENTS_001",
+    "SIG_VECTOR_COMPONENTS_001"
+  ],
+  "known_gaps": [],
+  "manifest_loaded": true,
+  "non_importable_artifacts": [
+    "CURRICULUM_EXTRACTION",
+    "SOURCE_INTERPRETATION",
+    "SOURCE_METADATA"
+  ],
+  "package_contract": "compiler_release_package_v1",
+  "package_id": "PKG_MINIMAL_VALID_001",
+  "package_path": "/Users/fanarichardson/Documents/AxiomIQ/tools/course_compiler_demo/release_package/golden_packages/minimal_valid",
+  "package_version": "0.1.0-fixture",
+  "resolved_references": [
+    {
+      "origin": "CURRICULUM_EXTRACTION",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "GF_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "PERF_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "PROC_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "Q_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "REV_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "SIG_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "SOURCE_INTERPRETATION",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "SOURCE_METADATA",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "VAL_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "GF_VECTOR_COMPONENTS_001",
+      "reference_type": "generation_family_reference",
+      "status": "resolved_with_warning",
+      "target": null
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.asset_artifact_ids",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.generation_family_artifact_ids",
+      "status": "resolved",
+      "target": "GF_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.performance_tracking_artifact_ids",
+      "status": "resolved",
+      "target": "PERF_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.procedure_artifact_ids",
+      "status": "resolved",
+      "target": "PROC_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.question_artifact_ids",
+      "status": "resolved",
+      "target": "Q_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.review_artifact_ids",
+      "status": "resolved",
+      "target": "REV_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.signal_mapping_artifact_ids",
+      "status": "resolved",
+      "target": "SIG_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.validation_artifact_ids",
+      "status": "resolved",
+      "target": "VAL_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "PERF_VECTOR_COMPONENTS_001",
+      "reference_type": "performance_target_curriculum_reference",
+      "status": "resolved_with_warning",
+      "target": "component_pair_accuracy"
+    },
+    {
+      "origin": "Q_VECTOR_COMPONENTS_001",
+      "reference_type": "question_to_procedure",
+      "status": "resolved_with_warning",
+      "target": null
+    },
+    {
+      "origin": "REV_VECTOR_COMPONENTS_001",
+      "reference_type": "review_record_target",
+      "status": "resolved_with_warning",
+      "target": null
+    },
+    {
+      "origin": "SIG_VECTOR_COMPONENTS_001",
+      "reference_type": "signal_mapping_target",
+      "status": "resolved",
+      "target": null
+    },
+    {
+      "origin": "CURRICULUM_EXTRACTION",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "GF_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "PERF_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "PROC_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "Q_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "REV_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "SIG_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "SOURCE_INTERPRETATION",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "SOURCE_METADATA",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "VAL_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "VAL_VECTOR_COMPONENTS_001",
+      "reference_type": "validation_record_target",
+      "status": "resolved_with_warning",
+      "target": null
+    }
+  ],
+  "review_only_artifacts": [
+    "REV_VECTOR_COMPONENTS_001",
+    "VAL_VECTOR_COMPONENTS_001"
+  ],
+  "unresolved_references": [],
+  "validator_name": "compiler_release_package_semantic_validator",
+  "validator_verdict": "accept",
+  "validator_version": "1.0.0",
+  "warnings": []
+}

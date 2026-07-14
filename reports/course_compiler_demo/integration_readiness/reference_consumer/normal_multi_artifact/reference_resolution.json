@@ -1,0 +1,318 @@
+{
+  "package_id": "PKG_NORMAL_MULTI_ARTIFACT_001",
+  "resolved": [
+    {
+      "origin": "ASSET_WORKED_EXAMPLE_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "CURRICULUM_EXTRACTION",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "GF_RESULTANT_001",
+      "reference_type": "artifact_dependency",
+      "status": "resolved",
+      "target": "Q_RESULTANT_001"
+    },
+    {
+      "origin": "GF_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "PERF_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "PROC_RESULTANT_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "PROC_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "Q_RESULTANT_001",
+      "reference_type": "artifact_dependency",
+      "status": "resolved",
+      "target": "PROC_RESULTANT_001"
+    },
+    {
+      "origin": "Q_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "REV_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "SIG_RESULTANT_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "SIG_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "SOURCE_INTERPRETATION",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "SOURCE_METADATA",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "VAL_VECTOR_COMPONENTS_001",
+      "reference_type": "artifact_dependency",
+      "status": "not_applicable",
+      "target": null
+    },
+    {
+      "origin": "ASSET_WORKED_EXAMPLE_001",
+      "reference_type": "asset_reference",
+      "status": "resolved_with_warning",
+      "target": null
+    },
+    {
+      "origin": "GF_RESULTANT_001",
+      "reference_type": "generation_family_reference",
+      "status": "resolved",
+      "target": "Q_RESULTANT_001"
+    },
+    {
+      "origin": "GF_VECTOR_COMPONENTS_001",
+      "reference_type": "generation_family_reference",
+      "status": "resolved_with_warning",
+      "target": null
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.asset_artifact_ids",
+      "status": "resolved",
+      "target": "ASSET_WORKED_EXAMPLE_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.generation_family_artifact_ids",
+      "status": "resolved",
+      "target": "GF_RESULTANT_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.generation_family_artifact_ids",
+      "status": "resolved",
+      "target": "GF_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.performance_tracking_artifact_ids",
+      "status": "resolved",
+      "target": "PERF_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.procedure_artifact_ids",
+      "status": "resolved",
+      "target": "PROC_RESULTANT_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.procedure_artifact_ids",
+      "status": "resolved",
+      "target": "PROC_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.question_artifact_ids",
+      "status": "resolved",
+      "target": "Q_RESULTANT_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.question_artifact_ids",
+      "status": "resolved",
+      "target": "Q_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.review_artifact_ids",
+      "status": "resolved",
+      "target": "REV_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.signal_mapping_artifact_ids",
+      "status": "resolved",
+      "target": "SIG_RESULTANT_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.signal_mapping_artifact_ids",
+      "status": "resolved",
+      "target": "SIG_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "manifest",
+      "reference_type": "manifest.validation_artifact_ids",
+      "status": "resolved",
+      "target": "VAL_VECTOR_COMPONENTS_001"
+    },
+    {
+      "origin": "PERF_VECTOR_COMPONENTS_001",
+      "reference_type": "performance_target_curriculum_reference",
+      "status": "resolved_with_warning",
+      "target": "component_pair_accuracy"
+    },
+    {
+      "origin": "Q_RESULTANT_001",
+      "reference_type": "question_to_procedure",
+      "status": "resolved",
+      "target": "PROC_RESULTANT_001"
+    },
+    {
+      "origin": "Q_VECTOR_COMPONENTS_001",
+      "reference_type": "question_to_procedure",
+      "status": "resolved_with_warning",
+      "target": null
+    },
+    {
+      "origin": "REV_VECTOR_COMPONENTS_001",
+      "reference_type": "review_record_target",
+      "status": "resolved_with_warning",
+      "target": null
+    },
+    {
+      "origin": "SIG_RESULTANT_001",
+      "reference_type": "signal_mapping_target",
+      "status": "resolved",
+      "target": null
+    },
+    {
+      "origin": "SIG_VECTOR_COMPONENTS_001",
+      "reference_type": "signal_mapping_target",
+      "status": "resolved",
+      "target": null
+    },
+    {
+      "origin": "ASSET_WORKED_EXAMPLE_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "CURRICULUM_EXTRACTION",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "GF_RESULTANT_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "GF_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "PERF_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "PROC_RESULTANT_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "PROC_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "Q_RESULTANT_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "Q_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "REV_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "SIG_RESULTANT_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "SIG_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "SOURCE_INTERPRETATION",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "SOURCE_METADATA",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "VAL_VECTOR_COMPONENTS_001",
+      "reference_type": "source_reference",
+      "status": "resolved",
+      "target": "SRC_SYNTH_STATICS_001"
+    },
+    {
+      "origin": "VAL_VECTOR_COMPONENTS_001",
+      "reference_type": "validation_record_target",
+      "status": "resolved_with_warning",
+      "target": null
+    }
+  ],
+  "unresolved": []
+}

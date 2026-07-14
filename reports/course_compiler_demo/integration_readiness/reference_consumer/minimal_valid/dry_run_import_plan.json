@@ -1,0 +1,92 @@
+{
+  "artifact_groups": {
+    "assets": [],
+    "curriculum_identity": [
+      "CURRICULUM_EXTRACTION"
+    ],
+    "generation_family_candidates": [
+      "GF_VECTOR_COMPONENTS_001"
+    ],
+    "known_gaps": [],
+    "non_importable_metadata": [],
+    "performance_tracking_targets": [
+      "PERF_VECTOR_COMPONENTS_001"
+    ],
+    "procedure_candidates": [
+      "PROC_VECTOR_COMPONENTS_001"
+    ],
+    "question_candidates": [
+      "Q_VECTOR_COMPONENTS_001"
+    ],
+    "review_records": [
+      "REV_VECTOR_COMPONENTS_001"
+    ],
+    "signal_mappings": [
+      "SIG_VECTOR_COMPONENTS_001"
+    ],
+    "source_and_provenance": [
+      "SOURCE_INTERPRETATION",
+      "SOURCE_METADATA"
+    ],
+    "validation_evidence": [
+      "VAL_VECTOR_COMPONENTS_001"
+    ]
+  },
+  "artifact_processing_order": [
+    "CURRICULUM_EXTRACTION",
+    "GF_VECTOR_COMPONENTS_001",
+    "PERF_VECTOR_COMPONENTS_001",
+    "PROC_VECTOR_COMPONENTS_001",
+    "Q_VECTOR_COMPONENTS_001",
+    "REV_VECTOR_COMPONENTS_001",
+    "SIG_VECTOR_COMPONENTS_001",
+    "SOURCE_INTERPRETATION",
+    "SOURCE_METADATA",
+    "VAL_VECTOR_COMPONENTS_001"
+  ],
+  "boundary_statement": "Offline planning evidence only; no adaptive-platform, database, runtime, learner-state, canonical, or student-visible operation was performed.",
+  "compatibility_warnings": [
+    "future destination mapping required",
+    "human review outstanding",
+    "optional assets absent"
+  ],
+  "known_gaps": [],
+  "package_contract": "compiler_release_package_v1",
+  "package_id": "PKG_MINIMAL_VALID_001",
+  "package_version": "0.1.0-fixture",
+  "plan_id": "DRY_RUN_PLAN_PKG_MINIMAL_VALID_001",
+  "plan_status": "generated",
+  "prohibited_operations": [
+    "no adaptive-platform write performed",
+    "no database write performed",
+    "no migration performed",
+    "no runtime route called",
+    "no learner state modified",
+    "no canonical promotion performed",
+    "no student-visible publication performed"
+  ],
+  "required_future_destination_capabilities": [
+    "candidate-record intake",
+    "identifier mapping",
+    "review-state preservation",
+    "non-live staging isolation",
+    "transaction or rollback boundary",
+    "artifact-reference validation"
+  ],
+  "review_gates": [
+    "human review required before protected integration review",
+    "preserve review_pending and human_review_required state",
+    "block canonical or student-visible activation"
+  ],
+  "rollback_expectations": [
+    "future importer must provide transaction or rollback boundary",
+    "this dry-run plan performs no destination writes"
+  ],
+  "source_validation_summary": {
+    "errors": 0,
+    "validator_name": "compiler_release_package_semantic_validator",
+    "validator_verdict": "accept",
+    "validator_version": "1.0.0",
+    "warnings": 0
+  }
+}
