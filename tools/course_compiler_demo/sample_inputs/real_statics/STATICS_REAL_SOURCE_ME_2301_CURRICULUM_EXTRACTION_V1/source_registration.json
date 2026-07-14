@@ -1,0 +1,85 @@
+{
+  "schema_version": "REAL_SOURCE_REGISTRATION_v1",
+  "source_id": "STATICS_REAL_SOURCE_ME_2301_CURRICULUM_EXTRACTION_V1",
+  "source_title": "ME 2301 Statics - Syllabus Curriculum Extraction",
+  "source_type": "user_authored_statics_curriculum_extraction",
+  "subject": "STATICS",
+  "source_format": "md",
+  "original_filename": "me_2301_statics_curriculum_extraction.md",
+  "external_source_path": "/Users/fanarichardson/Documents/AxiomIQ_Source_Inbox/Statics/User_Authored/me_2301_statics_curriculum_extraction.md",
+  "preserved_relative_path": "tools/course_compiler_demo/sample_inputs/real_statics/STATICS_REAL_SOURCE_ME_2301_CURRICULUM_EXTRACTION_V1/original/me_2301_statics_curriculum_extraction.md",
+  "source_origin": "user_authored_external_source_inbox",
+  "author_or_owner": "Fanari Richardson / AxiomIQ user-authored source",
+  "source_created_before_task": true,
+  "synthetic_source": false,
+  "rights": {
+    "rights_status": "owned_by_user",
+    "repository_storage_permitted": true,
+    "internal_processing_permitted": true,
+    "public_redistribution_permitted": false,
+    "textbook_source_used": false
+  },
+  "privacy": {
+    "privacy_status": "non_private",
+    "contains_private_student_data": false,
+    "contains_private_company_data": false,
+    "contains_credentials_or_secrets": false
+  },
+  "content_review": {
+    "contains_answer_key": false,
+    "contains_worked_solutions": false,
+    "contains_diagrams": false,
+    "text_extraction_supported": true,
+    "current_intake_support_status": "supported",
+    "ocr_required": false,
+    "selected_for_real_source_proof": true,
+    "selection_rationale": "User-authored Markdown source with explicit Statics curriculum hierarchy, course outcomes, topics, subtopics, and micro-skill decomposition. The file is already text-readable and avoids textbook redistribution concerns.",
+    "authored_content_summary": "The source describes an ME 2301 Statics curriculum extraction covering particles, rigid bodies, forces, couples, equilibrium, trusses, frames, internal loadings, friction, centroids, moments of inertia, and distributed loading.",
+    "anticipated_topics": [
+      "general_principles",
+      "force_vectors",
+      "equilibrium_of_a_particle",
+      "force_system_resultants",
+      "equilibrium_of_a_rigid_body",
+      "structural_analysis",
+      "internal_forces",
+      "friction",
+      "center_of_gravity_and_centroid",
+      "moments_of_inertia",
+      "distributed_loading"
+    ],
+    "anticipated_micro_skill_scope": "Course-level skills, topic/subtopic hierarchy, and derived micro-skill scope are present in the source. No extraction, package generation, or Alpha import was performed during registration.",
+    "excerpt_policy": "Metadata and short authored summaries may be used in reports. Long source passages must not be reproduced in compiler reports."
+  },
+  "integrity": {
+    "source_size_bytes": 33478,
+    "preserved_size_bytes": 33478,
+    "source_sha256": "1ff2de06f051cb591599551c9f2434cf691c34daca59463a6ad25dc7c9fbcf40",
+    "preserved_sha256": "1ff2de06f051cb591599551c9f2434cf691c34daca59463a6ad25dc7c9fbcf40",
+    "source_mode": "-rw-r--r--",
+    "preserved_mode": "-rw-r--r--",
+    "integrity_match": true
+  },
+  "registration": {
+    "acquired_at": "2026-07-14T19:09:13Z",
+    "registered_by_task": "COMPILER-REAL-STATICS-SOURCE-ACQUISITION-001",
+    "registration_status": "registered_for_non_live_compiler_source_review",
+    "next_allowed_use": "non_live_source_extraction_planning",
+    "curriculum_extraction_performed": false,
+    "package_generation_performed": false,
+    "alpha_contact_performed": false,
+    "database_contact_performed": false,
+    "canonical_promotion_performed": false,
+    "student_visible_publishing_performed": false
+  },
+  "boundaries": {
+    "compiler_repository_only": true,
+    "adaptive_platform_accessed": false,
+    "textbook_accessed": false,
+    "textbook_copied": false,
+    "operational_alpha_touched": false,
+    "runtime_or_learner_loop_touched": false,
+    "grading_persistence_or_retrieval_touched": false,
+    "dependencies_added": false
+  }
+}

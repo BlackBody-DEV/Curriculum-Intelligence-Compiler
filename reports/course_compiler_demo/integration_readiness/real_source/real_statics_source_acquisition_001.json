@@ -1,0 +1,48 @@
+{
+  "schema_version": "REAL_SOURCE_ACQUISITION_REPORT_v1",
+  "task_id": "COMPILER-REAL-STATICS-SOURCE-ACQUISITION-001",
+  "final_status": "registered",
+  "source_id": "STATICS_REAL_SOURCE_ME_2301_CURRICULUM_EXTRACTION_V1",
+  "source_title": "ME 2301 Statics - Syllabus Curriculum Extraction",
+  "source_type": "user_authored_statics_curriculum_extraction",
+  "original_source_path": "/Users/fanarichardson/Documents/AxiomIQ_Source_Inbox/Statics/User_Authored/me_2301_statics_curriculum_extraction.md",
+  "preserved_relative_path": "tools/course_compiler_demo/sample_inputs/real_statics/STATICS_REAL_SOURCE_ME_2301_CURRICULUM_EXTRACTION_V1/original/me_2301_statics_curriculum_extraction.md",
+  "source_size_bytes": 33478,
+  "preserved_size_bytes": 33478,
+  "source_sha256": "1ff2de06f051cb591599551c9f2434cf691c34daca59463a6ad25dc7c9fbcf40",
+  "preserved_sha256": "1ff2de06f051cb591599551c9f2434cf691c34daca59463a6ad25dc7c9fbcf40",
+  "integrity_preserved": true,
+  "rights_summary": {
+    "rights_status": "owned_by_user",
+    "repository_storage_permitted": true,
+    "internal_processing_permitted": true,
+    "public_redistribution_permitted": false
+  },
+  "content_review": {
+    "substantive_statics_content_present": true,
+    "text_extraction_supported": true,
+    "ocr_required": false,
+    "contains_private_student_data": false,
+    "contains_private_company_data": false,
+    "contains_answer_key": false,
+    "contains_worked_solutions": false,
+    "textbook_source_used": false
+  },
+  "boundaries": {
+    "compiler_repository_only": true,
+    "adaptive_platform_accessed": false,
+    "textbook_accessed": false,
+    "textbook_copied": false,
+    "curriculum_extraction_performed": false,
+    "package_generation_performed": false,
+    "database_contact_performed": false,
+    "operational_alpha_contact_performed": false,
+    "canonical_promotion_performed": false,
+    "student_visible_publishing_performed": false
+  },
+  "validation": {
+    "registration_json_valid": true,
+    "report_json_valid": true,
+    "source_registration_tests_expected": true
+  }
+}
