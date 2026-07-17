@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "subject_ingestion_profile_v1",
+  "title": "AxiomIQ Subject Ingestion Profile v1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "profile_id",
+    "profile_version",
+    "profile_status",
+    "subject_code",
+    "subject_name",
+    "supported_course_levels",
+    "supported_source_types",
+    "primary_use_modes",
+    "rights_defaults",
+    "privacy_defaults",
+    "topic_rules",
+    "micro_skill_rules",
+    "dependency_rules",
+    "procedure_candidate_templates",
+    "question_candidate_templates",
+    "generation_family_templates",
+    "practice_module_blueprint",
+    "practice_assessment_blueprint",
+    "performance_tracking_blueprint",
+    "content_gap_rules",
+    "review_requirements",
+    "non_live_boundary"
+  ],
+  "properties": {
+    "profile_status": {
+      "const": "compiler_profile_review_pending"
+    },
+    "non_live_boundary": {
+      "type": "object",
+      "required": [
+        "canonical_approved",
+        "live_eligible",
+        "eligible_for_alpha_import",
+        "human_review_required",
+        "db_access_allowed",
+        "student_visible_publish_allowed"
+      ],
+      "properties": {
+        "canonical_approved": { "const": false },
+        "live_eligible": { "const": false },
+        "eligible_for_alpha_import": { "const": false },
+        "human_review_required": { "const": true },
+        "db_access_allowed": { "const": false },
+        "student_visible_publish_allowed": { "const": false }
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "micro_skill_candidates": [
+    {
+      "assessment_target_candidate": true,
+      "candidate_id": "MS_001",
+      "confidence": "high",
+      "micro_skill_code": "resolve_force_components_2d",
+      "micro_skill_name": "Resolve force components in two dimensions",
+      "performance_tracking_target": true,
+      "practice_target_candidate": true,
+      "prerequisite_micro_skill_codes": [],
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_001_001",
+          "line_end": 11,
+          "line_start": 11,
+          "matched_pattern": "resolve a force",
+          "short_excerpt": "- Students will resolve a force into x and y components.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_001_002",
+          "line_end": 12,
+          "line_start": 12,
+          "matched_pattern": "force components",
+          "short_excerpt": "- Students will connect force components to later net-force calculations.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_001_003",
+          "line_end": 11,
+          "line_start": 11,
+          "matched_pattern": "x and y components",
+          "short_excerpt": "- Students will resolve a force into x and y components.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "vectors"
+    },
+    {
+      "assessment_target_candidate": true,
+      "candidate_id": "MS_002",
+      "confidence": "high",
+      "micro_skill_code": "compute_net_force_1d",
+      "micro_skill_name": "Compute net force in one dimension",
+      "performance_tracking_target": true,
+      "practice_target_candidate": true,
+      "prerequisite_micro_skill_codes": [
+        "resolve_force_components_2d"
+      ],
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_002_001",
+          "line_end": 20,
+          "line_start": 20,
+          "matched_pattern": "sum forces",
+          "short_excerpt": "- Students will sum forces along a line to compute net force.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_002_002",
+          "line_end": 6,
+          "line_start": 6,
+          "matched_pattern": "net force",
+          "short_excerpt": "Vectors -> Net Force -> Newton's Second Law.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_002_003",
+          "line_end": 27,
+          "line_start": 27,
+          "matched_pattern": "resultant force",
+          "short_excerpt": "A cart has a 9 N push to the right and a 4 N friction force to the left. Find the one-dimensional resultant force.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "net_force"
+    },
+    {
+      "assessment_target_candidate": true,
+      "candidate_id": "MS_003",
+      "confidence": "high",
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "micro_skill_name": "Apply Newton's second law in one dimension",
+      "performance_tracking_target": true,
+      "practice_target_candidate": true,
+      "prerequisite_micro_skill_codes": [
+        "compute_net_force_1d"
+      ],
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_003_001",
+          "line_end": 33,
+          "line_start": 33,
+          "matched_pattern": "F_net = m a",
+          "short_excerpt": "- Students will use the formula F_net = m a.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_003_002",
+          "line_end": 1,
+          "line_start": 1,
+          "matched_pattern": "Newton's Second Law",
+          "short_excerpt": "# AxiomIQ-Owned Intro Physics Mechanics Source: Vectors to Newton's Second Law",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_003_003",
+          "line_end": 32,
+          "line_start": 32,
+          "matched_pattern": "acceleration",
+          "short_excerpt": "- Students will apply Newton's Second Law to connect net force, mass, and acceleration.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws"
+    }
+  ]
+}

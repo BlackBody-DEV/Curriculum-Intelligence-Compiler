@@ -1,0 +1,106 @@
+{
+  "topic_candidates": [
+    {
+      "candidate_id": "TOPIC_001",
+      "confidence": "high",
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_001_001",
+          "line_end": 1,
+          "line_start": 1,
+          "matched_pattern": "Vectors",
+          "short_excerpt": "# AxiomIQ-Owned Intro Physics Mechanics Source: Vectors to Newton's Second Law",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_001_002",
+          "line_end": 12,
+          "line_start": 12,
+          "matched_pattern": "force components",
+          "short_excerpt": "- Students will connect force components to later net-force calculations.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_001_003",
+          "line_end": 11,
+          "line_start": 11,
+          "matched_pattern": "resolve a force",
+          "short_excerpt": "- Students will resolve a force into x and y components.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "vectors",
+      "topic_name": "Vectors"
+    },
+    {
+      "candidate_id": "TOPIC_002",
+      "confidence": "high",
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_002_001",
+          "line_end": 6,
+          "line_start": 6,
+          "matched_pattern": "Net Force",
+          "short_excerpt": "Vectors -> Net Force -> Newton's Second Law.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_002_002",
+          "line_end": 20,
+          "line_start": 20,
+          "matched_pattern": "sum forces",
+          "short_excerpt": "- Students will sum forces along a line to compute net force.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_002_003",
+          "line_end": 27,
+          "line_start": 27,
+          "matched_pattern": "resultant force",
+          "short_excerpt": "A cart has a 9 N push to the right and a 4 N friction force to the left. Find the one-dimensional resultant force.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "net_force",
+      "topic_name": "Net Force"
+    },
+    {
+      "candidate_id": "TOPIC_003",
+      "confidence": "high",
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_003_001",
+          "line_end": 1,
+          "line_start": 1,
+          "matched_pattern": "Newton's Second Law",
+          "short_excerpt": "# AxiomIQ-Owned Intro Physics Mechanics Source: Vectors to Newton's Second Law",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_003_002",
+          "line_end": 33,
+          "line_start": 33,
+          "matched_pattern": "F_net = m a",
+          "short_excerpt": "- Students will use the formula F_net = m a.",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "topic_name": "Newton's Laws"
+    }
+  ]
+}

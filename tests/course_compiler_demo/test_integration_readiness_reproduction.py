@@ -10,6 +10,7 @@ import pytest
 import tools.course_compiler_demo.integration_readiness.reproduction_runner as runner
 from tools.course_compiler_demo.integration_readiness.reproduction_runner import (
     capture_inventory,
+    compare_workspace_state,
     fixture_matrix,
     future_generated_package_reproduction,
     reproduce_package,
@@ -225,46 +226,101 @@ def test_missing_or_adaptive_package_rejects(package):
 
 
 def test_dirty_worktree_protection(monkeypatch):
-    monkeypatch.setattr(runner, "clean_source_state", lambda ignore_lane_g=False: "dirty_source_state")
+    monkeypatch.setattr(runner, "clean_source_state", lambda **kwargs: "dirty_source_state")
     result = reproduce_package(FIXTURES / "minimal_valid", require_clean=True)
     assert result["reproduction_verdict"] == "harness_error"
     assert "compiler worktree is not clean" in result["blockers"]
 
 
-def test_clean_state_allows_exact_authorized_emitter_lane_files(monkeypatch):
+def test_clean_state_allows_unchanged_unstaged_and_untracked_baseline(monkeypatch):
     class Completed:
         stdout = "\n".join(
             [
-                "?? .axiomiq/schemas/compiler_release_package_v1.schema.json",
-                "?? docs/course_compiler_demo/internal_release/COMPILER_RELEASE_PACKAGE_EMITTER_v1.md",
-                "?? reports/course_compiler_demo/internal_release/release_package_emitter_proof/VECTOR_COMPONENTS_2D_RELEASE_PACKAGE_V1.md",
-                "?? reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_manifest_v1.json",
-                "?? reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_package_v1.json",
-                "?? reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_validation_v1.json",
-                "?? tests/course_compiler_demo/test_release_package_emitter.py",
-                "?? tools/course_compiler_demo/emit_release_package.py",
-                " M tools/course_compiler_demo/package/__init__.py",
-                "?? tools/course_compiler_demo/package/release_package_emitter.py",
+                " M any/preexisting_tracked_change.py",
+                "?? any/preexisting_untracked_file.json",
             ]
         )
 
+    baseline = {
+        "any/preexisting_tracked_change.py": {"status": " M", "exists": True, "sha256": "abc"},
+        "any/preexisting_untracked_file.json": {"status": "??", "exists": True, "sha256": "def"},
+    }
     monkeypatch.setattr(runner.subprocess, "run", lambda *args, **kwargs: Completed())
+    monkeypatch.setattr(runner, "capture_workspace_state", lambda: baseline)
 
-    assert runner.clean_source_state(ignore_lane_g=True) == "clean_source_state"
+    assert runner.clean_source_state(ignore_lane_g=True, baseline_state=baseline) == "clean_source_state"
 
 
-def test_clean_state_rejects_neighboring_unapproved_emitter_output(monkeypatch):
+def test_clean_state_rejects_staged_changes(monkeypatch):
     class Completed:
-        stdout = "\n".join(
-            [
-                "?? .axiomiq/schemas/compiler_release_package_v1.schema.json",
-                "?? reports/course_compiler_demo/internal_release/release_package_emitter_proof/unexpected.json",
-            ]
-        )
+        stdout = "M  staged_change.py"
 
     monkeypatch.setattr(runner.subprocess, "run", lambda *args, **kwargs: Completed())
 
     assert runner.clean_source_state(ignore_lane_g=True) == "dirty_source_state"
+
+
+def test_workspace_compare_allows_unchanged_preexisting_dirty_files():
+    before = {
+        "preexisting.txt": {"status": "??", "exists": True, "sha256": "abc"},
+        "tracked.py": {"status": " M", "exists": True, "sha256": "def"},
+    }
+
+    result = compare_workspace_state(before, dict(before))
+
+    assert result["state_match"] is True
+
+
+def test_workspace_compare_rejects_changed_preexisting_dirty_file():
+    before = {"preexisting.txt": {"status": "??", "exists": True, "sha256": "abc"}}
+    after = {"preexisting.txt": {"status": "??", "exists": True, "sha256": "changed"}}
+
+    result = compare_workspace_state(before, after)
+
+    assert result["state_match"] is False
+    assert result["changed_paths"] == ["preexisting.txt"]
+
+
+def test_workspace_compare_rejects_new_unauthorized_file():
+    before = {"preexisting.txt": {"status": "??", "exists": True, "sha256": "abc"}}
+    after = {
+        **before,
+        "unexpected.json": {"status": "??", "exists": True, "sha256": "extra"},
+    }
+
+    result = compare_workspace_state(before, after)
+
+    assert result["state_match"] is False
+    assert result["unexpected_new_paths"] == ["unexpected.json"]
+
+
+def test_workspace_compare_rejects_deleted_preexisting_file():
+    before = {"preexisting.txt": {"status": "??", "exists": True, "sha256": "abc"}}
+    after = {}
+
+    result = compare_workspace_state(before, after)
+
+    assert result["state_match"] is False
+    assert result["removed_paths"] == ["preexisting.txt"]
+
+
+def test_workspace_compare_report_mode_permits_only_exact_outputs():
+    before = {"preexisting.txt": {"status": "??", "exists": True, "sha256": "abc"}}
+    after = {
+        **before,
+        "reports/out/reproduction_result.json": {"status": "??", "exists": True, "sha256": "ok"},
+        "reports/out/unexpected.json": {"status": "??", "exists": True, "sha256": "bad"},
+    }
+
+    result = compare_workspace_state(
+        before,
+        after,
+        allowed_new_paths={"reports/out/reproduction_result.json"},
+    )
+
+    assert result["state_match"] is False
+    assert result["allowed_new_paths"] == ["reports/out/reproduction_result.json"]
+    assert result["unexpected_new_paths"] == ["reports/out/unexpected.json"]
 
 
 @pytest.mark.parametrize(

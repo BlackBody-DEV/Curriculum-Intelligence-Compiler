@@ -72,7 +72,7 @@ def safe_output_dir(output: Path | str | None, package_root: Path | None = None)
     return resolved
 
 
-def clean_source_state(ignore_lane_g: bool = False) -> str:
+def clean_source_state(ignore_lane_g: bool = False, baseline_state: dict[str, dict[str, Any]] | None = None) -> str:
     try:
         status = subprocess.run(
             ["git", "status", "--short", "--untracked-files=all"],
@@ -85,29 +85,63 @@ def clean_source_state(ignore_lane_g: bool = False) -> str:
         return "git_state_unavailable"
     if not status:
         return "clean_source_state"
-    if ignore_lane_g:
-        prefixes = (
-            "tools/course_compiler_demo/integration_readiness/",
-            "tests/course_compiler_demo/test_integration_readiness_reproduction.py",
-            "reports/course_compiler_demo/integration_readiness/reproduction/",
-            "docs/course_compiler_demo/integration_readiness/release_qa/",
-        )
-        current_lane_paths = {
-            ".axiomiq/schemas/compiler_release_package_v1.schema.json",
-            "docs/course_compiler_demo/internal_release/COMPILER_RELEASE_PACKAGE_EMITTER_v1.md",
-            "reports/course_compiler_demo/internal_release/release_package_emitter_proof/VECTOR_COMPONENTS_2D_RELEASE_PACKAGE_V1.md",
-            "reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_manifest_v1.json",
-            "reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_package_v1.json",
-            "reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_validation_v1.json",
-            "tests/course_compiler_demo/test_release_package_emitter.py",
-            "tools/course_compiler_demo/emit_release_package.py",
-            "tools/course_compiler_demo/package/__init__.py",
-            "tools/course_compiler_demo/package/release_package_emitter.py",
-        }
-        paths = [line[3:] for line in status if len(line) > 3]
-        if paths and all(path.startswith(prefixes) or path in current_lane_paths for path in paths):
+    if ignore_lane_g and baseline_state is not None:
+        try:
+            current_state = capture_workspace_state()
+        except Exception:
+            return "git_state_unavailable"
+        if compare_workspace_state(baseline_state, current_state)["state_match"]:
             return "clean_source_state"
     return "dirty_source_state"
+
+
+def capture_workspace_state(root: Path = COMPILER_ROOT) -> dict[str, dict[str, Any]]:
+    """Capture dirty workspace files so command-owned changes can be compared."""
+    status = subprocess.run(
+        ["git", "status", "--short", "--untracked-files=all"],
+        cwd=root,
+        text=True,
+        capture_output=True,
+        check=True,
+    ).stdout.splitlines()
+    state: dict[str, dict[str, Any]] = {}
+    for line in status:
+        if len(line) < 4:
+            continue
+        path_text = line[3:]
+        path = root / path_text
+        exists = path.exists()
+        digest = None
+        if path.is_file():
+            digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        state[path_text] = {"status": line[:2], "exists": exists, "sha256": digest}
+    return state
+
+
+def compare_workspace_state(
+    before: dict[str, dict[str, Any]],
+    after: dict[str, dict[str, Any]],
+    *,
+    allowed_new_paths: set[str] | None = None,
+) -> dict[str, Any]:
+    allowed = allowed_new_paths or set()
+    before_paths = set(before)
+    after_paths = set(after)
+    new_paths = after_paths - before_paths
+    removed_paths = before_paths - after_paths
+    changed_paths = {
+        path
+        for path in before_paths & after_paths
+        if before[path] != after[path]
+    }
+    unexpected_new_paths = sorted(path for path in new_paths if path not in allowed)
+    return {
+        "state_match": not unexpected_new_paths and not removed_paths and not changed_paths,
+        "unexpected_new_paths": unexpected_new_paths,
+        "allowed_new_paths": sorted(path for path in new_paths if path in allowed),
+        "removed_paths": sorted(removed_paths),
+        "changed_paths": sorted(changed_paths),
+    }
 
 
 def capture_inventory(package_root: Path) -> dict[str, Any]:
@@ -206,7 +240,11 @@ def reproduce_package(
         safe_output = safe_output_dir(output_root, package) if output_root else None
     except ValueError as exc:
         return harness_error(package_root, mode, repeat_count, str(exc))
-    source_state = clean_source_state(ignore_lane_g=True)
+    try:
+        workspace_baseline = capture_workspace_state()
+    except Exception:
+        return harness_error(package_root, mode, repeat_count, "git state unavailable")
+    source_state = clean_source_state(ignore_lane_g=True, baseline_state=workspace_baseline)
     if require_clean and source_state != "clean_source_state":
         return harness_error(package, mode, repeat_count, "compiler worktree is not clean", source_state)
 
@@ -225,6 +263,12 @@ def reproduce_package(
             }
         )
     after = capture_inventory(package)
+    workspace_after = capture_workspace_state()
+    workspace_delta = compare_workspace_state(workspace_baseline, workspace_after)
+    if require_clean and not workspace_delta["state_match"]:
+        result = harness_error(package, mode, repeat_count, "compiler workspace changed during reproduction", source_state)
+        result["workspace_delta"] = workspace_delta
+        return result
     non_mutation = before == after
     comparison = compare_runs(run_results)
     first_consumer = run_results[0]["consumer_result"]

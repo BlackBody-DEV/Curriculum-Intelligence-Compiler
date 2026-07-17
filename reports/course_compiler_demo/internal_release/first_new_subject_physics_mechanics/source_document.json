@@ -1,0 +1,12 @@
+{
+  "byte_size": 1815,
+  "course_profile": "INTRO_PHYSICS_MECHANICS",
+  "privacy_status": "non_private",
+  "rights_status": "owned_by_axiomiq",
+  "sha256": "f549378260d47db7c14baf241b2ac9002364d59a7930c7cae66d2054d8264fac",
+  "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_PROFILE_DEMO",
+  "source_path": "tools/course_compiler_demo/sample_inputs/physics_intro_mechanics_profile_demo.txt",
+  "source_title": "AxiomIQ-Owned Intro Physics Mechanics Source: Vectors to Newton's Second Law",
+  "source_type": "axiomiq_owned_synthetic_text",
+  "subject_code": "PHYSICS"
+}

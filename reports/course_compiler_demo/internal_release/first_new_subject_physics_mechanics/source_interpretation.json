@@ -1,0 +1,9 @@
+{
+  "assessment_potential": true,
+  "course_level_confidence": "high",
+  "detected_course_level": "INTRO_PHYSICS_MECHANICS",
+  "detected_subject": "PHYSICS",
+  "interpretation_basis": "subject ingestion profile rules",
+  "practice_potential": true,
+  "subject_confidence": "high"
+}

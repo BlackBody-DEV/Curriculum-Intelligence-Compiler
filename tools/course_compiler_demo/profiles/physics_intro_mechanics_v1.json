@@ -1,0 +1,168 @@
+{
+  "profile_id": "PHYSICS_INTRO_MECHANICS_PROFILE_V1",
+  "profile_version": "1.0.0",
+  "profile_status": "compiler_profile_review_pending",
+  "subject_code": "PHYSICS",
+  "subject_name": "Physics",
+  "supported_course_levels": ["INTRO_PHYSICS_MECHANICS"],
+  "supported_source_types": ["axiomiq_owned_synthetic_text"],
+  "primary_use_modes": ["compiler_profile_ingestion", "non_live_release_seed"],
+  "output_names": {
+    "release_seed": "physics_intro_mechanics_release_seed_v1.json",
+    "markdown_report": "PHYSICS_INTRO_MECHANICS_PROFILE_RUN_V1.md"
+  },
+  "rights_defaults": {
+    "rights_status": "owned_by_axiomiq",
+    "excerpt_policy": "original_axiomiq_source_only",
+    "third_party_copying": "not_used"
+  },
+  "privacy_defaults": {
+    "privacy_status": "non_private",
+    "contains_student_data": false,
+    "contains_personal_data": false
+  },
+  "topic_rules": [
+    {
+      "topic_code": "vectors",
+      "topic_name": "Vectors",
+      "sequence_order": 1,
+      "evidence_patterns": ["Vectors", "force components", "resolve a force"]
+    },
+    {
+      "topic_code": "net_force",
+      "topic_name": "Net Force",
+      "sequence_order": 2,
+      "evidence_patterns": ["Net Force", "sum forces", "resultant force"]
+    },
+    {
+      "topic_code": "newtons_laws",
+      "topic_name": "Newton's Laws",
+      "sequence_order": 3,
+      "evidence_patterns": ["Newton's Second Law", "F_net = m a", "mass times acceleration"]
+    }
+  ],
+  "micro_skill_rules": [
+    {
+      "micro_skill_code": "resolve_force_components_2d",
+      "micro_skill_name": "Resolve force components in two dimensions",
+      "topic_code": "vectors",
+      "prerequisite_micro_skill_codes": [],
+      "evidence_patterns": ["resolve a force", "force components", "x and y components"]
+    },
+    {
+      "micro_skill_code": "compute_net_force_1d",
+      "micro_skill_name": "Compute net force in one dimension",
+      "topic_code": "net_force",
+      "prerequisite_micro_skill_codes": ["resolve_force_components_2d"],
+      "evidence_patterns": ["sum forces", "net force", "resultant force"]
+    },
+    {
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "micro_skill_name": "Apply Newton's second law in one dimension",
+      "topic_code": "newtons_laws",
+      "prerequisite_micro_skill_codes": ["compute_net_force_1d"],
+      "evidence_patterns": ["F_net = m a", "Newton's Second Law", "acceleration"]
+    }
+  ],
+  "dependency_rules": [
+    {
+      "from_micro_skill_code": "resolve_force_components_2d",
+      "to_micro_skill_code": "compute_net_force_1d",
+      "relationship": "prerequisite",
+      "confidence": "high"
+    },
+    {
+      "from_micro_skill_code": "compute_net_force_1d",
+      "to_micro_skill_code": "apply_newtons_second_law_1d",
+      "relationship": "prerequisite",
+      "confidence": "high"
+    }
+  ],
+  "procedure_candidate_templates": [
+    {
+      "micro_skill_code": "resolve_force_components_2d",
+      "procedure_id": "PROC_PHYSICS_RESOLVE_FORCE_COMPONENTS_2D_001",
+      "description": "Resolve an angled force into signed x and y components using the magnitude, angle, and axis convention.",
+      "steps": ["Identify the force magnitude and angle.", "Compute Fx and Fy with trigonometric component relationships.", "Apply signs from direction."]
+    },
+    {
+      "micro_skill_code": "compute_net_force_1d",
+      "procedure_id": "PROC_PHYSICS_COMPUTE_NET_FORCE_1D_001",
+      "description": "Compute one-dimensional net force by assigning signs and summing all forces along the selected axis.",
+      "steps": ["Choose a positive direction.", "Assign each force a sign.", "Add the signed forces."]
+    },
+    {
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "procedure_id": "PROC_PHYSICS_APPLY_NEWTON_SECOND_LAW_1D_001",
+      "description": "Apply F_net = m a to compute one-dimensional acceleration, net force, or mass from the other two quantities.",
+      "steps": ["Identify mass, net force, and the requested unknown.", "Use F_net = m a.", "Solve algebraically for the unknown.", "Check units: newtons, kilograms, and meters per second squared."],
+      "formula_refs": ["F_net = m a"]
+    }
+  ],
+  "question_candidate_templates": [
+    {
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "question_id": "Q_PHYSICS_NEWTON_SECOND_LAW_1D_001",
+      "question_type": "numeric_with_unit",
+      "prompt": "A 4 kg dynamics cart has a net horizontal force of 12 N to the right. What is the cart's acceleration?",
+      "answer": {"value": 3.0, "unit": "m/s^2", "calculation": "a = F_net / m = 12 / 4"},
+      "unit": "m/s^2",
+      "answer_structure": "numeric_with_unit",
+      "source_evidence_ref": "Newton's Second Law"
+    },
+    {
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "question_id": "Q_PHYSICS_NEWTON_SECOND_LAW_1D_002",
+      "question_type": "numeric_with_unit",
+      "prompt": "A 2 kg block accelerates at 1.5 m/s^2 along a track. What net force acts on the block?",
+      "answer": {"value": 3.0, "unit": "N", "calculation": "F_net = m a = 2 * 1.5"},
+      "unit": "N",
+      "answer_structure": "numeric_with_unit",
+      "source_evidence_ref": "F_net = m a"
+    }
+  ],
+  "generation_family_templates": [
+    {
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "family_id": "GF_PHYSICS_NEWTON_SECOND_LAW_1D_001",
+      "family_type": "newtons_second_law_numeric_1d",
+      "variable_fields": ["mass", "net_force", "acceleration", "requested_unknown", "unit"],
+      "variation_rules": {
+        "mass": "Use positive mass values in kilograms.",
+        "net_force": "Use signed or explicitly directed net force values.",
+        "acceleration": "Use m/s^2 and preserve direction language.",
+        "requested_unknown": "Vary among acceleration and net force until reviewed."
+      }
+    }
+  ],
+  "practice_module_blueprint": {
+    "package_id": "PM_PHYSICS_NEWTON_SECOND_LAW_1D_001"
+  },
+  "practice_assessment_blueprint": {
+    "package_id": "PA_PHYSICS_NEWTON_SECOND_LAW_1D_001",
+    "assessment_type": "single_micro_skill_internal_check"
+  },
+  "performance_tracking_blueprint": {
+    "package_id": "PERF_PHYSICS_NEWTON_SECOND_LAW_1D_001"
+  },
+  "content_gap_rules": [
+    {
+      "gap_id": "REVIEW_REQUIRED_BEFORE_ALPHA_IMPORT",
+      "severity": "nonblocking",
+      "description": "All generated Physics candidates require human review before any Alpha import consideration."
+    }
+  ],
+  "review_requirements": {
+    "human_review_required": true,
+    "review_status": "review_pending",
+    "required_review_roles": ["physics_content_reviewer", "compiler_operator"]
+  },
+  "non_live_boundary": {
+    "canonical_approved": false,
+    "live_eligible": false,
+    "eligible_for_alpha_import": false,
+    "human_review_required": true,
+    "db_access_allowed": false,
+    "student_visible_publish_allowed": false
+  }
+}

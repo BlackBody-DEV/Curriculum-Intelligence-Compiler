@@ -1,0 +1,48 @@
+# AxiomIQ-Owned Intro Physics Mechanics Source: Vectors to Newton's Second Law
+
+Course-level signal: INTRO_PHYSICS_MECHANICS. Subject signal: PHYSICS.
+
+This AxiomIQ-authored source introduces a short mechanics pathway:
+Vectors -> Net Force -> Newton's Second Law.
+
+## Topic: Vectors
+
+Learning objectives:
+- Students will resolve a force into x and y components.
+- Students will connect force components to later net-force calculations.
+
+Practice problem 1:
+A 10 N force is directed 30 degrees above the horizontal. Resolve the force components in the x and y directions.
+
+## Topic: Net Force
+
+Learning objectives:
+- Students will sum forces along a line to compute net force.
+- Students will treat rightward force as positive unless a problem states otherwise.
+
+Explicit prerequisite relationship:
+Before computing net force in one dimension, students should be able to resolve a force into components when a force is angled.
+
+Practice problem 2:
+A cart has a 9 N push to the right and a 4 N friction force to the left. Find the one-dimensional resultant force.
+
+## Topic: Newton's Second Law
+
+Learning objectives:
+- Students will apply Newton's Second Law to connect net force, mass, and acceleration.
+- Students will use the formula F_net = m a.
+
+Explicit prerequisite relationship:
+Applying Newton's Second Law depends on the ability to compute net force first.
+
+Practice problem 3:
+A 4 kg cart experiences a net horizontal force of 12 N. Use F_net = m a to determine its acceleration.
+
+Practice problem 4:
+A 2 kg block accelerates at 1.5 m/s^2. Use F_net = m a to determine the net force.
+
+Assessment potential:
+The source supports a short internal check with numeric answers and units.
+
+Practice potential:
+The source supports original practice-style questions for vectors, net force, and Newton's second law.
