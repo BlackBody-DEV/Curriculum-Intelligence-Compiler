@@ -231,6 +231,42 @@ def test_dirty_worktree_protection(monkeypatch):
     assert "compiler worktree is not clean" in result["blockers"]
 
 
+def test_clean_state_allows_exact_authorized_emitter_lane_files(monkeypatch):
+    class Completed:
+        stdout = "\n".join(
+            [
+                "?? .axiomiq/schemas/compiler_release_package_v1.schema.json",
+                "?? docs/course_compiler_demo/internal_release/COMPILER_RELEASE_PACKAGE_EMITTER_v1.md",
+                "?? reports/course_compiler_demo/internal_release/release_package_emitter_proof/VECTOR_COMPONENTS_2D_RELEASE_PACKAGE_V1.md",
+                "?? reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_manifest_v1.json",
+                "?? reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_package_v1.json",
+                "?? reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_validation_v1.json",
+                "?? tests/course_compiler_demo/test_release_package_emitter.py",
+                "?? tools/course_compiler_demo/emit_release_package.py",
+                " M tools/course_compiler_demo/package/__init__.py",
+                "?? tools/course_compiler_demo/package/release_package_emitter.py",
+            ]
+        )
+
+    monkeypatch.setattr(runner.subprocess, "run", lambda *args, **kwargs: Completed())
+
+    assert runner.clean_source_state(ignore_lane_g=True) == "clean_source_state"
+
+
+def test_clean_state_rejects_neighboring_unapproved_emitter_output(monkeypatch):
+    class Completed:
+        stdout = "\n".join(
+            [
+                "?? .axiomiq/schemas/compiler_release_package_v1.schema.json",
+                "?? reports/course_compiler_demo/internal_release/release_package_emitter_proof/unexpected.json",
+            ]
+        )
+
+    monkeypatch.setattr(runner.subprocess, "run", lambda *args, **kwargs: Completed())
+
+    assert runner.clean_source_state(ignore_lane_g=True) == "dirty_source_state"
+
+
 @pytest.mark.parametrize(
     "field,value",
     [

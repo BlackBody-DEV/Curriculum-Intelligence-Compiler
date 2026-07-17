@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "compiler_release_package_v1",
+  "title": "AxiomIQ Compiler Release Package v1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "package_id",
+    "package_version",
+    "package_status",
+    "created_at",
+    "emitter_version",
+    "subject_code",
+    "selected_micro_skill_code",
+    "source_artifacts",
+    "source_provenance",
+    "rights_summary",
+    "review_state",
+    "procedure_candidates",
+    "question_candidates",
+    "generation_family_candidates",
+    "practice_module_package",
+    "practice_assessment_package",
+    "performance_tracking_package",
+    "content_gaps",
+    "known_limitations",
+    "validation_summary",
+    "integration_boundary"
+  ],
+  "properties": {
+    "package_status": {
+      "const": "compiler_non_live_review_pending"
+    },
+    "integration_boundary": {
+      "type": "object",
+      "required": [
+        "internal_preview_only",
+        "live_eligible",
+        "eligible_for_alpha_import",
+        "canonical_approved",
+        "canonical_promotion_performed",
+        "db_read_performed",
+        "db_write_performed",
+        "adaptive_platform_write_performed",
+        "student_visible_publish_performed",
+        "deployment_performed",
+        "human_review_required"
+      ],
+      "properties": {
+        "internal_preview_only": { "const": true },
+        "live_eligible": { "const": false },
+        "eligible_for_alpha_import": { "const": false },
+        "canonical_approved": { "const": false },
+        "canonical_promotion_performed": { "const": false },
+        "db_read_performed": { "const": false },
+        "db_write_performed": { "const": false },
+        "adaptive_platform_write_performed": { "const": false },
+        "student_visible_publish_performed": { "const": false },
+        "deployment_performed": { "const": false },
+        "human_review_required": { "const": true }
+      }
+    }
+  }
+}

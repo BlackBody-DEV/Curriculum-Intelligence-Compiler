@@ -92,8 +92,20 @@ def clean_source_state(ignore_lane_g: bool = False) -> str:
             "reports/course_compiler_demo/integration_readiness/reproduction/",
             "docs/course_compiler_demo/integration_readiness/release_qa/",
         )
+        current_lane_paths = {
+            ".axiomiq/schemas/compiler_release_package_v1.schema.json",
+            "docs/course_compiler_demo/internal_release/COMPILER_RELEASE_PACKAGE_EMITTER_v1.md",
+            "reports/course_compiler_demo/internal_release/release_package_emitter_proof/VECTOR_COMPONENTS_2D_RELEASE_PACKAGE_V1.md",
+            "reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_manifest_v1.json",
+            "reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_package_v1.json",
+            "reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_validation_v1.json",
+            "tests/course_compiler_demo/test_release_package_emitter.py",
+            "tools/course_compiler_demo/emit_release_package.py",
+            "tools/course_compiler_demo/package/__init__.py",
+            "tools/course_compiler_demo/package/release_package_emitter.py",
+        }
         paths = [line[3:] for line in status if len(line) > 3]
-        if paths and all(path.startswith(prefixes) for path in paths):
+        if paths and all(path.startswith(prefixes) or path in current_lane_paths for path in paths):
             return "clean_source_state"
     return "dirty_source_state"
 
