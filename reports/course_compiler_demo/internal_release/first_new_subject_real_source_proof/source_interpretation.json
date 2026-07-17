@@ -1,0 +1,15 @@
+{
+  "assessment_potential": true,
+  "course_level_confidence": "high",
+  "detected_course_level": "INTRO_PHYSICS_MECHANICS",
+  "detected_subject": "PHYSICS",
+  "interpretation_basis": "subject ingestion profile rules",
+  "license_name": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)",
+  "long_source_passages_reproduced": false,
+  "practice_potential": true,
+  "rights_status": "open_license",
+  "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+  "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+  "source_title": "University Physics Volume 1, Section 5.3 Newton's Second Law",
+  "subject_confidence": "high"
+}

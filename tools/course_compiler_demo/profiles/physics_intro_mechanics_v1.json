@@ -4,8 +4,15 @@
   "profile_status": "compiler_profile_review_pending",
   "subject_code": "PHYSICS",
   "subject_name": "Physics",
-  "supported_course_levels": ["INTRO_PHYSICS_MECHANICS"],
-  "supported_source_types": ["axiomiq_owned_synthetic_text"],
+  "supported_course_levels": [
+    "INTRO_PHYSICS_MECHANICS",
+    "University Physics Volume 1",
+    "Classical Mechanics"
+  ],
+  "supported_source_types": [
+    "axiomiq_owned_synthetic_text",
+    "open_textbook_web_section"
+  ],
   "primary_use_modes": ["compiler_profile_ingestion", "non_live_release_seed"],
   "output_names": {
     "release_seed": "physics_intro_mechanics_release_seed_v1.json",
@@ -26,19 +33,19 @@
       "topic_code": "vectors",
       "topic_name": "Vectors",
       "sequence_order": 1,
-      "evidence_patterns": ["Vectors", "force components", "resolve a force"]
+      "evidence_patterns": ["Vectors", "force components", "resolve a force", "force vector", "components"]
     },
     {
       "topic_code": "net_force",
       "topic_name": "Net Force",
       "sequence_order": 2,
-      "evidence_patterns": ["Net Force", "sum forces", "resultant force"]
+      "evidence_patterns": ["Net Force", "sum forces", "resultant force", "net external force", "vector sum"]
     },
     {
       "topic_code": "newtons_laws",
       "topic_name": "Newton's Laws",
       "sequence_order": 3,
-      "evidence_patterns": ["Newton's Second Law", "F_net = m a", "mass times acceleration"]
+      "evidence_patterns": ["Newton's Second Law", "Newton’s second law", "F_net = m a", "F net = m a", "mass times acceleration"]
     }
   ],
   "micro_skill_rules": [
@@ -47,21 +54,21 @@
       "micro_skill_name": "Resolve force components in two dimensions",
       "topic_code": "vectors",
       "prerequisite_micro_skill_codes": [],
-      "evidence_patterns": ["resolve a force", "force components", "x and y components"]
+      "evidence_patterns": ["resolve a force", "force components", "x and y components", "resolved into x - and y -components", "component equations"]
     },
     {
       "micro_skill_code": "compute_net_force_1d",
       "micro_skill_name": "Compute net force in one dimension",
       "topic_code": "net_force",
       "prerequisite_micro_skill_codes": ["resolve_force_components_2d"],
-      "evidence_patterns": ["sum forces", "net force", "resultant force"]
+      "evidence_patterns": ["sum forces", "net force", "resultant force", "net external force", "vector sum"]
     },
     {
       "micro_skill_code": "apply_newtons_second_law_1d",
       "micro_skill_name": "Apply Newton's second law in one dimension",
       "topic_code": "newtons_laws",
       "prerequisite_micro_skill_codes": ["compute_net_force_1d"],
-      "evidence_patterns": ["F_net = m a", "Newton's Second Law", "acceleration"]
+      "evidence_patterns": ["F_net = m a", "F net = m a", "Newton's Second Law", "Newton’s second law", "acceleration"]
     }
   ],
   "dependency_rules": [

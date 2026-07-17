@@ -1,0 +1,134 @@
+{
+  "topic_candidates": [
+    {
+      "candidate_id": "TOPIC_001",
+      "confidence": "high",
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_001_001",
+          "line_end": 30,
+          "line_start": 30,
+          "matched_pattern": "Vectors",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_001_002",
+          "line_end": 30,
+          "line_start": 30,
+          "matched_pattern": "force vector",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_001_003",
+          "line_end": 118,
+          "line_start": 118,
+          "matched_pattern": "components",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "vectors",
+      "topic_name": "Vectors"
+    },
+    {
+      "candidate_id": "TOPIC_002",
+      "confidence": "high",
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_002_001",
+          "line_end": 24,
+          "line_start": 24,
+          "matched_pattern": "Net Force",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_002_002",
+          "line_end": 112,
+          "line_start": 112,
+          "matched_pattern": "resultant force",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_002_003",
+          "line_end": 27,
+          "line_start": 27,
+          "matched_pattern": "net external force",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_002_004",
+          "line_end": 33,
+          "line_start": 33,
+          "matched_pattern": "vector sum",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "net_force",
+      "topic_name": "Net Force"
+    },
+    {
+      "candidate_id": "TOPIC_003",
+      "confidence": "high",
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_003_001",
+          "line_end": 1,
+          "line_start": 1,
+          "matched_pattern": "Newton's Second Law",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_003_002",
+          "line_end": 25,
+          "line_start": 25,
+          "matched_pattern": "Newton\u2019s second law",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_003_003",
+          "line_end": 46,
+          "line_start": 46,
+          "matched_pattern": "F net = m a",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "topic_name": "Newton's Laws"
+    }
+  ]
+}

@@ -62,6 +62,28 @@ def test_physics_course_level_is_detected():
     assert result.outputs["source_interpretation.json"]["detected_course_level"] == "INTRO_PHYSICS_MECHANICS"
 
 
+def test_open_textbook_course_level_signal_is_accepted(tmp_path):
+    text = "\n".join(
+        [
+            "SOURCE TITLE: University Physics Volume 1, Section 5.3 Newton's Second Law",
+            "AUTHOR OR INSTITUTION: OpenStax",
+            "This Physics open textbook section is part of University Physics Volume 1.",
+            "The net external force is the vector sum of all external forces.",
+            "Newton's Second Law is often written as F net = m a.",
+            "The vector equation can be written as component equations.",
+            "A force may be resolved into x - and y -components before applying the law.",
+        ]
+    )
+    result = build_profile_run(
+        profile=physics_profile(),
+        source_text=text,
+        source_path=tmp_path / "openstax_excerpt.txt",
+        selected_micro_skill=SELECTED,
+    )
+    assert result.outputs["source_interpretation.json"]["detected_course_level"] == "INTRO_PHYSICS_MECHANICS"
+    assert result.release_seed["selected_micro_skill_code"] == SELECTED
+
+
 def test_required_three_topics_are_extracted():
     topics = build_physics().outputs["topic_candidates.json"]["topic_candidates"]
     assert [topic["topic_code"] for topic in topics] == ["vectors", "net_force", "newtons_laws"]

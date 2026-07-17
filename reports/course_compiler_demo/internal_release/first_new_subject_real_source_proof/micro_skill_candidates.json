@@ -1,0 +1,153 @@
+{
+  "micro_skill_candidates": [
+    {
+      "assessment_target_candidate": true,
+      "candidate_id": "MS_001",
+      "confidence": "high",
+      "micro_skill_code": "resolve_force_components_2d",
+      "micro_skill_name": "Resolve force components in two dimensions",
+      "performance_tracking_target": true,
+      "practice_target_candidate": true,
+      "prerequisite_micro_skill_codes": [],
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_001_001",
+          "line_end": 137,
+          "line_start": 137,
+          "matched_pattern": "resolved into x - and y -components",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_001_002",
+          "line_end": 106,
+          "line_start": 106,
+          "matched_pattern": "component equations",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "vectors"
+    },
+    {
+      "assessment_target_candidate": true,
+      "candidate_id": "MS_002",
+      "confidence": "high",
+      "micro_skill_code": "compute_net_force_1d",
+      "micro_skill_name": "Compute net force in one dimension",
+      "performance_tracking_target": true,
+      "practice_target_candidate": true,
+      "prerequisite_micro_skill_codes": [
+        "resolve_force_components_2d"
+      ],
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_002_001",
+          "line_end": 24,
+          "line_start": 24,
+          "matched_pattern": "net force",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_002_002",
+          "line_end": 112,
+          "line_start": 112,
+          "matched_pattern": "resultant force",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_002_003",
+          "line_end": 27,
+          "line_start": 27,
+          "matched_pattern": "net external force",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_002_004",
+          "line_end": 33,
+          "line_start": 33,
+          "matched_pattern": "vector sum",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "net_force"
+    },
+    {
+      "assessment_target_candidate": true,
+      "candidate_id": "MS_003",
+      "confidence": "high",
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "micro_skill_name": "Apply Newton's second law in one dimension",
+      "performance_tracking_target": true,
+      "practice_target_candidate": true,
+      "prerequisite_micro_skill_codes": [
+        "compute_net_force_1d"
+      ],
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_003_001",
+          "line_end": 46,
+          "line_start": 46,
+          "matched_pattern": "F net = m a",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_003_002",
+          "line_end": 1,
+          "line_start": 1,
+          "matched_pattern": "Newton's Second Law",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_003_003",
+          "line_end": 25,
+          "line_start": 25,
+          "matched_pattern": "Newton\u2019s second law",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_MS_003_004",
+          "line_end": 24,
+          "line_start": 24,
+          "matched_pattern": "acceleration",
+          "short_excerpt": "Evidence line referenced; excerpt withheld to avoid reproducing source passage.",
+          "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+          "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "byte_size": 26680,
+  "course_profile": "INTRO_PHYSICS_MECHANICS",
+  "normalized_sha256": "04c7f762b297bc3283a72473a72559ba7b08c55ce272dfb380809a828e45fbd9",
+  "normalized_source_committed": false,
+  "original_sha256": "cf6f573056b59b5eee6a3689176f6bc8340369f2c1f09a4a9934cf7e6b288711",
+  "privacy_status": "public_open_educational_resource_no_private_identifiers_observed",
+  "raw_source_committed": false,
+  "rights_status": "open_license",
+  "sha256": "04c7f762b297bc3283a72473a72559ba7b08c55ce272dfb380809a828e45fbd9",
+  "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+  "source_path": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+  "source_title": "University Physics Volume 1, Section 5.3 Newton's Second Law",
+  "source_type": "open_textbook_web_section",
+  "subject_code": "PHYSICS"
+}

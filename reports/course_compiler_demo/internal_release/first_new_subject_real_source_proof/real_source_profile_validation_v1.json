@@ -1,0 +1,32 @@
+{
+  "dependency_count": 2,
+  "detected_course_level": "INTRO_PHYSICS_MECHANICS",
+  "detected_subject": "PHYSICS",
+  "errors": [],
+  "license_name": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)",
+  "micro_skill_count": 3,
+  "non_live_boundary": {
+    "adaptive_platform_write_performed": false,
+    "canonical_approved": false,
+    "canonical_promotion_performed": false,
+    "db_read_performed": false,
+    "db_write_performed": false,
+    "deployment_performed": false,
+    "eligible_for_alpha_import": false,
+    "human_review_required": true,
+    "internal_preview_only": true,
+    "live_eligible": false,
+    "student_visible_publish_performed": false
+  },
+  "normalized_source_committed": false,
+  "profile_id": "PHYSICS_INTRO_MECHANICS_PROFILE_V1",
+  "raw_source_committed": false,
+  "rights_status": "open_license",
+  "selected_micro_skill_code": "apply_newtons_second_law_1d",
+  "semantic_seed_digest": "499208709e07ca5b744b36d064f87fee69d122eb81c2bd287171adf2d82e14ce",
+  "source_id": "OPENSTAX_UNIVERSITY_PHYSICS_VOLUME_1_SECTION_5_3_NEWTONS_SECOND_LAW_20260717",
+  "source_reference": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+  "topic_count": 3,
+  "validation_status": "pass",
+  "warnings": []
+}

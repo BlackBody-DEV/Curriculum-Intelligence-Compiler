@@ -1,0 +1,19 @@
+{
+  "content_gaps": [
+    {
+      "description": "Profile proof has explicit coverage for required demo sequence.",
+      "gap_id": "NO_PROFILE_GAPS_DECLARED",
+      "severity": "none"
+    },
+    {
+      "description": "Candidate questions use original AxiomIQ wording and require human review before any Alpha import, canonical promotion, or student-visible use.",
+      "gap_id": "HUMAN_REVIEW_OPENSTAX_DERIVED_CANDIDATES",
+      "severity": "nonblocking"
+    },
+    {
+      "description": "OpenStax source is used for internal analysis; raw and normalized source files are not committed and long passages are not reproduced in proof reports.",
+      "gap_id": "SOURCE_PASSAGE_PUBLICATION_RESTRICTED",
+      "severity": "nonblocking"
+    }
+  ]
+}
