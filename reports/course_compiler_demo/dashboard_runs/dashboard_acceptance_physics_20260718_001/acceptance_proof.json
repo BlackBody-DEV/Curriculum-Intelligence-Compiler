@@ -1,0 +1,29 @@
+{
+  "assessment_id": "ASSESS_PHYSICS_DASHBOARD_001",
+  "compiler_status": "pass",
+  "family_id": "GF_PHYSICS_NEWTON_SECOND_LAW_1D_V1",
+  "instructor_export_includes_answers": true,
+  "locked_question_preserved": true,
+  "non_live_boundary": {
+    "adaptive_platform_write_performed": false,
+    "canonical_promotion_performed": false,
+    "db_read_performed": false,
+    "db_write_performed": false,
+    "deployment_performed": false,
+    "student_visible": false
+  },
+  "profile_id": "PHYSICS_INTRO_MECHANICS_PROFILE_V1",
+  "question_count": 10,
+  "raw_or_normalized_source_retained": false,
+  "release_gate": {
+    "noncanonical": true,
+    "release_ready": true,
+    "review_complete": true,
+    "validation_invalidated": false
+  },
+  "replacement_question_id": "ASSESS_PHYSICS_DASHBOARD_001_Q002_R001",
+  "run_id": "dashboard_acceptance_physics_20260718_001",
+  "source_filename": "physics_intro_mechanics_source.txt",
+  "source_sha256": "04c7f762b297bc3283a72473a72559ba7b08c55ce272dfb380809a828e45fbd9",
+  "student_export_excludes_answers": true
+}

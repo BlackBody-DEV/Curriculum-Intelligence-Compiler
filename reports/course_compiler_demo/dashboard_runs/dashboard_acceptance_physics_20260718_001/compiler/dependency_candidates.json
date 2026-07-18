@@ -1,0 +1,20 @@
+{
+  "dependency_candidates": [
+    {
+      "candidate_id": "DEP_001",
+      "confidence": "high",
+      "from_micro_skill_code": "resolve_force_components_2d",
+      "relationship": "prerequisite",
+      "status": "compiler_profile_review_pending",
+      "to_micro_skill_code": "compute_net_force_1d"
+    },
+    {
+      "candidate_id": "DEP_002",
+      "confidence": "high",
+      "from_micro_skill_code": "compute_net_force_1d",
+      "relationship": "prerequisite",
+      "status": "compiler_profile_review_pending",
+      "to_micro_skill_code": "apply_newtons_second_law_1d"
+    }
+  ]
+}

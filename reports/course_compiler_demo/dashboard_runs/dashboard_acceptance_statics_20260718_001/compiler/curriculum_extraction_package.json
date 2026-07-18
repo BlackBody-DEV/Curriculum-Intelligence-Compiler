@@ -1,0 +1,192 @@
+{
+  "content_gaps": [],
+  "created_at": "2026-07-17T01:03:48+00:00",
+  "emitter_version": "release_package_emitter_v1",
+  "generation_family_candidates": [
+    {
+      "family_id": "GF_SEED_VECTOR_COMPONENTS_2D_001",
+      "family_type": "component_resolution_numeric_pair",
+      "human_review_required": true,
+      "micro_skill_code": "vector_components_2d",
+      "procedure_id": "PROC_SEED_VECTOR_COMPONENTS_2D_001",
+      "question_ids": [
+        "Q_SEED_VECTOR_COMPONENTS_2D_001"
+      ],
+      "status": "human_review_required",
+      "subject_code": "STATICS",
+      "subtopic_code": "two_dimensional_vector_components",
+      "topic_code": "force_vectors",
+      "variable_fields": [
+        "magnitude",
+        "angle",
+        "quadrant",
+        "units",
+        "sign_convention",
+        "answer_tolerance"
+      ],
+      "variation_rules": {
+        "angle": "Vary angles measured from the positive x axis or explicitly state a different reference.",
+        "answer_tolerance": "Use numeric-pair tolerance suitable for rounded component values.",
+        "magnitude": "Use positive scalar magnitudes appropriate for introductory statics practice.",
+        "quadrant": "Include quadrant changes only when signs can be reviewed and validated.",
+        "sign_convention": "Require signed components when the vector points outside the first quadrant.",
+        "units": "Use force units consistently across prompt and answer."
+      }
+    }
+  ],
+  "integration_boundary": {
+    "adaptive_platform_write_performed": false,
+    "canonical_approved": false,
+    "canonical_promotion_performed": false,
+    "db_read_performed": false,
+    "db_write_performed": false,
+    "deployment_performed": false,
+    "eligible_for_alpha_import": false,
+    "human_review_required": true,
+    "internal_preview_only": true,
+    "live_eligible": false,
+    "student_visible_publish_performed": false
+  },
+  "known_limitations": [
+    "This is a seed packet, not an executable package emitter output.",
+    "Question and generation family seeds require human review before any runtime use.",
+    "Failure signals are proposed for the Day 2 proof and are not promoted into canonical Alpha.",
+    "No Alpha staging implementation, DB write, or student-visible publishing is authorized by this packet."
+  ],
+  "package_id": "STATICS_VECTOR_COMPONENTS_2D_INTERNAL_V1",
+  "package_status": "compiler_non_live_review_pending",
+  "package_version": "compiler_release_package_v1",
+  "performance_tracking_package": {
+    "package_id": "PERF_VECTOR_COMPONENTS_2D_001",
+    "selected_micro_skill_code": "vector_components_2d",
+    "status": "human_review_required",
+    "student_visible": false,
+    "tracked_micro_skill_codes": [
+      "vector_components_2d"
+    ],
+    "tracked_question_ids": [
+      "Q_SEED_VECTOR_COMPONENTS_2D_001"
+    ]
+  },
+  "practice_assessment_package": {
+    "assessment_type": "single_micro_skill_internal_check",
+    "package_id": "PA_VECTOR_COMPONENTS_2D_001",
+    "question_ids": [
+      "Q_SEED_VECTOR_COMPONENTS_2D_001"
+    ],
+    "selected_micro_skill_code": "vector_components_2d",
+    "status": "human_review_required",
+    "student_visible": false
+  },
+  "practice_module_package": {
+    "package_id": "PM_VECTOR_COMPONENTS_2D_001",
+    "procedure_ids": [
+      "PROC_SEED_VECTOR_COMPONENTS_2D_001"
+    ],
+    "question_ids": [
+      "Q_SEED_VECTOR_COMPONENTS_2D_001"
+    ],
+    "selected_micro_skill_code": "vector_components_2d",
+    "status": "human_review_required",
+    "student_visible": false
+  },
+  "procedure_candidates": [
+    {
+      "candidate_id": "PROC_SEED_VECTOR_COMPONENTS_2D_001",
+      "description": "Resolve a two-dimensional vector into horizontal and vertical components by using the vector magnitude, the angle measured from the positive x axis, and the standard component relationships Fx = F cos(theta) and Fy = F sin(theta). Preserve the sign of each component according to the quadrant or stated direction convention.",
+      "human_review_required": true,
+      "micro_skill_code": "vector_components_2d",
+      "procedure_id": "PROC_SEED_VECTOR_COMPONENTS_2D_001",
+      "status": "human_review_required",
+      "steps": [
+        "Identify the vector magnitude and the angle reference.",
+        "Confirm that the angle is measured from the positive x axis or convert the reference before computing components.",
+        "Compute the x component with Fx = F cos(theta).",
+        "Compute the y component with Fy = F sin(theta).",
+        "Apply the correct signs based on the vector direction.",
+        "Report both components with units and appropriate rounding."
+      ],
+      "subject_code": "STATICS",
+      "subtopic_code": "two_dimensional_vector_components",
+      "topic_code": "force_vectors"
+    }
+  ],
+  "question_candidates": [
+    {
+      "answer": {
+        "Fx": 8.66,
+        "Fy": 5.0
+      },
+      "candidate_id": "Q_SEED_VECTOR_COMPONENTS_2D_001",
+      "human_review_required": true,
+      "micro_skill_code": "vector_components_2d",
+      "procedure_id": "PROC_SEED_VECTOR_COMPONENTS_2D_001",
+      "prompt": "A 10 N force acts at an angle of 30 degrees above the positive x axis. Determine the x and y components of the force.",
+      "question_id": "Q_SEED_VECTOR_COMPONENTS_2D_001",
+      "question_type": "numeric_pair",
+      "status": "human_review_required",
+      "student_visible": false,
+      "subject_code": "STATICS",
+      "subtopic_code": "two_dimensional_vector_components",
+      "tolerance": 0.05,
+      "topic_code": "force_vectors"
+    }
+  ],
+  "review_state": {
+    "human_review_required": true,
+    "review_status": "review_pending",
+    "status": "human_review_required"
+  },
+  "rights_summary": {
+    "rights_review_required": true,
+    "source_basis": "original_axiomiq_seed_wording",
+    "third_party_copying": "not_used"
+  },
+  "selected_micro_skill_code": "vector_components_2d",
+  "semantic_digest": "52c53276ce00afef348b0027abe3a8bba1607fc332e0dc9c7b20bf5be0aadf8a",
+  "source_artifacts": [
+    {
+      "path": "docs/course_compiler_demo/internal_release/RELEASE_DAY1_STATICS_PROCEDURE_SET_LOCK.md",
+      "ref_id": "release_day1_procedure_set_lock"
+    },
+    {
+      "path": "docs/course_compiler_demo/internal_release/RELEASE_DAY1_ONE_MICRO_SKILL_PROOF_TARGET.md",
+      "ref_id": "release_day1_one_micro_skill_target"
+    },
+    {
+      "path": "reports/course_compiler_demo/release_day1_probe/COMPILER_PACKAGE_BOUNDARY_PROBE_001.md",
+      "ref_id": "compiler_package_boundary_probe"
+    }
+  ],
+  "source_provenance": {
+    "evidence_refs": [
+      {
+        "path": "docs/course_compiler_demo/internal_release/RELEASE_DAY1_STATICS_PROCEDURE_SET_LOCK.md",
+        "ref_id": "release_day1_procedure_set_lock"
+      },
+      {
+        "path": "docs/course_compiler_demo/internal_release/RELEASE_DAY1_ONE_MICRO_SKILL_PROOF_TARGET.md",
+        "ref_id": "release_day1_one_micro_skill_target"
+      },
+      {
+        "path": "reports/course_compiler_demo/release_day1_probe/COMPILER_PACKAGE_BOUNDARY_PROBE_001.md",
+        "ref_id": "compiler_package_boundary_probe"
+      }
+    ],
+    "privacy_status": {
+      "contains_personal_data": false,
+      "contains_student_data": false,
+      "privacy_review_required": false
+    },
+    "source_payload_package_id": "DAY2_VECTOR_COMPONENTS_2D_SEED_PACKET_001"
+  },
+  "subject_code": "STATICS",
+  "subtopic_code": "two_dimensional_vector_components",
+  "topic_code": "force_vectors",
+  "validation_summary": {
+    "error_count": 0,
+    "validated_at": "2026-07-17T01:03:48+00:00",
+    "validation_status": "pass",
+    "warning_count": 0
+  }
+}

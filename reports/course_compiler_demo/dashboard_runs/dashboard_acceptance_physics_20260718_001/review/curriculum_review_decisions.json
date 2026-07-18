@@ -1,0 +1,15 @@
+{
+  "decisions": [
+    {
+      "candidate_id": "MS_003",
+      "candidate_type": "micro_skill",
+      "decision": "accepted",
+      "eligible_for_alpha_import": false,
+      "noncanonical": true,
+      "review_note": "",
+      "timestamp": "2026-07-18T22:02:18+00:00"
+    }
+  ],
+  "noncanonical": true,
+  "review_status": "accepted_for_local_use"
+}

@@ -1,0 +1,9 @@
+{
+  "content_gaps": [
+    {
+      "description": "Profile proof has explicit coverage for required demo sequence.",
+      "gap_id": "NO_PROFILE_GAPS_DECLARED",
+      "severity": "none"
+    }
+  ]
+}

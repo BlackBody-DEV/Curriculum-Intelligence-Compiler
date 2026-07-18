@@ -1,0 +1,116 @@
+{
+  "assessment_id": "ASSESS_STATICS_DASHBOARD_001",
+  "contract_version": "assessment_review_decisions_v1",
+  "review_records": [
+    {
+      "decision": "accepted",
+      "locked": true,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_DASHBOARD_001_Q001",
+      "replacement_question_id": null,
+      "reviewed_at": "2026-07-18T22:02:19+00:00",
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "regenerate",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_DASHBOARD_001_Q002",
+      "replacement_question_id": "ASSESS_STATICS_DASHBOARD_001_Q002_R001",
+      "reviewed_at": "2026-07-18T22:02:19+00:00",
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "accepted",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_DASHBOARD_001_Q003",
+      "replacement_question_id": null,
+      "reviewed_at": "2026-07-18T22:02:19+00:00",
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "accepted",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_DASHBOARD_001_Q004",
+      "replacement_question_id": null,
+      "reviewed_at": "2026-07-18T22:02:19+00:00",
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "accepted",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_DASHBOARD_001_Q005",
+      "replacement_question_id": null,
+      "reviewed_at": "2026-07-18T22:02:19+00:00",
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "accepted",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_DASHBOARD_001_Q006",
+      "replacement_question_id": null,
+      "reviewed_at": "2026-07-18T22:02:19+00:00",
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "accepted",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_DASHBOARD_001_Q007",
+      "replacement_question_id": null,
+      "reviewed_at": "2026-07-18T22:02:19+00:00",
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "accepted",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_DASHBOARD_001_Q008",
+      "replacement_question_id": null,
+      "reviewed_at": "2026-07-18T22:02:19+00:00",
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "accepted",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_DASHBOARD_001_Q009",
+      "replacement_question_id": null,
+      "reviewed_at": "2026-07-18T22:02:19+00:00",
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "accepted",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_DASHBOARD_001_Q010",
+      "replacement_question_id": null,
+      "reviewed_at": "2026-07-18T22:02:19+00:00",
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "accepted",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_DASHBOARD_001_Q002_R001",
+      "replacement_question_id": null,
+      "reviewed_at": "2026-07-18T22:02:19+00:00",
+      "reviewer_note": "",
+      "validation_invalidated": false
+    }
+  ]
+}

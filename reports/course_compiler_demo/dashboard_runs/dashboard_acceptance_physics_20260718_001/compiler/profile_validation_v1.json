@@ -1,0 +1,26 @@
+{
+  "dependency_count": 2,
+  "detected_course_level": "INTRO_PHYSICS_MECHANICS",
+  "detected_subject": "PHYSICS",
+  "errors": [],
+  "micro_skill_count": 3,
+  "non_live_boundary": {
+    "adaptive_platform_write_performed": false,
+    "canonical_approved": false,
+    "canonical_promotion_performed": false,
+    "db_read_performed": false,
+    "db_write_performed": false,
+    "deployment_performed": false,
+    "eligible_for_alpha_import": false,
+    "human_review_required": true,
+    "internal_preview_only": true,
+    "live_eligible": false,
+    "student_visible_publish_performed": false
+  },
+  "profile_id": "PHYSICS_INTRO_MECHANICS_PROFILE_V1",
+  "selected_micro_skill_code": "apply_newtons_second_law_1d",
+  "semantic_seed_digest": "ffb973c4b0c23c66267615ed497dbbf0145828651beedcbbb366893ee170da44",
+  "topic_count": 3,
+  "validation_status": "pass",
+  "warnings": []
+}

@@ -1,0 +1,12 @@
+{
+  "micro_skill_candidates": [
+    {
+      "candidate_id": "MS_STATICS_VECTOR_COMPONENTS_2D",
+      "confidence": "high",
+      "micro_skill_code": "vector_components_2d",
+      "micro_skill_name": "Resolve a two-dimensional force into signed rectangular components",
+      "status": "compiler_dashboard_review_pending",
+      "topic_code": "force_vectors"
+    }
+  ]
+}

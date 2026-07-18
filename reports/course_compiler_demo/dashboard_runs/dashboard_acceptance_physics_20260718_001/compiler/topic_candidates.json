@@ -1,0 +1,124 @@
+{
+  "topic_candidates": [
+    {
+      "candidate_id": "TOPIC_001",
+      "confidence": "high",
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_001_001",
+          "line_end": 30,
+          "line_start": 30,
+          "matched_pattern": "Vectors",
+          "short_excerpt": "From this example, you can see that different forces exerted on the same mass produce different accelerations. In Figure 5.10 (a), the two students push a car with a driver in it. ",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_SOURCE"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_001_002",
+          "line_end": 30,
+          "line_start": 30,
+          "matched_pattern": "force vector",
+          "short_excerpt": "From this example, you can see that different forces exerted on the same mass produce different accelerations. In Figure 5.10 (a), the two students push a car with a driver in it. ",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_SOURCE"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_001_003",
+          "line_end": 118,
+          "line_start": 118,
+          "matched_pattern": "components",
+          "short_excerpt": "Magnitude and direction are found using the components of F \u2192 net F \u2192 net :",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_SOURCE"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "vectors",
+      "topic_name": "Vectors"
+    },
+    {
+      "candidate_id": "TOPIC_002",
+      "confidence": "high",
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_002_001",
+          "line_end": 24,
+          "line_start": 24,
+          "matched_pattern": "Net Force",
+          "short_excerpt": "Explain the dependence of acceleration on net force and mass",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_SOURCE"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_002_002",
+          "line_end": 112,
+          "line_start": 112,
+          "matched_pattern": "resultant force",
+          "short_excerpt": "A 0.400-kg soccer ball is kicked across the field by a player; it undergoes acceleration given by a \u2192 = 3.00 i ^ + 7.00 j ^ m/s 2 . a \u2192 = 3.00 i ^ + 7.00 j ^ m/s 2 . Find (a) the r",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_SOURCE"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_002_003",
+          "line_end": 27,
+          "line_start": 27,
+          "matched_pattern": "net external force",
+          "short_excerpt": "First, what do we mean by a change in motion? The answer is that a change in motion is equivalent to a change in velocity. A change in velocity means, by definition, that there is ",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_SOURCE"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_002_004",
+          "line_end": 33,
+          "line_start": 33,
+          "matched_pattern": "vector sum",
+          "short_excerpt": "where the symbol \u221d \u221d means \u201cproportional to.\u201d (Recall from Forces that the net external force is the vector sum of all external forces and is sometimes indicated as \u2211 F \u2192 . \u2211 F \u2192 .",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_SOURCE"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "net_force",
+      "topic_name": "Net Force"
+    },
+    {
+      "candidate_id": "TOPIC_003",
+      "confidence": "high",
+      "source_evidence": [
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_003_001",
+          "line_end": 1,
+          "line_start": 1,
+          "matched_pattern": "Newton's Second Law",
+          "short_excerpt": "SOURCE TITLE: University Physics Volume 1, Section 5.3 Newton's Second Law",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_SOURCE"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_003_002",
+          "line_end": 25,
+          "line_start": 25,
+          "matched_pattern": "Newton\u2019s second law",
+          "short_excerpt": "Newton\u2019s second law is closely related to his first law. It mathematically gives the cause-and-effect relationship between force and changes in motion. Newton\u2019s second law is quant",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_SOURCE"
+        },
+        {
+          "confidence": "high",
+          "evidence_id": "EV_TOPIC_003_003",
+          "line_end": 46,
+          "line_start": 46,
+          "matched_pattern": "F net = m a",
+          "short_excerpt": "F net = m a . F net = m a .",
+          "source_id": "SRC_PHYSICS_PHYSICS_INTRO_MECHANICS_SOURCE"
+        }
+      ],
+      "status": "compiler_profile_review_pending",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "topic_name": "Newton's Laws"
+    }
+  ]
+}

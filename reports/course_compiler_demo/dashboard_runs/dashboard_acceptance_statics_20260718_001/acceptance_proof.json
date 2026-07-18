@@ -1,0 +1,29 @@
+{
+  "assessment_id": "ASSESS_STATICS_DASHBOARD_001",
+  "compiler_status": "pass",
+  "family_id": "GF_STATICS_VECTOR_COMPONENTS_2D_V1",
+  "instructor_export_includes_answers": true,
+  "locked_question_preserved": true,
+  "non_live_boundary": {
+    "adaptive_platform_write_performed": false,
+    "canonical_promotion_performed": false,
+    "db_read_performed": false,
+    "db_write_performed": false,
+    "deployment_performed": false,
+    "student_visible": false
+  },
+  "profile_id": "STATICS_VECTOR_COMPONENTS_RELEASE_PROFILE_V1",
+  "question_count": 10,
+  "raw_or_normalized_source_retained": false,
+  "release_gate": {
+    "noncanonical": true,
+    "release_ready": true,
+    "review_complete": true,
+    "validation_invalidated": false
+  },
+  "replacement_question_id": "ASSESS_STATICS_DASHBOARD_001_Q002_R001",
+  "run_id": "dashboard_acceptance_statics_20260718_001",
+  "source_filename": "statics_vector_components_source.md",
+  "source_sha256": "1ff2de06f051cb591599551c9f2434cf691c34daca59463a6ad25dc7c9fbcf40",
+  "student_export_excludes_answers": true
+}

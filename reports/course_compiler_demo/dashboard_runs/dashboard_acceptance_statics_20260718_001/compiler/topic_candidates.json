@@ -1,0 +1,11 @@
+{
+  "topic_candidates": [
+    {
+      "candidate_id": "TOPIC_STATICS_FORCE_VECTORS",
+      "confidence": "high",
+      "status": "compiler_dashboard_review_pending",
+      "topic_code": "force_vectors",
+      "topic_name": "Force Vectors"
+    }
+  ]
+}

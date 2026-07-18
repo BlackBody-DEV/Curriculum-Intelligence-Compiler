@@ -1,0 +1,58 @@
+{
+  "answer_key_policy": {
+    "student_export_includes_answers": false
+  },
+  "assessment_id": "ASSESS_STATICS_DASHBOARD_001",
+  "assessment_type": "practice_set",
+  "contract_version": "assessment_generation_contract_v1",
+  "course_profile": "STATICS_VECTOR_COMPONENTS_RELEASE_PROFILE_V1",
+  "difficulty_distribution": {
+    "advanced": 3,
+    "foundational": 3,
+    "standard": 4
+  },
+  "generation_family_allocation": {
+    "GF_STATICS_VECTOR_COMPONENTS_2D_V1": {
+      "approved_procedure_codes": [
+        "PROC_SEED_VECTOR_COMPONENTS_2D_001"
+      ],
+      "question_count": 10
+    }
+  },
+  "prerequisite_policy": {
+    "allowed_prerequisite_skills": []
+  },
+  "question_count": 10,
+  "question_type_distribution": {
+    "numeric_pair": 10
+  },
+  "random_seed": 2026071801,
+  "rights_boundary": {
+    "canonical_approved": false,
+    "eligible_for_alpha_import": false,
+    "human_review_required": true,
+    "student_visible": false
+  },
+  "scaffolding_policy": {
+    "include_scaffolding": false
+  },
+  "scope_policy": {
+    "forbidden_downstream_micro_skills": []
+  },
+  "selected_micro_skill_codes": [
+    "vector_components_2d"
+  ],
+  "selected_topic_codes": [
+    "force_vectors"
+  ],
+  "solution_policy": {
+    "include_solutions_in_instructor_export": true
+  },
+  "status": "generation_ready",
+  "subject_code": "STATICS",
+  "title": "vector_components_2d Assessment",
+  "uniqueness_policy": {
+    "reject_exact_duplicates": true,
+    "reject_structural_duplicates": true
+  }
+}

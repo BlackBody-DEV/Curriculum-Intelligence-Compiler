@@ -1,0 +1,22 @@
+{
+  "author_or_institution": "AxiomIQ local source review",
+  "classification": {
+    "classification_evidence": [
+      "Detected syllabus or course schedule language."
+    ],
+    "detected_source_type": "syllabus",
+    "source_type_confidence": "high"
+  },
+  "detected_subject": "PHYSICS",
+  "document_type": "user_authored_instructional_source",
+  "optional_source_reference": "",
+  "privacy_status": "non_private",
+  "raw_or_normalized_source_retained": false,
+  "rights_confirmed": true,
+  "rights_status": "approved_local_use",
+  "source_display_filename": "statics_vector_components_source.md",
+  "source_format": "md",
+  "source_sha256": "1ff2de06f051cb591599551c9f2434cf691c34daca59463a6ad25dc7c9fbcf40",
+  "source_title": "Statics Vector Components Local Source",
+  "subject_confidence": "medium"
+}
