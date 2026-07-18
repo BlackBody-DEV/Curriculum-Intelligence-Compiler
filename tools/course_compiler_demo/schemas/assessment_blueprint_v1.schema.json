@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "assessment_blueprint_v1.schema.json",
+  "title": "Assessment Blueprint v1",
+  "type": "object",
+  "required": [
+    "assessment_id",
+    "contract_version",
+    "title",
+    "assessment_type",
+    "subject_code",
+    "course_profile",
+    "selected_topic_codes",
+    "selected_micro_skill_codes",
+    "question_count",
+    "difficulty_distribution",
+    "question_type_distribution",
+    "generation_family_allocation",
+    "prerequisite_policy",
+    "scaffolding_policy",
+    "solution_policy",
+    "answer_key_policy",
+    "uniqueness_policy",
+    "rights_boundary",
+    "random_seed",
+    "status"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "assessment_generation_contract_v1"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "validated",
+        "generation_ready",
+        "generated",
+        "review_pending",
+        "review_complete"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

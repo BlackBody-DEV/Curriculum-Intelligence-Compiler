@@ -1,0 +1,45 @@
+{
+  "contract_version": "assessment_generation_contract_hardening_report_v1",
+  "export_checks": {
+    "physics_student_export_excludes_expected_answer": true,
+    "statics_student_export_excludes_expected_answer": true
+  },
+  "families": {
+    "physics": {
+      "assessment_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1",
+      "family_id": "GF_PHYSICS_NEWTON_SECOND_LAW_1D_V1",
+      "generated_count": 10,
+      "parameter_space_exhausted": false,
+      "target_variables": [
+        "acceleration",
+        "mass",
+        "net_force"
+      ],
+      "validated_count": 10,
+      "validation_status": "pass"
+    },
+    "statics": {
+      "assessment_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1",
+      "directional_patterns": [
+        "-1,1",
+        "1,-1",
+        "1,1"
+      ],
+      "family_id": "GF_STATICS_VECTOR_COMPONENTS_2D_V1",
+      "generated_count": 10,
+      "parameter_space_exhausted": false,
+      "validated_count": 10,
+      "validation_status": "pass"
+    }
+  },
+  "non_live_boundary": {
+    "adaptive_platform_write": false,
+    "canonical_approved": false,
+    "db_contact": false,
+    "eligible_for_alpha_import": false,
+    "human_review_required": true,
+    "student_visible": false
+  },
+  "status": "compiler_non_live_review_pending",
+  "task_id": "COMPILER-ASSESSMENT-GENERATION-CONTRACT-HARDENING-001"
+}

@@ -1,0 +1,48 @@
+{
+  "assessment_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1",
+  "contract_version": "assessment_validation_report_v1",
+  "duplicate_report": {
+    "exact_fingerprints": [
+      "053a1442e0e783873d5f1a847c0d17ad5cda59f8997e38db6ac2fcdfef07c9ca",
+      "17722cfee4aaa673851d345cc1b65e8ad8878f2d071b7c76c8d000e34b521817",
+      "2493d87aaaab1bf240a35a7522f2547c2e3a681afa9323f5d5a429c97bf6f2ad",
+      "33b15c40961144e6b15f13ed1b14bb84c09d3ac55bbd8b6ec58fb5212fe09fc9",
+      "632c4169e2f39ee8da528d8c2cea34a9c944977c52ea9a457cf176c29c3dc104",
+      "6fc222db63f6fcd68a3d358bd4cca44a715a284f8c95cb7abf3801c54c256168",
+      "7cb2d1f433a127143c0d4e582eec38d1f88fb3d00d74c5bcb7d9c5a0a774bc07",
+      "92ac0857e10c267c0333542000bc245095a0115b1bfaefa8c13a13e06b86f6b3",
+      "b82fc2c24239f0aee2be728d21e384aae3b2c69a6204fb22ce253bb45d53e2bf",
+      "bbb937c63c2a50e23690d6dc6c47b5f0e4d4b8690836891d7221941a8aecd105"
+    ],
+    "generated_count": 10,
+    "parameter_space_exhausted": false,
+    "rejected_answer_validation": 0,
+    "rejected_exact_duplicates": 0,
+    "rejected_parameter_constraints": 0,
+    "rejected_scope": 0,
+    "rejected_structural_duplicates": 0,
+    "requested_count": 10,
+    "structural_fingerprints": [
+      "2cdcd30c1b327df1ce775109aaa315f122fcc6f1c921a0cbd0fa8ba3f826681c",
+      "45fde7ab4cf5a216a75954cfb155916f4e2ae15ba1410b08e63d9ce12bc5c508",
+      "4aa3d628d08ca079d0c84708dd3e6653193ae5d3c58e5a75cf46d8c0d19fb803",
+      "633d1a47c2bfce6286d974fcb2bba7f00f7c818b10a01d5141dd37ca74cdc6a1",
+      "835625713ed37f31f51b1711d71e3b57b4e9df9023612ad6ce8271751d35875c",
+      "b3572a0adc4d3f8732c675da884a363613c4850ffd8b56e590b2a03be5e48a40",
+      "b7e4f4735fe53a1deeffde43ca5578b389a56d8c90073bd630ef91f2720cbc92",
+      "bd3f4ccc36283420a0a452ab419359046a3392f788828e05968857ca7f0b7e30",
+      "f8a5b8e43a7ce3dc71ac6a61fee2b1ee380cc4f095ed99c83210f95e27a4a1b9",
+      "f98b0f1f8482d152b625e56e96402ba2db2368920295f2b35a3752da977f0a5c"
+    ]
+  },
+  "errors": [],
+  "non_live_boundary": {
+    "canonical_approved": false,
+    "eligible_for_alpha_import": false,
+    "human_review_required": true,
+    "status": "compiler_non_live_review_pending",
+    "student_visible": false
+  },
+  "question_count": 10,
+  "validation_status": "pass"
+}

@@ -1,0 +1,109 @@
+{
+  "generation_family_id": "GF_PHYSICS_NEWTON_SECOND_LAW_1D_V1",
+  "contract_version": "assessment_generation_family_v1",
+  "family_version": "1.0.0",
+  "family_type": "newtons_second_law_numeric_1d",
+  "subject_code": "PHYSICS",
+  "topic_code": "newtons_laws",
+  "subtopic_code": "newtons_second_law",
+  "supported_micro_skills": [
+    "apply_newtons_second_law_1d"
+  ],
+  "target_micro_skill_code": "apply_newtons_second_law_1d",
+  "approved_procedure_code": "PROC_PHYSICS_APPLY_NEWTON_SECOND_LAW_1D_001",
+  "approved_prerequisite_skills": [
+    "compute_net_force_1d"
+  ],
+  "question_types": [
+    "numeric_with_unit"
+  ],
+  "answer_adapter_type": "numeric_with_unit",
+  "parameter_schema": {
+    "required": [
+      "target_variable",
+      "mass_kg",
+      "acceleration_mps2",
+      "net_force_n"
+    ]
+  },
+  "parameter_constraints": {
+    "mass_kg": {
+      "min_exclusive": 0
+    },
+    "acceleration_mps2": {
+      "not_equal": 0
+    }
+  },
+  "difficulty_profiles": {
+    "foundational": "Direct F_net = m a substitution with positive values and acceleration as the unknown.",
+    "standard": "The requested unknown varies among acceleration, net force, and mass.",
+    "advanced": "Signed one-dimensional direction is included while staying within F_net = m a."
+  },
+  "scenario_templates": [
+    {
+      "scenario_template_id": "cart_on_track",
+      "object": "A low-friction cart on a straight track"
+    },
+    {
+      "scenario_template_id": "sled_on_level_path",
+      "object": "A sled moving along a level path"
+    },
+    {
+      "scenario_template_id": "lab_glider",
+      "object": "A dynamics glider"
+    }
+  ],
+  "prompt_builder_id": "newtons_second_law_1d_prompt_v1",
+  "answer_calculator_id": "newtons_second_law_1d_answer_v1",
+  "solution_builder_id": "newtons_second_law_1d_solution_v1",
+  "accepted_units": [
+    "m/s^2",
+    "N",
+    "kg"
+  ],
+  "grading_type": "numeric_with_unit",
+  "tolerance": {
+    "absolute": 0.000001
+  },
+  "reasoning_sequence": [
+    "identify_knowns",
+    "select_F_equals_ma",
+    "solve_target_variable",
+    "check_units"
+  ],
+  "structural_signature_fields": [
+    "target_variable",
+    "mass_kg",
+    "acceleration_mps2",
+    "net_force_n"
+  ],
+  "scope_inclusions": [
+    "one-dimensional net-force relation",
+    "F_net = m a",
+    "numeric answer with explicit unit"
+  ],
+  "scope_exclusions": [
+    "two-dimensional",
+    "friction",
+    "inclined plane",
+    "energy",
+    "momentum",
+    "rotational",
+    "differential equation"
+  ],
+  "known_failure_modes": [
+    "formula_rearrangement_error",
+    "sign_convention_error",
+    "unit_mismatch"
+  ],
+  "rights_boundary": {
+    "source_basis": "axiomiq_original_generated_candidate",
+    "eligible_for_alpha_import": false,
+    "canonical_approved": false,
+    "student_visible": false,
+    "human_review_required": true
+  },
+  "question_origin": "axiomiq_original_generated_candidate",
+  "human_review_required": true,
+  "enabled": true
+}

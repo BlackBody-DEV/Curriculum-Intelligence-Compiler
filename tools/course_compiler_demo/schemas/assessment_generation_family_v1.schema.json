@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "assessment_generation_family_v1.schema.json",
+  "title": "Assessment Generation Family v1",
+  "type": "object",
+  "required": [
+    "generation_family_id",
+    "contract_version",
+    "family_version",
+    "family_type",
+    "subject_code",
+    "topic_code",
+    "subtopic_code",
+    "supported_micro_skills",
+    "target_micro_skill_code",
+    "approved_procedure_code",
+    "approved_prerequisite_skills",
+    "question_types",
+    "answer_adapter_type",
+    "parameter_schema",
+    "parameter_constraints",
+    "difficulty_profiles",
+    "scenario_templates",
+    "prompt_builder_id",
+    "answer_calculator_id",
+    "solution_builder_id",
+    "accepted_units",
+    "grading_type",
+    "tolerance",
+    "reasoning_sequence",
+    "structural_signature_fields",
+    "scope_inclusions",
+    "scope_exclusions",
+    "known_failure_modes",
+    "rights_boundary",
+    "question_origin",
+    "human_review_required",
+    "enabled"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "assessment_generation_family_v1"
+    },
+    "human_review_required": {
+      "const": true
+    },
+    "enabled": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

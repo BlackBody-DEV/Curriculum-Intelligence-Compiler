@@ -1,0 +1,188 @@
+{
+  "assessment_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1",
+  "assessment_type": "practice_set",
+  "contract_version": "generated_assessment_v1",
+  "generation_family_ids": [
+    "GF_STATICS_VECTOR_COMPONENTS_2D_V1"
+  ],
+  "micro_skill_codes": [
+    "vector_components_2d"
+  ],
+  "non_live_boundary": {
+    "canonical_approved": false,
+    "eligible_for_alpha_import": false,
+    "human_review_required": true,
+    "status": "compiler_non_live_review_pending",
+    "student_visible": false
+  },
+  "questions": [
+    {
+      "accepted_units": [
+        "N"
+      ],
+      "difficulty": "foundational",
+      "grading_type": "numeric_pair",
+      "micro_skill_code": "vector_components_2d",
+      "prompt": "A two-force link experiences a 60 N force at 60 degrees above the positive x-axis in Quadrant I. Find the signed x- and y-components of the force.",
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q001",
+      "question_type": "numeric_pair",
+      "review_status": "pending",
+      "slot_id": "SLOT_001",
+      "subject_code": "STATICS",
+      "topic_code": "force_vectors",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "N"
+      ],
+      "difficulty": "foundational",
+      "grading_type": "numeric_pair",
+      "micro_skill_code": "vector_components_2d",
+      "prompt": "A cable connection experiences a 50 N force at 15 degrees above the positive x-axis in Quadrant I. Find the signed x- and y-components of the force.",
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q002",
+      "question_type": "numeric_pair",
+      "review_status": "pending",
+      "slot_id": "SLOT_002",
+      "subject_code": "STATICS",
+      "topic_code": "force_vectors",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "N"
+      ],
+      "difficulty": "foundational",
+      "grading_type": "numeric_pair",
+      "micro_skill_code": "vector_components_2d",
+      "prompt": "A bracket experiences a 50 N force at 35 degrees above the positive x-axis in Quadrant I. Find the signed x- and y-components of the force.",
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q003",
+      "question_type": "numeric_pair",
+      "review_status": "pending",
+      "slot_id": "SLOT_003",
+      "subject_code": "STATICS",
+      "topic_code": "force_vectors",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "N"
+      ],
+      "difficulty": "standard",
+      "grading_type": "numeric_pair",
+      "micro_skill_code": "vector_components_2d",
+      "prompt": "A two-force link experiences a 75 N force at 15 degrees below the positive x-axis in Quadrant IV. Find the signed x- and y-components of the force.",
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q004",
+      "question_type": "numeric_pair",
+      "review_status": "pending",
+      "slot_id": "SLOT_004",
+      "subject_code": "STATICS",
+      "topic_code": "force_vectors",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "N"
+      ],
+      "difficulty": "standard",
+      "grading_type": "numeric_pair",
+      "micro_skill_code": "vector_components_2d",
+      "prompt": "A bracket experiences a 90 N force at 60 degrees below the positive x-axis in Quadrant IV. Find the signed x- and y-components of the force.",
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q005",
+      "question_type": "numeric_pair",
+      "review_status": "pending",
+      "slot_id": "SLOT_005",
+      "subject_code": "STATICS",
+      "topic_code": "force_vectors",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "N"
+      ],
+      "difficulty": "standard",
+      "grading_type": "numeric_pair",
+      "micro_skill_code": "vector_components_2d",
+      "prompt": "A two-force link experiences a 90 N force at 35 degrees above the positive x-axis in Quadrant I. Find the signed x- and y-components of the force.",
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q006",
+      "question_type": "numeric_pair",
+      "review_status": "pending",
+      "slot_id": "SLOT_006",
+      "subject_code": "STATICS",
+      "topic_code": "force_vectors",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "N"
+      ],
+      "difficulty": "standard",
+      "grading_type": "numeric_pair",
+      "micro_skill_code": "vector_components_2d",
+      "prompt": "A bracket experiences a 100 N force at 15 degrees below the positive x-axis in Quadrant IV. Find the signed x- and y-components of the force.",
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q007",
+      "question_type": "numeric_pair",
+      "review_status": "pending",
+      "slot_id": "SLOT_007",
+      "subject_code": "STATICS",
+      "topic_code": "force_vectors",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "N"
+      ],
+      "difficulty": "advanced",
+      "grading_type": "numeric_pair",
+      "micro_skill_code": "vector_components_2d",
+      "prompt": "A two-force link experiences a 90 N force at 15 degrees below the positive x-axis in Quadrant IV. Find the signed x- and y-components of the force.",
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q008",
+      "question_type": "numeric_pair",
+      "review_status": "pending",
+      "slot_id": "SLOT_008",
+      "subject_code": "STATICS",
+      "topic_code": "force_vectors",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "N"
+      ],
+      "difficulty": "advanced",
+      "grading_type": "numeric_pair",
+      "micro_skill_code": "vector_components_2d",
+      "prompt": "A bracket experiences a 80 N force at 15 degrees above the negative x-axis in Quadrant II. Find the signed x- and y-components of the force.",
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q009",
+      "question_type": "numeric_pair",
+      "review_status": "pending",
+      "slot_id": "SLOT_009",
+      "subject_code": "STATICS",
+      "topic_code": "force_vectors",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "N"
+      ],
+      "difficulty": "advanced",
+      "grading_type": "numeric_pair",
+      "micro_skill_code": "vector_components_2d",
+      "prompt": "A bracket experiences a 50 N force at 30 degrees above the positive x-axis in Quadrant I. Find the signed x- and y-components of the force.",
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q010",
+      "question_type": "numeric_pair",
+      "review_status": "pending",
+      "slot_id": "SLOT_010",
+      "subject_code": "STATICS",
+      "topic_code": "force_vectors",
+      "validation_status": "pass"
+    }
+  ],
+  "review_status": "review_pending",
+  "student_visible": false,
+  "subject_code": "STATICS",
+  "title": "Statics Vector Components 2D Proof Assessment",
+  "topic_codes": [
+    "force_vectors"
+  ],
+  "validation_status": "pass"
+}

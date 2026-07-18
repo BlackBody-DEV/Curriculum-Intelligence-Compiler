@@ -1,0 +1,14 @@
+{
+  "assessment_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1",
+  "generated_count": 10,
+  "generation_family_id": "GF_PHYSICS_NEWTON_SECOND_LAW_1D_V1",
+  "non_live_boundary": {
+    "canonical_approved": false,
+    "eligible_for_alpha_import": false,
+    "human_review_required": true,
+    "status": "compiler_non_live_review_pending",
+    "student_visible": false
+  },
+  "random_seed": 2026071801,
+  "validation_status": "pass"
+}

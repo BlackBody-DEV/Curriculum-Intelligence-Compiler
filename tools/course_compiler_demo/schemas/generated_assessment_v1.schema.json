@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "generated_assessment_v1.schema.json",
+  "title": "Generated Assessment v1",
+  "type": "object",
+  "required": [
+    "contract_version",
+    "assessment_id",
+    "title",
+    "assessment_type",
+    "subject_code",
+    "topic_codes",
+    "micro_skill_codes",
+    "generation_family_ids",
+    "review_status",
+    "validation_status",
+    "non_live_boundary",
+    "questions"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "generated_assessment_v1"
+    }
+  },
+  "additionalProperties": true
+}

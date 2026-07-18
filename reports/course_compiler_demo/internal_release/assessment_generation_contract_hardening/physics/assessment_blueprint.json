@@ -1,0 +1,66 @@
+{
+  "answer_key_policy": {
+    "student_export_includes_answers": false
+  },
+  "assessment_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1",
+  "assessment_type": "practice_set",
+  "contract_version": "assessment_generation_contract_v1",
+  "course_profile": "physics_intro_mechanics_v1",
+  "difficulty_distribution": {
+    "advanced": 3,
+    "foundational": 3,
+    "standard": 4
+  },
+  "generation_family_allocation": {
+    "GF_PHYSICS_NEWTON_SECOND_LAW_1D_V1": {
+      "approved_procedure_codes": [
+        "PROC_PHYSICS_APPLY_NEWTON_SECOND_LAW_1D_001"
+      ],
+      "question_count": 10
+    }
+  },
+  "prerequisite_policy": {
+    "allowed_prerequisite_skills": [
+      "compute_net_force_1d"
+    ]
+  },
+  "question_count": 10,
+  "question_type_distribution": {
+    "numeric_with_unit": 10
+  },
+  "random_seed": 2026071801,
+  "rights_boundary": {
+    "canonical_approved": false,
+    "eligible_for_alpha_import": false,
+    "human_review_required": true,
+    "student_visible": false
+  },
+  "scaffolding_policy": {
+    "include_scaffolding": false
+  },
+  "scope_policy": {
+    "forbidden_downstream_micro_skills": [
+      "friction",
+      "inclined_plane",
+      "two_dimensional_dynamics",
+      "energy",
+      "momentum"
+    ]
+  },
+  "selected_micro_skill_codes": [
+    "apply_newtons_second_law_1d"
+  ],
+  "selected_topic_codes": [
+    "newtons_laws"
+  ],
+  "solution_policy": {
+    "include_solutions_in_instructor_export": true
+  },
+  "status": "generation_ready",
+  "subject_code": "PHYSICS",
+  "title": "Physics Newton's Second Law 1D Proof Assessment",
+  "uniqueness_policy": {
+    "reject_exact_duplicates": true,
+    "reject_structural_duplicates": true
+  }
+}

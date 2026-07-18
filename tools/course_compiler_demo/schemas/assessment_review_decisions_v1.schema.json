@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "assessment_review_decisions_v1.schema.json",
+  "title": "Assessment Review Decisions v1",
+  "type": "object",
+  "required": [
+    "contract_version",
+    "assessment_id",
+    "review_records"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "assessment_review_decisions_v1"
+    }
+  },
+  "additionalProperties": true
+}

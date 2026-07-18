@@ -1,0 +1,34 @@
+{
+  "exact_fingerprints": [
+    "0592010ad167ae69494d99ac8a23cd47dc9c8122eb1fa395e93354dfe257364f",
+    "1cbea037ffa1a969d420a13c2af6b5bed41f2d0970ca6f41b4f2c001bde069a8",
+    "3225811d4a5cd8f9d23167911863b74a8fb1429d760d3bc1d2bb154fff09ae31",
+    "4d90b262aa5fb14fd0f21de1942266d5840192be90576da35a8df7ddbc9e14ec",
+    "5823d55c42ba3db2688f8ad660807654c7931a157949ce98eb0aa0e2c4e2716f",
+    "7d6a396e0e7a98c0d836437ae9f3fe2c2415ecbbe2051111149e2449b49aeb84",
+    "a402ecb321cdbf506ab9fce2eceab0d3b378b49efe1539c35cf2fa6cbe53fd28",
+    "a7334f7bbd0e6d87e6c2e266d49d4245e567d3a8b361fcdf514c7566563c1fa1",
+    "bf0ba432f669453dc18d6b0834f5363786c11dd6267348e3733454a90ef459f9",
+    "d51d2be3a054b7443ceeda3bb2727205121d629b5b1bd248b7a854689add2b96"
+  ],
+  "generated_count": 10,
+  "parameter_space_exhausted": false,
+  "rejected_answer_validation": 7,
+  "rejected_exact_duplicates": 0,
+  "rejected_parameter_constraints": 0,
+  "rejected_scope": 0,
+  "rejected_structural_duplicates": 0,
+  "requested_count": 10,
+  "structural_fingerprints": [
+    "0541b3e2c0169a7b3994832ebffc5b200a00d1f6c835b215debd96964bb98cc1",
+    "4a23e411ca9f1a4bd594aa18c86ca1982e925005484d6fffee3bdbe1e86e30d6",
+    "6040716848a8d3b07f9c3544d90ea71e95c758eb20354e080a76ae4ea32ba351",
+    "799d2096da66c64b3fa4fac5ccfb796cf1d5139308edf3f90232bd4d2103b727",
+    "7df6c824cd036c3f12aeda20a5d6f88e37d2132a3775b1da60b27bcb0d07e1c5",
+    "9fb6c3eaa6cec55651fab3eff725ee75305ddbb6b62737341dcf4b4d2e0ae5f8",
+    "aa7078e6b6e67df3b7d9e695d23381ac8b14bd26a7a5f1ffb0575ba0a9158714",
+    "d11bebdb261ad4523e78d22782abcfbb1623c45ff85e2a86adffabb1ff09a3aa",
+    "e980cfc584e0019ac49dad7a0c52d05423c17af0d99932403f15eca46bb37d06",
+    "f7c6f52c8b274b89d3cf82db313a7a67482c5834f6abfb66c501fce9fa7e3ed4"
+  ]
+}

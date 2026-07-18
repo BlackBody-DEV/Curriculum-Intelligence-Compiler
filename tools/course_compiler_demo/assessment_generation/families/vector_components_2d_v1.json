@@ -1,0 +1,109 @@
+{
+  "generation_family_id": "GF_STATICS_VECTOR_COMPONENTS_2D_V1",
+  "contract_version": "assessment_generation_family_v1",
+  "family_version": "1.0.0",
+  "family_type": "vector_components_2d_numeric_pair",
+  "subject_code": "STATICS",
+  "topic_code": "force_vectors",
+  "subtopic_code": "two_dimensional_vector_components",
+  "supported_micro_skills": [
+    "vector_components_2d"
+  ],
+  "target_micro_skill_code": "vector_components_2d",
+  "approved_procedure_code": "PROC_SEED_VECTOR_COMPONENTS_2D_001",
+  "approved_prerequisite_skills": [],
+  "question_types": [
+    "numeric_pair"
+  ],
+  "answer_adapter_type": "numeric_pair",
+  "parameter_schema": {
+    "required": [
+      "magnitude",
+      "angle_degrees",
+      "x_sign",
+      "y_sign",
+      "quadrant_label"
+    ]
+  },
+  "parameter_constraints": {
+    "magnitude": {
+      "min_exclusive": 0
+    },
+    "angle_degrees": {
+      "min_inclusive": 0,
+      "max_inclusive": 90
+    }
+  },
+  "difficulty_profiles": {
+    "foundational": "First-quadrant force measured from the positive x-axis.",
+    "standard": "Signed x or y component is included with a stated quadrant.",
+    "advanced": "Multiple signed directional patterns require axis and sign handling."
+  },
+  "scenario_templates": [
+    {
+      "scenario_template_id": "bracket_force",
+      "object": "A bracket"
+    },
+    {
+      "scenario_template_id": "cable_force",
+      "object": "A cable connection"
+    },
+    {
+      "scenario_template_id": "link_force",
+      "object": "A two-force link"
+    }
+  ],
+  "prompt_builder_id": "vector_components_2d_prompt_v1",
+  "answer_calculator_id": "vector_components_2d_answer_v1",
+  "solution_builder_id": "vector_components_2d_solution_v1",
+  "accepted_units": [
+    "N"
+  ],
+  "grading_type": "numeric_pair",
+  "tolerance": {
+    "absolute": 0.000001
+  },
+  "reasoning_sequence": [
+    "identify_magnitude_and_reference_angle",
+    "compute_cosine_x_component",
+    "compute_sine_y_component",
+    "apply_quadrant_signs"
+  ],
+  "structural_signature_fields": [
+    "magnitude",
+    "angle_degrees",
+    "x_sign",
+    "y_sign",
+    "quadrant_label"
+  ],
+  "scope_inclusions": [
+    "two-dimensional vector components",
+    "Fx = F cos(theta)",
+    "Fy = F sin(theta)",
+    "signed numeric pair"
+  ],
+  "scope_exclusions": [
+    "resultant magnitude",
+    "resultant direction",
+    "equilibrant",
+    "three-dimensional",
+    "moments",
+    "equilibrium equations",
+    "diagram interpretation"
+  ],
+  "known_failure_modes": [
+    "axis_confusion",
+    "sign_or_placement_error",
+    "sine_cosine_swap"
+  ],
+  "rights_boundary": {
+    "source_basis": "axiomiq_original_seed_wording",
+    "eligible_for_alpha_import": false,
+    "canonical_approved": false,
+    "student_visible": false,
+    "human_review_required": true
+  },
+  "question_origin": "axiomiq_original_generated_candidate",
+  "human_review_required": true,
+  "enabled": true
+}

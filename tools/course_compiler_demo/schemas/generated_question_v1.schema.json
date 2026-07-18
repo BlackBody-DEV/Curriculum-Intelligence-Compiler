@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "generated_question_v1.schema.json",
+  "title": "Generated Question v1",
+  "type": "object",
+  "required": [
+    "question_id",
+    "assessment_id",
+    "slot_id",
+    "generation_family_id",
+    "generation_family_version",
+    "subject_code",
+    "topic_code",
+    "subtopic_code",
+    "micro_skill_code",
+    "procedure_code",
+    "prerequisite_skills_used",
+    "difficulty",
+    "question_type",
+    "question_origin",
+    "parameter_set",
+    "scenario_template_id",
+    "prompt",
+    "answer_input_schema",
+    "accepted_units",
+    "grading_type",
+    "tolerance",
+    "expected_answer",
+    "solution_steps",
+    "known_failure_modes",
+    "scope_validation",
+    "answer_validation",
+    "exact_fingerprint",
+    "structural_fingerprint",
+    "generation_seed",
+    "generation_attempt",
+    "review_status",
+    "locked",
+    "validation_status"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "generated_question_v1"
+    },
+    "review_status": {
+      "enum": [
+        "pending",
+        "accepted",
+        "rejected",
+        "needs_revision",
+        "regenerate"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

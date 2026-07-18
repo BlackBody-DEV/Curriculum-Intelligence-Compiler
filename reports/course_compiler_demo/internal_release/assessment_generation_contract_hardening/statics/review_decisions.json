@@ -1,0 +1,106 @@
+{
+  "assessment_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1",
+  "contract_version": "assessment_review_decisions_v1",
+  "review_records": [
+    {
+      "decision": "pending",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q001",
+      "replacement_question_id": null,
+      "reviewed_at": null,
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "pending",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q002",
+      "replacement_question_id": null,
+      "reviewed_at": null,
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "pending",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q003",
+      "replacement_question_id": null,
+      "reviewed_at": null,
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "pending",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q004",
+      "replacement_question_id": null,
+      "reviewed_at": null,
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "pending",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q005",
+      "replacement_question_id": null,
+      "reviewed_at": null,
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "pending",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q006",
+      "replacement_question_id": null,
+      "reviewed_at": null,
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "pending",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q007",
+      "replacement_question_id": null,
+      "reviewed_at": null,
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "pending",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q008",
+      "replacement_question_id": null,
+      "reviewed_at": null,
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "pending",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q009",
+      "replacement_question_id": null,
+      "reviewed_at": null,
+      "reviewer_note": "",
+      "validation_invalidated": false
+    },
+    {
+      "decision": "pending",
+      "locked": false,
+      "math_content_edited": false,
+      "question_id": "ASSESS_STATICS_VECTOR_COMPONENTS_2D_PROOF_V1_Q010",
+      "replacement_question_id": null,
+      "reviewed_at": null,
+      "reviewer_note": "",
+      "validation_invalidated": false
+    }
+  ]
+}

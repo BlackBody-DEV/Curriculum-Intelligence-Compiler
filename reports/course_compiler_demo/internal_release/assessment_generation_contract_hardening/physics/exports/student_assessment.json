@@ -1,0 +1,208 @@
+{
+  "assessment_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1",
+  "assessment_type": "practice_set",
+  "contract_version": "generated_assessment_v1",
+  "generation_family_ids": [
+    "GF_PHYSICS_NEWTON_SECOND_LAW_1D_V1"
+  ],
+  "micro_skill_codes": [
+    "apply_newtons_second_law_1d"
+  ],
+  "non_live_boundary": {
+    "canonical_approved": false,
+    "eligible_for_alpha_import": false,
+    "human_review_required": true,
+    "status": "compiler_non_live_review_pending",
+    "student_visible": false
+  },
+  "questions": [
+    {
+      "accepted_units": [
+        "m/s^2",
+        "N",
+        "kg"
+      ],
+      "difficulty": "foundational",
+      "grading_type": "numeric_with_unit",
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "prompt": "A dynamics glider has mass 2 kg and a net horizontal force of 4 N to the right. What is its acceleration?",
+      "question_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1_Q001",
+      "question_type": "numeric_with_unit",
+      "review_status": "pending",
+      "slot_id": "SLOT_001",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "m/s^2",
+        "N",
+        "kg"
+      ],
+      "difficulty": "foundational",
+      "grading_type": "numeric_with_unit",
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "prompt": "A sled moving along a level path has mass 12 kg and a net horizontal force of 30.0 N to the right. What is its acceleration?",
+      "question_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1_Q002",
+      "question_type": "numeric_with_unit",
+      "review_status": "pending",
+      "slot_id": "SLOT_002",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "m/s^2",
+        "N",
+        "kg"
+      ],
+      "difficulty": "foundational",
+      "grading_type": "numeric_with_unit",
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "prompt": "A sled moving along a level path has mass 12 kg and a net horizontal force of 18.0 N to the right. What is its acceleration?",
+      "question_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1_Q003",
+      "question_type": "numeric_with_unit",
+      "review_status": "pending",
+      "slot_id": "SLOT_003",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "m/s^2",
+        "N",
+        "kg"
+      ],
+      "difficulty": "standard",
+      "grading_type": "numeric_with_unit",
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "prompt": "A dynamics glider has a net horizontal force of 16 N to the right and acceleration 2 m/s^2 in the same direction. What is its mass?",
+      "question_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1_Q004",
+      "question_type": "numeric_with_unit",
+      "review_status": "pending",
+      "slot_id": "SLOT_004",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "m/s^2",
+        "N",
+        "kg"
+      ],
+      "difficulty": "standard",
+      "grading_type": "numeric_with_unit",
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "prompt": "A sled moving along a level path has mass 3 kg and a net horizontal force of 9 N to the right. What is its acceleration?",
+      "question_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1_Q005",
+      "question_type": "numeric_with_unit",
+      "review_status": "pending",
+      "slot_id": "SLOT_005",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "m/s^2",
+        "N",
+        "kg"
+      ],
+      "difficulty": "standard",
+      "grading_type": "numeric_with_unit",
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "prompt": "A sled moving along a level path has mass 2 kg and a net horizontal force of 4 N to the right. What is its acceleration?",
+      "question_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1_Q006",
+      "question_type": "numeric_with_unit",
+      "review_status": "pending",
+      "slot_id": "SLOT_006",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "m/s^2",
+        "N",
+        "kg"
+      ],
+      "difficulty": "standard",
+      "grading_type": "numeric_with_unit",
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "prompt": "A sled moving along a level path has mass 4 kg and accelerates at 2.5 m/s^2 to the right. What net force acts on it?",
+      "question_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1_Q007",
+      "question_type": "numeric_with_unit",
+      "review_status": "pending",
+      "slot_id": "SLOT_007",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "m/s^2",
+        "N",
+        "kg"
+      ],
+      "difficulty": "advanced",
+      "grading_type": "numeric_with_unit",
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "prompt": "A dynamics glider has a net horizontal force of 7.5 N to the right and acceleration 1.5 m/s^2 in the same direction. What is its mass?",
+      "question_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1_Q008",
+      "question_type": "numeric_with_unit",
+      "review_status": "pending",
+      "slot_id": "SLOT_008",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "m/s^2",
+        "N",
+        "kg"
+      ],
+      "difficulty": "advanced",
+      "grading_type": "numeric_with_unit",
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "prompt": "A sled moving along a level path has mass 2 kg and a net horizontal force of 5.0 N to the right. What is its acceleration?",
+      "question_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1_Q009",
+      "question_type": "numeric_with_unit",
+      "review_status": "pending",
+      "slot_id": "SLOT_009",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "validation_status": "pass"
+    },
+    {
+      "accepted_units": [
+        "m/s^2",
+        "N",
+        "kg"
+      ],
+      "difficulty": "advanced",
+      "grading_type": "numeric_with_unit",
+      "micro_skill_code": "apply_newtons_second_law_1d",
+      "prompt": "A dynamics glider has mass 2 kg and accelerates at 4 m/s^2 to the right. What net force acts on it?",
+      "question_id": "ASSESS_PHYSICS_NEWTON_SECOND_LAW_1D_PROOF_V1_Q010",
+      "question_type": "numeric_with_unit",
+      "review_status": "pending",
+      "slot_id": "SLOT_010",
+      "subject_code": "PHYSICS",
+      "topic_code": "newtons_laws",
+      "validation_status": "pass"
+    }
+  ],
+  "review_status": "review_pending",
+  "student_visible": false,
+  "subject_code": "PHYSICS",
+  "title": "Physics Newton's Second Law 1D Proof Assessment",
+  "topic_codes": [
+    "newtons_laws"
+  ],
+  "validation_status": "pass"
+}
