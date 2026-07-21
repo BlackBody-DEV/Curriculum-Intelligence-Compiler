@@ -323,6 +323,54 @@ def test_workspace_compare_report_mode_permits_only_exact_outputs():
     assert result["unexpected_new_paths"] == ["reports/out/unexpected.json"]
 
 
+def test_archive_workspace_state_uses_filesystem_snapshot_without_git(monkeypatch, tmp_path):
+    (tmp_path / "fixture.txt").write_text("committed archive content\n")
+
+    def no_git(*_args, **_kwargs):
+        raise subprocess.CalledProcessError(128, ["git", "status"])
+
+    monkeypatch.setattr(runner.subprocess, "run", no_git)
+
+    state = runner.capture_workspace_state(tmp_path)
+
+    assert set(state) == {"fixture.txt"}
+    assert state["fixture.txt"]["status"] == "FS"
+    assert state["fixture.txt"]["exists"] is True
+    assert state["fixture.txt"]["sha256"]
+
+
+def test_archive_clean_state_allows_no_git_with_unchanged_snapshot(monkeypatch, tmp_path):
+    (tmp_path / "fixture.txt").write_text("committed archive content\n")
+
+    def no_git(*_args, **_kwargs):
+        raise subprocess.CalledProcessError(128, ["git", "status"])
+
+    monkeypatch.setattr(runner, "COMPILER_ROOT", tmp_path)
+    monkeypatch.setattr(runner.subprocess, "run", no_git)
+    baseline = runner.capture_workspace_state(tmp_path)
+
+    assert runner.clean_source_state(ignore_lane_g=True, baseline_state=baseline) == "clean_source_state"
+
+
+def test_empty_verdict_collections_fail_closed():
+    verdict, blockers, warnings = runner._verdict_for(
+        fixture_name="minimal_valid",
+        validator_verdicts=[],
+        consumer_verdicts=[],
+        plan_statuses=[],
+        comparison={
+            "unexpected_differences": [],
+        },
+        non_mutation=True,
+    )
+
+    assert verdict == "not_reproduced"
+    assert "validator did not execute" in blockers
+    assert "consumer did not execute" in blockers
+    assert "dry-run planner did not execute" in blockers
+    assert warnings == []
+
+
 @pytest.mark.parametrize(
     "field,value",
     [

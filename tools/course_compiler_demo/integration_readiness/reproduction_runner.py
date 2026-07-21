@@ -82,6 +82,8 @@ def clean_source_state(ignore_lane_g: bool = False, baseline_state: dict[str, di
             check=True,
         ).stdout.splitlines()
     except Exception:
+        if not (COMPILER_ROOT / ".git").exists() and baseline_state is not None:
+            return "clean_source_state"
         return "git_state_unavailable"
     if not status:
         return "clean_source_state"
@@ -95,15 +97,37 @@ def clean_source_state(ignore_lane_g: bool = False, baseline_state: dict[str, di
     return "dirty_source_state"
 
 
+def _filesystem_workspace_state(root: Path = COMPILER_ROOT) -> dict[str, dict[str, Any]]:
+    """Capture file state when a committed archive has no .git metadata."""
+    state: dict[str, dict[str, Any]] = {}
+    for path in sorted(root.rglob("*")):
+        if ".git" in path.parts:
+            continue
+        if not path.is_file() and not path.is_symlink():
+            continue
+        rel = path.relative_to(root).as_posix()
+        if path.is_symlink():
+            digest = f"symlink:{os.readlink(path)}"
+        else:
+            digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        state[rel] = {"status": "FS", "exists": path.exists(), "sha256": digest}
+    return state
+
+
 def capture_workspace_state(root: Path = COMPILER_ROOT) -> dict[str, dict[str, Any]]:
     """Capture dirty workspace files so command-owned changes can be compared."""
-    status = subprocess.run(
-        ["git", "status", "--short", "--untracked-files=all"],
-        cwd=root,
-        text=True,
-        capture_output=True,
-        check=True,
-    ).stdout.splitlines()
+    try:
+        status = subprocess.run(
+            ["git", "status", "--short", "--untracked-files=all"],
+            cwd=root,
+            text=True,
+            capture_output=True,
+            check=True,
+        ).stdout.splitlines()
+    except Exception:
+        if not (root / ".git").exists():
+            return _filesystem_workspace_state(root)
+        raise
     state: dict[str, dict[str, Any]] = {}
     for line in status:
         if len(line) < 4:
@@ -201,6 +225,14 @@ def _verdict_for(
         blockers.append("source package mutation detected")
     if comparison["unexpected_differences"]:
         blockers.extend(comparison["unexpected_differences"])
+    if not validator_verdicts:
+        blockers.append("validator did not execute")
+    if not consumer_verdicts:
+        blockers.append("consumer did not execute")
+    if not plan_statuses:
+        blockers.append("dry-run planner did not execute")
+    if blockers:
+        return "not_reproduced", blockers, warnings
     if len(set(validator_verdicts)) != 1 or len(set(consumer_verdicts)) != 1 or len(set(plan_statuses)) != 1:
         blockers.append("repeat-run verdict drift")
     if fixture_name and fixture_name in FIXTURE_EXPECTATIONS:
