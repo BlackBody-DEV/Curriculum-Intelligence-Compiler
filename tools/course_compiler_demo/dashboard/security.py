@@ -6,9 +6,10 @@ import re
 from pathlib import Path
 from urllib.parse import unquote
 
+from .limits import MAX_UPLOAD_BYTES, upload_limit_label
 
-MAX_UPLOAD_BYTES = 5 * 1024 * 1024
-ALLOWED_EXTENSIONS = {".txt", ".md"}
+
+ALLOWED_EXTENSIONS = {".txt", ".md", ".pdf"}
 ID_PATTERN = re.compile(r"^[A-Za-z0-9_-]{1,96}$")
 
 
@@ -50,13 +51,15 @@ def sanitize_display_filename(filename: str) -> str:
 
 def validate_upload(filename: str, content: bytes) -> tuple[str, str]:
     display = sanitize_display_filename(filename)
+    suffix = Path(display).suffix.lower()
+    if suffix == ".pdf":
+        return display, "pdf"
     if not content:
         raise DashboardSecurityError("empty upload")
     if len(content) > MAX_UPLOAD_BYTES:
-        raise DashboardSecurityError("upload exceeds 5 MiB limit")
+        raise DashboardSecurityError(f"upload exceeds {upload_limit_label()} limit")
     if b"\x00" in content:
         raise DashboardSecurityError("upload contains NUL byte")
-    suffix = Path(display).suffix.lower()
     if suffix not in ALLOWED_EXTENSIONS:
         raise DashboardSecurityError(f"unsupported upload extension: {suffix}")
     return display, suffix.lstrip(".")

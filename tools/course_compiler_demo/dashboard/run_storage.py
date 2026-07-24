@@ -17,10 +17,13 @@ DEFAULT_DASHBOARD_ROOT = REPO_ROOT / "reports/course_compiler_demo/dashboard_run
 MANIFEST_VERSION = "dashboard_run_manifest_v1"
 RUN_STATES = {
     "created",
+    "source_ready",
     "source_uploaded",
     "rights_confirmed",
     "profile_selected",
     "compiling",
+    "compiled",
+    "failed",
     "compiler_complete",
     "compiler_failed",
     "curriculum_review_pending",
@@ -63,7 +66,7 @@ class DashboardStorage:
         run_dir = safe_join(self.root, run_id)
         if run_dir.exists():
             raise DashboardStorageError("run ID collision")
-        for child in ["source", "compiler", "review", "assessments", "release_package"]:
+        for child in ["source", "compiler", "review", "practice", "assessments", "release_package"]:
             (run_dir / child).mkdir(parents=True, exist_ok=True)
         manifest = {
             "run_id": run_id,

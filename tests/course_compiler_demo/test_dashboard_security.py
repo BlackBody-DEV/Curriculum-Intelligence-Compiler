@@ -3,6 +3,7 @@ from pathlib import Path
 import pytest
 
 from tools.course_compiler_demo.dashboard.security import (
+    MAX_UPLOAD_BYTES,
     DashboardSecurityError,
     ensure_beneath,
     sanitize_display_filename,
@@ -26,13 +27,13 @@ def test_upload_extension_size_empty_nul_and_filename_sanitization():
     assert validate_upload("source.md", b"Subject: PHYSICS")[1] == "md"
     assert sanitize_display_filename("../my source.txt") == "my source.txt"
     with pytest.raises(DashboardSecurityError):
-        validate_upload("source.pdf", b"x")
+        validate_upload("source.docx", b"x")
     with pytest.raises(DashboardSecurityError):
         validate_upload("source.txt", b"")
     with pytest.raises(DashboardSecurityError):
         validate_upload("source.txt", b"bad\x00content")
     with pytest.raises(DashboardSecurityError):
-        validate_upload("source.txt", b"x" * (5 * 1024 * 1024 + 1))
+        validate_upload("source.txt", b"x" * (MAX_UPLOAD_BYTES + 1))
 
 
 def test_identifier_and_path_traversal_rejection(tmp_path):

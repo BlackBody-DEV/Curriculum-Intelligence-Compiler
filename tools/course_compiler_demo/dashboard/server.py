@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import base64
 import json
 import mimetypes
 from http import HTTPStatus
@@ -10,6 +11,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from .controller import DashboardController, DashboardControllerError
+from .limits import MAX_JSON_REQUEST_BYTES
 from .security import DashboardSecurityError, validate_identifier, validate_loopback
 
 
@@ -35,7 +37,7 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
 
     def _read_json(self) -> dict:
         length = int(self.headers.get("Content-Length", "0"))
-        if length > 5 * 1024 * 1024:
+        if length > MAX_JSON_REQUEST_BYTES:
             raise DashboardSecurityError("request too large")
         if length == 0:
             return {}
@@ -57,10 +59,14 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                 return self._json({"generation_families": self.controller.list_generation_families()})
             if parsed.path == "/api/runs":
                 return self._json({"runs": self.controller.list_runs()})
+            if len(parts) == 4 and parts[0] == "api" and parts[1] == "runs" and parts[3] == "generation-families":
+                return self._json(self.controller.compatible_generation_families(parts[2]))
             if len(parts) == 3 and parts[:2] == ["api", "runs"]:
                 return self._json(self.controller.get_run(parts[2]))
             if len(parts) == 4 and parts[:3] == ["api", "runs", parts[2]] and parts[3] == "results":
                 return self._json(self.controller.results(parts[2]))
+            if len(parts) == 4 and parts[:3] == ["api", "runs", parts[2]] and parts[3] == "compile-summary":
+                return self._json(self.controller.compile_summary(parts[2]))
             if len(parts) == 5 and parts[0] == "api" and parts[1] == "runs" and parts[3] == "assessments":
                 return self._json(self.controller.get_assessment(parts[2], parts[4]))
             if len(parts) == 7 and parts[0] == "api" and parts[1] == "runs" and parts[3] == "assessments" and parts[5] == "exports":
@@ -82,7 +88,10 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                 run_id = parts[2]
                 action = parts[3]
                 if action == "source":
-                    content = str(payload.get("content", "")).encode("utf-8")
+                    if payload.get("content_base64"):
+                        content = base64.b64decode(str(payload["content_base64"]), validate=True)
+                    else:
+                        content = str(payload.get("content", "")).encode("utf-8")
                     return self._json(self.controller.upload_source(run_id, filename=str(payload.get("filename", "")), content=content, metadata=payload))
                 if action == "rights":
                     return self._json(self.controller.confirm_rights(run_id, payload))
@@ -92,6 +101,8 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                     return self._json(self.controller.compile_run(run_id, selected_micro_skill=payload.get("selected_micro_skill")))
                 if action == "curriculum-review":
                     return self._json(self.controller.curriculum_review(run_id, payload.get("decisions", [])))
+                if action == "practice":
+                    return self._json(self.controller.generate_practice(run_id))
                 if action == "assessments":
                     return self._json(self.controller.create_assessment(run_id, payload))
             if len(parts) == 6 and parts[0] == "api" and parts[1] == "runs" and parts[3] == "assessments":

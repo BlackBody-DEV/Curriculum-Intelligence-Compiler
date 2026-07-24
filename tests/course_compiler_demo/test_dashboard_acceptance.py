@@ -14,12 +14,17 @@ def _proof(ctrl, run_id, source_path, profile_id, family_id, assessment_id):
         run["run_id"],
         filename=source_path.name,
         content=source_path.read_bytes(),
-        metadata={"rights_status": "approved_local_use", "privacy_status": "non_private", "retain_normalized_source": False},
+        metadata={
+            "rights_status": "approved_local_use",
+            "privacy_status": "non_private",
+            "retain_normalized_source": False,
+            "profile_id": profile_id,
+        },
     )
     ctrl.confirm_rights(run["run_id"], {"rights_status": "approved_local_use", "privacy_status": "non_private"})
     ctrl.select_profile(run["run_id"], profile_id)
     compiled = ctrl.compile_run(run["run_id"])
-    assert compiled["compiler_status"] == "pass"
+    assert compiled["compiler_status"] == "complete"
     ctrl.curriculum_review(run["run_id"], [{"candidate_id": "MS_003" if "PHYSICS" in profile_id else "MS_STATICS_VECTOR_COMPONENTS_2D", "candidate_type": "micro_skill", "decision": "accepted"}])
     blueprint = ctrl.create_assessment(run["run_id"], {"assessment_id": assessment_id, "generation_family_id": family_id, "question_count": 10, "random_seed": 20260718})
     data = ctrl.generate_assessment(run["run_id"], blueprint["assessment_id"])
