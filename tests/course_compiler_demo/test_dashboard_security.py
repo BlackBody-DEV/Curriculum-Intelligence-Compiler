@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
+from tools.course_compiler_demo.dashboard.limits import MAX_JSON_TEXT_UPLOAD_BYTES
 from tools.course_compiler_demo.dashboard.security import (
-    MAX_UPLOAD_BYTES,
     DashboardSecurityError,
     ensure_beneath,
     sanitize_display_filename,
@@ -33,7 +33,7 @@ def test_upload_extension_size_empty_nul_and_filename_sanitization():
     with pytest.raises(DashboardSecurityError):
         validate_upload("source.txt", b"bad\x00content")
     with pytest.raises(DashboardSecurityError):
-        validate_upload("source.txt", b"x" * (MAX_UPLOAD_BYTES + 1))
+        validate_upload("source.txt", b"x" * (MAX_JSON_TEXT_UPLOAD_BYTES + 1))
 
 
 def test_identifier_and_path_traversal_rejection(tmp_path):

@@ -202,6 +202,71 @@ def test_calculus_pdf_compiles_without_selected_profile(tmp_path):
     assert summary["persistence"]["run_saved_to_dashboard_history"] is True
 
 
+def test_reopened_compiled_run_hydrates_source_and_curriculum_from_same_run(tmp_path):
+    ctrl = DashboardController(DashboardStorage(tmp_path))
+    physics = ctrl.create_run({"source_title": "Physics stale source"}, run_id="RUN_STALE_PHYSICS")
+    ctrl.upload_source(
+        physics["run_id"],
+        filename="source.txt",
+        content=PHYSICS_TEXT,
+        metadata={
+            "rights_status": "approved_local_use",
+            "privacy_status": "non_private",
+            "retain_normalized_source": True,
+        },
+    )
+    ctrl.compile_run(physics["run_id"])
+
+    calculus = ctrl.create_run({"source_title": "XL Calculus"}, run_id="RUN_REOPENED_XL")
+    uploaded = ctrl.upload_source(
+        calculus["run_id"],
+        filename="CalculusMIt.pdf",
+        content=_minimal_text_pdf([CALCULUS_TEXT, CALCULUS_TEXT]),
+        metadata={
+            "rights_status": "approved_local_use",
+            "privacy_status": "non_private",
+            "retain_normalized_source": False,
+        },
+    )
+    uploaded["source_file_size_bytes"] = 223941872
+    uploaded["pdf_validation"]["file_size_bytes"] = 223941872
+    uploaded["pdf_validation"]["page_count"] = 2308
+    uploaded["pdf_validation"]["pages_containing_text"] = 2308
+    uploaded["pdf_validation"]["raw_pdf_retained"] = False
+    uploaded["pdf_validation"]["extracted_text_retained"] = False
+    ctrl.storage.save_manifest(uploaded)
+    compiled = ctrl.compile_run(calculus["run_id"])
+
+    reopened = DashboardController(DashboardStorage(tmp_path))
+    run = reopened.get_run(calculus["run_id"])
+    assert run["run_id"] == calculus["run_id"]
+    assert run["source_display_filename"] == "CalculusMIt.pdf"
+    assert run["source_format"] == "pdf"
+    assert run["source_file_size_bytes"] == 223941872
+    assert run["pdf_validation"]["page_count"] == 2308
+    assert run["pdf_validation"]["pages_containing_text"] == 2308
+    assert run["pdf_validation"]["raw_pdf_retained"] is False
+    assert run["rights_status"] == "approved_local_use"
+    assert run["privacy_status"] == "non_private"
+    assert run["compiler_status"] == "complete"
+    assert compiled["detected_subject"] == "MATHEMATICS"
+
+    results = reopened.results(calculus["run_id"])
+    assert results["run"]["run_id"] == calculus["run_id"]
+    assert {item["topic_code"] for item in results["topics"]} == {
+        "limits",
+        "derivatives",
+        "applications_of_derivatives",
+    }
+    assert len(results["micro_skills"]) == 5
+    assert "newton" not in str(results).lower()
+    assert "source.txt" not in run["source_display_filename"]
+
+    runs = reopened.list_runs()
+    assert [item["run_id"] for item in runs].count(calculus["run_id"]) == 1
+    assert [item["run_id"] for item in runs].count(physics["run_id"]) == 1
+
+
 def test_conflicting_profile_warns_without_blocking_calculus_extraction(tmp_path):
     ctrl = DashboardController(DashboardStorage(tmp_path))
     run = ctrl.create_run({"source_title": "Calculus conflict"}, run_id="RUN_CONFLICT")
@@ -258,6 +323,11 @@ def test_static_dashboard_exposes_compile_flow_and_assessment_prerequisites():
     assert "Configure Assessment" in app
     assert "Generate Questions" in app
     assert "Save curriculum-review decisions before configuring an assessment." in app
+    assert "SOURCE_READY_STATUSES" in app
+    assert "Selected run ${run.run_id} is loaded from persisted dashboard state" in app
+    assert "source_display_filename || \"\"" in app
+    assert "Compilation complete. Open Curriculum to review results." in app
+    assert "Subject: Physics\\nNewton's Second Law states F_net = m a." not in app
     assert "Generate Questions is enabled after a valid assessment blueprint is created." in app
     assert "Compilation failed" in app
     assert "Stage: compiler execution" in app
@@ -265,11 +335,14 @@ def test_static_dashboard_exposes_compile_flow_and_assessment_prerequisites():
     assert "Ready to compile" in app
     assert "Compile is disabled until Upload Source persists source_ready" in app
     assert "Upload failed" in app
-    assert "50 MiB upload" in app
+    assert "Maximum PDF size:" in app
+    assert "512 MiB" in app
+    assert "Text-native PDF only" in app
     assert "No compatible assessment generation family is available" in app
     assert "Compile request blocked" in app
     assert "Auto-detect / No profile" in app
     assert "No profile is required before compilation." in app
     assert "selected_micro_skill: document.querySelector" not in app
-    assert "content_base64" in app
+    assert "intake-jobs" in app
+    assert "X-Declared-Upload-Bytes" in app
     assert "content_base64" in server

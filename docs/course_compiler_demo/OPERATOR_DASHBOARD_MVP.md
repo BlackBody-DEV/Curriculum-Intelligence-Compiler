@@ -42,7 +42,7 @@ review status, assessment IDs, and non-live boundary flags.
 ## Supported Workflow
 
 1. Create a run.
-2. Upload a `.txt`, `.md`, or text-native `.pdf` source, up to 50 MiB.
+2. Upload a `.txt`, `.md`, or text-native `.pdf` source (PDF up to 512 MiB via streaming intake).
 3. Confirm local-use rights and non-private status.
 4. Select an allowlisted profile.
 5. Compile the source with direct Python imports.
@@ -80,10 +80,14 @@ external PDF-processing APIs
 network services
 ```
 
-PDF uploads fail closed when the file is corrupt, empty, zero-page, encrypted,
-textless, image-only, over the 50 MiB upload limit, over the 1,500-page or extracted
-text limits, or otherwise cannot be parsed safely. The operator-facing failure
-is a bounded PDF error code rather than source text, tracebacks, or local paths.
+PDF uploads use a local streaming multipart path and a background extraction job
+so the browser is not held open for the entire extract. Uploads fail closed when
+the file is corrupt, empty, zero-page, encrypted, textless, image-only, over the
+512 MiB upload limit, over the 5,000-page or 50-million-character extracted text
+limits, exceeds the processing time limit, lacks temporary disk space, or
+otherwise cannot be parsed safely. The operator-facing failure is a bounded PDF
+error code rather than source text, tracebacks, or local paths. OCR and scanned
+image interpretation remain unsupported.
 
 For accepted PDFs, the source receipt records the original PDF SHA-256, extracted
 text SHA-256, page count, pages containing text, blank-page count, extracted

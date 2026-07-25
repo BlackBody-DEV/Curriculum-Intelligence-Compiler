@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 from urllib.parse import unquote
 
-from .limits import MAX_UPLOAD_BYTES, upload_limit_label
+from .limits import MAX_JSON_TEXT_UPLOAD_BYTES, MAX_UPLOAD_BYTES, upload_limit_label
 
 
 ALLOWED_EXTENSIONS = {".txt", ".md", ".pdf"}
@@ -56,8 +56,9 @@ def validate_upload(filename: str, content: bytes) -> tuple[str, str]:
         return display, "pdf"
     if not content:
         raise DashboardSecurityError("empty upload")
-    if len(content) > MAX_UPLOAD_BYTES:
-        raise DashboardSecurityError(f"upload exceeds {upload_limit_label()} limit")
+    # Text/markdown use the JSON path cap; PDF size is enforced by streaming intake.
+    if len(content) > MAX_JSON_TEXT_UPLOAD_BYTES:
+        raise DashboardSecurityError("upload exceeds text upload limit")
     if b"\x00" in content:
         raise DashboardSecurityError("upload contains NUL byte")
     if suffix not in ALLOWED_EXTENSIONS:

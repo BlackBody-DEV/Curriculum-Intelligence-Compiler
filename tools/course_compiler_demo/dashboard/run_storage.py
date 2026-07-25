@@ -15,6 +15,7 @@ from .security import DashboardSecurityError, ensure_beneath, safe_join, validat
 REPO_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_DASHBOARD_ROOT = REPO_ROOT / "reports/course_compiler_demo/dashboard_runs"
 MANIFEST_VERSION = "dashboard_run_manifest_v1"
+HISTORY_INDEX_NAME = "run_history_index.json"
 RUN_STATES = {
     "created",
     "source_ready",
@@ -129,14 +130,58 @@ class DashboardStorage:
         tmp = path.with_suffix(".tmp")
         tmp.write_text(pretty_json(manifest), encoding="utf-8")
         tmp.replace(path)
+        self.write_history_index()
 
     def list_runs(self) -> list[dict[str, Any]]:
+        self.write_history_index()
         runs = []
         for path in sorted(self.root.iterdir() if self.root.exists() else [], reverse=True):
             if path.is_dir():
                 runs.append(self.load_manifest(path.name))
         runs.sort(key=lambda item: item.get("updated_at", ""), reverse=True)
         return runs
+
+    def write_history_index(self) -> Path:
+        self.root.mkdir(parents=True, exist_ok=True)
+        entries = []
+        for run_dir in sorted((path for path in self.root.iterdir() if path.is_dir()), key=lambda item: item.name):
+            manifest_path = run_dir / "run_manifest.json"
+            if not manifest_path.exists():
+                continue
+            try:
+                manifest = load_json(manifest_path)
+            except Exception as exc:
+                manifest = {
+                    "run_id": run_dir.name,
+                    "status": "corrupt",
+                    "updated_at": "",
+                    "last_error": str(exc),
+                }
+            entries.append(
+                {
+                    "run_id": manifest.get("run_id", run_dir.name),
+                    "updated_at": manifest.get("updated_at", ""),
+                    "status": manifest.get("status", "corrupt"),
+                    "compiler_status": manifest.get("compiler_status"),
+                    "source_display_filename": manifest.get("source_display_filename"),
+                    "source_sha256": manifest.get("source_sha256"),
+                    "source_format": manifest.get("source_format"),
+                    "active_intake_job_id": manifest.get("active_intake_job_id"),
+                    "last_error": manifest.get("last_error"),
+                }
+            )
+        entries.sort(key=lambda item: item.get("updated_at") or "", reverse=True)
+        payload = {
+            "manifest_version": "dashboard_run_history_index_v1",
+            "updated_at": utc_now(),
+            "run_count": len(entries),
+            "runs": entries,
+        }
+        target = self.root / HISTORY_INDEX_NAME
+        tmp = target.with_suffix(".tmp")
+        tmp.write_text(pretty_json(payload), encoding="utf-8")
+        tmp.replace(target)
+        return target
 
     def write_json_artifact(self, manifest: dict[str, Any], artifact_key: str, relative_path: str, data: Any) -> Path:
         artifact_key = validate_identifier(artifact_key, "artifact key")

@@ -1,5 +1,13 @@
 const app = document.querySelector("#app");
-const state = { runId: null, assessmentId: null };
+const state = { runId: null, assessmentId: null, intakeJobId: null, intakeXhr: null };
+const SOURCE_READY_STATUSES = new Set([
+  "source_ready",
+  "compiling",
+  "compiled",
+  "assessment_review_pending",
+  "assessment_ready",
+  "failed",
+]);
 
 function esc(value) {
   return String(value ?? "").replace(/[&<>"']/g, (char) => ({
@@ -37,12 +45,37 @@ function yesNo(value) {
 
 function readyToCompile(run) {
   const rightsApproved = run?.rights_status === "approved_local_use" || run?.rights_status === "owned_by_axiomiq";
-  return run?.status === "source_ready"
+  return SOURCE_READY_STATUSES.has(run?.status)
     && Boolean(run.source_display_filename)
     && Boolean(run.source_format)
     && Boolean(run.source_sha256)
     && rightsApproved
     && run.privacy_status === "non_private";
+}
+
+function formatBytes(value) {
+  const n = Number(value || 0);
+  if (!Number.isFinite(n)) return "unknown";
+  return String(n);
+}
+
+function uploadProgressSummary(job) {
+  const received = Number(job.received_bytes || 0);
+  const expected = Number(job.expected_source_bytes || job.file_size_bytes || job.declared_upload_bytes || 0);
+  const maximum = Number(job.maximum_bytes || 0);
+  const uploadComplete = Boolean(job.upload_complete) || (expected > 0 && received >= expected);
+  const uploadPercentage = expected > 0
+    ? `${Math.min(100, Math.floor(((uploadComplete ? expected : received) / expected) * 100))}%`
+    : null;
+  const capacityUsed = maximum > 0
+    ? `${Math.min(100, Math.floor((received / maximum) * 100))}%`
+    : "n/a";
+  return {
+    uploadComplete,
+    uploadPercentage,
+    uploadState: uploadPercentage ? null : "indeterminate",
+    capacityUsed,
+  };
 }
 
 function sourceReadySummary(run) {
@@ -55,18 +88,118 @@ function sourceReadySummary(run) {
       <dl class="summary-grid">
         <dt>Filename</dt><dd>${esc(run.source_display_filename || "none")}</dd>
         <dt>Run ID</dt><dd>${esc(run.run_id || "")}</dd>
-        <dt>File size</dt><dd>${esc(pdf.file_size_bytes || run.source_file_size_bytes || "unknown")}</dd>
+        <dt>File size</dt><dd>${esc(formatBytes(pdf.file_size_bytes || run.source_file_size_bytes || "unknown"))}</dd>
         <dt>Page count</dt><dd>${esc(pdf.page_count || "n/a")}</dd>
         <dt>Pages containing text</dt><dd>${esc(pdf.pages_containing_text || "n/a")}</dd>
         <dt>Source SHA-256</dt><dd>${esc(run.source_sha256 || "none")}</dd>
+        <dt>Extracted-text SHA-256</dt><dd>${esc(pdf.extracted_text_sha256 || run.extracted_text_sha256 || "n/a")}</dd>
         <dt>Extraction duration</dt><dd>${esc(pdf.processing_duration_seconds ?? "n/a")}</dd>
-        <dt>Raw PDF retained</dt><dd>${yesNo(run.pdf_validation?.raw_pdf_retained)}</dd>
+        <dt>Raw PDF retained</dt><dd>${yesNo(Boolean(run.pdf_validation?.raw_pdf_retained))}</dd>
         <dt>Extracted text retained</dt><dd>${yesNo(run.pdf_validation?.extracted_text_retained ?? run.raw_or_normalized_source_retained)}</dd>
         <dt>Ready to compile</dt><dd>${yesNo(ready)}</dd>
       </dl>
       ${ready ? "" : "<p>Upload Source must persist filename, hash, rights, privacy, and source_ready state before Compile is available.</p>"}
     </div>
   `;
+}
+
+function intakeProgressHtml(job, filename) {
+  const maxBytes = Number(job.maximum_bytes || 0);
+  const received = Number(job.received_bytes || 0);
+  const progress = uploadProgressSummary(job);
+  const pages = job.page_count == null ? "?" : job.page_count;
+  return `
+    <div class="success">
+      <h3>PDF intake in progress</h3>
+      <dl class="summary-grid">
+        <dt>Selected filename</dt><dd>${esc(filename || job.display_filename || "")}</dd>
+        <dt>Uploaded bytes</dt><dd>${esc(received)}</dd>
+        <dt>Maximum bytes</dt><dd>${esc(maxBytes)}</dd>
+        ${progress.uploadPercentage
+          ? `<dt>Upload percentage</dt><dd>${esc(progress.uploadPercentage)}</dd>`
+          : `<dt>Upload state</dt><dd>${esc(progress.uploadState)}</dd>`}
+        <dt>Maximum capacity used</dt><dd>${esc(progress.capacityUsed)}</dd>
+        <dt>Current stage</dt><dd>${esc(job.current_stage || "")}</dd>
+        <dt>Processed pages</dt><dd>${esc(job.processed_page_count || 0)} / ${esc(pages)}</dd>
+        <dt>Text-bearing pages</dt><dd>${esc(job.pages_containing_text || 0)}</dd>
+        <dt>Extracted characters</dt><dd>${esc(job.extracted_character_count || 0)}</dd>
+        <dt>Elapsed seconds</dt><dd>${esc(job.elapsed_seconds ?? 0)}</dd>
+      </dl>
+      <button id="cancel-intake">Cancel intake</button>
+    </div>
+  `;
+}
+
+function uploadPdfStreaming(runId, file, metadata, onProgress) {
+  return new Promise(async (resolve, reject) => {
+    let job;
+    try {
+      job = await api(`/api/runs/${runId}/intake-jobs`, {method: "POST", body: JSON.stringify(metadata)});
+    } catch (error) {
+      reject(error);
+      return;
+    }
+    const form = new FormData();
+    form.append("rights_status", metadata.rights_status || "");
+    form.append("privacy_status", metadata.privacy_status || "");
+    form.append("retain_normalized_source", metadata.retain_normalized_source ? "true" : "false");
+    if (metadata.profile_id) form.append("profile_id", metadata.profile_id);
+    if (metadata.source_title) form.append("source_title", metadata.source_title);
+    form.append("file", file, file.name);
+    const xhr = new XMLHttpRequest();
+    state.intakeXhr = xhr;
+    state.intakeJobId = job.job_id;
+    xhr.open("POST", `/api/runs/${encodeURIComponent(runId)}/intake-jobs/${encodeURIComponent(job.job_id)}/upload`);
+    xhr.setRequestHeader("X-Declared-Upload-Bytes", String(file.size));
+    xhr.upload.onprogress = (event) => {
+      if (onProgress) {
+        onProgress({
+          ...job,
+          received_bytes: event.loaded,
+          expected_source_bytes: file.size,
+          maximum_bytes: job.maximum_bytes,
+          current_stage: "receiving",
+          upload_complete: false,
+        });
+      }
+    };
+    xhr.onload = async () => {
+      state.intakeXhr = null;
+      let payload = {};
+      try { payload = JSON.parse(xhr.responseText || "{}"); } catch (_error) { payload = {}; }
+      if (xhr.status >= 400 || payload.error) {
+        reject(new Error(payload.error || xhr.statusText || "upload failed"));
+        return;
+      }
+      try {
+        const finalJob = await pollIntakeJob(runId, job.job_id, onProgress);
+        resolve(finalJob);
+      } catch (error) {
+        reject(error);
+      }
+    };
+    xhr.onerror = () => {
+      state.intakeXhr = null;
+      reject(new Error("upload failed"));
+    };
+    xhr.onabort = () => {
+      state.intakeXhr = null;
+      reject(new Error("cancelled"));
+    };
+    xhr.send(form);
+  });
+}
+
+async function pollIntakeJob(runId, jobId, onProgress) {
+  for (;;) {
+    const job = await api(`/api/runs/${runId}/intake-jobs/${jobId}`);
+    if (onProgress) onProgress(job);
+    if (job.current_stage === "ready_to_compile" && job.ready_to_compile) return job;
+    if (["failed", "cancelled", "interrupted"].includes(job.current_stage)) {
+      throw new Error(job.last_error || job.current_stage);
+    }
+    await new Promise((resolve) => setTimeout(resolve, 400));
+  }
 }
 
 function namedList(items, emptyText) {
@@ -121,7 +254,7 @@ async function runs() {
       <td>${esc(run.source_title || "")}</td>
       <td>${esc(run.detected_subject || "")}</td>
       <td>${esc(run.status)}</td>
-      <td>${esc(run.assessment_ids.length)}</td>
+      <td>${esc((run.assessment_ids || []).length)}</td>
       <td>${esc(run.updated_at)}</td>
     </tr>`).join("");
   render("Runs", `
@@ -145,24 +278,37 @@ async function runs() {
 
 async function source() {
   const profiles = (await api("/api/profiles")).profiles;
+  const limits = await api("/api/limits").catch(() => ({max_upload_label: "512 MiB", max_pdf_pages: 5000}));
   const run = state.runId ? await api(`/api/runs/${state.runId}`) : null;
   const compileReady = readyToCompile(run);
+  const filenameValue = run?.source_display_filename || "";
+  const persistedSourceNotice = run
+    ? `Selected run ${run.run_id} is loaded from persisted dashboard state. Choose a file or enter text only to replace this run's source.`
+    : "Create or reopen a run before uploading source content.";
+  const profileOptions = profiles.map(p => {
+    const selected = p.profile_id === run?.selected_profile_id ? " selected" : "";
+    return `<option value="${esc(p.profile_id)}"${selected}>${esc(p.subject_code)} - ${esc(p.profile_id)}</option>`;
+  }).join("");
   render("Source", `
     ${controls(run)}
-    <label>Filename <input id="filename" value="source.txt"></label>
+    <label>Filename <input id="filename" value="${esc(filenameValue)}"></label>
     <label>Upload .txt, .md, or text-native .pdf <input id="source-file" type="file" accept=".txt,.md,.pdf"></label>
-    <p class="hint">PDF support is local text-native extraction only. No OCR, scanned/image-only PDFs, image conversion, or external PDF services are used. Default limits: 50 MiB upload, 1,500 pages, and larger files may take longer. Raw PDFs are discarded; normalized-source retention is optional.</p>
-    <label>Source text <textarea id="content" rows="8">Subject: Physics\nNewton's Second Law states F_net = m a.</textarea></label>
-    <label>Rights status <input id="rights" value="approved_local_use"></label>
-    <label>Privacy status <input id="privacy" value="non_private"></label>
-    <label><input type="checkbox" id="retain"> Retain normalized source in this local run</label>
+    <p class="hint">PDF support is local text-native extraction only. No OCR, scanned/image-only PDFs, image conversion, or external PDF services are used. Maximum PDF size: ${esc(limits.max_upload_label || "512 MiB")}. Maximum pages: ${esc(Number(limits.max_pdf_pages || 5000).toLocaleString("en-US"))}. Text-native PDF only: No OCR or scanned-image interpretation. Raw PDFs are discarded; normalized-source retention is optional.</p>
+    <label>Source text <textarea id="content" rows="8">${esc(persistedSourceNotice)}</textarea></label>
+    <label>Rights status <input id="rights" value="${esc(run?.rights_status || "approved_local_use")}"></label>
+    <label>Privacy status <input id="privacy" value="${esc(run?.privacy_status || "non_private")}"></label>
+    <label><input type="checkbox" id="retain" ${run?.raw_or_normalized_source_retained ? "checked" : ""}> Retain normalized source in this local run</label>
     <button id="upload">Upload source</button>
-    <label>Profile alignment <select id="profile"><option value="">Auto-detect / No profile</option>${profiles.map(p => `<option value="${esc(p.profile_id)}">${esc(p.subject_code)} - ${esc(p.profile_id)}</option>`).join("")}</select></label>
+    <label>Profile alignment <select id="profile"><option value=""${run?.selected_profile_id ? "" : " selected"}>Auto-detect / No profile</option>${profileOptions}</select></label>
     <button id="confirm">Confirm rights</button>
     <button id="select-profile">Apply optional profile alignment</button>
     <button id="compile" ${compileReady ? "" : "disabled"}>Compile</button>
     ${compileReady ? "" : `<p id="compile-prereq" class="warning">Compile is disabled until Upload Source persists source_ready with rights, privacy, and hash.</p>`}
-    <div id="source-output">${run?.compiler_status === "complete" ? "<p>Compilation complete. Open Curriculum to review results.</p>" : `${sourceReadySummary(run)}<pre>${esc(JSON.stringify(run, null, 2))}</pre>`}</div>
+    <div id="source-output">
+      ${sourceReadySummary(run)}
+      ${run?.compiler_status === "complete" ? "<p class=\"success\">Compilation complete. Open Curriculum to review results.</p>" : ""}
+      <pre>${esc(JSON.stringify(run, null, 2))}</pre>
+    </div>
   `);
   document.querySelector("#source-file").onchange = async () => {
     const file = document.querySelector("#source-file").files[0];
@@ -171,7 +317,7 @@ async function source() {
     if (!file.name.toLowerCase().endsWith(".pdf")) {
       document.querySelector("#content").value = await file.text();
     } else {
-      document.querySelector("#content").value = "PDF selected: local text extraction will run after upload.";
+      document.querySelector("#content").value = "PDF selected: streaming upload and local text extraction will run after upload.";
     }
   };
   document.querySelector("#upload").onclick = async () => {
@@ -186,13 +332,28 @@ async function source() {
     if (selectedProfile) payload.profile_id = selectedProfile;
     try {
       if (file && file.name.toLowerCase().endsWith(".pdf")) {
-        const bytes = new Uint8Array(await file.arrayBuffer());
-        let binary = "";
-        bytes.forEach(byte => { binary += String.fromCharCode(byte); });
-        payload.content_base64 = btoa(binary);
-      } else {
-        payload.content = document.querySelector("#content").value;
+        const output = document.querySelector("#source-output");
+        const renderJob = (job) => {
+          output.innerHTML = intakeProgressHtml(job, file.name);
+          const cancel = document.querySelector("#cancel-intake");
+          if (cancel) {
+            cancel.onclick = async () => {
+              if (state.intakeJobId) {
+                await api(`/api/runs/${state.runId}/intake-jobs/${state.intakeJobId}/cancel`, {method: "POST", body: "{}"}).catch(() => ({}));
+              }
+              if (state.intakeXhr) state.intakeXhr.abort();
+            };
+          }
+        };
+        await uploadPdfStreaming(state.runId, file, payload, renderJob);
+        const updated = await api(`/api/runs/${state.runId}`);
+        output.innerHTML = `${sourceReadySummary(updated)}<pre>${esc(JSON.stringify(updated, null, 2))}</pre>`;
+        document.querySelector("#compile").disabled = !readyToCompile(updated);
+        const prereq = document.querySelector("#compile-prereq");
+        if (prereq && readyToCompile(updated)) prereq.remove();
+        return;
       }
+      payload.content = document.querySelector("#content").value;
       const updated = await api(`/api/runs/${state.runId}/source`, {method: "POST", body: JSON.stringify(payload)});
       document.querySelector("#source-output").innerHTML = `${sourceReadySummary(updated)}<pre>${esc(JSON.stringify(updated, null, 2))}</pre>`;
       document.querySelector("#compile").disabled = !readyToCompile(updated);

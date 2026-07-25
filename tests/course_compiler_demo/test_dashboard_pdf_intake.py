@@ -163,8 +163,9 @@ def test_pdf_rejection_errors_and_decrypt_never_called(monkeypatch):
 
 
 def test_pdf_resource_limits(monkeypatch):
+    monkeypatch.setattr(pdf_intake, "MAX_UPLOAD_BYTES", 100)
     with pytest.raises(DashboardPdfIntakeError, match=pdf_intake.PDF_RESOURCE_LIMIT_EXCEEDED):
-        extract_text_native_pdf("large.pdf", b"%PDF-" + b"x" * pdf_intake.MAX_UPLOAD_BYTES, retain_extracted_text=False)
+        extract_text_native_pdf("large.pdf", b"%PDF-" + b"x" * 100, retain_extracted_text=False)
 
     monkeypatch.setattr(pdf_intake, "MAX_PDF_PAGES", 1)
     with pytest.raises(DashboardPdfIntakeError, match=pdf_intake.PDF_RESOURCE_LIMIT_EXCEEDED):
@@ -174,6 +175,7 @@ def test_pdf_resource_limits(monkeypatch):
     with pytest.raises(DashboardPdfIntakeError, match=pdf_intake.PDF_RESOURCE_LIMIT_EXCEEDED):
         extract_text_native_pdf("chars.pdf", _minimal_text_pdf(["Subject Physics"]), retain_extracted_text=False)
 
+    monkeypatch.setattr(pdf_intake, "MAX_PDF_PROCESS_SECONDS", 20.0)
     ticks = iter([0.0, 0.0, 0.0, 21.0])
     monkeypatch.setattr(pdf_intake.time, "monotonic", lambda: next(ticks))
     with pytest.raises(DashboardPdfIntakeError, match=pdf_intake.PDF_RESOURCE_LIMIT_EXCEEDED):
@@ -207,7 +209,7 @@ def test_large_text_native_pdf_over_previous_limit_uploads_compiles_and_tracks_r
     assert uploaded["pdf_validation"]["extracted_text_sha256"]
     assert uploaded["pdf_validation"]["raw_pdf_retained"] is False
     assert uploaded["pdf_validation"]["extracted_text_retained"] is True
-    assert uploaded["pdf_validation"]["applied_resource_limits"]["max_pdf_pages"] == 1500
+    assert uploaded["pdf_validation"]["applied_resource_limits"]["max_pdf_pages"] == 5000
     assert not list((tmp_path / "RUN_LARGE_CALCULUS").rglob("*.pdf"))
     assert (tmp_path / "RUN_LARGE_CALCULUS/source/normalized_source.txt").exists()
 

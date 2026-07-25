@@ -8,11 +8,11 @@ import mimetypes
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import urlparse
 
 from .controller import DashboardController, DashboardControllerError
-from .limits import MAX_JSON_REQUEST_BYTES
-from .security import DashboardSecurityError, validate_identifier, validate_loopback
+from .limits import MAX_JSON_REQUEST_BYTES, MAX_MULTIPART_REQUEST_BYTES, pdf_limit_snapshot
+from .security import DashboardSecurityError, validate_loopback
 
 
 STATIC_ROOT = Path(__file__).resolve().parent
@@ -43,6 +43,30 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
             return {}
         return json.loads(self.rfile.read(length).decode("utf-8"))
 
+    def _content_length(self) -> int | None:
+        raw = self.headers.get("Content-Length")
+        if raw is None or raw == "":
+            return None
+        try:
+            length = int(raw)
+        except ValueError as exc:
+            raise DashboardSecurityError("invalid Content-Length") from exc
+        if length < 0:
+            raise DashboardSecurityError("invalid Content-Length")
+        return length
+
+    def _declared_upload_bytes(self) -> int | None:
+        raw = self.headers.get("X-Declared-Upload-Bytes")
+        if raw is None or raw == "":
+            return None
+        try:
+            value = int(raw)
+        except ValueError as exc:
+            raise DashboardSecurityError("invalid X-Declared-Upload-Bytes") from exc
+        if value < 0:
+            raise DashboardSecurityError("invalid X-Declared-Upload-Bytes")
+        return value
+
     def do_GET(self) -> None:
         try:
             parsed = urlparse(self.path)
@@ -53,6 +77,8 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                 return self._serve_static(parsed.path.lstrip("/"))
             if parsed.path == "/api/health":
                 return self._json(self.controller.health())
+            if parsed.path == "/api/limits":
+                return self._json(pdf_limit_snapshot())
             if parsed.path == "/api/profiles":
                 return self._json({"profiles": self.controller.list_profiles()})
             if parsed.path == "/api/generation-families":
@@ -61,6 +87,8 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                 return self._json({"runs": self.controller.list_runs()})
             if len(parts) == 4 and parts[0] == "api" and parts[1] == "runs" and parts[3] == "generation-families":
                 return self._json(self.controller.compatible_generation_families(parts[2]))
+            if len(parts) == 5 and parts[0] == "api" and parts[1] == "runs" and parts[3] == "intake-jobs":
+                return self._json(self.controller.get_intake_job(parts[2], parts[4]))
             if len(parts) == 3 and parts[:2] == ["api", "runs"]:
                 return self._json(self.controller.get_run(parts[2]))
             if len(parts) == 4 and parts[:3] == ["api", "runs", parts[2]] and parts[3] == "results":
@@ -81,6 +109,37 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
         try:
             parsed = urlparse(self.path)
             parts = [part for part in parsed.path.split("/") if part]
+            content_type = self.headers.get("Content-Type", "")
+
+            # Streaming PDF intake must not buffer the full body as JSON.
+            if (
+                len(parts) == 6
+                and parts[0] == "api"
+                and parts[1] == "runs"
+                and parts[3] == "intake-jobs"
+                and parts[5] == "upload"
+            ):
+                return self._handle_pdf_upload(parts[2], parts[4], content_type)
+
+            if (
+                len(parts) == 6
+                and parts[0] == "api"
+                and parts[1] == "runs"
+                and parts[3] == "intake-jobs"
+                and parts[5] == "cancel"
+            ):
+                # Optional tiny JSON body; ignore body content safely.
+                length = self._content_length() or 0
+                if length > MAX_JSON_REQUEST_BYTES:
+                    raise DashboardSecurityError("request too large")
+                if length:
+                    self.rfile.read(length)
+                return self._json(self.controller.cancel_intake_job(parts[2], parts[4]))
+
+            if len(parts) == 4 and parts[0] == "api" and parts[1] == "runs" and parts[3] == "intake-jobs":
+                payload = self._read_json()
+                return self._json(self.controller.start_pdf_intake_job(parts[2], payload))
+
             payload = self._read_json()
             if parsed.path == "/api/runs":
                 return self._json(self.controller.create_run(payload))
@@ -92,7 +151,14 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                         content = base64.b64decode(str(payload["content_base64"]), validate=True)
                     else:
                         content = str(payload.get("content", "")).encode("utf-8")
-                    return self._json(self.controller.upload_source(run_id, filename=str(payload.get("filename", "")), content=content, metadata=payload))
+                    return self._json(
+                        self.controller.upload_source(
+                            run_id,
+                            filename=str(payload.get("filename", "")),
+                            content=content,
+                            metadata=payload,
+                        )
+                    )
                 if action == "rights":
                     return self._json(self.controller.confirm_rights(run_id, payload))
                 if action == "profile":
@@ -108,14 +174,44 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
             if len(parts) == 6 and parts[0] == "api" and parts[1] == "runs" and parts[3] == "assessments":
                 run_id, assessment_id, action = parts[2], parts[4], parts[5]
                 if action == "generate":
-                    return self._json(self.controller.generate_assessment(run_id, assessment_id, history_run_ids=payload.get("history_run_ids")))
+                    return self._json(
+                        self.controller.generate_assessment(
+                            run_id, assessment_id, history_run_ids=payload.get("history_run_ids")
+                        )
+                    )
                 if action == "review":
-                    return self._json(self.controller.review_assessment(run_id, assessment_id, payload.get("review_records", [])))
+                    return self._json(
+                        self.controller.review_assessment(run_id, assessment_id, payload.get("review_records", []))
+                    )
                 if action == "regenerate":
-                    return self._json(self.controller.regenerate(run_id, assessment_id, str(payload.get("slot_id", "")), int(payload.get("child_seed", 1))))
+                    return self._json(
+                        self.controller.regenerate(
+                            run_id,
+                            assessment_id,
+                            str(payload.get("slot_id", "")),
+                            int(payload.get("child_seed", 1)),
+                        )
+                    )
             return self._error("not found", HTTPStatus.NOT_FOUND)
         except (DashboardControllerError, DashboardSecurityError, ValueError, KeyError, json.JSONDecodeError) as exc:
             return self._error(str(exc))
+
+    def _handle_pdf_upload(self, run_id: str, job_id: str, content_type: str) -> None:
+        length = self._content_length()
+        if length is None:
+            raise DashboardSecurityError("Content-Length required")
+        if length > MAX_MULTIPART_REQUEST_BYTES:
+            raise DashboardSecurityError("upload exceeds size limit")
+        declared = self._declared_upload_bytes()
+        progress = self.controller.receive_pdf_intake_upload(
+            run_id,
+            job_id,
+            self.rfile,
+            content_type=content_type,
+            content_length=length,
+            declared_upload_bytes=declared,
+        )
+        return self._json(progress)
 
     def _serve_static(self, rel: str) -> None:
         path = STATIC_ROOT / rel
@@ -141,5 +237,6 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
 
 def build_server(host: str, port: int, controller: DashboardController | None = None) -> ThreadingHTTPServer:
     host, port = validate_loopback(host, port)
-    handler = type("BoundDashboardRequestHandler", (DashboardRequestHandler,), {"controller": controller or DashboardController()})
+    bound = controller or DashboardController()
+    handler = type("BoundDashboardRequestHandler", (DashboardRequestHandler,), {"controller": bound})
     return ThreadingHTTPServer((host, port), handler)

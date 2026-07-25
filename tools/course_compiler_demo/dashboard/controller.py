@@ -28,10 +28,11 @@ from .calculus_generation import (
     regenerate_calculus_question,
     write_calculus_assessment,
 )
-from .limits import pdf_limit_snapshot
-from .pdf_intake import DashboardPdfIntakeError, extract_text_native_pdf
+from .intake_jobs import IntakeJobError, IntakeJobManager
+from .limits import MAX_JSON_TEXT_UPLOAD_BYTES, pdf_limit_snapshot
+from .pdf_intake import DashboardPdfIntakeError, PdfIntakeResult, extract_text_native_pdf
 from .run_storage import DEFAULT_DASHBOARD_ROOT, DashboardStorage, DashboardStorageError, load_json, pretty_json, sha256_bytes, utc_now
-from .security import DashboardSecurityError, ensure_beneath, validate_identifier, validate_upload
+from .security import DashboardSecurityError, ensure_beneath, sanitize_display_filename, validate_identifier, validate_upload
 
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -47,12 +48,20 @@ class DashboardControllerError(ValueError):
 
 
 class DashboardController:
-    def __init__(self, storage: DashboardStorage | None = None) -> None:
+    def __init__(self, storage: DashboardStorage | None = None, *, startup_cleanup: bool = True) -> None:
         self.storage = storage or DashboardStorage(DEFAULT_DASHBOARD_ROOT)
         self._source_text_cache: dict[str, str] = {}
+        self.intake_jobs = IntakeJobManager(self.storage, self)
+        if startup_cleanup:
+            self.intake_jobs.mark_interrupted_jobs()
 
     def health(self) -> dict[str, Any]:
-        return {"status": "ok", "noncanonical": True, "student_visible": False}
+        return {
+            "status": "ok",
+            "noncanonical": True,
+            "student_visible": False,
+            "pdf_limits": pdf_limit_snapshot(),
+        }
 
     def list_profiles(self) -> list[dict[str, Any]]:
         physics = load_profile(PHYSICS_PROFILE_PATH)
@@ -117,6 +126,10 @@ class DashboardController:
         privacy_status = metadata.get("privacy_status", "privacy_review_required")
         profile_id = self._profile_from_metadata(metadata, manifest)
         if source_format == "pdf":
+            if len(content) > MAX_JSON_TEXT_UPLOAD_BYTES:
+                raise DashboardControllerError(
+                    "PDF exceeds JSON upload path limit; use streaming multipart source-upload"
+                )
             try:
                 pdf_result = extract_text_native_pdf(display, content, retain_extracted_text=retain_source)
             except DashboardPdfIntakeError as exc:
@@ -124,19 +137,138 @@ class DashboardController:
                 manifest["last_error"] = str(exc)
                 self.storage.save_manifest(manifest)
                 raise
-            source_text = pdf_result.text
-            source_hash = pdf_result.provenance["original_pdf_sha256"]
-            pdf_provenance = pdf_result.provenance
-            pdf_provenance["rights_status"] = rights_status
-            pdf_provenance["privacy_status"] = privacy_status
+            return self._persist_source_from_text(
+                run_id,
+                display_filename=display,
+                source_format="pdf",
+                source_text=pdf_result.text,
+                source_hash=pdf_result.provenance["original_pdf_sha256"],
+                file_size_bytes=len(content),
+                retain_source=retain_source,
+                metadata=metadata,
+                pdf_provenance=pdf_result.provenance,
+                profile_id=profile_id,
+            )
+        source_text = content.decode("utf-8")
+        source_hash = sha256_bytes(content)
+        return self._persist_source_from_text(
+            run_id,
+            display_filename=display,
+            source_format=source_format,
+            source_text=source_text,
+            source_hash=source_hash,
+            file_size_bytes=len(content),
+            retain_source=retain_source,
+            metadata=metadata,
+            pdf_provenance=None,
+            profile_id=profile_id,
+        )
+
+    def start_pdf_intake_job(self, run_id: str, metadata: dict[str, Any] | None = None) -> dict[str, Any]:
+        job = self.intake_jobs.create_receiving_job(run_id, metadata or {})
+        return self.intake_jobs.get_job_progress(run_id, job["job_id"])
+
+    def receive_pdf_intake_upload(
+        self,
+        run_id: str,
+        job_id: str,
+        stream,
+        *,
+        content_type: str,
+        content_length: int | None,
+        declared_upload_bytes: int | None,
+    ) -> dict[str, Any]:
+        try:
+            return self.intake_jobs.receive_multipart_upload(
+                run_id,
+                job_id,
+                stream,
+                content_type=content_type,
+                content_length=content_length,
+                declared_upload_bytes=declared_upload_bytes,
+            )
+        except IntakeJobError as exc:
+            raise DashboardControllerError(str(exc)) from exc
+
+    def get_intake_job(self, run_id: str, job_id: str) -> dict[str, Any]:
+        try:
+            return self.intake_jobs.get_job_progress(run_id, job_id)
+        except IntakeJobError as exc:
+            raise DashboardControllerError(str(exc)) from exc
+
+    def cancel_intake_job(self, run_id: str, job_id: str) -> dict[str, Any]:
+        try:
+            return self.intake_jobs.cancel_job(run_id, job_id)
+        except IntakeJobError as exc:
+            raise DashboardControllerError(str(exc)) from exc
+
+    def finalize_pdf_intake_job(
+        self,
+        run_id: str,
+        job_id: str,
+        pdf_result: PdfIntakeResult,
+        *,
+        text_path: Path | None,
+    ) -> dict[str, Any]:
+        job = self.intake_jobs.load_job(run_id, job_id)
+        retain_source = bool(job.get("retain_normalized_source"))
+        metadata = {
+            "rights_status": job.get("rights_status", "rights_review_required"),
+            "privacy_status": job.get("privacy_status", "privacy_review_required"),
+            "source_title": job.get("source_title") or "",
+            "profile_id": job.get("profile_id"),
+            "document_type": job.get("document_type"),
+            "author_or_institution": job.get("author_or_institution", ""),
+            "optional_source_reference": job.get("optional_source_reference", ""),
+            "retain_normalized_source": retain_source,
+        }
+        display = sanitize_display_filename(str(job.get("display_filename") or "upload.pdf"))
+        # If retention already wrote normalized text, avoid rewriting a second full copy.
+        if retain_source and text_path is not None and text_path.exists():
+            source_text = text_path.read_text(encoding="utf-8")
+            persist_text_file = False
         else:
-            source_text = content.decode("utf-8")
-            source_hash = sha256_bytes(content)
+            source_text = pdf_result.text
+            persist_text_file = retain_source
+        return self._persist_source_from_text(
+            run_id,
+            display_filename=display,
+            source_format="pdf",
+            source_text=source_text,
+            source_hash=pdf_result.provenance["original_pdf_sha256"],
+            file_size_bytes=int(pdf_result.provenance["file_size_bytes"]),
+            retain_source=retain_source,
+            metadata=metadata,
+            pdf_provenance=pdf_result.provenance,
+            profile_id=self._profile_from_metadata(metadata, self.get_run(run_id)),
+            write_normalized_text=persist_text_file,
+            normalized_text_already_written=retain_source and text_path is not None and text_path.exists(),
+        )
+
+    def _persist_source_from_text(
+        self,
+        run_id: str,
+        *,
+        display_filename: str,
+        source_format: str,
+        source_text: str,
+        source_hash: str,
+        file_size_bytes: int,
+        retain_source: bool,
+        metadata: dict[str, Any],
+        pdf_provenance: dict[str, Any] | None,
+        profile_id: str | None,
+        write_normalized_text: bool = True,
+        normalized_text_already_written: bool = False,
+    ) -> dict[str, Any]:
+        manifest = self.get_run(run_id)
+        rights_status = metadata.get("rights_status", "rights_review_required")
+        privacy_status = metadata.get("privacy_status", "privacy_review_required")
         classification = self._dashboard_classification(source_text, source_format=source_format)
         subject = self._detect_dashboard_subject(source_text, profile_id=profile_id)
         receipt = {
-            "source_title": str(metadata.get("source_title") or manifest.get("source_title") or display),
-            "source_display_filename": display,
+            "source_title": str(metadata.get("source_title") or manifest.get("source_title") or display_filename),
+            "source_display_filename": display_filename,
             "source_sha256": source_hash,
             "source_format": source_format,
             "document_type": metadata.get("document_type", classification["detected_source_type"]),
@@ -153,6 +285,9 @@ class DashboardController:
             "external_service_used": False,
         }
         if pdf_provenance:
+            pdf_provenance = dict(pdf_provenance)
+            pdf_provenance["rights_status"] = rights_status
+            pdf_provenance["privacy_status"] = privacy_status
             receipt["pdf_provenance"] = pdf_provenance
             receipt["source_sha256"] = pdf_provenance["original_pdf_sha256"]
             receipt["extracted_text_sha256"] = pdf_provenance["extracted_text_sha256"]
@@ -162,10 +297,10 @@ class DashboardController:
             {
                 "status": "source_ready",
                 "source_title": receipt["source_title"],
-                "source_display_filename": display,
+                "source_display_filename": display_filename,
                 "source_sha256": source_hash,
                 "source_format": source_format,
-                "source_file_size_bytes": len(content),
+                "source_file_size_bytes": file_size_bytes,
                 "rights_status": receipt["rights_status"],
                 "privacy_status": receipt["privacy_status"],
                 "raw_or_normalized_source_retained": receipt["raw_or_normalized_source_retained"],
@@ -178,8 +313,16 @@ class DashboardController:
             }
         )
         self.storage.write_json_artifact(manifest, "source_receipt", "source/source_receipt.json", receipt)
-        if receipt["raw_or_normalized_source_retained"]:
-            self.storage.write_text_artifact(manifest, "normalized_source", "source/normalized_source.txt", source_text)
+        if retain_source:
+            if write_normalized_text and not normalized_text_already_written:
+                self.storage.write_text_artifact(manifest, "normalized_source", "source/normalized_source.txt", source_text)
+            else:
+                # Ensure artifact index points at the already-written normalized source.
+                run_dir = self.storage.run_dir(run_id)
+                target = run_dir / "source/normalized_source.txt"
+                if target.exists():
+                    manifest.setdefault("artifact_index", {})["normalized_source"] = "source/normalized_source.txt"
+                    self.storage.save_manifest(manifest)
         else:
             transient = self.storage.run_dir(run_id) / "source/normalized_source.txt"
             if transient.exists():
@@ -227,6 +370,14 @@ class DashboardController:
 
     def compile_run(self, run_id: str, *, selected_micro_skill: str | None = None) -> dict[str, Any]:
         manifest = self.get_run(run_id)
+        active_job_id = manifest.get("active_intake_job_id")
+        if active_job_id:
+            try:
+                job = self.intake_jobs.load_job(run_id, str(active_job_id))
+            except Exception:
+                job = None
+            if job and job.get("current_stage") not in {"ready_to_compile", "failed", "cancelled", "interrupted"}:
+                raise DashboardControllerError("compilation blocked until PDF intake reaches ready_to_compile")
         if not self._ready_to_compile(manifest):
             raise DashboardControllerError("source upload, rights, privacy, and persisted source-ready state are required before compilation")
         manifest["status"] = "compiling"
