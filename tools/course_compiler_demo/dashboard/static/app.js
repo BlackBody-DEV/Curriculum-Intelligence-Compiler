@@ -53,6 +53,17 @@ function readyToCompile(run) {
     && run.privacy_status === "non_private";
 }
 
+async function ensureAssessmentId(run = null) {
+  if (state.assessmentId) return state.assessmentId;
+  const current = run || (state.runId ? await api(`/api/runs/${state.runId}`) : null);
+  const ids = current?.assessment_ids || [];
+  if (ids.length) {
+    state.assessmentId = ids[0];
+    return state.assessmentId;
+  }
+  throw new Error("No assessment is available for the selected run.");
+}
+
 function formatBytes(value) {
   const n = Number(value || 0);
   if (!Number.isFinite(n)) return "unknown";
@@ -271,6 +282,8 @@ async function runs() {
   document.querySelectorAll("[data-run]").forEach(button => {
     button.onclick = async () => {
       state.runId = button.dataset.run;
+      const run = await api(`/api/runs/${state.runId}`);
+      state.assessmentId = (run.assessment_ids || [])[0] || null;
       await source();
     };
   });
@@ -487,6 +500,7 @@ async function studio() {
 }
 
 async function review() {
+  await ensureAssessmentId();
   const data = await api(`/api/runs/${state.runId}/assessments/${state.assessmentId}`);
   const rows = data.assessment.questions.map((q, index) => `
     <tr><td>${esc(q.question_id)}</td><td>${esc(q.difficulty_level)}</td><td>${esc(q.question_type)}</td><td>${index === 0 ? "lock candidate" : ""}</td></tr>
@@ -517,6 +531,7 @@ async function validation() {
 }
 
 function exportsView() {
+  ensureAssessmentId().then(() => {
   const base = `/api/runs/${encodeURIComponent(state.runId)}/assessments/${encodeURIComponent(state.assessmentId)}/exports`;
   render("Exports", `
     ${controls()}
@@ -528,6 +543,7 @@ function exportsView() {
       <li><a href="${base}/instructor_markdown">Instructor Markdown</a></li>
     </ul>
   `);
+  }).catch(error => render("Error", `<p>${esc(error.message)}</p>`));
 }
 
 async function advanced() {

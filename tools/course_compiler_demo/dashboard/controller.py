@@ -41,6 +41,14 @@ FAMILY_DIR = REPO_ROOT / "tools/course_compiler_demo/assessment_generation/famil
 PHYSICS_PROFILE_PATH = PROFILE_DIR / "physics_intro_mechanics_v1.json"
 STATICS_RELEASE_PACKAGE = REPO_ROOT / "reports/course_compiler_demo/internal_release/release_package_emitter_proof/vector_components_2d_release_package_v1.json"
 SOURCE_INBOX_ROOT = Path("/Users/fanarichardson/Documents/AxiomIQ_Source_Inbox")
+ASSESSMENT_ARTIFACT_FILES = {
+    "blueprint": "assessment_blueprint.json",
+    "generation_manifest": "generation_manifest.json",
+    "generated_assessment": "generated_assessment.json",
+    "duplicate_report": "duplicate_report.json",
+    "validation_report": "validation_report.json",
+    "review_decisions": "review_decisions.json",
+}
 
 
 class DashboardControllerError(ValueError):
@@ -482,6 +490,16 @@ class DashboardController:
         classification = self._dashboard_classification(source_text, source_format=str(manifest.get("source_format") or ""))
         subject = self._detect_dashboard_subject(source_text, profile_id=str(manifest.get("selected_profile_id") or ""))
         course_level, course_confidence = self._dashboard_course_level(source_text, subject["detected_subject"])
+        course_details = (
+            detect_math_course_level(source_text)
+            if subject["detected_subject"] == "MATHEMATICS"
+            else {
+                "classification_evidence": [],
+                "competing_classifications": [],
+                "tie_breaking": "subject_specific_fixed_course_level",
+                "fail_closed": False,
+            }
+        )
         topics, skills, evidence = self._dashboard_extract_candidates(
             source_text,
             subject=subject["detected_subject"],
@@ -519,6 +537,10 @@ class DashboardController:
             "subject_confidence": subject["subject_confidence"],
             "detected_course_level": course_level,
             "course_level_confidence": course_confidence,
+            "course_level_evidence": course_details.get("classification_evidence", []),
+            "competing_course_level_classifications": course_details.get("competing_classifications", []),
+            "course_level_tie_breaking": course_details.get("tie_breaking"),
+            "course_level_fail_closed": course_details.get("fail_closed", False),
             "profile_alignment_status": profile_alignment_status,
             "profile_alignment_warning": alignment_warning,
             "extraction_rationale": "Dashboard-local rule-based document-first interpretation.",
@@ -545,7 +567,11 @@ class DashboardController:
             "status": "demo_unverified",
             "practice_target_candidates": self._dashboard_practice_targets(topics, skills),
         })
-        procedures = procedure_candidates() if subject["detected_subject"] == "MATHEMATICS" and course_level == "CALCULUS_I" else []
+        procedures = (
+            self._source_aligned_calculus_procedure_candidates(skills)
+            if subject["detected_subject"] == "MATHEMATICS" and course_level == "CALCULUS_I"
+            else []
+        )
         self.storage.write_json_artifact(manifest, "procedure_candidates", "compiler/procedure_candidates.json", {
             "status": "demo_unverified",
             "procedure_candidates": procedures,
@@ -611,7 +637,7 @@ class DashboardController:
         subject: str,
         course_level: str,
     ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
-        rules = self._dashboard_candidate_rules(subject)
+        rules = self._dashboard_candidate_rules(subject, course_level)
         topics: list[dict[str, Any]] = []
         skills: list[dict[str, Any]] = []
         evidence: list[dict[str, Any]] = []
@@ -689,8 +715,8 @@ class DashboardController:
             })
         return topics, skills, evidence
 
-    def _dashboard_candidate_rules(self, subject: str) -> dict[str, list[Any]]:
-        if subject == "MATHEMATICS":
+    def _dashboard_candidate_rules(self, subject: str, course_level: str) -> dict[str, list[Any]]:
+        if subject == "MATHEMATICS" and course_level == "CALCULUS_I":
             return {
                 "topics": [
                     ("Limits", ["limit", "limits"]),
@@ -705,6 +731,32 @@ class DashboardController:
                     ("Analyze Increasing and Decreasing Intervals", "Applications of Derivatives", ["increasing", "decreasing"]),
                 ],
             }
+        if subject == "MATHEMATICS" and course_level == "DIFFERENTIAL_EQUATIONS":
+            return {
+                "topics": [
+                    ("First Order Differential Equations", ["first order differential equation", "first order equation"]),
+                    ("Separable Equations", ["separable equation", "separable equations", "separable"]),
+                    ("Linear First Order Equations", ["linear first order equation", "linear first order"]),
+                    ("Initial Value Problems", ["initial value problem", "initial value problems"]),
+                    ("Slope Fields", ["slope field", "slope fields"]),
+                    ("Second Order Equations", ["second order equation", "second order equations"]),
+                    ("Systems of Differential Equations", ["systems of differential equations", "system of differential equations"]),
+                ],
+                "skills": [
+                    ("Recognize First Order Differential Equations", "First Order Differential Equations", ["first order differential equation", "first order equation"]),
+                    ("Solve Separable Equations", "Separable Equations", ["separable equation", "separable equations", "separable"]),
+                    ("Solve Linear First Order Equations", "Linear First Order Equations", ["linear first order equation", "linear first order"]),
+                    ("Set Up Initial Value Problems", "Initial Value Problems", ["initial value problem", "initial value problems"]),
+                    ("Interpret Slope Fields", "Slope Fields", ["slope field", "slope fields"]),
+                    ("Classify Second Order Equations", "Second Order Equations", ["second order equation", "second order equations"]),
+                    ("Recognize Systems of Differential Equations", "Systems of Differential Equations", ["systems of differential equations", "system of differential equations"]),
+                ],
+            }
+        if subject == "MATHEMATICS":
+            return {
+                "topics": [],
+                "skills": [],
+            }
         if subject == "PHYSICS":
             return {
                 "topics": [("Forces and Motion", ["force", "newton", "acceleration"])],
@@ -714,6 +766,20 @@ class DashboardController:
             "topics": [("Source-Aligned Concepts", ["subject", "topic", "concept", "example", "problem"])],
             "skills": [("Review Source-Aligned Skill", "Source-Aligned Concepts", ["practice", "problem", "find", "apply", "evaluate"])],
         }
+
+    def _source_aligned_calculus_procedure_candidates(self, skills: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        evidence_by_skill = {
+            str(skill.get("micro_skill_code", "")): list(skill.get("evidence_refs", []))
+            for skill in skills
+        }
+        candidates = []
+        for candidate in procedure_candidates():
+            skill_code = candidate["micro_skill_code"]
+            item = dict(candidate)
+            item["evidence_refs"] = evidence_by_skill.get(skill_code, [])
+            item["source_evidence_refs"] = evidence_by_skill.get(skill_code, [])
+            candidates.append(item)
+        return candidates
 
     def _text_matches(self, source_text: str, terms: list[str]) -> bool:
         lowered = source_text.lower()
@@ -1134,14 +1200,15 @@ class DashboardController:
         return self.get_assessment(run_id, assessment_id)
 
     def get_assessment(self, run_id: str, assessment_id: str) -> dict[str, Any]:
-        manifest = self.get_run(run_id)
         assessment_id = validate_identifier(assessment_id, "assessment ID")
+        manifest = self._recover_assessment_artifacts(run_id, assessment_id)
         return {
-            "blueprint": load_json(self.storage.artifact_path(manifest, f"assessment_{assessment_id}_blueprint")),
-            "assessment": load_json(self.storage.artifact_path(manifest, f"assessment_{assessment_id}_generated_assessment")),
-            "duplicate_report": load_json(self.storage.artifact_path(manifest, f"assessment_{assessment_id}_duplicate_report")),
-            "validation_report": load_json(self.storage.artifact_path(manifest, f"assessment_{assessment_id}_validation_report")),
-            "review_decisions": load_json(self.storage.artifact_path(manifest, f"assessment_{assessment_id}_review_decisions")),
+            "blueprint": load_json(self.storage.artifact_path(manifest, self._assessment_artifact_key(assessment_id, "blueprint"))),
+            "assessment": load_json(self.storage.artifact_path(manifest, self._assessment_artifact_key(assessment_id, "generated_assessment"))),
+            "duplicate_report": load_json(self.storage.artifact_path(manifest, self._assessment_artifact_key(assessment_id, "duplicate_report"))),
+            "validation_report": load_json(self.storage.artifact_path(manifest, self._assessment_artifact_key(assessment_id, "validation_report"))),
+            "review_decisions": load_json(self.storage.artifact_path(manifest, self._assessment_artifact_key(assessment_id, "review_decisions"))),
+            "artifact_keys": self._assessment_artifact_keys(assessment_id),
         }
 
     def review_assessment(self, run_id: str, assessment_id: str, records: list[dict[str, Any]]) -> dict[str, Any]:
@@ -1222,6 +1289,17 @@ class DashboardController:
     def _export_artifact_key(self, assessment_id: str, filename: str) -> str:
         return f"assessment_{assessment_id}_export_{filename.replace('.', '_')}"
 
+    def _assessment_artifact_key(self, assessment_id: str, kind: str) -> str:
+        if kind not in ASSESSMENT_ARTIFACT_FILES:
+            raise DashboardControllerError("unsupported assessment artifact key")
+        return f"assessment_{assessment_id}_{kind}"
+
+    def _assessment_artifact_keys(self, assessment_id: str) -> dict[str, str]:
+        return {
+            kind: self._assessment_artifact_key(assessment_id, kind)
+            for kind in ASSESSMENT_ARTIFACT_FILES
+        }
+
     def _invalidate_assessment_exports(self, run_id: str, assessment_id: str) -> None:
         manifest = self.get_run(run_id)
         assessment_id = validate_identifier(assessment_id, "assessment ID")
@@ -1247,8 +1325,25 @@ class DashboardController:
         self.storage.save_manifest(manifest)
         return self.get_run(run_id)
 
+    def _recover_assessment_artifacts(self, run_id: str, assessment_id: str) -> dict[str, Any]:
+        manifest = self.get_run(run_id)
+        run_dir = self.storage.run_dir(run_id)
+        changed = False
+        for kind, filename in ASSESSMENT_ARTIFACT_FILES.items():
+            key = self._assessment_artifact_key(assessment_id, kind)
+            rel = f"assessments/{assessment_id}/{filename}"
+            if (run_dir / rel).exists() and manifest.setdefault("artifact_index", {}).get(key) != rel:
+                manifest["artifact_index"][key] = rel
+                changed = True
+        if changed:
+            self.storage.save_manifest(manifest)
+        return self.get_run(run_id)
+
     def artifact(self, run_id: str, artifact_key: str) -> Any:
         manifest = self.get_run(run_id)
+        artifact_key = validate_identifier(artifact_key, "artifact key")
+        if artifact_key not in manifest.get("artifact_index", {}):
+            raise DashboardControllerError(f"unsupported artifact key: {artifact_key}")
         path = self.storage.artifact_path(manifest, artifact_key)
         if path.suffix == ".json":
             return load_json(path)

@@ -118,10 +118,16 @@ def procedure_candidates() -> list[dict[str, Any]]:
         item = PROCEDURES[skill_code]
         candidates.append({
             **item,
+            "procedure_code": item["procedure_id"],
             "subject": "MATHEMATICS",
             "course_level": "CALCULUS_I",
+            "topic_code": item["topic_code"],
             "micro_skill_code": skill_code,
+            "ordered_solution_steps": list(item["steps"]),
+            "evidence_refs": [],
+            "source_evidence_refs": [],
             "status": "demo_unverified",
+            "review_status": "pending",
             "noncanonical": True,
             "canonical_approved": False,
             "eligible_for_alpha_import": False,

@@ -73,16 +73,92 @@ def detect_subject(raw_text: str, subject_override: str | None = None) -> dict[s
     return {"detected_subject": "UNKNOWN", "subject_confidence": "low"}
 
 
-def detect_math_course_level(raw_text: str) -> dict[str, str]:
+def _score_terms(text: str, terms: list[str]) -> tuple[int, list[str]]:
+    matched = [term for term in terms if re.search(rf"\b{re.escape(term)}\b", text)]
+    return len(matched), matched
+
+
+def detect_math_course_level(raw_text: str) -> dict[str, Any]:
     text = raw_text.lower()
-    if any(term in text for term in ["linear equation", "linear equations", "slope", "graphing lines"]):
-        return {"detected_course_level": "ALGEBRA_I", "course_level_confidence": "high"}
-    if any(term in text for term in ["limit", "derivative", "chain rule"]):
-        return {"detected_course_level": "CALCULUS_I", "course_level_confidence": "medium"}
-    if any(term in text for term in ["integral", "series"]):
-        return {"detected_course_level": "CALCULUS_II", "course_level_confidence": "medium"}
-    if any(term in text for term in ["matrix", "matrices", "row-reduce", "row reduce"]):
-        return {"detected_course_level": "LINEAR_ALGEBRA", "course_level_confidence": "medium"}
-    if any(term in text for term in ["differential equation", "separable"]):
-        return {"detected_course_level": "DIFFERENTIAL_EQUATIONS", "course_level_confidence": "medium"}
-    return {"detected_course_level": "UNKNOWN_MATH_LEVEL", "course_level_confidence": "low"}
+    rules = [
+        (
+            "DIFFERENTIAL_EQUATIONS",
+            [
+                "differential equation",
+                "differential equations",
+                "separable equation",
+                "separable equations",
+                "linear first order",
+                "first order equation",
+                "initial value problem",
+                "initial value problems",
+                "slope field",
+                "slope fields",
+                "second order equation",
+                "second order equations",
+                "systems of differential equations",
+            ],
+        ),
+        (
+            "CALCULUS_I",
+            [
+                "limit",
+                "limits",
+                "derivative",
+                "derivatives",
+                "power rule",
+                "chain rule",
+                "critical point",
+                "critical points",
+                "increasing",
+                "decreasing",
+                "applications of derivatives",
+            ],
+        ),
+        ("CALCULUS_II", ["integral", "integrals", "series"]),
+        ("LINEAR_ALGEBRA", ["matrix", "matrices", "row-reduce", "row reduce"]),
+        ("ALGEBRA_I", ["linear equation", "linear equations", "slope", "graphing lines"]),
+    ]
+    scored = []
+    for level, terms in rules:
+        score, matched = _score_terms(text, terms)
+        if score:
+            scored.append({"course_level": level, "score": score, "matched_terms": matched})
+    if not scored:
+        return {
+            "detected_course_level": "UNKNOWN_MATH_LEVEL",
+            "course_level_confidence": "low",
+            "classification_evidence": [],
+            "competing_classifications": [],
+            "tie_breaking": "fail_closed_no_math_course_evidence",
+            "fail_closed": True,
+        }
+
+    priority = {
+        "DIFFERENTIAL_EQUATIONS": 0,
+        "CALCULUS_I": 1,
+        "CALCULUS_II": 2,
+        "LINEAR_ALGEBRA": 3,
+        "ALGEBRA_I": 4,
+    }
+    scored.sort(key=lambda item: (-item["score"], priority[item["course_level"]]))
+    winner = scored[0]
+    confidence = "high" if winner["score"] >= 3 else "medium"
+    return {
+        "detected_course_level": winner["course_level"],
+        "course_level_confidence": confidence,
+        "classification_evidence": [
+            {
+                "course_level": item["course_level"],
+                "matched_terms": item["matched_terms"],
+                "score": item["score"],
+            }
+            for item in scored
+        ],
+        "competing_classifications": [
+            {"course_level": item["course_level"], "score": item["score"]}
+            for item in scored[1:]
+        ],
+        "tie_breaking": "highest_evidence_score_then_advanced_math_before_algebra",
+        "fail_closed": False,
+    }

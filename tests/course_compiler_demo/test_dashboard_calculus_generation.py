@@ -6,8 +6,16 @@ import pytest
 from tools.course_compiler_demo.dashboard.calculus_generation import CALCULUS_FAMILY_ID, CALCULUS_REQUIRED_SKILLS, procedure_candidates
 from tools.course_compiler_demo.dashboard.controller import DashboardController, DashboardControllerError
 from tools.course_compiler_demo.dashboard.run_storage import DashboardStorage
+from tools.course_compiler_demo.ingest.document_classifier import detect_math_course_level
 from tests.course_compiler_demo.test_dashboard_compile_flow import CALCULUS_TEXT, _minimal_text_pdf
 from tests.course_compiler_demo.test_dashboard_assessment_workflow import prepared_physics_run
+
+
+DIFFERENTIAL_EQUATIONS_TEXT = (
+    "Elementary differential equations. First order differential equations include separable equations "
+    "and linear first order equations. Initial value problems use y(0)=1. Slope fields visualize "
+    "solutions. Second order equations and systems of differential equations are later chapters."
+)
 
 
 def _prepared_calculus_run(tmp_path, accepted=None):
@@ -43,12 +51,17 @@ def test_calculus_procedure_candidates_are_demo_safe():
     assert {item["micro_skill_code"] for item in procedures} == set(CALCULUS_REQUIRED_SKILLS)
     for item in procedures:
         assert item["procedure_id"].startswith("PROC_DEMO_CALC_")
+        assert item["procedure_code"] == item["procedure_id"]
         assert item["subject"] == "MATHEMATICS"
         assert item["course_level"] == "CALCULUS_I"
+        assert item["topic_code"]
         assert item["formula_or_rule"]
         assert item["steps"]
+        assert item["ordered_solution_steps"] == item["steps"]
         assert item["worked_example"]["answer"]
+        assert "common_errors" in item
         assert item["status"] == "demo_unverified"
+        assert item["review_status"] == "pending"
         assert item["noncanonical"] is True
         assert item["canonical_approved"] is False
         assert item["eligible_for_alpha_import"] is False
@@ -70,6 +83,103 @@ def test_calculus_family_available_only_after_all_accepted_skills(tmp_path):
     assert all(item["generation_family_id"] != CALCULUS_FAMILY_ID for item in physics_ctrl.compatible_generation_families(physics_run_id)["generation_families"])
     with pytest.raises(DashboardControllerError, match="incompatible_assessment_generation_family"):
         physics_ctrl.create_assessment(physics_run_id, {"assessment_id": "BAD_CALC", "generation_family_id": CALCULUS_FAMILY_ID, "question_count": 10})
+
+
+def test_calculus_evidence_classifies_as_calculus_i_not_algebra_i():
+    detected = detect_math_course_level(CALCULUS_TEXT + " Algebra review is not dominant.")
+
+    assert detected["detected_course_level"] == "CALCULUS_I"
+    assert detected["detected_course_level"] != "ALGEBRA_I"
+    assert detected["classification_evidence"]
+    assert detected["tie_breaking"] == "highest_evidence_score_then_advanced_math_before_algebra"
+    assert detected["fail_closed"] is False
+
+
+def test_unknown_mathematics_does_not_silently_default_to_algebra_i():
+    detected = detect_math_course_level("Mathematics reading on abstract structures with examples and proofs.")
+
+    assert detected["detected_course_level"] == "UNKNOWN_MATH_LEVEL"
+    assert detected["detected_course_level"] != "ALGEBRA_I"
+    assert detected["fail_closed"] is True
+
+
+def test_calculus_compile_records_evidence_and_source_aligned_procedures(tmp_path):
+    ctrl = DashboardController(DashboardStorage(tmp_path))
+    run = ctrl.create_run({"source_title": "Calculus"}, run_id="RUN_CALC_EVIDENCE")
+    ctrl.upload_source(
+        run["run_id"],
+        filename="calculus.txt",
+        content=CALCULUS_TEXT.encode("utf-8"),
+        metadata={
+            "rights_status": "approved_local_use",
+            "privacy_status": "non_private",
+            "retain_normalized_source": True,
+        },
+    )
+    compiled = ctrl.compile_run(run["run_id"])
+
+    assert compiled["detected_course_level"] == "CALCULUS_I"
+    interpretation = json.loads((tmp_path / "RUN_CALC_EVIDENCE/compiler/source_interpretation.json").read_text())
+    assert interpretation["course_level_evidence"]
+    assert interpretation["course_level_fail_closed"] is False
+    results = ctrl.results(run["run_id"])
+    assert {skill["micro_skill_code"] for skill in results["micro_skills"]} == set(CALCULUS_REQUIRED_SKILLS)
+    assert len(results["procedure_candidates"]) == 5
+    for candidate in results["procedure_candidates"]:
+        assert candidate["procedure_code"] == candidate["procedure_id"]
+        assert candidate["course_level"] == "CALCULUS_I"
+        assert candidate["review_status"] == "pending"
+        assert candidate["evidence_refs"]
+        assert candidate["noncanonical"] is True
+        assert candidate["canonical_approved"] is False
+        assert candidate["eligible_for_alpha_import"] is False
+        assert candidate["student_visible"] is False
+
+
+def test_differential_equations_extracts_source_wide_topics_and_blocks_calculus_family(tmp_path):
+    ctrl = DashboardController(DashboardStorage(tmp_path))
+    run = ctrl.create_run({"source_title": "Elementary Differential Equations"}, run_id="RUN_DE")
+    ctrl.upload_source(
+        run["run_id"],
+        filename="elementary-differential-equations.txt",
+        content=DIFFERENTIAL_EQUATIONS_TEXT.encode("utf-8"),
+        metadata={
+            "rights_status": "approved_local_use",
+            "privacy_status": "non_private",
+            "retain_normalized_source": True,
+        },
+    )
+    compiled = ctrl.compile_run(run["run_id"])
+
+    assert compiled["detected_subject"] == "MATHEMATICS"
+    assert compiled["detected_course_level"] == "DIFFERENTIAL_EQUATIONS"
+    results = ctrl.results(run["run_id"])
+    topic_codes = {item["topic_code"] for item in results["topics"]}
+    assert {
+        "first_order_differential_equations",
+        "separable_equations",
+        "linear_first_order_equations",
+        "initial_value_problems",
+        "slope_fields",
+        "second_order_equations",
+        "systems_of_differential_equations",
+    } <= topic_codes
+    assert all(item["evidence_refs"] for item in results["topics"])
+    assert all(item["evidence_refs"] for item in results["micro_skills"])
+    assert results["procedure_candidates"] == []
+
+    ctrl.curriculum_review(
+        run["run_id"],
+        [
+            {"candidate_id": skill["candidate_id"], "candidate_type": "micro_skill", "decision": "accepted"}
+            for skill in results["micro_skills"]
+        ],
+    )
+    compatible = ctrl.compatible_generation_families(run["run_id"])
+    assert compatible["generation_families"] == []
+    assert "Assessment generation remains a content gap" in compatible["content_gap"]
+    with pytest.raises(DashboardControllerError, match="incompatible_assessment_generation_family"):
+        ctrl.create_assessment(run["run_id"], {"assessment_id": "BAD_DE_CALC", "generation_family_id": CALCULUS_FAMILY_ID, "question_count": 10})
 
 
 def test_calculus_practice_assessment_locking_exports_and_persistence(tmp_path):
@@ -195,3 +305,70 @@ def test_calculus_exports_refresh_after_regeneration_and_survive_reopen(tmp_path
     assert second["question_id"] not in reopened_ids
     assert reopened.get_assessment(run_id, blueprint["assessment_id"])["assessment"]["questions"][0] == locked_before
     assert replacement_id in json.loads(reopened.export_path(run_id, blueprint["assessment_id"], "student_json").read_text())["questions"][1]["question_id"]
+
+
+def test_assessment_review_refresh_hydrates_effective_regenerated_artifacts(tmp_path):
+    ctrl, run_id = _prepared_calculus_run(tmp_path)
+    ctrl.generate_practice(run_id)
+    blueprint = ctrl.create_assessment(
+        run_id,
+        {"assessment_id": "ASSESSMENT_LOCAL", "generation_family_id": CALCULUS_FAMILY_ID, "question_count": 10, "random_seed": 20260723},
+    )
+    generated = ctrl.generate_assessment(run_id, blueprint["assessment_id"])["assessment"]
+    q001 = generated["questions"][0]
+    q002 = generated["questions"][1]
+    ctrl.review_assessment(
+        run_id,
+        blueprint["assessment_id"],
+        [
+            {"question_id": question["question_id"], "decision": "accepted", "locked": index == 0}
+            for index, question in enumerate(generated["questions"])
+        ],
+    )
+    ctrl.regenerate(run_id, blueprint["assessment_id"], q002["slot_id"], child_seed=20260719)
+
+    manifest = ctrl.get_run(run_id)
+    for key in list(manifest["artifact_index"]):
+        if "_export_" in key:
+            manifest["artifact_index"].pop(key)
+    ctrl.storage.save_manifest(manifest)
+
+    refreshed = ctrl.get_assessment(run_id, blueprint["assessment_id"])
+    active_questions = refreshed["assessment"]["questions"]
+    assert len(active_questions) == 10
+    assert active_questions[0]["question_id"] == q001["question_id"]
+    assert active_questions[0]["locked"] is True
+    assert active_questions[1]["slot_id"] == q002["slot_id"]
+    assert active_questions[1]["question_id"] == "ASSESSMENT_LOCAL_Q002_R001"
+    assert active_questions[1]["question_id"] != q002["question_id"]
+    assert q002["question_id"] not in {q["question_id"] for q in active_questions}
+
+    review_ids = {item["question_id"] for item in refreshed["review_decisions"]["review_records"]}
+    assert "ASSESSMENT_LOCAL_Q002_R001" in review_ids
+    assert q001["question_id"] in {
+        item["question_id"]
+        for item in refreshed["review_decisions"]["review_records"]
+        if item.get("locked")
+    }
+
+    recovered_index = ctrl.get_run(run_id)["artifact_index"]
+    for key in refreshed["artifact_keys"].values():
+        assert key in recovered_index
+        ctrl.artifact(run_id, key)
+
+    student = json.loads(ctrl.export_path(run_id, blueprint["assessment_id"], "student_json").read_text())
+    instructor = json.loads(ctrl.export_path(run_id, blueprint["assessment_id"], "instructor_json").read_text())
+    assert student["questions"][1]["question_id"] == "ASSESSMENT_LOCAL_Q002_R001"
+    assert instructor["questions"][1]["question_id"] == "ASSESSMENT_LOCAL_Q002_R001"
+
+    reopened = DashboardController(DashboardStorage(tmp_path))
+    reopened_data = reopened.get_assessment(run_id, blueprint["assessment_id"])
+    assert reopened_data["assessment"]["questions"][0]["locked"] is True
+    assert reopened_data["assessment"]["questions"][1]["question_id"] == "ASSESSMENT_LOCAL_Q002_R001"
+
+
+def test_unsupported_artifact_key_is_controlled_error(tmp_path):
+    ctrl, run_id = _prepared_calculus_run(tmp_path)
+
+    with pytest.raises(DashboardControllerError, match="unsupported artifact key"):
+        ctrl.artifact(run_id, "assessment_ASSESSMENT_LOCAL_exports_student_json")
