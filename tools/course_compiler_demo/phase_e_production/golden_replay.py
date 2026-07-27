@@ -80,6 +80,11 @@ def build_generation_packet(row: dict[str, Any], *, generation_seed: str) -> dic
         "primitive_input_data": safe_row["primitive_input_data"],
         "diagram_policy": safe_row["diagram_policy"],
         "uniqueness_constraints": safe_row.get("uniqueness_constraints", []),
+        "destination_canonical_path": safe_row["destination_canonical_path"],
+        "existing_record_disposition": safe_row["existing_record_disposition"],
+        "adapter_identifier": safe_row["adapter_identifier"],
+        "adapter_contract_version": safe_row["adapter_contract_version"],
+        "adapter_metadata": safe_row.get("adapter_metadata", {}),
         "generation_seed": generation_seed,
         "manifest_row": safe_row,
         "blind_boundary_certification": {

@@ -61,7 +61,7 @@ def compare_to_benchmark(
     candidate = load_json(candidate_path)
     derivation = load_json(derivation_path)
     exact_wording = candidate.get("prompt") == benchmark.get("benchmark_prompt")
-    answer_agrees = derivation.get("normalized_answer") == benchmark.get("expected_answer")
+    answer_agrees = _answers_agree(derivation.get("normalized_answer"), benchmark.get("expected_answer"))
     warnings = []
     if exact_wording:
         warnings.append("BENCHMARK_EXACT_WORDING_MATCH_LEAKAGE_REVIEW")
@@ -113,3 +113,26 @@ def compare_to_benchmark(
     )
     write_json(seal_path, updated_seal)
     return result
+
+
+def _answers_agree(actual: Any, expected: Any) -> bool:
+    if actual == expected:
+        return True
+    if not isinstance(actual, dict) or not isinstance(expected, dict):
+        return False
+    if actual.get("type") != expected.get("type"):
+        return False
+    if actual.get("type") != "numeric_pair":
+        return False
+    actual_values = actual.get("values")
+    expected_values = expected.get("values")
+    if not isinstance(actual_values, list) or not isinstance(expected_values, list):
+        return False
+    if len(actual_values) != len(expected_values):
+        return False
+    for a, e in zip(actual_values, expected_values):
+        if a.get("label") != e.get("label") or a.get("unit") != e.get("unit"):
+            return False
+        if abs(float(a.get("value")) - float(e.get("value"))) > 1e-6:
+            return False
+    return True

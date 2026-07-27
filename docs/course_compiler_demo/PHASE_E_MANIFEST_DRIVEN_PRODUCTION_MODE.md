@@ -2,6 +2,19 @@
 
 This task-branch implementation adds the blind-boundary foundation for `PHASE_E_MANIFEST_DRIVEN_PRODUCTION` golden replay. It remains non-live, noncanonical, external-output-only, and human-review-required.
 
+## Multi-Family Adapter Boundary
+
+The replay engine now resolves family-specific authority through a registered adapter contract before any universal replay step runs. The adapter is responsible for manifest and ledger identity, procedure authority, answer-contract shape, failure-signal allowance, primitive-data extraction, diagram policy, duplicate-inventory scope, and existing-record disposition.
+
+Implemented adapters:
+
+- `ForceSystemsFamilyAdapter`
+- `VectorOperationsFamilyAdapter`
+
+Unknown families fail closed. `moments_and_couples` remains in the capability matrix as an authority family with no finalized immutable replay records yet, so it is not a replay gate until records exist.
+
+Universal replay code consumes the adapter-produced row packet and must not silently inherit another family’s procedure, answer contract, failure-signal mapping, or duplicate inventory.
+
 ## Runtime Separation
 
 The replay boundary is split across three runtime components:
@@ -57,4 +70,4 @@ Pre-unseal duplicate analysis excludes the assigned benchmark and compares only 
 
 ## Scope Limit
 
-This implementation proves only the blind-boundary foundation for golden replay. It does not prove real production throughput, next-family generalization, replacement of existing authoring lanes, canonical promotion, live-platform readiness, or Alpha 2.0 launch gating.
+This implementation proves only the blind-boundary foundation for golden replay and adapter-driven multi-family replay over finalized immutable records. It does not prove real production throughput, ownership of unlanded rows, replacement of existing authoring lanes, canonical promotion, live-platform readiness, or Alpha 2.0 launch gating.

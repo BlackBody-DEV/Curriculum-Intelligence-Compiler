@@ -8,7 +8,15 @@ import shutil
 from pathlib import Path
 from typing import Any
 
-from .common import ensure_beneath, load_json, parse_component_vectors, sha256_file, write_json
+from .common import ensure_beneath, load_json, sha256_file, write_json
+from .family_adapters import (
+    DEFAULT_MIXED_REPLAY_FAMILY_KEYS,
+    FORCE_SYSTEMS_FAMILY_KEY,
+    UNAVAILABLE_FAMILY_CAPABILITIES,
+    get_family_adapter,
+    protected_family_workspace_roots,
+    registered_adapters,
+)
 from .golden_replay import MODE_IDENTIFIER, build_derivation_packet, build_generation_packet, run_one_record, utc_now
 from .candidate_generator import generate_candidate
 from .independent_deriver import derive_answer
@@ -16,7 +24,7 @@ from .golden_comparator import compare_to_benchmark
 
 EXECUTION_PROFILE = "GOLDEN_REPLAY"
 DEFAULT_PRODUCTION_ROOT = Path("/Users/fanarichardson/AxiomIQ_Work/phase_e/compiler_production")
-FORCE_SYSTEMS_ROOT = Path("/Users/fanarichardson/AxiomIQ_Work/phase_e/force_systems")
+FORCE_SYSTEMS_ROOT = get_family_adapter(FORCE_SYSTEMS_FAMILY_KEY).workspace
 ADAPTIVE_ROOT = Path("/Users/fanarichardson/adaptive-platform")
 COMPILER_MAIN_ROOT = Path("/Users/fanarichardson/Documents/AxiomIQ")
 REQUIRED_DIRS = ["runs", "dispatch", "candidates", "derivations", "reviews", "regenerations", "approved", "blocked", "exports", "logs"]
@@ -45,7 +53,7 @@ def resolve_production_root(explicit_root: Path | str | None = None) -> Path:
     if not root.is_absolute():
         raise PhaseEProductionError("production root must be absolute")
     root = root.resolve()
-    for protected in (COMPILER_MAIN_ROOT, ADAPTIVE_ROOT, FORCE_SYSTEMS_ROOT):
+    for protected in (COMPILER_MAIN_ROOT, ADAPTIVE_ROOT, *protected_family_workspace_roots()):
         protected_real = protected.resolve()
         if root == protected_real or protected_real in root.parents:
             raise PhaseEProductionError(f"production root may not be inside protected root: {protected}")
@@ -69,104 +77,43 @@ def prepare_production_root(root: Path | str | None = None) -> Path:
     return root
 
 
-def _artifact_to_row(artifact: dict[str, Any]) -> dict[str, Any]:
-    frozen = artifact["frozen_manifest_row"]
-    return {
-        "manifest_uuid": artifact["question_id"],
-        "ordinal": artifact["ordinal"],
-        "family_identifier": frozen.get("family_id", "Force Systems"),
-        "destination_canonical_path": artifact["reserved_canonical_path"],
-        "ledger_identity": {"ordinal": artifact["ordinal"], "question_id": artifact["question_id"], "canonical_path": artifact["reserved_canonical_path"]},
-        "signed_procedure": {"procedure_id": artifact["procedure_id"], "procedure_steps": artifact.get("procedure_steps_verbatim", [])},
-        "procedure_id": artifact["procedure_id"],
-        "procedure_sha256": artifact["procedure_sha256"],
-        "generation_family": frozen.get("generation_family", "golden_replay"),
-        "difficulty": frozen.get("difficulty_level", 1),
-        "question_type": artifact["question_type"],
-        "answer_type": artifact["answer_type"],
-        "answer_parts_contract": artifact.get("answer_parts_contract"),
-        "tolerance_policy": {"tolerance": artifact.get("tolerance") or frozen.get("tolerance")},
-        "permitted_failure_signals": artifact.get("permitted_failure_signals") or frozen.get("permitted_failure_signals", []),
-        "prompt_constraints": frozen.get("prompt_constraints", "Use text-only replay constraints."),
-        "primitive_input_data": _safe_numeric_primitive_data(artifact) if artifact.get("answer_type") == "numeric" else (frozen.get("supplied_primitive_data") or "complete-option support inventory scenario"),
-        "diagram_policy": {"diagram_required": bool(frozen.get("diagram_required", False))},
-        "uniqueness_constraints": [artifact["reserved_canonical_path"]],
-    }
+def family_capability_matrix() -> dict[str, Any]:
+    capabilities = {key: adapter.capability() for key, adapter in registered_adapters().items()}
+    capabilities.update(UNAVAILABLE_FAMILY_CAPABILITIES)
+    return capabilities
 
 
-def _safe_numeric_primitive_data(artifact: dict[str, Any]) -> str:
-    vectors = parse_component_vectors(str(artifact.get("prompt", "")))
-    if not vectors:
-        raise PhaseEProductionError(f"numeric artifact lacks generation-visible component vectors: {artifact.get('question_id')}")
-    vector_text = ", ".join(f"F{index}=<{x:g},{y:g}> N" for index, (x, y) in enumerate(vectors, start=1))
-    return f"Signed rectangular force components are {vector_text}. Determine only nonnegative resultant magnitude R."
+def select_family_cohort(family_key: str, *, count: int = 5) -> list[dict[str, Any]]:
+    adapter = get_family_adapter(family_key)
+    records = adapter.finalized_records()
+    if len(records) < count:
+        raise PhaseEProductionError(f"{family_key} has fewer than {count} finalized replay records")
+    return records[:count]
 
 
-def _artifact_to_benchmark(path: Path, artifact: dict[str, Any]) -> dict[str, Any]:
-    expected_answer: dict[str, Any]
-    if artifact["answer_type"] == "multiple_choice":
-        expected_answer = {"type": "multiple_choice", "correct_option_id": artifact["answer"]["option_id"]}
-        correct_option_id = artifact["answer"]["option_id"]
-    else:
-        answer = artifact["answers"][0]
-        expected_answer = {"type": "numeric", "value": round(float(answer["value"]), 6), "unit": answer.get("unit", "N")}
-        correct_option_id = None
-    return {
-        "benchmark_identifier": f"FS-{artifact['ordinal']:03d}-{artifact['question_id']}",
-        "source_path": str(path),
-        "source_sha256": sha256_file(path),
-        "manifest_uuid": artifact["question_id"],
-        "ordinal": artifact["ordinal"],
-        "procedure_id": artifact["procedure_id"],
-        "procedure_sha256": artifact["procedure_sha256"],
-        "question_type": artifact["question_type"],
-        "answer_type": artifact["answer_type"],
-        "benchmark_prompt": artifact.get("prompt", ""),
-        "expected_answer": expected_answer,
-        "worked_solution": artifact.get("solution", {}),
-        "correct_option_id": correct_option_id,
-        "answer_bearing_parameters": {"benchmark_answer_contract_complete": True},
-        "review_notes": "finalized external Force Systems record selected for golden replay",
-        "validation_conclusions": artifact.get("author_status", "AUTHOR_COMPLETE"),
-        "benchmark_canary": f"CANARY_FS_{artifact['ordinal']:03d}_{artifact['question_id'][:8]}",
-    }
+def select_replay_cohort(
+    family_keys: tuple[str, ...] = DEFAULT_MIXED_REPLAY_FAMILY_KEYS,
+    *,
+    count_per_family: int = 5,
+) -> list[dict[str, Any]]:
+    cohort: list[dict[str, Any]] = []
+    for family_key in family_keys:
+        cohort.extend(select_family_cohort(family_key, count=count_per_family))
+    return cohort
 
 
 def select_force_systems_cohort(force_systems_root: Path = FORCE_SYSTEMS_ROOT) -> list[dict[str, Any]]:
-    approved = force_systems_root / "approved"
-    records: list[dict[str, Any]] = []
-    for path in sorted(approved.glob("*.json")):
-        if path.name == "approved_manifest.json":
-            continue
-        artifact = load_json(path)
-        if artifact.get("author_status") != "AUTHOR_COMPLETE":
-            continue
-        if artifact.get("answer_type") not in {"numeric", "multiple_choice"}:
-            continue
-        if artifact.get("question_type") not in {"numeric_tolerance", "multiple_choice"}:
-            continue
-        records.append({"path": path, "artifact": artifact})
-    mc = [item for item in records if item["artifact"].get("answer_type") == "multiple_choice"][:5]
-    numeric = [item for item in records if item["artifact"].get("answer_type") == "numeric"][:5]
+    del force_systems_root
+    records = get_family_adapter(FORCE_SYSTEMS_FAMILY_KEY).finalized_records()
+    mc = [item for item in records if item["row"]["answer_type"] == "multiple_choice"][:5]
+    numeric = [item for item in records if item["row"]["answer_type"] == "numeric"][:5]
     if len(mc) != 5 or len(numeric) != 5:
         raise PhaseEProductionError("could not select 5 multiple-choice and 5 numeric finalized records")
-    selected = mc + numeric
-    return [
-        {
-            "source_path": str(item["path"]),
-            "source_sha256": sha256_file(item["path"]),
-            "row": _artifact_to_row(item["artifact"]),
-            "benchmark": _artifact_to_benchmark(item["path"], item["artifact"]),
-            "eligibility_evidence": {
-                "source": "immutable finalized external Force Systems approved record",
-                "author_status": item["artifact"].get("author_status"),
-                "stable_source_sha256": sha256_file(item["path"]),
-                "final_review_or_validation_evidence_present": True,
-                "active_editing_ownership": False,
-            },
-        }
-        for item in selected
-    ]
+    return mc + numeric
+
+
+def select_mixed_family_cohort() -> list[dict[str, Any]]:
+    return select_replay_cohort()
 
 
 def _record_dir(root: Path, run_id: str, record_identifier: str) -> Path:
@@ -206,6 +153,7 @@ def _export_package(root: Path, run_id: str, record_identifier: str, review_acti
         },
         "generation_input_manifest": load_json(record / "generation/generation_input_manifest.json"),
         "generated_replay_candidate": load_json(record / "generation/generated_candidate.json"),
+        "generated_candidate": load_json(record / "generation/generated_candidate.json"),
         "derivation_input_manifest": load_json(record / "derivation/derivation_input_manifest.json"),
         "independent_derivation": load_json(record / "derivation/independent_derivation.json"),
         "precomparison_seal": load_json(record / "precomparison/precomparison_seal.json"),
@@ -241,6 +189,16 @@ def _export_package(root: Path, run_id: str, record_identifier: str, review_acti
 def run_golden_replay(run_id: str = "PHASE_E_GOLDEN_REPLAY_004", *, production_root: Path | str | None = None) -> dict[str, Any]:
     root = prepare_production_root(production_root)
     cohort = select_force_systems_cohort()
+    return _run_replay_cohort(root=root, run_id=run_id, cohort=cohort)
+
+
+def run_multi_family_golden_replay(run_id: str = "PHASE_E_MULTI_FAMILY_REPLAY_011", *, production_root: Path | str | None = None) -> dict[str, Any]:
+    root = prepare_production_root(production_root)
+    cohort = select_mixed_family_cohort()
+    return _run_replay_cohort(root=root, run_id=run_id, cohort=cohort)
+
+
+def _run_replay_cohort(*, root: Path, run_id: str, cohort: list[dict[str, Any]]) -> dict[str, Any]:
     results: list[dict[str, Any]] = []
     exports: list[dict[str, Any]] = []
     for index, item in enumerate(cohort):
@@ -263,7 +221,7 @@ def run_golden_replay(run_id: str = "PHASE_E_GOLDEN_REPLAY_004", *, production_r
             create_precomparison_seal(_record_dir(root, run_id, record_id))
             compare_to_benchmark(record_dir=_record_dir(root, run_id, record_id), dispatch_dir=root / "dispatch" / run_id, benchmark_index_entry=load_json(root / "dispatch" / run_id / "golden_benchmark_index.json")[0])
             regeneration_lineage.append({"parent_action": "REJECT", "replacement_attempt": 2, "preserved_manifest_identity": True})
-        if index == 1:
+        if index == 5:
             review_actions.append({"action": "REGENERATE", "timestamp": utc_now(), "reason": "exercise regeneration workflow"})
             regeneration_lineage.append({"parent_candidate_id": record_id, "generation_attempt": 2, "preserved_manifest_identity": True})
         review_actions.append({"action": "LOCK", "timestamp": utc_now(), "verdict": "LOCKED_FOR_SHADOW_EXPORT"})
@@ -271,7 +229,7 @@ def run_golden_replay(run_id: str = "PHASE_E_GOLDEN_REPLAY_004", *, production_r
         export = _export_package(root, run_id, record_id, review_actions, regeneration_lineage)
         exports.append(export)
         results.append({**result, "review_actions": review_actions, "export": export, "eligibility_evidence": item["eligibility_evidence"], "source_path": item["source_path"], "source_sha256": item["source_sha256"]})
-    export_manifest = {"run_id": run_id, "mode": MODE_IDENTIFIER, "execution_profile": EXECUTION_PROFILE, "exports": exports, "status_labels": STATUS_LABELS}
+    export_manifest = {"run_id": run_id, "mode": MODE_IDENTIFIER, "execution_profile": EXECUTION_PROFILE, "exports": exports, "status_labels": STATUS_LABELS, "families": sorted({item["row"]["family_identifier"] for item in cohort})}
     export_manifest_path = root / "exports" / run_id / "shadow_export_manifest.json"
     write_json(export_manifest_path, export_manifest)
     summary = _write_reports(root, run_id, cohort, results, export_manifest_path)
@@ -288,13 +246,15 @@ def _write_reports(root: Path, run_id: str, cohort: list[dict[str, Any]], result
     logs = root / "logs" / run_id
     logs.mkdir(parents=True, exist_ok=True)
     numeric = [item for item in cohort if item["row"]["answer_type"] == "numeric"]
+    numeric_pair = [item for item in cohort if item["row"]["answer_type"] == "numeric_pair"]
     mc = [item for item in cohort if item["row"]["answer_type"] == "multiple_choice"]
     package_paths = [item["export"] for item in results]
     reports = {
         "build_report.json": {"mode": MODE_IDENTIFIER, "execution_profile": EXECUTION_PROFILE, "implementation_complete": True},
         "test_report.json": {"focused": "PASS", "full_suite": "PASS", "clean_room": "PASS_RECORDED"},
         "blind_boundary_report.json": {"generator_packets_benchmark_free": True, "derivation_packets_benchmark_free": True, "canary_leakage": 0, "premature_reads": 0},
-        "shadow_pilot_report.json": {"generated": 10, "final_locked": 10, "numeric": len(numeric), "multiple_choice": len(mc), "regenerated": 1, "rejected_replaced": 1},
+        "family_capability_matrix.json": family_capability_matrix(),
+        "shadow_pilot_report.json": {"generated": len(cohort), "final_locked": len(cohort), "numeric": len(numeric), "numeric_pair": len(numeric_pair), "multiple_choice": len(mc), "regenerated": 1, "rejected_replaced": 1},
         "workflow_comparison_report.json": {"claim": "golden replay only; no speed claim", "active_force_systems_workspace_modified": False},
         "human_walkthrough_report.json": {"dashboard_controller_walkthrough": "PASS", "browser_simulation": "NOT_USED"},
         "restart_reopen_report.json": {"restart_reopen": "PASS", "sealed_benchmarks_excluded_from_generator_state": True},
@@ -312,7 +272,9 @@ def _write_reports(root: Path, run_id: str, cohort: list[dict[str, Any]], result
         "execution_profile": EXECUTION_PROFILE,
         "selected_ids": [item["row"]["manifest_uuid"] for item in cohort],
         "selected_ordinals": [item["row"]["ordinal"] for item in cohort],
+        "families": sorted({item["row"]["family_identifier"] for item in cohort}),
         "numeric_count": len(numeric),
+        "numeric_pair_count": len(numeric_pair),
         "multiple_choice_count": len(mc),
         "packages": package_paths,
         "reports": report_entries,

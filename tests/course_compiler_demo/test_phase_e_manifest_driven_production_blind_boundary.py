@@ -53,6 +53,10 @@ def sample_row(answer_type="numeric"):
         "primitive_input_data": "One supplied component vector: F1=<10,0> N.",
         "diagram_policy": {"diagram_required": False},
         "uniqueness_constraints": ["avoid exact duplicate prompts"],
+        "existing_record_disposition": "finalized_immutable_golden_replay_source",
+        "adapter_identifier": "ForceSystemsFamilyAdapter",
+        "adapter_contract_version": "PHASE_E_FAMILY_ADAPTER_v0_1",
+        "adapter_metadata": {"source_path": "external/force/row-0001.json", "source_sha256": "source-sha"},
     }
 
 

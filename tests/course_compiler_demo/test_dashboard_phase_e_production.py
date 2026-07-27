@@ -12,6 +12,7 @@ from tools.course_compiler_demo.phase_e_production.production_mode import (
     resolve_production_root,
     run_golden_replay,
     select_force_systems_cohort,
+    select_mixed_family_cohort,
 )
 from tools.course_compiler_demo.phase_e_production.candidate_generator import generate_candidate
 
@@ -31,7 +32,9 @@ def test_phase_e_mode_and_cohort_are_dashboard_visible(tmp_path):
 
     cohort = ctrl.phase_e_cohort()
     assert len(cohort["records"]) == 10
-    assert sum(1 for record in cohort["records"] if record["answer_type"] == "numeric") == 5
+    assert sum(1 for record in cohort["records"] if record["family_identifier"] == "Force Systems") == 5
+    assert sum(1 for record in cohort["records"] if record["family_identifier"] == "Vector Operations") == 5
+    assert sum(1 for record in cohort["records"] if record["answer_type"] == "numeric_pair") == 5
     assert sum(1 for record in cohort["records"] if record["answer_type"] == "multiple_choice") == 5
 
 
@@ -45,8 +48,9 @@ def test_phase_e_golden_replay_exports_and_reopens_from_external_root(tmp_path, 
     ctrl = DashboardController(DashboardStorage(tmp_path / "dashboard"), phase_e_production_root=injected_root)
     summary = ctrl.phase_e_run_golden_replay("RUN_PHASE_E_TEST")
     assert summary["mode"] == MODE_IDENTIFIER
-    assert summary["numeric_count"] == 5
+    assert summary["numeric_pair_count"] == 5
     assert summary["multiple_choice_count"] == 5
+    assert summary["families"] == ["Force Systems", "Vector Operations"]
     assert len(summary["packages"]) == 10
     assert all(not Path(item["path"]).is_absolute() for item in summary["packages"])
     assert all((injected_root / item["path"]).exists() for item in summary["packages"])
@@ -127,6 +131,45 @@ def test_numeric_golden_replay_packets_do_not_include_exact_benchmark_prompt():
     assert benchmark_prompt not in str(generation_packet)
     assert benchmark_prompt not in str(derivation_packet)
     assert numeric["row"]["primitive_input_data"] in str(generation_packet)
+
+
+def test_force_systems_compatibility_replay_still_passes(tmp_path):
+    summary = run_golden_replay(run_id="RUN_FORCE_COMPAT", production_root=tmp_path)
+    assert summary["families"] == ["Force Systems"]
+    assert summary["numeric_count"] == 5
+    assert summary["multiple_choice_count"] == 5
+    assert len(summary["packages"]) == 10
+
+
+def test_mixed_family_cohort_uses_registered_adapters():
+    cohort = select_mixed_family_cohort()
+    assert len(cohort) == 10
+    adapters = {item["row"]["adapter_identifier"] for item in cohort}
+    assert adapters == {"ForceSystemsFamilyAdapter", "VectorOperationsFamilyAdapter"}
+    assert sum(1 for item in cohort if item["row"]["family_identifier"] == "Vector Operations") == 5
+    assert all(item["row"]["answer_type"] == "numeric_pair" for item in cohort if item["row"]["family_identifier"] == "Vector Operations")
+
+
+def test_vector_operations_numeric_pair_replay_agrees(tmp_path):
+    vector_item = [item for item in select_mixed_family_cohort() if item["row"]["family_identifier"] == "Vector Operations"][0]
+    generation_packet = build_generation_packet(vector_item["row"], generation_seed="seed")
+    candidate = generate_candidate(generation_packet)
+    derivation_packet = build_derivation_packet(candidate, vector_item["row"])
+    assert vector_item["benchmark"]["benchmark_prompt"] not in str(generation_packet)
+    assert vector_item["benchmark"]["benchmark_prompt"] not in str(derivation_packet)
+    assert generation_packet["adapter_identifier"] == "VectorOperationsFamilyAdapter"
+    assert generation_packet["adapter_contract_version"] == "PHASE_E_FAMILY_ADAPTER_v0_1"
+    assert "adapter_metadata" in generation_packet
+    assert candidate["answer_type"] == "numeric_pair"
+    assert candidate["expected_answer_proposal"] == vector_item["benchmark"]["expected_answer"]
+
+
+def test_unknown_phase_e_family_fails_closed():
+    import pytest
+    from tools.course_compiler_demo.phase_e_production.family_adapters import FamilyAdapterError, get_family_adapter
+
+    with pytest.raises(FamilyAdapterError):
+        get_family_adapter("unknown_family")
 
 
 def test_phase_e_external_root_rejects_protected_locations():

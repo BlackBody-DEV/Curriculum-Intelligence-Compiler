@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 from .common import resultant_magnitude_from_text
+from .family_adapters import vector_components_from_primitive
 
 PROHIBITED_BENCHMARK_FIELDS = {
     "benchmark_prompt",
@@ -69,6 +70,9 @@ def generate_candidate(packet: dict[str, Any]) -> dict[str, Any]:
             {"option_id": "D", "content": "Inventory requires undeclared geometry."},
         ]
         answer = {"type": "multiple_choice", "correct_option_id": "A"}
+    elif answer_type == "numeric_pair":
+        options = []
+        answer = vector_components_from_primitive(primitive_text)
     else:
         value = resultant_magnitude_from_text(prompt)
         options = []

@@ -22,8 +22,9 @@ from tools.course_compiler_demo.phase_e_production.production_mode import (
     MODE_IDENTIFIER as PHASE_E_MODE_IDENTIFIER,
     reopen_golden_replay,
     resolve_production_root,
+    run_multi_family_golden_replay,
     run_golden_replay,
-    select_force_systems_cohort,
+    select_mixed_family_cohort,
 )
 
 from .calculus_generation import (
@@ -116,7 +117,7 @@ class DashboardController:
         }
 
     def phase_e_cohort(self) -> dict[str, Any]:
-        cohort = select_force_systems_cohort()
+        cohort = select_mixed_family_cohort()
         return {
             "mode_identifier": PHASE_E_MODE_IDENTIFIER,
             "execution_profile": PHASE_E_EXECUTION_PROFILE,
@@ -127,6 +128,8 @@ class DashboardController:
                     "answer_type": item["row"]["answer_type"],
                     "question_type": item["row"]["question_type"],
                     "procedure_id": item["row"]["procedure_id"],
+                    "family_identifier": item["row"]["family_identifier"],
+                    "adapter_identifier": item["row"]["adapter_identifier"],
                     "source_sha256": item["source_sha256"],
                     "eligibility_evidence": item["eligibility_evidence"],
                 }
@@ -135,6 +138,12 @@ class DashboardController:
         }
 
     def phase_e_run_golden_replay(self, run_id: str = "PHASE_E_GOLDEN_REPLAY_004") -> dict[str, Any]:
+        root = self._phase_e_root_for_run(run_id)
+        summary = run_multi_family_golden_replay(run_id=run_id, production_root=root)
+        self._remember_phase_e_run_root(run_id, root)
+        return summary
+
+    def phase_e_run_force_systems_golden_replay(self, run_id: str = "PHASE_E_GOLDEN_REPLAY_004") -> dict[str, Any]:
         root = self._phase_e_root_for_run(run_id)
         summary = run_golden_replay(run_id=run_id, production_root=root)
         self._remember_phase_e_run_root(run_id, root)

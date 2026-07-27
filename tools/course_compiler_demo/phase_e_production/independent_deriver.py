@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 from .common import resultant_magnitude_from_text
+from .family_adapters import vector_components_from_primitive
 
 PROHIBITED_BENCHMARK_FIELDS = {
     "benchmark_prompt",
@@ -60,6 +61,14 @@ def derive_answer(packet: dict[str, Any]) -> dict[str, Any]:
             "Read the generated options after candidate finalization.",
             "Apply the declared support/inventory procedure constraints.",
             "Select the only option preserving every required terminal deliverable.",
+        ]
+    elif candidate["answer_type"] == "numeric_pair":
+        primitive_text = str(packet.get("supplied_primitive_data_in_generated_question", ""))
+        normalized = vector_components_from_primitive(primitive_text)
+        steps = [
+            "Read the candidate-supplied vector magnitude, reference axis, angle, and component signs.",
+            "Resolve adjacent and opposite components from the declared reference axis.",
+            "Apply the declared signs and preserve the ordered pair contract F_x, F_y.",
         ]
     else:
         value = resultant_magnitude_from_text(str(candidate.get("prompt", "")))
