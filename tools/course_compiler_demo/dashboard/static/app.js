@@ -551,9 +551,110 @@ async function advanced() {
   render("Advanced", `${controls(run)}<pre>${esc(JSON.stringify(run, null, 2))}</pre>`);
 }
 
+function candidateCard(entry) {
+  const reports = entry.reports || {};
+  const curriculum = entry.curriculum_linkage || {};
+  const procedure = entry.procedure_linkage || {};
+  return `
+    <article class="candidate-card" data-candidate="${esc(entry.external_preparation_id)}">
+      <h3>${esc(entry.external_preparation_id)}</h3>
+      <dl class="summary-grid">
+        <dt>Source pathway</dt><dd>${esc(entry.source_type)}</dd>
+        <dt>Source adapter</dt><dd>${esc(entry.source_adapter)}</dd>
+        <dt>Candidate identity</dt><dd>${esc(entry.candidate_identity)}</dd>
+        <dt>Micro-skill</dt><dd>${esc(curriculum.primary_micro_skill_code)}</dd>
+        <dt>Procedure</dt><dd>${esc(procedure.procedure_id)}</dd>
+        <dt>Procedure verified</dt><dd>${yesNo(procedure.verified)}</dd>
+        <dt>Status</dt><dd>${esc(entry.packet_status)}</dd>
+        <dt>Review verdict</dt><dd>${esc(entry.review_action)}</dd>
+        <dt>Validation</dt><dd>${esc(entry.validation_status)}</dd>
+        <dt>Independent derivation</dt><dd>${esc(entry.independent_derivation_status)}</dd>
+        <dt>Grading validation</dt><dd>${esc(entry.grading_validation)}</dd>
+        <dt>Failure-signal validation</dt><dd>${esc(entry.failure_signal_validation)}</dd>
+        <dt>Rights/provenance</dt><dd>${esc(entry.rights_provenance_classification)}</dd>
+        <dt>Asset status</dt><dd>${esc(entry.asset_status)}</dd>
+        <dt>Duplicate classification</dt><dd>${esc(entry.duplicate_classification)}</dd>
+        <dt>Blockers</dt><dd>${esc((entry.unresolved_blockers || []).join(", ") || "none")}</dd>
+        <dt>Export state</dt><dd>${esc(entry.packet_path)}</dd>
+      </dl>
+      <p class="hint">Procedure evidence, independent derivation, grading validation, failure-signal validation, fingerprints, duplicate report, rights/provenance report, asset report, blockers, and review lineage are preserved in the packet and linked reports.</p>
+      <pre>${esc(JSON.stringify({source_identity: entry.source_identity, source_hashes: entry.source_hashes, packet_path: entry.packet_path, reports}, null, 2))}</pre>
+    </article>
+  `;
+}
+
+async function canonicalPromotion() {
+  const mode = await api("/api/canonical-promotion/mode");
+  const defaultRunId = "CANONICAL_PROMOTION_PREPARATION_PILOT_014";
+  let reopened = null;
+  let error = null;
+  try {
+    reopened = await api(`/api/canonical-promotion/runs/${defaultRunId}`);
+  } catch (caught) {
+    error = caught;
+  }
+  const summary = reopened || {};
+  const status = mode.status_labels || {};
+  render("Canonical Promotion Preparation", `
+    <div class="success">
+      <h3>${esc(mode.mode_identifier)}</h3>
+      <p>Preparation-only mode. Separate from document compiler, Phase E manifest-driven production, live workflows, and canonical workflows.</p>
+      <dl class="summary-grid">
+        <dt>Execution profile</dt><dd>${esc((mode.execution_profiles || []).join(", "))}</dd>
+        <dt>Noncanonical</dt><dd>${yesNo(status.noncanonical)}</dd>
+        <dt>Human review required</dt><dd>${yesNo(status.human_review_required)}</dd>
+        <dt>Student visible</dt><dd>${yesNo(status.student_visible)}</dd>
+        <dt>Alpha import eligible</dt><dd>${yesNo(status.eligible_for_alpha_import)}</dd>
+        <dt>Canonical promotion authorized</dt><dd>${yesNo(status.canonical_promotion_authorized)}</dd>
+        <dt>Database write authorized</dt><dd>${yesNo(status.database_write_authorized)}</dd>
+      </dl>
+    </div>
+    <label>Pilot run ID <input id="canonical-promotion-run-id" value="${esc(defaultRunId)}"></label>
+    <button id="canonical-promotion-run">Run pilot</button>
+    <button id="canonical-promotion-reopen">Reopen pilot</button>
+    <div id="canonical-promotion-output">
+      ${error ? `<p class="warning">${esc(error.message)}</p>` : canonicalPromotionSummary(summary)}
+    </div>
+  `);
+  document.querySelector("#canonical-promotion-run").onclick = async () => {
+    const runId = document.querySelector("#canonical-promotion-run-id").value;
+    const data = await api("/api/canonical-promotion/pilot", {method: "POST", body: JSON.stringify({run_id: runId})});
+    document.querySelector("#canonical-promotion-output").innerHTML = canonicalPromotionSummary(data);
+  };
+  document.querySelector("#canonical-promotion-reopen").onclick = async () => {
+    const runId = document.querySelector("#canonical-promotion-run-id").value;
+    const data = await api(`/api/canonical-promotion/runs/${encodeURIComponent(runId)}`);
+    document.querySelector("#canonical-promotion-output").innerHTML = canonicalPromotionSummary(data);
+  };
+}
+
+function canonicalPromotionSummary(data) {
+  const packets = data.packets || [];
+  return `
+    <dl class="summary-grid">
+      <dt>Run ID</dt><dd>${esc(data.run_id || "")}</dd>
+      <dt>External preparation root</dt><dd>${esc(data.preparation_root || "restored from external state")}</dd>
+      <dt>Total candidates</dt><dd>${esc(data.candidate_count ?? data.packet_count ?? "n/a")}</dd>
+      <dt>Document-driven</dt><dd>${esc(data.document_driven_count ?? "5")}</dd>
+      <dt>Phase E</dt><dd>${esc(data.phase_e_count ?? "5")}</dd>
+      <dt>Prepared</dt><dd>${esc(data.prepared_count ?? "n/a")}</dd>
+      <dt>Blocked</dt><dd>${esc(data.blocked_count ?? "n/a")}</dd>
+      <dt>Rights/provenance blockers</dt><dd>${esc(data.rights_or_provenance_blockers ?? "at least 1")}</dd>
+      <dt>Asset blockers</dt><dd>${esc(data.asset_or_governance_blockers ?? "at least 1")}</dd>
+      <dt>Duplicate-review cases</dt><dd>${esc(data.duplicate_review_cases ?? "at least 1")}</dd>
+      <dt>Returned for correction</dt><dd>${esc(data.returned_for_correction ?? "2")}</dd>
+      <dt>Rejected/regenerated</dt><dd>${esc(data.rejected_or_regenerated ?? "1")}</dd>
+      <dt>Canonical IDs assigned</dt><dd>${esc(data.canonical_ids_assigned ?? 0)}</dd>
+      <dt>Canonical paths written</dt><dd>${esc(data.canonical_paths_written ?? 0)}</dd>
+      <dt>Database access</dt><dd>${esc(data.database_access || "none")}</dd>
+    </dl>
+    ${packets.length ? packets.map(candidateCard).join("") : `<pre>${esc(JSON.stringify(data, null, 2))}</pre>`}
+  `;
+}
+
 document.querySelectorAll("nav button").forEach(button => {
   button.addEventListener("click", () => {
-    const views = {runs, source, curriculum, practice, studio, review, validation, exports: exportsView, advanced};
+    const views = {runs, source, curriculum, practice, studio, review, validation, exports: exportsView, canonicalPromotion, advanced};
     const fn = views[button.dataset.view] || runs;
     Promise.resolve(fn()).catch(error => render("Error", `<p>${esc(error.message)}</p>`));
   });

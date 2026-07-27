@@ -89,6 +89,10 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                 return self._json(self.controller.phase_e_cohort())
             if len(parts) == 4 and parts[:3] == ["api", "phase-e", "runs"]:
                 return self._json(self.controller.phase_e_reopen(parts[3]))
+            if parsed.path == "/api/canonical-promotion/mode":
+                return self._json(self.controller.canonical_promotion_mode())
+            if len(parts) == 4 and parts[:3] == ["api", "canonical-promotion", "runs"]:
+                return self._json(self.controller.canonical_promotion_reopen(parts[3]))
             if parsed.path == "/api/runs":
                 return self._json({"runs": self.controller.list_runs()})
             if len(parts) == 4 and parts[0] == "api" and parts[1] == "runs" and parts[3] == "generation-families":
@@ -149,6 +153,12 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
             payload = self._read_json()
             if parsed.path == "/api/phase-e/golden-replay":
                 return self._json(self.controller.phase_e_run_golden_replay(str(payload.get("run_id", "PHASE_E_GOLDEN_REPLAY_004"))))
+            if parsed.path == "/api/canonical-promotion/pilot":
+                return self._json(
+                    self.controller.canonical_promotion_run_pilot(
+                        str(payload.get("run_id", "CANONICAL_PROMOTION_PREPARATION_PILOT_014"))
+                    )
+                )
             if parsed.path == "/api/runs":
                 return self._json(self.controller.create_run(payload))
             if len(parts) == 4 and parts[0] == "api" and parts[1] == "runs":

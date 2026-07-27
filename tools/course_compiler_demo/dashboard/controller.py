@@ -26,6 +26,13 @@ from tools.course_compiler_demo.phase_e_production.production_mode import (
     run_golden_replay,
     select_mixed_family_cohort,
 )
+from tools.course_compiler_demo.canonical_promotion.preparation_mode import (
+    EXECUTION_PROFILE as CANONICAL_PROMOTION_EXECUTION_PROFILE,
+    MODE_IDENTIFIER as CANONICAL_PROMOTION_MODE_IDENTIFIER,
+    reopen_preparation_run,
+    resolve_preparation_root,
+    run_preparation_pilot,
+)
 
 from .calculus_generation import (
     CALCULUS_FAMILY_ID,
@@ -71,9 +78,11 @@ class DashboardController:
         *,
         startup_cleanup: bool = True,
         phase_e_production_root: Path | str | None = None,
+        canonical_promotion_root: Path | str | None = None,
     ) -> None:
         self.storage = storage or DashboardStorage(DEFAULT_DASHBOARD_ROOT)
         self.phase_e_production_root = resolve_production_root(phase_e_production_root)
+        self.canonical_promotion_root = resolve_preparation_root(canonical_promotion_root)
         self._source_text_cache: dict[str, str] = {}
         self.intake_jobs = IntakeJobManager(self.storage, self)
         if startup_cleanup:
@@ -115,6 +124,71 @@ class DashboardController:
                 "replay export retrieval",
             ],
         }
+
+    def canonical_promotion_mode(self) -> dict[str, Any]:
+        return {
+            "mode_identifier": CANONICAL_PROMOTION_MODE_IDENTIFIER,
+            "execution_profiles": [CANONICAL_PROMOTION_EXECUTION_PROFILE],
+            "status_labels": {
+                "noncanonical": True,
+                "human_review_required": True,
+                "student_visible": False,
+                "eligible_for_alpha_import": False,
+                "canonical_promotion_authorized": False,
+                "database_write_authorized": False,
+            },
+            "dashboard_behavior": [
+                "source pathway display",
+                "source adapter display",
+                "candidate identity display",
+                "curriculum linkage",
+                "procedure verification",
+                "derivation result",
+                "grading result",
+                "rights/provenance evidence",
+                "asset status",
+                "fingerprints",
+                "duplicate classification",
+                "review verdict",
+                "unresolved blockers",
+                "preparation-export status",
+                "reopen run",
+                "recover after restart",
+                "retrieve preparation export",
+            ],
+        }
+
+    def canonical_promotion_run_pilot(self, run_id: str = "CANONICAL_PROMOTION_PREPARATION_PILOT_014") -> dict[str, Any]:
+        root = self._canonical_promotion_root_for_run(run_id)
+        summary = run_preparation_pilot(run_id=run_id, preparation_root=root)
+        self._remember_canonical_promotion_run_root(run_id, root)
+        return summary
+
+    def canonical_promotion_reopen(self, run_id: str) -> dict[str, Any]:
+        return reopen_preparation_run(run_id, preparation_root=self._canonical_promotion_root_for_run(run_id))
+
+    def _canonical_promotion_roots_path(self) -> Path:
+        return self.storage.root / "canonical_promotion_run_roots.json"
+
+    def _load_canonical_promotion_run_roots(self) -> dict[str, str]:
+        path = self._canonical_promotion_roots_path()
+        if not path.exists():
+            return {}
+        data = load_json(path)
+        return data.get("run_roots", {}) if isinstance(data, dict) else {}
+
+    def _remember_canonical_promotion_run_root(self, run_id: str, root: Path) -> None:
+        run_id = validate_identifier(run_id, "canonical promotion run ID")
+        roots = self._load_canonical_promotion_run_roots()
+        roots[run_id] = str(resolve_preparation_root(root))
+        self._canonical_promotion_roots_path().write_text(pretty_json({"run_roots": roots}), encoding="utf-8")
+
+    def _canonical_promotion_root_for_run(self, run_id: str) -> Path:
+        run_id = validate_identifier(run_id, "canonical promotion run ID")
+        roots = self._load_canonical_promotion_run_roots()
+        if run_id in roots:
+            return resolve_preparation_root(roots[run_id])
+        return self.canonical_promotion_root
 
     def phase_e_cohort(self) -> dict[str, Any]:
         cohort = select_mixed_family_cohort()
