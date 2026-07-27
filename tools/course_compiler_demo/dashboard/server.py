@@ -83,6 +83,12 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                 return self._json({"profiles": self.controller.list_profiles()})
             if parsed.path == "/api/generation-families":
                 return self._json({"generation_families": self.controller.list_generation_families()})
+            if parsed.path == "/api/phase-e/mode":
+                return self._json(self.controller.phase_e_mode())
+            if parsed.path == "/api/phase-e/cohort":
+                return self._json(self.controller.phase_e_cohort())
+            if len(parts) == 4 and parts[:3] == ["api", "phase-e", "runs"]:
+                return self._json(self.controller.phase_e_reopen(parts[3]))
             if parsed.path == "/api/runs":
                 return self._json({"runs": self.controller.list_runs()})
             if len(parts) == 4 and parts[0] == "api" and parts[1] == "runs" and parts[3] == "generation-families":
@@ -141,6 +147,8 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                 return self._json(self.controller.start_pdf_intake_job(parts[2], payload))
 
             payload = self._read_json()
+            if parsed.path == "/api/phase-e/golden-replay":
+                return self._json(self.controller.phase_e_run_golden_replay(str(payload.get("run_id", "PHASE_E_GOLDEN_REPLAY_004"))))
             if parsed.path == "/api/runs":
                 return self._json(self.controller.create_run(payload))
             if len(parts) == 4 and parts[0] == "api" and parts[1] == "runs":

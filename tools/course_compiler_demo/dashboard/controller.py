@@ -17,6 +17,13 @@ from tools.course_compiler_demo.assessment_generation.validators import review_r
 from tools.course_compiler_demo.ingest.document_classifier import classify_document, detect_math_course_level, detect_subject
 from tools.course_compiler_demo.ingest.input_loader import SUPPORTED_INPUT_FORMATS
 from tools.course_compiler_demo.profiles.subject_profile_loader import build_profile_run, load_profile
+from tools.course_compiler_demo.phase_e_production.production_mode import (
+    EXECUTION_PROFILE as PHASE_E_EXECUTION_PROFILE,
+    MODE_IDENTIFIER as PHASE_E_MODE_IDENTIFIER,
+    reopen_golden_replay,
+    run_golden_replay,
+    select_force_systems_cohort,
+)
 
 from .calculus_generation import (
     CALCULUS_FAMILY_ID,
@@ -70,6 +77,60 @@ class DashboardController:
             "student_visible": False,
             "pdf_limits": pdf_limit_snapshot(),
         }
+
+    def phase_e_mode(self) -> dict[str, Any]:
+        return {
+            "mode_identifier": PHASE_E_MODE_IDENTIFIER,
+            "execution_profiles": [PHASE_E_EXECUTION_PROFILE],
+            "status_labels": {
+                "noncanonical": True,
+                "human_review_required": True,
+                "student_visible": False,
+                "eligible_for_alpha_import": False,
+                "shadow_mode": True,
+                "golden_replay": True,
+                "production_candidate": False,
+            },
+            "dashboard_behavior": [
+                "mode selection",
+                "GOLDEN_REPLAY profile selection",
+                "golden cohort display",
+                "generation progress",
+                "derivation progress",
+                "precomparison seal status",
+                "benchmark access audit",
+                "LOCK",
+                "REJECT",
+                "REGENERATE",
+                "run reopening",
+                "replay export retrieval",
+            ],
+        }
+
+    def phase_e_cohort(self) -> dict[str, Any]:
+        cohort = select_force_systems_cohort()
+        return {
+            "mode_identifier": PHASE_E_MODE_IDENTIFIER,
+            "execution_profile": PHASE_E_EXECUTION_PROFILE,
+            "records": [
+                {
+                    "manifest_uuid": item["row"]["manifest_uuid"],
+                    "ordinal": item["row"]["ordinal"],
+                    "answer_type": item["row"]["answer_type"],
+                    "question_type": item["row"]["question_type"],
+                    "procedure_id": item["row"]["procedure_id"],
+                    "source_sha256": item["source_sha256"],
+                    "eligibility_evidence": item["eligibility_evidence"],
+                }
+                for item in cohort
+            ],
+        }
+
+    def phase_e_run_golden_replay(self, run_id: str = "PHASE_E_GOLDEN_REPLAY_004") -> dict[str, Any]:
+        return run_golden_replay(run_id=run_id)
+
+    def phase_e_reopen(self, run_id: str) -> dict[str, Any]:
+        return reopen_golden_replay(run_id)
 
     def list_profiles(self) -> list[dict[str, Any]]:
         physics = load_profile(PHYSICS_PROFILE_PATH)
