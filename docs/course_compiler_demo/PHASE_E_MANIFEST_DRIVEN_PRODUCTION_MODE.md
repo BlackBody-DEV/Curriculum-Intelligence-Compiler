@@ -38,6 +38,19 @@ The seal records candidate and derivation hashes and marks both as immutable. Th
 
 Every sealed benchmark access attempt is logged. Authorized comparator reads are recorded separately from rejected generator, deriver, premature comparator, path escape, and unknown-identifier attempts. Benchmark canaries are tested to remain absent from precomparison artifacts and to appear only during authorized comparison output.
 
+## Operational Root
+
+Phase E replay artifacts are written only under a resolved external production root. Root selection is centralized and uses this precedence:
+
+1. explicit function or controller argument
+2. controller configuration
+3. `PHASE_E_COMPILER_PRODUCTION_ROOT`
+4. default external root
+
+The resolved root must be absolute, realpath-normalized, writable for write operations, and outside the compiler repository, adaptive-platform, and the active Force Systems workspace. Preexisting child directories are checked for symlink escape before writes begin.
+
+Dashboard replay persists the root selected for each run, so reopen and restart paths use the original run root instead of re-reading the current environment. Export manifests store package paths relative to the resolved root so copied clean-room roots can reopen without falling back to absolute paths from the original machine location.
+
 ## Duplicate Separation
 
 Pre-unseal duplicate analysis excludes the assigned benchmark and compares only against non-benchmark records and other replay candidates. Benchmark comparison occurs only after unseal. Exact benchmark wording matches produce a leakage-review warning rather than automatic success.

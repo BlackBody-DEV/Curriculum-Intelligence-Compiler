@@ -21,6 +21,7 @@ from tools.course_compiler_demo.phase_e_production.production_mode import (
     EXECUTION_PROFILE as PHASE_E_EXECUTION_PROFILE,
     MODE_IDENTIFIER as PHASE_E_MODE_IDENTIFIER,
     reopen_golden_replay,
+    resolve_production_root,
     run_golden_replay,
     select_force_systems_cohort,
 )
@@ -63,8 +64,15 @@ class DashboardControllerError(ValueError):
 
 
 class DashboardController:
-    def __init__(self, storage: DashboardStorage | None = None, *, startup_cleanup: bool = True) -> None:
+    def __init__(
+        self,
+        storage: DashboardStorage | None = None,
+        *,
+        startup_cleanup: bool = True,
+        phase_e_production_root: Path | str | None = None,
+    ) -> None:
         self.storage = storage or DashboardStorage(DEFAULT_DASHBOARD_ROOT)
+        self.phase_e_production_root = resolve_production_root(phase_e_production_root)
         self._source_text_cache: dict[str, str] = {}
         self.intake_jobs = IntakeJobManager(self.storage, self)
         if startup_cleanup:
@@ -127,10 +135,36 @@ class DashboardController:
         }
 
     def phase_e_run_golden_replay(self, run_id: str = "PHASE_E_GOLDEN_REPLAY_004") -> dict[str, Any]:
-        return run_golden_replay(run_id=run_id)
+        root = self._phase_e_root_for_run(run_id)
+        summary = run_golden_replay(run_id=run_id, production_root=root)
+        self._remember_phase_e_run_root(run_id, root)
+        return summary
 
     def phase_e_reopen(self, run_id: str) -> dict[str, Any]:
-        return reopen_golden_replay(run_id)
+        return reopen_golden_replay(run_id, production_root=self._phase_e_root_for_run(run_id))
+
+    def _phase_e_roots_path(self) -> Path:
+        return self.storage.root / "phase_e_run_roots.json"
+
+    def _load_phase_e_run_roots(self) -> dict[str, str]:
+        path = self._phase_e_roots_path()
+        if not path.exists():
+            return {}
+        data = load_json(path)
+        return data.get("run_roots", {}) if isinstance(data, dict) else {}
+
+    def _remember_phase_e_run_root(self, run_id: str, root: Path) -> None:
+        run_id = validate_identifier(run_id, "Phase E run ID")
+        roots = self._load_phase_e_run_roots()
+        roots[run_id] = str(resolve_production_root(root))
+        self._phase_e_roots_path().write_text(pretty_json({"run_roots": roots}), encoding="utf-8")
+
+    def _phase_e_root_for_run(self, run_id: str) -> Path:
+        run_id = validate_identifier(run_id, "Phase E run ID")
+        roots = self._load_phase_e_run_roots()
+        if run_id in roots:
+            return resolve_production_root(roots[run_id])
+        return self.phase_e_production_root
 
     def list_profiles(self) -> list[dict[str, Any]]:
         physics = load_profile(PHYSICS_PROFILE_PATH)

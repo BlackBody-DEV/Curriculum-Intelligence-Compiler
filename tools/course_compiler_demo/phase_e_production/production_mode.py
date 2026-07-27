@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 from pathlib import Path
 from typing import Any
@@ -34,15 +35,34 @@ class PhaseEProductionError(ValueError):
     pass
 
 
-def prepare_production_root(root: Path = DEFAULT_PRODUCTION_ROOT) -> Path:
-    root = root.expanduser().resolve()
+def resolve_production_root(explicit_root: Path | str | None = None) -> Path:
+    raw_root = explicit_root
+    if raw_root is None:
+        raw_root = os.environ.get("PHASE_E_COMPILER_PRODUCTION_ROOT")
+    if raw_root is None:
+        raw_root = DEFAULT_PRODUCTION_ROOT
+    root = Path(raw_root).expanduser()
+    if not root.is_absolute():
+        raise PhaseEProductionError("production root must be absolute")
+    root = root.resolve()
     for protected in (COMPILER_MAIN_ROOT, ADAPTIVE_ROOT, FORCE_SYSTEMS_ROOT):
         protected_real = protected.resolve()
         if root == protected_real or protected_real in root.parents:
             raise PhaseEProductionError(f"production root may not be inside protected root: {protected}")
+    return root
+
+
+def prepare_production_root(root: Path | str | None = None) -> Path:
+    root = resolve_production_root(root)
     root.mkdir(parents=True, exist_ok=True)
     for name in REQUIRED_DIRS:
-        (root / name).mkdir(parents=True, exist_ok=True)
+        child = root / name
+        if child.exists() or child.is_symlink():
+            try:
+                ensure_beneath(root, child)
+            except ValueError as exc:
+                raise PhaseEProductionError(f"production root child escapes root: {child}") from exc
+        child.mkdir(parents=True, exist_ok=True)
     state_path = root / "state.json"
     if not state_path.exists():
         write_json(state_path, {"mode": MODE_IDENTIFIER, "execution_profile": EXECUTION_PROFILE, "runs": []})
@@ -153,6 +173,17 @@ def _record_dir(root: Path, run_id: str, record_identifier: str) -> Path:
     return root / "runs" / run_id / record_identifier
 
 
+def _root_relative(root: Path, path: Path) -> str:
+    return ensure_beneath(root, path).relative_to(root).as_posix()
+
+
+def _path_from_root(root: Path, relative_path: str) -> Path:
+    path = Path(relative_path)
+    if path.is_absolute() or ".." in path.parts:
+        raise PhaseEProductionError(f"unsafe root-relative path: {relative_path}")
+    return ensure_beneath(root, root / path)
+
+
 def _write_review(root: Path, run_id: str, record_identifier: str, actions: list[dict[str, Any]]) -> list[dict[str, Any]]:
     path = root / "reviews" / run_id / f"{record_identifier}.json"
     write_json(path, {"record_identifier": record_identifier, "review_actions": actions})
@@ -193,8 +224,8 @@ def _export_package(root: Path, run_id: str, record_identifier: str, review_acti
         "review_actions": review_actions,
         "regeneration_lineage": regeneration_lineage,
         "source_authority": {
-            "authority_snapshot_manifest": str(dispatch / "authority_snapshot_manifest.json"),
-            "golden_benchmark_index": str(dispatch / "golden_benchmark_index.json"),
+            "authority_snapshot_manifest": _root_relative(root, dispatch / "authority_snapshot_manifest.json"),
+            "golden_benchmark_index": _root_relative(root, dispatch / "golden_benchmark_index.json"),
         },
         "safety": {
             "production_row_ownership": False,
@@ -204,10 +235,10 @@ def _export_package(root: Path, run_id: str, record_identifier: str, review_acti
     }
     out = root / "exports" / run_id / "golden_replay" / f"{record_identifier}.json"
     write_json(out, package)
-    return {"record_identifier": record_identifier, "path": str(out), "sha256": sha256_file(out)}
+    return {"record_identifier": record_identifier, "path": _root_relative(root, out), "sha256": sha256_file(out)}
 
 
-def run_golden_replay(run_id: str = "PHASE_E_GOLDEN_REPLAY_004", *, production_root: Path = DEFAULT_PRODUCTION_ROOT) -> dict[str, Any]:
+def run_golden_replay(run_id: str = "PHASE_E_GOLDEN_REPLAY_004", *, production_root: Path | str | None = None) -> dict[str, Any]:
     root = prepare_production_root(production_root)
     cohort = select_force_systems_cohort()
     results: list[dict[str, Any]] = []
@@ -248,6 +279,7 @@ def run_golden_replay(run_id: str = "PHASE_E_GOLDEN_REPLAY_004", *, production_r
     state.setdefault("runs", [])
     if run_id not in state["runs"]:
         state["runs"].append(run_id)
+    state.setdefault("run_roots", {})[run_id] = str(root)
     write_json(root / "state.json", state)
     return summary
 
@@ -273,7 +305,7 @@ def _write_reports(root: Path, run_id: str, cohort: list[dict[str, Any]], result
     for name, payload in reports.items():
         path = logs / name
         write_json(path, payload)
-        report_entries.append({"path": str(path), "sha256": sha256_file(path)})
+        report_entries.append({"path": _root_relative(root, path), "sha256": sha256_file(path)})
     summary = {
         "run_id": run_id,
         "mode": MODE_IDENTIFIER,
@@ -284,19 +316,19 @@ def _write_reports(root: Path, run_id: str, cohort: list[dict[str, Any]], result
         "multiple_choice_count": len(mc),
         "packages": package_paths,
         "reports": report_entries,
-        "export_manifest": {"path": str(export_manifest_path), "sha256": sha256_file(export_manifest_path)},
-        "authority_snapshot_manifest": {"path": str(root / "dispatch" / run_id / "authority_snapshot_manifest.json"), "sha256": sha256_file(root / "dispatch" / run_id / "authority_snapshot_manifest.json")},
-        "golden_benchmark_index": {"path": str(root / "dispatch" / run_id / "golden_benchmark_index.json"), "sha256": sha256_file(root / "dispatch" / run_id / "golden_benchmark_index.json")},
-        "sealed_benchmark_manifest": {"path": str(root / "dispatch" / run_id / "sealed_benchmark_manifest.json"), "sha256": sha256_file(root / "dispatch" / run_id / "sealed_benchmark_manifest.json")},
+        "export_manifest": {"path": _root_relative(root, export_manifest_path), "sha256": sha256_file(export_manifest_path)},
+        "authority_snapshot_manifest": {"path": _root_relative(root, root / "dispatch" / run_id / "authority_snapshot_manifest.json"), "sha256": sha256_file(root / "dispatch" / run_id / "authority_snapshot_manifest.json")},
+        "golden_benchmark_index": {"path": _root_relative(root, root / "dispatch" / run_id / "golden_benchmark_index.json"), "sha256": sha256_file(root / "dispatch" / run_id / "golden_benchmark_index.json")},
+        "sealed_benchmark_manifest": {"path": _root_relative(root, root / "dispatch" / run_id / "sealed_benchmark_manifest.json"), "sha256": sha256_file(root / "dispatch" / run_id / "sealed_benchmark_manifest.json")},
     }
     write_json(logs / "golden_replay_summary.json", summary)
     return summary
 
 
-def reopen_golden_replay(run_id: str, *, production_root: Path = DEFAULT_PRODUCTION_ROOT) -> dict[str, Any]:
+def reopen_golden_replay(run_id: str, *, production_root: Path | str | None = None) -> dict[str, Any]:
     root = prepare_production_root(production_root)
     export_manifest = load_json(root / "exports" / run_id / "shadow_export_manifest.json")
-    packages = [load_json(Path(item["path"])) for item in export_manifest["exports"]]
+    packages = [load_json(_path_from_root(root, item["path"])) for item in export_manifest["exports"]]
     generator_deriver_state = [
         {
             "generation_input_manifest": package["generation_input_manifest"],
@@ -311,6 +343,7 @@ def reopen_golden_replay(run_id: str, *, production_root: Path = DEFAULT_PRODUCT
         "run_id": run_id,
         "mode": MODE_IDENTIFIER,
         "execution_profile": EXECUTION_PROFILE,
+        "production_root": str(root),
         "export_count": len(packages),
         "locked_count": sum(1 for package in packages if package["review_actions"][-1]["action"] == "LOCK"),
         "sealed_benchmark_contents_in_generator_state": any(token in serialized for token in ["benchmark_canary", "worked_solution", "validation_conclusions"]),
