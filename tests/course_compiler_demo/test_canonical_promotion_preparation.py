@@ -25,7 +25,7 @@ def test_document_adapter_normalizes_universal_candidate():
     assert candidate["source_identity"]["source_type"] == "synthetic_document_compiler_fixture"
     assert candidate["curriculum_linkage"]["primary_micro_skill_code"] == "evaluate_a_limit"
     assert candidate["procedure_linkage"]["verified"] is True
-    assert candidate["independent_derivation"]["status"] == "PASS"
+    assert candidate["independent_derivation"]["status"] == "COMPUTED"
 
 
 def test_phase_e_adapter_normalizes_locked_record_without_canonical_authority():
@@ -64,7 +64,7 @@ def test_preparation_pilot_writes_ten_packets_and_dry_run_manifest(tmp_path):
     assert summary["candidate_count"] == 10
     assert summary["document_driven_count"] == 5
     assert summary["phase_e_count"] == 5
-    assert summary["prepared_count"] >= 3
+    assert summary["prepared_count"] == 3
     assert summary["rights_or_provenance_blockers"] >= 1
     assert summary["asset_or_governance_blockers"] >= 1
     assert summary["duplicate_review_cases"] >= 1
@@ -97,7 +97,7 @@ def test_reopen_preparation_run_restores_packet_state(tmp_path):
     run_preparation_pilot("RUN_PROMO_REOPEN", preparation_root=root)
     reopened = reopen_preparation_run("RUN_PROMO_REOPEN", preparation_root=root)
     assert reopened["packet_count"] == 10
-    assert reopened["prepared_count"] >= 3
+    assert reopened["prepared_count"] == 3
     assert reopened["canonical_ids_assigned"] == 0
     assert reopened["canonical_paths_written"] == 0
     assert reopened["status"]["student_visible"] is False

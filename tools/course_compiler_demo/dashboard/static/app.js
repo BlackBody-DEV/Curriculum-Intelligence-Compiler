@@ -567,6 +567,8 @@ function candidateCard(entry) {
         <dt>Procedure verified</dt><dd>${yesNo(procedure.verified)}</dd>
         <dt>Status</dt><dd>${esc(entry.packet_status)}</dd>
         <dt>Review verdict</dt><dd>${esc(entry.review_action)}</dd>
+        <dt>System recommendation</dt><dd>${esc(entry.system_recommendation)}</dd>
+        <dt>Human action explicit</dt><dd>${yesNo(entry.human_review_action?.explicit)}</dd>
         <dt>Validation</dt><dd>${esc(entry.validation_status)}</dd>
         <dt>Independent derivation</dt><dd>${esc(entry.independent_derivation_status)}</dd>
         <dt>Grading validation</dt><dd>${esc(entry.grading_validation)}</dd>
@@ -578,14 +580,14 @@ function candidateCard(entry) {
         <dt>Export state</dt><dd>${esc(entry.packet_path)}</dd>
       </dl>
       <p class="hint">Procedure evidence, independent derivation, grading validation, failure-signal validation, fingerprints, duplicate report, rights/provenance report, asset report, blockers, and review lineage are preserved in the packet and linked reports.</p>
-      <pre>${esc(JSON.stringify({source_identity: entry.source_identity, source_hashes: entry.source_hashes, packet_path: entry.packet_path, reports}, null, 2))}</pre>
+      <pre>${esc(JSON.stringify({source_identity: entry.source_identity, source_hashes: entry.source_hashes, rights_provenance: entry.rights_provenance_evidence, duplicate_comparison: entry.duplicate_evidence, computed_validation: {derivation: entry.independent_derivation_evidence, grading: entry.grading_evidence, failure_signals: entry.failure_signal_evidence}, human_review_action: entry.human_review_action, unresolved_blockers: entry.unresolved_blockers, packet_path: entry.packet_path, reports}, null, 2))}</pre>
     </article>
   `;
 }
 
 async function canonicalPromotion() {
   const mode = await api("/api/canonical-promotion/mode");
-  const defaultRunId = "CANONICAL_PROMOTION_PREPARATION_PILOT_014";
+  const defaultRunId = "CANONICAL_PROMOTION_PREPARATION_PILOT_018";
   let reopened = null;
   let error = null;
   try {

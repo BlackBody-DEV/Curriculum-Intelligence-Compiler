@@ -158,7 +158,7 @@ class DashboardController:
             ],
         }
 
-    def canonical_promotion_run_pilot(self, run_id: str = "CANONICAL_PROMOTION_PREPARATION_PILOT_014") -> dict[str, Any]:
+    def canonical_promotion_run_pilot(self, run_id: str = "CANONICAL_PROMOTION_PREPARATION_PILOT_018") -> dict[str, Any]:
         root = self._canonical_promotion_root_for_run(run_id)
         summary = run_preparation_pilot(run_id=run_id, preparation_root=root)
         self._remember_canonical_promotion_run_root(run_id, root)

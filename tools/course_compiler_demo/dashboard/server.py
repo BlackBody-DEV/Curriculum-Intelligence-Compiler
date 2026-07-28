@@ -156,7 +156,7 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
             if parsed.path == "/api/canonical-promotion/pilot":
                 return self._json(
                     self.controller.canonical_promotion_run_pilot(
-                        str(payload.get("run_id", "CANONICAL_PROMOTION_PREPARATION_PILOT_014"))
+                        str(payload.get("run_id", "CANONICAL_PROMOTION_PREPARATION_PILOT_018"))
                     )
                 )
             if parsed.path == "/api/runs":
