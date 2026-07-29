@@ -98,6 +98,82 @@ def test_asset_and_review_recommendation_do_not_depend_on_ordinal(tmp_path):
     assert "ordinal" not in json.dumps(recommendation).lower()
 
 
+def asset_candidate(tmp_path):
+    candidate = normalized_document()
+    asset = tmp_path / "assets" / "limit-diagram.svg"
+    asset.parent.mkdir()
+    asset.write_text("<svg><path d='M0 0L1 1'/></svg>", encoding="utf-8")
+    digest = mode.sha256_file(asset)
+    rights = {
+        **mode._synthetic_approval_evidence(candidate["candidate_identity"], "asset_rights"),
+        "applicable_asset_identity": "ASSET_LIMIT_DIAGRAM",
+        "asset_sha256": digest,
+        "approved_role": "instructional_diagram",
+    }
+    candidate["diagram_policy"] = {"diagram_required": True, "alt_text_required": True}
+    candidate["asset_references"] = [{
+        "asset_identity": "ASSET_LIMIT_DIAGRAM",
+        "path": "assets/limit-diagram.svg",
+        "sha256": digest,
+        "role": "instructional_diagram",
+        "type": "image/svg+xml",
+        "alt_text": "A line approaching a limit.",
+        "rights_evidence": rights,
+    }]
+    return candidate
+
+
+def test_asset_rights_require_verified_explicit_asset_specific_evidence(tmp_path):
+    candidate = asset_candidate(tmp_path)
+    report = mode._asset_report(tmp_path, candidate)
+    assert report["status"] == "PASS"
+    normalized = report["evidence"][0]["rights_evidence"]
+    assert normalized["classification"] == "EXPLICIT_APPROVAL_EVIDENCE"
+    assert normalized["verified"] is True
+    assert normalized["identity_matches"] is True
+    assert normalized["bytes_match"] is True
+    assert normalized["role_matches"] is True
+
+
+@pytest.mark.parametrize("invalid", [None, True, "approved", {}, {"classification": "EXPLICIT_APPROVAL_EVIDENCE"}])
+def test_asset_rights_missing_boolean_string_or_incomplete_fail_closed(tmp_path, invalid):
+    candidate = asset_candidate(tmp_path)
+    candidate["asset_references"][0]["rights_evidence"] = invalid
+    report = mode._asset_report(tmp_path, candidate)
+    assert report["status"] == "BLOCKED"
+    assert report["evidence"][0]["rights_evidence"]["verified"] is False
+
+
+@pytest.mark.parametrize("field,value", [
+    ("verified", False),
+    ("classification", "PARTIAL_EVIDENCE"),
+    ("classification", "RESTRICTED"),
+    ("classification", "CONFLICTING"),
+    ("applicable_content_identity", "OTHER_CONTENT"),
+    ("applicable_asset_identity", "OTHER_ASSET"),
+    ("asset_sha256", "0" * 64),
+    ("approved_role", "decorative"),
+])
+def test_asset_rights_unverified_nonexplicit_or_mismatched_fail_closed(tmp_path, field, value):
+    candidate = asset_candidate(tmp_path)
+    candidate["asset_references"][0]["rights_evidence"][field] = value
+    report = mode._asset_report(tmp_path, candidate)
+    assert report["status"] == "BLOCKED"
+    assert report["evidence"][0]["rights_evidence"]["verified"] is False
+
+
+def test_candidate_and_asset_rights_are_separate_mandatory_gates(tmp_path):
+    candidate = asset_candidate(tmp_path)
+    candidate["rights_evidence"] = None
+    candidate["human_review_action"] = None
+    asset = mode._asset_report(tmp_path, candidate)
+    rights = mode._rights_report(candidate)
+    review = mode._review_report(candidate, mode._validation_report(candidate), rights, asset, {"classification": "DISTINCT", "blockers": []})
+    assert asset["status"] == "PASS"
+    assert rights["classification"] == "UNKNOWN"
+    assert review["system_recommendation"] == "ESCALATE_RIGHTS"
+
+
 def test_human_action_must_be_explicit_attributed_and_safe(tmp_path):
     candidate = normalized_document()
     candidate["human_review_action"] = {"action": "ACCEPT_FOR_PROMOTION_REVIEW"}

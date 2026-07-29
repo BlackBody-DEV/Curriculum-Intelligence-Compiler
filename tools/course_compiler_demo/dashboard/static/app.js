@@ -587,7 +587,7 @@ function candidateCard(entry) {
 
 async function canonicalPromotion() {
   const mode = await api("/api/canonical-promotion/mode");
-  const defaultRunId = "CANONICAL_PROMOTION_PREPARATION_PILOT_018";
+  const defaultRunId = "CANONICAL_PROMOTION_PREPARATION_PILOT_020";
   let reopened = null;
   let error = null;
   try {

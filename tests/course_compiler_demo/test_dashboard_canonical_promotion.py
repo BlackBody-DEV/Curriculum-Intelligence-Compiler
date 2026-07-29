@@ -55,3 +55,4 @@ def test_static_dashboard_exposes_canonical_promotion_view():
     assert "Failure-signal validation" in app
     assert "canonical_promotion_authorized" in app
     assert "database_write_authorized" in app
+    assert "CANONICAL_PROMOTION_PREPARATION_PILOT_020" in app

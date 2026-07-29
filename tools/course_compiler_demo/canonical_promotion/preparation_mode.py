@@ -95,6 +95,11 @@ EVIDENCE_REQUIRED_FIELDS = {
     "approval_scope",
     "applicable_content_identity",
 }
+ASSET_EVIDENCE_REQUIRED_FIELDS = EVIDENCE_REQUIRED_FIELDS | {
+    "applicable_asset_identity",
+    "asset_sha256",
+    "approved_role",
+}
 RECOGNIZED_FAILURE_SIGNALS = {
     "algebra_error",
     "axis_confusion",
@@ -149,6 +154,63 @@ def _synthetic_approval_evidence(content_identity: str, evidence_kind: str) -> d
         "source_hash": stable_hash({"source_identity": source_identity, "content_identity": content_identity}),
         "approval_scope": "canonical_promotion_preparation_review_only",
         "applicable_content_identity": content_identity,
+    }
+
+
+def _normalize_asset_approval_evidence(
+    value: Any,
+    *,
+    content_identity: str,
+    asset_identity: str | None,
+    asset_sha256: str | None,
+    role: str | None,
+) -> dict[str, Any]:
+    if not isinstance(value, dict) or not value:
+        return {
+            "classification": "UNKNOWN",
+            "verified": False,
+            "unresolved_requirements": sorted(ASSET_EVIDENCE_REQUIRED_FIELDS),
+            "identity_matches": False,
+            "bytes_match": False,
+            "role_matches": False,
+        }
+    normalized = _normalize_approval_evidence(value)
+    missing = sorted(field for field in ASSET_EVIDENCE_REQUIRED_FIELDS if not value.get(field))
+    identity_matches = bool(
+        asset_identity
+        and value.get("applicable_content_identity") == content_identity
+        and value.get("applicable_asset_identity") == asset_identity
+    )
+    bytes_match = bool(asset_sha256 and value.get("asset_sha256") == asset_sha256)
+    role_matches = bool(role and value.get("approved_role") == role)
+    verified = bool(
+        normalized["classification"] == "EXPLICIT_APPROVAL_EVIDENCE"
+        and normalized["verified"]
+        and not missing
+        and identity_matches
+        and bytes_match
+        and role_matches
+    )
+    classification = "EXPLICIT_APPROVAL_EVIDENCE" if verified else (
+        normalized["classification"]
+        if normalized["classification"] in {"PARTIAL_EVIDENCE", "RESTRICTED", "CONFLICTING"}
+        else "UNKNOWN"
+    )
+    mismatches = []
+    if not identity_matches:
+        mismatches.append("asset_or_content_identity_mismatch")
+    if not bytes_match:
+        mismatches.append("asset_sha256_mismatch")
+    if not role_matches:
+        mismatches.append("asset_role_mismatch")
+    return {
+        **copy.deepcopy(value),
+        "classification": classification,
+        "verified": verified,
+        "unresolved_requirements": sorted(set(missing + mismatches)),
+        "identity_matches": identity_matches,
+        "bytes_match": bytes_match,
+        "role_matches": role_matches,
     }
 
 
@@ -308,7 +370,7 @@ def _universal_candidate(**fields: Any) -> dict[str, Any]:
     return candidate
 
 
-def synthetic_document_candidates(count: int = 5) -> list[dict[str, Any]]:
+def synthetic_document_candidates(count: int = 5, *, fixture_version: str = "018") -> list[dict[str, Any]]:
     skills = [
         ("evaluate_a_limit", "Correction fixture: evaluate 3x+2 as x approaches 4.", 14),
         ("apply_the_power_rule", "Correction fixture: evaluate the derivative of x^4 at x=2.", 32),
@@ -318,7 +380,7 @@ def synthetic_document_candidates(count: int = 5) -> list[dict[str, Any]]:
     ]
     out = []
     for index, (skill, prompt, answer) in enumerate(skills[:count], start=1):
-        candidate_id = f"SYNTH_CALC_PROMO_018_{skill.upper()}"
+        candidate_id = f"SYNTH_CALC_PROMO_{fixture_version}_{skill.upper()}"
         signals = ["rule_selection_error", "algebra_error"]
         action = "ACCEPT_FOR_PROMOTION_REVIEW"
         rights = _synthetic_approval_evidence(candidate_id, "rights")
@@ -334,15 +396,15 @@ def synthetic_document_candidates(count: int = 5) -> list[dict[str, Any]]:
             {
                 "fixture_label": "SYNTHETIC_PROMOTION_PREPARATION_FIXTURE",
                 "candidate_id": candidate_id,
-                "source_identity": {"source_type": "synthetic_document_compiler_fixture", "source_id": f"SYNTH_CALC_SOURCE_018_{skill.upper()}"},
+                "source_identity": {"source_type": "synthetic_document_compiler_fixture", "source_id": f"SYNTH_CALC_SOURCE_{fixture_version}_{skill.upper()}"},
                 "curriculum_linkage": {
                     "subject_code": "MATHEMATICS",
                     "course_level": "CALCULUS_I",
                     "topic_code": "CALCULUS_I_FOUNDATIONS",
                     "primary_micro_skill_code": skill,
                 },
-                "procedure_linkage": {"procedure_id": f"PROC_CALCULUS_{skill.upper()}", "verified": True},
-                "question_payload": {"prompt": prompt, "parameter_set": {"fixture_index": index}},
+                "procedure_linkage": {"procedure_id": f"PROC_CALCULUS_{fixture_version}_{skill.upper()}", "verified": True},
+                "question_payload": {"prompt": prompt, "parameter_set": {"fixture_version": fixture_version, "fixture_index": index}},
                 "answer_contract": {"type": "numeric", "shape": "scalar", "expected": answer, "units": None, "tolerance": 0},
                 "independent_derivation": {"status": "COMPUTED", "normalized_answer": answer, "answer_shape": "scalar", "units": None, "source": "synthetic_independent_solver", "generator_answer_source": "synthetic_fixture_generator", "derivation_steps": ["Compute independently from the prompt."]},
                 "failure_signals": signals,
@@ -408,7 +470,9 @@ def run_preparation_pilot(
     dispatch = root / "dispatch" / run_id
     dispatch.mkdir(parents=True, exist_ok=True)
     authority = _copy_authority_snapshot(root, run_id)
-    doc_inputs = document_candidates or synthetic_document_candidates()
+    doc_inputs = document_candidates or synthetic_document_candidates(
+        fixture_version="020" if run_id == "CANONICAL_PROMOTION_PREPARATION_PILOT_020" else "018"
+    )
     phase_inputs = phase_e_candidates or corrected_phase_e_candidates()
     candidates = [
         normalize_input("document_compiler", payload, ordinal=index + 1)
@@ -763,11 +827,27 @@ def _asset_report(root: Path, candidate: dict[str, Any]) -> dict[str, Any]:
         path_value = reference.get("path")
         path = ensure_beneath(root, root / path_value) if path_value else None
         exists = bool(path and path.is_file())
-        sha_matches = bool(exists and reference.get("sha256") == sha256_file(path))
-        complete = bool(reference.get("role") and reference.get("type") and reference.get("rights_evidence") and (not policy.get("alt_text_required") or reference.get("alt_text")))
+        actual_sha256 = sha256_file(path) if exists else None
+        sha_matches = bool(actual_sha256 and reference.get("sha256") == actual_sha256)
+        asset_rights = _normalize_asset_approval_evidence(
+            reference.get("rights_evidence"),
+            content_identity=candidate["candidate_identity"],
+            asset_identity=reference.get("asset_identity"),
+            asset_sha256=actual_sha256,
+            role=reference.get("role"),
+        )
+        complete = bool(
+            reference.get("asset_identity")
+            and reference.get("role")
+            and reference.get("type")
+            and asset_rights["verified"]
+            and (not policy.get("alt_text_required") or reference.get("alt_text"))
+        )
         if not (exists and sha_matches and complete):
             blockers.append("asset_evidence_incomplete")
-        evidence.append({"path": path_value, "exists": exists, "sha256_verified": sha_matches, "role": reference.get("role"), "type": reference.get("type"), "rights_evidence_present": bool(reference.get("rights_evidence")), "alt_text_present": bool(reference.get("alt_text"))})
+        if asset_rights["classification"] != "EXPLICIT_APPROVAL_EVIDENCE":
+            blockers.append(f"asset_rights_classification:{asset_rights['classification']}")
+        evidence.append({"path": path_value, "asset_identity": reference.get("asset_identity"), "exists": exists, "sha256_verified": sha_matches, "actual_sha256": actual_sha256, "role": reference.get("role"), "type": reference.get("type"), "rights_evidence": asset_rights, "alt_text_present": bool(reference.get("alt_text"))})
     if required and not references:
         blockers.append("required_asset_missing")
     status = "BLOCKED" if blockers else ("PASS" if references else "NOT_APPLICABLE")
@@ -919,12 +999,41 @@ def _packet(
 
 
 def _write_audit(root: Path, run_id: str, summary: dict[str, Any]) -> None:
+    required_asset_prepared = [
+        entry for entry in summary["packets"]
+        if entry["packet_status"] == "PREPARED_FOR_CANONICAL_REVIEW"
+        and entry["asset_evidence"]["diagram_required"]
+    ]
+    not_applicable_prepared = [
+        entry for entry in summary["packets"]
+        if entry["packet_status"] == "PREPARED_FOR_CANONICAL_REVIEW"
+        and not entry["asset_evidence"]["diagram_required"]
+    ]
+    required_asset_approvals_verified = all(
+        entry["asset_evidence"]["status"] == "PASS"
+        and entry["asset_evidence"]["evidence"]
+        and all(
+            evidence["rights_evidence"]["classification"] == "EXPLICIT_APPROVAL_EVIDENCE"
+            and evidence["rights_evidence"]["verified"] is True
+            and evidence["rights_evidence"]["identity_matches"] is True
+            and evidence["rights_evidence"]["bytes_match"] is True
+            and evidence["rights_evidence"]["role_matches"] is True
+            for evidence in entry["asset_evidence"]["evidence"]
+        )
+        for entry in required_asset_prepared
+    )
+    not_applicable_results_valid = all(
+        entry["asset_evidence"]["status"] == "NOT_APPLICABLE"
+        for entry in not_applicable_prepared
+    )
     verdict = (
         "PASS"
         if summary["candidate_count"] == 10
         and summary["prepared_count"] >= 3
         and summary["canonical_ids_assigned"] == 0
         and summary["database_access"] == "none"
+        and required_asset_approvals_verified
+        and not_applicable_results_valid
         else "BLOCKED"
     )
     write_json(
@@ -937,6 +1046,12 @@ def _write_audit(root: Path, run_id: str, summary: dict[str, Any]) -> None:
             "canonical_paths_written": 0,
             "database_access": "none",
             "adaptive_platform_writes": False,
+            "asset_rights_truthiness_accepted": False,
+            "required_asset_prepared_count": len(required_asset_prepared),
+            "required_asset_approvals_verified": required_asset_approvals_verified,
+            "asset_not_required_prepared_count": len(not_applicable_prepared),
+            "asset_not_required_results_valid": not_applicable_results_valid,
+            "ordinal_name_position_dependence": False,
         },
     )
 
