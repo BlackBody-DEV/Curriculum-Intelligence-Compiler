@@ -62,9 +62,9 @@ def test_universal_packages_and_300_job_plans_are_explicit():
     for course_id in COURSE_IDS:
         course=pack["courses"][course_id]; universal=build_universal_package(course); jobs=plan_course_jobs(course)
         assert universal.package_id==f"universal:{course_id}" and len(jobs)==300 and len({j.job_id for j in jobs})==300
-        assert sum(j.executable for j in jobs)==160
-        assert {j.answer_engine for j in jobs if not j.executable}=={"code_execution","rubric_scored_explanation"}
-        assert all(j.blocker for j in jobs if not j.executable)
+        assert sum(j.executable for j in jobs)==300
+        assert {j.answer_engine for j in jobs}=={"code_execution_python","multiple_choice","numeric_vector","rubric_scored_explanation"}
+        assert all(j.blocker is None for j in jobs)
 
 
 def test_catalog_is_deterministic_noncanonical_and_review_required():

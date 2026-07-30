@@ -19,7 +19,8 @@ def test_1800_identity_planning_and_disabled_fail_closed():
     assert len(jobs)==1800==len({j.job_id for j in jobs})
     assert len({(j.course_id,j.unit_id,j.topic_id,j.micro_skill_id,j.generation_family_id,j.job_id) for j in jobs})==1800
     blocked=[j for j in jobs if not j.executable]
-    assert len(blocked)==120 and {j.answer_engine for j in blocked}=={"code_execution","chemical_reaction"}
+    assert len(blocked)==120 and {j.answer_engine for j in blocked}=={"code_execution_python","chemical_reaction"}
+    assert all(j.answer_engine!="multiple_choice" for j in blocked)  # aliases resolve to the actual engine; no fallback
     assert all(j.validated_status is None and j.blocker for j in blocked)
 
 def test_scale_assessment_and_beta_proofs(tmp_path):
