@@ -1,0 +1,12 @@
+TEST_FIXTURE
+Rights: newly authored for AxiomIQ automated tests; non-private.
+
+Introductory Mechanics
+Subject: Physics
+Course level: INTRO PHYSICS MECHANICS
+
+Vectors and force components: resolve a force into signed x and y components.
+Net Force: choose a positive direction and sum forces to obtain the resultant force.
+Newton's Second Law: use F_net = m a to relate mass, acceleration, and net external force.
+
+Worked evidence: a 4 kg cart with a 12 N net horizontal force accelerates at 3 m/s^2.

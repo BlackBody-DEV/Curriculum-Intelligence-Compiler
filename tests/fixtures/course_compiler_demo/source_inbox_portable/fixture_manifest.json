@@ -1,0 +1,122 @@
+{
+  "artifact_class": "TEST_FIXTURE",
+  "corpus_id": "source_inbox_portable_v1",
+  "contains_private_content": false,
+  "noncanonical": true,
+  "privacy_status": "non_private",
+  "rights_status": "newly_authored_test_fixture",
+  "files": [
+    {
+      "path": "Course_Definition/mechanics_course_definition.json",
+      "sha256": "0d5373a2e4aa8dcc7acc704ca22cfdfa2c1c783adb496fa03fe1d627da35d04e",
+      "segments": [
+        "course_identity",
+        "topic_inventory"
+      ],
+      "evidence": [
+        "vectors",
+        "net_force",
+        "newton_second_law"
+      ]
+    },
+    {
+      "path": "Duplicates/mechanics_duplicate_a.txt",
+      "sha256": "ed6fa7fd5ff265051cab82bedbbb88109f4c643e78842aecc12dff0d21a69595",
+      "segments": [
+        "duplicate_probe"
+      ],
+      "evidence": [
+        "net_force",
+        "acceleration"
+      ]
+    },
+    {
+      "path": "Duplicates/mechanics_duplicate_b.txt",
+      "sha256": "ed6fa7fd5ff265051cab82bedbbb88109f4c643e78842aecc12dff0d21a69595",
+      "segments": [
+        "duplicate_probe"
+      ],
+      "evidence": [
+        "net_force",
+        "acceleration"
+      ]
+    },
+    {
+      "path": "PDF/mechanics_text_native.pdf",
+      "sha256": "74895313d7214b7ae85e5bdbe23fba6c40fffb95b0b8a13c81bd02504e4a104b",
+      "segments": [
+        "text_native_pdf_page_1"
+      ],
+      "evidence": [
+        "vectors",
+        "net_force",
+        "newton_second_law"
+      ]
+    },
+    {
+      "path": "Physics/intro_mechanics_test_fixture_v1/normalized_source.txt",
+      "sha256": "98313ed53c505107047c9f054b4405d477fd565fcaf2929f72fd871a0bc1e20b",
+      "segments": [
+        "vectors",
+        "net_force",
+        "newton_second_law",
+        "worked_evidence"
+      ],
+      "evidence": [
+        "force_components",
+        "resultant_force",
+        "F_net_equals_m_a"
+      ]
+    },
+    {
+      "path": "Question_Bank/mechanics_question_bank.jsonl",
+      "sha256": "d9b76ad6f22c5cdf5532763036a954c8192a2f618b1fdddd85d80d079f5c9231",
+      "segments": [
+        "TQ_001",
+        "TQ_002"
+      ],
+      "evidence": [
+        "newton_second_law",
+        "force_components"
+      ]
+    },
+    {
+      "path": "README.md",
+      "sha256": "569cad6f34f0a4172b0cdd08f743efbfcd275ea6395487dfa7410706148c7681",
+      "segments": [
+        "rights_and_scope"
+      ],
+      "evidence": [
+        "TEST_FIXTURE"
+      ]
+    },
+    {
+      "path": "Statics/User_Authored/statics_curriculum_test_fixture.md",
+      "sha256": "bd38bf9ec0a52218b4b995212daaf04c51aacb60129343d81115132cb33924f9",
+      "segments": [
+        "course_definition",
+        "component_evidence"
+      ],
+      "evidence": [
+        "statics",
+        "force_components",
+        "equilibrium"
+      ]
+    },
+    {
+      "path": "Syllabus/mechanics_syllabus.txt",
+      "sha256": "c42fb7dc9520635a8197b195078bca40efc823c01f0272b20ef5afb3725adc5c",
+      "segments": [
+        "week_1",
+        "week_2",
+        "week_3",
+        "assessment_evidence"
+      ],
+      "evidence": [
+        "vectors",
+        "free_body_diagrams",
+        "newton_second_law"
+      ]
+    }
+  ]
+}

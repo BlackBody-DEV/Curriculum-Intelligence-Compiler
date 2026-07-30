@@ -1,0 +1,65 @@
+{
+  "answer_parts_contract": {
+    "parts": [
+      {
+        "label": "R",
+        "unit": "N"
+      }
+    ]
+  },
+  "answer_type": "numeric",
+  "answers": [
+    {
+      "label": "R",
+      "unit": "N",
+      "value": 6.708204
+    }
+  ],
+  "author_status": "AUTHOR_COMPLETE",
+  "canonical_promotion_authorized": false,
+  "contains_protected_content": false,
+  "database_write_authorized": false,
+  "eligible_for_alpha_import": false,
+  "fixture_type": "PORTABLE_SYNTHETIC_PHASE_E_TEST_FIXTURE",
+  "frozen_manifest_row": {
+    "diagram_required": false,
+    "difficulty_level": 2,
+    "family_id": "Force Systems",
+    "generation_family": "given_components_two_forces",
+    "permitted_failure_signals": [
+      "synthetic_fixture_mismatch"
+    ],
+    "prompt_constraints": "Synthetic public-schema vector resultant.",
+    "tolerance": 1e-06
+  },
+  "independent_derivation": {
+    "method": "pythagorean_resultant",
+    "status": "PASS",
+    "value": 20
+  },
+  "lineage": {
+    "parent": null,
+    "source": "newly_authored_portable_fixture"
+  },
+  "noncanonical": true,
+  "ordinal": 14,
+  "procedure_id": "portable-force-systems-v1",
+  "procedure_sha256": "8d5f6516d3bcedca182eac76b65da8137fa4cf1546b02e52bbfc78cfc6259a83",
+  "procedure_steps_verbatim": [
+    "Sum the signed x-components and signed y-components independently.",
+    "Compute the nonnegative resultant magnitude as sqrt(R_x^2 + R_y^2)."
+  ],
+  "prompt": "Newly authored synthetic signed rectangular force components F1=<8,-6> N, F2=<-2,3> N.",
+  "question_id": "portable-force-num-04",
+  "question_type": "numeric_tolerance",
+  "reserved_canonical_path": "synthetic/noncanonical/portable-force-num-04.json",
+  "review_evidence": {
+    "reviewer": "portable-fixture",
+    "status": "PASS"
+  },
+  "solution": [
+    "Sum components.",
+    "Compute nonnegative magnitude."
+  ],
+  "student_visible": false
+}

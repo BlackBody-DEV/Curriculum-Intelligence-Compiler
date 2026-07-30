@@ -1,0 +1,8 @@
+{
+  "artifact_class": "TEST_FIXTURE",
+  "course_id": "TEST_MECHANICS_101",
+  "rights_status": "newly_authored_test_fixture",
+  "privacy_status": "non_private",
+  "title": "Foundations of Mechanics",
+  "topics": ["vectors", "net force", "Newton's second law"]
+}

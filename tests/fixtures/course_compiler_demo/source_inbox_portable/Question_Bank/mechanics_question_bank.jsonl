@@ -1,0 +1,2 @@
+{"artifact_class":"TEST_FIXTURE","question_id":"TQ_001","prompt":"A 5 kg cart has a net force of 15 N. Find its acceleration.","answer":"3 m/s^2","evidence_label":"newton_second_law"}
+{"artifact_class":"TEST_FIXTURE","question_id":"TQ_002","prompt":"Resolve a 10 N force at 60 degrees into x and y components.","answer":"5 N, 5 sqrt(3) N","evidence_label":"force_components"}

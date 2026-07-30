@@ -1,0 +1,8 @@
+TEST_FIXTURE
+Rights: newly authored for automated tests; non-private.
+
+Course: Foundations of Mechanics
+Week 1: units, vectors, and coordinate conventions.
+Week 2: free-body diagrams and net force.
+Week 3: Newton's second law and one-dimensional acceleration.
+Assessment evidence: resolve components, compute net force, and verify units.

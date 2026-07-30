@@ -1,0 +1,55 @@
+{
+  "answer": {
+    "option_id": "A"
+  },
+  "answer_parts_contract": {
+    "correct_option_id": "A",
+    "representation": "complete_option"
+  },
+  "answer_type": "multiple_choice",
+  "author_status": "AUTHOR_COMPLETE",
+  "canonical_promotion_authorized": false,
+  "contains_protected_content": false,
+  "correct_option_id": "A",
+  "database_write_authorized": false,
+  "eligible_for_alpha_import": false,
+  "fixture_type": "PORTABLE_SYNTHETIC_PHASE_E_TEST_FIXTURE",
+  "frozen_manifest_row": {
+    "diagram_required": false,
+    "difficulty_level": 1,
+    "family_id": "Force Systems",
+    "generation_family": "support_inventory",
+    "permitted_failure_signals": [
+      "synthetic_fixture_mismatch"
+    ],
+    "prompt_constraints": "Synthetic public-schema complete-option inventory."
+  },
+  "independent_derivation": {
+    "method": "constraint_elimination",
+    "status": "PASS"
+  },
+  "lineage": {
+    "parent": null,
+    "source": "newly_authored_portable_fixture"
+  },
+  "noncanonical": true,
+  "ordinal": 5,
+  "procedure_id": "portable-force-systems-v1",
+  "procedure_sha256": "d8ed539e2acc7900da3a12e25da8756beb5d47114b0817ca12e2f1ae65681e19",
+  "procedure_steps_verbatim": [
+    "Inventory the reaction components permitted by each declared idealized support.",
+    "Select the only complete option."
+  ],
+  "prompt": "Newly authored synthetic two-force link and roller reaction-inventory scenario 5.",
+  "question_id": "portable-force-mc-05",
+  "question_type": "multiple_choice",
+  "reserved_canonical_path": "synthetic/noncanonical/portable-force-mc-05.json",
+  "review_evidence": {
+    "reviewer": "portable-fixture",
+    "status": "PASS"
+  },
+  "solution": [
+    "Select the complete declared inventory."
+  ],
+  "student_visible": false
+}

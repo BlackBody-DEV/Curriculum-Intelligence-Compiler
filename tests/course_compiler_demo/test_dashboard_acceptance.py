@@ -1,11 +1,23 @@
 from pathlib import Path
 
+import pytest
+
 from tools.course_compiler_demo.dashboard.controller import DashboardController
 from tools.course_compiler_demo.dashboard.run_storage import DashboardStorage
+from tools.course_compiler_demo.testing.source_inbox import (
+    HOST_SOURCE_INBOX,
+    HOST_SOURCE_INBOX_OPT_IN_ENV,
+    optional_host_source_inbox,
+    resolve_source_inbox_root,
+)
 
 
-PHYSICS_SOURCE = Path("/Users/fanarichardson/Documents/AxiomIQ_Source_Inbox/Physics/intro_mechanics_real_source_v1/normalized_source.txt")
-STATICS_SOURCE = Path("/Users/fanarichardson/Documents/AxiomIQ_Source_Inbox/Statics/User_Authored/me_2301_statics_curriculum_extraction.md")
+pytestmark = pytest.mark.portable_baseline
+
+
+SOURCE_INBOX_ROOT = resolve_source_inbox_root(environ={})
+PHYSICS_SOURCE = SOURCE_INBOX_ROOT / "Physics/intro_mechanics_test_fixture_v1/normalized_source.txt"
+STATICS_SOURCE = SOURCE_INBOX_ROOT / "Statics/User_Authored/statics_curriculum_test_fixture.md"
 
 
 def _proof(ctrl, run_id, source_path, profile_id, family_id, assessment_id):
@@ -52,4 +64,23 @@ def test_physics_and_statics_dashboard_acceptance_workflows(tmp_path):
     assert physics["raw_or_normalized_source_retained"] is False
     assert statics["raw_or_normalized_source_retained"] is False
     for path in tmp_path.rglob("*.json"):
-        assert "/Users/fanarichardson/Documents/AxiomIQ_Source_Inbox" not in path.read_text()
+        serialized = path.read_text()
+        assert "/Users/fanarichardson/Documents/AxiomIQ_Source_Inbox" not in serialized
+        assert str(SOURCE_INBOX_ROOT) not in serialized
+
+
+@pytest.mark.host_environment_integration
+@pytest.mark.skipif(
+    optional_host_source_inbox() is None,
+    reason=f"host workflow requires {HOST_SOURCE_INBOX_OPT_IN_ENV}=1 and a mounted Source_Inbox",
+)
+def test_opt_in_host_sources_share_the_acceptance_workflow_contract(tmp_path):
+    physics_source = HOST_SOURCE_INBOX / "Physics/intro_mechanics_real_source_v1/normalized_source.txt"
+    statics_source = HOST_SOURCE_INBOX / "Statics/User_Authored/me_2301_statics_curriculum_extraction.md"
+    ctrl = DashboardController(DashboardStorage(tmp_path))
+    physics = _proof(ctrl, "physics_host_integration", physics_source, "PHYSICS_INTRO_MECHANICS_PROFILE_V1", "GF_PHYSICS_NEWTON_SECOND_LAW_1D_V1", "ASSESS_PHYSICS_HOST")
+    statics = _proof(ctrl, "statics_host_integration", statics_source, "STATICS_VECTOR_COMPONENTS_RELEASE_PROFILE_V1", "GF_STATICS_VECTOR_COMPONENTS_2D_V1", "ASSESS_STATICS_HOST")
+    assert physics["raw_or_normalized_source_retained"] is False
+    assert statics["raw_or_normalized_source_retained"] is False
+    for path in tmp_path.rglob("*.json"):
+        assert str(HOST_SOURCE_INBOX) not in path.read_text()

@@ -1,0 +1,2 @@
+TEST_FIXTURE
+Duplicate probe: a 2 kg cart under a net force of 8 N accelerates at 4 m/s^2.

@@ -1,0 +1,79 @@
+{
+  "canonical_promotion_authorized": false,
+  "contains_protected_content": false,
+  "database_write_authorized": false,
+  "eligible_for_alpha_import": false,
+  "expected": {
+    "force_multiple_choice": 5,
+    "force_numeric": 5,
+    "vector_numeric_pair": 5
+  },
+  "files": [
+    {
+      "path": "force_systems/approved/portable-force-mc-01.json",
+      "sha256": "e9c9890f95c95f7cc1c693fc8212997a838bbe9dcf6772d9304a8ab4e33ea8bf"
+    },
+    {
+      "path": "force_systems/approved/portable-force-mc-02.json",
+      "sha256": "a6fff1ba23e15753001ba39ca735c0de4b933d00c86bc645df2378f62d567ea3"
+    },
+    {
+      "path": "force_systems/approved/portable-force-mc-03.json",
+      "sha256": "fddd2a4381dac4809c5c263bf2297602679da91c3a71e99b36b974d77b564860"
+    },
+    {
+      "path": "force_systems/approved/portable-force-mc-04.json",
+      "sha256": "db414122ed8c4d27bee1245e604cdb8fd0e3dc55e673a568b1a047a978c8f3e2"
+    },
+    {
+      "path": "force_systems/approved/portable-force-mc-05.json",
+      "sha256": "fa281d72f4e0b059c2c38a932568fcacac01ca89dcd3c5a56ec635c5b2f8a8a7"
+    },
+    {
+      "path": "force_systems/approved/portable-force-num-01.json",
+      "sha256": "be5d3c8d1f23c529d526fa165c5a7fd74274113665fe988f29425aa07f8bdcb9"
+    },
+    {
+      "path": "force_systems/approved/portable-force-num-02.json",
+      "sha256": "ec9d48feb5b69e9b3f37cf59ce696b9addb0bb9e4402f21693931f3617745b6d"
+    },
+    {
+      "path": "force_systems/approved/portable-force-num-03.json",
+      "sha256": "33aa1a7994ee3354b220f26c2af9e6c5ed787b3c1502041ff1f82d4f5d840255"
+    },
+    {
+      "path": "force_systems/approved/portable-force-num-04.json",
+      "sha256": "d19e5373ec3e2dedc157db62af9c6c1a0036aad7d3830c76661d133fc05ee58b"
+    },
+    {
+      "path": "force_systems/approved/portable-force-num-05.json",
+      "sha256": "9d5f5ce04cb8bd9a76ee7b9ba1e9866c9c3c209bd9e6d723475170396b4d8797"
+    },
+    {
+      "path": "vector_operations/approved/portable-vector-01.json",
+      "sha256": "4dbfa2a2f39d62dd4f17a729178f7d68893a05330d69cc270af0c49b19260629"
+    },
+    {
+      "path": "vector_operations/approved/portable-vector-02.json",
+      "sha256": "4c35c6e7cd88684585bfca4b5d011287f1a1775771d2e614b2de16ded89f3f29"
+    },
+    {
+      "path": "vector_operations/approved/portable-vector-03.json",
+      "sha256": "d283fca0ed79e7733444a96963c811e7b9fb46f39e6e55dbf28c8227aee032d2"
+    },
+    {
+      "path": "vector_operations/approved/portable-vector-04.json",
+      "sha256": "9e21a393257ccd1999d6122be66a9aa12ebad8e8b4c20e931e025ff8015937fb"
+    },
+    {
+      "path": "vector_operations/approved/portable-vector-05.json",
+      "sha256": "84b60de9c96a0661b76690b51dde739e9eb61ea05dbb61ae4a9c813dfc804d8a"
+    }
+  ],
+  "fixture_type": "PORTABLE_SYNTHETIC_PHASE_E_TEST_FIXTURE",
+  "noncanonical": true,
+  "procedure_hash_algorithm": "sha256(canonical-json(procedure_steps_verbatim))",
+  "protected_integration_required": false,
+  "public_schema_only": true,
+  "student_visible": false
+}

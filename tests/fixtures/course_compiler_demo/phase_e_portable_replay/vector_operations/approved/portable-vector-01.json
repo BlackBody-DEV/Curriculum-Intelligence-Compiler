@@ -1,0 +1,86 @@
+{
+  "answer_parts": [
+    {
+      "label": "F_x",
+      "unit": "N",
+      "value": 8.660254
+    },
+    {
+      "label": "F_y",
+      "unit": "N",
+      "value": 5.0
+    }
+  ],
+  "answer_parts_contract": {
+    "parts": [
+      {
+        "label": "F_x",
+        "unit": "N"
+      },
+      {
+        "label": "F_y",
+        "unit": "N"
+      }
+    ]
+  },
+  "answer_type": "numeric_pair",
+  "author_status": "AUTHOR_COMPLETE",
+  "canonical_promotion_authorized": false,
+  "contains_protected_content": false,
+  "database_write_authorized": false,
+  "difficulty_level": 2,
+  "eligible_for_alpha_import": false,
+  "fixture_type": "PORTABLE_SYNTHETIC_PHASE_E_TEST_FIXTURE",
+  "frozen_manifest_row": {
+    "diagram_required": false,
+    "difficulty_level": 2,
+    "family_id": "Vector Operations",
+    "generation_family": "vector_components_2d",
+    "permitted_failure_signals": [
+      "synthetic_fixture_mismatch"
+    ]
+  },
+  "generation_family": "vector_components_2d",
+  "givens": {
+    "angle_deg": 30,
+    "angle_sense": "declared",
+    "magnitude": 10,
+    "reference_axis": "+x",
+    "unit": "N",
+    "x_sign": 1,
+    "y_sign": 1
+  },
+  "independent_derivation": {
+    "method": "orthogonal_projection",
+    "status": "PASS",
+    "values": [
+      10,
+      0
+    ]
+  },
+  "lineage": {
+    "parent": null,
+    "source": "newly_authored_portable_fixture"
+  },
+  "noncanonical": true,
+  "ordinal": 21,
+  "procedure_id": "portable-vector-operations-v1",
+  "procedure_sha256": "536cccf06b46fee9ef3766172e2c98d510c6d3a61da410d7551e0aded3065e2a",
+  "procedure_steps_verbatim": [
+    "Choose sine and cosine from the declared reference axis.",
+    "Apply the declared x and y signs and report components in F_x, F_y order."
+  ],
+  "prompt": "Newly authored synthetic vector 10 N, 30 degrees from +x, signs (1, 1).",
+  "question_id": "portable-vector-01",
+  "question_type": "numeric_pair",
+  "reserved_canonical_path": "synthetic/noncanonical/portable-vector-01.json",
+  "review_evidence": {
+    "reviewer": "portable-fixture",
+    "status": "PASS"
+  },
+  "solution": [
+    "Apply cosine and sine.",
+    "Preserve F_x, F_y order."
+  ],
+  "student_visible": false
+}
