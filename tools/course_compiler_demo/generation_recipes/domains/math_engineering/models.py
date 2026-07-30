@@ -1,0 +1,93 @@
+"""Standalone Wave 056 recipe contracts aligned with the 056A API."""
+from __future__ import annotations
+
+from dataclasses import dataclass
+from fractions import Fraction
+import math
+from typing import Any, Mapping
+
+from tools.course_compiler_demo.universal_core import AnswerContractV1
+
+
+@dataclass(frozen=True)
+class RecipeBindingV1:
+    course_id:str; topic_id:str; micro_skill_id:str; procedure_id:str; family_id:str; engine_type:str
+
+
+@dataclass(frozen=True)
+class ParameterDomainV1:
+    name:str; minimum:int; maximum:int; integer:bool=True; unit:str="dimensionless"
+    def validate(self,value:Any)->int:
+        if isinstance(value,bool) or not isinstance(value,int) or not self.minimum<=value<=self.maximum:
+            raise ValueError(f"{self.name} must be an integer in [{self.minimum}, {self.maximum}]")
+        return value
+
+
+@dataclass(frozen=True)
+class GenerationContextV1:
+    parameters:Mapping[str,Any]; variant_index:int; difficulty:str
+    def __post_init__(self):
+        if self.variant_index<0 or self.difficulty not in {"FOUNDATIONAL","DEVELOPING","ADVANCED"}: raise ValueError("invalid generation context")
+
+
+@dataclass(frozen=True)
+class DerivationPacketV1:
+    recipe_id:str; method:str; primitive_inputs:dict[str,Any]; normalized_answer:Any; consumed_generator_answer:bool=False
+
+
+@dataclass(frozen=True)
+class DomainRecipeV1:
+    recipe_id:str; version:str; binding:RecipeBindingV1; parameter_domains:tuple[ParameterDomainV1,...]
+    domain_terms:tuple[str,...]; operation_terms:tuple[str,...]; prompt_template:str; operation:str
+
+    def _parameters(self,context:GenerationContextV1)->tuple[int,int]:
+        expected={domain.name for domain in self.parameter_domains}
+        if set(context.parameters)!=expected: raise ValueError("parameters must exactly match declared domains")
+        values={domain.name:domain.validate(context.parameters[domain.name]) for domain in self.parameter_domains}
+        if self.operation=="ratio" and values["b"]==0: raise ValueError("ratio denominator cannot be zero")
+        return values["a"],values["b"]
+
+    def build_prompt(self,context:GenerationContextV1)->str:
+        a,b=self._parameters(context)
+        semantics=f"Domain: {', '.join(self.domain_terms)}. Operation: {', '.join(self.operation_terms)}."
+        return f"{semantics} {self.prompt_template.format(a=a,b=b)}"
+
+    def generate_answer(self,context:GenerationContextV1)->Any:
+        a,b=self._parameters(context)
+        if self.operation=="sum": return a+b
+        if self.operation=="difference": return a-b
+        if self.operation=="product": return a*b
+        if self.operation=="ratio": return float(Fraction(a,b))
+        if self.operation=="component_pair": return [a+b,a-b]
+        raise ValueError("unsupported recipe operation")
+
+    def derive_independently(self,context:GenerationContextV1)->DerivationPacketV1:
+        a,b=self._parameters(context)
+        if self.operation=="sum": answer=sum((a,b)); method="aggregate two declared contributions"
+        elif self.operation=="difference": answer=sum((a,-b)); method="add the inverse contribution"
+        elif self.operation=="product": answer=sum(a for _ in range(b)); method="repeated-addition cross-check"
+        elif self.operation=="ratio": answer=float(Fraction(a,b)); method="exact rational quotient"
+        elif self.operation=="component_pair": answer=[sum((a,b)),sum((a,-b))]; method="independent component aggregation"
+        else: raise ValueError("unsupported recipe operation")
+        return DerivationPacketV1(self.recipe_id,method,{"a":a,"b":b},answer,False)
+
+    def build_contract(self)->AnswerContractV1:
+        grading={"absolute_tolerance":0.0,"relative_tolerance":0.0}
+        return AnswerContractV1(f"answer-contract:{self.recipe_id}",self.binding.engine_type,grading)
+
+    def validate(self)->None:
+        prefix=self.binding.course_id+"_"
+        for value in (self.binding.topic_id,self.binding.micro_skill_id,self.binding.procedure_id,self.binding.family_id):
+            if not value.startswith(prefix): raise ValueError("binding identity is outside the declared course")
+        expected="numeric_vector" if self.operation=="component_pair" else "numeric_scalar"
+        if self.binding.engine_type!=expected: raise ValueError("operation and answer engine are incompatible")
+        if len(self.parameter_domains)!=2 or {x.name for x in self.parameter_domains}!={"a","b"}: raise ValueError("exact a and b domains are required")
+        if not self.domain_terms or not self.operation_terms or "{a}" not in self.prompt_template or "{b}" not in self.prompt_template: raise ValueError("recipe semantics are incomplete")
+
+
+def validate_answer_shape(recipe:DomainRecipeV1,value:Any)->None:
+    if recipe.binding.engine_type=="numeric_scalar":
+        if isinstance(value,bool) or not isinstance(value,(int,float)) or not math.isfinite(float(value)): raise ValueError("numeric scalar recipe produced an invalid answer")
+    elif recipe.binding.engine_type=="numeric_vector":
+        if not isinstance(value,list) or len(value)!=2 or any(isinstance(x,bool) or not isinstance(x,(int,float)) or not math.isfinite(float(x)) for x in value): raise ValueError("numeric vector recipe produced an invalid answer")
+    else: raise ValueError("recipe uses an unsupported engine")
