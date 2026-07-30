@@ -1,0 +1,3 @@
+# Source Canonical Alignment
+
+This lane compares evidence-backed source candidates with the exact immutable identity list supplied by the authoritative 33-course-pack registry and emits seven explicit outcomes. Registry membership must match that complete list exactly; count-only substitutes fail closed. Every result is a `PROPOSED_NONAUTHORITATIVE_MAPPING`, retains typed nonempty source-evidence identities, match method and score, structural rationale, conflict status, and mandatory human review. Same-course/type constraints, explicit foreign-identity blocking, procedure signatures, and explicit identity/synonym/structure evidence block unrelated, label-only, cross-course, and source-free mappings. It creates no canonical identity and performs no canonical write.
