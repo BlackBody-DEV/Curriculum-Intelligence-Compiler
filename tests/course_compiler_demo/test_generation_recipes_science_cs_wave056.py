@@ -1,4 +1,5 @@
-from tools.course_compiler_demo.generation_recipes.domains.science_cs import COURSE_IDS, RECIPES, recipes_for_course, self_audit
+from tools.course_compiler_demo.generation_recipes import GenerationContextV1, GenerationRecipeRuntime, RecipeBindingV1
+from tools.course_compiler_demo.generation_recipes.domains.science_cs import COURSE_IDS, RECIPES, build_runtime, recipes_for_course, self_audit
 from tools.course_compiler_demo.universal_integration.capability_catalog_wave_044 import discover_course_catalog
 
 
@@ -65,3 +66,25 @@ def test_unknown_course_and_variant_fail_closed():
         assert "variant must be 0..4" in str(exc)
     else:
         raise AssertionError("out-of-domain variants must fail closed")
+
+
+def test_all_domain_recipes_register_with_shared_runtime_exactly():
+    runtime = build_runtime()
+    assert isinstance(runtime, GenerationRecipeRuntime)
+    for domain in RECIPES:
+        binding = RecipeBindingV1(**domain.binding.__dict__)
+        adapted = runtime.recipes.lookup_binding(binding)
+        assert adapted.recipe_id == domain.recipe_id
+        assert adapted.generator_method_id != adapted.derivation_method_id
+        assert len(adapted.parameter_domains) == 2
+
+
+def test_life_science_recipe_executes_through_shared_runtime():
+    course = discover_course_catalog()["new"]["BIOLOGY"]
+    binding = RecipeBindingV1("BIOLOGY", "BIOLOGY_TOPIC_001", "BIOLOGY_SKILL_001", "BIOLOGY_PROC_001", "BIOLOGY_FAMILY_001", "scientific_structured_response")
+    context = GenerationContextV1(binding, course["topics"][0]["title"], course["micro_skills"][0]["title"], tuple(course["procedures"][0]["steps"]), "independent-proof", 0)
+    result = build_runtime().generate("W056:BIOLOGY:001", context, course["generation_families"][0])
+    assert result.normalization_result.status == "PASS"
+    assert result.derivation_result.status == "PASS"
+    assert result.grading_result.status == "PASS"
+    assert result.normalized_answer == result.derived_answer
