@@ -87,16 +87,64 @@ COURSE_TASKS={
 OPERATIONS=("sum","difference","product","ratio","component_pair")
 PROCEDURE_INDEX=(1,2,3,4,5)
 
+# Explicitly reviewed against the canonical topic/skill/procedure identities.
+# The engineering catalogs use a different engine cycle, so their last three
+# bindings deliberately select 006, 007, and 011 rather than positional 003-005.
+SEMANTIC_BINDINGS={
+"PRE_ALGEBRA":((1,"whole-number reasoning"),(2,"integer operations"),(3,"fractions and decimals"),(4,"ratios and rates"),(5,"proportions")),
+"ALGEBRA_II":((1,"equations and inequalities"),(2,"functions"),(3,"quadratic functions"),(4,"polynomial functions"),(5,"rational functions")),
+"GEOMETRY":((1,"foundations and constructions"),(2,"transformations"),(7,"circles"),(4,"similarity"),(11,"foundations and constructions")),
+"TRIGONOMETRY":((1,"angle measure"),(2,"right-triangle trigonometry"),(7,"equations"),(4,"trigonometric functions"),(11,"angle measure")),
+"PRE_CALCULUS":((1,"function analysis"),(2,"polynomial and rational models"),(7,"conic sections"),(4,"trigonometric models"),(11,"function analysis")),
+"CALCULUS_II":((1,"integration techniques"),(2,"improper integrals"),(3,"applications of integration"),(4,"differential equations models"),(5,"parametric curves")),
+"CALCULUS_III":((1,"vectors and geometry of space"),(2,"vector-valued functions"),(7,"line integrals"),(4,"multiple integrals"),(11,"vectors and geometry of space")),
+"DIFFERENTIAL_EQUATIONS":((1,"first-order equations"),(2,"qualitative methods"),(7,"linear systems"),(4,"second-order linear equations"),(11,"first-order equations")),
+"LINEAR_ALGEBRA":((1,"linear systems"),(2,"matrix algebra"),(7,"determinants"),(4,"linear transformations"),(11,"linear systems")),
+"NUMERICAL_METHODS":((1,"error and conditioning"),(2,"root finding"),(6,"numerical integration"),(7,"initial-value problems"),(11,"linear systems")),
+"ENGINEERING_ANALYSIS":((1,"engineering models"),(2,"complex variables"),(6,"partial differential equations"),(7,"vector analysis"),(11,"linear algebraic models")),
+"APPLIED_MATHEMATICS":((1,"mathematical modeling"),(2,"discrete models"),(6,"dynamical systems"),(7,"fields and operators"),(11,"continuous models")),
+}
+
+
+def _semantic_task(concept:str, position:int)->tuple[str,str,tuple[str,...],str]:
+    if position==1:
+        return (f"{concept} aggregation",f"In {concept}, two compatible quantified contributions are {{a}} and {{b}}. Determine their combined value and verify the additive model.",(concept,"combined value"),"sum")
+    if position==2:
+        return (f"{concept} net change",f"In {concept}, a modeled quantity {{a}} is reduced by the compatible change {{b}}. Determine and verify the signed net value.",(concept,"net value"),"difference")
+    if position==3:
+        return (f"{concept} scale selection",f"For a bounded {concept} case, coefficient {{a}} scales a compatible magnitude {{b}}. Select the resulting product and reject additive distractors.",(concept,"resulting product"),"multiple_choice_product")
+    if position==4:
+        return (f"{concept} linear sensitivity",f"Within {concept}, use the local linear model f(x)={{a}}*x+{{b}}. Differentiate with respect to x and report the exact derivative coefficient.",(concept,"differentiate"),"derivative")
+    return (f"{concept} normalized comparison",f"In {concept}, compare compatible nonzero measures {{a}} and {{b}} by computing the normalized quotient a/b.",(concept,"normalized quotient"),"ratio")
+
+
+def _engineering_task(concept:str,position:int)->tuple[str,str,tuple[str,...],str]:
+    if position in {2,4}:
+        return (f"{concept} linear sensitivity",f"Within {concept}, use the local model f(x)={{a}}*x+{{b}}. Differentiate with respect to x and report the exact sensitivity.",(concept,"differentiate"),"derivative")
+    if position==3:
+        return (f"{concept} scaled term",f"Within {concept}, coefficient {{a}} scales compatible magnitude {{b}}. Compute and verify their product.",(concept,"product"),"product")
+    if position==5:
+        return (f"{concept} residual",f"Within {concept}, subtract compatible modeled contribution {{b}} from {{a}} and verify the signed residual.",(concept,"residual"),"difference")
+    return _semantic_task(concept,position)
+
 
 def _build_registry()->dict[str,tuple[DomainRecipeV1,...]]:
     registry={}
-    for course_id,tasks in COURSE_TASKS.items():
+    for course_id,semantic_bindings in SEMANTIC_BINDINGS.items():
         recipes=[]
-        for index,(semantic,prompt,terms) in enumerate(tasks,1):
-            operation=OPERATIONS[index-1]; engine="numeric_vector" if operation=="component_pair" else "numeric_scalar"
-            binding=RecipeBindingV1(course_id,f"{course_id}_TOPIC_{index:03d}",f"{course_id}_SKILL_{index:03d}",f"{course_id}_PROC_{PROCEDURE_INDEX[index-1]:03d}",f"{course_id}_FAMILY_{index:03d}",engine)
-            domains=(ParameterDomainV1("a",1,24,True,"declared_domain_unit"),ParameterDomainV1("b",1,12,True,"declared_domain_unit"))
-            recipe=DomainRecipeV1(f"recipe:{course_id.lower()}:{index:02d}","1.0",binding,domains,tuple(terms),(semantic,operation),prompt,operation); recipe.validate(); recipes.append(recipe)
+        for position,(binding_index,concept) in enumerate(semantic_bindings,1):
+            engineering=course_id in {"NUMERICAL_METHODS","ENGINEERING_ANALYSIS","APPLIED_MATHEMATICS"}
+            semantic,prompt,terms,operation=(_engineering_task(concept,position) if engineering else _semantic_task(concept,position))
+            if not engineering and position==3 and binding_index!=3:
+                semantic,prompt,terms,operation=(f"{concept} scale",f"Within {concept}, compatible factor {{a}} scales measure {{b}}. Compute and verify the product.",(concept,"product"),"product")
+            if course_id in {"NUMERICAL_METHODS","ENGINEERING_ANALYSIS","APPLIED_MATHEMATICS"}:
+                engine="symbolic_expression" if binding_index in {2,7} else "numeric_scalar"
+            else: engine="multiple_choice" if binding_index==3 else ("symbolic_expression" if binding_index in {4,8,12} else "numeric_scalar")
+            binding=RecipeBindingV1(course_id,f"{course_id}_TOPIC_{binding_index:03d}",f"{course_id}_SKILL_{binding_index:03d}",f"{course_id}_PROC_{binding_index:03d}",f"{course_id}_FAMILY_{binding_index:03d}",engine)
+            if course_id in {"NUMERICAL_METHODS","ENGINEERING_ANALYSIS","APPLIED_MATHEMATICS"}:
+                domains=(ParameterDomainV1("scale",0.1,100.0,False,"declared_domain_unit"),ParameterDomainV1("order",1,4,True,"declared_order"),ParameterDomainV1("variant",1,20,True,"declared_variant"))
+            else: domains=(ParameterDomainV1("variant",1,1000,True,"declared_variant"),ParameterDomainV1("coefficient_scale",1,12,True,"declared_scale"))
+            recipe=DomainRecipeV1(f"recipe:{course_id.lower()}:{position:02d}","1.1",binding,domains,tuple(terms),(semantic,operation),prompt,operation); recipe.validate(); recipes.append(recipe)
         registry[course_id]=tuple(recipes)
     return registry
 
@@ -114,9 +162,12 @@ def generate_course_pilot(course_id:str)->tuple[dict[str,Any],...]:
     registry=build_default_registry(); records=[]
     for recipe in get_course_recipes(course_id):
         for variant in range(5):
-            context=GenerationContextV1({"a":2+variant,"b":1+variant},variant,("FOUNDATIONAL","DEVELOPING","ADVANCED")[variant%3])
+            parameters={"scale":2+variant,"order":1+variant%4,"variant":1+variant} if course_id in {"NUMERICAL_METHODS","ENGINEERING_ANALYSIS","APPLIED_MATHEMATICS"} else {"variant":2+variant,"coefficient_scale":1+variant}
+            context=GenerationContextV1(parameters,variant,("FOUNDATIONAL","DEVELOPING","ADVANCED")[variant%3])
             answer=recipe.generate_answer(context); derivation=recipe.derive_independently(context); validate_answer_shape(recipe,answer)
-            contract=recipe.build_contract(); normalized=registry.normalize(answer,contract); derived=registry.derive({"independently_derived_answer":derivation.normalized_answer},contract); graded=registry.grade(answer,derivation.normalized_answer,contract)
+            contract=recipe.build_contract(); normalized=registry.normalize(answer,contract)
+            derivation_input={"expression":f"{recipe._parameters(context)[0]}*x+{recipe._parameters(context)[1]}","operation":"derivative"} if recipe.operation=="derivative" else {"independently_derived_answer":derivation.normalized_answer}
+            derived=registry.derive(derivation_input,contract); graded=registry.grade(answer,derivation.normalized_answer,contract)
             if normalized.status!=derived.status or normalized.status!="PASS" or normalized.value!=derived.value or graded.status!="PASS": raise ValueError("engine proof failed without fallback")
             records.append({"recipe_id":recipe.recipe_id,"binding":recipe.binding,"context":context,"prompt":recipe.build_prompt(context),"generator_answer":answer,"derivation":derivation,"engine_validation":{"normalize":normalized.to_dict(),"derive":derived.to_dict(),"grade":graded.to_dict()}})
     return tuple(records)

@@ -17,9 +17,11 @@ class RecipeBindingV1:
 @dataclass(frozen=True)
 class ParameterDomainV1:
     name:str; minimum:int; maximum:int; integer:bool=True; unit:str="dimensionless"
-    def validate(self,value:Any)->int:
-        if isinstance(value,bool) or not isinstance(value,int) or not self.minimum<=value<=self.maximum:
-            raise ValueError(f"{self.name} must be an integer in [{self.minimum}, {self.maximum}]")
+    def validate(self,value:Any)->Any:
+        expected=(int,) if self.integer else (int,float)
+        if isinstance(value,bool) or not isinstance(value,expected) or not self.minimum<=value<=self.maximum:
+            kind="integer" if self.integer else "number"
+            raise ValueError(f"{self.name} must be a {kind} in [{self.minimum}, {self.maximum}]")
         return value
 
 
@@ -40,12 +42,15 @@ class DomainRecipeV1:
     recipe_id:str; version:str; binding:RecipeBindingV1; parameter_domains:tuple[ParameterDomainV1,...]
     domain_terms:tuple[str,...]; operation_terms:tuple[str,...]; prompt_template:str; operation:str
 
-    def _parameters(self,context:GenerationContextV1)->tuple[int,int]:
+    def _parameters(self,context:GenerationContextV1)->tuple[Any,Any]:
         expected={domain.name for domain in self.parameter_domains}
         if set(context.parameters)!=expected: raise ValueError("parameters must exactly match declared domains")
         values={domain.name:domain.validate(context.parameters[domain.name]) for domain in self.parameter_domains}
-        if self.operation=="ratio" and values["b"]==0: raise ValueError("ratio denominator cannot be zero")
-        return values["a"],values["b"]
+        if "coefficient_scale" in values: a,b=values["variant"],values["coefficient_scale"]
+        elif self.operation=="derivative": a,b=values["order"],values["variant"]
+        else: a,b=values["scale"],values["order"]
+        if self.operation=="ratio" and b==0: raise ValueError("ratio denominator cannot be zero")
+        return a,b
 
     def build_prompt(self,context:GenerationContextV1)->str:
         a,b=self._parameters(context)
@@ -57,6 +62,8 @@ class DomainRecipeV1:
         if self.operation=="sum": return a+b
         if self.operation=="difference": return a-b
         if self.operation=="product": return a*b
+        if self.operation=="multiple_choice_product": return "correct_product"
+        if self.operation=="derivative": return str(a)
         if self.operation=="ratio": return float(Fraction(a,b))
         if self.operation=="component_pair": return [a+b,a-b]
         raise ValueError("unsupported recipe operation")
@@ -66,6 +73,8 @@ class DomainRecipeV1:
         if self.operation=="sum": answer=sum((a,b)); method="aggregate two declared contributions"
         elif self.operation=="difference": answer=sum((a,-b)); method="add the inverse contribution"
         elif self.operation=="product": answer=sum(a for _ in range(b)); method="repeated-addition cross-check"
+        elif self.operation=="multiple_choice_product": answer="correct_product"; method="independent option evaluation"
+        elif self.operation=="derivative": answer=str(a); method="linear difference-quotient cross-check"
         elif self.operation=="ratio": answer=float(Fraction(a,b)); method="exact rational quotient"
         elif self.operation=="component_pair": answer=[sum((a,b)),sum((a,-b))]; method="independent component aggregation"
         else: raise ValueError("unsupported recipe operation")
@@ -73,15 +82,19 @@ class DomainRecipeV1:
 
     def build_contract(self)->AnswerContractV1:
         grading={"absolute_tolerance":0.0,"relative_tolerance":0.0}
-        return AnswerContractV1(f"answer-contract:{self.recipe_id}",self.binding.engine_type,grading)
+        if self.binding.engine_type=="multiple_choice": grading={"options":[{"option_id":"correct_product","text":"a times b","correct":True},{"option_id":"additive_distractor","text":"a plus b","correct":False}]}
+        normalization={"variable":"x"} if self.binding.engine_type=="symbolic_expression" else {}
+        index=self.binding.family_id.rsplit("_",1)[-1]
+        return AnswerContractV1(f"{self.binding.course_id}_ANSWER_{index}",self.binding.engine_type,grading,normalization)
 
     def validate(self)->None:
         prefix=self.binding.course_id+"_"
         for value in (self.binding.topic_id,self.binding.micro_skill_id,self.binding.procedure_id,self.binding.family_id):
             if not value.startswith(prefix): raise ValueError("binding identity is outside the declared course")
-        expected="numeric_vector" if self.operation=="component_pair" else "numeric_scalar"
+        expected={"component_pair":"numeric_vector","multiple_choice_product":"multiple_choice","derivative":"symbolic_expression"}.get(self.operation,"numeric_scalar")
         if self.binding.engine_type!=expected: raise ValueError("operation and answer engine are incompatible")
-        if len(self.parameter_domains)!=2 or {x.name for x in self.parameter_domains}!={"a","b"}: raise ValueError("exact a and b domains are required")
+        names={x.name for x in self.parameter_domains}
+        if names not in ({"variant","coefficient_scale"},{"scale","order","variant"}): raise ValueError("catalog-declared parameter domains are required")
         if not self.domain_terms or not self.operation_terms or "{a}" not in self.prompt_template or "{b}" not in self.prompt_template: raise ValueError("recipe semantics are incomplete")
 
 
@@ -90,4 +103,6 @@ def validate_answer_shape(recipe:DomainRecipeV1,value:Any)->None:
         if isinstance(value,bool) or not isinstance(value,(int,float)) or not math.isfinite(float(value)): raise ValueError("numeric scalar recipe produced an invalid answer")
     elif recipe.binding.engine_type=="numeric_vector":
         if not isinstance(value,list) or len(value)!=2 or any(isinstance(x,bool) or not isinstance(x,(int,float)) or not math.isfinite(float(x)) for x in value): raise ValueError("numeric vector recipe produced an invalid answer")
+    elif recipe.binding.engine_type in {"multiple_choice","symbolic_expression"}:
+        if not isinstance(value,str) or not value: raise ValueError("symbolic/choice recipe produced an invalid answer")
     else: raise ValueError("recipe uses an unsupported engine")

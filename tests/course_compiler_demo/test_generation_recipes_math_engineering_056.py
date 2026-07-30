@@ -4,7 +4,7 @@ import pytest
 
 from tools.course_compiler_demo.generation_recipes.domains.math_engineering import (
     COURSE_RECIPE_REGISTRY,GenerationContextV1,adapt_recipe,audit_recipe_catalog,
-    build_math_engineering_runtime,generate_course_pilot,get_course_recipes,runtime_family,
+    build_math_engineering_runtime,generate_course_pilot,get_course_recipes,runtime_family,validate_catalog_semantics,
 )
 from tools.course_compiler_demo.generation_recipes.models import GenerationContextV1 as RuntimeGenerationContextV1
 from tools.course_compiler_demo.subject_packs.engineering_mathematics import build_engineering_mathematics_catalog
@@ -32,6 +32,13 @@ def test_bindings_resolve_exact_catalog_family_skill_topic_and_procedure():
             binding=recipe.binding; family=families[binding.family_id]
             assert binding.topic_id in topics and binding.micro_skill_id in skills and binding.procedure_id in procedures
             assert family["micro_skill_id"]==binding.micro_skill_id and family["procedure_id"]==binding.procedure_id
+            validate_catalog_semantics(recipe,course)
+
+
+def test_semantic_identity_rebinding_fails_even_when_target_ids_exist():
+    course=all_courses()["CALCULUS_III"]; recipe=get_course_recipes("CALCULUS_III")[0]
+    shifted=replace(recipe,binding=replace(recipe.binding,topic_id="CALCULUS_III_TOPIC_002",micro_skill_id="CALCULUS_III_SKILL_002",procedure_id="CALCULUS_III_PROC_002",family_id="CALCULUS_III_FAMILY_002"))
+    with pytest.raises(ValueError,match="semantic identity"): validate_catalog_semantics(shifted,course)
 
 
 @pytest.mark.parametrize("course_id",sorted(EXPECTED))
@@ -39,7 +46,7 @@ def test_25_variants_per_course_are_domain_specific_independently_derived_and_en
     records=generate_course_pilot(course_id)
     assert len(records)==25
     assert len({x["binding"].family_id for x in records})==5 and len({x["binding"].micro_skill_id for x in records})==5
-    assert len({x["binding"].procedure_id for x in records})==5 and len({x["binding"].engine_type for x in records})==2
+    assert len({x["binding"].procedure_id for x in records})==5 and len({x["binding"].engine_type for x in records})>=2
     assert len({x["context"].difficulty for x in records})==3
     assert len({x["prompt"] for x in records})==25
     for record in records:
@@ -51,7 +58,7 @@ def test_25_variants_per_course_are_domain_specific_independently_derived_and_en
 
 
 def test_generator_and_deriver_are_separate_paths_with_independent_methods():
-    recipe=get_course_recipes("CALCULUS_III")[2]; context=GenerationContextV1({"a":7,"b":4},0,"ADVANCED")
+    recipe=get_course_recipes("ENGINEERING_ANALYSIS")[2]; context=GenerationContextV1({"scale":7,"order":4,"variant":1},0,"ADVANCED")
     assert recipe.generate_answer.__func__ is not recipe.derive_independently.__func__
     assert recipe.generate_answer(context)==28
     packet=recipe.derive_independently(context)
@@ -60,18 +67,20 @@ def test_generator_and_deriver_are_separate_paths_with_independent_methods():
 
 @pytest.mark.parametrize("course_id",sorted(EXPECTED))
 def test_shared_runtime_executes_25_distinct_validated_questions_per_course(course_id):
-    runtime=build_math_engineering_runtime(); results=[]
+    runtime=build_math_engineering_runtime(); results=[]; course=all_courses()[course_id]
+    topics={x["topic_id"]:x for x in course["topics"]}; skills={x["micro_skill_id"]:x for x in course["micro_skills"]}; families={x["family_id"]:x for x in course["generation_families"]}; procedures={x["procedure_id"]:x for x in course["procedures"]}
     for source in get_course_recipes(course_id):
         recipe=adapt_recipe(source)
+        topic=topics[recipe.binding.topic_id]; skill=skills[recipe.binding.micro_skill_id]; family=families[recipe.binding.family_id]; procedure=procedures[recipe.binding.procedure_id]
+        assert source.domain_terms[0].lower() in topic["title"].lower()
+        assert family["answer_engine"]==recipe.binding.engine_type
         for variant in range(5):
             context=RuntimeGenerationContextV1(
                 recipe.binding,
-                f"{course_id.replace('_',' ').title()} Topic {variant+1}",
-                f"{source.operation_terms[0].title()} Skill {variant+1}",
-                (f"Use the declared {source.operation} relationship and preserve its answer shape.",),
+                topic["title"],skill["title"],tuple(procedure["steps"]),
                 f"wave-056:{course_id}",variant,
             )
-            result=runtime.generate(recipe.recipe_id,context,runtime_family(recipe))
+            result=runtime.generate(recipe.recipe_id,context,runtime_family(recipe,family))
             assert result.normalization_result.status==result.derivation_result.status==result.grading_result.status=="PASS"
             results.append(result)
     report=runtime.require_coverage(results)
@@ -80,24 +89,24 @@ def test_shared_runtime_executes_25_distinct_validated_questions_per_course(cour
 
 def test_targeted_prompts_exercise_actual_course_semantics():
     prompts={course:" ".join(x["prompt"] for x in generate_course_pilot(course)) for course in ("CALCULUS_III","NUMERICAL_METHODS","ENGINEERING_ANALYSIS","PRE_ALGEBRA")}
-    assert all(term in prompts["CALCULUS_III"] for term in ("space vector","double integral","surface flux","three-dimensional"))
-    assert all(term in prompts["NUMERICAL_METHODS"] for term in ("iterative correction","quadrature","finite-difference","solver"))
-    assert all(term in prompts["ENGINEERING_ANALYSIS"] for term in ("superposition","balance residual","transfer model","field"))
-    assert all(term in prompts["PRE_ALGEBRA"] for term in ("inventory","temperature","tile array","unit rate"))
+    assert all(term in prompts["CALCULUS_III"] for term in ("vectors and geometry of space","vector-valued functions","line integrals","multiple integrals"))
+    assert all(term in prompts["NUMERICAL_METHODS"] for term in ("error and conditioning","root finding","numerical integration","initial-value problems"))
+    assert all(term in prompts["ENGINEERING_ANALYSIS"] for term in ("engineering models","complex variables","partial differential equations","vector analysis"))
+    assert all(term in prompts["PRE_ALGEBRA"] for term in ("whole-number reasoning","integer operations","fractions and decimals","ratios and rates"))
 
 
 @pytest.mark.parametrize("course_id",sorted(EXPECTED))
 def test_incompatible_operation_engine_pair_fails_closed(course_id):
-    scalar=get_course_recipes(course_id)[0]; vector=get_course_recipes(course_id)[4]
+    scalar=get_course_recipes(course_id)[0]; symbolic=next(x for x in get_course_recipes(course_id) if x.binding.engine_type=="symbolic_expression")
     with pytest.raises(ValueError,match="incompatible"):
-        replace(scalar,binding=replace(scalar.binding,engine_type="numeric_vector")).validate()
+        replace(scalar,binding=replace(scalar.binding,engine_type="symbolic_expression")).validate()
     with pytest.raises(ValueError,match="incompatible"):
-        replace(vector,binding=replace(vector.binding,engine_type="numeric_scalar")).validate()
+        replace(symbolic,binding=replace(symbolic.binding,engine_type="numeric_scalar")).validate()
 
 
 def test_bad_parameters_unknown_course_and_undeclared_operation_fail_closed():
     recipe=get_course_recipes("APPLIED_MATHEMATICS")[3]
-    with pytest.raises(ValueError,match="exactly match"): recipe.generate_answer(GenerationContextV1({"a":3},0,"FOUNDATIONAL"))
-    with pytest.raises(ValueError,match="integer"): recipe.generate_answer(GenerationContextV1({"a":3,"b":0},0,"FOUNDATIONAL"))
+    with pytest.raises(ValueError,match="exactly match"): recipe.generate_answer(GenerationContextV1({"scale":3},0,"FOUNDATIONAL"))
+    with pytest.raises(ValueError,match="integer"): recipe.generate_answer(GenerationContextV1({"scale":3,"order":0,"variant":1},0,"FOUNDATIONAL"))
     with pytest.raises(ValueError,match="no math/engineering recipe"): get_course_recipes("BIOLOGY")
     with pytest.raises(ValueError,match="incompatible"): replace(recipe,operation="component_pair").validate()
