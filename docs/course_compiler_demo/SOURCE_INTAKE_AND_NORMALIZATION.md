@@ -1,0 +1,3 @@
+# Source Intake and Normalization
+
+The offline intake runtime streams SHA-256 hashing and deterministically normalizes text-native PDFs, text, syllabus/standards/textbook/question-bank naming conventions, course packages, JSON, and CSV. Segments preserve page/section locators, headings, and CSV table rows; assets are inventoried without interpretation. Scanned/encrypted/low-density/asset boundaries are explicit and OCR is never claimed. Corpus manifests record duplicates, stable identities, checkpoints, and integrity-checked reopen state. The scale regression creates 100 temporary files and exactly 5,000 segments without durable external artifacts.
