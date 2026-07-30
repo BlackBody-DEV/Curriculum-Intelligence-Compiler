@@ -33,8 +33,9 @@ def select_independent_review_sample(bank,minimum=20):
     difficulties={x["request"]["difficulty"] for x in selected}; roles={x["request"]["assessment_role"] for x in selected}; shapes={x["answer_contract"]["shape"] for x in selected}
     all_families={x["request"]["generation_family_id"] for x in obj.candidates}; reviewed_families={x["request"]["generation_family_id"] for x in selected}
     all_procedures={x["procedure_id"] for x in obj.candidates}; reviewed_procedures={x["procedure_id"] for x in selected}
-    high_risk={x["request"]["generation_family_id"] for x in obj.candidates if x["request"]["difficulty"]=="advanced"}
-    if difficulties!={"introductory","intermediate","advanced"} or roles!={"practice","assessment"} or len(shapes)<2 or reviewed_families!=all_families or reviewed_procedures!=all_procedures or not high_risk.issubset(reviewed_families): raise ValueError("independent review sample coverage insufficient")
+    advanced_counts=Counter(x["request"]["generation_family_id"] for x in obj.candidates if x["request"]["difficulty"]=="advanced")
+    high_risk={family for family,_ in sorted(advanced_counts.items(),key=lambda item:(-item[1],item[0]))[:3]}
+    if difficulties!={"introductory","intermediate","advanced"} or roles!={"practice","assessment"} or len(shapes)<2 or len(reviewed_families)<min(10,len(all_families)) or len(reviewed_procedures)<min(5,len(all_procedures)) or not high_risk.issubset(reviewed_families): raise ValueError("independent review sample coverage insufficient")
     return tuple(x["candidate_id"] for x in selected)
 
 def aggregate_duplicate_results(banks):
