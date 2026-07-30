@@ -1,0 +1,2 @@
+"""Domain-owned recipe catalogs."""
+
