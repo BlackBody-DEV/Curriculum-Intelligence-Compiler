@@ -92,9 +92,9 @@ def test_artifacts_record_full_runtime_diagnostics_and_beta_proof():
     assert artifacts["assessment_report.json"]["assessment_count"]==27
     assert artifacts["beta_export_report.json"]["schema_validation"]["question_reference_count"]==675
     assert artifacts["security_audit_report.json"]["status"]=="PASS"
-    assert artifacts["clean_room_report.json"]["status"]=="FOCUSED_PASS_FULL_PENDING"
+    assert artifacts["clean_room_report.json"]["status"]=="CONTENT_PASS_RELEASE_BLOCKED"
     assert artifacts["clean_room_report.json"]["remote_ci"]["required"] is True
-    assert artifacts["independent_audit_report.json"]["status"]=="APPROVE"
+    assert artifacts["independent_audit_report.json"]["status"]=="APPROVE_CONTENT_RELEASE_BLOCKED"
     assert len(artifacts["capability_catalog_manifest.json"]["artifact_sha256"])==9
 
 
