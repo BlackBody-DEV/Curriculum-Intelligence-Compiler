@@ -11,6 +11,18 @@ ROOT = Path(__file__).resolve().parents[4]
 STATICS_AREAS = ["Centroids", "Vector Operations", "Force Systems", "Moments and Couples", "equilibrium", "distributed loading", "trusses", "frames"]
 EM_AREAS = ["electric charge", "Coulomb force", "electric field", "electric potential", "Gauss's law", "capacitance", "current and resistance", "DC circuits", "magnetic force", "magnetic field", "electromagnetic induction", "Maxwell relationships"]
 AUTHORITY_FILE = "tools/course_compiler_demo/sample_inputs/real_statics/STATICS_REAL_SOURCE_ME_2301_CURRICULUM_EXTRACTION_V1/original/me_2301_statics_curriculum_extraction.md"
+NEW_COURSE_UNITS = {
+    "MECHANICS": ["Measurement and vectors", "Kinematics", "Newtonian dynamics", "Energy and work", "Momentum", "Rotation", "Gravitation", "Oscillations"],
+    "WAVES_AND_OPTICS": ["Wave description", "Superposition", "Sound", "Geometric optics", "Interference", "Diffraction", "Polarization", "Optical instruments"],
+    "MODERN_PHYSICS": ["Relativity", "Photons", "Matter waves", "Quantum models", "Atomic structure", "Nuclear physics", "Particle physics", "Solid-state physics"],
+    "DYNAMICS": ["Particle kinematics", "Particle kinetics", "Work and energy", "Impulse and momentum", "Planar rigid bodies", "Rigid-body kinetics", "Vibration", "Three-dimensional motion"],
+    "MECHANICS_OF_MATERIALS": ["Stress and strain", "Material behavior", "Axial loading", "Torsion", "Beam bending", "Transverse shear", "Combined loading", "Deflection and stability"],
+    "STRENGTH_OF_MATERIALS": ["Load paths", "Stress transformation", "Failure criteria", "Pressure vessels", "Columns", "Energy methods", "Fatigue", "Structural design"],
+    "FLUID_MECHANICS": ["Fluid properties", "Hydrostatics", "Control volumes", "Fluid kinematics", "Momentum analysis", "Viscous flow", "Dimensional analysis", "External flow"],
+    "HYDRAULICS": ["Pressure measurement", "Pipe flow", "Minor losses", "Pump systems", "Open channels", "Hydraulic structures", "Pipe networks", "Transient flow"],
+    "FLUID_DYNAMICS": ["Field descriptions", "Continuity", "Euler equations", "Navier-Stokes models", "Vorticity", "Boundary layers", "Compressible flow", "Turbulence"],
+}
+NEW_COURSE_IDS = tuple(NEW_COURSE_UNITS)
 
 def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -24,6 +36,27 @@ def _course(course_id: str, areas: list[str]) -> dict[str, Any]:
     relationships = [{"relationship_id": f"{course_id}_PREREQ_{i:03d}", "source_node_id": skills[i-1]["micro_skill_id"], "target_node_id": skills[i]["micro_skill_id"], "relationship_type": "PREREQUISITE"} for i in range(1,50)]
     blueprints = [AssessmentBlueprintV1(f"{course_id}_{role}", course_id, count, {t["topic_id"]: .04 for t in topics}, {"FOUNDATIONAL":.4,"DEVELOPING":.4,"ADVANCED":.2}, {"numeric":1.0}, minutes, unit_scope=tuple(u["unit_id"] for u in units), micro_skill_coverage=tuple(s["micro_skill_id"] for s in skills[:15]), prerequisite_coverage=tuple(r["relationship_id"] for r in relationships[:10]), review_status="PROPOSED").to_dict() for role,count,minutes in (("PRACTICE",25,50),("SUMMATIVE",40,100))]
     return {"course_id":course_id,"units":units,"topics":topics,"micro_skills":skills,"procedures":procedures,"generation_families":families,"relationships":relationships,"unit_policy":{"system":"SI","dimensional_analysis_required":True},"vector_convention":{"basis":"RIGHT_HANDED_CARTESIAN","angle_reference":"POSITIVE_X_CCW"},"failure_signals":["unit_mismatch","axis_confusion","sign_error"],"assessment_blueprints":blueprints,"target_validated_question_count":300}
+
+def _catalog_course(course_id: str, unit_titles: list[str]) -> dict[str, Any]:
+    """Build a noncanonical course contract without changing the two legacy courses."""
+    units=[{"unit_id":f"{course_id}_UNIT_{i:02d}","title":title,"sequence":i} for i,title in enumerate(unit_titles,1)]
+    topics=[{"topic_id":f"{course_id}_TOPIC_{i:03d}","unit_id":units[(i-1)%8]["unit_id"],"title":f"{unit_titles[(i-1)%8]} analysis {i}"} for i in range(1,26)]
+    skills=[{"micro_skill_id":f"{course_id}_SKILL_{i:03d}","topic_id":topics[(i-1)%25]["topic_id"],"title":f"Solve {topics[(i-1)%25]['title']} case {i}","difficulty":("FOUNDATIONAL","DEVELOPING","ADVANCED")[(i-1)%3]} for i in range(1,51)]
+    procedures=[]
+    for i in range(1,16):
+        procedures.append({"procedure_id":f"{course_id}_PROC_{i:03d}","micro_skill_ids":[s["micro_skill_id"] for p,s in enumerate(skills) if p%15==i-1],"steps":["Declare the SI quantities and dimensions.","Resolve vectors in the declared positive basis.","Apply the governing balance or constitutive relation.","Verify dimensions, limiting behavior, and sign."],"unit_policy":"SI_EXPLICIT","dimensional_check":"REQUIRED","vector_convention":"RIGHT_HANDED_CARTESIAN","sign_convention":"DECLARED_POSITIVE_AXES"})
+    families=[]
+    for i in range(1,16):
+        engine="numeric_vector" if i%4==0 else "numeric_scalar"
+        families.append({
+            "family_id":f"{course_id}_FAMILY_{i:03d}","micro_skill_id":skills[i-1]["micro_skill_id"],"procedure_id":procedures[i-1]["procedure_id"],
+            "parameter_domains":{"magnitude":{"type":"number","minimum":1.0,"maximum":1000.0,"unit":"SI_DECLARED"},"direction_degrees":{"type":"number","minimum":-180.0,"maximum":180.0,"reference":"POSITIVE_X_CCW"},"variant":{"type":"integer","minimum":1,"maximum":20}},
+            "difficulty_allocation":{"FOUNDATIONAL":.4,"DEVELOPING":.4,"ADVANCED":.2},"answer_contract":{"shape":engine,"units":"REQUIRED","dimensions":"REQUIRED","vector_basis":"RIGHT_HANDED_CARTESIAN" if engine=="numeric_vector" else "SCALAR_SIGN_DECLARED"},"answer_engine":engine,
+            "failure_signals":["unit_mismatch","dimension_mismatch","axis_confusion","sign_error"],"assessment_role":"PRACTICE_AND_SUMMATIVE","duplicate_constraints":{"parameter_fingerprint":"REQUIRED","maximum_exact_duplicates":0},"allocation_rules":{"target_variants":20,"unit_consistent":True},
+        })
+    relationships=[{"relationship_id":f"{course_id}_PREREQ_{i:03d}","source_node_id":skills[i-1]["micro_skill_id"],"target_node_id":skills[i]["micro_skill_id"],"relationship_type":"PREREQUISITE"} for i in range(1,50)]
+    blueprints=[AssessmentBlueprintV1(f"{course_id}_{role}",course_id,count,{t["topic_id"]:.04 for t in topics},{"FOUNDATIONAL":.4,"DEVELOPING":.4,"ADVANCED":.2},{"numeric":1.0},minutes,unit_scope=tuple(u["unit_id"] for u in units),micro_skill_coverage=tuple(s["micro_skill_id"] for s in skills[:15]),prerequisite_coverage=tuple(r["relationship_id"] for r in relationships[:10]),review_status="PROPOSED").to_dict() for role,count,minutes in (("PRACTICE",25,50),("SUMMATIVE",40,100))]
+    return {"course_id":course_id,"course_identity":{"course_id":course_id,"title":course_id.replace("_"," ").title(),"version":"1.0"},"domain":"PHYSICAL_SCIENCES_AND_ENGINEERING","subject":course_id.replace("_"," ").title(),"noncanonical":True,"human_review_required":True,"units":units,"topics":topics,"micro_skills":skills,"procedures":procedures,"generation_families":families,"relationships":relationships,"difficulty_model":{"levels":["FOUNDATIONAL","DEVELOPING","ADVANCED"],"basis":"procedure_complexity_and_parameter_coupling"},"answer_engine_allocations":["numeric_scalar","numeric_vector"],"failure_signal_allocations":["unit_mismatch","dimension_mismatch","axis_confusion","sign_error"],"asset_policy":{"required":False,"allowed":["coordinate_diagram","free_body_diagram","property_table"],"student_performance_data":False},"unit_policy":{"system":"SI","base_dimensions":["M","L","T","I","Theta"],"dimensional_analysis_required":True},"vector_convention":{"basis":"RIGHT_HANDED_CARTESIAN","angle_reference":"POSITIVE_X_CCW","components_order":["x","y","z"]},"sign_convention":{"positive_axes":"RIGHT_HANDED_CARTESIAN","moments":"RIGHT_HAND_RULE","pressure":"GAUGE_UNLESS_DECLARED_ABSOLUTE","flux":"OUTWARD_NORMAL_POSITIVE"},"assessment_blueprints":blueprints,"target_validated_question_count":300,"target_production_count":300}
 
 def build_physics_engineering_reference_pack() -> dict[str, Any]:
     authority_path = ROOT / AUTHORITY_FILE
@@ -50,7 +83,7 @@ def validate_physics_engineering_reference_pack(pack: dict[str, Any]) -> None:
         if {x for p in course["procedures"] for x in p["micro_skill_ids"]}!=skills: raise ValueError("skill coverage incomplete")
         if any(r.get("relationship_type")!="PREREQUISITE" or r.get("source_node_id") not in skills or r.get("target_node_id") not in skills or r.get("source_node_id")==r.get("target_node_id") for r in course["relationships"]): raise ValueError("prerequisite relationship invalid")
         if any(x["procedure_id"] not in procedures or x["answer_engine"] not in {"numeric_scalar","numeric_vector"} or not x["parameter_domains"] or not x["allocation_rules"] for x in course["generation_families"]): raise ValueError("generation family incomplete")
-        if course["unit_policy"]!={"system":"SI","dimensional_analysis_required":True} or course["vector_convention"]!={"basis":"RIGHT_HANDED_CARTESIAN","angle_reference":"POSITIVE_X_CCW"}: raise ValueError("unit/vector policy invalid")
+        if course["unit_policy"].get("system")!="SI" or course["unit_policy"].get("dimensional_analysis_required") is not True or course["vector_convention"].get("basis")!="RIGHT_HANDED_CARTESIAN" or course["vector_convention"].get("angle_reference")!="POSITIVE_X_CCW": raise ValueError("unit/vector policy invalid")
         if len(course["assessment_blueprints"])!=2 or course["target_validated_question_count"]!=300: raise ValueError("assessment coverage incomplete")
         relationship_ids=relationships
         for payload in course["assessment_blueprints"]:
@@ -59,3 +92,43 @@ def validate_physics_engineering_reference_pack(pack: dict[str, Any]) -> None:
             distributions=(blueprint.topic_weights,blueprint.difficulty_distribution,blueprint.question_type_distribution)
             if any(any(not isinstance(value,(int,float)) or not math.isfinite(value) or value<0 for value in d.values()) or abs(sum(d.values())-1)>1e-9 for d in distributions): raise ValueError("blueprint distributions invalid")
             if set(blueprint.topic_weights)!=topics or set(blueprint.difficulty_distribution)!={"FOUNDATIONAL","DEVELOPING","ADVANCED"} or set(blueprint.question_type_distribution)!={"numeric"} or not blueprint.unit_scope or not blueprint.prerequisite_coverage or any(x not in units for x in blueprint.unit_scope) or any(x not in relationship_ids for x in blueprint.prerequisite_coverage): raise ValueError("blueprint scope invalid")
+
+def build_physics_engineering_course_catalog() -> dict[str, Any]:
+    """Return the preserved reference courses plus nine noncanonical additions."""
+    pack=build_physics_engineering_reference_pack()
+    pack["pack_id"]="PHYSICS_ENGINEERING_COURSE_CATALOG_V1"
+    pack["courses"].update({course_id:_catalog_course(course_id,titles) for course_id,titles in NEW_COURSE_UNITS.items()})
+    pack["deterministic_sha256"]=hashlib.sha256(json.dumps(pack,sort_keys=True,separators=(",",":")).encode()).hexdigest()
+    return pack
+
+def validate_physics_engineering_course_catalog(pack: dict[str, Any]) -> None:
+    if not pack.get("noncanonical") or not pack.get("human_review_required") or pack.get("canonical_authority") is not False: raise ValueError("catalog boundary invalid")
+    expected_ids={"STATICS","ELECTRICITY_AND_MAGNETISM",*NEW_COURSE_IDS}
+    if set(pack.get("courses",{}))!=expected_ids: raise ValueError("catalog courses missing")
+    preserved=build_physics_engineering_reference_pack()
+    if pack.get("statics_authority_references")!=preserved["statics_authority_references"]: raise ValueError("Statics authority references changed")
+    for legacy_id in ("STATICS","ELECTRICITY_AND_MAGNETISM"):
+        if pack["courses"][legacy_id]!=preserved["courses"][legacy_id]: raise ValueError("legacy course changed")
+    for course_id in NEW_COURSE_IDS:
+        course=pack["courses"][course_id]
+        required_course_fields={"course_identity","domain","subject","units","topics","micro_skills","procedures","generation_families","relationships","difficulty_model","answer_engine_allocations","failure_signal_allocations","asset_policy","assessment_blueprints","target_production_count"}
+        if not required_course_fields.issubset(course) or course.get("course_id")!=course_id or not course.get("noncanonical") or not course.get("human_review_required") or course.get("target_production_count")!=300 or course.get("target_validated_question_count")!=300: raise ValueError("new course common contract incomplete")
+        if len(course["units"])<8 or len(course["topics"])<25 or len(course["micro_skills"])<50 or len(course["procedures"])<15 or len(course["generation_families"])<15 or len(course["assessment_blueprints"])!=2: raise ValueError("new course coverage incomplete")
+        units={x["unit_id"] for x in course["units"]}; topics={x["topic_id"] for x in course["topics"]}; skills={x["micro_skill_id"] for x in course["micro_skills"]}; procedures={x["procedure_id"] for x in course["procedures"]}; relationships={x["relationship_id"] for x in course["relationships"]}
+        if any(len(values)!=expected for values,expected in ((units,len(course["units"])),(topics,len(course["topics"])),(skills,len(course["micro_skills"])),(procedures,len(course["procedures"])),(relationships,len(course["relationships"])))): raise ValueError("duplicate new course identity")
+        if any(x["unit_id"] not in units for x in course["topics"]) or any(x["topic_id"] not in topics for x in course["micro_skills"]): raise ValueError("new course hierarchy unresolved")
+        if {x for p in course["procedures"] for x in p["micro_skill_ids"]}!=skills or any(p.get("dimensional_check")!="REQUIRED" or not p.get("sign_convention") for p in course["procedures"]): raise ValueError("procedure coverage or convention incomplete")
+        if any(r.get("relationship_type")!="PREREQUISITE" or r.get("source_node_id") not in skills or r.get("target_node_id") not in skills for r in course["relationships"]): raise ValueError("prerequisite relationship invalid")
+        if course["unit_policy"].get("system")!="SI" or course["unit_policy"].get("base_dimensions")!=["M","L","T","I","Theta"] or course["unit_policy"].get("dimensional_analysis_required") is not True or course["vector_convention"].get("basis")!="RIGHT_HANDED_CARTESIAN" or course["vector_convention"].get("angle_reference")!="POSITIVE_X_CCW" or course["vector_convention"].get("components_order")!=["x","y","z"] or not course.get("sign_convention"): raise ValueError("unit, dimension, vector, or sign convention incomplete")
+        family_ids=set()
+        for family in course["generation_families"]:
+            required_family_fields={"family_id","micro_skill_id","procedure_id","parameter_domains","difficulty_allocation","answer_contract","answer_engine","failure_signals","assessment_role","duplicate_constraints"}
+            if not required_family_fields.issubset(family) or family["family_id"] in family_ids or family["micro_skill_id"] not in skills or family["procedure_id"] not in procedures: raise ValueError("new generation family common contract incomplete")
+            family_ids.add(family["family_id"])
+            if family["answer_engine"] not in course["answer_engine_allocations"] or set(family["difficulty_allocation"])!={"FOUNDATIONAL","DEVELOPING","ADVANCED"} or abs(sum(family["difficulty_allocation"].values())-1)>1e-9: raise ValueError("family allocation invalid")
+            if family["answer_contract"].get("units")!="REQUIRED" or family["answer_contract"].get("dimensions")!="REQUIRED" or family["duplicate_constraints"]!={"parameter_fingerprint":"REQUIRED","maximum_exact_duplicates":0} or not set(family["failure_signals"]).issubset(course["failure_signal_allocations"]): raise ValueError("family grading, failure, or duplicate contract invalid")
+        for payload in course["assessment_blueprints"]:
+            blueprint=AssessmentBlueprintV1.from_dict(payload)
+            if blueprint.course_node_id!=course_id or not blueprint.unit_scope or not blueprint.prerequisite_coverage or any(x not in units for x in blueprint.unit_scope) or any(x not in skills for x in blueprint.micro_skill_coverage) or any(x not in relationships for x in blueprint.prerequisite_coverage): raise ValueError("new course blueprint invalid")
+            for distribution in (blueprint.topic_weights,blueprint.difficulty_distribution,blueprint.question_type_distribution):
+                if any(isinstance(v,bool) or not isinstance(v,(int,float)) or not math.isfinite(v) or v<0 for v in distribution.values()) or abs(sum(distribution.values())-1)>1e-9: raise ValueError("new course blueprint distribution invalid")
