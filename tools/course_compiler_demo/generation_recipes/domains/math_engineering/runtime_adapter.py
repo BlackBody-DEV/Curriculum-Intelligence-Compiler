@@ -47,6 +47,12 @@ def adapt_recipe(source: DomainRecipeV1) -> BoundedGenerationRecipe:
         if source.operation=="derivative":
             a,b=source._parameters(local(parameters))
             return RuntimeDerivationPacketV1(f"independent:{source.operation}",{"expression":f"{a}*x+{b}","operation":"derivative"},packet.normalized_answer)
+        if source.operation=="linear_root":
+            a,b=source._parameters(local(parameters))
+            return RuntimeDerivationPacketV1(f"independent:{source.operation}",{"expression":f"{a}*x+{b}","operation":"linear_root"},packet.normalized_answer)
+        if source.operation=="recurrence_step":
+            a,b=source._parameters(local(parameters))
+            return RuntimeDerivationPacketV1(f"independent:{source.operation}",{"current":a,"increment":b,"operation":"recurrence_step"},packet.normalized_answer)
         return RuntimeDerivationPacketV1(
             f"independent:{source.operation}",
             {"independently_derived_answer": packet.normalized_answer},
@@ -59,9 +65,9 @@ def adapt_recipe(source: DomainRecipeV1) -> BoundedGenerationRecipe:
 
     return BoundedGenerationRecipe(
         source.recipe_id, source.version, binding, domains, source.domain_terms,
-        source.operation_terms, (("variant","coefficient_scale") if any(item.name=="coefficient_scale" for item in source.parameter_domains) else (("order","variant") if source.operation=="derivative" else ("scale","order"))),
+        source.operation_terms, (("variant","coefficient_scale") if any(item.name=="coefficient_scale" for item in source.parameter_domains) else (("order","variant") if source.operation in {"derivative","linear_root","recurrence_step"} else ("scale","order"))),
         f"candidate:{source.operation}", f"independent:{source.operation}",
-        generate, derive, prompt, lambda parameters: source.build_contract(),
+        generate, derive, prompt, lambda parameters: source.build_contract(local(parameters)),
     )
 
 
@@ -75,10 +81,9 @@ def build_math_engineering_runtime() -> GenerationRecipeRuntime:
 
 def runtime_family(recipe: BoundedGenerationRecipe, catalog_family: Mapping[str,Any]) -> dict[str, Any]:
     """Populate the runtime contract from an exact canonical family payload."""
-    contract = recipe.build_contract({})
     if catalog_family.get("family_id")!=recipe.binding.family_id or catalog_family.get("micro_skill_id")!=recipe.binding.micro_skill_id or catalog_family.get("procedure_id")!=recipe.binding.procedure_id or catalog_family.get("answer_engine")!=recipe.binding.engine_type:
         raise ValueError("catalog family does not exactly match recipe binding")
     result=dict(catalog_family); answer_contract=dict(result.get("answer_contract",{}))
-    answer_contract.setdefault("answer_contract_id",contract.answer_contract_id); answer_contract["engine_type"]=recipe.binding.engine_type
+    answer_contract.setdefault("answer_contract_id",f"{recipe.binding.course_id}_ANSWER_{recipe.binding.family_id.rsplit('_',1)[-1]}"); answer_contract["engine_type"]=recipe.binding.engine_type
     result["answer_contract"]=answer_contract
     return result
