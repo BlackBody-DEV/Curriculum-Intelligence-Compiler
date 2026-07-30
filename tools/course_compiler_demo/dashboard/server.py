@@ -159,6 +159,12 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                         str(payload.get("run_id", "CANONICAL_PROMOTION_PREPARATION_PILOT_020"))
                     )
                 )
+            if parsed.path == "/api/canonical-promotion/universal-reconciliation":
+                return self._json(
+                    self.controller.canonical_promotion_run_universal_reconciliation(
+                        str(payload.get("run_id", "CANONICAL_PROMOTION_UNIVERSAL_RECONCILIATION_045"))
+                    )
+                )
             if parsed.path == "/api/runs":
                 return self._json(self.controller.create_run(payload))
             if len(parts) == 4 and parts[0] == "api" and parts[1] == "runs":

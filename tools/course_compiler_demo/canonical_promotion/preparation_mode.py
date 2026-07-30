@@ -248,6 +248,9 @@ def adapter_registry() -> dict[str, InputAdapter]:
     return {
         "document_compiler": DocumentCompilerInputAdapter(),
         "phase_e_production": PhaseEProductionInputAdapter(),
+        "production_question_candidate": ProductionQuestionCandidateInputAdapter(),
+        "production_question_bank": ProductionQuestionBankInputAdapter(),
+        "beta_export_reference": BetaExportReferenceInputAdapter(),
     }
 
 
@@ -358,6 +361,158 @@ class PhaseEProductionInputAdapter:
             disallowed=payload.get("disallowed") is True,
             destination_path_metadata={"proposed_path": row.get("destination_canonical_path"), "path_created": False},
         )
+
+
+def _production_record(payload: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    candidate = payload.get("candidate")
+    derivation = payload.get("derivation")
+    validation = payload.get("validation")
+    if not all(isinstance(item, dict) and item for item in (candidate, derivation, validation)):
+        raise CanonicalPromotionPreparationError("production candidate requires candidate, derivation, and validation records")
+    candidate_id = candidate.get("candidate_id")
+    if not candidate_id or derivation.get("candidate_id") != candidate_id or validation.get("candidate_id") != candidate_id:
+        raise CanonicalPromotionPreparationError("production candidate records have mismatched identities")
+    required_validation = ("grading_pass", "procedure_compatibility_pass", "failure_signal_pass", "prompt_determinacy_pass", "unit_tolerance_pass", "answer_contract_pass")
+    if not all(validation.get(field) is True for field in required_validation):
+        raise CanonicalPromotionPreparationError("production candidate validation is incomplete or failed")
+    safety = candidate.get("safety") or {}
+    if safety.get("synthetic_fixture") is not False or safety.get("production_candidate") is not True or safety.get("noncanonical") is not True:
+        raise CanonicalPromotionPreparationError("production candidate safety boundary is invalid")
+    if derivation.get("consumed_generator_answer") is not False or not derivation.get("derivation_source"):
+        raise CanonicalPromotionPreparationError("production independent derivation is invalid")
+    return candidate, derivation, validation
+
+
+def _production_approval_evidence(candidate_id: str, bank_id: str, bank_sha256: str, kind: str) -> dict[str, Any]:
+    source_identity = f"{bank_id}:{kind}:{candidate_id}"
+    return {
+        "classification": "EXPLICIT_APPROVAL_EVIDENCE",
+        "verified": True,
+        "evidence_type": f"internal_authored_production_{kind}_evidence",
+        "source": "REGISTERED_NONCANONICAL_PRODUCTION_BANK",
+        "source_identity": source_identity,
+        "source_hash": bank_sha256,
+        "approval_scope": "canonical_promotion_preparation_review_only",
+        "applicable_content_identity": candidate_id,
+    }
+
+
+def _production_options(prompt: str) -> list[dict[str, str]]:
+    marker = "Choices:"
+    if marker not in prompt:
+        return []
+    values = prompt.split(marker, 1)[1].strip().rstrip(".").split(",")
+    return [{"option_id": value.strip(), "text": value.strip()} for value in values if value.strip()]
+
+
+class ProductionQuestionCandidateInputAdapter:
+    adapter_id = "ProductionQuestionCandidateInputAdapter"
+
+    def normalize(self, payload: dict[str, Any], *, ordinal: int) -> dict[str, Any]:
+        candidate, derivation, validation = _production_record(payload)
+        bank_id = payload.get("bank_id")
+        bank_sha256 = payload.get("bank_sha256")
+        if not isinstance(bank_id, str) or not bank_id or not isinstance(bank_sha256, str) or len(bank_sha256) != 64:
+            raise CanonicalPromotionPreparationError("production candidate requires source bank identity and SHA-256")
+        authority = candidate.get("authority") or {}
+        request = candidate.get("request") or {}
+        contract = candidate.get("answer_contract") or {}
+        shape = contract.get("shape")
+        normalized_answer = derivation.get("normalized_answer")
+        if shape == "multiple_choice":
+            options = _production_options(str(candidate.get("prompt", "")))
+            answer_contract = {"type": "multiple_choice", "correct_option_id": normalized_answer}
+            normalized_derivation = {"correct_option_id": normalized_answer}
+            question_type = answer_type = "multiple_choice"
+        elif shape in {"numeric_scalar", "numeric_pair", "numeric_vector"}:
+            answer_contract = {
+                "type": "numeric",
+                "shape": "scalar" if shape == "numeric_scalar" else "tuple",
+                "expected": normalized_answer,
+                "units": None,
+                "tolerance": float((contract.get("tolerance") or {}).get("absolute", 0.0)),
+            }
+            normalized_derivation = normalized_answer
+            options = []
+            question_type = answer_type = "numeric"
+        else:
+            raise CanonicalPromotionPreparationError("unsupported production answer contract")
+        candidate_id = candidate["candidate_id"]
+        rights = payload.get("rights_evidence", _production_approval_evidence(candidate_id, bank_id, bank_sha256, "rights"))
+        provenance = payload.get("provenance_evidence", _production_approval_evidence(candidate_id, bank_id, bank_sha256, "provenance"))
+        return _universal_candidate(
+            source_type="production_question_candidate",
+            adapter_id=self.adapter_id,
+            source_identity={"source_type": "ProductionQuestionBankV1", "bank_id": bank_id, "bank_sha256": bank_sha256, "candidate_id": candidate_id},
+            source_hashes={"bank_sha256": bank_sha256, "subject_pack_hash": authority.get("subject_pack_hash")},
+            candidate_identity=candidate_id,
+            curriculum_linkage={"subject_code": request.get("course_id"), "course_id": request.get("course_id"), "unit_id": candidate.get("unit_id"), "topic_code": candidate.get("topic_id"), "primary_micro_skill_code": candidate.get("micro_skill_id")},
+            procedure_linkage={"procedure_id": candidate.get("procedure_id"), "verified": validation.get("procedure_compatibility_pass") is True},
+            generation_origin_evidence={"origin": "registered_production_question_bank", "generation_family_id": request.get("generation_family_id"), "deterministic_seed": request.get("deterministic_seed"), "authority_id": authority.get("authority_id")},
+            question_payload={"prompt": candidate.get("prompt"), "parameter_set": copy.deepcopy(request.get("parameters") or {}), "options": options},
+            answer_contract=answer_contract,
+            independent_derivation={"status": "COMPUTED", "normalized_answer": normalized_derivation, "answer_shape": answer_contract.get("shape", "multiple_choice"), "units": None, "source": derivation.get("derivation_source"), "generator_answer_source": "registered_production_question_generator", "derivation_steps": ["Reopen the separately recorded production derivation."]},
+            failure_signals=["unclassified"],
+            difficulty=request.get("difficulty"),
+            assessment_role=request.get("assessment_role"),
+            question_type=question_type,
+            answer_type=answer_type,
+            diagram_policy=copy.deepcopy(payload.get("diagram_policy") or {"diagram_required": False}),
+            asset_references=copy.deepcopy(payload.get("asset_references") or []),
+            rights_evidence=_normalize_approval_evidence(rights),
+            provenance_evidence=_normalize_approval_evidence(provenance),
+            review_evidence={"source_review_status": "HUMAN_REVIEW_REQUIRED", "production_reviews": copy.deepcopy(payload.get("production_reviews") or [])},
+            validation_evidence={"production_validation": copy.deepcopy(validation), "source_failure_signals": copy.deepcopy(candidate.get("failure_signals") or [])},
+            duplicate_context=copy.deepcopy(payload.get("duplicate_context") or {}),
+            curriculum_evidence=copy.deepcopy(payload.get("curriculum_evidence") or {"validated": True}),
+            permitted_failure_signals=["unclassified"],
+            failure_signal_step_map={"unclassified": "Use the production validation record and mapped procedure."},
+            empty_failure_signals_permitted=False,
+            human_review_action=copy.deepcopy(payload.get("human_review_action")),
+            upstream_generation_status=payload.get("upstream_generation_status", "PASS"),
+            disallowed=payload.get("disallowed") is True,
+            destination_path_metadata={"proposed_path": None, "path_created": False},
+            canonical_source_inventory=copy.deepcopy(payload.get("canonical_source_inventory") or []),
+        )
+
+
+class ProductionQuestionBankInputAdapter:
+    adapter_id = "ProductionQuestionBankInputAdapter"
+
+    def normalize(self, payload: dict[str, Any], *, ordinal: int) -> dict[str, Any]:
+        bank = payload.get("bank")
+        candidate_id = payload.get("candidate_id")
+        if not isinstance(bank, dict) or bank.get("locked") is not True or not candidate_id:
+            raise CanonicalPromotionPreparationError("production bank input requires a locked bank and candidate identity")
+        candidates = [item for item in bank.get("candidates", []) if item.get("candidate_id") == candidate_id]
+        derivations = [item for item in bank.get("derivations", []) if item.get("candidate_id") == candidate_id]
+        validations = [item for item in bank.get("validations", []) if item.get("candidate_id") == candidate_id]
+        if len(candidates) != 1 or len(derivations) != 1 or len(validations) != 1:
+            raise CanonicalPromotionPreparationError("production bank candidate evidence is incomplete or ambiguous")
+        normalized = ProductionQuestionCandidateInputAdapter().normalize({**payload, "candidate": candidates[0], "derivation": derivations[0], "validation": validations[0], "bank_id": bank.get("bank_id"), "bank_sha256": bank.get("bank_sha256")}, ordinal=ordinal)
+        normalized["source_type"] = "production_question_bank"
+        normalized["adapter_id"] = self.adapter_id
+        return normalized
+
+
+class BetaExportReferenceInputAdapter:
+    adapter_id = "BetaExportReferenceInputAdapter"
+
+    def normalize(self, payload: dict[str, Any], *, ordinal: int) -> dict[str, Any]:
+        reference = payload.get("reference")
+        if not isinstance(reference, dict) or not reference.get("question_id"):
+            raise CanonicalPromotionPreparationError("Beta export input requires a qualified question reference")
+        candidate = payload.get("candidate") or {}
+        if reference.get("question_id") != candidate.get("candidate_id"):
+            raise CanonicalPromotionPreparationError("Beta reference does not resolve to the supplied production candidate")
+        normalized = ProductionQuestionCandidateInputAdapter().normalize(payload, ordinal=ordinal)
+        mapping = reference.get("curriculum_mapping") or {}
+        if mapping.get("course_id") != normalized["curriculum_linkage"].get("course_id") or reference.get("procedure_id") != normalized["procedure_linkage"].get("procedure_id"):
+            raise CanonicalPromotionPreparationError("Beta reference mapping does not match resolved production evidence")
+        normalized["source_type"] = "beta_export_reference"
+        normalized["adapter_id"] = self.adapter_id
+        normalized["source_identity"]["beta_export_id"] = payload.get("beta_export_id")
+        return normalized
 
 
 def _universal_candidate(**fields: Any) -> dict[str, Any]:

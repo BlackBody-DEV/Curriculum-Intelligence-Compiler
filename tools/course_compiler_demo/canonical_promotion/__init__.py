@@ -11,6 +11,9 @@ from .preparation_mode import (
     CanonicalPromotionPreparationError,
     DocumentCompilerInputAdapter,
     PhaseEProductionInputAdapter,
+    ProductionQuestionBankInputAdapter,
+    ProductionQuestionCandidateInputAdapter,
+    BetaExportReferenceInputAdapter,
     prepare_promotion_root,
     reopen_preparation_run,
     run_preparation_pilot,
@@ -22,7 +25,13 @@ __all__ = [
     "CanonicalPromotionPreparationError",
     "DocumentCompilerInputAdapter",
     "PhaseEProductionInputAdapter",
+    "ProductionQuestionBankInputAdapter",
+    "ProductionQuestionCandidateInputAdapter",
+    "BetaExportReferenceInputAdapter",
     "prepare_promotion_root",
     "reopen_preparation_run",
     "run_preparation_pilot",
 ]
+
+from .reconciliation import RUN_ID as RECONCILIATION_RUN_ID, reopen_universal_reconciliation_pilot, run_universal_reconciliation_pilot
+__all__ += ["RECONCILIATION_RUN_ID", "run_universal_reconciliation_pilot", "reopen_universal_reconciliation_pilot"]

@@ -587,7 +587,8 @@ function candidateCard(entry) {
 
 async function canonicalPromotion() {
   const mode = await api("/api/canonical-promotion/mode");
-  const defaultRunId = "CANONICAL_PROMOTION_PREPARATION_PILOT_020";
+  const legacyPilotRunId = "CANONICAL_PROMOTION_PREPARATION_PILOT_020";
+  const defaultRunId = "CANONICAL_PROMOTION_UNIVERSAL_RECONCILIATION_045";
   let reopened = null;
   let error = null;
   try {
@@ -612,15 +613,18 @@ async function canonicalPromotion() {
       </dl>
     </div>
     <label>Pilot run ID <input id="canonical-promotion-run-id" value="${esc(defaultRunId)}"></label>
-    <button id="canonical-promotion-run">Run pilot</button>
-    <button id="canonical-promotion-reopen">Reopen pilot</button>
+    <button id="canonical-promotion-run">Run reconciliation</button>
+    <button id="canonical-promotion-reopen">Reopen run</button>
     <div id="canonical-promotion-output">
       ${error ? `<p class="warning">${esc(error.message)}</p>` : canonicalPromotionSummary(summary)}
     </div>
   `);
   document.querySelector("#canonical-promotion-run").onclick = async () => {
     const runId = document.querySelector("#canonical-promotion-run-id").value;
-    const data = await api("/api/canonical-promotion/pilot", {method: "POST", body: JSON.stringify({run_id: runId})});
+    const endpoint = runId === legacyPilotRunId
+      ? "/api/canonical-promotion/pilot"
+      : "/api/canonical-promotion/universal-reconciliation";
+    const data = await api(endpoint, {method: "POST", body: JSON.stringify({run_id: runId})});
     document.querySelector("#canonical-promotion-output").innerHTML = canonicalPromotionSummary(data);
   };
   document.querySelector("#canonical-promotion-reopen").onclick = async () => {

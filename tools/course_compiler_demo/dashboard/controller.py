@@ -33,6 +33,7 @@ from tools.course_compiler_demo.canonical_promotion.preparation_mode import (
     resolve_preparation_root,
     run_preparation_pilot,
 )
+from tools.course_compiler_demo.canonical_promotion.reconciliation import run_universal_reconciliation_pilot
 
 from .calculus_generation import (
     CALCULUS_FAMILY_ID,
@@ -161,6 +162,12 @@ class DashboardController:
     def canonical_promotion_run_pilot(self, run_id: str = "CANONICAL_PROMOTION_PREPARATION_PILOT_020") -> dict[str, Any]:
         root = self._canonical_promotion_root_for_run(run_id)
         summary = run_preparation_pilot(run_id=run_id, preparation_root=root)
+        self._remember_canonical_promotion_run_root(run_id, root)
+        return summary
+
+    def canonical_promotion_run_universal_reconciliation(self, run_id: str = "CANONICAL_PROMOTION_UNIVERSAL_RECONCILIATION_045") -> dict[str, Any]:
+        root = self._canonical_promotion_root_for_run(run_id)
+        summary = run_universal_reconciliation_pilot(run_id=run_id, preparation_root=root)
         self._remember_canonical_promotion_run_root(run_id, root)
         return summary
 
