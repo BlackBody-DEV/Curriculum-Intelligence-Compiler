@@ -1,6 +1,7 @@
 """Thin adapters from domain-owned recipes to the shared 056A runtime API."""
 from __future__ import annotations
 
+from copy import deepcopy
 from typing import Any, Mapping
 
 from tools.course_compiler_demo.generation_recipes import (
@@ -9,18 +10,25 @@ from tools.course_compiler_demo.generation_recipes import (
     RecipeBindingV1,
 )
 from tools.course_compiler_demo.universal_core import AnswerContractV1
+from tools.course_compiler_demo.universal_integration.capability_catalog_wave_044 import discover_course_catalog
 
 from .catalog import RECIPES
 from .model import DomainRecipe
 
 
-def _domains(recipe: DomainRecipe) -> tuple[ParameterDomainV1, ...]:
-    course = recipe.binding.course_id
-    if course in {"DATA_STRUCTURES", "ALGORITHMS", "COMPUTATIONAL_THINKING"}:
-        return (ParameterDomainV1("input_size", "integer", 1, 100), ParameterDomainV1("variant", "integer", 1, 20))
-    if course in {"BIOLOGY", "ORGANIC_CHEMISTRY", "BIOCHEMISTRY"}:
-        return (ParameterDomainV1("variant", "integer", 1, 1000), ParameterDomainV1("evidence_count", "integer", 1, 6))
-    return (ParameterDomainV1("magnitude", "number", 1.0, 1000.0), ParameterDomainV1("direction_degrees", "number", -180.0, 180.0))
+def _domains(family: Mapping[str, Any]) -> tuple[ParameterDomainV1, ...]:
+    """Adapt the first two real declared domains without inventing a schema."""
+    declared = family.get("parameter_domains")
+    if not isinstance(declared, Mapping) or len(declared) < 2:
+        raise ValueError("real family must declare at least two parameter domains")
+    domains=[]
+    for name, specification in list(declared.items())[:2]:
+        kind=specification.get("type", specification.get("kind"))
+        if kind == "choice":
+            domains.append(ParameterDomainV1(name, kind, choices=tuple(specification.get("choices", specification.get("enum", ())))))
+        else:
+            domains.append(ParameterDomainV1(name, kind, specification.get("minimum"), specification.get("maximum")))
+    return tuple(domains)
 
 
 def _primitives(parameters: Mapping[str, Any]) -> dict[str, int]:
@@ -28,7 +36,7 @@ def _primitives(parameters: Mapping[str, Any]) -> dict[str, int]:
     return {"a": max(1, int(abs(float(values[0])))), "b": max(1, int(abs(float(values[1]))))}
 
 
-def to_runtime_recipe(recipe: DomainRecipe) -> BoundedGenerationRecipe:
+def to_runtime_recipe(recipe: DomainRecipe, family: Mapping[str, Any]) -> BoundedGenerationRecipe:
     binding = RecipeBindingV1(**recipe.binding.__dict__)
 
     def generate(parameters: Mapping[str, Any]) -> Any:
@@ -41,7 +49,8 @@ def to_runtime_recipe(recipe: DomainRecipe) -> BoundedGenerationRecipe:
 
     def prompt(parameters: Mapping[str, Any], context: GenerationContextV1) -> str:
         base = recipe.build_prompt(_primitives(parameters))
-        return f"Topic: {context.topic_title}. Micro-skill: {context.skill_title}. {base}"
+        declared = ", ".join(f"{name}={value}" for name, value in parameters.items())
+        return f"Topic: {context.topic_title}. Micro-skill: {context.skill_title}. Declared runtime parameters: {declared}. {base}"
 
     def contract(parameters: Mapping[str, Any]) -> AnswerContractV1:
         engine = binding.engine_type
@@ -59,19 +68,38 @@ def to_runtime_recipe(recipe: DomainRecipe) -> BoundedGenerationRecipe:
         contract_id = f"{binding.course_id}_ANSWER_{number}" if binding.course_id in {"BIOLOGY", "ORGANIC_CHEMISTRY", "BIOCHEMISTRY"} else f"W056_ANSWER_{binding.course_id}_{number}"
         return AnswerContractV1(contract_id, "code_execution_python" if engine == "code_execution" else engine, grading, {})
 
+    parameter_domains = _domains(family)
     return BoundedGenerationRecipe(
-        recipe.recipe_id, recipe.version, binding, _domains(recipe), recipe.domain_terms,
-        (recipe.operation, recipe.principle), tuple(x.name for x in _domains(recipe)),
+        recipe.recipe_id, recipe.version, binding, parameter_domains, recipe.domain_terms,
+        (recipe.operation, recipe.principle), tuple(x.name for x in parameter_domains),
         f"domain-generator:{recipe.recipe_id}", f"domain-primitive-recompute:{recipe.recipe_id}",
         generate, derive, prompt, contract,
     )
 
 
 def build_runtime_registry() -> GenerationRecipeRegistry:
+    courses = discover_course_catalog()["new"]
     registry = GenerationRecipeRegistry()
-    for recipe in RECIPES: registry.register(to_runtime_recipe(recipe))
+    for recipe in RECIPES:
+        families={x["family_id"]:x for x in courses[recipe.binding.course_id]["generation_families"]}
+        registry.register(to_runtime_recipe(recipe, families[recipe.binding.family_id]))
     return registry
 
 
 def build_runtime() -> GenerationRecipeRuntime:
     return GenerationRecipeRuntime(build_runtime_registry())
+
+
+def compatible_family(recipe: DomainRecipe, family: Mapping[str, Any]) -> dict[str, Any]:
+    """Return an explicit, non-mutating runtime view of a legacy family.
+
+    Older course packs used ``shape`` and the ``code_execution`` alias.  The
+    recipe runtime intentionally requires the canonical engine identity nested
+    in the contract, so the migration is visible here rather than a fallback.
+    """
+    prepared = deepcopy(dict(family))
+    prepared["answer_engine"] = recipe.binding.engine_type
+    contract = dict(prepared.get("answer_contract", {}))
+    contract["engine_type"] = recipe.binding.engine_type
+    prepared["answer_contract"] = contract
+    return prepared
