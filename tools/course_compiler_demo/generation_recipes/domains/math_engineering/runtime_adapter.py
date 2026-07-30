@@ -28,6 +28,21 @@ def validate_catalog_semantics(source:DomainRecipeV1,course:Mapping[str,Any])->N
     if source.binding.micro_skill_id not in procedure.get("micro_skill_ids",()) or family.get("micro_skill_id")!=source.binding.micro_skill_id or family.get("procedure_id")!=source.binding.procedure_id or family.get("answer_engine")!=source.binding.engine_type: raise ValueError("recipe procedure/family relationship is incompatible")
 
 
+def semantic_compatibility_manifest()->tuple[dict[str,Any],...]:
+    """Provider-owned evidence includes the assessed operation, not labels alone."""
+    rows=[]
+    for recipes in COURSE_RECIPE_REGISTRY.values():
+        for source in recipes:
+            operation_label=source.operation_terms[0]
+            operation_evidence=source.operation_terms[1]
+            if operation_label.lower() not in source.build_prompt(GenerationContextV1(
+                ({"variant":3,"coefficient_scale":2} if any(x.name=="coefficient_scale" for x in source.parameter_domains) else {"scale":3,"order":2,"variant":4}),0,"FOUNDATIONAL"
+            )).lower():
+                raise ValueError(f"operation evidence missing from prompt: {source.recipe_id}")
+            rows.append({"recipe_id":source.recipe_id,"binding":dict(source.binding.__dict__),"matched_terms":[source.domain_terms[0],operation_label,operation_evidence],"operation":source.operation,"status":"PASS"})
+    return tuple(rows)
+
+
 def adapt_recipe(source: DomainRecipeV1) -> BoundedGenerationRecipe:
     """Expose one declarative domain recipe through the shared strict protocol."""
     binding = RuntimeRecipeBindingV1(**source.binding.__dict__)
