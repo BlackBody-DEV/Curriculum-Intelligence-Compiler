@@ -48,8 +48,8 @@ def test_prior_shifted_topics_now_assess_substantive_topic_operations():
         ("CALCULUS_III",3):("constant density","rectangular parameter area"),
         ("LINEAR_ALGEBRA",1):("subtract","corresponding matrix entries"),
         ("LINEAR_ALGEBRA",3):("apply scalar","linear transformation factor"),
-        ("NUMERICAL_METHODS",1):("coefficient matrix","symmetric 2-by-2"),
-        ("APPLIED_MATHEMATICS",1):("symmetric","two-state continuous-model matrix"),
+        ("NUMERICAL_METHODS",1):("solve the bounded linear equation","exact root"),
+        ("APPLIED_MATHEMATICS",1):("recurrence","next discrete state"),
     }
     for (course_id,index),terms in probes.items():
         recipe=get_course_recipes(course_id)[index]
@@ -63,6 +63,34 @@ def test_runtime_family_requires_canonical_payload_and_rejects_fabrication():
     with pytest.raises(TypeError): runtime_family(recipe)
     with pytest.raises(ValueError,match="exactly match"):
         runtime_family(recipe,{"family_id":recipe.binding.family_id,"micro_skill_id":"SHIFTED","procedure_id":recipe.binding.procedure_id,"answer_engine":recipe.binding.engine_type})
+
+
+def test_every_multiple_choice_product_uses_parameterized_independent_oracle():
+    recipes=[recipe for values in COURSE_RECIPE_REGISTRY.values() for recipe in values if recipe.operation=="multiple_choice_product"]
+    assert len(recipes)==8
+    for recipe in recipes:
+        first=GenerationContextV1({"variant":3,"coefficient_scale":4},0,"FOUNDATIONAL")
+        mutated=GenerationContextV1({"variant":5,"coefficient_scale":4},1,"DEVELOPING")
+        assert recipe.generate_answer(first)=="product:12"
+        assert recipe.derive_independently(first).normalized_answer=="product:12"
+        assert recipe.generate_answer(mutated)=="product:20"
+        assert recipe.derive_independently(mutated).normalized_answer=="product:20"
+        assert recipe.generate_answer(first)!=recipe.generate_answer(mutated)
+        options=recipe.build_contract(first).grading_contract["options"]
+        assert options==[{"option_id":"product:12","text":"12","correct":True},{"option_id":"sum:7","text":"7","correct":False}]
+
+
+def test_root_recurrence_circle_and_trigonometry_relations_are_explicit_and_mutation_sensitive():
+    root=get_course_recipes("NUMERICAL_METHODS")[1]; recurrence=get_course_recipes("APPLIED_MATHEMATICS")[1]
+    engineering=lambda order,variant: GenerationContextV1({"scale":2,"order":order,"variant":variant},0,"FOUNDATIONAL")
+    assert root.binding.family_id.endswith("_002") and root.generate_answer(engineering(2,6))=="-3"
+    assert root.generate_answer(engineering(3,6))=="-2" and "=0" in root.prompt_template
+    assert recurrence.binding.family_id.endswith("_002") and recurrence.generate_answer(engineering(2,6))=="8"
+    assert recurrence.generate_answer(engineering(2,7))=="9" and "u[n+1]" in recurrence.prompt_template
+    geometry=get_course_recipes("GEOMETRY")[4]; triangle=get_course_recipes("TRIGONOMETRY")[1]; unit_circle=get_course_recipes("TRIGONOMETRY")[2]
+    assert "circumference ratio" in geometry.prompt_template
+    assert "tan(theta)=opposite/adjacent" in triangle.prompt_template
+    assert "unit-circle coordinates" in unit_circle.prompt_template
 
 
 @pytest.mark.parametrize("course_id",sorted(EXPECTED))

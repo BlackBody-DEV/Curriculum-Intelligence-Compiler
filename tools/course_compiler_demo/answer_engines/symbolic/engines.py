@@ -127,15 +127,21 @@ class SymbolicExpressionEngine:
         if not isinstance(derivation_input, Mapping): return _fail(self.engine_type, "derive", "derivation input must be a mapping")
         variable = str(contract.normalization_contract.get("variable", "x")); operation = derivation_input.get("operation")
         try:
-            numerator, denominator = _parse(derivation_input.get("expression"), variable)
-            if denominator != {0: Fraction(1)}: raise ValueError("derivation currently requires a polynomial")
-            if operation == "derivative": result = {d - 1: c * d for d, c in numerator.items() if d}
-            elif operation == "antiderivative":
-                if max(numerator or {0}) >= 20: raise ValueError("antiderivative degree exceeds bound")
-                result = {d + 1: c / (d + 1) for d, c in numerator.items()}
-            else: raise ValueError("operation must be derivative or antiderivative")
+            if operation == "recurrence_step":
+                current=Fraction(str(derivation_input.get("current"))); increment=Fraction(str(derivation_input.get("increment")))
+                result={0:current+increment}; denominator={0:Fraction(1)}
+            else:
+                numerator, denominator = _parse(derivation_input.get("expression"), variable)
+                if denominator != {0: Fraction(1)}: raise ValueError("derivation currently requires a polynomial")
+                if operation == "derivative": result = {d - 1: c * d for d, c in numerator.items() if d}
+                elif operation == "antiderivative":
+                    if max(numerator or {0}) >= 20: raise ValueError("antiderivative degree exceeds bound")
+                    result = {d + 1: c / (d + 1) for d, c in numerator.items()}
+                elif operation == "linear_root":
+                    root=_solve_linear(numerator)[0]; result,denominator=_parse(str(root),variable)
+                else: raise ValueError("operation must be derivative, antiderivative, linear_root, or recurrence_step")
         except (TypeError, ValueError) as exc: return _fail(self.engine_type, "derive", str(exc))
-        value = {"denominator": [[0, "1"]], "domain_restrictions": [], "numerator": _poly_value(result), "variable": variable}
+        value = {"denominator": _poly_value(denominator), "domain_restrictions": [], "numerator": _poly_value(result), "variable": variable}
         return AnswerEngineResult("PASS", self.engine_type, "derive", value)
 
 

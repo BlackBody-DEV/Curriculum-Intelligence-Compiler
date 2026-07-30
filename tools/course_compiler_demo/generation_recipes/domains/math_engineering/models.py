@@ -47,7 +47,7 @@ class DomainRecipeV1:
         if set(context.parameters)!=expected: raise ValueError("parameters must exactly match declared domains")
         values={domain.name:domain.validate(context.parameters[domain.name]) for domain in self.parameter_domains}
         if "coefficient_scale" in values: a,b=values["variant"],values["coefficient_scale"]
-        elif self.operation=="derivative": a,b=values["order"],values["variant"]
+        elif self.operation in {"derivative","linear_root","recurrence_step"}: a,b=values["order"],values["variant"]
         else: a,b=values["scale"],values["order"]
         if self.operation=="ratio" and b==0: raise ValueError("ratio denominator cannot be zero")
         return a,b
@@ -62,9 +62,11 @@ class DomainRecipeV1:
         if self.operation=="sum": return a+b
         if self.operation=="difference": return a-b
         if self.operation=="product": return a*b
-        if self.operation=="multiple_choice_product": return "correct_product"
+        if self.operation=="multiple_choice_product": return f"product:{a*b}"
         if self.operation=="matrix": return [[a,b],[b,a]]
         if self.operation=="derivative": return str(a)
+        if self.operation=="linear_root": return str(Fraction(-b,a))
+        if self.operation=="recurrence_step": return str(a+b)
         if self.operation=="ratio": return float(Fraction(a,b))
         if self.operation=="component_pair": return [a+b,a-b]
         raise ValueError("unsupported recipe operation")
@@ -74,17 +76,22 @@ class DomainRecipeV1:
         if self.operation=="sum": answer=sum((a,b)); method="aggregate two declared contributions"
         elif self.operation=="difference": answer=sum((a,-b)); method="add the inverse contribution"
         elif self.operation=="product": answer=sum(a for _ in range(b)); method="repeated-addition cross-check"
-        elif self.operation=="multiple_choice_product": answer="correct_product"; method="independent option evaluation"
+        elif self.operation=="multiple_choice_product": answer=f"product:{sum(a for _ in range(b))}"; method="repeated-addition option evaluation"
         elif self.operation=="matrix": answer=[[a,b],[b,a]]; method="independent row-and-column construction"
         elif self.operation=="derivative": answer=str(a); method="linear difference-quotient cross-check"
+        elif self.operation=="linear_root": answer=str(Fraction(-b,a)); method="substitution-based linear root check"
+        elif self.operation=="recurrence_step": answer=str(sum((a,b))); method="independent recurrence substitution"
         elif self.operation=="ratio": answer=float(Fraction(a,b)); method="exact rational quotient"
         elif self.operation=="component_pair": answer=[sum((a,b)),sum((a,-b))]; method="independent component aggregation"
         else: raise ValueError("unsupported recipe operation")
         return DerivationPacketV1(self.recipe_id,method,{"a":a,"b":b},answer,False)
 
-    def build_contract(self)->AnswerContractV1:
+    def build_contract(self,context:GenerationContextV1|None=None)->AnswerContractV1:
         grading={"absolute_tolerance":0.0,"relative_tolerance":0.0}
-        if self.binding.engine_type=="multiple_choice": grading={"options":[{"option_id":"correct_product","text":"a times b","correct":True},{"option_id":"additive_distractor","text":"a plus b","correct":False}]}
+        if self.binding.engine_type=="multiple_choice":
+            if context is None: raise ValueError("multiple-choice contract requires generated parameters")
+            a,b=self._parameters(context); product=a*b; additive=a+b
+            grading={"options":[{"option_id":f"product:{product}","text":str(product),"correct":True},{"option_id":f"sum:{additive}","text":str(additive),"correct":False}]}
         if self.binding.engine_type=="matrix": grading={"answer_kind":"matrix","absolute_tolerance":0.0,"relative_tolerance":0.0}
         normalization={"variable":"x"} if self.binding.engine_type=="symbolic_expression" else {}
         index=self.binding.family_id.rsplit("_",1)[-1]
@@ -94,7 +101,7 @@ class DomainRecipeV1:
         prefix=self.binding.course_id+"_"
         for value in (self.binding.topic_id,self.binding.micro_skill_id,self.binding.procedure_id,self.binding.family_id):
             if not value.startswith(prefix): raise ValueError("binding identity is outside the declared course")
-        expected={"component_pair":"numeric_vector","multiple_choice_product":"multiple_choice","derivative":"symbolic_expression","matrix":"matrix"}.get(self.operation,"numeric_scalar")
+        expected={"component_pair":"numeric_vector","multiple_choice_product":"multiple_choice","derivative":"symbolic_expression","linear_root":"symbolic_expression","recurrence_step":"symbolic_expression","matrix":"matrix"}.get(self.operation,"numeric_scalar")
         if self.binding.engine_type!=expected: raise ValueError("operation and answer engine are incompatible")
         names={x.name for x in self.parameter_domains}
         if names not in ({"variant","coefficient_scale"},{"scale","order","variant"}): raise ValueError("catalog-declared parameter domains are required")
