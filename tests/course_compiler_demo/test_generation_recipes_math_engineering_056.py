@@ -2,6 +2,7 @@ from dataclasses import replace
 
 import pytest
 
+from tools.course_compiler_demo.answer_engines import build_default_registry
 from tools.course_compiler_demo.generation_recipes.domains.math_engineering import (
     COURSE_RECIPE_REGISTRY,GenerationContextV1,adapt_recipe,audit_recipe_catalog,
     build_math_engineering_runtime,generate_course_pilot,get_course_recipes,runtime_family,semantic_compatibility_manifest,validate_catalog_semantics,
@@ -69,7 +70,7 @@ def test_runtime_family_requires_canonical_payload_and_rejects_fabrication():
 
 def test_every_multiple_choice_product_uses_parameterized_independent_oracle():
     recipes=[recipe for values in COURSE_RECIPE_REGISTRY.values() for recipe in values if recipe.operation=="multiple_choice_product"]
-    assert len(recipes)==8
+    assert len(recipes)==7
     for recipe in recipes:
         first=GenerationContextV1({"variant":3,"coefficient_scale":4},0,"FOUNDATIONAL")
         mutated=GenerationContextV1({"variant":5,"coefficient_scale":4},1,"DEVELOPING")
@@ -92,7 +93,22 @@ def test_root_recurrence_circle_and_trigonometry_relations_are_explicit_and_muta
     geometry=get_course_recipes("GEOMETRY")[4]; triangle=get_course_recipes("TRIGONOMETRY")[1]; unit_circle=get_course_recipes("TRIGONOMETRY")[2]
     assert "circumference ratio" in geometry.prompt_template
     assert "tan(theta)=opposite/adjacent" in triangle.prompt_template
-    assert "unit-circle coordinates" in unit_circle.prompt_template
+    assert "x^2+y^2=r^2" in unit_circle.prompt_template
+
+
+def test_unit_circle_oracle_normalizes_valid_coordinates_and_rejects_off_circle_mutations():
+    recipe=get_course_recipes("TRIGONOMETRY")[2]
+    context=GenerationContextV1({"variant":5,"coefficient_scale":2},0,"FOUNDATIONAL")
+    answer=recipe.generate_answer(context); packet=recipe.derive_independently(context); contract=recipe.build_contract(context)
+    assert recipe.operation=="unit_circle_pythagorean"
+    assert answer==packet.normalized_answer=="on_circle:21:20:29"
+    assert 21*21+20*20==29*29
+    assert contract.grading_contract["options"][0]["text"]=="(21/29, 20/29)"
+    engine=build_default_registry()
+    assert engine.grade(answer,packet.normalized_answer,contract).status=="PASS"
+    assert engine.grade("off_circle:21:20:30",packet.normalized_answer,contract).status=="FAIL"
+    with pytest.raises(ValueError,match="integer"):
+        recipe.generate_answer(GenerationContextV1({"variant":5,"coefficient_scale":0},0,"FOUNDATIONAL"))
 
 
 @pytest.mark.parametrize("course_id",sorted(EXPECTED))

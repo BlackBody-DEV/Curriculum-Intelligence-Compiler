@@ -63,6 +63,9 @@ class DomainRecipeV1:
         if self.operation=="difference": return a-b
         if self.operation=="product": return a*b
         if self.operation=="multiple_choice_product": return f"product:{a*b}"
+        if self.operation=="unit_circle_pythagorean":
+            x,y,r=a*a-b*b,2*a*b,a*a+b*b
+            return f"on_circle:{x}:{y}:{r}"
         if self.operation=="matrix": return [[a,b],[b,a]]
         if self.operation=="derivative": return str(a)
         if self.operation=="linear_root": return str(Fraction(-b,a))
@@ -77,6 +80,10 @@ class DomainRecipeV1:
         elif self.operation=="difference": answer=sum((a,-b)); method="add the inverse contribution"
         elif self.operation=="product": answer=sum(a for _ in range(b)); method="repeated-addition cross-check"
         elif self.operation=="multiple_choice_product": answer=f"product:{sum(a for _ in range(b))}"; method="repeated-addition option evaluation"
+        elif self.operation=="unit_circle_pythagorean":
+            x,y,r=(a-b)*(a+b),sum(2*a for _ in range(b)),sum((a*a,b*b))
+            if x*x+y*y!=r*r: raise ValueError("independent unit-circle identity failed")
+            answer=f"on_circle:{x}:{y}:{r}"; method="factored-coordinate Pythagorean verification"
         elif self.operation=="matrix": answer=[[a,b],[b,a]]; method="independent row-and-column construction"
         elif self.operation=="derivative": answer=str(a); method="linear difference-quotient cross-check"
         elif self.operation=="linear_root": answer=str(Fraction(-b,a)); method="substitution-based linear root check"
@@ -90,8 +97,13 @@ class DomainRecipeV1:
         grading={"absolute_tolerance":0.0,"relative_tolerance":0.0}
         if self.binding.engine_type=="multiple_choice":
             if context is None: raise ValueError("multiple-choice contract requires generated parameters")
-            a,b=self._parameters(context); product=a*b; additive=a+b
-            grading={"options":[{"option_id":f"product:{product}","text":str(product),"correct":True},{"option_id":f"sum:{additive}","text":str(additive),"correct":False}]}
+            a,b=self._parameters(context)
+            if self.operation=="unit_circle_pythagorean":
+                x,y,r=a*a-b*b,2*a*b,a*a+b*b
+                grading={"options":[{"option_id":f"on_circle:{x}:{y}:{r}","text":f"({x}/{r}, {y}/{r})","correct":True},{"option_id":f"off_circle:{x}:{y}:{r+1}","text":f"({x}/{r+1}, {y}/{r+1})","correct":False}]}
+            else:
+                product=a*b; additive=a+b
+                grading={"options":[{"option_id":f"product:{product}","text":str(product),"correct":True},{"option_id":f"sum:{additive}","text":str(additive),"correct":False}]}
         if self.binding.engine_type=="matrix": grading={"answer_kind":"matrix","absolute_tolerance":0.0,"relative_tolerance":0.0}
         normalization={"variable":"x"} if self.binding.engine_type=="symbolic_expression" else {}
         index=self.binding.family_id.rsplit("_",1)[-1]
@@ -101,7 +113,7 @@ class DomainRecipeV1:
         prefix=self.binding.course_id+"_"
         for value in (self.binding.topic_id,self.binding.micro_skill_id,self.binding.procedure_id,self.binding.family_id):
             if not value.startswith(prefix): raise ValueError("binding identity is outside the declared course")
-        expected={"component_pair":"numeric_vector","multiple_choice_product":"multiple_choice","derivative":"symbolic_expression","linear_root":"symbolic_expression","recurrence_step":"symbolic_expression","matrix":"matrix"}.get(self.operation,"numeric_scalar")
+        expected={"component_pair":"numeric_vector","multiple_choice_product":"multiple_choice","unit_circle_pythagorean":"multiple_choice","derivative":"symbolic_expression","linear_root":"symbolic_expression","recurrence_step":"symbolic_expression","matrix":"matrix"}.get(self.operation,"numeric_scalar")
         if self.binding.engine_type!=expected: raise ValueError("operation and answer engine are incompatible")
         names={x.name for x in self.parameter_domains}
         if names not in ({"variant","coefficient_scale"},{"scale","order","variant"}): raise ValueError("catalog-declared parameter domains are required")
