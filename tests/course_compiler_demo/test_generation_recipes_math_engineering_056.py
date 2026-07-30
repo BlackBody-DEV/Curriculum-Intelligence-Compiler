@@ -3,8 +3,10 @@ from dataclasses import replace
 import pytest
 
 from tools.course_compiler_demo.generation_recipes.domains.math_engineering import (
-    COURSE_RECIPE_REGISTRY,GenerationContextV1,audit_recipe_catalog,generate_course_pilot,get_course_recipes,
+    COURSE_RECIPE_REGISTRY,GenerationContextV1,adapt_recipe,audit_recipe_catalog,
+    build_math_engineering_runtime,generate_course_pilot,get_course_recipes,runtime_family,
 )
+from tools.course_compiler_demo.generation_recipes.models import GenerationContextV1 as RuntimeGenerationContextV1
 from tools.course_compiler_demo.subject_packs.engineering_mathematics import build_engineering_mathematics_catalog
 from tools.course_compiler_demo.subject_packs.mathematics import build_remaining_mathematics_catalog
 
@@ -54,6 +56,26 @@ def test_generator_and_deriver_are_separate_paths_with_independent_methods():
     assert recipe.generate_answer(context)==28
     packet=recipe.derive_independently(context)
     assert packet.normalized_answer==28 and packet.method=="repeated-addition cross-check" and not packet.consumed_generator_answer
+
+
+@pytest.mark.parametrize("course_id",sorted(EXPECTED))
+def test_shared_runtime_executes_25_distinct_validated_questions_per_course(course_id):
+    runtime=build_math_engineering_runtime(); results=[]
+    for source in get_course_recipes(course_id):
+        recipe=adapt_recipe(source)
+        for variant in range(5):
+            context=RuntimeGenerationContextV1(
+                recipe.binding,
+                f"{course_id.replace('_',' ').title()} Topic {variant+1}",
+                f"{source.operation_terms[0].title()} Skill {variant+1}",
+                (f"Use the declared {source.operation} relationship and preserve its answer shape.",),
+                f"wave-056:{course_id}",variant,
+            )
+            result=runtime.generate(recipe.recipe_id,context,runtime_family(recipe))
+            assert result.normalization_result.status==result.derivation_result.status==result.grading_result.status=="PASS"
+            results.append(result)
+    report=runtime.require_coverage(results)
+    assert report["question_count"]==25 and report["exact_duplicates"]==0
 
 
 def test_targeted_prompts_exercise_actual_course_semantics():
