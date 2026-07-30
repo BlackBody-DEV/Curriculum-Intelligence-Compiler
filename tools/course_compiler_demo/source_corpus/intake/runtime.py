@@ -83,3 +83,28 @@ def reopen_manifest(path:Path)->dict[str,Any]:
  data=json.loads(Path(path).read_text()); material={k:data[k] for k in ("documents","duplicates","document_count","segment_count")}; expected=hashlib.sha256(json.dumps(material,sort_keys=True,separators=(",",":")).encode()).hexdigest()
  if data.get("manifest_sha256")!=expected:raise ValueError("corpus manifest integrity failure")
  return {**data,"reopen_verified":True}
+
+def run_external_scale_proof(corpus_root:Path,output_path:Path,*,minimum_documents:int=100,minimum_segments:int=5000)->dict[str,Any]:
+ root=Path(corpus_root).resolve(strict=True); output=Path(output_path).resolve()
+ if not root.is_dir():raise ValueError("external corpus root must be a directory")
+ if output==root or root in output.parents:raise ValueError("scale-proof output must be outside the source corpus")
+ def discover()->list[Path]:return sorted((p for p in root.rglob("*") if p.is_file()),key=lambda p:str(p.resolve()))
+ first_paths=discover(); first=build_corpus_manifest(first_paths)
+ if first["document_count"]<minimum_documents or first["segment_count"]<minimum_segments:raise ValueError("external corpus does not satisfy scale minimums")
+ checkpoint_manifest(output,first)
+ reopened=reopen_manifest(output)
+ second_paths=discover(); second=build_corpus_manifest(second_paths)
+ def identities(manifest):return [segment["segment_id"] for document in manifest["documents"] for segment in document["segments"]]
+ def hashes(manifest):return [document["source_hash"] for document in manifest["documents"]]
+ comparisons={
+  "document_count":first["document_count"]==second["document_count"]==reopened["document_count"],
+  "segment_count":first["segment_count"]==second["segment_count"]==reopened["segment_count"],
+  "source_hashes":hashes(first)==hashes(second)==hashes(reopened),
+  "segment_identities":identities(first)==identities(second)==identities(reopened),
+  "duplicates":first["duplicates"]==second["duplicates"]==reopened["duplicates"],
+  "manifest_sha256":first["manifest_sha256"]==second["manifest_sha256"]==reopened["manifest_sha256"],
+ }
+ if not all(comparisons.values()):raise ValueError("restarted intake was not deterministic")
+ evidence={"proof_type":"EXTERNAL_CORPUS_RESTART_SCALE_PROOF","corpus_root":str(root),"output_path":str(output),"first_manifest_sha256":first["manifest_sha256"],"restarted_manifest_sha256":second["manifest_sha256"],"document_count":first["document_count"],"segment_count":first["segment_count"],"duplicate_count":len(first["duplicates"]),"reopen_verified":reopened["reopen_verified"],"restarted_intake_rebuilt":True,"comparisons":comparisons,"validated":True}
+ output.write_text(json.dumps({"manifest":first,"scale_proof":evidence},sort_keys=True,indent=2)+"\n")
+ return evidence
