@@ -63,6 +63,7 @@ class DomainRecipeV1:
         if self.operation=="difference": return a-b
         if self.operation=="product": return a*b
         if self.operation=="multiple_choice_product": return "correct_product"
+        if self.operation=="matrix": return [[a,b],[b,a]]
         if self.operation=="derivative": return str(a)
         if self.operation=="ratio": return float(Fraction(a,b))
         if self.operation=="component_pair": return [a+b,a-b]
@@ -74,6 +75,7 @@ class DomainRecipeV1:
         elif self.operation=="difference": answer=sum((a,-b)); method="add the inverse contribution"
         elif self.operation=="product": answer=sum(a for _ in range(b)); method="repeated-addition cross-check"
         elif self.operation=="multiple_choice_product": answer="correct_product"; method="independent option evaluation"
+        elif self.operation=="matrix": answer=[[a,b],[b,a]]; method="independent row-and-column construction"
         elif self.operation=="derivative": answer=str(a); method="linear difference-quotient cross-check"
         elif self.operation=="ratio": answer=float(Fraction(a,b)); method="exact rational quotient"
         elif self.operation=="component_pair": answer=[sum((a,b)),sum((a,-b))]; method="independent component aggregation"
@@ -83,6 +85,7 @@ class DomainRecipeV1:
     def build_contract(self)->AnswerContractV1:
         grading={"absolute_tolerance":0.0,"relative_tolerance":0.0}
         if self.binding.engine_type=="multiple_choice": grading={"options":[{"option_id":"correct_product","text":"a times b","correct":True},{"option_id":"additive_distractor","text":"a plus b","correct":False}]}
+        if self.binding.engine_type=="matrix": grading={"answer_kind":"matrix","absolute_tolerance":0.0,"relative_tolerance":0.0}
         normalization={"variable":"x"} if self.binding.engine_type=="symbolic_expression" else {}
         index=self.binding.family_id.rsplit("_",1)[-1]
         return AnswerContractV1(f"{self.binding.course_id}_ANSWER_{index}",self.binding.engine_type,grading,normalization)
@@ -91,7 +94,7 @@ class DomainRecipeV1:
         prefix=self.binding.course_id+"_"
         for value in (self.binding.topic_id,self.binding.micro_skill_id,self.binding.procedure_id,self.binding.family_id):
             if not value.startswith(prefix): raise ValueError("binding identity is outside the declared course")
-        expected={"component_pair":"numeric_vector","multiple_choice_product":"multiple_choice","derivative":"symbolic_expression"}.get(self.operation,"numeric_scalar")
+        expected={"component_pair":"numeric_vector","multiple_choice_product":"multiple_choice","derivative":"symbolic_expression","matrix":"matrix"}.get(self.operation,"numeric_scalar")
         if self.binding.engine_type!=expected: raise ValueError("operation and answer engine are incompatible")
         names={x.name for x in self.parameter_domains}
         if names not in ({"variant","coefficient_scale"},{"scale","order","variant"}): raise ValueError("catalog-declared parameter domains are required")
@@ -105,4 +108,6 @@ def validate_answer_shape(recipe:DomainRecipeV1,value:Any)->None:
         if not isinstance(value,list) or len(value)!=2 or any(isinstance(x,bool) or not isinstance(x,(int,float)) or not math.isfinite(float(x)) for x in value): raise ValueError("numeric vector recipe produced an invalid answer")
     elif recipe.binding.engine_type in {"multiple_choice","symbolic_expression"}:
         if not isinstance(value,str) or not value: raise ValueError("symbolic/choice recipe produced an invalid answer")
+    elif recipe.binding.engine_type=="matrix":
+        if not isinstance(value,list) or len(value)!=2 or any(not isinstance(row,list) or len(row)!=2 for row in value): raise ValueError("matrix recipe produced an invalid answer")
     else: raise ValueError("recipe uses an unsupported engine")

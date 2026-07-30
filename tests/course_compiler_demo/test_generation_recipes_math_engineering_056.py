@@ -41,6 +41,30 @@ def test_semantic_identity_rebinding_fails_even_when_target_ids_exist():
     with pytest.raises(ValueError,match="semantic identity"): validate_catalog_semantics(shifted,course)
 
 
+def test_prior_shifted_topics_now_assess_substantive_topic_operations():
+    probes={
+        ("PRE_ALGEBRA",3):("ratio table","proportional total"),
+        ("GEOMETRY",3):("similar figure","scale factor"),
+        ("CALCULUS_III",3):("constant density","rectangular parameter area"),
+        ("LINEAR_ALGEBRA",1):("subtract","corresponding matrix entries"),
+        ("LINEAR_ALGEBRA",3):("apply scalar","linear transformation factor"),
+        ("NUMERICAL_METHODS",1):("coefficient matrix","symmetric 2-by-2"),
+        ("APPLIED_MATHEMATICS",1):("symmetric","two-state continuous-model matrix"),
+    }
+    for (course_id,index),terms in probes.items():
+        recipe=get_course_recipes(course_id)[index]
+        prompt=recipe.prompt_template.lower()
+        assert all(term in prompt for term in terms)
+        assert "use the local linear model" not in prompt
+
+
+def test_runtime_family_requires_canonical_payload_and_rejects_fabrication():
+    recipe=adapt_recipe(get_course_recipes("CALCULUS_III")[3])
+    with pytest.raises(TypeError): runtime_family(recipe)
+    with pytest.raises(ValueError,match="exactly match"):
+        runtime_family(recipe,{"family_id":recipe.binding.family_id,"micro_skill_id":"SHIFTED","procedure_id":recipe.binding.procedure_id,"answer_engine":recipe.binding.engine_type})
+
+
 @pytest.mark.parametrize("course_id",sorted(EXPECTED))
 def test_25_variants_per_course_are_domain_specific_independently_derived_and_engine_valid(course_id):
     records=generate_course_pilot(course_id)
@@ -90,18 +114,18 @@ def test_shared_runtime_executes_25_distinct_validated_questions_per_course(cour
 def test_targeted_prompts_exercise_actual_course_semantics():
     prompts={course:" ".join(x["prompt"] for x in generate_course_pilot(course)) for course in ("CALCULUS_III","NUMERICAL_METHODS","ENGINEERING_ANALYSIS","PRE_ALGEBRA")}
     assert all(term in prompts["CALCULUS_III"] for term in ("vectors and geometry of space","vector-valued functions","line integrals","multiple integrals"))
-    assert all(term in prompts["NUMERICAL_METHODS"] for term in ("error and conditioning","root finding","numerical integration","initial-value problems"))
-    assert all(term in prompts["ENGINEERING_ANALYSIS"] for term in ("engineering models","complex variables","partial differential equations","vector analysis"))
+    assert all(term in prompts["NUMERICAL_METHODS"] for term in ("error and conditioning","linear systems","numerical integration","boundary-value problems"))
+    assert all(term in prompts["ENGINEERING_ANALYSIS"] for term in ("engineering models","linear algebraic models","partial differential equations","approximation methods"))
     assert all(term in prompts["PRE_ALGEBRA"] for term in ("whole-number reasoning","integer operations","fractions and decimals","ratios and rates"))
 
 
 @pytest.mark.parametrize("course_id",sorted(EXPECTED))
 def test_incompatible_operation_engine_pair_fails_closed(course_id):
-    scalar=get_course_recipes(course_id)[0]; symbolic=next(x for x in get_course_recipes(course_id) if x.binding.engine_type=="symbolic_expression")
+    scalar=get_course_recipes(course_id)[0]; specialized=next(x for x in get_course_recipes(course_id) if x.binding.engine_type!="numeric_scalar")
     with pytest.raises(ValueError,match="incompatible"):
-        replace(scalar,binding=replace(scalar.binding,engine_type="symbolic_expression")).validate()
+        replace(scalar,binding=replace(scalar.binding,engine_type=specialized.binding.engine_type)).validate()
     with pytest.raises(ValueError,match="incompatible"):
-        replace(symbolic,binding=replace(symbolic.binding,engine_type="numeric_scalar")).validate()
+        replace(specialized,binding=replace(specialized.binding,engine_type="numeric_scalar")).validate()
 
 
 def test_bad_parameters_unknown_course_and_undeclared_operation_fail_closed():
