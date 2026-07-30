@@ -1,0 +1,3 @@
+# Curriculum Synthesis and Coverage
+
+This lane deterministically deduplicates exact candidates, reconciles explicit synonyms, aggregates source-weighted confidence, measures seven coverage dimensions, records gaps, and preserves ten conflict classes as `UNRESOLVED`. For every unordered pair in a reconciliation group it emits every differing conflict dimension with both candidates' complete evidence; conflicting evidence is never silently selected. Completeness is explicitly one of `SOURCE_COMPLETE`, `COURSE_PACK_COMPLETE`, `SYNTHESIZED_WITH_GAPS`, `INSUFFICIENT_EVIDENCE`, or `CONFLICT_BLOCKED`; outputs remain proposed and noncanonical.
