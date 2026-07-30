@@ -1,0 +1,9 @@
+# Symbolic and equation answer engines
+
+Version 1.0 provides `symbolic_expression` and `equation_system` adapters for the universal `AnswerEngine` protocol. Call `register_symbolic_engines(registry)` on a caller-owned registry to enable both. Results always name the actual engine and serialize with sorted polynomial degrees, rational values, restrictions, variables, and solutions.
+
+The expression grammar is intentionally bounded: integer constants, one declared variable, parentheses, unary signs, `+`, `-`, `*`, `/`, and nonnegative integer powers through 12. Exact `Fraction` arithmetic supports expanded/factored polynomials and rational-expression equivalence through cross multiplication. Answers may declare `domain_restrictions` as rational constants; grading requires the response and expected restriction sets to match, preventing cancellation from hiding excluded values. Degree is capped at 20 and input at 500 characters.
+
+Independent derivation supports polynomial derivatives and antiderivatives, unique linear equations, quadratics with rational roots (including the empty real rational solution set for negative discriminants), and square one-to-three-variable linear systems with unique rational solutions. Equation grading compares normalized sets, rejecting missing and extraneous solutions.
+
+Functions, implicit multiplication, floating constants, complex/irrational roots, symbolic parameters, inequalities, non-polynomial derivation, repeated or free-variable systems, more than three variables, arbitrary integration constants, and automatic inference of denominator restrictions are unsupported. Unsupported or malformed forms return `INVALID` with a structured reason and no value. No fallback engine is used. Callers must explicitly supply every original rational-domain exclusion; this preserves restrictions but does not infer them.
