@@ -91,18 +91,33 @@ PROCEDURE_INDEX=(1,2,3,4,5)
 # The engineering catalogs use a different engine cycle, so their last three
 # bindings deliberately select 006, 007, and 011 rather than positional 003-005.
 SEMANTIC_BINDINGS={
-"PRE_ALGEBRA":((1,"whole-number reasoning"),(2,"integer operations"),(3,"fractions and decimals"),(4,"ratios and rates"),(5,"proportions")),
-"ALGEBRA_II":((1,"equations and inequalities"),(2,"functions"),(3,"quadratic functions"),(4,"polynomial functions"),(5,"rational functions")),
-"GEOMETRY":((1,"foundations and constructions"),(2,"transformations"),(7,"circles"),(4,"similarity"),(11,"foundations and constructions")),
-"TRIGONOMETRY":((1,"angle measure"),(2,"right-triangle trigonometry"),(7,"equations"),(4,"trigonometric functions"),(11,"angle measure")),
-"PRE_CALCULUS":((1,"function analysis"),(2,"polynomial and rational models"),(7,"conic sections"),(4,"trigonometric models"),(11,"function analysis")),
-"CALCULUS_II":((1,"integration techniques"),(2,"improper integrals"),(3,"applications of integration"),(4,"differential equations models"),(5,"parametric curves")),
-"CALCULUS_III":((1,"vectors and geometry of space"),(2,"vector-valued functions"),(7,"line integrals"),(4,"multiple integrals"),(11,"vectors and geometry of space")),
-"DIFFERENTIAL_EQUATIONS":((1,"first-order equations"),(2,"qualitative methods"),(7,"linear systems"),(4,"second-order linear equations"),(11,"first-order equations")),
-"LINEAR_ALGEBRA":((1,"linear systems"),(2,"matrix algebra"),(7,"determinants"),(4,"linear transformations"),(11,"linear systems")),
-"NUMERICAL_METHODS":((1,"error and conditioning"),(2,"root finding"),(6,"numerical integration"),(7,"initial-value problems"),(11,"linear systems")),
-"ENGINEERING_ANALYSIS":((1,"engineering models"),(2,"complex variables"),(6,"partial differential equations"),(7,"vector analysis"),(11,"linear algebraic models")),
-"APPLIED_MATHEMATICS":((1,"mathematical modeling"),(2,"discrete models"),(6,"dynamical systems"),(7,"fields and operators"),(11,"continuous models")),
+"PRE_ALGEBRA":((1,"whole-number reasoning"),(2,"integer operations"),(3,"fractions and decimals"),(14,"ratios and rates"),(5,"proportions")),
+"ALGEBRA_II":((1,"equations and inequalities"),(2,"functions"),(3,"quadratic functions"),(14,"polynomial functions"),(5,"rational functions")),
+"GEOMETRY":((1,"foundations and constructions"),(2,"transformations"),(3,"congruence"),(14,"similarity"),(7,"circles")),
+"TRIGONOMETRY":((1,"angle measure"),(2,"right-triangle trigonometry"),(3,"unit circle"),(14,"trigonometric functions"),(7,"equations")),
+"PRE_CALCULUS":((1,"function analysis"),(2,"polynomial and rational models"),(3,"exponential and logarithmic models"),(14,"trigonometric models"),(7,"conic sections")),
+"CALCULUS_II":((1,"integration techniques"),(2,"improper integrals"),(3,"applications of integration"),(14,"differential equations models"),(5,"parametric curves")),
+"CALCULUS_III":((1,"vectors and geometry of space"),(2,"vector-valued functions"),(3,"partial derivatives"),(14,"multiple integrals"),(7,"line integrals")),
+"DIFFERENTIAL_EQUATIONS":((1,"first-order equations"),(2,"qualitative methods"),(3,"existence and uniqueness"),(14,"second-order linear equations"),(7,"linear systems")),
+"LINEAR_ALGEBRA":((1,"linear systems"),(2,"matrix algebra"),(3,"vector equations"),(14,"linear transformations"),(5,"subspaces")),
+"NUMERICAL_METHODS":((1,"error and conditioning"),(3,"linear systems"),(6,"numerical integration"),(8,"boundary-value problems"),(11,"linear systems")),
+"ENGINEERING_ANALYSIS":((1,"engineering models"),(3,"linear algebraic models"),(6,"partial differential equations"),(8,"approximation methods"),(11,"linear algebraic models")),
+"APPLIED_MATHEMATICS":((1,"mathematical modeling"),(3,"continuous models"),(6,"dynamical systems"),(8,"asymptotic analysis"),(11,"continuous models")),
+}
+
+COURSE_SCENARIOS={
+"PRE_ALGEBRA":(("whole-number total","Combine {a} counted objects with {b} more objects and report the whole-number total.","sum"),("signed integer change","An integer position {a} moves backward {b} units; report the signed result.","difference"),("fraction product selection","Select the product of fraction numerators {a} and {b}, rejecting their sum.","multiple_choice_product"),("unit-rate scaling","A ratio table has {a} units in each of {b} groups; compute the proportional total.","product"),("proportional constant","A proportion compares {a} units with {b} equal groups; compute the constant of proportionality.","ratio")),
+"ALGEBRA_II":(("linear equation balance","Combine like constant terms {a} and {b} while preserving equality.","sum"),("function output change","A function output {a} receives vertical change {b}; compute the transformed output.","difference"),("quadratic leading term","Select the leading coefficient obtained by multiplying binomial coefficients {a} and {b}.","multiple_choice_product"),("polynomial coefficient product","Multiply polynomial leading coefficients {a} and {b} to obtain the product leading coefficient.","product"),("rational-function value","Evaluate a rational function with numerator {a} and nonzero denominator {b}.","ratio")),
+"GEOMETRY":(("segment construction","Construct adjacent segments of lengths {a} and {b}; report the combined segment length.","sum"),("coordinate translation","Translate coordinate {a} left by {b}; report its image.","difference"),("congruence scale check","Select the product of {a} repeated congruent pieces each measuring {b}.","multiple_choice_product"),("similarity scale application","A similar figure has side {a} under scale factor {b}; compute the corresponding side.","product"),("circle radius-diameter ratio","For radius {a} and reference {b}, compute their dimensionless comparison.","ratio")),
+"TRIGONOMETRY":(("angle composition","Compose directed angles {a} and {b} degrees.","sum"),("right-triangle leg difference","Compare right-triangle leg measures {a} and {b} by signed difference.","difference"),("unit-circle coordinate scale","Select the product formed by scaling a unit-circle coordinate by {a} then {b}.","multiple_choice_product"),("amplitude scaling","Scale trigonometric amplitude {a} by factor {b}.","product"),("equation quotient","Isolate a trigonometric value by dividing equation side {a} by nonzero coefficient {b}.","ratio")),
+"PRE_CALCULUS":(("function composition offset","Combine function output {a} with transformation offset {b}.","sum"),("rational-model residual","Subtract modeled correction {b} from polynomial-rational output {a}.","difference"),("exponential factor selection","Select the exponential growth-step product of current value {a} and factor {b}.","multiple_choice_product"),("trigonometric amplitude model","Multiply amplitude {a} by declared trigonometric scale {b}.","product"),("conic axis ratio","Compare conic semi-axis measures {a} and {b} by exact ratio.","ratio")),
+"CALCULUS_II":(("partition accumulation","Add integration partition contributions {a} and {b}.","sum"),("improper-integral truncation residual","Subtract tail estimate {b} from truncation value {a}.","difference"),("cross-section area selection","Select rectangular cross-section area from dimensions {a} and {b}.","multiple_choice_product"),("separable ODE coefficient","Multiply separated model coefficient {a} by state factor {b}.","product"),("parametric slope","Compute dy/dx from declared component changes {a} and nonzero {b}.","ratio")),
+"CALCULUS_III":(("vector component addition","Add compatible spatial-vector components {a} and {b}.","sum"),("vector displacement component","Subtract initial component {b} from terminal component {a}.","difference"),("partial-derivative term selection","Select the coefficient product {a}*{b} arising when differentiating a scaled multivariable term.","multiple_choice_product"),("constant-density double integral","Integrate constant density {a} over rectangular parameter area {b}.","product"),("line-integral average density","Divide accumulated line integral {a} by nonzero curve length {b}.","ratio")),
+"DIFFERENTIAL_EQUATIONS":(("solution superposition","Add homogeneous contribution {a} and particular contribution {b}.","sum"),("phase-line decrement","Apply signed decrement {b} to state {a} on a qualitative phase line.","difference"),("Lipschitz-bound selection","Select the product of local slope bound {a} and interval width {b} used in uniqueness analysis.","multiple_choice_product"),("characteristic-root product","Multiply characteristic roots {a} and {b} for a second-order equation.","product"),("linear-system rate ratio","Compute component change {a} per nonzero time increment {b}.","ratio")),
+"LINEAR_ALGEBRA":(("equation-row combination","Add compatible right-hand-side entries {a} and {b} during row combination.","sum"),("matrix entry subtraction","Subtract corresponding matrix entries {b} from {a}.","difference"),("vector-equation matrix","Construct the symmetric coefficient matrix with diagonal {a} and cross coefficient {b}.","matrix"),("linear-map scaling","Apply scalar linear transformation factor {b} to component {a}.","product"),("subspace coordinate ratio","Normalize subspace coordinate {a} by nonzero basis scale {b}.","ratio")),
+"NUMERICAL_METHODS":(("relative conditioning error","Combine baseline error {a} and propagated perturbation {b}.","sum"),("linear-system coefficient matrix","Construct the symmetric 2-by-2 coefficient matrix with diagonal {a} and off-diagonal {b}.","matrix"),("quadrature contribution","Multiply quadrature weight {a} by sampled value {b}.","product"),("boundary-value stencil matrix","Construct the symmetric two-node finite-difference stencil using diagonal {a} and coupling {b}.","matrix"),("linear-system residual","Subtract computed action {b} from right-hand side {a}.","difference")),
+"ENGINEERING_ANALYSIS":(("model response superposition","Add compatible engineering response contributions {a} and {b}.","sum"),("linear algebraic coefficient matrix","Construct a symmetric coefficient matrix with diagonal {a} and coupling {b}.","matrix"),("PDE flux contribution","Multiply field gradient magnitude {a} by transport coefficient {b}.","product"),("approximation normal matrix","Construct a symmetric two-basis normal matrix with diagonal {a} and cross term {b}.","matrix"),("linear-model residual","Subtract predicted algebraic response {b} from observation {a}.","difference")),
+"APPLIED_MATHEMATICS":(("model aggregation","Add baseline model term {a} and perturbation {b}.","sum"),("continuous coupled model matrix","Construct a symmetric two-state continuous-model matrix from {a} and {b}.","matrix"),("dynamical gain action","Multiply state magnitude {a} by dynamical gain {b}.","product"),("asymptotic coefficient matrix","Construct the two-term asymptotic coupling matrix with diagonal {a} and cross term {b}.","matrix"),("continuous-model residual","Subtract continuous-model prediction {b} from observed value {a}.","difference")),
 }
 
 
@@ -133,13 +148,9 @@ def _build_registry()->dict[str,tuple[DomainRecipeV1,...]]:
     for course_id,semantic_bindings in SEMANTIC_BINDINGS.items():
         recipes=[]
         for position,(binding_index,concept) in enumerate(semantic_bindings,1):
-            engineering=course_id in {"NUMERICAL_METHODS","ENGINEERING_ANALYSIS","APPLIED_MATHEMATICS"}
-            semantic,prompt,terms,operation=(_engineering_task(concept,position) if engineering else _semantic_task(concept,position))
-            if not engineering and position==3 and binding_index!=3:
-                semantic,prompt,terms,operation=(f"{concept} scale",f"Within {concept}, compatible factor {{a}} scales measure {{b}}. Compute and verify the product.",(concept,"product"),"product")
-            if course_id in {"NUMERICAL_METHODS","ENGINEERING_ANALYSIS","APPLIED_MATHEMATICS"}:
-                engine="symbolic_expression" if binding_index in {2,7} else "numeric_scalar"
-            else: engine="multiple_choice" if binding_index==3 else ("symbolic_expression" if binding_index in {4,8,12} else "numeric_scalar")
+            operation_label,prompt,operation=COURSE_SCENARIOS[course_id][position-1]
+            semantic=f"{concept} {operation_label}"; terms=(concept,operation_label)
+            engine={"multiple_choice_product":"multiple_choice","matrix":"matrix"}.get(operation,"numeric_scalar")
             binding=RecipeBindingV1(course_id,f"{course_id}_TOPIC_{binding_index:03d}",f"{course_id}_SKILL_{binding_index:03d}",f"{course_id}_PROC_{binding_index:03d}",f"{course_id}_FAMILY_{binding_index:03d}",engine)
             if course_id in {"NUMERICAL_METHODS","ENGINEERING_ANALYSIS","APPLIED_MATHEMATICS"}:
                 domains=(ParameterDomainV1("scale",0.1,100.0,False,"declared_domain_unit"),ParameterDomainV1("order",1,4,True,"declared_order"),ParameterDomainV1("variant",1,20,True,"declared_variant"))
@@ -166,7 +177,10 @@ def generate_course_pilot(course_id:str)->tuple[dict[str,Any],...]:
             context=GenerationContextV1(parameters,variant,("FOUNDATIONAL","DEVELOPING","ADVANCED")[variant%3])
             answer=recipe.generate_answer(context); derivation=recipe.derive_independently(context); validate_answer_shape(recipe,answer)
             contract=recipe.build_contract(); normalized=registry.normalize(answer,contract)
-            derivation_input={"expression":f"{recipe._parameters(context)[0]}*x+{recipe._parameters(context)[1]}","operation":"derivative"} if recipe.operation=="derivative" else {"independently_derived_answer":derivation.normalized_answer}
+            a,b=recipe._parameters(context)
+            if recipe.operation=="derivative": derivation_input={"expression":f"{a}*x+{b}","operation":"derivative"}
+            elif recipe.operation=="matrix": derivation_input={"operation":"addition","left":[[a,0],[0,a]],"right":[[0,b],[b,0]]}
+            else: derivation_input={"independently_derived_answer":derivation.normalized_answer}
             derived=registry.derive(derivation_input,contract); graded=registry.grade(answer,derivation.normalized_answer,contract)
             if normalized.status!=derived.status or normalized.status!="PASS" or normalized.value!=derived.value or graded.status!="PASS": raise ValueError("engine proof failed without fallback")
             records.append({"recipe_id":recipe.recipe_id,"binding":recipe.binding,"context":context,"prompt":recipe.build_prompt(context),"generator_answer":answer,"derivation":derivation,"engine_validation":{"normalize":normalized.to_dict(),"derive":derived.to_dict(),"grade":graded.to_dict()}})

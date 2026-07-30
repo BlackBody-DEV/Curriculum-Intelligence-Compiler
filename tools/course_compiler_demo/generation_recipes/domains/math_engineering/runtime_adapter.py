@@ -41,6 +41,9 @@ def adapt_recipe(source: DomainRecipeV1) -> BoundedGenerationRecipe:
 
     def derive(parameters: Mapping[str, Any]) -> RuntimeDerivationPacketV1:
         packet = source.derive_independently(local(parameters))
+        if source.operation=="matrix":
+            a,b=source._parameters(local(parameters))
+            return RuntimeDerivationPacketV1(f"independent:{source.operation}",{"operation":"addition","left":[[a,0],[0,a]],"right":[[0,b],[b,0]]},packet.normalized_answer)
         if source.operation=="derivative":
             a,b=source._parameters(local(parameters))
             return RuntimeDerivationPacketV1(f"independent:{source.operation}",{"expression":f"{a}*x+{b}","operation":"derivative"},packet.normalized_answer)
@@ -70,24 +73,12 @@ def build_math_engineering_runtime() -> GenerationRecipeRuntime:
     return GenerationRecipeRuntime(registry)
 
 
-def runtime_family(recipe: BoundedGenerationRecipe, catalog_family: Mapping[str,Any] | None = None) -> dict[str, Any]:
+def runtime_family(recipe: BoundedGenerationRecipe, catalog_family: Mapping[str,Any]) -> dict[str, Any]:
     """Populate the runtime contract from an exact canonical family payload."""
     contract = recipe.build_contract({})
-    if catalog_family is not None:
-        if catalog_family.get("family_id")!=recipe.binding.family_id or catalog_family.get("micro_skill_id")!=recipe.binding.micro_skill_id or catalog_family.get("procedure_id")!=recipe.binding.procedure_id or catalog_family.get("answer_engine")!=recipe.binding.engine_type:
-            raise ValueError("catalog family does not exactly match recipe binding")
-        result=dict(catalog_family); answer_contract=dict(result.get("answer_contract",{}))
-        answer_contract.setdefault("answer_contract_id",contract.answer_contract_id); answer_contract["engine_type"]=recipe.binding.engine_type
-        result["answer_contract"]=answer_contract
-        return result
-    return {
-        "family_id": recipe.binding.family_id,
-        "micro_skill_id": recipe.binding.micro_skill_id,
-        "procedure_id": recipe.binding.procedure_id,
-        "answer_engine": recipe.binding.engine_type,
-        "answer_contract": {"answer_contract_id": contract.answer_contract_id, "engine_type": contract.engine_type},
-        "parameter_domains": {
-            domain.name: {"type": domain.kind, "minimum": domain.minimum, "maximum": domain.maximum}
-            for domain in recipe.parameter_domains
-        },
-    }
+    if catalog_family.get("family_id")!=recipe.binding.family_id or catalog_family.get("micro_skill_id")!=recipe.binding.micro_skill_id or catalog_family.get("procedure_id")!=recipe.binding.procedure_id or catalog_family.get("answer_engine")!=recipe.binding.engine_type:
+        raise ValueError("catalog family does not exactly match recipe binding")
+    result=dict(catalog_family); answer_contract=dict(result.get("answer_contract",{}))
+    answer_contract.setdefault("answer_contract_id",contract.answer_contract_id); answer_contract["engine_type"]=recipe.binding.engine_type
+    result["answer_contract"]=answer_contract
+    return result
