@@ -4,7 +4,7 @@ import pytest
 
 from tools.course_compiler_demo.generation_recipes.domains.math_engineering import (
     COURSE_RECIPE_REGISTRY,GenerationContextV1,adapt_recipe,audit_recipe_catalog,
-    build_math_engineering_runtime,generate_course_pilot,get_course_recipes,runtime_family,validate_catalog_semantics,
+    build_math_engineering_runtime,generate_course_pilot,get_course_recipes,runtime_family,semantic_compatibility_manifest,validate_catalog_semantics,
 )
 from tools.course_compiler_demo.generation_recipes.models import GenerationContextV1 as RuntimeGenerationContextV1
 from tools.course_compiler_demo.subject_packs.engineering_mathematics import build_engineering_mathematics_catalog
@@ -22,6 +22,8 @@ def test_exact_twelve_course_registry_and_sixty_valid_recipes():
     assert set(COURSE_RECIPE_REGISTRY)==EXPECTED
     assert audit_recipe_catalog()=={"courses":12,"recipes":60,"status":"PASS"}
     assert all(len(recipes)==5 for recipes in COURSE_RECIPE_REGISTRY.values())
+    manifest=semantic_compatibility_manifest()
+    assert len(manifest)==60 and all(row["status"]=="PASS" and len(row["matched_terms"])==3 and row["operation"] for row in manifest)
 
 
 def test_bindings_resolve_exact_catalog_family_skill_topic_and_procedure():
