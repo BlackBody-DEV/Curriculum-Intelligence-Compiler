@@ -1,0 +1,3 @@
+# General Chemistry Production Bank
+
+Exactly 100 locked real nonfixture candidates span fourteen families, procedures, and micro-skills across measurement, atoms, periodicity, bonding, geometry, nomenclature, reactions, stoichiometry, thermochemistry, gases, solutions, equilibrium, acids/bases, and electrochemistry. Numeric and multiple-choice contracts remain within enabled engines. The chemical-reaction engine stays disabled and fail closed; no drawing or reaction execution is claimed. Candidates record units, significant-figure, mole/stoichiometry, formula-consistency failure gates and separate derivation, validation, duplicate, authority, safety, and review evidence. Outputs remain noncanonical and inactive.
