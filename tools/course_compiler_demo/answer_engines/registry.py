@@ -10,13 +10,21 @@ from tools.course_compiler_demo.universal_core import AnswerContractV1, SupportD
 
 
 ENABLED_ENGINE_TYPES = (
-    "multiple_choice", "numeric_pair", "numeric_scalar", "numeric_vector",
+    "chemical_formula", "chemical_reaction", "code_execution_python",
+    "coordinate_graph", "equation_system", "matrix", "multiple_choice",
+    "numeric_pair", "numeric_scalar", "numeric_vector",
+    "rubric_scored_explanation", "scientific_structured_response",
+    "structured_diagram", "symbolic_expression",
 )
 DISABLED_ENGINE_TYPES = (
-    "chemical_reaction", "code_execution", "equation_system", "graph_diagram",
-    "matrix", "proof_logic", "rubric_scored_explanation",
-    "scientific_structured_response", "symbolic_expression",
+    "code_execution", "graph_diagram", "proof_logic",
 )
+ENGINE_TYPE_ALIASES = {"code_execution": "code_execution_python", "graph_diagram": "coordinate_graph"}
+
+
+def resolve_engine_type(engine_type: str) -> str:
+    """Resolve declared catalog compatibility names to the actual engine id."""
+    return ENGINE_TYPE_ALIASES.get(engine_type, engine_type)
 
 
 @dataclass(frozen=True)
@@ -247,8 +255,19 @@ class AnswerEngineRegistry:
 
 
 def build_default_registry() -> AnswerEngineRegistry:
+    from tools.course_compiler_demo.answer_engines.chemistry import ChemicalFormulaEngine, ChemicalReactionEngine
+    from tools.course_compiler_demo.answer_engines.code_execution import CodeExecutionPythonEngine
+    from tools.course_compiler_demo.answer_engines.graphs import CoordinateGraphEngine, StructuredDiagramEngine
+    from tools.course_compiler_demo.answer_engines.matrix import MatrixAnswerEngine
+    from tools.course_compiler_demo.answer_engines.scientific_response import ScientificStructuredResponseEngine, RubricScoredExplanationEngine
+    from tools.course_compiler_demo.answer_engines.symbolic import EquationSystemEngine, SymbolicExpressionEngine
     registry = AnswerEngineRegistry()
-    adapters: tuple[AnswerEngine, ...] = (NumericScalarEngine(), NumericPairEngine(), NumericVectorEngine(), MultipleChoiceEngine())
+    adapters: tuple[AnswerEngine, ...] = (
+        NumericScalarEngine(), NumericPairEngine(), NumericVectorEngine(), MultipleChoiceEngine(),
+        SymbolicExpressionEngine(), EquationSystemEngine(), MatrixAnswerEngine(), CodeExecutionPythonEngine(),
+        ChemicalFormulaEngine(), ChemicalReactionEngine(), ScientificStructuredResponseEngine(),
+        RubricScoredExplanationEngine(), CoordinateGraphEngine(), StructuredDiagramEngine(),
+    )
     for adapter in adapters:
         registry.register(AnswerEngineDescriptor(adapter.engine_type, True, "implemented and validated"), adapter)
     for engine_type in DISABLED_ENGINE_TYPES:

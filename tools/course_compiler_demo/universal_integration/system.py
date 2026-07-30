@@ -5,7 +5,7 @@ import hashlib
 from pathlib import Path
 from typing import Any
 
-from tools.course_compiler_demo.answer_engines import build_default_registry
+from tools.course_compiler_demo.answer_engines import build_default_registry, resolve_engine_type
 from tools.course_compiler_demo.assessment_compiler import compile_assessment
 from tools.course_compiler_demo.batch_generation import BatchOrchestrator
 from tools.course_compiler_demo.beta_export import build_beta_export, dry_run_import_validate
@@ -104,7 +104,7 @@ def plan_course_jobs(course:dict[str,Any],count:int=300,seed:str="SYNTHESIS_030"
         procedure=next(p for p in course["procedures"] if p["procedure_id"]==family["procedure_id"])
         skill=next(s for s in course["micro_skills"] if s["micro_skill_id"]==procedure["micro_skill_ids"][index%len(procedure["micro_skill_ids"])])
         topic=next(t for t in course["topics"] if t["topic_id"]==skill["topic_id"])
-        engine=family["answer_engine"]; decision=registry.lookup(engine)
+        engine=resolve_engine_type(family["answer_engine"]); decision=registry.lookup(engine)
         executable=decision.status=="SUPPORTED" and family.get("engine_enabled",True) is True
         blocker=None if executable else (decision.reasons[0] if decision.status!="SUPPORTED" else "FAMILY_ENGINE_DISABLED")
         token=hashlib.sha256(f"{seed}:{course['course_id']}:{family['family_id']}:{index}".encode()).hexdigest()
