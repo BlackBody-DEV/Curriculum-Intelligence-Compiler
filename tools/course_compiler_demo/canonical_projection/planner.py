@@ -164,6 +164,8 @@ def _plan_records(
             if candidate["source_revision"] == prior["source_revision"]:
                 if candidate["content_sha256"] != prior["content_sha256"]:
                     raise ProjectionPlanningError("source revision conflict: content changed without a new revision")
+                if candidate["preparation_id"] != prior["preparation_id"]:
+                    raise ProjectionPlanningError("idempotent reprojection preparation identity changed")
                 if candidate["prior_proposed_revision_id"] not in (None, prior["proposed_revision_id"]):
                     raise ProjectionPlanningError("idempotent reprojection declares the wrong prior revision")
                 operation = "REPROJECT_NOOP"

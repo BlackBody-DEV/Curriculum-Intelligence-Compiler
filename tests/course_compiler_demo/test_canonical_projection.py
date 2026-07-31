@@ -99,6 +99,11 @@ def test_idempotent_reprojection_and_revision_lineage(tmp_path):
     with pytest.raises(ProjectionPlanningError, match="lineage conflicts"):
         run_projection("bad-noop-lineage", [incompatible], beta([old]), assessments([old]),
                        projection_root=tmp_path, previous_records=prior)
+    changed_preparation = candidate(old)
+    changed_preparation["preparation_id"] = "different-preparation"
+    with pytest.raises(ProjectionPlanningError, match="preparation identity changed"):
+        run_projection("bad-noop-preparation", [changed_preparation], beta([old]), assessments([old]),
+                       projection_root=tmp_path, previous_records=prior)
 
     updated = reference(1, "r2")
     revised = run_projection(
