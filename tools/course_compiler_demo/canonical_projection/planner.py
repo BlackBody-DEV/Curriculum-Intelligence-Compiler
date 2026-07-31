@@ -116,6 +116,21 @@ def _prior_index(previous_records: Iterable[Mapping[str, Any]]) -> dict[tuple[st
             raise ProjectionPlanningError("prior projection state contains duplicate source identity")
         for field in ("source_revision", "content_sha256", "proposed_identity", "proposed_revision_id"):
             _required_text(record.get(field), f"prior {field}")
+        if not SHA256_PATTERN.fullmatch(record["content_sha256"]):
+            raise ProjectionPlanningError("prior content_sha256 must be lowercase SHA-256")
+        expected_identity = _proposed_identity(record)
+        if record["proposed_identity"] != expected_identity:
+            raise ProjectionPlanningError("prior proposed identity fails deterministic integrity check")
+        expected_revision = _proposed_revision(record, expected_identity, record.get("parent_proposed_revision_id"))
+        if record["proposed_revision_id"] != expected_revision:
+            raise ProjectionPlanningError("prior proposed revision fails deterministic integrity check")
+        lineage = record.get("lineage")
+        if not isinstance(lineage, list) or not lineage or any(not isinstance(item, Mapping) for item in lineage):
+            raise ProjectionPlanningError("prior projection lineage is missing or malformed")
+        if any(lineage[-1].get(field) != record.get(field) for field in (
+            "source_system", "source_identity", "source_revision", "content_sha256", "preparation_id"
+        )):
+            raise ProjectionPlanningError("prior projection lineage does not terminate at the prior record")
         result[key] = record
     return result
 
@@ -125,8 +140,8 @@ def _plan_records(
 ) -> list[dict[str, Any]]:
     normalized = [_normalize_candidate(item) for item in candidates]
     normalized.sort(key=lambda item: (item["source_system"], item["source_identity"], item["source_revision"]))
-    keys = [(item["source_system"], item["source_identity"], item["source_revision"]) for item in normalized]
-    if len(keys) != len(set(keys)):
+    source_keys = [(item["source_system"], item["source_identity"]) for item in normalized]
+    if len(source_keys) != len(set(source_keys)):
         raise ProjectionPlanningError("duplicate projection candidate")
     prior_by_source = _prior_index(previous_records)
     records: list[dict[str, Any]] = []
@@ -159,7 +174,10 @@ def _plan_records(
                 operation = "STAGE_REVISION"
                 parent = prior["proposed_revision_id"]
         revision = prior["proposed_revision_id"] if operation == "REPROJECT_NOOP" else _proposed_revision(candidate, identity, parent)
-        lineage = copy.deepcopy(candidate["source_lineage"])
+        lineage = copy.deepcopy(prior["lineage"] if prior is not None else [])
+        for item in candidate["source_lineage"]:
+            if item not in lineage:
+                lineage.append(copy.deepcopy(item))
         lineage.append({
             "source_system": candidate["source_system"],
             "source_identity": candidate["source_identity"],
@@ -189,24 +207,32 @@ def _stage_beta_import(payload: Mapping[str, Any], records: list[dict[str, Any]]
         validation = dry_run_import_validate(payload)
     except BetaExportError as exc:
         raise ProjectionPlanningError(f"Beta import contract rejected: {exc}") from exc
-    by_question = {record["source_identity"]: record for record in records}
-    question_ids = [question["question_id"] for question in payload.get("question_references", [])]
-    missing = sorted(set(question_ids) - set(by_question))
+    by_question_revision = {
+        (record["source_identity"], record["source_revision"]): record for record in records
+    }
+    question_keys = [
+        (question["question_id"], question["question_revision"])
+        for question in payload.get("question_references", [])
+    ]
+    missing = sorted(set(question_keys) - set(by_question_revision))
     if missing:
-        raise ProjectionPlanningError(f"Beta reference has no projection candidate: {missing[0]}")
+        raise ProjectionPlanningError(
+            f"Beta reference has no exact projection candidate revision: {missing[0][0]}@{missing[0][1]}"
+        )
     mappings = [{
         "question_id": question_id,
-        "proposed_identity": by_question[question_id]["proposed_identity"],
-        "proposed_revision_id": by_question[question_id]["proposed_revision_id"],
+        "question_revision": question_revision,
+        "proposed_identity": by_question_revision[(question_id, question_revision)]["proposed_identity"],
+        "proposed_revision_id": by_question_revision[(question_id, question_revision)]["proposed_revision_id"],
         "mapping_status": "PROPOSED",
         "human_review_required": True,
-    } for question_id in question_ids]
+    } for question_id, question_revision in question_keys]
     return {
         "status": "VALIDATED_NOT_IMPORTED",
         "contract_validation": validation,
         "export_id": payload.get("export_id"),
         "export_sha256": validation["export_sha256"],
-        "question_reference_count": len(question_ids),
+        "question_reference_count": len(question_keys),
         "proposed_mappings": mappings,
         "safety": dict(SAFETY),
     }
@@ -215,7 +241,9 @@ def _stage_beta_import(payload: Mapping[str, Any], records: list[dict[str, Any]]
 def _stage_assessments(
     assessments: Iterable[Mapping[str, Any]], beta_stage: Mapping[str, Any]
 ) -> dict[str, Any]:
-    beta_ids = {item["question_id"] for item in beta_stage["proposed_mappings"]}
+    beta_keys = {
+        (item["question_id"], item["question_revision"]) for item in beta_stage["proposed_mappings"]
+    }
     staged: list[dict[str, Any]] = []
     identities: set[str] = set()
     for raw in assessments:
@@ -227,17 +255,23 @@ def _stage_assessments(
         references = item.get("question_references")
         if not isinstance(references, list) or not references:
             raise ProjectionPlanningError("assessment staging requires question_references")
-        question_ids = [
-            _required_text(ref.get("question_id") if isinstance(ref, Mapping) else ref, "assessment question_id")
+        if any(not isinstance(ref, Mapping) for ref in references):
+            raise ProjectionPlanningError("assessment staging references must include question identity and revision")
+        question_keys = [
+            (_required_text(ref.get("question_id"), "assessment question_id"),
+             _required_text(ref.get("question_revision"), "assessment question_revision"))
             for ref in references
         ]
-        if len(question_ids) != len(set(question_ids)):
+        if len(question_keys) != len(set(question_keys)):
             raise ProjectionPlanningError("assessment staging contains duplicate question references")
-        if not set(question_ids).issubset(beta_ids):
+        if not set(question_keys).issubset(beta_keys):
             raise ProjectionPlanningError("assessment staging references a question outside the validated Beta package")
         staged.append({
             "assessment_id": assessment_id,
-            "question_ids": question_ids,
+            "question_references": [
+                {"question_id": question_id, "question_revision": question_revision}
+                for question_id, question_revision in question_keys
+            ],
             "source_assessment_sha256": _stable_hash(item),
             "status": "AWAITING_HUMAN_REVIEW",
             "promotion_authorized": False,

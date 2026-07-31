@@ -107,6 +107,12 @@ def test_duplicates_conflicts_and_invalid_links_fail_closed(tmp_path):
     item = candidate(question)
     with pytest.raises(ProjectionPlanningError, match="duplicate projection candidate"):
         run_projection("duplicate", [item, item], beta([question]), assessments([question]), projection_root=tmp_path)
+    revision = reference(1, "r2")
+    with pytest.raises(ProjectionPlanningError, match="duplicate projection candidate"):
+        run_projection(
+            "multi-revision", [item, candidate(revision)], beta([question]), assessments([question]),
+            projection_root=tmp_path,
+        )
 
     initial = run_projection("initial", [item], beta([question]), assessments([question]), projection_root=tmp_path)
     conflicted = dict(item, content_sha256="f" * 64)
@@ -114,8 +120,16 @@ def test_duplicates_conflicts_and_invalid_links_fail_closed(tmp_path):
         run_projection("conflict", [conflicted], beta([question]), assessments([question]),
                        projection_root=tmp_path, previous_records=initial["records"])
 
+    forged = [dict(initial["records"][0], proposed_revision_id="proposed-revision-forged")]
+    with pytest.raises(ProjectionPlanningError, match="revision fails deterministic integrity"):
+        run_projection("forged-prior", [item], beta([question]), assessments([question]),
+                       projection_root=tmp_path, previous_records=forged)
+
+    with pytest.raises(ProjectionPlanningError, match="no exact projection candidate revision"):
+        run_projection("revision-mismatch", [item], beta([revision]), assessments([revision]), projection_root=tmp_path)
+
     unrelated = reference(2)
-    with pytest.raises(ProjectionPlanningError, match="no projection candidate"):
+    with pytest.raises(ProjectionPlanningError, match="no exact projection candidate revision"):
         run_projection("bad-beta", [item], beta([question, unrelated]), assessments([question]), projection_root=tmp_path)
     with pytest.raises(ProjectionPlanningError, match="outside the validated Beta package"):
         run_projection("bad-assessment", [item], beta([question]), assessments([unrelated]), projection_root=tmp_path)
@@ -128,6 +142,18 @@ def test_reopen_detects_artifact_tampering(tmp_path):
     path.write_text(path.read_text() + " ")
     with pytest.raises(ProjectionPlanningError, match="integrity check failed"):
         reopen_projection_run("tamper", projection_root=tmp_path)
+
+
+def test_revision_cannot_drop_prior_lineage(tmp_path):
+    old = reference(1)
+    initial = run_projection("initial", [candidate(old)], beta([old]), assessments([old]), projection_root=tmp_path)
+    prior_lineage = initial["records"][0]["lineage"]
+    updated = reference(1, "r2")
+    input_candidate = candidate(updated, prior=initial["records"][0]["proposed_revision_id"])
+    input_candidate["source_lineage"] = []
+    revised = run_projection("revised", [input_candidate], beta([updated]), assessments([updated]),
+                             projection_root=tmp_path, previous_records=initial["records"])
+    assert revised["records"][0]["lineage"][:-1] == prior_lineage
 
 
 def test_operator_mode_dashboard_controls_and_protected_state(tmp_path):

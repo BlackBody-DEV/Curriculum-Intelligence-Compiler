@@ -20,13 +20,13 @@ The `proposed-question-*` and `proposed-revision-*` identifiers are planning ide
 
 Each candidate must already have passed canonical-promotion preparation review and must provide a source system, source identity, source revision, content SHA-256, preparation identity, and source lineage. The accepted review action is exactly `ACCEPT_FOR_PROMOTION_REVIEW` with `eligible=true`.
 
-The Beta package is validated by the existing compiler Beta dry-run import contract. Every Beta question must resolve to exactly one projection candidate. Assessment staging can reference only questions in that validated Beta package.
+The Beta package is validated by the existing compiler Beta dry-run import contract. Every Beta question identity and revision pair must resolve to exactly one projection candidate. Assessment staging must carry identity and revision pairs and can reference only exact pairs in that validated Beta package.
 
 ## Identity, revisions, and lineage
 
 Proposed identity is a deterministic digest of the contract version, source system, and source identity. Proposed revision is a deterministic digest of proposed identity, source revision, content hash, and parent proposed revision.
 
-Reprojecting unchanged source state produces `REPROJECT_NOOP` and preserves the prior proposed revision. A new source revision must explicitly name the current prior proposed revision. Reusing a source revision with changed content, using stale lineage, or submitting duplicate candidates fails the entire plan before artifacts are written.
+Reprojecting unchanged source state produces `REPROJECT_NOOP` and preserves the prior proposed revision only after both prior proposed identity and revision have been recomputed successfully. A new source revision must explicitly name the current prior proposed revision. Reusing a source revision with changed content, using stale or forged lineage, submitting multiple revisions for one source in the same batch, or submitting duplicate candidates fails the entire plan before artifacts are written.
 
 Source lineage is copied and extended; input objects are not mutated. The persisted manifest seals every artifact and a semantic plan hash. Reopening verifies both byte hashes and the semantic hash.
 
