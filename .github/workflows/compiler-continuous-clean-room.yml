@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - main
+      - "validation/compiler-continuous-clean-room-*"
   workflow_dispatch:
 
 permissions:

@@ -17,7 +17,10 @@ def test_workflow_replaces_task_specific_trigger_with_main_and_pull_request_cert
     assert WORKFLOW.is_file()
     assert not LEGACY_WORKFLOW.exists()
     assert re.search(r"(?m)^  pull_request:\n    branches:\n      - main$", text)
-    assert re.search(r"(?m)^  push:\n    branches:\n      - main$", text)
+    assert re.search(
+        r'(?m)^  push:\n    branches:\n      - main\n      - "validation/compiler-continuous-clean-room-\*"$',
+        text,
+    )
     assert re.search(r"(?m)^  workflow_dispatch:$", text)
     assert "task/compiler-" not in text
 
