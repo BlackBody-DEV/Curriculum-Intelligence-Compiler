@@ -20,3 +20,12 @@ def test_every_simultaneous_conflict_for_every_unordered_pair_is_preserved():
  assert len(r.conflicts)==6
  assert {(x.candidate_ids,x.conflict_class) for x in r.conflicts}=={(("1","2"),"TOPIC_HIERARCHY_CONFLICT"),(("1","2"),"RIGHTS_CONFLICT"),(("1","3"),"TOPIC_HIERARCHY_CONFLICT"),(("1","3"),"RIGHTS_CONFLICT"),(("2","3"),"TOPIC_HIERARCHY_CONFLICT"),(("2","3"),"RIGHTS_CONFLICT")}
  assert all(x.evidence_claim_ids==tuple("claim:"+i for i in x.candidate_ids) and x.resolution_state=="UNRESOLVED" for x in r.conflicts)
+
+def test_terminology_conflict_is_preserved_without_breaking_explicit_synonyms():
+ conflicting=(c("1","Work",terminology_context="energy transferred by force"),c("2","Work","s2",terminology_context="assigned learning task"))
+ r=synthesize(conflicting,{"claim:1","claim:2"},{"s1":1,"s2":1},{"TOPIC":{"work"}})
+ assert not r.nodes and r.completeness=="CONFLICT_BLOCKED"
+ assert [(x.conflict_class,x.candidate_ids,x.evidence_claim_ids,x.resolution_state) for x in r.conflicts]==[("TERMINOLOGY_CONFLICT",("1","2"),("claim:1","claim:2"),"UNRESOLVED")]
+ synonyms=(c("3","Linear Equations",terminology_context="one-variable algebra"),c("4","Solving linear equations","s2",synonym_key="linear equations",terminology_context="one variable algebra"))
+ reconciled=synthesize(synonyms,{"claim:3","claim:4"},{"s1":1,"s2":1},{"TOPIC":{"linear equations"}})
+ assert not reconciled.conflicts and len(reconciled.nodes)==1 and reconciled.nodes[0].reconciliation=="SYNONYM_RECONCILIATION"

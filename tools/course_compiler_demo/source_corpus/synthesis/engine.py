@@ -12,9 +12,9 @@ class Completeness(str,Enum):
  SOURCE_COMPLETE="SOURCE_COMPLETE"; COURSE_PACK_COMPLETE="COURSE_PACK_COMPLETE"; SYNTHESIZED_WITH_GAPS="SYNTHESIZED_WITH_GAPS"; INSUFFICIENT_EVIDENCE="INSUFFICIENT_EVIDENCE"; CONFLICT_BLOCKED="CONFLICT_BLOCKED"
 @dataclass(frozen=True)
 class SynthesisCandidate:
- candidate_id:str; candidate_type:str; title:str; source_id:str; evidence_claim_ids:tuple[str,...]; confidence:float; hierarchy_path:tuple[str,...]=(); prerequisites:tuple[str,...]=(); procedure_steps:tuple[str,...]=(); difficulty:str=""; sequence:int|None=None; assessment_objectives:tuple[str,...]=(); rights:str="UNKNOWN"; source_version:str=""; synonym_key:str=""
+ candidate_id:str; candidate_type:str; title:str; source_id:str; evidence_claim_ids:tuple[str,...]; confidence:float; hierarchy_path:tuple[str,...]=(); prerequisites:tuple[str,...]=(); procedure_steps:tuple[str,...]=(); difficulty:str=""; sequence:int|None=None; assessment_objectives:tuple[str,...]=(); rights:str="UNKNOWN"; source_version:str=""; synonym_key:str=""; terminology_context:str=""
  def __post_init__(self):
-  if not all(isinstance(x,str) and x.strip() for x in (self.candidate_id,self.candidate_type,self.title,self.source_id)) or not self.evidence_claim_ids or not 0<=self.confidence<=1: raise SynthesisError("candidate identity/evidence/confidence invalid")
+  if not all(isinstance(x,str) and x.strip() for x in (self.candidate_id,self.candidate_type,self.title,self.source_id)) or not self.evidence_claim_ids or not 0<=self.confidence<=1 or not isinstance(self.terminology_context,str): raise SynthesisError("candidate identity/evidence/confidence invalid")
 @dataclass(frozen=True)
 class ReconciledNode:
  node_id:str; candidate_type:str; title:str; member_ids:tuple[str,...]; source_ids:tuple[str,...]; evidence_claim_ids:tuple[str,...]; confidence:float; reconciliation:str; hierarchy_path:tuple[str,...]; prerequisites:tuple[str,...]; procedure_steps:tuple[str,...]; difficulty:str; sequence:int|None; assessment_objectives:tuple[str,...]; rights:tuple[str,...]; source_versions:tuple[str,...]; review_required:bool=True
@@ -40,6 +40,7 @@ def _conflict_classes(a,b):
   (a.difficulty!=b.difficulty,ConflictClass.DIFFICULTY_CONFLICT.value),
   (a.sequence!=b.sequence,ConflictClass.SEQUENCE_CONFLICT.value),
   (a.assessment_objectives!=b.assessment_objectives,ConflictClass.ASSESSMENT_CONFLICT.value),
+  (bool(a.terminology_context and b.terminology_context and _norm(a.terminology_context)!=_norm(b.terminology_context)),ConflictClass.TERMINOLOGY_CONFLICT.value),
   (a.candidate_type!=b.candidate_type,ConflictClass.COURSE_SCOPE_CONFLICT.value),
  )
  return tuple(kind for differs,kind in differences if differs)
