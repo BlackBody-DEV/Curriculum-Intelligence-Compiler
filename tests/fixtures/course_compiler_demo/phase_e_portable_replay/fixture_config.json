@@ -11,15 +11,15 @@
   "files": [
     {
       "path": "force_systems/approved/portable-force-mc-01.json",
-      "sha256": "e9c9890f95c95f7cc1c693fc8212997a838bbe9dcf6772d9304a8ab4e33ea8bf"
+      "sha256": "ea39dc9984b1b24ec3f8320e2f01328221acf4a42add29e6ab2d95498025c4fa"
     },
     {
       "path": "force_systems/approved/portable-force-mc-02.json",
-      "sha256": "a6fff1ba23e15753001ba39ca735c0de4b933d00c86bc645df2378f62d567ea3"
+      "sha256": "7df5eac40f73c7590cd08d6d30cb5b2783dedcdd5e0e56fe5babf49b6cc71307"
     },
     {
       "path": "force_systems/approved/portable-force-mc-03.json",
-      "sha256": "fddd2a4381dac4809c5c263bf2297602679da91c3a71e99b36b974d77b564860"
+      "sha256": "30a94ceecf129d941ff3e4fb676cd3f3ef8c828136f25d893512ac1c6ba1d71b"
     },
     {
       "path": "force_systems/approved/portable-force-mc-04.json",
@@ -51,11 +51,11 @@
     },
     {
       "path": "vector_operations/approved/portable-vector-01.json",
-      "sha256": "4dbfa2a2f39d62dd4f17a729178f7d68893a05330d69cc270af0c49b19260629"
+      "sha256": "936029db9c4454b802f3659ea6486a5568a6fe8a5d2273762682ab5be21e14c0"
     },
     {
       "path": "vector_operations/approved/portable-vector-02.json",
-      "sha256": "4c35c6e7cd88684585bfca4b5d011287f1a1775771d2e614b2de16ded89f3f29"
+      "sha256": "8f90788222d816381d6be968fef6e8182b41ec7096fe9c42f3ba3ca7f49644e2"
     },
     {
       "path": "vector_operations/approved/portable-vector-03.json",

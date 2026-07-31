@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "TEST_FIXTURE/canonical_question_v1.schema.json",
+  "title": "TEST_FIXTURE noncanonical preparation packet",
+  "type": "object",
+  "required": ["external_preparation_id", "source_identity", "procedure_linkage"],
+  "properties": {
+    "external_preparation_id": {"type": "string", "minLength": 1},
+    "source_identity": {"type": "object"},
+    "procedure_linkage": {"type": "object"},
+    "canonical_question_id": {"type": "null"},
+    "canonical_revision_id": {"type": "null"}
+  },
+  "additionalProperties": true
+}

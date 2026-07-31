@@ -18,7 +18,7 @@
     "diagram_required": false,
     "difficulty_level": 1,
     "family_id": "Force Systems",
-    "generation_family": "support_inventory",
+    "generation_family": "mixed_support_mapping",
     "permitted_failure_signals": [
       "synthetic_fixture_mismatch"
     ],

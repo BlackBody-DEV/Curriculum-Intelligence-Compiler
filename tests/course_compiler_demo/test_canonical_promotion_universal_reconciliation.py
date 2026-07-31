@@ -7,13 +7,11 @@ from tools.course_compiler_demo.canonical_promotion.reconciliation import RUN_ID
 from tools.course_compiler_demo.dashboard.controller import DashboardController
 from tools.course_compiler_demo.dashboard.run_storage import DashboardStorage
 
-PRODUCTION_ROOT=Path("/Users/fanarichardson/AxiomIQ_Work/universal_compiler/production_question_wave_032")
-
-def test_universal_adapters_fail_closed_and_resolve_bank_candidate():
+def test_universal_adapters_fail_closed_and_resolve_bank_candidate(portable_production_root):
     with pytest.raises(CanonicalPromotionPreparationError): normalize_input("production_question_candidate",{},ordinal=1)
     with pytest.raises(CanonicalPromotionPreparationError): normalize_input("production_question_bank",{"bank":{},"candidate_id":"x"},ordinal=1)
     with pytest.raises(CanonicalPromotionPreparationError): normalize_input("beta_export_reference",{"reference":{"question_id":"x"}},ordinal=1)
-    bank=json.loads(next(PRODUCTION_ROOT.glob("algebra_i/banks/*.json")).read_text()); candidate=bank["candidates"][0]
+    bank=json.loads(next(portable_production_root.glob("algebra_i/banks/*.json")).read_text()); candidate=bank["candidates"][0]
     result=normalize_input("production_question_bank",{"bank":bank,"candidate_id":candidate["candidate_id"]},ordinal=1)
     assert result["candidate_contract_version"]=="PromotionPreparationInput_v0_1"
     assert result["source_identity"]["bank_sha256"]==bank["bank_sha256"]
@@ -24,8 +22,8 @@ def test_universal_adapters_fail_closed_and_resolve_bank_candidate():
     beta=normalize_input("beta_export_reference",resolved,ordinal=1)
     assert beta["source_type"]=="beta_export_reference" and beta["source_identity"]["beta_export_id"]=="production-wave-032"
 
-def test_six_bank_reconciliation_pilot_and_dashboard_reopen(tmp_path):
-    root=tmp_path/"promotion"; summary=run_universal_reconciliation_pilot(preparation_root=root,production_root=PRODUCTION_ROOT)
+def test_six_bank_reconciliation_pilot_and_dashboard_reopen(tmp_path, portable_production_root):
+    root=tmp_path/"promotion"; summary=run_universal_reconciliation_pilot(preparation_root=root,production_root=portable_production_root)
     assert summary["candidate_count"]==30 and summary["production_bank_count"]==6
     assert len({x["course_id"] for x in summary["source_banks"]})==6
     assert all(sum(x["course_id"]==course for x in summary["source_banks"])==5 for course in {x["course_id"] for x in summary["source_banks"]})

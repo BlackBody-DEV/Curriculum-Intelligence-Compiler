@@ -48,3 +48,26 @@ acceptance workflow as the portable default.
 The `portable_baseline` marker identifies default repository-portable coverage.
 No default test requires `/Users`, a sibling checkout, a protected workspace, a
 Git worktree, or network access.
+
+## Canonical-promotion preparation fixtures
+
+`tests/fixtures/course_compiler_demo/canonical_promotion_portable` contains four
+newly authored, snapshot-only public-contract authority references. Its manifest
+pins their exact inventory and SHA-256 digests and labels them noncanonical,
+nonprivate, nonprotected, ineligible for Alpha import, and unauthorized for
+canonical or database writes. Canonical-promotion tests copy these files through
+the production snapshot routine and retain the original source/snapshot identity
+and integrity assertions.
+
+The six production-bank dependencies are generated deterministically in pytest
+temporary storage by the repository's production bank builders. No external bank
+file is copied or committed. The factory reconstructs six locked banks with 100
+validated candidates apiece, validates every `ProductionQuestionBankV1` checksum,
+and proves candidate/derivation/validation linkage and provenance. Hash mutation
+continues to fail closed.
+
+Canonical-promotion tests also use five existing synthetic Phase E records whose
+public generation-family metadata covers the original return, regenerate,
+curriculum-escalation, and rejection scenarios. All original eligibility,
+rights, asset, duplicate, review-action, restart/reopen, and no-write assertions
+remain required; none of these tests is converted to an optional skip.

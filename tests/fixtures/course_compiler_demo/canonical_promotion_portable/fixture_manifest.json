@@ -1,0 +1,45 @@
+{
+  "fixture_type": "PORTABLE_SYNTHETIC_CANONICAL_PROMOTION_TEST_FIXTURE",
+  "noncanonical": true,
+  "student_visible": false,
+  "eligible_for_alpha_import": false,
+  "canonical_promotion_authorized": false,
+  "database_write_authorized": false,
+  "contains_private_content": false,
+  "contains_protected_content": false,
+  "provenance": "newly_authored_public_contract_equivalent",
+  "authority_files": [
+    {
+      "path": "authority/CANONICAL_QUESTION_FINGERPRINT_SPEC_v1.md",
+      "sha256": "0583e591365d6dfde42559e5f83ea57e57a347cc42168986bc737d6dc3bc63f7"
+    },
+    {
+      "path": "authority/CANONICAL_SEED_BANK_CONTRACT_v1.md",
+      "sha256": "7586904f8e71ef54fcfd6679bdbfad30697ddf4bca23bada94a1ad953b2053e4"
+    },
+    {
+      "path": "authority/canonical_question_fingerprints.py",
+      "sha256": "a722746d1a128d528bc3f2ca179973f7fe699494c51c09f1b68f136b97e4edb5"
+    },
+    {
+      "path": "authority/canonical_question_v1.schema.json",
+      "sha256": "e61839255d1ac6dfa5d7558445893f8052a635c21b705b10aaaecfeba64f10a5"
+    }
+  ],
+  "production_bank_factory": {
+    "source": "repository production bank builders",
+    "storage": "pytest temporary directory",
+    "course_slugs": [
+      "algebra_i",
+      "calculus_i",
+      "statics",
+      "electricity_magnetism",
+      "programming_fundamentals",
+      "general_chemistry"
+    ],
+    "bank_count": 6,
+    "candidates_per_bank": 100,
+    "total_candidates": 600,
+    "copies_external_bank_bytes": false
+  }
+}

@@ -35,12 +35,12 @@
     "diagram_required": false,
     "difficulty_level": 2,
     "family_id": "Vector Operations",
-    "generation_family": "vector_components_2d",
+    "generation_family": "vc2d_positive_x_reference",
     "permitted_failure_signals": [
       "synthetic_fixture_mismatch"
     ]
   },
-  "generation_family": "vector_components_2d",
+  "generation_family": "vc2d_positive_x_reference",
   "givens": {
     "angle_deg": 60,
     "angle_sense": "declared",
