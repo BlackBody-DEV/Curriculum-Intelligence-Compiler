@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "COMPILER_MILESTONE_093_V1",
+  "recorded_at": "2026-07-31",
+  "repository": "BlackBody-DEV/Curriculum-Intelligence-Compiler",
+  "compiler_snapshot": {
+    "commit": "9443075a28254ae918e263ab84b69f36d2ed4e1d",
+    "tracked_tree_sha1": "a4596fa1d33caaa59554da881d81ac547b9d9157"
+  },
+  "capabilities": {
+    "course_packs": {
+      "count": 33,
+      "identifiers_sha256": "1154070003f362a1e14bd00f13418c3a08a8bae869d62dc05d154ceb98259e4f",
+      "content_sha256": "85f361c30e656500c097c57243bb32b12daa85c7a1b2963d9b534290d04f3f0e"
+    },
+    "enabled_answer_capabilities": {
+      "count": 14,
+      "identifiers": [
+        "chemical_formula",
+        "chemical_reaction",
+        "code_execution_python",
+        "coordinate_graph",
+        "equation_system",
+        "matrix",
+        "multiple_choice",
+        "numeric_pair",
+        "numeric_scalar",
+        "numeric_vector",
+        "rubric_scored_explanation",
+        "scientific_structured_response",
+        "structured_diagram",
+        "symbolic_expression"
+      ],
+      "identifiers_sha256": "2d1314c70eb1fbba88abb93adc2f398002e307555620af77d6545875ac0eb234"
+    },
+    "generation_recipes": {
+      "count": 135,
+      "inventory_sha256": "600143c501d7554292f0138f9a95ad2234d267f19d884ff3397a658e50484bd6"
+    },
+    "validated_questions": {
+      "legacy_production_wave": 600,
+      "wave_056": 675,
+      "total": 1275
+    },
+    "diagnostic_assessments": 27
+  },
+  "production_banks": {
+    "legacy_production_wave": {
+      "course_count": 6,
+      "question_count": 600,
+      "aggregate_sha256": "ecccaf83df805785e5a7b81ecdf293c32769dcdd32f3f0134797dbc6d3e0374d",
+      "banks": [
+        {"course_id": "ALGEBRA_I", "question_count": 100, "sha256": "a023f70a0bc97bac230b3f59bad61aca77f80bd76c911bb316dc2838f171cfb8"},
+        {"course_id": "CALCULUS_I", "question_count": 100, "sha256": "2ccc860cc36e018bb96937ccc638da04158ed3c9e1022d17d508ee114a3c555b"},
+        {"course_id": "ELECTRICITY_AND_MAGNETISM", "question_count": 100, "sha256": "ae28e5eb007d48b921db56c1a348ad30442ea7c9e040f30dcd1abe70eb5eae00"},
+        {"course_id": "GENERAL_CHEMISTRY", "question_count": 100, "sha256": "7ce35675668e99cb4c5e914e81e93abb0883380bd40c1bc5c2d14ec44abb8d67"},
+        {"course_id": "PROGRAMMING_FUNDAMENTALS", "question_count": 100, "sha256": "4ea943372970cd2398ded54d8ad60c23b1782dcf9397c1b89c4612cc0bf788b6"},
+        {"course_id": "STATICS", "question_count": 100, "sha256": "54b01fa58efa0a59d87ff58d0a5e950aaf4136140004ad610da4fbb9ab7a00bb"}
+      ]
+    },
+    "wave_056": {
+      "course_count": 27,
+      "question_count": 675,
+      "aggregate_sha256": "95b35aa4896e825b3ea8093afa5c78249fe1a55e42e50358d1c0954b5531a9b4",
+      "banks": [
+        {"course_id": "ALGEBRA_II", "question_count": 25, "sha256": "13a3370f4fcebeff901cdfe7ca7cd8e04294cd299c51e7cd95901896703a85b8"},
+        {"course_id": "ALGORITHMS", "question_count": 25, "sha256": "140bd2d1a28eab2b2c0c21f5babe5525fb0eb8f3872219d784b78eb8469d7611"},
+        {"course_id": "APPLIED_MATHEMATICS", "question_count": 25, "sha256": "2cad9a9180d264700bd59e4ce5fa05edf7076d8384cfe87e5f91db832f6a43a3"},
+        {"course_id": "BIOCHEMISTRY", "question_count": 25, "sha256": "d5bdaad8b6eeb304162c85a62fc73216a201ebe275ac469917c01f4a2be664ab"},
+        {"course_id": "BIOLOGY", "question_count": 25, "sha256": "7ca32f60b4ddcaa426f091689e8418042196386bcc5fbaaa4589fabbba9727c5"},
+        {"course_id": "CALCULUS_II", "question_count": 25, "sha256": "e8121cbabf8276c1e95fe305bf8745130f47ec1a64a1da1c0dbb3a4e05619171"},
+        {"course_id": "CALCULUS_III", "question_count": 25, "sha256": "736c3d87422beaac81819cc1fd65fd5320f081332dd4c98c3c3f13f5a531cb67"},
+        {"course_id": "COMPUTATIONAL_THINKING", "question_count": 25, "sha256": "b2dc09be7239716d3c25501a0df6f1b7e18aa04bfa449f8c39692d471e1ce6f4"},
+        {"course_id": "DATA_STRUCTURES", "question_count": 25, "sha256": "aed3e213c3908830cebe50dfbd78e3bef1d2caf09891c64c92cd78aabfc09858"},
+        {"course_id": "DIFFERENTIAL_EQUATIONS", "question_count": 25, "sha256": "98e7eea2c3fe1f302dd7a1de196b800b605dc87a2671dfff8300b7de4fc451f1"},
+        {"course_id": "DYNAMICS", "question_count": 25, "sha256": "242ff1af4d49aecf1adde35f348b4ad65ace9128a1c2520c8c1f9e8df9d67936"},
+        {"course_id": "ENGINEERING_ANALYSIS", "question_count": 25, "sha256": "451e0ce448ddb8483f0d2d05282a7bcaf6feee736d4629edd716db470b9c6de5"},
+        {"course_id": "FLUID_DYNAMICS", "question_count": 25, "sha256": "24075b8eda91065a507e6739109cf7ff0511712c2cb1cde6bc7c778c66a42249"},
+        {"course_id": "FLUID_MECHANICS", "question_count": 25, "sha256": "cc3ac42ccf8f1e1305257b4453d099ae3b715cf361f4a5724f9c156e35f1a7c2"},
+        {"course_id": "GEOMETRY", "question_count": 25, "sha256": "2cf3996001bbefb9e394d3705c4ee1f1951f9b6b63d71e745cd3e25597cf3532"},
+        {"course_id": "HYDRAULICS", "question_count": 25, "sha256": "42b18add0aac09f11b967c8a15784987121f158aac3387e642992cb76f202fc6"},
+        {"course_id": "LINEAR_ALGEBRA", "question_count": 25, "sha256": "bd48abed13d7bcdaec786fe0ffe6297f45b05b3ea47ea47ca5e1a09531a1a68d"},
+        {"course_id": "MECHANICS", "question_count": 25, "sha256": "c7875384c0598d428b217a88fc2dea9ac7cc57f8d21d90b0f80a7edac0976ec7"},
+        {"course_id": "MECHANICS_OF_MATERIALS", "question_count": 25, "sha256": "8302df3277c9921318048176b0111d3bf190fba0f7e4aaef7041b4d496b87ea7"},
+        {"course_id": "MODERN_PHYSICS", "question_count": 25, "sha256": "415891561366f5b97bd53f405ed6b6e39b1e5a2865598435100b7ebdd8410994"},
+        {"course_id": "NUMERICAL_METHODS", "question_count": 25, "sha256": "5077850d32819dda5aa58862a71386a7f6d8817dfc7263cf36c0db0d69449b5a"},
+        {"course_id": "ORGANIC_CHEMISTRY", "question_count": 25, "sha256": "8080eb4fbd6a8ef4c4f0bbdc793b27ebce2db754a351422e35ad3cd429f829a4"},
+        {"course_id": "PRE_ALGEBRA", "question_count": 25, "sha256": "3fd2063d47ed13a4ce5b9e697599f4f99409a04b6b6a0d1194c389df098ebf40"},
+        {"course_id": "PRE_CALCULUS", "question_count": 25, "sha256": "42ae61620be0af3427e7084d0aa636e01d1a3675fd748e54ff2a62b8a8b2155a"},
+        {"course_id": "STRENGTH_OF_MATERIALS", "question_count": 25, "sha256": "525a0ab0cc7c241416aa7c6ed0254026068a89340d558bdf8a190783b49833e4"},
+        {"course_id": "TRIGONOMETRY", "question_count": 25, "sha256": "d33841bc540728a65533c839bc6e99427067b2199cbf46bc823c1ead023d96f7"},
+        {"course_id": "WAVES_AND_OPTICS", "question_count": 25, "sha256": "6d7aaa9b34513714a3ef163e5a0cc2788d2b13071807a4365d598a2eb2c8def6"}
+      ]
+    },
+    "combined": {
+      "course_count": 33,
+      "question_count": 1275,
+      "aggregate_sha256": "50b426015032bc08e84ecc0fcea969d4b1f5c74bef211568733e06d4fb598f47"
+    }
+  },
+  "source_corpus_wave_066": {
+    "reference_courses": 6,
+    "source_documents": 18,
+    "source_segments": 144,
+    "curriculum_synthesis_packages": 6,
+    "generation_manifests": 6,
+    "generation_question_target": 1800,
+    "assessment_blueprints": 18,
+    "assessment_compiler_blueprints": 24,
+    "deterministic_sha256": "618657b3552dde5b58d5b4272ba0fab0e414802dd187fd1c9dcc3c3d72f92adb",
+    "canonical_authority": false
+  },
+  "canonical_execution_beta_projection_wave_048": {
+    "mode": "NON_LIVE_DATABASE_NEUTRAL",
+    "status": "VALIDATED_PLANNING_ONLY",
+    "safety": {
+      "noncanonical": true,
+      "human_review_required": true,
+      "student_visible": false,
+      "database_write": false,
+      "promotion_authorized": false,
+      "canonical_write": false,
+      "beta_import_live": false,
+      "adaptive_platform_modified": false
+    },
+    "planner_sha256": "00e756a8c34a3da391b5793b465865862a1df3b5718f348292a696a16fefeacc",
+    "specification_sha256": "1de4bf58f23aa14a0faa46095d695fda34a17f6f366c5272a651570da16f16c0",
+    "execution_map_sha256": "c6b8a35c386134f3cfd76763a0696499bdaa3078ab6a7811f78afa25c174b495"
+  },
+  "portable_validation": {
+    "requirements_lock_sha256": "7c2bbf9ac930a599b56e326c8c48cda8498bd9971e32a7035b7739b3be477145",
+    "workflow_path": ".github/workflows/compiler-continuous-clean-room.yml",
+    "workflow_sha256": "429129239468d819ba6c2ea97c5450edfa5818b7462b0345e64f6b105331b255",
+    "suite_command": "python -m pytest -p no:cacheprovider tests/course_compiler_demo",
+    "repository_checkout_gate": true,
+    "gitless_archive_gate": true,
+    "temporary_storage_preflight": true
+  },
+  "ci_evidence": {
+    "workflow_path": ".github/workflows/compiler-continuous-clean-room.yml",
+    "workflow_sha256": "429129239468d819ba6c2ea97c5450edfa5818b7462b0345e64f6b105331b255",
+    "successful_runs": [
+      {
+        "run_id": 30657885246,
+        "event": "push",
+        "branch": "validation/compiler-continuous-clean-room-092",
+        "head_sha": "9443075a28254ae918e263ab84b69f36d2ed4e1d",
+        "conclusion": "success",
+        "repository_checkout_suite": "PASS",
+        "gitless_archive_suite": "PASS",
+        "temporary_storage_preflight": "PASS"
+      },
+      {
+        "run_id": 30659592823,
+        "event": "push",
+        "branch": "main",
+        "head_sha": "9443075a28254ae918e263ab84b69f36d2ed4e1d",
+        "conclusion": "success",
+        "repository_checkout_suite": "PASS",
+        "gitless_archive_suite": "PASS",
+        "temporary_storage_preflight": "PASS"
+      }
+    ]
+  },
+  "independent_audit_references": [
+    {
+      "audit_id": "UNIVERSAL_CURRICULUM_COMPILER_TOPIC_PROCEDURE_GENERATION_REPORT",
+      "scope": "Wave 056 generation, diagnostics, Beta export, and protected boundaries",
+      "validated_tip": "8b52306824177686d4f672f08b13ee485d2d0967",
+      "verdict": "PASS"
+    },
+    {
+      "audit_id": "UNIVERSAL_SOURCE_CORPUS_WAVE_066_COMPLETION_REPORT",
+      "scope": "Wave 066 history, six-course proof, semantic preservation, and protected boundaries",
+      "validated_tip": "b743fd26bd15007b942e1587cdfb94901e5bd739",
+      "verdict": "PASS"
+    },
+    {
+      "audit_id": "CANONICAL_EXECUTION_AND_BETA_PROJECTION_WAVE_048_COMPLETION_REPORT",
+      "scope": "non-live projection planning, lineage, rollback, and safety boundaries",
+      "validated_tip": "59e3eb5275425cd7e31b17d2ce8afe7d83ca7420",
+      "verdict": "PASS"
+    },
+    {
+      "audit_id": "COMPILER_CONTINUOUS_CLEAN_ROOM_CERTIFICATION_REPORT",
+      "scope": "CI semantics, Git-less portability, storage controls, and no test weakening",
+      "validated_tip": "9443075a28254ae918e263ab84b69f36d2ed4e1d",
+      "verdict": "PASS"
+    }
+  ],
+  "protected_state": {
+    "canonical_promotion_authorized": false,
+    "canonical_writes": false,
+    "database_access": false,
+    "database_writes": false,
+    "adaptive_platform_modified": false,
+    "protected_phase_e_modified": false,
+    "student_visible": false,
+    "live_beta_import": false,
+    "performance_tracking_implemented": false
+  },
+  "intentionally_deferred_scope": [
+    "Creating or pushing the proposed annotated release tag",
+    "Canonical promotion or canonical-store mutation",
+    "Database access, migrations, or writes",
+    "Live Beta import or student-visible activation",
+    "Adaptive-platform and protected Phase E changes",
+    "Compiler performance-tracking implementation"
+  ],
+  "known_non_blocking_maintenance_gaps": [
+    "Four legitimate host/protected integration checks remain explicit opt-in skips in ordinary portable runs",
+    "GitHub Actions dependencies use reviewed major-version tags rather than immutable action commit SHAs",
+    "The narrow validation-branch trigger remains available for pre-integration workflow certification",
+    "Historical independent-audit verdicts are referenced by durable task report identifier and validated tip rather than duplicated into this manifest"
+  ],
+  "release_candidate": {
+    "proposed_annotated_tag": "compiler-milestone-093-v1",
+    "tag_created": false,
+    "tag_pushed": false,
+    "separate_authorization_required": true
+  }
+}
