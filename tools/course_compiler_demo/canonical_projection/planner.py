@@ -174,17 +174,29 @@ def _plan_records(
                 operation = "STAGE_REVISION"
                 parent = prior["proposed_revision_id"]
         revision = prior["proposed_revision_id"] if operation == "REPROJECT_NOOP" else _proposed_revision(candidate, identity, parent)
-        lineage = copy.deepcopy(prior["lineage"] if prior is not None else [])
-        for item in candidate["source_lineage"]:
-            if item not in lineage:
-                lineage.append(copy.deepcopy(item))
-        lineage.append({
+        prior_lineage = copy.deepcopy(prior["lineage"] if prior is not None else [])
+        candidate_lineage = copy.deepcopy(candidate["source_lineage"])
+        if prior is not None:
+            common = min(len(prior_lineage), len(candidate_lineage))
+            if prior_lineage[:common] != candidate_lineage[:common]:
+                raise ProjectionPlanningError("candidate lineage conflicts with prior projection lineage")
+            if operation == "REPROJECT_NOOP" and len(candidate_lineage) > len(prior_lineage):
+                raise ProjectionPlanningError("idempotent reprojection cannot extend prior lineage")
+        if operation == "REPROJECT_NOOP":
+            lineage = prior_lineage
+        elif len(candidate_lineage) > len(prior_lineage):
+            lineage = candidate_lineage
+        else:
+            lineage = prior_lineage
+        terminal = {
             "source_system": candidate["source_system"],
             "source_identity": candidate["source_identity"],
             "source_revision": candidate["source_revision"],
             "content_sha256": candidate["content_sha256"],
             "preparation_id": candidate["preparation_id"],
-        })
+        }
+        if operation != "REPROJECT_NOOP" and (not lineage or lineage[-1] != terminal):
+            lineage.append(terminal)
         records.append({
             "operation": operation,
             "source_system": candidate["source_system"],
@@ -207,9 +219,10 @@ def _stage_beta_import(payload: Mapping[str, Any], records: list[dict[str, Any]]
         validation = dry_run_import_validate(payload)
     except BetaExportError as exc:
         raise ProjectionPlanningError(f"Beta import contract rejected: {exc}") from exc
-    by_question_revision = {
-        (record["source_identity"], record["source_revision"]): record for record in records
-    }
+    record_keys = [(record["source_identity"], record["source_revision"]) for record in records]
+    if len(record_keys) != len(set(record_keys)):
+        raise ProjectionPlanningError("projection records contain an ambiguous Beta identity and revision")
+    by_question_revision = dict(zip(record_keys, records))
     question_keys = [
         (question["question_id"], question["question_revision"])
         for question in payload.get("question_references", [])

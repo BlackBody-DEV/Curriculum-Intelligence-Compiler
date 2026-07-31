@@ -88,6 +88,17 @@ def test_idempotent_reprojection_and_revision_lineage(tmp_path):
     assert noop["records"][0]["operation"] == "REPROJECT_NOOP"
     assert noop["records"][0]["proposed_revision_id"] == prior[0]["proposed_revision_id"]
     assert noop["counts"]["idempotent_noops"] == 1
+    repeated = run_projection(
+        "noop-again", [candidate(old)], beta([old]), assessments([old]), projection_root=tmp_path,
+        previous_records=noop["records"],
+    )
+    assert repeated["records"][0]["lineage"] == prior[0]["lineage"]
+
+    incompatible = candidate(old)
+    incompatible["source_lineage"] = [{"stage": "conflicting-history"}]
+    with pytest.raises(ProjectionPlanningError, match="lineage conflicts"):
+        run_projection("bad-noop-lineage", [incompatible], beta([old]), assessments([old]),
+                       projection_root=tmp_path, previous_records=prior)
 
     updated = reference(1, "r2")
     revised = run_projection(
@@ -113,6 +124,10 @@ def test_duplicates_conflicts_and_invalid_links_fail_closed(tmp_path):
             "multi-revision", [item, candidate(revision)], beta([question]), assessments([question]),
             projection_root=tmp_path,
         )
+    other_system = dict(item, source_system="second-compiler-bank", preparation_id="preparation-other")
+    with pytest.raises(ProjectionPlanningError, match="ambiguous Beta identity and revision"):
+        run_projection("cross-source-collision", [item, other_system], beta([question]), assessments([question]),
+                       projection_root=tmp_path)
 
     initial = run_projection("initial", [item], beta([question]), assessments([question]), projection_root=tmp_path)
     conflicted = dict(item, content_sha256="f" * 64)
