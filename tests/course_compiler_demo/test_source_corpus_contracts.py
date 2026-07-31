@@ -73,6 +73,42 @@ def test_public_schemas_are_strict_and_valid():
     assert list(Draft202012Validator(synthesis_schema).iter_errors(bogus))
 
 
+def test_graph_and_synthesis_schemas_accept_valid_runtime_contracts():
+    from tools.course_compiler_demo.source_corpus.contracts import (
+        CurriculumSynthesisPackageV1,
+        SourceCorpusV1,
+        SourceEvidenceClaimV1,
+        SourceEvidenceGraphV1,
+    )
+
+    root = Path(__file__).parents[2] / "schemas" / "course_compiler_demo"
+    graph_schema = json.loads((root / "source_evidence_graph_v1.schema.json").read_text())
+    synthesis_schema = json.loads((root / "curriculum_synthesis_v1.schema.json").read_text())
+    sha = "a" * 64
+    segment = SourceSegmentV1(
+        "segment", "document", sha, "topic: Vectors", location(),
+        "TEXT_NATIVE", 1, "PROPOSED", rights(),
+    )
+    document = SourceDocumentV1(
+        "document", "SYLLABUS", sha, "Course", rights(), (segment,),
+    )
+    corpus = SourceCorpusV1("corpus", (document,), "b" * 64)
+    claim = SourceEvidenceClaimV1(
+        "claim", "document", sha, location(), "segment", "TEXT_NATIVE",
+        1, "PROPOSED", rights(), "topic: Vectors",
+    )
+    graph = SourceEvidenceGraphV1("graph", corpus, (claim,), ())
+    node = SynthesizedCurriculumNodeV1(
+        "node", "TOPIC", "Vectors", "DIRECT_SOURCE_EVIDENCE",
+        ("claim",), "direct source evidence", 1,
+    )
+    package = CurriculumSynthesisPackageV1(
+        "package", "course", graph, (node,), (), (), "SOURCE_COMPLETE",
+    )
+    Draft202012Validator(graph_schema).validate(graph.to_dict())
+    Draft202012Validator(synthesis_schema).validate(package.to_dict())
+
+
 def test_nested_runtime_contracts_fail_closed():
     with pytest.raises(ContractError):
         SourceDocumentV1("d", "PLAIN_TEXT", "a" * 64, "T", {"not": "rights"})

@@ -1,1 +1,78 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"SourceEvidenceGraphV1","type":"object","additionalProperties":false,"required":["graph_id","corpus","claims","links"],"properties":{"graph_id":{"type":"string","minLength":1},"corpus":{"type":"object","additionalProperties":false,"required":["corpus_id","documents","manifest_sha256"],"properties":{"corpus_id":{"type":"string","minLength":1},"documents":{"type":"array","items":{"type":"object"}},"manifest_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"}}},"claims":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["claim_id","document_id","source_hash","location","segment_id","extraction_method","confidence","review_state","rights_classification","claim_text"],"properties":{"claim_id":{"type":"string","minLength":1},"document_id":{"type":"string","minLength":1},"source_hash":{"type":"string","pattern":"^[0-9a-f]{64}$"},"location":{"type":"object","additionalProperties":false,"required":["locator_type","locator","page","section"],"properties":{"locator_type":{"type":"string","minLength":1},"locator":{"type":"string","minLength":1},"page":{"type":["integer","null"],"minimum":1},"section":{"type":"string"}}},"segment_id":{"type":"string","minLength":1},"extraction_method":{"type":"string","minLength":1},"confidence":{"type":"number","minimum":0,"maximum":1},"review_state":{"type":"string","minLength":1},"rights_classification":{"type":"object","additionalProperties":false,"required":["classification","evidence","restrictions","verified"],"properties":{"classification":{"type":"string"},"evidence":{"type":"string","minLength":1},"restrictions":{"type":"array","items":{"type":"string"}},"verified":{"type":"boolean"}}},"claim_text":{"type":"string","minLength":1}}},"links":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["link_id","claim_id","target_id","relationship"],"properties":{"link_id":{"type":"string","minLength":1},"claim_id":{"type":"string","minLength":1},"target_id":{"type":"string","minLength":1},"relationship":{"type":"string","minLength":1}}}}}}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SourceEvidenceGraphV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["graph_id", "corpus", "claims", "links"],
+  "properties": {
+    "graph_id": {"type": "string", "minLength": 1},
+    "corpus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["corpus_id", "documents", "manifest_sha256"],
+      "properties": {
+        "corpus_id": {"type": "string", "minLength": 1},
+        "documents": {"type": "array", "items": {"type": "object"}},
+        "manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claim_id", "document_id", "source_hash", "location", "segment_id",
+          "extraction_method", "confidence", "review_state",
+          "rights_classification", "claim_text"
+        ],
+        "properties": {
+          "claim_id": {"type": "string", "minLength": 1},
+          "document_id": {"type": "string", "minLength": 1},
+          "source_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "location": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["locator_type", "locator", "page", "section"],
+            "properties": {
+              "locator_type": {"type": "string", "minLength": 1},
+              "locator": {"type": "string", "minLength": 1},
+              "page": {"type": ["integer", "null"], "minimum": 1},
+              "section": {"type": "string"}
+            }
+          },
+          "segment_id": {"type": "string", "minLength": 1},
+          "extraction_method": {"type": "string", "minLength": 1},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "review_state": {"type": "string", "minLength": 1},
+          "rights_classification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["classification", "evidence", "restrictions", "verified"],
+            "properties": {
+              "classification": {"type": "string"},
+              "evidence": {"type": "string", "minLength": 1},
+              "restrictions": {"type": "array", "items": {"type": "string"}},
+              "verified": {"type": "boolean"}
+            }
+          },
+          "claim_text": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["link_id", "claim_id", "target_id", "relationship"],
+        "properties": {
+          "link_id": {"type": "string", "minLength": 1},
+          "claim_id": {"type": "string", "minLength": 1},
+          "target_id": {"type": "string", "minLength": 1},
+          "relationship": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}
