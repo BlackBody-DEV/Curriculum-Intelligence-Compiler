@@ -1,0 +1,70 @@
+name: Compiler continuous clean-room certification
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: compiler-clean-room-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out the exact event revision
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify temporary storage capacity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${RUNNER_TEMP:-}"
+          available_kib="$(df -Pk "$RUNNER_TEMP" | awk 'NR == 2 {print $4}')"
+          required_kib=$((4 * 1024 * 1024))
+          test "${available_kib:-0}" -ge "$required_kib"
+          df -h "$RUNNER_TEMP"
+
+      - name: Install declared runtime and test runner
+        run: python -m pip install jsonschema==4.26.0 pypdf==6.14.2 pytest==9.0.3
+
+      - name: Compile Python sources
+        env:
+          PYTHONPYCACHEPREFIX: ${{ runner.temp }}/compiler-pycache
+        run: python -m compileall -q tools/course_compiler_demo tests/course_compiler_demo
+
+      - name: Full compiler suite
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m pytest -p no:cacheprovider tests/course_compiler_demo
+
+      - name: Git-less clean-room full suite
+        shell: bash
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          set -euo pipefail
+          clean_root="$(mktemp -d "$RUNNER_TEMP/compiler-clean-room.XXXXXX")"
+          cleanup() {
+            rm -rf -- "$clean_root"
+          }
+          trap cleanup EXIT
+          git archive --format=tar HEAD | tar -xf - -C "$clean_root"
+          test ! -e "$clean_root/.git"
+          test -f "$clean_root/requirements.lock"
+          cd "$clean_root"
+          python -m pytest -p no:cacheprovider tests/course_compiler_demo
