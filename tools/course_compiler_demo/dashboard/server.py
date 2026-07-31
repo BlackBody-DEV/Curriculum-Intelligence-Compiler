@@ -93,6 +93,10 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                 return self._json(self.controller.canonical_promotion_mode())
             if len(parts) == 4 and parts[:3] == ["api", "canonical-promotion", "runs"]:
                 return self._json(self.controller.canonical_promotion_reopen(parts[3]))
+            if parsed.path == "/api/canonical-projection/mode":
+                return self._json(self.controller.canonical_projection_mode())
+            if len(parts) == 4 and parts[:3] == ["api", "canonical-projection", "runs"]:
+                return self._json(self.controller.canonical_projection_reopen(parts[3]))
             if parsed.path == "/api/runs":
                 return self._json({"runs": self.controller.list_runs()})
             if len(parts) == 4 and parts[0] == "api" and parts[1] == "runs" and parts[3] == "generation-families":
@@ -165,6 +169,8 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
                         str(payload.get("run_id", "CANONICAL_PROMOTION_UNIVERSAL_RECONCILIATION_045"))
                     )
                 )
+            if parsed.path == "/api/canonical-projection/plan":
+                return self._json(self.controller.canonical_projection_run(payload))
             if parsed.path == "/api/runs":
                 return self._json(self.controller.create_run(payload))
             if len(parts) == 4 and parts[0] == "api" and parts[1] == "runs":

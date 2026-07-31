@@ -34,6 +34,12 @@ from tools.course_compiler_demo.canonical_promotion.preparation_mode import (
     run_preparation_pilot,
 )
 from tools.course_compiler_demo.canonical_promotion.reconciliation import run_universal_reconciliation_pilot
+from tools.course_compiler_demo.canonical_projection import (
+    DEFAULT_PROJECTION_ROOT,
+    projection_mode,
+    reopen_projection_run,
+    run_projection,
+)
 
 from .calculus_generation import (
     CALCULUS_FAMILY_ID,
@@ -80,10 +86,12 @@ class DashboardController:
         startup_cleanup: bool = True,
         phase_e_production_root: Path | str | None = None,
         canonical_promotion_root: Path | str | None = None,
+        canonical_projection_root: Path | str | None = None,
     ) -> None:
         self.storage = storage or DashboardStorage(DEFAULT_DASHBOARD_ROOT)
         self.phase_e_production_root = resolve_production_root(phase_e_production_root)
         self.canonical_promotion_root = resolve_preparation_root(canonical_promotion_root)
+        self.canonical_projection_root = Path(canonical_projection_root or DEFAULT_PROJECTION_ROOT).expanduser().resolve()
         self._source_text_cache: dict[str, str] = {}
         self.intake_jobs = IntakeJobManager(self.storage, self)
         if startup_cleanup:
@@ -173,6 +181,22 @@ class DashboardController:
 
     def canonical_promotion_reopen(self, run_id: str) -> dict[str, Any]:
         return reopen_preparation_run(run_id, preparation_root=self._canonical_promotion_root_for_run(run_id))
+
+    def canonical_projection_mode(self) -> dict[str, Any]:
+        return projection_mode()
+
+    def canonical_projection_run(self, payload: dict[str, Any]) -> dict[str, Any]:
+        return run_projection(
+            str(payload.get("run_id", "CANONICAL_PROJECTION_REVIEW")),
+            payload.get("candidates", []),
+            payload.get("beta_export", {}),
+            payload.get("assessments", []),
+            projection_root=self.canonical_projection_root,
+            previous_records=payload.get("previous_records", []),
+        )
+
+    def canonical_projection_reopen(self, run_id: str) -> dict[str, Any]:
+        return reopen_projection_run(run_id, projection_root=self.canonical_projection_root)
 
     def _canonical_promotion_roots_path(self) -> Path:
         return self.storage.root / "canonical_promotion_run_roots.json"

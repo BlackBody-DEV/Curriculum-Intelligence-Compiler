@@ -658,9 +658,60 @@ function canonicalPromotionSummary(data) {
   `;
 }
 
+function canonicalProjectionSummary(data) {
+  const counts = data.counts || {};
+  const safety = data.safety || data.status_labels || {};
+  return `
+    <dl class="summary-grid">
+      <dt>Run ID</dt><dd>${esc(data.run_id || "")}</dd>
+      <dt>Status</dt><dd>${esc(data.status || data.mode_identifier || "")}</dd>
+      <dt>Records</dt><dd>${esc(counts.records ?? "n/a")}</dd>
+      <dt>Creates</dt><dd>${esc(counts.creates ?? "n/a")}</dd>
+      <dt>Revisions</dt><dd>${esc(counts.revisions ?? "n/a")}</dd>
+      <dt>Idempotent no-ops</dt><dd>${esc(counts.idempotent_noops ?? "n/a")}</dd>
+      <dt>Beta references</dt><dd>${esc(counts.beta_references ?? "n/a")}</dd>
+      <dt>Assessments</dt><dd>${esc(counts.assessments ?? "n/a")}</dd>
+      <dt>Noncanonical</dt><dd>${yesNo(safety.noncanonical)}</dd>
+      <dt>Human review required</dt><dd>${yesNo(safety.human_review_required)}</dd>
+      <dt>Database write</dt><dd>${yesNo(safety.database_write)}</dd>
+      <dt>Promotion authorized</dt><dd>${yesNo(safety.promotion_authorized)}</dd>
+      <dt>Student visible</dt><dd>${yesNo(safety.student_visible)}</dd>
+    </dl>
+    <pre>${esc(JSON.stringify(data, null, 2))}</pre>
+  `;
+}
+
+async function canonicalProjection() {
+  const mode = await api("/api/canonical-projection/mode");
+  render("Canonical Execution and Beta Projection Planning", `
+    <div class="success">
+      <h3>${esc(mode.mode_identifier)}</h3>
+      <p>Database-neutral external staging only. Every result requires human review and cannot promote, import, publish, or write a database.</p>
+      ${canonicalProjectionSummary(mode)}
+    </div>
+    <label>Projection request JSON
+      <textarea id="canonical-projection-payload" rows="12">${esc(JSON.stringify({run_id: "CANONICAL_PROJECTION_REVIEW", candidates: [], beta_export: {}, assessments: [], previous_records: []}, null, 2))}</textarea>
+    </label>
+    <button id="canonical-projection-plan">Validate and stage plan</button>
+    <label>Run ID to reopen <input id="canonical-projection-run-id" value="CANONICAL_PROJECTION_REVIEW"></label>
+    <button id="canonical-projection-reopen">Reopen persisted plan</button>
+    <div id="canonical-projection-output"></div>
+  `);
+  document.querySelector("#canonical-projection-plan").onclick = async () => {
+    const payload = JSON.parse(document.querySelector("#canonical-projection-payload").value);
+    const data = await api("/api/canonical-projection/plan", {method: "POST", body: JSON.stringify(payload)});
+    document.querySelector("#canonical-projection-output").innerHTML = canonicalProjectionSummary(data);
+  };
+  document.querySelector("#canonical-projection-reopen").onclick = async () => {
+    const runId = document.querySelector("#canonical-projection-run-id").value;
+    const data = await api(`/api/canonical-projection/runs/${encodeURIComponent(runId)}`);
+    document.querySelector("#canonical-projection-output").innerHTML = canonicalProjectionSummary(data);
+  };
+}
+
 document.querySelectorAll("nav button").forEach(button => {
   button.addEventListener("click", () => {
-    const views = {runs, source, curriculum, practice, studio, review, validation, exports: exportsView, canonicalPromotion, advanced};
+    const views = {runs, source, curriculum, practice, studio, review, validation, exports: exportsView, canonicalPromotion, canonicalProjection, advanced};
     const fn = views[button.dataset.view] || runs;
     Promise.resolve(fn()).catch(error => render("Error", `<p>${esc(error.message)}</p>`));
   });

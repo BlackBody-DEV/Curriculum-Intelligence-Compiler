@@ -1,0 +1,38 @@
+{
+  "base": "b743fd26bd15007b942e1587cdfb94901e5bd739",
+  "branch": "task/compiler-canonical-execution-beta-projection-synthesis-048",
+  "recover_without_duplication": [
+    "canonical promotion preparation eligibility and evidence gates",
+    "duplicate classification",
+    "Beta export and dry-run import validation",
+    "assessment compiler outputs",
+    "dashboard noncanonical safety conventions"
+  ],
+  "implement": [
+    "deterministic proposed identity and revision planning",
+    "lineage preservation and stale-parent rejection",
+    "idempotent reprojection",
+    "duplicate and conflict rejection",
+    "external canonical staging packages",
+    "database-neutral rollback planning",
+    "Beta import contract staging",
+    "assessment-promotion staging",
+    "operator controls and dashboard endpoints",
+    "sealed restart and reopen persistence"
+  ],
+  "do_not_recover": [
+    "database migration or SQL rehearsal logic",
+    "canonical records",
+    "protected Phase E content",
+    "foreign backend implementation",
+    "student or performance data"
+  ],
+  "required_validation": [
+    "focused projection, promotion, Beta, assessment, and dashboard tests",
+    "full compiler suite",
+    "Git-less clean-room suite",
+    "restart/reopen proof",
+    "independent read-only audit",
+    "normal non-force push and fast-forward review"
+  ]
+}

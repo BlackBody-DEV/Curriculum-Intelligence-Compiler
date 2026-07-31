@@ -1,0 +1,61 @@
+{
+  "authorized_baseline": "b743fd26bd15007b942e1587cdfb94901e5bd739",
+  "census_result": "NO_EXPLICIT_WAVE_048_EXECUTOR_BRANCH_FOUND",
+  "completed_reusable_work": [
+    {
+      "component": "canonical promotion preparation and reconciliation",
+      "status": "VALIDATED_AND_IN_BASELINE",
+      "recovery": "reuse existing eligibility, evidence, duplicate, and fail-closed contracts"
+    },
+    {
+      "component": "Beta export dry-run validation",
+      "status": "VALIDATED_AND_IN_BASELINE",
+      "commit": "0ca5cb83",
+      "recovery": "invoke existing Beta contract without live import"
+    },
+    {
+      "component": "assessment compilation and diagnostic staging inputs",
+      "status": "VALIDATED_AND_IN_BASELINE",
+      "recovery": "consume existing validated assessment references"
+    },
+    {
+      "component": "source canonical proposed alignment",
+      "status": "VALIDATED_AND_IN_BASELINE",
+      "recovery": "preserve proposed-only mapping semantics"
+    }
+  ],
+  "historical_artifacts": [
+    {
+      "component": "canonical seed-bank projection dry-run preservation",
+      "commit": "f1a8c23b46b6d70ae7238b9b28cf00f071eb72e6",
+      "status": "FOREIGN_REPOSITORY_INCIDENT_PRESERVATION_NOT_VALIDATED_FOR_COMPILER",
+      "disposition": "design evidence only; no backend or database implementation copied"
+    },
+    {
+      "component": "Phase F projection and rollback rehearsal",
+      "status": "SUPERSEDED_DATABASE_ORIENTED_EXTERNAL_EVIDENCE",
+      "disposition": "read-only census evidence; no SQL, canonical record, or protected data copied or executed"
+    }
+  ],
+  "incomplete_or_missing": [
+    "no explicit Wave 048 branch or worktree",
+    "no Wave 048 validated or unvalidated compiler commit",
+    "no Wave 048 completion report",
+    "no compiler-native deterministic proposed identity and revision planner",
+    "no database-neutral staging, rollback, Beta import stage, assessment stage, or reopen manifest",
+    "no Wave 048 dashboard/operator controls"
+  ],
+  "abandoned_or_superseded": [
+    "database-oriented Phase F rehearsal",
+    "foreign-repository untracked projection prototype preserved during incident response"
+  ],
+  "census_sources": [
+    "origin refs and commit graph",
+    "local refs and registered worktrees",
+    "unreachable commit census",
+    "repository reports and Wave 048 filename/content search",
+    "durable incident preservation inventory",
+    "external Phase F report inventory"
+  ],
+  "private_or_protected_content_copied": false
+}
