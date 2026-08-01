@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "report_id": "STUDENT-FACING-COMPILER-PRODUCTION-READINESS-106-CENSUS",
+  "compiler_baseline": "e155fd453684a03bc876674dd1658447d9e30e15",
+  "adaptive_platform": {
+    "repository": "BlackBody-DEV/adaptive-platform",
+    "origin_main": "278db8721de69b9b003aae150764e31b215cc09a",
+    "checked_out_hardening_branch": "hotfix/backend-auth-launch-hardening",
+    "checked_out_hardening_tip": "6d4b833781099fd8efa7fd9f4c519a9d1d1b3904",
+    "reconciliation_required": true,
+    "reason": "origin/main contains newer ontology projection and ownership work while the hardening branch contains newer Clerk launch hardening; neither may be discarded"
+  },
+  "validated_compiler_state": {
+    "course_packs": 33,
+    "enabled_answer_capabilities": 14,
+    "validated_questions": 1275,
+    "diagnostic_assessments": 27,
+    "generation_recipes": 135,
+    "source_corpus_wave_066": true,
+    "canonical_execution_beta_projection_wave_048": "VALIDATED_PLANNING_ONLY",
+    "continuous_full_and_gitless_ci": true
+  },
+  "critical_path": [
+    {
+      "order": 1,
+      "stage": "source_intake",
+      "implementation": "compiler intake and Source Corpus Wave 066",
+      "status": "VALIDATED",
+      "production_blocker": null
+    },
+    {
+      "order": 2,
+      "stage": "curriculum_synthesis",
+      "implementation": "33 course packs and 135 generation recipes",
+      "status": "VALIDATED_NONCANONICAL",
+      "production_blocker": null
+    },
+    {
+      "order": 3,
+      "stage": "validated_question_bank",
+      "implementation": "600 legacy plus 675 Wave 056 questions and 27 diagnostics",
+      "status": "VALIDATED",
+      "production_blocker": null
+    },
+    {
+      "order": 4,
+      "stage": "canonical_staging",
+      "implementation": "Wave 048 deterministic identity, revision, lineage, conflict and rollback planning",
+      "status": "VALIDATED_PLANNING_ONLY",
+      "production_blocker": "canonical promotion and mutation remain unauthorized"
+    },
+    {
+      "order": 5,
+      "stage": "beta_import",
+      "implementation": "Beta dry-run plus Wave 106 deterministic adaptive import contract",
+      "status": "CONTRACT_READY_EXECUTION_BLOCKED",
+      "production_blocker": "no authorized database importer, import journal, live Beta operation, or database migration"
+    },
+    {
+      "order": 6,
+      "stage": "student_retrieval",
+      "implementation": "adaptive topics and curriculum practice retrieval routes already read active questions",
+      "status": "RUNTIME_EXISTS_CONTENT_NOT_CONNECTED",
+      "production_blocker": "compiler records are not in the adaptive database and serving remains disabled"
+    },
+    {
+      "order": 7,
+      "stage": "answer_submission",
+      "implementation": "adaptive attempts, curriculum practice answer, and assessment answer routes",
+      "status": "RUNTIME_EXISTS_RECONCILIATION_REQUIRED",
+      "production_blocker": "origin/main ownership enforcement and the launch-hardening branch must be reconciled and validated"
+    },
+    {
+      "order": 8,
+      "stage": "grading_result",
+      "implementation": "adaptive DB-backed grader and compiler answer-engine registry",
+      "status": "CAPABILITY_PARITY_UNPROVEN",
+      "production_blocker": "adaptive runtime has not proven fail-closed grading parity for all 14 enabled compiler capabilities"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "B106-01",
+      "category": "compiler defect",
+      "status": "RESOLVED_IN_WAVE_106",
+      "description": "No production-shaped import envelope connected validated question content to adaptive table and endpoint contracts."
+    },
+    {
+      "id": "B106-02",
+      "category": "integration contract gap",
+      "status": "RESOLVED_IN_WAVE_106",
+      "description": "Idempotency, retry, conflict, ownership, capability negotiation, deployment and rollback requirements were not represented in one fail-closed contract."
+    },
+    {
+      "id": "B106-03",
+      "category": "database/canonical authorization requirement",
+      "status": "PROTECTED_BLOCKER",
+      "description": "Canonical promotion, import-ledger migration, inactive question writes, assessment linkage, and later activation require explicit authority."
+    },
+    {
+      "id": "B106-04",
+      "category": "adaptive-platform implementation requirement",
+      "status": "PROTECTED_BLOCKER",
+      "description": "A transactional importer and fail-closed platform grading adapters for all 14 compiler capabilities are absent or unproven."
+    },
+    {
+      "id": "B106-05",
+      "category": "identity/authorization gap",
+      "status": "PROTECTED_BLOCKER",
+      "description": "Ownership tests on adaptive main and launch-hardening changes live on divergent histories and require a reviewed reconciliation."
+    },
+    {
+      "id": "B106-06",
+      "category": "deployment/operations gap",
+      "status": "PROTECTED_BLOCKER",
+      "description": "Production migration state, database reachability, importer credentials, feature flag, monitoring, canary, and rollback rehearsal are unverified."
+    },
+    {
+      "id": "B106-07",
+      "category": "student-activation gate",
+      "status": "PROTECTED_BLOCKER",
+      "description": "Student serving and live exposure remain explicitly unauthorized."
+    }
+  ],
+  "completed_nonprotected_work": [
+    "deterministic production import package",
+    "source identity, revision, lineage and checksum enforcement",
+    "14-capability fail-closed handshake",
+    "separate importer, publisher and authenticated-student roles",
+    "bounded retry and permanent-error policy",
+    "pre-activation and post-activation rollback contracts",
+    "deployment configuration gate",
+    "synthetic source-to-grading student-flow rehearsal",
+    "restart/reopen integrity proof",
+    "operator activation checklist and protected authorization packet"
+  ],
+  "housekeeping_recommendations": []
+}

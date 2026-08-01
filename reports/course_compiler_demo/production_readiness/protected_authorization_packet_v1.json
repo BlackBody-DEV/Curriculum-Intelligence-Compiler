@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "request_id": "STUDENT-ACTIVATION-PROTECTED-EXECUTION-AUTHORIZATION-107",
+  "purpose": "Authorize only the protected critical-path work required to import, validate, canary, and activate the validated compiler corpus for students.",
+  "repositories": {
+    "compiler": {
+      "repository": "BlackBody-DEV/Curriculum-Intelligence-Compiler",
+      "baseline": "e155fd453684a03bc876674dd1658447d9e30e15",
+      "required_source": "the validated Wave 106 branch tip reported at completion"
+    },
+    "adaptive_platform": {
+      "repository": "BlackBody-DEV/adaptive-platform",
+      "main_baseline": "278db8721de69b9b003aae150764e31b215cc09a",
+      "hardening_source": "6d4b833781099fd8efa7fd9f4c519a9d1d1b3904",
+      "required_first_action": "reconcile the ownership/ontology work on main with launch hardening in an isolated branch; stop if either history cannot be preserved"
+    }
+  },
+  "current_authority": {
+    "database_access": false,
+    "database_write": false,
+    "canonical_mutation": false,
+    "adaptive_platform_write": false,
+    "live_beta_import": false,
+    "student_visibility": false
+  },
+  "requested_authority": {
+    "database_access": true,
+    "database_write": true,
+    "canonical_mutation": true,
+    "adaptive_platform_write": true,
+    "live_beta_import": true,
+    "student_visibility": true,
+    "limits": "Only the 1,275 validated questions, 27 diagnostics, their reviewed ontology mappings, import journals, and activation state; no unrelated curriculum or student-history mutation."
+  },
+  "database_scope": {
+    "read": [
+      "subjects", "topics", "subtopics", "micro_skills", "questions", "assessments", "assessment_questions",
+      "question_attempts", "placement_assessment_sessions", "placement_assessment_responses", "topic_progress", "vertical_slice_attempts"
+    ],
+    "write_import": [
+      "questions: insert inactive records and update only compiler provenance/projection fields for the exact imported revision",
+      "assessments: insert 27 inactive diagnostic definitions",
+      "assessment_questions: insert reviewed question links",
+      "curriculum_import_batches: new append-only batch journal",
+      "curriculum_import_items: new append-only per-revision identity, checksum, outcome, retry, and rollback journal"
+    ],
+    "write_activation": [
+      "questions: serving_eligible and is_active only after all gates pass",
+      "assessments: is_active only after all gates pass"
+    ],
+    "must_not_write": [
+      "users", "alpha_approved_users", "question_attempts", "placement_assessment_sessions",
+      "placement_assessment_responses", "topic_progress", "vertical_slice_attempts", "student_modules", "topic_mastery"
+    ]
+  },
+  "migration_requirement": {
+    "required": true,
+    "proposed_path": "backend/sql/041_compiler_import_provenance.sql",
+    "rollback_path": "backend/sql/041_compiler_import_provenance_rollback.sql",
+    "changes": [
+      "create append-only curriculum_import_batches and curriculum_import_items",
+      "add source_system, source_question_id, source_revision, source_content_sha256 and import_batch_id to questions",
+      "add a unique idempotency index over source_system, source_question_id, source_revision",
+      "enforce same-revision checksum conflicts and inactive/not-serving defaults",
+      "retain and build upon migration 039 ontology projection columns"
+    ]
+  },
+  "canonical_mutation_scope": {
+    "population": "exactly 1,275 validated question revisions and 27 diagnostic assessments after human review",
+    "allowed": ["assign reviewed canonical identity", "record revision lineage", "supersede prior revision without deletion", "revoke exposure during rollback"],
+    "forbidden": ["change validated question content", "invent missing ontology identity", "delete prior revision", "infer live exposure from repository activation"]
+  },
+  "adaptive_platform_files_or_services": [
+    "backend/app/content_repository/compiler_import.py (new transactional validator/importer)",
+    "backend/scripts/import_compiler_package.py (new operator-only command; no public import endpoint)",
+    "backend/app/core/question_grading.py and bounded adapters required for exact 14-capability parity",
+    "backend/app/api/v1/endpoints/topics.py, attempts.py, curriculum.py, and assessments.py only where fail-closed capability/serving/ownership gates require changes",
+    "backend/sql/041_compiler_import_provenance.sql and rollback",
+    "backend/tests for importer, migration, capability parity, ownership, retrieval, submission, grading, retry and rollback",
+    "deployment configuration for a disabled-by-default compiler corpus feature flag"
+  ],
+  "identity_and_authorization": {
+    "importer": "service/operator principal with curriculum_importer role",
+    "publisher": "distinct reviewed principal with curriculum_publisher role",
+    "student": "approved Clerk subject with one unique internal users.id mapping",
+    "rules": [
+      "never trust a client-supplied user_id",
+      "reject ownership mismatch before write",
+      "reject duplicate Clerk subject mapping",
+      "do not expose importer or publisher operations through student routes"
+    ]
+  },
+  "student_visible_effects": [
+    "approved students may retrieve newly activated questions through existing topic and curriculum practice routes",
+    "approved students may submit answers and receive grading results through existing attempt/practice/assessment routes",
+    "activation expands available course/question coverage; it does not authorize new performance tracking"
+  ],
+  "activation_sequence": [
+    {"wave": 1, "name": "adaptive importer and parity", "feature_flag": "disabled", "student_visible": false},
+    {"wave": 2, "name": "canonical promotion and inactive production import", "feature_flag": "disabled", "student_visible": false},
+    {"wave": 3, "name": "canary then bounded student activation", "feature_flag": "authorized canary", "student_visible": true}
+  ],
+  "rollback": [
+    "disable student serving before any compensating data operation",
+    "set imported questions serving_eligible=false and is_active=false by import batch",
+    "set imported assessments is_active=false",
+    "restore the prior serving revision when one exists",
+    "retain question attempts, assessment responses, progress, import journal, and canonical history",
+    "verify retrieval returns no rolled-back revision and existing student history remains readable"
+  ],
+  "validation_and_audit": [
+    "migration forward/rollback rehearsal on an isolated production-shaped database",
+    "1,275 identity, checksum, provenance, lineage and count proof",
+    "27 diagnostic assessment linkage proof",
+    "all 14 answer capabilities graded through adaptive APIs with no fallback",
+    "duplicate, conflict, transient retry and permanent rejection proof",
+    "authenticated ownership and cross-user rejection proof",
+    "full compiler and adaptive suites plus Git-less compiler clean room",
+    "staging end-to-end retrieval, submission, grading and rollback",
+    "restart/reopen and deployment restart proof",
+    "independent security, data-integrity and student-safety audit",
+    "bounded canary with explicit rollback owner"
+  ],
+  "stop_conditions": [
+    "either repository baseline drifts before its work begins",
+    "adaptive main and launch-hardening histories cannot be reconciled without dropping validated protection",
+    "any question, assessment, identity, lineage, checksum, provenance or ontology count differs",
+    "any of the 14 answer capabilities lacks exact fail-closed adaptive grading behavior",
+    "migration or rollback is not atomic and repeatable",
+    "an importer, publisher or student ownership boundary can be bypassed",
+    "student serving can become active before separate approval",
+    "any full, clean-room, staging, restart or rollback gate fails",
+    "student attempt or progress history would be deleted or rewritten",
+    "a new external dependency or material architecture redesign becomes necessary"
+  ]
+}

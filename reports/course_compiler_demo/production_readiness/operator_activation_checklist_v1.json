@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "checklist_id": "STUDENT-ACTIVATION-OPERATOR-CHECKLIST-v1",
+  "default_state": "BLOCKED",
+  "rules": {
+    "all_items_required": true,
+    "four_eyes_review_required": true,
+    "feature_flag_default": "disabled",
+    "partial_activation_on_failure": false
+  },
+  "items": [
+    "compiler and adaptive exact tips recorded",
+    "tracked-tree and import-package hashes verified",
+    "1,275 question and 27 diagnostic proof passes",
+    "human canonical review approvals recorded",
+    "migration and rollback rehearsed",
+    "importer and publisher roles are distinct and least-privileged",
+    "all 14 adaptive grading capability contracts pass",
+    "ownership and cross-user rejection tests pass",
+    "inactive import and idempotent re-import pass",
+    "conflict and permanent-error rejection pass",
+    "full and clean-room suites pass",
+    "restart/reopen and staging end-to-end pass",
+    "independent audit passes",
+    "canary population and rollback owner approved",
+    "student visibility separately authorized"
+  ],
+  "protected_state": {
+    "database_write_authorized": false,
+    "canonical_promotion_authorized": false,
+    "adaptive_platform_write_authorized": false,
+    "student_visibility_authorized": false
+  }
+}
