@@ -47,6 +47,42 @@ PERMANENT_ERRORS = frozenset({
     "E_TOPIC_UNRESOLVED", "E_VALIDATION",
 })
 
+IDENTITY_AND_OWNERSHIP = {
+    "import_actor_role": "curriculum_importer",
+    "activation_actor_role": "curriculum_publisher",
+    "student_role": "approved_authenticated_student",
+    "client_user_id_trusted": False,
+    "student_identity_source": "verified_authentication_subject_mapping",
+    "ownership_mismatch_action": "REJECT_BEFORE_WRITE",
+}
+CAPABILITY_HANDSHAKE = {
+    "compiler_capabilities": list(ENABLED_ENGINE_TYPES),
+    "required_platform_capability_field": "answer_engine",
+    "unsupported_action": "REJECT_BEFORE_IMPORT",
+    "silent_fallback_allowed": False,
+}
+TRANSACTION_CONTRACT = {
+    "atomic_unit": "one question revision plus its lineage and assessment links",
+    "idempotency_constraint": ["source_question_id", "source_revision", "import_record_sha256"],
+    "same_revision_different_checksum": "E_CONFLICT",
+    "initial_projection_status": "planned",
+    "initial_serving_eligible": False,
+    "initial_is_active": False,
+    "activation_is_separate_transaction": True,
+}
+RETRY_CONTRACT = {
+    "maximum_attempts": 4,
+    "backoff_seconds": [1, 2, 4],
+    "retryable_errors": sorted(RETRYABLE_ERRORS),
+    "permanent_errors": sorted(PERMANENT_ERRORS),
+    "resume_key": "idempotency_key",
+}
+ROLLBACK_CONTRACT = {
+    "pre_activation": ["mark import batch rejected", "remove inactive assessment links", "retain immutable import journal"],
+    "post_activation": ["set serving_eligible false", "set is_active false", "restore prior serving revision", "retain attempts and audit history"],
+    "delete_student_attempts": False,
+    "source_artifact_mutation": False,
+}
 
 class ProductionReadinessError(ValueError):
     """A proposed production operation violates a fail-closed contract."""
@@ -114,24 +150,26 @@ def _normalize_question(record: Mapping[str, Any]) -> dict[str, Any]:
     supplied_hash = record.get("content_sha256")
     if supplied_hash is not None and supplied_hash != content_sha256:
         raise ProductionReadinessError("question content checksum mismatch")
-    idempotency_key = _hash({
-        "contract": "student-import-idempotency-v1",
-        "source_question_id": source_identity,
-        "source_revision": source_revision,
-        "content_sha256": content_sha256,
-    })
     lineage = copy.deepcopy(record.get("lineage"))
     if not isinstance(lineage, list) or not lineage or any(not isinstance(row, Mapping) for row in lineage):
         raise ProductionReadinessError("lineage must be a non-empty list of objects")
     if lineage[-1].get("source_question_id") != source_identity or lineage[-1].get("source_revision") != source_revision:
         raise ProductionReadinessError("lineage must terminate at the imported source revision")
-    normalized = {
+    provenance = copy.deepcopy(record.get("provenance"))
+    if not isinstance(provenance, Mapping) or not provenance:
+        raise ProductionReadinessError("provenance is required")
+    raw_assessment_ids = record.get("assessment_ids", [])
+    if not isinstance(raw_assessment_ids, list):
+        raise ProductionReadinessError("assessment_ids must be a list")
+    assessment_ids = sorted(_identifier(value, "assessment_ids") for value in raw_assessment_ids)
+    if len(assessment_ids) != len(set(assessment_ids)):
+        raise ProductionReadinessError("assessment_ids must be unique")
+    immutable_record = {
         "source_question_id": source_identity,
         "source_revision": source_revision,
         "proposed_identity": proposed_identity,
         "proposed_revision_id": proposed_revision,
         "content_sha256": content_sha256,
-        "idempotency_key": idempotency_key,
         "subject_code": _identifier(record.get("subject_code"), "subject_code"),
         "course_id": _identifier(record.get("course_id"), "course_id"),
         "topic_code": _identifier(record.get("topic_code"), "topic_code"),
@@ -141,15 +179,52 @@ def _normalize_question(record: Mapping[str, Any]) -> dict[str, Any]:
         "generation_family": _identifier(record.get("generation_family"), "generation_family"),
         **content,
         "lineage": lineage,
-        "provenance": copy.deepcopy(record.get("provenance")),
+        "provenance": provenance,
+        "assessment_ids": assessment_ids,
+    }
+    import_record_sha256 = _hash(immutable_record)
+    idempotency_key = _hash({
+        "contract": "student-import-idempotency-v1",
+        "source_question_id": source_identity,
+        "source_revision": source_revision,
+        "import_record_sha256": import_record_sha256,
+    })
+    normalized = {
+        **immutable_record,
+        "import_record_sha256": import_record_sha256,
+        "idempotency_key": idempotency_key,
         "projection_status": "planned",
         "serving_eligible": False,
         "is_active": False,
         "student_visible": False,
     }
-    if not isinstance(normalized["provenance"], Mapping) or not normalized["provenance"]:
-        raise ProductionReadinessError("provenance is required")
     return normalized
+
+
+def _normalize_assessment(record: Mapping[str, Any]) -> dict[str, Any]:
+    if not isinstance(record, Mapping):
+        raise ProductionReadinessError("assessment must be an object")
+    raw_refs = record.get("question_references")
+    if not isinstance(raw_refs, list) or not raw_refs:
+        raise ProductionReadinessError("assessment requires question_references")
+    refs: list[list[str]] = []
+    for raw in raw_refs:
+        if not isinstance(raw, (list, tuple)) or len(raw) != 2:
+            raise ProductionReadinessError("assessment question reference must be an identity/revision pair")
+        refs.append([_identifier(raw[0], "assessment question identity"), _identifier(raw[1], "assessment question revision")])
+    refs.sort()
+    if len(refs) != len({tuple(ref) for ref in refs}):
+        raise ProductionReadinessError("assessment question references must be unique")
+    if record.get("is_active") is not False or record.get("student_visible") is not False:
+        raise ProductionReadinessError("assessment must remain inactive and not student-visible")
+    return {
+        "assessment_id": _identifier(record.get("assessment_id"), "assessment_id"),
+        "title": _text(record.get("title"), "assessment title"),
+        "assessment_type": _identifier(record.get("assessment_type"), "assessment_type"),
+        "question_references": refs,
+        "is_active": False,
+        "student_visible": False,
+    }
 
 
 def build_import_package(
@@ -168,56 +243,29 @@ def build_import_package(
     rows = sorted((_normalize_question(row) for row in questions), key=lambda row: (
         row["source_question_id"], row["source_revision"]
     ))
-    normalized_assessments = sorted((copy.deepcopy(dict(row)) for row in assessments), key=lambda row: str(row.get("assessment_id", "")))
+    normalized_assessments = sorted((_normalize_assessment(row) for row in assessments), key=lambda row: row["assessment_id"])
+    known = {(row["source_question_id"], row["source_revision"]) for row in rows}
+    links: dict[tuple[str, str], list[str]] = {identity: [] for identity in known}
+    for assessment in normalized_assessments:
+        for raw_ref in assessment["question_references"]:
+            ref = tuple(raw_ref)
+            if ref not in known:
+                raise ProductionReadinessError("assessment references a question outside the import package")
+            links[ref].append(assessment["assessment_id"])
+    rows = [
+        _normalize_question({**row, "assessment_ids": sorted(links[(row["source_question_id"], row["source_revision"])])})
+        for row in rows
+    ]
     package = {
         "schema_version": SCHEMA_VERSION,
         "package_id": _identifier(package_id, "package_id"),
         "compiler_commit": _text(compiler_commit, "compiler_commit"),
-        "target": {
-            "repository": "BlackBody-DEV/adaptive-platform",
-            "baseline": _text(adaptive_baseline, "adaptive_baseline"),
-            "question_table": "questions",
-            "assessment_tables": ["assessments", "assessment_questions"],
-            "runtime_attempt_tables": ["question_attempts", "placement_assessment_sessions", "placement_assessment_responses", "topic_progress", "vertical_slice_attempts"],
-            "retrieval_endpoints": ["GET /api/v1/topics/{topic_id}/questions", "GET /api/v1/curriculum/practice-question/{topic_code}"],
-            "submission_endpoints": ["POST /api/v1/attempts/", "POST /api/v1/curriculum/practice-question/{topic_code}/answer", "POST /api/v1/assessments/{session_id}/answer"],
-        },
-        "identity_and_ownership": {
-            "import_actor_role": "curriculum_importer",
-            "activation_actor_role": "curriculum_publisher",
-            "student_role": "approved_authenticated_student",
-            "client_user_id_trusted": False,
-            "student_identity_source": "verified_authentication_subject_mapping",
-            "ownership_mismatch_action": "REJECT_BEFORE_WRITE",
-        },
-        "capability_handshake": {
-            "compiler_capabilities": list(ENABLED_ENGINE_TYPES),
-            "required_platform_capability_field": "answer_engine",
-            "unsupported_action": "REJECT_BEFORE_IMPORT",
-            "silent_fallback_allowed": False,
-        },
-        "transaction_contract": {
-            "atomic_unit": "one question revision plus its lineage and assessment links",
-            "idempotency_constraint": ["source_question_id", "source_revision", "content_sha256"],
-            "same_revision_different_checksum": "E_CONFLICT",
-            "initial_projection_status": "planned",
-            "initial_serving_eligible": False,
-            "initial_is_active": False,
-            "activation_is_separate_transaction": True,
-        },
-        "retry_contract": {
-            "maximum_attempts": 4,
-            "backoff_seconds": [1, 2, 4],
-            "retryable_errors": sorted(RETRYABLE_ERRORS),
-            "permanent_errors": sorted(PERMANENT_ERRORS),
-            "resume_key": "idempotency_key",
-        },
-        "rollback_contract": {
-            "pre_activation": ["mark import batch rejected", "remove inactive assessment links", "retain immutable import journal"],
-            "post_activation": ["set serving_eligible false", "set is_active false", "restore prior serving revision", "retain attempts and audit history"],
-            "delete_student_attempts": False,
-            "source_artifact_mutation": False,
-        },
+        "target": build_target(_text(adaptive_baseline, "adaptive_baseline")),
+        "identity_and_ownership": copy.deepcopy(IDENTITY_AND_OWNERSHIP),
+        "capability_handshake": copy.deepcopy(CAPABILITY_HANDSHAKE),
+        "transaction_contract": copy.deepcopy(TRANSACTION_CONTRACT),
+        "retry_contract": copy.deepcopy(RETRY_CONTRACT),
+        "rollback_contract": copy.deepcopy(ROLLBACK_CONTRACT),
         "questions": rows,
         "assessments": normalized_assessments,
         "safety": dict(SAFETY),
@@ -230,6 +278,14 @@ def build_import_package(
 def validate_import_package(package: Mapping[str, Any]) -> dict[str, Any]:
     if not isinstance(package, Mapping):
         raise ProductionReadinessError("import package must be an object")
+    required_fields = {
+        "schema_version", "package_id", "compiler_commit", "target",
+        "identity_and_ownership", "capability_handshake", "transaction_contract",
+        "retry_contract", "rollback_contract", "questions", "assessments",
+        "safety", "package_sha256",
+    }
+    if set(package) != required_fields:
+        raise ProductionReadinessError("import package fields are not closed")
     if package.get("schema_version") != SCHEMA_VERSION or package.get("safety") != SAFETY:
         raise ProductionReadinessError("package schema or protected-state declaration is invalid")
     if not re.fullmatch(r"[0-9a-f]{40}", str(package.get("compiler_commit", ""))):
@@ -239,6 +295,19 @@ def validate_import_package(package: Mapping[str, Any]) -> dict[str, Any]:
         raise ProductionReadinessError("adaptive target repository is invalid")
     if not re.fullmatch(r"[0-9a-f]{40}", str(target.get("baseline", ""))):
         raise ProductionReadinessError("adaptive target baseline must be a full Git commit")
+    expected_target = build_target(str(target["baseline"]))
+    if target != expected_target:
+        raise ProductionReadinessError("adaptive target contract was modified")
+    exact_contracts = (
+        ("identity_and_ownership", IDENTITY_AND_OWNERSHIP),
+        ("capability_handshake", CAPABILITY_HANDSHAKE),
+        ("transaction_contract", TRANSACTION_CONTRACT),
+        ("retry_contract", RETRY_CONTRACT),
+        ("rollback_contract", ROLLBACK_CONTRACT),
+    )
+    for field, expected_contract in exact_contracts:
+        if package.get(field) != expected_contract:
+            raise ProductionReadinessError(f"{field} contract was modified")
     expected = _hash({key: copy.deepcopy(value) for key, value in package.items() if key != "package_sha256"})
     if package.get("package_sha256") != expected:
         raise ProductionReadinessError("package checksum mismatch")
@@ -250,7 +319,9 @@ def validate_import_package(package: Mapping[str, Any]) -> dict[str, Any]:
     proposed: set[tuple[str, str]] = set()
     for row in questions:
         normalized = _normalize_question(row)
-        for field in ("content_sha256", "idempotency_key"):
+        if row != normalized:
+            raise ProductionReadinessError("question record is not closed and normalized")
+        for field in ("content_sha256", "import_record_sha256", "idempotency_key"):
             if row.get(field) != normalized[field] or not SHA256.fullmatch(str(row.get(field, ""))):
                 raise ProductionReadinessError(f"{field} integrity check failed")
         for field in ("serving_eligible", "is_active", "student_visible"):
@@ -263,23 +334,45 @@ def validate_import_package(package: Mapping[str, Any]) -> dict[str, Any]:
         identities.add(identity)
         idempotency.add(row["idempotency_key"])
         proposed.add(proposed_identity)
-    for assessment in package.get("assessments", []):
-        if not isinstance(assessment, Mapping) or not _text(assessment.get("assessment_id"), "assessment_id"):
-            raise ProductionReadinessError("assessment identity is required")
+    normalized_assessments = sorted(
+        (_normalize_assessment(assessment) for assessment in package.get("assessments", [])),
+        key=lambda assessment: assessment["assessment_id"],
+    )
+    if package.get("assessments") != normalized_assessments:
+        raise ProductionReadinessError("assessments are not normalized")
+    assessment_ids = set()
+    linked: dict[tuple[str, str], list[str]] = {identity: [] for identity in identities}
+    for assessment in normalized_assessments:
+        if assessment["assessment_id"] in assessment_ids:
+            raise ProductionReadinessError("duplicate assessment identity")
+        assessment_ids.add(assessment["assessment_id"])
         refs = assessment.get("question_references")
-        if not isinstance(refs, list) or any(tuple(ref) not in identities for ref in refs):
+        if any(tuple(ref) not in identities for ref in refs):
             raise ProductionReadinessError("assessment references a question outside the import package")
-        if assessment.get("is_active") is not False or assessment.get("student_visible") is not False:
-            raise ProductionReadinessError("assessment must remain inactive and not student-visible")
-    handshake = package.get("capability_handshake", {})
-    if handshake.get("compiler_capabilities") != list(ENABLED_ENGINE_TYPES) or handshake.get("silent_fallback_allowed") is not False:
-        raise ProductionReadinessError("capability handshake is incomplete")
+        for ref in refs:
+            linked[tuple(ref)].append(assessment["assessment_id"])
+    for row in questions:
+        identity = (row["source_question_id"], row["source_revision"])
+        if row.get("assessment_ids") != sorted(linked[identity]):
+            raise ProductionReadinessError("question assessment linkage integrity check failed")
     return {
         "status": "PASS",
         "would_write": False,
         "question_count": len(questions),
         "assessment_count": len(package.get("assessments", [])),
         "package_sha256": expected,
+    }
+
+
+def build_target(adaptive_baseline: str) -> dict[str, Any]:
+    return {
+        "repository": "BlackBody-DEV/adaptive-platform",
+        "baseline": adaptive_baseline,
+        "question_table": "questions",
+        "assessment_tables": ["assessments", "assessment_questions"],
+        "runtime_attempt_tables": ["question_attempts", "placement_assessment_sessions", "placement_assessment_responses", "topic_progress", "vertical_slice_attempts"],
+        "retrieval_endpoints": ["GET /api/v1/topics/{topic_id}/questions", "GET /api/v1/curriculum/practice-question/{topic_code}"],
+        "submission_endpoints": ["POST /api/v1/attempts/", "POST /api/v1/curriculum/practice-question/{topic_code}/answer", "POST /api/v1/assessments/{session_id}/answer"],
     }
 
 
@@ -293,6 +386,19 @@ def classify_import_error(error_code: str, attempt: int) -> dict[str, Any]:
     if code in PERMANENT_ERRORS:
         return {"classification": "PERMANENT", "retry": False, "next_attempt": None}
     return {"classification": "UNKNOWN_FAIL_CLOSED", "retry": False, "next_attempt": None}
+
+
+def classify_replay(existing: Mapping[str, Any], incoming: Mapping[str, Any]) -> dict[str, Any]:
+    """Classify one unique source identity/revision replay before any write."""
+    prior = _normalize_question(existing)
+    candidate = _normalize_question(incoming)
+    prior_identity = (prior["source_question_id"], prior["source_revision"])
+    candidate_identity = (candidate["source_question_id"], candidate["source_revision"])
+    if prior_identity != candidate_identity:
+        return {"status": "NEW_IDENTITY", "write_allowed": False, "requires_separate_insert_validation": True}
+    if prior["import_record_sha256"] == candidate["import_record_sha256"]:
+        return {"status": "IDEMPOTENT_NOOP", "write_allowed": False, "requires_separate_insert_validation": False}
+    return {"status": "E_CONFLICT", "write_allowed": False, "requires_separate_insert_validation": False}
 
 
 def deployment_gate(configuration: Mapping[str, Any], package: Mapping[str, Any]) -> dict[str, Any]:
@@ -374,13 +480,8 @@ def run_synthetic_student_flow(run_id: str, *, output_root: Path = DEFAULT_REHEA
     idempotent_count = len(import_store)
     conflict = copy.deepcopy(question)
     conflict["prompt"] = "Conflicting content for the same revision."
-    conflict_rejected = False
-    try:
-        conflicted = build_import_package("conflict-package", [conflict])
-        if conflicted["questions"][0]["idempotency_key"] != row["idempotency_key"]:
-            raise ProductionReadinessError("same identity and revision has different content")
-    except ProductionReadinessError:
-        conflict_rejected = True
+    conflicted = build_import_package("conflict-package", [conflict])
+    conflict_rejected = classify_replay(row, conflicted["questions"][0])["status"] == "E_CONFLICT"
     stored = import_store[row["idempotency_key"]]
     stored["projection_status"] = "projected"  # in-memory simulation only
     stored["serving_eligible"] = True

@@ -2,36 +2,90 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "student_activation_import_package_v1.schema.json",
   "title": "Student Activation Import Package V1",
-  "description": "Non-executable, human-review-required import proposal for a separately authorized adaptive-platform activation.",
+  "description": "Closed, non-executable, human-review-required import proposal for separately authorized adaptive-platform activation.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "package_id", "compiler_commit", "target", "identity_and_ownership", "capability_handshake", "transaction_contract", "retry_contract", "rollback_contract", "questions", "assessments", "safety", "package_sha256"],
   "properties": {
     "schema_version": {"const": "1.0"},
-    "package_id": {"type": "string", "minLength": 1},
+    "package_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,191}$"},
     "compiler_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
-    "target": {"type": "object"},
-    "identity_and_ownership": {"type": "object"},
-    "capability_handshake": {"type": "object"},
-    "transaction_contract": {"type": "object"},
-    "retry_contract": {"type": "object"},
-    "rollback_contract": {"type": "object"},
-    "questions": {"type": "array", "minItems": 1, "items": {"type": "object"}},
-    "assessments": {"type": "array", "items": {"type": "object"}},
-    "safety": {
+    "target": {
       "type": "object",
-      "required": ["noncanonical", "human_review_required", "database_write_authorized", "canonical_promotion_authorized", "adaptive_platform_write_authorized", "student_visibility_authorized", "live_beta_import_authorized"],
+      "additionalProperties": false,
+      "required": ["repository", "baseline", "question_table", "assessment_tables", "runtime_attempt_tables", "retrieval_endpoints", "submission_endpoints"],
       "properties": {
-        "noncanonical": {"const": true},
-        "human_review_required": {"const": true},
-        "database_write_authorized": {"const": false},
-        "canonical_promotion_authorized": {"const": false},
-        "adaptive_platform_write_authorized": {"const": false},
-        "student_visibility_authorized": {"const": false},
-        "live_beta_import_authorized": {"const": false}
-      },
-      "additionalProperties": false
+        "repository": {"const": "BlackBody-DEV/adaptive-platform"},
+        "baseline": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "question_table": {"const": "questions"},
+        "assessment_tables": {"const": ["assessments", "assessment_questions"]},
+        "runtime_attempt_tables": {"const": ["question_attempts", "placement_assessment_sessions", "placement_assessment_responses", "topic_progress", "vertical_slice_attempts"]},
+        "retrieval_endpoints": {"const": ["GET /api/v1/topics/{topic_id}/questions", "GET /api/v1/curriculum/practice-question/{topic_code}"]},
+        "submission_endpoints": {"const": ["POST /api/v1/attempts/", "POST /api/v1/curriculum/practice-question/{topic_code}/answer", "POST /api/v1/assessments/{session_id}/answer"]}
+      }
     },
+    "identity_and_ownership": {"const": {"import_actor_role": "curriculum_importer", "activation_actor_role": "curriculum_publisher", "student_role": "approved_authenticated_student", "client_user_id_trusted": false, "student_identity_source": "verified_authentication_subject_mapping", "ownership_mismatch_action": "REJECT_BEFORE_WRITE"}},
+    "capability_handshake": {"const": {"compiler_capabilities": ["chemical_formula", "chemical_reaction", "code_execution_python", "coordinate_graph", "equation_system", "matrix", "multiple_choice", "numeric_pair", "numeric_scalar", "numeric_vector", "rubric_scored_explanation", "scientific_structured_response", "structured_diagram", "symbolic_expression"], "required_platform_capability_field": "answer_engine", "unsupported_action": "REJECT_BEFORE_IMPORT", "silent_fallback_allowed": false}},
+    "transaction_contract": {"const": {"atomic_unit": "one question revision plus its lineage and assessment links", "idempotency_constraint": ["source_question_id", "source_revision", "import_record_sha256"], "same_revision_different_checksum": "E_CONFLICT", "initial_projection_status": "planned", "initial_serving_eligible": false, "initial_is_active": false, "activation_is_separate_transaction": true}},
+    "retry_contract": {"const": {"maximum_attempts": 4, "backoff_seconds": [1, 2, 4], "retryable_errors": ["E_DATABASE_UNAVAILABLE", "E_DEADLOCK", "E_SERIALIZATION_FAILURE", "E_TIMEOUT"], "permanent_errors": ["E_AUTHORIZATION", "E_CAPABILITY_UNSUPPORTED", "E_CHECKSUM_MISMATCH", "E_CONFLICT", "E_IDENTITY_MISMATCH", "E_LINEAGE_MISMATCH", "E_SCHEMA", "E_TOPIC_UNRESOLVED", "E_VALIDATION"], "resume_key": "idempotency_key"}},
+    "rollback_contract": {"const": {"pre_activation": ["mark import batch rejected", "remove inactive assessment links", "retain immutable import journal"], "post_activation": ["set serving_eligible false", "set is_active false", "restore prior serving revision", "retain attempts and audit history"], "delete_student_attempts": false, "source_artifact_mutation": false}},
+    "questions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/question"}},
+    "assessments": {"type": "array", "items": {"$ref": "#/$defs/assessment"}},
+    "safety": {"const": {"noncanonical": true, "human_review_required": true, "database_write_authorized": false, "canonical_promotion_authorized": false, "adaptive_platform_write_authorized": false, "student_visibility_authorized": false, "live_beta_import_authorized": false}},
     "package_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "$defs": {
+    "portable_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,191}$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_question_id", "source_revision", "proposed_identity", "proposed_revision_id", "content_sha256", "subject_code", "course_id", "topic_code", "subtopic_code", "micro_skill_code", "procedure_id", "generation_family", "prompt", "answer_engine", "answer_contract", "expected_answer", "explanation", "difficulty_level", "use_case", "diagram_required", "image_ref", "lineage", "provenance", "assessment_ids", "import_record_sha256", "idempotency_key", "projection_status", "serving_eligible", "is_active", "student_visible"],
+      "properties": {
+        "source_question_id": {"$ref": "#/$defs/portable_id"},
+        "source_revision": {"$ref": "#/$defs/portable_id"},
+        "proposed_identity": {"$ref": "#/$defs/portable_id"},
+        "proposed_revision_id": {"$ref": "#/$defs/portable_id"},
+        "content_sha256": {"$ref": "#/$defs/sha256"},
+        "subject_code": {"$ref": "#/$defs/portable_id"},
+        "course_id": {"$ref": "#/$defs/portable_id"},
+        "topic_code": {"$ref": "#/$defs/portable_id"},
+        "subtopic_code": {"$ref": "#/$defs/portable_id"},
+        "micro_skill_code": {"$ref": "#/$defs/portable_id"},
+        "procedure_id": {"$ref": "#/$defs/portable_id"},
+        "generation_family": {"$ref": "#/$defs/portable_id"},
+        "prompt": {"type": "string", "minLength": 1},
+        "answer_engine": {"enum": ["chemical_formula", "chemical_reaction", "code_execution_python", "coordinate_graph", "equation_system", "matrix", "multiple_choice", "numeric_pair", "numeric_scalar", "numeric_vector", "rubric_scored_explanation", "scientific_structured_response", "structured_diagram", "symbolic_expression"]},
+        "answer_contract": {"type": "object", "minProperties": 1},
+        "expected_answer": {},
+        "explanation": {"type": "string"},
+        "difficulty_level": {"type": "integer", "minimum": 1, "maximum": 5},
+        "use_case": {"$ref": "#/$defs/portable_id"},
+        "diagram_required": {"type": "boolean"},
+        "image_ref": {"type": ["string", "null"]},
+        "lineage": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+        "provenance": {"type": "object", "minProperties": 1},
+        "assessment_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/portable_id"}},
+        "import_record_sha256": {"$ref": "#/$defs/sha256"},
+        "idempotency_key": {"$ref": "#/$defs/sha256"},
+        "projection_status": {"const": "planned"},
+        "serving_eligible": {"const": false},
+        "is_active": {"const": false},
+        "student_visible": {"const": false}
+      }
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessment_id", "title", "assessment_type", "question_references", "is_active", "student_visible"],
+      "properties": {
+        "assessment_id": {"$ref": "#/$defs/portable_id"},
+        "title": {"type": "string", "minLength": 1},
+        "assessment_type": {"$ref": "#/$defs/portable_id"},
+        "question_references": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "array", "prefixItems": [{"$ref": "#/$defs/portable_id"}, {"$ref": "#/$defs/portable_id"}], "items": false, "minItems": 2, "maxItems": 2}},
+        "is_active": {"const": false},
+        "student_visible": {"const": false}
+      }
+    }
   }
 }

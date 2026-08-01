@@ -1,4 +1,5 @@
 import copy
+import hashlib
 import json
 from pathlib import Path
 
@@ -12,6 +13,7 @@ from tools.course_compiler_demo.production_readiness import (
     ProductionReadinessError,
     build_import_package,
     classify_import_error,
+    classify_replay,
     deployment_gate,
     reopen_rehearsal,
     run_synthetic_student_flow,
@@ -53,6 +55,12 @@ def question(index=1, revision="v1"):
 
 def package(*questions):
     return build_import_package("readiness-test", questions or (question(),))
+
+
+def rehash(value):
+    body = {key: item for key, item in value.items() if key != "package_sha256"}
+    value["package_sha256"] = hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    return value
 
 
 def test_import_package_is_deterministic_complete_and_non_executable():
@@ -97,10 +105,55 @@ def test_identity_revision_checksum_and_assessment_links_fail_closed():
     with pytest.raises(ProductionReadinessError, match="outside"):
         build_import_package("bad-assessment", [q], assessments=[{
             "assessment_id": "diagnostic-1",
+            "title": "Diagnostic",
+            "assessment_type": "diagnostic",
             "question_references": [["missing", "v1"]],
             "is_active": False,
             "student_visible": False,
         }])
+
+
+@pytest.mark.parametrize(("contract", "field", "value"), [
+    ("identity_and_ownership", "ownership_mismatch_action", "ALLOW_WRITE"),
+    ("capability_handshake", "unsupported_action", "SILENT_FALLBACK"),
+    ("transaction_contract", "activation_is_separate_transaction", False),
+    ("retry_contract", "maximum_attempts", 999999),
+    ("rollback_contract", "delete_student_attempts", True),
+])
+def test_rehashed_control_contract_tampering_fails_closed(contract, field, value):
+    tampered = package(question())
+    tampered[contract][field] = value
+    rehash(tampered)
+    with pytest.raises(ProductionReadinessError, match="contract was modified"):
+        validate_import_package(tampered)
+
+
+def test_linkage_and_provenance_are_part_of_replay_equivalence():
+    base = package(question())["questions"][0]
+    changed_topic = question()
+    changed_topic["topic_code"] = "PUBLIC_DIFFERENT_TOPIC"
+    changed_provenance = question()
+    changed_provenance["provenance"] = {"type": "DIFFERENT_PUBLIC_CONTRACT", "private": False, "protected": False}
+    for changed in (changed_topic, changed_provenance):
+        incoming = package(changed)["questions"][0]
+        assert incoming["content_sha256"] == base["content_sha256"]
+        assert incoming["import_record_sha256"] != base["import_record_sha256"]
+        assert classify_replay(base, incoming) == {
+            "status": "E_CONFLICT", "write_allowed": False,
+            "requires_separate_insert_validation": False,
+        }
+
+
+def test_assessment_links_are_part_of_replay_equivalence():
+    q = question()
+    unlinked = package(q)["questions"][0]
+    linked = build_import_package("linked", [q], assessments=[{
+        "assessment_id": "diagnostic-1", "title": "Diagnostic", "assessment_type": "diagnostic",
+        "question_references": [[q["source_question_id"], q["source_revision"]]],
+        "is_active": False, "student_visible": False,
+    }])["questions"][0]
+    assert linked["assessment_ids"] == ["diagnostic-1"]
+    assert classify_replay(unlinked, linked)["status"] == "E_CONFLICT"
 
 
 def test_capability_and_lineage_are_mandatory_without_fallback():
