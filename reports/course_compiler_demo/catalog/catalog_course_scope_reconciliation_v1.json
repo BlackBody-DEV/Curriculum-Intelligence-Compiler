@@ -1,0 +1,189 @@
+{
+  "artifact_id": "CATALOG_COURSE_SCOPE_RECONCILIATION_V1",
+  "authoritative_implemented_denominator": 33,
+  "intended_scope_authority": "Universal Curriculum Compiler Product Definition as represented by CATALOG-CENSUS-RECONCILIATION-109",
+  "repository_authority": "discover_course_catalog() at authorized baseline",
+  "disputed_entities": [
+    {
+      "entity": "Thermodynamics",
+      "standalone_course": false,
+      "alternate_identity": null,
+      "unit_or_topic_representation": [],
+      "status": "DECLARED_BUT_NOT_IMPLEMENTED",
+      "would_increase_denominator": true,
+      "overlapping_repository_course": null,
+      "decision": "Architect must authorize course creation or remove/alter intended scope; neither is authorized here."
+    },
+    {
+      "entity": "Measurement and Units",
+      "standalone_course": false,
+      "alternate_identity": null,
+      "unit_or_topic_representation": [
+        "MECHANICS / Measurement and vectors"
+      ],
+      "status": "IMPLEMENTED_AS_UNIT_OR_TOPIC",
+      "would_increase_denominator": true,
+      "overlapping_repository_course": "MECHANICS",
+      "decision": "Keep repository identity; do not create a standalone course without architect authority."
+    },
+    {
+      "entity": "Vectors",
+      "standalone_course": false,
+      "alternate_identity": null,
+      "unit_or_topic_representation": [
+        "MECHANICS / Measurement and vectors",
+        "STATICS / Vector Operations"
+      ],
+      "status": "IMPLEMENTED_AS_UNIT_OR_TOPIC",
+      "secondary_status": "DUPLICATE_OR_OVERLAPPING_SCOPE",
+      "would_increase_denominator": true,
+      "overlapping_repository_course": "MECHANICS and STATICS",
+      "decision": "Keep as shared curricular scope inside existing courses."
+    },
+    {
+      "entity": "Waves and Oscillations",
+      "standalone_course": false,
+      "alternate_identity": "WAVES_AND_OPTICS",
+      "unit_or_topic_representation": [
+        "MECHANICS / Oscillations",
+        "WAVES_AND_OPTICS / Wave description",
+        "WAVES_AND_OPTICS / Superposition",
+        "WAVES_AND_OPTICS / Sound"
+      ],
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "secondary_status": "DUPLICATE_OR_OVERLAPPING_SCOPE",
+      "would_increase_denominator": true,
+      "overlapping_repository_course": "MECHANICS and WAVES_AND_OPTICS",
+      "decision": "Use WAVES_AND_OPTICS as the execution identity; preserve Mechanics oscillation coverage."
+    },
+    {
+      "entity": "Optics",
+      "standalone_course": false,
+      "alternate_identity": "WAVES_AND_OPTICS",
+      "unit_or_topic_representation": [
+        "WAVES_AND_OPTICS / Geometric optics",
+        "WAVES_AND_OPTICS / Interference",
+        "WAVES_AND_OPTICS / Diffraction",
+        "WAVES_AND_OPTICS / Polarization",
+        "WAVES_AND_OPTICS / Optical instruments"
+      ],
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "would_increase_denominator": true,
+      "overlapping_repository_course": "WAVES_AND_OPTICS",
+      "decision": "Use WAVES_AND_OPTICS; do not split or rename in production tracks."
+    }
+  ],
+  "repository_native_reconciliation": [
+    {
+      "course_id": "MECHANICS",
+      "intended_scope_relationship": "Classical Mechanics plus Measurement and Units, Vectors, and Oscillations",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "WAVES_AND_OPTICS",
+      "intended_scope_relationship": "Waves and Oscillations plus Optics",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "STRENGTH_OF_MATERIALS",
+      "intended_scope_relationship": "overlaps intended Mechanics of Materials scope",
+      "status": "DUPLICATE_OR_OVERLAPPING_SCOPE",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "FLUID_MECHANICS",
+      "intended_scope_relationship": "repository-native additional production scope",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "HYDRAULICS",
+      "intended_scope_relationship": "repository-native specialization overlapping Fluid Mechanics",
+      "status": "DUPLICATE_OR_OVERLAPPING_SCOPE",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "FLUID_DYNAMICS",
+      "intended_scope_relationship": "repository-native specialization overlapping Fluid Mechanics",
+      "status": "DUPLICATE_OR_OVERLAPPING_SCOPE",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "NUMERICAL_METHODS",
+      "intended_scope_relationship": "repository-native additional Mathematics scope",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "ENGINEERING_ANALYSIS",
+      "intended_scope_relationship": "repository-native additional Mathematics scope",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "APPLIED_MATHEMATICS",
+      "intended_scope_relationship": "repository-native additional Mathematics scope",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "PROGRAMMING_FUNDAMENTALS",
+      "intended_scope_relationship": "repository-native deferred Computer Science scope",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "DATA_STRUCTURES",
+      "intended_scope_relationship": "repository-native deferred Computer Science scope",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "ALGORITHMS",
+      "intended_scope_relationship": "repository-native deferred Computer Science scope",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "COMPUTATIONAL_THINKING",
+      "intended_scope_relationship": "repository-native deferred Computer Science scope",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "GENERAL_CHEMISTRY",
+      "intended_scope_relationship": "repository-native deferred Chemistry scope",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "ORGANIC_CHEMISTRY",
+      "intended_scope_relationship": "repository-native deferred Chemistry scope",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "BIOLOGY",
+      "intended_scope_relationship": "repository-native deferred Life Sciences scope",
+      "status": "IMPLEMENTED_UNDER_ALTERNATE_IDENTITY",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    },
+    {
+      "course_id": "BIOCHEMISTRY",
+      "intended_scope_relationship": "repository-native deferred Life Sciences/Chemistry scope",
+      "status": "DUPLICATE_OR_OVERLAPPING_SCOPE",
+      "denominator_effect": "ALREADY_INCLUDED_IN_33"
+    }
+  ],
+  "decision": {
+    "execution_denominator": 33,
+    "unimplemented_intended_entities": [
+      "Thermodynamics"
+    ],
+    "course_creation_authorized": false,
+    "both_parallel_lanes_may_begin_immediately": false,
+    "reason": "Thermodynamics requires a material product-scope/course-creation decision."
+  }
+}

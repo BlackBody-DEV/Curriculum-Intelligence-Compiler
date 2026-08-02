@@ -1,0 +1,130 @@
+"""Math 112 Algebra I completion: the final locked bank of 100 questions."""
+from __future__ import annotations
+
+from dataclasses import replace
+import hashlib
+
+from tools.course_compiler_demo.production_questions import (
+    ProductionFamily,
+    ProductionQuestionCandidateV1,
+    default_validator,
+    duplicate_record,
+    produce_course_bank,
+)
+from tools.course_compiler_demo.subject_packs.mathematics import build_mathematics_reference_pack
+
+from .bank import _family, build_bank
+from .checkpoint_200 import build_checkpoint_bank
+from .reviewer import build_evidence_reviewer
+
+
+COMPLETION_PARAMETER_DELTA = 2000
+
+
+def _completion_family(index: int, course: dict) -> ProductionFamily:
+    base = _family(index, course)
+
+    def completion_parameters(candidate_index: int, builder=base.parameter_builder) -> dict:
+        parameters = builder(candidate_index)
+        for name in ("b", "x", "y"):
+            parameters[name] += COMPLETION_PARAMETER_DELTA
+        parameters["checkpoint_series"] = 3
+        return parameters
+
+    return replace(base, parameter_builder=completion_parameters)
+
+
+def build_completion_bank():
+    original_bank, _ = build_bank()
+    checkpoint_bank, _ = build_checkpoint_bank()
+    pack = build_mathematics_reference_pack()
+    course = pack["courses"]["ALGEBRA_I"]
+    families = tuple(_completion_family(index, course) for index in range(15))
+    evidence = ({
+        "evidence_id": "ALGEBRA_I_REFERENCE_PACK",
+        "source_identity": pack["pack_id"],
+        "source_hash": pack["deterministic_sha256"],
+    },)
+
+    seen: dict[str, str] = {}
+    for existing_bank in (original_bank, checkpoint_bank):
+        for payload in existing_bank.candidates:
+            duplicate_record(ProductionQuestionCandidateV1(**payload), seen)
+
+    def cross_bank_duplicate_analyzer(candidate, _local_seen):
+        return duplicate_record(candidate, seen)
+
+    review_evidence = {}
+
+    def validator(candidate, derivation, generator_answer):
+        result = default_validator(candidate, derivation, generator_answer)
+        review_evidence[candidate.candidate_id] = {
+            "family_id": candidate.request["generation_family_id"],
+            "shape": candidate.answer_contract["shape"],
+            "candidate_digest": hashlib.sha256(candidate.to_json().encode()).hexdigest(),
+            "validation_digest": hashlib.sha256(result.to_json().encode()).hexdigest(),
+            "passed": result.passed,
+        }
+        return result
+
+    bank, summary = produce_course_bank(
+        "ALGEBRA_I",
+        pack["pack_id"],
+        pack["deterministic_sha256"],
+        evidence,
+        families,
+        reviewer=build_evidence_reviewer(review_evidence),
+        duplicate_analyzer=cross_bank_duplicate_analyzer,
+        validator=validator,
+    )
+    bank = replace(bank, bank_id="bank:ALGEBRA_I:math-112-completion:v1")
+    summary = replace(summary, summary_id="summary:ALGEBRA_I:math-112-completion:v1")
+    return bank, summary
+
+
+def build_completion_inventory(bank=None) -> tuple[dict, ...]:
+    bank = bank or build_completion_bank()[0]
+    validations = {row["candidate_id"]: row for row in bank.validations}
+    derivations = {row["candidate_id"]: row for row in bank.derivations}
+    duplicates = {row["candidate_id"]: row for row in bank.duplicates}
+    rows = []
+    for candidate in bank.candidates:
+        candidate_id = candidate["candidate_id"]
+        request = candidate["request"]
+        duplicate = duplicates[candidate_id]
+        rows.append({
+            **candidate,
+            "question_id": candidate_id,
+            "course_id": request["course_id"],
+            "generation_family_id": request["generation_family_id"],
+            "difficulty": request["difficulty"],
+            "grading_rule": {"engine_type": candidate["answer_contract"]["engine_type"], "tolerance": candidate["answer_contract"]["tolerance"]},
+            "provenance": {"deterministic_seed": request["deterministic_seed"], "source_evidence": candidate["authority"]["source_evidence"]},
+            "fingerprint": duplicate["fingerprint"],
+            "structural_fingerprint": duplicate["structural_fingerprint"],
+            "duplicate_status": duplicate["classification"],
+            "production_status": "LOCKED_PRODUCTION_VALIDATED",
+            "independent_derivation": derivations[candidate_id],
+            "validation": validations[candidate_id],
+        })
+    return tuple(rows)
+
+
+def audit_completion() -> dict:
+    original, _ = build_bank()
+    checkpoint, _ = build_checkpoint_bank()
+    added, summary = build_completion_bank()
+    before_ids = {q["candidate_id"] for bank in (original, checkpoint) for q in bank.candidates}
+    added_ids = {q["candidate_id"] for q in added.candidates}
+    inventory = build_completion_inventory(added)
+    return {
+        "course_id": "ALGEBRA_I",
+        "before": len(before_ids),
+        "added": len(added_ids),
+        "after": len(before_ids | added_ids),
+        "identity_overlap": len(before_ids & added_ids),
+        "exact_duplicates": sum(x["classification"] == "EXACT_DUPLICATE" for x in added.duplicates),
+        "validated": summary.validated,
+        "inventory_records": len(inventory),
+        "status": "PASS" if len(before_ids) == 200 and len(added_ids) == 100 and len(before_ids | added_ids) == 300 and not before_ids & added_ids and len(inventory) == 100 else "FAIL",
+    }

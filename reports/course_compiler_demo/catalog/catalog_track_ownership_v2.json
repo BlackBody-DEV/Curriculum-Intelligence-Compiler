@@ -1,0 +1,208 @@
+{
+  "artifact_id": "CATALOG_TRACK_OWNERSHIP_V2",
+  "v1_preserved": true,
+  "launch_status": "BLOCKED_PENDING_THERMODYNAMICS_SCOPE_DECISION",
+  "collision_policy": "Course banks, assessments, and exports are single-owner; shared contracts are read-only and integration-owned.",
+  "shared_contracts": [
+    {
+      "artifact": "tools/course_compiler_demo/subject_packs/**",
+      "risk": "HIGH",
+      "disposition": "READ_ONLY; production banks must live in course-owned folders"
+    },
+    {
+      "artifact": "tools/course_compiler_demo/answer_engines/**",
+      "risk": "HIGH",
+      "disposition": "READ_ONLY; contract changes deferred to integration"
+    },
+    {
+      "artifact": "tools/course_compiler_demo/generation_recipes/**",
+      "risk": "HIGH",
+      "disposition": "READ_ONLY; new shared registrations deferred to integration"
+    },
+    {
+      "artifact": "tools/course_compiler_demo/universal_integration/**",
+      "risk": "HIGH",
+      "disposition": "READ_ONLY; aggregate registry/index updates deferred to integration"
+    },
+    {
+      "artifact": "tools/course_compiler_demo/assessment_compiler/** and beta_export/**",
+      "risk": "HIGH",
+      "disposition": "READ_ONLY; per-course packages only in owned output folders"
+    },
+    {
+      "artifact": "schemas/course_compiler_demo/** and tools/course_compiler_demo/schemas/**",
+      "risk": "HIGH",
+      "disposition": "READ_ONLY; schema changes deferred to integration"
+    },
+    {
+      "artifact": "docs/course_compiler_demo/COURSE_CATALOG_*.md and aggregate reports",
+      "risk": "MEDIUM",
+      "disposition": "READ_ONLY in production lanes; integration owner updates aggregates"
+    }
+  ],
+  "tracks": {
+    "TRACK MATH-110": {
+      "branch": "task/universal-compiler-catalog-math-110",
+      "worktree": "universal-compiler-catalog-math-110",
+      "owned_courses": [
+        "PRE_ALGEBRA",
+        "ALGEBRA_I",
+        "GEOMETRY",
+        "ALGEBRA_II",
+        "TRIGONOMETRY",
+        "PRE_CALCULUS",
+        "CALCULUS_I",
+        "CALCULUS_II",
+        "CALCULUS_III",
+        "LINEAR_ALGEBRA",
+        "DIFFERENTIAL_EQUATIONS",
+        "NUMERICAL_METHODS",
+        "ENGINEERING_ANALYSIS",
+        "APPLIED_MATHEMATICS"
+      ],
+      "owned_folders": [
+        "tools/course_compiler_demo/production_question_packs/pre_algebra",
+        "tools/course_compiler_demo/production_question_packs/algebra_i",
+        "tools/course_compiler_demo/production_question_packs/geometry",
+        "tools/course_compiler_demo/production_question_packs/algebra_ii",
+        "tools/course_compiler_demo/production_question_packs/trigonometry",
+        "tools/course_compiler_demo/production_question_packs/pre_calculus",
+        "tools/course_compiler_demo/production_question_packs/calculus_i",
+        "tools/course_compiler_demo/production_question_packs/calculus_ii",
+        "tools/course_compiler_demo/production_question_packs/calculus_iii",
+        "tools/course_compiler_demo/production_question_packs/linear_algebra",
+        "tools/course_compiler_demo/production_question_packs/differential_equations",
+        "tools/course_compiler_demo/production_question_packs/numerical_methods",
+        "tools/course_compiler_demo/production_question_packs/engineering_analysis",
+        "tools/course_compiler_demo/production_question_packs/applied_mathematics"
+      ],
+      "forbidden_folders": [
+        "tools/course_compiler_demo/subject_packs",
+        "tools/course_compiler_demo/answer_engines",
+        "tools/course_compiler_demo/generation_recipes",
+        "tools/course_compiler_demo/universal_integration",
+        "schemas",
+        "adaptive-platform"
+      ],
+      "checkpoint_cadence": "Commit after each 100-question validated bank; integration checkpoint after each course.",
+      "focused_tests": [
+        "course-owned production bank tests",
+        "production question runtime contract tests for owned banks",
+        "course-owned arithmetic and duplicate checks"
+      ],
+      "expected_outputs": [
+        "locked validated banks",
+        "course summaries",
+        "course-local validation, duplicate, review, assessment, and export evidence"
+      ],
+      "integration_prerequisites": [
+        "catalog control accepted",
+        "shared registries frozen",
+        "per-course provenance available",
+        "300 validated questions per course",
+        "diagnostic/practice/summative packages and variants complete"
+      ],
+      "course_denominator": 14,
+      "validated_question_count": 500,
+      "remaining_question_count": 3700,
+      "first_checkpoint": {
+        "course_ids": [
+          "ALGEBRA_I",
+          "CALCULUS_I"
+        ],
+        "current_each": 100,
+        "checkpoint_each": 200,
+        "increment_each": 100,
+        "condition": "Both named banks must reach 200 validated questions before advancing."
+      },
+      "launch_prerequisite": "Architect resolves Thermodynamics intended-scope gap and explicitly authorizes the 33-course execution denominator."
+    },
+    "TRACK PHYSICS-111": {
+      "branch": "task/universal-compiler-catalog-physics-111",
+      "worktree": "universal-compiler-catalog-physics-111",
+      "owned_courses": [
+        "MECHANICS",
+        "WAVES_AND_OPTICS",
+        "ELECTRICITY_AND_MAGNETISM",
+        "MODERN_PHYSICS",
+        "STATICS",
+        "DYNAMICS",
+        "MECHANICS_OF_MATERIALS",
+        "STRENGTH_OF_MATERIALS",
+        "FLUID_MECHANICS",
+        "HYDRAULICS",
+        "FLUID_DYNAMICS"
+      ],
+      "owned_folders": [
+        "tools/course_compiler_demo/production_question_packs/mechanics",
+        "tools/course_compiler_demo/production_question_packs/waves_and_optics",
+        "tools/course_compiler_demo/production_question_packs/electricity_and_magnetism",
+        "tools/course_compiler_demo/production_question_packs/modern_physics",
+        "tools/course_compiler_demo/production_question_packs/statics",
+        "tools/course_compiler_demo/production_question_packs/dynamics",
+        "tools/course_compiler_demo/production_question_packs/mechanics_of_materials",
+        "tools/course_compiler_demo/production_question_packs/strength_of_materials",
+        "tools/course_compiler_demo/production_question_packs/fluid_mechanics",
+        "tools/course_compiler_demo/production_question_packs/hydraulics",
+        "tools/course_compiler_demo/production_question_packs/fluid_dynamics"
+      ],
+      "forbidden_folders": [
+        "tools/course_compiler_demo/subject_packs",
+        "tools/course_compiler_demo/answer_engines",
+        "tools/course_compiler_demo/generation_recipes",
+        "tools/course_compiler_demo/universal_integration",
+        "schemas",
+        "adaptive-platform"
+      ],
+      "checkpoint_cadence": "Commit after each 100-question validated bank; integration checkpoint after each course.",
+      "focused_tests": [
+        "course-owned production bank tests",
+        "production question runtime contract tests for owned banks",
+        "course-owned unit/vector, arithmetic, and duplicate checks"
+      ],
+      "expected_outputs": [
+        "locked validated banks",
+        "course summaries",
+        "course-local validation, duplicate, review, assessment, and export evidence"
+      ],
+      "integration_prerequisites": [
+        "catalog control accepted",
+        "THERMODYNAMICS disposition decided by architect",
+        "shared registries frozen",
+        "per-course provenance available",
+        "300 validated questions per course",
+        "diagnostic/practice/summative packages and variants complete"
+      ],
+      "course_denominator": 11,
+      "validated_question_count": 425,
+      "remaining_question_count": 2875,
+      "first_checkpoint": {
+        "course_ids": [
+          "STATICS",
+          "ELECTRICITY_AND_MAGNETISM"
+        ],
+        "current_each": 100,
+        "checkpoint_each": 200,
+        "increment_each": 100,
+        "condition": "Both named banks must reach 200 validated questions before advancing."
+      },
+      "launch_prerequisite": "Architect resolves Thermodynamics intended-scope gap and explicitly authorizes the 33-course execution denominator."
+    }
+  },
+  "deferred_courses": {
+    "owner": "FUTURE_DOMAIN_TRACKS; READ_ONLY_DURING_MATH-110_AND_PHYSICS-111",
+    "courses": [
+      "GENERAL_CHEMISTRY",
+      "ORGANIC_CHEMISTRY",
+      "BIOCHEMISTRY",
+      "BIOLOGY",
+      "PROGRAMMING_FUNDAMENTALS",
+      "DATA_STRUCTURES",
+      "ALGORITHMS",
+      "COMPUTATIONAL_THINKING"
+    ],
+    "denominator": 8,
+    "validated": 350,
+    "remaining": 2050
+  }
+}
