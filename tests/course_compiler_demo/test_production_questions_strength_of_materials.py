@@ -1,0 +1,4 @@
+from tools.course_compiler_demo.production_question_packs.strength_of_materials import build_bank
+def test_strength_of_materials_bank():
+ bank,summary,_=build_bank(); assert len(bank.candidates)==100==summary.validated; assert summary.family_count==summary.procedure_count==summary.micro_skill_count==10; assert len({x["candidate_id"] for x in bank.candidates})==len({x["prompt"].lower() for x in bank.candidates})==len({x["fingerprint"] for x in bank.duplicates})==100; assert {x["request"]["difficulty"] for x in bank.candidates}=={"introductory","intermediate","advanced"}; assert all(x["request"]["parameters"]["thickness"]>0 and x["request"]["parameters"]["length"]>0 for x in bank.candidates)
+def test_strength_of_materials_deterministic(): assert build_bank()[0].to_json()==build_bank()[0].to_json()
