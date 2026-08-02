@@ -1,0 +1,288 @@
+{
+  "artifact_id": "CATALOG_QUESTION_ALLOCATION_V2",
+  "policy": {
+    "required_per_course": 300,
+    "course_count": 33
+  },
+  "totals": {
+    "course_count": 33,
+    "mathematics_course_count": 14,
+    "physics_engineering_course_count": 11,
+    "deferred_other_course_count": 8,
+    "validated_question_total": 1275,
+    "required_question_total": 9900,
+    "remaining_question_total": 8625,
+    "mathematics_validated": 500,
+    "mathematics_remaining": 3700,
+    "physics_engineering_validated": 425,
+    "physics_engineering_remaining": 2875,
+    "deferred_validated": 350,
+    "deferred_remaining": 2050
+  },
+  "allocations": [
+    {
+      "course_id": "ALGEBRA_I",
+      "track": "TRACK_MATH-110",
+      "validated": 100,
+      "required": 300,
+      "remaining": 200,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "ALGEBRA_II",
+      "track": "TRACK_MATH-110",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "ALGORITHMS",
+      "track": "DEFERRED_READ_ONLY_INITIAL_WAVE",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "APPLIED_MATHEMATICS",
+      "track": "TRACK_MATH-110",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "BIOCHEMISTRY",
+      "track": "DEFERRED_READ_ONLY_INITIAL_WAVE",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "BIOLOGY",
+      "track": "DEFERRED_READ_ONLY_INITIAL_WAVE",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "CALCULUS_I",
+      "track": "TRACK_MATH-110",
+      "validated": 100,
+      "required": 300,
+      "remaining": 200,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "CALCULUS_II",
+      "track": "TRACK_MATH-110",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "CALCULUS_III",
+      "track": "TRACK_MATH-110",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "COMPUTATIONAL_THINKING",
+      "track": "DEFERRED_READ_ONLY_INITIAL_WAVE",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "DATA_STRUCTURES",
+      "track": "DEFERRED_READ_ONLY_INITIAL_WAVE",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "DIFFERENTIAL_EQUATIONS",
+      "track": "TRACK_MATH-110",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "DYNAMICS",
+      "track": "TRACK_PHYSICS-111",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "ELECTRICITY_AND_MAGNETISM",
+      "track": "TRACK_PHYSICS-111",
+      "validated": 100,
+      "required": 300,
+      "remaining": 200,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "ENGINEERING_ANALYSIS",
+      "track": "TRACK_MATH-110",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "FLUID_DYNAMICS",
+      "track": "TRACK_PHYSICS-111",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "FLUID_MECHANICS",
+      "track": "TRACK_PHYSICS-111",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "GENERAL_CHEMISTRY",
+      "track": "DEFERRED_READ_ONLY_INITIAL_WAVE",
+      "validated": 100,
+      "required": 300,
+      "remaining": 200,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "GEOMETRY",
+      "track": "TRACK_MATH-110",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "HYDRAULICS",
+      "track": "TRACK_PHYSICS-111",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "LINEAR_ALGEBRA",
+      "track": "TRACK_MATH-110",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "MECHANICS",
+      "track": "TRACK_PHYSICS-111",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "MECHANICS_OF_MATERIALS",
+      "track": "TRACK_PHYSICS-111",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "MODERN_PHYSICS",
+      "track": "TRACK_PHYSICS-111",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "NUMERICAL_METHODS",
+      "track": "TRACK_MATH-110",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "ORGANIC_CHEMISTRY",
+      "track": "DEFERRED_READ_ONLY_INITIAL_WAVE",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "PRE_ALGEBRA",
+      "track": "TRACK_MATH-110",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "PRE_CALCULUS",
+      "track": "TRACK_MATH-110",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "PROGRAMMING_FUNDAMENTALS",
+      "track": "DEFERRED_READ_ONLY_INITIAL_WAVE",
+      "validated": 100,
+      "required": 300,
+      "remaining": 200,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "STATICS",
+      "track": "TRACK_PHYSICS-111",
+      "validated": 100,
+      "required": 300,
+      "remaining": 200,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "STRENGTH_OF_MATERIALS",
+      "track": "TRACK_PHYSICS-111",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "TRIGONOMETRY",
+      "track": "TRACK_MATH-110",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    },
+    {
+      "course_id": "WAVES_AND_OPTICS",
+      "track": "TRACK_PHYSICS-111",
+      "validated": 25,
+      "required": 300,
+      "remaining": 275,
+      "first_checkpoint_increment": 100
+    }
+  ]
+}

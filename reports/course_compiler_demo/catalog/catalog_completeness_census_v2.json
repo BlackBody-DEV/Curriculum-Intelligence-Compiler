@@ -1,0 +1,1712 @@
+{
+  "artifact_id": "CATALOG_COMPLETENESS_CENSUS_V2",
+  "supersedes_for_decision": "CATALOG_COMPLETENESS_CENSUS_V1",
+  "v1_preserved": true,
+  "baseline": {
+    "compiler": "e155fd453684a03bc876674dd1658447d9e30e15",
+    "catalog_control": "f3156ef34cb105c557d0d8a21423c6dc9c1f35a3"
+  },
+  "authoritative_count_basis": "MILESTONE_093_REPRODUCIBLE_LOCKED_PRODUCTION_BANK_INDEX",
+  "summary": {
+    "course_count": 33,
+    "mathematics_course_count": 14,
+    "physics_engineering_course_count": 11,
+    "deferred_other_course_count": 8,
+    "validated_question_total": 1275,
+    "required_question_total": 9900,
+    "remaining_question_total": 8625,
+    "mathematics_validated": 500,
+    "mathematics_remaining": 3700,
+    "physics_engineering_validated": 425,
+    "physics_engineering_remaining": 2875,
+    "deferred_validated": 350,
+    "deferred_remaining": 2050
+  },
+  "course_scope_decision": {
+    "execution_denominator": 33,
+    "unimplemented_intended_entities": [
+      "Thermodynamics"
+    ],
+    "course_creation_authorized": false,
+    "both_parallel_lanes_may_begin_immediately": false,
+    "reason": "Thermodynamics requires a material product-scope/course-creation decision."
+  },
+  "courses": [
+    {
+      "domain": "STEM",
+      "subject": "MATHEMATICS",
+      "course_id": "ALGEBRA_I",
+      "course": "Algebra I",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 15
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "multiple_choice"
+        ]
+      },
+      "validated_question_count": 100,
+      "required_validated_question_count": 300,
+      "remaining_questions": 200,
+      "diagnostic_assessment_status": "MISSING",
+      "practice_assessment_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "summative_assessment_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "assessment_variant_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:200",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "DIAGNOSTIC_ASSESSMENT_MISSING"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "STEM",
+      "subject": "MATHEMATICS",
+      "course_id": "ALGEBRA_II",
+      "course": "Algebra II",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "multiple_choice",
+          "symbolic_expression",
+          "equation_system",
+          "coordinate_graph",
+          "matrix"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "COMPUTER_SCIENCE",
+      "subject": "Algorithms",
+      "course_id": "ALGORITHMS",
+      "course": "Algorithms",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "code_execution",
+          "multiple_choice",
+          "numeric_vector",
+          "rubric_scored_explanation"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "DEFERRED_READ_ONLY_INITIAL_WAVE"
+    },
+    {
+      "domain": "ENGINEERING_MATHEMATICS",
+      "subject": "Applied Mathematics",
+      "course_id": "APPLIED_MATHEMATICS",
+      "course": "Applied Mathematics",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "symbolic_expression",
+          "matrix",
+          "graph_diagram",
+          "scientific_structured_response"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "STEM",
+      "subject": "LIFE_SCIENCES",
+      "course_id": "BIOCHEMISTRY",
+      "course": "Biochemistry",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "scientific_structured_response",
+          "rubric_scored_explanation",
+          "numeric_scalar",
+          "multiple_choice",
+          "chemical_formula",
+          "chemical_reaction"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "DEFERRED_READ_ONLY_INITIAL_WAVE"
+    },
+    {
+      "domain": "STEM",
+      "subject": "LIFE_SCIENCES",
+      "course_id": "BIOLOGY",
+      "course": "Biology",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "scientific_structured_response",
+          "rubric_scored_explanation",
+          "numeric_scalar",
+          "multiple_choice"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "DEFERRED_READ_ONLY_INITIAL_WAVE"
+    },
+    {
+      "domain": "STEM",
+      "subject": "MATHEMATICS",
+      "course_id": "CALCULUS_I",
+      "course": "Calculus I",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 15
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "multiple_choice"
+        ]
+      },
+      "validated_question_count": 100,
+      "required_validated_question_count": 300,
+      "remaining_questions": 200,
+      "diagnostic_assessment_status": "MISSING",
+      "practice_assessment_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "summative_assessment_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "assessment_variant_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:200",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "DIAGNOSTIC_ASSESSMENT_MISSING"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "STEM",
+      "subject": "MATHEMATICS",
+      "course_id": "CALCULUS_II",
+      "course": "Calculus II",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "multiple_choice",
+          "symbolic_expression",
+          "equation_system",
+          "coordinate_graph",
+          "matrix"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "STEM",
+      "subject": "MATHEMATICS",
+      "course_id": "CALCULUS_III",
+      "course": "Calculus III",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "multiple_choice",
+          "symbolic_expression",
+          "equation_system",
+          "coordinate_graph",
+          "matrix"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "COMPUTER_SCIENCE",
+      "subject": "Computational Thinking",
+      "course_id": "COMPUTATIONAL_THINKING",
+      "course": "Computational Thinking",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "code_execution",
+          "multiple_choice",
+          "numeric_vector",
+          "rubric_scored_explanation"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "DEFERRED_READ_ONLY_INITIAL_WAVE"
+    },
+    {
+      "domain": "COMPUTER_SCIENCE",
+      "subject": "Data Structures",
+      "course_id": "DATA_STRUCTURES",
+      "course": "Data Structures",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "code_execution",
+          "multiple_choice",
+          "numeric_vector",
+          "rubric_scored_explanation"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "DEFERRED_READ_ONLY_INITIAL_WAVE"
+    },
+    {
+      "domain": "STEM",
+      "subject": "MATHEMATICS",
+      "course_id": "DIFFERENTIAL_EQUATIONS",
+      "course": "Differential Equations",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "multiple_choice",
+          "symbolic_expression",
+          "equation_system",
+          "coordinate_graph",
+          "matrix"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "PHYSICAL_SCIENCES_AND_ENGINEERING",
+      "subject": "Dynamics",
+      "course_id": "DYNAMICS",
+      "course": "Dynamics",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "numeric_vector"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_PHYSICS-110"
+    },
+    {
+      "domain": "PHYSICAL_SCIENCES_AND_ENGINEERING",
+      "subject": "PHYSICS_ENGINEERING",
+      "course_id": "ELECTRICITY_AND_MAGNETISM",
+      "course": "Electricity and Magnetism",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 15
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "numeric_vector"
+        ]
+      },
+      "validated_question_count": 100,
+      "required_validated_question_count": 300,
+      "remaining_questions": 200,
+      "diagnostic_assessment_status": "MISSING",
+      "practice_assessment_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "summative_assessment_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "assessment_variant_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:200",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "DIAGNOSTIC_ASSESSMENT_MISSING"
+      ],
+      "execution_ownership": "TRACK_PHYSICS-110"
+    },
+    {
+      "domain": "ENGINEERING_MATHEMATICS",
+      "subject": "Engineering Analysis",
+      "course_id": "ENGINEERING_ANALYSIS",
+      "course": "Engineering Analysis",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "symbolic_expression",
+          "matrix",
+          "graph_diagram",
+          "scientific_structured_response"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "PHYSICAL_SCIENCES_AND_ENGINEERING",
+      "subject": "Fluid Dynamics",
+      "course_id": "FLUID_DYNAMICS",
+      "course": "Fluid Dynamics",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "numeric_vector"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_PHYSICS-110"
+    },
+    {
+      "domain": "PHYSICAL_SCIENCES_AND_ENGINEERING",
+      "subject": "Fluid Mechanics",
+      "course_id": "FLUID_MECHANICS",
+      "course": "Fluid Mechanics",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "numeric_vector"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_PHYSICS-110"
+    },
+    {
+      "domain": "STEM",
+      "subject": "CHEMISTRY",
+      "course_id": "GENERAL_CHEMISTRY",
+      "course": "General Chemistry",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 15
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "chemical_reaction",
+          "numeric_scalar"
+        ]
+      },
+      "validated_question_count": 100,
+      "required_validated_question_count": 300,
+      "remaining_questions": 200,
+      "diagnostic_assessment_status": "MISSING",
+      "practice_assessment_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "summative_assessment_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "assessment_variant_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:200",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "DIAGNOSTIC_ASSESSMENT_MISSING"
+      ],
+      "execution_ownership": "DEFERRED_READ_ONLY_INITIAL_WAVE"
+    },
+    {
+      "domain": "STEM",
+      "subject": "MATHEMATICS",
+      "course_id": "GEOMETRY",
+      "course": "Geometry",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "multiple_choice",
+          "symbolic_expression",
+          "equation_system",
+          "coordinate_graph",
+          "matrix"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "PHYSICAL_SCIENCES_AND_ENGINEERING",
+      "subject": "Hydraulics",
+      "course_id": "HYDRAULICS",
+      "course": "Hydraulics",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "numeric_vector"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_PHYSICS-110"
+    },
+    {
+      "domain": "STEM",
+      "subject": "MATHEMATICS",
+      "course_id": "LINEAR_ALGEBRA",
+      "course": "Linear Algebra",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "multiple_choice",
+          "symbolic_expression",
+          "equation_system",
+          "coordinate_graph",
+          "matrix"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "PHYSICAL_SCIENCES_AND_ENGINEERING",
+      "subject": "Mechanics",
+      "course_id": "MECHANICS",
+      "course": "Mechanics",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "numeric_vector"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_PHYSICS-110"
+    },
+    {
+      "domain": "PHYSICAL_SCIENCES_AND_ENGINEERING",
+      "subject": "Mechanics Of Materials",
+      "course_id": "MECHANICS_OF_MATERIALS",
+      "course": "Mechanics of Materials",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "numeric_vector"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_PHYSICS-110"
+    },
+    {
+      "domain": "PHYSICAL_SCIENCES_AND_ENGINEERING",
+      "subject": "Modern Physics",
+      "course_id": "MODERN_PHYSICS",
+      "course": "Modern Physics",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "numeric_vector"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_PHYSICS-110"
+    },
+    {
+      "domain": "ENGINEERING_MATHEMATICS",
+      "subject": "Numerical Methods",
+      "course_id": "NUMERICAL_METHODS",
+      "course": "Numerical Methods",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "symbolic_expression",
+          "matrix",
+          "graph_diagram",
+          "scientific_structured_response"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "STEM",
+      "subject": "CHEMISTRY",
+      "course_id": "ORGANIC_CHEMISTRY",
+      "course": "Organic Chemistry",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "scientific_structured_response",
+          "rubric_scored_explanation",
+          "numeric_scalar",
+          "multiple_choice",
+          "chemical_formula",
+          "chemical_reaction"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "DEFERRED_READ_ONLY_INITIAL_WAVE"
+    },
+    {
+      "domain": "STEM",
+      "subject": "MATHEMATICS",
+      "course_id": "PRE_ALGEBRA",
+      "course": "Pre-Algebra",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "multiple_choice",
+          "symbolic_expression",
+          "equation_system",
+          "coordinate_graph",
+          "matrix"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "STEM",
+      "subject": "MATHEMATICS",
+      "course_id": "PRE_CALCULUS",
+      "course": "Precalculus",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "multiple_choice",
+          "symbolic_expression",
+          "equation_system",
+          "coordinate_graph",
+          "matrix"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "COMPUTER_SCIENCE",
+      "subject": "COMPUTER_SCIENCE",
+      "course_id": "PROGRAMMING_FUNDAMENTALS",
+      "course": "Programming Fundamentals",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 15
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "code_execution",
+          "multiple_choice"
+        ]
+      },
+      "validated_question_count": 100,
+      "required_validated_question_count": 300,
+      "remaining_questions": 200,
+      "diagnostic_assessment_status": "MISSING",
+      "practice_assessment_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "summative_assessment_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "assessment_variant_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:200",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "DIAGNOSTIC_ASSESSMENT_MISSING"
+      ],
+      "execution_ownership": "DEFERRED_READ_ONLY_INITIAL_WAVE"
+    },
+    {
+      "domain": "PHYSICAL_SCIENCES_AND_ENGINEERING",
+      "subject": "PHYSICS_ENGINEERING",
+      "course_id": "STATICS",
+      "course": "Statics",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 15
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "numeric_vector"
+        ]
+      },
+      "validated_question_count": 100,
+      "required_validated_question_count": 300,
+      "remaining_questions": 200,
+      "diagnostic_assessment_status": "MISSING",
+      "practice_assessment_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "summative_assessment_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "assessment_variant_status": "RUNTIME_PROOF_AVAILABLE_NOT_PERSISTED",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:200",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "DIAGNOSTIC_ASSESSMENT_MISSING"
+      ],
+      "execution_ownership": "TRACK_PHYSICS-110"
+    },
+    {
+      "domain": "PHYSICAL_SCIENCES_AND_ENGINEERING",
+      "subject": "Strength Of Materials",
+      "course_id": "STRENGTH_OF_MATERIALS",
+      "course": "Strength of Materials",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "numeric_vector"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_PHYSICS-110"
+    },
+    {
+      "domain": "STEM",
+      "subject": "MATHEMATICS",
+      "course_id": "TRIGONOMETRY",
+      "course": "Trigonometry",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "multiple_choice",
+          "symbolic_expression",
+          "equation_system",
+          "coordinate_graph",
+          "matrix"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_MATH-109"
+    },
+    {
+      "domain": "PHYSICAL_SCIENCES_AND_ENGINEERING",
+      "subject": "Waves And Optics",
+      "course_id": "WAVES_AND_OPTICS",
+      "course": "Waves and Optics",
+      "unit_count": 8,
+      "topic_count": 25,
+      "subtopic_count": 0,
+      "micro_skill_count": 50,
+      "prerequisite_status": {
+        "status": "COMPLETE",
+        "relationship_count": 49
+      },
+      "procedure_coverage": {
+        "status": "COMPLETE",
+        "procedure_count": 15,
+        "covered_micro_skill_count": 50
+      },
+      "generation_family_coverage": {
+        "status": "CATALOG_COMPLETE",
+        "declared_family_count": 15,
+        "production_runtime_family_count": 5
+      },
+      "answer_engine_coverage": {
+        "status": "PASS",
+        "engines": [
+          "numeric_scalar",
+          "numeric_vector"
+        ]
+      },
+      "validated_question_count": 25,
+      "required_validated_question_count": 300,
+      "remaining_questions": 275,
+      "diagnostic_assessment_status": "COMPILED_NONCANONICAL_REFERENCE_ONLY",
+      "practice_assessment_status": "BLUEPRINT_ONLY",
+      "summative_assessment_status": "BLUEPRINT_ONLY",
+      "assessment_variant_status": "NOT_BUILT",
+      "duplicate_control_status": "PASS_NO_EXACT_DUPLICATES",
+      "canonical_preparation_status": "NOT_PREPARED",
+      "beta_export_status": "DRY_RUN_PROOF_ONLY_NOT_LIVE",
+      "provenance_completeness": "COMPLETE_REPRODUCIBLE_MILESTONE_INDEX",
+      "production_blockers": [
+        "REMAINING_VALIDATED_QUESTIONS:275",
+        "CANONICAL_PREPARATION_NOT_RUN",
+        "ASSESSMENT_PACKAGES_NOT_BUILT",
+        "ASSESSMENT_VARIANTS_NOT_BUILT"
+      ],
+      "execution_ownership": "TRACK_PHYSICS-110"
+    }
+  ],
+  "global_blockers": [
+    "THERMODYNAMICS_DECLARED_BUT_NOT_IMPLEMENTED",
+    "ARCHITECT_PRODUCT_SCOPE_DECISION_REQUIRED"
+  ]
+}
