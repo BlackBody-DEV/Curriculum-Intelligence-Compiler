@@ -1,0 +1,3 @@
+from tools.course_compiler_demo.production_question_packs.mechanics_of_materials.checkpoint_200 import audit_checkpoint,build_checkpoint_bank
+def test_mechanics_of_materials_checkpoint_200():
+ b,s=build_checkpoint_bank();assert len(b.candidates)==100==s.validated;assert len({x["request"]["generation_family_id"] for x in b.candidates})==10;assert {x["request"]["difficulty"] for x in b.candidates}=={"introductory","intermediate","advanced"};assert all(x["request"]["parameters"]["area"]>0 and x["request"]["parameters"]["inertia"]>0 for x in b.candidates);assert audit_checkpoint()["status"]=="PASS"
