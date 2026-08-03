@@ -1,0 +1,1142 @@
+{
+  "authority": {
+    "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+    "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+    "interaction_schema": "axiomiq_interactive_instructional_diagram_interaction_v1",
+    "interaction_schema_version": "1.0.0"
+  },
+  "blockers": [
+    {
+      "affected_micro_skills": [
+        "centroid_first_moments",
+        "centroid_composite_areas",
+        "composite_centroid"
+      ],
+      "code": "AREA_WEIGHTED_CENTROID_FORMULA_NOT_ALLOWLISTED",
+      "detail": "The renderer exists, but the frozen formulas cannot form A_i*x_i or A_i*y_i products, signed-area totals, or divide first moments by net area. Negative-area cutouts therefore cannot be reproduced exactly."
+    },
+    {
+      "affected_micro_skills": [
+        "centroid_volume_primitives",
+        "centroid_composite_volumes"
+      ],
+      "code": "VOLUME_CENTROID_FORMULA_NOT_ALLOWLISTED",
+      "detail": "The frozen formulas cannot form and divide volume first moments, and provide no z-coordinate calculation required by primitive and composite volume centroids."
+    },
+    {
+      "affected_micro_skills": [
+        "pappus_guldinus_surface_area",
+        "pappus_guldinus_volume"
+      ],
+      "code": "PAPPUS_GULDINUS_FORMULAS_NOT_ALLOWLISTED",
+      "detail": "No frozen formula computes theta times centroid radius times generating curve length or area."
+    },
+    {
+      "affected_micro_skills": [
+        "distributed_load_resultant_by_centroid"
+      ],
+      "code": "LOAD_CENTROID_WEIGHTED_LOCATION_NOT_ALLOWLISTED",
+      "detail": "sum_selected can sum scalar terms but cannot form R_i*x_i products or divide their sum by total resultant R."
+    },
+    {
+      "affected_micro_skills": [
+        "centroid_symmetry"
+      ],
+      "code": "SYMMETRY_CONSTRAINT_RESULT_NOT_ALLOWLISTED",
+      "detail": "The frozen contract has no typed formula or constraint evaluator that derives a centroid coordinate from a selected symmetry axis."
+    }
+  ],
+  "breakdown_by_explanation_type": [
+    {
+      "count": 9,
+      "explanation_type": "concept explanation"
+    },
+    {
+      "count": 1,
+      "explanation_type": "module introduction"
+    },
+    {
+      "count": 9,
+      "explanation_type": "procedure explanation"
+    },
+    {
+      "count": 9,
+      "explanation_type": "remediation explanation"
+    },
+    {
+      "count": 9,
+      "explanation_type": "solution explanation"
+    },
+    {
+      "count": 9,
+      "explanation_type": "worked example"
+    }
+  ],
+  "counts": {
+    "explanations_covered": 46,
+    "mathematical_validation_failed": 0,
+    "mathematical_validation_not_run_due_stop": 46,
+    "mathematical_validation_passed": 0,
+    "signed_procedures": 9,
+    "specifications_produced": 0,
+    "unlinked_explanations": 0
+  },
+  "document": "spec_w1_centroids_stage_1_4_stop_report",
+  "explanations": [
+    {
+      "explanation_id": "module:statics.STATICS_CENTROIDS.composite_area_weighted_average_2d",
+      "explanation_type": "module introduction",
+      "linked_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-01",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "statics.STATICS_CENTROIDS.composite_area_weighted_average_2d",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:module_intro_worked_example_authority.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:STATICS_CENTROIDS_centroid_volume_primitives:concept explanation",
+      "explanation_type": "concept explanation",
+      "linked_procedure_id": "STATICS_CENTROIDS_centroid_volume_primitives",
+      "linked_procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Eleventh Phase D sign-off; metadata-only upgrade of existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_CENTROIDS:CENTROID_OF_VOLUMES; worked example answer preserved as (0, 0, 0.15 m) from approved audit; failure_signal_mappings preserved byte-identical by hash including unclassified, axis_confusion, and simple_average_used; schema-valid v1_1; Centroids-family simple_average_used signal retained as applicable; single volume-primitives scope preserved; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-VOLUME-PRIMITIVES-UPGRADE-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_volume_primitives",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:STATICS_CENTROIDS_centroid_volume_primitives:procedure explanation",
+      "explanation_type": "procedure explanation",
+      "linked_procedure_id": "STATICS_CENTROIDS_centroid_volume_primitives",
+      "linked_procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Eleventh Phase D sign-off; metadata-only upgrade of existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_CENTROIDS:CENTROID_OF_VOLUMES; worked example answer preserved as (0, 0, 0.15 m) from approved audit; failure_signal_mappings preserved byte-identical by hash including unclassified, axis_confusion, and simple_average_used; schema-valid v1_1; Centroids-family simple_average_used signal retained as applicable; single volume-primitives scope preserved; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-VOLUME-PRIMITIVES-UPGRADE-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_volume_primitives",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:STATICS_CENTROIDS_centroid_volume_primitives:remediation explanation",
+      "explanation_type": "remediation explanation",
+      "linked_procedure_id": "STATICS_CENTROIDS_centroid_volume_primitives",
+      "linked_procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Eleventh Phase D sign-off; metadata-only upgrade of existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_CENTROIDS:CENTROID_OF_VOLUMES; worked example answer preserved as (0, 0, 0.15 m) from approved audit; failure_signal_mappings preserved byte-identical by hash including unclassified, axis_confusion, and simple_average_used; schema-valid v1_1; Centroids-family simple_average_used signal retained as applicable; single volume-primitives scope preserved; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-VOLUME-PRIMITIVES-UPGRADE-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_volume_primitives",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:STATICS_CENTROIDS_centroid_volume_primitives:solution explanation",
+      "explanation_type": "solution explanation",
+      "linked_procedure_id": "STATICS_CENTROIDS_centroid_volume_primitives",
+      "linked_procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Eleventh Phase D sign-off; metadata-only upgrade of existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_CENTROIDS:CENTROID_OF_VOLUMES; worked example answer preserved as (0, 0, 0.15 m) from approved audit; failure_signal_mappings preserved byte-identical by hash including unclassified, axis_confusion, and simple_average_used; schema-valid v1_1; Centroids-family simple_average_used signal retained as applicable; single volume-primitives scope preserved; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-VOLUME-PRIMITIVES-UPGRADE-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_volume_primitives",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:STATICS_CENTROIDS_centroid_volume_primitives:worked example",
+      "explanation_type": "worked example",
+      "linked_procedure_id": "STATICS_CENTROIDS_centroid_volume_primitives",
+      "linked_procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Eleventh Phase D sign-off; metadata-only upgrade of existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_CENTROIDS:CENTROID_OF_VOLUMES; worked example answer preserved as (0, 0, 0.15 m) from approved audit; failure_signal_mappings preserved byte-identical by hash including unclassified, axis_confusion, and simple_average_used; schema-valid v1_1; Centroids-family simple_average_used signal retained as applicable; single volume-primitives scope preserved; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-VOLUME-PRIMITIVES-UPGRADE-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_volume_primitives",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-composite-areas-v1:concept explanation",
+      "explanation_type": "concept explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-composite-areas-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-13",
+        "notes": "Decomposition-only: partition composite area, build (A_i, x\u0304_i, \u0233_i) parts table with negative cutouts; STOPS before \u03a3A division (composite_centroid) and before Qx/Qy sums (centroid_first_moments). 3-signal {sign_or_placement_error:4, simple_average_used:5, unclassified:7}; simple_average_used honest at table-assembly (unweighted-average error), axis_confusion absent (direct primitive geometry). Decomposition independently verified (P1 +24 @ (3,2); P2 cutout -4 @ (5,2)). Batch 4B skill 2 of 4. NOTE: graph lists composite_centroid as prereq \u2014 pedagogically inverted but graph is authoritative; content respects R3 regardless. Flagged to Architect, not altered.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-COMPOSITE-AREAS-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_composite_areas",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-composite-areas-v1:procedure explanation",
+      "explanation_type": "procedure explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-composite-areas-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-13",
+        "notes": "Decomposition-only: partition composite area, build (A_i, x\u0304_i, \u0233_i) parts table with negative cutouts; STOPS before \u03a3A division (composite_centroid) and before Qx/Qy sums (centroid_first_moments). 3-signal {sign_or_placement_error:4, simple_average_used:5, unclassified:7}; simple_average_used honest at table-assembly (unweighted-average error), axis_confusion absent (direct primitive geometry). Decomposition independently verified (P1 +24 @ (3,2); P2 cutout -4 @ (5,2)). Batch 4B skill 2 of 4. NOTE: graph lists composite_centroid as prereq \u2014 pedagogically inverted but graph is authoritative; content respects R3 regardless. Flagged to Architect, not altered.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-COMPOSITE-AREAS-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_composite_areas",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-composite-areas-v1:remediation explanation",
+      "explanation_type": "remediation explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-composite-areas-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-13",
+        "notes": "Decomposition-only: partition composite area, build (A_i, x\u0304_i, \u0233_i) parts table with negative cutouts; STOPS before \u03a3A division (composite_centroid) and before Qx/Qy sums (centroid_first_moments). 3-signal {sign_or_placement_error:4, simple_average_used:5, unclassified:7}; simple_average_used honest at table-assembly (unweighted-average error), axis_confusion absent (direct primitive geometry). Decomposition independently verified (P1 +24 @ (3,2); P2 cutout -4 @ (5,2)). Batch 4B skill 2 of 4. NOTE: graph lists composite_centroid as prereq \u2014 pedagogically inverted but graph is authoritative; content respects R3 regardless. Flagged to Architect, not altered.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-COMPOSITE-AREAS-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_composite_areas",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-composite-areas-v1:solution explanation",
+      "explanation_type": "solution explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-composite-areas-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-13",
+        "notes": "Decomposition-only: partition composite area, build (A_i, x\u0304_i, \u0233_i) parts table with negative cutouts; STOPS before \u03a3A division (composite_centroid) and before Qx/Qy sums (centroid_first_moments). 3-signal {sign_or_placement_error:4, simple_average_used:5, unclassified:7}; simple_average_used honest at table-assembly (unweighted-average error), axis_confusion absent (direct primitive geometry). Decomposition independently verified (P1 +24 @ (3,2); P2 cutout -4 @ (5,2)). Batch 4B skill 2 of 4. NOTE: graph lists composite_centroid as prereq \u2014 pedagogically inverted but graph is authoritative; content respects R3 regardless. Flagged to Architect, not altered.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-COMPOSITE-AREAS-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_composite_areas",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-composite-areas-v1:worked example",
+      "explanation_type": "worked example",
+      "linked_procedure_id": "proc-statics-centroids-centroid-composite-areas-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-13",
+        "notes": "Decomposition-only: partition composite area, build (A_i, x\u0304_i, \u0233_i) parts table with negative cutouts; STOPS before \u03a3A division (composite_centroid) and before Qx/Qy sums (centroid_first_moments). 3-signal {sign_or_placement_error:4, simple_average_used:5, unclassified:7}; simple_average_used honest at table-assembly (unweighted-average error), axis_confusion absent (direct primitive geometry). Decomposition independently verified (P1 +24 @ (3,2); P2 cutout -4 @ (5,2)). Batch 4B skill 2 of 4. NOTE: graph lists composite_centroid as prereq \u2014 pedagogically inverted but graph is authoritative; content respects R3 regardless. Flagged to Architect, not altered.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-COMPOSITE-AREAS-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_composite_areas",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-composite-volumes-v1:concept explanation",
+      "explanation_type": "concept explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-composite-volumes-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "Centroid of a composite volume as the volume-weighted assembly of volumetric primitives. Independently re-derived: V_1 = 192000 mm^3 at (60, 40, 10) and V_2 = 96000 mm^3 at (20, 40, 35), volumes differing by a factor of two; V = 288000 mm^3. First moments about x = 0: 11520000 + 1920000 = 13440000 mm^4, x-bar = 46.6667 mm reported as 46.67 mm with the rounding stated. About z = 0: 1920000 + 3360000 = 5280000 mm^4, z-bar = 18.3333 mm reported as 18.33 mm with the rounding stated. y-bar = 40 mm stated by symmetry rather than the axis being silently omitted. Verified by an independent shifted-reference route: moments about x = 120 give 11520000 + 9600000 = 21120000 mm^4, a distance of 73.3333 mm from that plane, and 120 - 73.3333 = 46.6667 mm, agreeing with the direct result \u2014 two reference planes returning the same physical point. Discrimination confirmed live rather than asserted: the unweighted average of the x-coordinates is 40 mm against the weighted 46.67 mm, and on z is 22.5 mm against 18.33 mm, gaps that exist precisely because the volumes differ. Boundary recorded: centroid_volume_primitives supplies each primitive's volume and own centroid, taken as given and not re-derived; composite_centroid owns the same weighting logic for areas and this skill is its volumetric counterpart without re-deriving the principle; centroid_first_moments owns the first-moment idea, used not re-derived; no integration; Pappus-Guldinus revolution methods excluded as batch siblings. Mass and density verified absent from every symbol and step, with the homogeneous-body coincidence and the negative-volume treatment of a removed region each confined to a single concept sentence carrying no authored step and no mapped signal. Three earned signals: axis_confusion at step 3 where per-axis coordinate pairing occurs, simple_average_used at step 4 where the volume-weighted first moments are formed \u2014 this being a Centroids-family skill where that signal is permitted and where the authored gap makes it genuinely earned \u2014 and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL, step 1 being the earliest general recovery step stating the given-inputs rule and the exclusions. sign_or_placement_error omitted as unearned, not trimmed: all coordinates are positive and no removed region is exercised, so no authored step assigns a sense or places a cutout. solution_sequencing_error omitted as unearned, not trimmed: the total volume may be formed before or after the first-moment sums without stranding a prerequisite unknown. First draft BLOCKED on the formula-variable audit \u2014 notation used y_i in the y-bar expression while formula.variables declared only y_1 and y_2; corrected under PHASE-D-CENTROID-COMPOSITE-VOLUMES-CURSOR-CORRECTION-001 by declaring y_i alongside the other generic index forms, with no other field altered. Honest limitation recorded in the artifact: the shifted-reference check confirms consistent weighting and division but does not validate the given primitive volumes or centroid locations, since a wrong input would be carried identically through both references and the two would still agree.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_composite_volumes",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-composite-volumes-v1:procedure explanation",
+      "explanation_type": "procedure explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-composite-volumes-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "Centroid of a composite volume as the volume-weighted assembly of volumetric primitives. Independently re-derived: V_1 = 192000 mm^3 at (60, 40, 10) and V_2 = 96000 mm^3 at (20, 40, 35), volumes differing by a factor of two; V = 288000 mm^3. First moments about x = 0: 11520000 + 1920000 = 13440000 mm^4, x-bar = 46.6667 mm reported as 46.67 mm with the rounding stated. About z = 0: 1920000 + 3360000 = 5280000 mm^4, z-bar = 18.3333 mm reported as 18.33 mm with the rounding stated. y-bar = 40 mm stated by symmetry rather than the axis being silently omitted. Verified by an independent shifted-reference route: moments about x = 120 give 11520000 + 9600000 = 21120000 mm^4, a distance of 73.3333 mm from that plane, and 120 - 73.3333 = 46.6667 mm, agreeing with the direct result \u2014 two reference planes returning the same physical point. Discrimination confirmed live rather than asserted: the unweighted average of the x-coordinates is 40 mm against the weighted 46.67 mm, and on z is 22.5 mm against 18.33 mm, gaps that exist precisely because the volumes differ. Boundary recorded: centroid_volume_primitives supplies each primitive's volume and own centroid, taken as given and not re-derived; composite_centroid owns the same weighting logic for areas and this skill is its volumetric counterpart without re-deriving the principle; centroid_first_moments owns the first-moment idea, used not re-derived; no integration; Pappus-Guldinus revolution methods excluded as batch siblings. Mass and density verified absent from every symbol and step, with the homogeneous-body coincidence and the negative-volume treatment of a removed region each confined to a single concept sentence carrying no authored step and no mapped signal. Three earned signals: axis_confusion at step 3 where per-axis coordinate pairing occurs, simple_average_used at step 4 where the volume-weighted first moments are formed \u2014 this being a Centroids-family skill where that signal is permitted and where the authored gap makes it genuinely earned \u2014 and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL, step 1 being the earliest general recovery step stating the given-inputs rule and the exclusions. sign_or_placement_error omitted as unearned, not trimmed: all coordinates are positive and no removed region is exercised, so no authored step assigns a sense or places a cutout. solution_sequencing_error omitted as unearned, not trimmed: the total volume may be formed before or after the first-moment sums without stranding a prerequisite unknown. First draft BLOCKED on the formula-variable audit \u2014 notation used y_i in the y-bar expression while formula.variables declared only y_1 and y_2; corrected under PHASE-D-CENTROID-COMPOSITE-VOLUMES-CURSOR-CORRECTION-001 by declaring y_i alongside the other generic index forms, with no other field altered. Honest limitation recorded in the artifact: the shifted-reference check confirms consistent weighting and division but does not validate the given primitive volumes or centroid locations, since a wrong input would be carried identically through both references and the two would still agree.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_composite_volumes",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-composite-volumes-v1:remediation explanation",
+      "explanation_type": "remediation explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-composite-volumes-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "Centroid of a composite volume as the volume-weighted assembly of volumetric primitives. Independently re-derived: V_1 = 192000 mm^3 at (60, 40, 10) and V_2 = 96000 mm^3 at (20, 40, 35), volumes differing by a factor of two; V = 288000 mm^3. First moments about x = 0: 11520000 + 1920000 = 13440000 mm^4, x-bar = 46.6667 mm reported as 46.67 mm with the rounding stated. About z = 0: 1920000 + 3360000 = 5280000 mm^4, z-bar = 18.3333 mm reported as 18.33 mm with the rounding stated. y-bar = 40 mm stated by symmetry rather than the axis being silently omitted. Verified by an independent shifted-reference route: moments about x = 120 give 11520000 + 9600000 = 21120000 mm^4, a distance of 73.3333 mm from that plane, and 120 - 73.3333 = 46.6667 mm, agreeing with the direct result \u2014 two reference planes returning the same physical point. Discrimination confirmed live rather than asserted: the unweighted average of the x-coordinates is 40 mm against the weighted 46.67 mm, and on z is 22.5 mm against 18.33 mm, gaps that exist precisely because the volumes differ. Boundary recorded: centroid_volume_primitives supplies each primitive's volume and own centroid, taken as given and not re-derived; composite_centroid owns the same weighting logic for areas and this skill is its volumetric counterpart without re-deriving the principle; centroid_first_moments owns the first-moment idea, used not re-derived; no integration; Pappus-Guldinus revolution methods excluded as batch siblings. Mass and density verified absent from every symbol and step, with the homogeneous-body coincidence and the negative-volume treatment of a removed region each confined to a single concept sentence carrying no authored step and no mapped signal. Three earned signals: axis_confusion at step 3 where per-axis coordinate pairing occurs, simple_average_used at step 4 where the volume-weighted first moments are formed \u2014 this being a Centroids-family skill where that signal is permitted and where the authored gap makes it genuinely earned \u2014 and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL, step 1 being the earliest general recovery step stating the given-inputs rule and the exclusions. sign_or_placement_error omitted as unearned, not trimmed: all coordinates are positive and no removed region is exercised, so no authored step assigns a sense or places a cutout. solution_sequencing_error omitted as unearned, not trimmed: the total volume may be formed before or after the first-moment sums without stranding a prerequisite unknown. First draft BLOCKED on the formula-variable audit \u2014 notation used y_i in the y-bar expression while formula.variables declared only y_1 and y_2; corrected under PHASE-D-CENTROID-COMPOSITE-VOLUMES-CURSOR-CORRECTION-001 by declaring y_i alongside the other generic index forms, with no other field altered. Honest limitation recorded in the artifact: the shifted-reference check confirms consistent weighting and division but does not validate the given primitive volumes or centroid locations, since a wrong input would be carried identically through both references and the two would still agree.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_composite_volumes",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-composite-volumes-v1:solution explanation",
+      "explanation_type": "solution explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-composite-volumes-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "Centroid of a composite volume as the volume-weighted assembly of volumetric primitives. Independently re-derived: V_1 = 192000 mm^3 at (60, 40, 10) and V_2 = 96000 mm^3 at (20, 40, 35), volumes differing by a factor of two; V = 288000 mm^3. First moments about x = 0: 11520000 + 1920000 = 13440000 mm^4, x-bar = 46.6667 mm reported as 46.67 mm with the rounding stated. About z = 0: 1920000 + 3360000 = 5280000 mm^4, z-bar = 18.3333 mm reported as 18.33 mm with the rounding stated. y-bar = 40 mm stated by symmetry rather than the axis being silently omitted. Verified by an independent shifted-reference route: moments about x = 120 give 11520000 + 9600000 = 21120000 mm^4, a distance of 73.3333 mm from that plane, and 120 - 73.3333 = 46.6667 mm, agreeing with the direct result \u2014 two reference planes returning the same physical point. Discrimination confirmed live rather than asserted: the unweighted average of the x-coordinates is 40 mm against the weighted 46.67 mm, and on z is 22.5 mm against 18.33 mm, gaps that exist precisely because the volumes differ. Boundary recorded: centroid_volume_primitives supplies each primitive's volume and own centroid, taken as given and not re-derived; composite_centroid owns the same weighting logic for areas and this skill is its volumetric counterpart without re-deriving the principle; centroid_first_moments owns the first-moment idea, used not re-derived; no integration; Pappus-Guldinus revolution methods excluded as batch siblings. Mass and density verified absent from every symbol and step, with the homogeneous-body coincidence and the negative-volume treatment of a removed region each confined to a single concept sentence carrying no authored step and no mapped signal. Three earned signals: axis_confusion at step 3 where per-axis coordinate pairing occurs, simple_average_used at step 4 where the volume-weighted first moments are formed \u2014 this being a Centroids-family skill where that signal is permitted and where the authored gap makes it genuinely earned \u2014 and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL, step 1 being the earliest general recovery step stating the given-inputs rule and the exclusions. sign_or_placement_error omitted as unearned, not trimmed: all coordinates are positive and no removed region is exercised, so no authored step assigns a sense or places a cutout. solution_sequencing_error omitted as unearned, not trimmed: the total volume may be formed before or after the first-moment sums without stranding a prerequisite unknown. First draft BLOCKED on the formula-variable audit \u2014 notation used y_i in the y-bar expression while formula.variables declared only y_1 and y_2; corrected under PHASE-D-CENTROID-COMPOSITE-VOLUMES-CURSOR-CORRECTION-001 by declaring y_i alongside the other generic index forms, with no other field altered. Honest limitation recorded in the artifact: the shifted-reference check confirms consistent weighting and division but does not validate the given primitive volumes or centroid locations, since a wrong input would be carried identically through both references and the two would still agree.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_composite_volumes",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-composite-volumes-v1:worked example",
+      "explanation_type": "worked example",
+      "linked_procedure_id": "proc-statics-centroids-centroid-composite-volumes-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "Centroid of a composite volume as the volume-weighted assembly of volumetric primitives. Independently re-derived: V_1 = 192000 mm^3 at (60, 40, 10) and V_2 = 96000 mm^3 at (20, 40, 35), volumes differing by a factor of two; V = 288000 mm^3. First moments about x = 0: 11520000 + 1920000 = 13440000 mm^4, x-bar = 46.6667 mm reported as 46.67 mm with the rounding stated. About z = 0: 1920000 + 3360000 = 5280000 mm^4, z-bar = 18.3333 mm reported as 18.33 mm with the rounding stated. y-bar = 40 mm stated by symmetry rather than the axis being silently omitted. Verified by an independent shifted-reference route: moments about x = 120 give 11520000 + 9600000 = 21120000 mm^4, a distance of 73.3333 mm from that plane, and 120 - 73.3333 = 46.6667 mm, agreeing with the direct result \u2014 two reference planes returning the same physical point. Discrimination confirmed live rather than asserted: the unweighted average of the x-coordinates is 40 mm against the weighted 46.67 mm, and on z is 22.5 mm against 18.33 mm, gaps that exist precisely because the volumes differ. Boundary recorded: centroid_volume_primitives supplies each primitive's volume and own centroid, taken as given and not re-derived; composite_centroid owns the same weighting logic for areas and this skill is its volumetric counterpart without re-deriving the principle; centroid_first_moments owns the first-moment idea, used not re-derived; no integration; Pappus-Guldinus revolution methods excluded as batch siblings. Mass and density verified absent from every symbol and step, with the homogeneous-body coincidence and the negative-volume treatment of a removed region each confined to a single concept sentence carrying no authored step and no mapped signal. Three earned signals: axis_confusion at step 3 where per-axis coordinate pairing occurs, simple_average_used at step 4 where the volume-weighted first moments are formed \u2014 this being a Centroids-family skill where that signal is permitted and where the authored gap makes it genuinely earned \u2014 and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL, step 1 being the earliest general recovery step stating the given-inputs rule and the exclusions. sign_or_placement_error omitted as unearned, not trimmed: all coordinates are positive and no removed region is exercised, so no authored step assigns a sense or places a cutout. solution_sequencing_error omitted as unearned, not trimmed: the total volume may be formed before or after the first-moment sums without stranding a prerequisite unknown. First draft BLOCKED on the formula-variable audit \u2014 notation used y_i in the y-bar expression while formula.variables declared only y_1 and y_2; corrected under PHASE-D-CENTROID-COMPOSITE-VOLUMES-CURSOR-CORRECTION-001 by declaring y_i alongside the other generic index forms, with no other field altered. Honest limitation recorded in the artifact: the shifted-reference check confirms consistent weighting and division but does not validate the given primitive volumes or centroid locations, since a wrong input would be carried identically through both references and the two would still agree.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_composite_volumes",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-first-moments-v1:concept explanation",
+      "explanation_type": "concept explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-first-moments-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-11",
+        "notes": "First moments of area Qx=\u03a3A\u1d62\u0233\u1d62, Qy=\u03a3A\u1d62x\u0304\u1d62; setup-only, stops before \u03a3A division (composite_centroid owns that). 3-signal {sign_or_placement_error:3, simple_average_used:4, unclassified:8}. Worked example independently re-derived (Qx=10 m\u00b3, Qy=25 m\u00b3). Batch 4A routine under closed-field enforcement.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-FIRST-MOMENTS-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_first_moments",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-first-moments-v1:procedure explanation",
+      "explanation_type": "procedure explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-first-moments-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-11",
+        "notes": "First moments of area Qx=\u03a3A\u1d62\u0233\u1d62, Qy=\u03a3A\u1d62x\u0304\u1d62; setup-only, stops before \u03a3A division (composite_centroid owns that). 3-signal {sign_or_placement_error:3, simple_average_used:4, unclassified:8}. Worked example independently re-derived (Qx=10 m\u00b3, Qy=25 m\u00b3). Batch 4A routine under closed-field enforcement.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-FIRST-MOMENTS-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_first_moments",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-first-moments-v1:remediation explanation",
+      "explanation_type": "remediation explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-first-moments-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-11",
+        "notes": "First moments of area Qx=\u03a3A\u1d62\u0233\u1d62, Qy=\u03a3A\u1d62x\u0304\u1d62; setup-only, stops before \u03a3A division (composite_centroid owns that). 3-signal {sign_or_placement_error:3, simple_average_used:4, unclassified:8}. Worked example independently re-derived (Qx=10 m\u00b3, Qy=25 m\u00b3). Batch 4A routine under closed-field enforcement.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-FIRST-MOMENTS-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_first_moments",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-first-moments-v1:solution explanation",
+      "explanation_type": "solution explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-first-moments-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-11",
+        "notes": "First moments of area Qx=\u03a3A\u1d62\u0233\u1d62, Qy=\u03a3A\u1d62x\u0304\u1d62; setup-only, stops before \u03a3A division (composite_centroid owns that). 3-signal {sign_or_placement_error:3, simple_average_used:4, unclassified:8}. Worked example independently re-derived (Qx=10 m\u00b3, Qy=25 m\u00b3). Batch 4A routine under closed-field enforcement.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-FIRST-MOMENTS-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_first_moments",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-first-moments-v1:worked example",
+      "explanation_type": "worked example",
+      "linked_procedure_id": "proc-statics-centroids-centroid-first-moments-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-11",
+        "notes": "First moments of area Qx=\u03a3A\u1d62\u0233\u1d62, Qy=\u03a3A\u1d62x\u0304\u1d62; setup-only, stops before \u03a3A division (composite_centroid owns that). 3-signal {sign_or_placement_error:3, simple_average_used:4, unclassified:8}. Worked example independently re-derived (Qx=10 m\u00b3, Qy=25 m\u00b3). Batch 4A routine under closed-field enforcement.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-FIRST-MOMENTS-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_first_moments",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-symmetry-v1:concept explanation",
+      "explanation_type": "concept explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-symmetry-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 1/5. Retires the composite_centroid <- centroid_symmetry pre-gate unsigned-prereq debt (Architect Pass #2 Decision C). Worked example independently re-derived by Operator: isosceles triangle (-3,0),(3,0),(0,4), legs 5 and 5; reflection across x=0 confirmed; x-bar = 0 by symmetry; y-bar correctly left undetermined (out of scope). 3-signal mapping content-earned: axis_confusion at step 4 extends the component-resolution precedent \u2014 step 4 resolves no components but maps axis to fixed coordinate, and 'vertical symmetry fixes y-bar' is an x/y swap, the canonical definition. Recorded for Architect override. simple_average_used omitted: symmetry replaces computation, no averaging step exists to attach it to.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-SYMMETRY-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_symmetry",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-symmetry-v1:procedure explanation",
+      "explanation_type": "procedure explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-symmetry-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 1/5. Retires the composite_centroid <- centroid_symmetry pre-gate unsigned-prereq debt (Architect Pass #2 Decision C). Worked example independently re-derived by Operator: isosceles triangle (-3,0),(3,0),(0,4), legs 5 and 5; reflection across x=0 confirmed; x-bar = 0 by symmetry; y-bar correctly left undetermined (out of scope). 3-signal mapping content-earned: axis_confusion at step 4 extends the component-resolution precedent \u2014 step 4 resolves no components but maps axis to fixed coordinate, and 'vertical symmetry fixes y-bar' is an x/y swap, the canonical definition. Recorded for Architect override. simple_average_used omitted: symmetry replaces computation, no averaging step exists to attach it to.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-SYMMETRY-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_symmetry",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-symmetry-v1:remediation explanation",
+      "explanation_type": "remediation explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-symmetry-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 1/5. Retires the composite_centroid <- centroid_symmetry pre-gate unsigned-prereq debt (Architect Pass #2 Decision C). Worked example independently re-derived by Operator: isosceles triangle (-3,0),(3,0),(0,4), legs 5 and 5; reflection across x=0 confirmed; x-bar = 0 by symmetry; y-bar correctly left undetermined (out of scope). 3-signal mapping content-earned: axis_confusion at step 4 extends the component-resolution precedent \u2014 step 4 resolves no components but maps axis to fixed coordinate, and 'vertical symmetry fixes y-bar' is an x/y swap, the canonical definition. Recorded for Architect override. simple_average_used omitted: symmetry replaces computation, no averaging step exists to attach it to.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-SYMMETRY-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_symmetry",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-symmetry-v1:solution explanation",
+      "explanation_type": "solution explanation",
+      "linked_procedure_id": "proc-statics-centroids-centroid-symmetry-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 1/5. Retires the composite_centroid <- centroid_symmetry pre-gate unsigned-prereq debt (Architect Pass #2 Decision C). Worked example independently re-derived by Operator: isosceles triangle (-3,0),(3,0),(0,4), legs 5 and 5; reflection across x=0 confirmed; x-bar = 0 by symmetry; y-bar correctly left undetermined (out of scope). 3-signal mapping content-earned: axis_confusion at step 4 extends the component-resolution precedent \u2014 step 4 resolves no components but maps axis to fixed coordinate, and 'vertical symmetry fixes y-bar' is an x/y swap, the canonical definition. Recorded for Architect override. simple_average_used omitted: symmetry replaces computation, no averaging step exists to attach it to.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-SYMMETRY-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_symmetry",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-centroid-symmetry-v1:worked example",
+      "explanation_type": "worked example",
+      "linked_procedure_id": "proc-statics-centroids-centroid-symmetry-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 1/5. Retires the composite_centroid <- centroid_symmetry pre-gate unsigned-prereq debt (Architect Pass #2 Decision C). Worked example independently re-derived by Operator: isosceles triangle (-3,0),(3,0),(0,4), legs 5 and 5; reflection across x=0 confirmed; x-bar = 0 by symmetry; y-bar correctly left undetermined (out of scope). 3-signal mapping content-earned: axis_confusion at step 4 extends the component-resolution precedent \u2014 step 4 resolves no components but maps axis to fixed coordinate, and 'vertical symmetry fixes y-bar' is an x/y swap, the canonical definition. Recorded for Architect override. simple_average_used omitted: symmetry replaces computation, no averaging step exists to attach it to.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-SYMMETRY-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "centroid_symmetry",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-composite-centroid-v1:concept explanation",
+      "explanation_type": "concept explanation",
+      "linked_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-01",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "composite_centroid",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-composite-centroid-v1:procedure explanation",
+      "explanation_type": "procedure explanation",
+      "linked_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-01",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "composite_centroid",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-composite-centroid-v1:remediation explanation",
+      "explanation_type": "remediation explanation",
+      "linked_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-01",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "composite_centroid",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-composite-centroid-v1:solution explanation",
+      "explanation_type": "solution explanation",
+      "linked_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-01",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "composite_centroid",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-composite-centroid-v1:worked example",
+      "explanation_type": "worked example",
+      "linked_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-01",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "composite_centroid",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-distributed-load-resultant-by-centroid-v1:concept explanation",
+      "explanation_type": "concept explanation",
+      "linked_procedure_id": "proc-statics-centroids-distributed-load-resultant-by-centroid-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 4/5. Closes the E3 distributed-load boundary pair with general_distributed_load_resultant (signed e8bf7f79): that skill integrates w(x); this one decomposes a load diagram into standard shapes and area-weights the part centroids. Entry point is the distinction. Worked example independently re-derived by Operator: trapezoid 2 -> 10 kN/m on [0, 6]; rectangle R_1 = 12 kN at x_1 = 3.0 m; triangle R_2 = 24 kN at x_2 = 2L/3 = 4.0 m; R = 36 kN; x_bar = 132/36 = 3.67 m. Cross-checked by integration of the equivalent w(x) = 2 + (4/3)x: R = 36 kN, M = 132 kN-m, x_bar = 3.67 m \u2014 both methods agree. Example is asymmetric by design (x_bar 3.67 != L/2 3.0) and the naive average of part centroids (3.5 m) differs from the area-weighted result (3.67 m), so simple_average_used at step 6 is a live diagnostic rather than a label \u2014 this satisfies the Architect E4 condition that the signal attach to a real weighting step. 3-signal mapping content-earned: sign_or_placement_error at step 5 (part-centroid location), simple_average_used at step 6 (area weighting), unclassified at step 8 (reporting and sanity check). axis_confusion omitted: single beam-axis coordinate, no step resolves components. Procedure step 5 amended at the review beat to name the maximum-intensity end explicitly \u2014 the step its own signal targets had said 'the appropriate end', which is precisely what the failing student does not know. Symbols w and L declared at the review beat.",
+        "reviewer": "Phase D sign-off review (PHASE-D-DISTRIBUTED-LOAD-RESULTANT-BY-CENTROID-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "distributed_load_resultant_by_centroid",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-distributed-load-resultant-by-centroid-v1:procedure explanation",
+      "explanation_type": "procedure explanation",
+      "linked_procedure_id": "proc-statics-centroids-distributed-load-resultant-by-centroid-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 4/5. Closes the E3 distributed-load boundary pair with general_distributed_load_resultant (signed e8bf7f79): that skill integrates w(x); this one decomposes a load diagram into standard shapes and area-weights the part centroids. Entry point is the distinction. Worked example independently re-derived by Operator: trapezoid 2 -> 10 kN/m on [0, 6]; rectangle R_1 = 12 kN at x_1 = 3.0 m; triangle R_2 = 24 kN at x_2 = 2L/3 = 4.0 m; R = 36 kN; x_bar = 132/36 = 3.67 m. Cross-checked by integration of the equivalent w(x) = 2 + (4/3)x: R = 36 kN, M = 132 kN-m, x_bar = 3.67 m \u2014 both methods agree. Example is asymmetric by design (x_bar 3.67 != L/2 3.0) and the naive average of part centroids (3.5 m) differs from the area-weighted result (3.67 m), so simple_average_used at step 6 is a live diagnostic rather than a label \u2014 this satisfies the Architect E4 condition that the signal attach to a real weighting step. 3-signal mapping content-earned: sign_or_placement_error at step 5 (part-centroid location), simple_average_used at step 6 (area weighting), unclassified at step 8 (reporting and sanity check). axis_confusion omitted: single beam-axis coordinate, no step resolves components. Procedure step 5 amended at the review beat to name the maximum-intensity end explicitly \u2014 the step its own signal targets had said 'the appropriate end', which is precisely what the failing student does not know. Symbols w and L declared at the review beat.",
+        "reviewer": "Phase D sign-off review (PHASE-D-DISTRIBUTED-LOAD-RESULTANT-BY-CENTROID-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "distributed_load_resultant_by_centroid",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-distributed-load-resultant-by-centroid-v1:remediation explanation",
+      "explanation_type": "remediation explanation",
+      "linked_procedure_id": "proc-statics-centroids-distributed-load-resultant-by-centroid-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 4/5. Closes the E3 distributed-load boundary pair with general_distributed_load_resultant (signed e8bf7f79): that skill integrates w(x); this one decomposes a load diagram into standard shapes and area-weights the part centroids. Entry point is the distinction. Worked example independently re-derived by Operator: trapezoid 2 -> 10 kN/m on [0, 6]; rectangle R_1 = 12 kN at x_1 = 3.0 m; triangle R_2 = 24 kN at x_2 = 2L/3 = 4.0 m; R = 36 kN; x_bar = 132/36 = 3.67 m. Cross-checked by integration of the equivalent w(x) = 2 + (4/3)x: R = 36 kN, M = 132 kN-m, x_bar = 3.67 m \u2014 both methods agree. Example is asymmetric by design (x_bar 3.67 != L/2 3.0) and the naive average of part centroids (3.5 m) differs from the area-weighted result (3.67 m), so simple_average_used at step 6 is a live diagnostic rather than a label \u2014 this satisfies the Architect E4 condition that the signal attach to a real weighting step. 3-signal mapping content-earned: sign_or_placement_error at step 5 (part-centroid location), simple_average_used at step 6 (area weighting), unclassified at step 8 (reporting and sanity check). axis_confusion omitted: single beam-axis coordinate, no step resolves components. Procedure step 5 amended at the review beat to name the maximum-intensity end explicitly \u2014 the step its own signal targets had said 'the appropriate end', which is precisely what the failing student does not know. Symbols w and L declared at the review beat.",
+        "reviewer": "Phase D sign-off review (PHASE-D-DISTRIBUTED-LOAD-RESULTANT-BY-CENTROID-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "distributed_load_resultant_by_centroid",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-distributed-load-resultant-by-centroid-v1:solution explanation",
+      "explanation_type": "solution explanation",
+      "linked_procedure_id": "proc-statics-centroids-distributed-load-resultant-by-centroid-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 4/5. Closes the E3 distributed-load boundary pair with general_distributed_load_resultant (signed e8bf7f79): that skill integrates w(x); this one decomposes a load diagram into standard shapes and area-weights the part centroids. Entry point is the distinction. Worked example independently re-derived by Operator: trapezoid 2 -> 10 kN/m on [0, 6]; rectangle R_1 = 12 kN at x_1 = 3.0 m; triangle R_2 = 24 kN at x_2 = 2L/3 = 4.0 m; R = 36 kN; x_bar = 132/36 = 3.67 m. Cross-checked by integration of the equivalent w(x) = 2 + (4/3)x: R = 36 kN, M = 132 kN-m, x_bar = 3.67 m \u2014 both methods agree. Example is asymmetric by design (x_bar 3.67 != L/2 3.0) and the naive average of part centroids (3.5 m) differs from the area-weighted result (3.67 m), so simple_average_used at step 6 is a live diagnostic rather than a label \u2014 this satisfies the Architect E4 condition that the signal attach to a real weighting step. 3-signal mapping content-earned: sign_or_placement_error at step 5 (part-centroid location), simple_average_used at step 6 (area weighting), unclassified at step 8 (reporting and sanity check). axis_confusion omitted: single beam-axis coordinate, no step resolves components. Procedure step 5 amended at the review beat to name the maximum-intensity end explicitly \u2014 the step its own signal targets had said 'the appropriate end', which is precisely what the failing student does not know. Symbols w and L declared at the review beat.",
+        "reviewer": "Phase D sign-off review (PHASE-D-DISTRIBUTED-LOAD-RESULTANT-BY-CENTROID-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "distributed_load_resultant_by_centroid",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-distributed-load-resultant-by-centroid-v1:worked example",
+      "explanation_type": "worked example",
+      "linked_procedure_id": "proc-statics-centroids-distributed-load-resultant-by-centroid-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 4/5. Closes the E3 distributed-load boundary pair with general_distributed_load_resultant (signed e8bf7f79): that skill integrates w(x); this one decomposes a load diagram into standard shapes and area-weights the part centroids. Entry point is the distinction. Worked example independently re-derived by Operator: trapezoid 2 -> 10 kN/m on [0, 6]; rectangle R_1 = 12 kN at x_1 = 3.0 m; triangle R_2 = 24 kN at x_2 = 2L/3 = 4.0 m; R = 36 kN; x_bar = 132/36 = 3.67 m. Cross-checked by integration of the equivalent w(x) = 2 + (4/3)x: R = 36 kN, M = 132 kN-m, x_bar = 3.67 m \u2014 both methods agree. Example is asymmetric by design (x_bar 3.67 != L/2 3.0) and the naive average of part centroids (3.5 m) differs from the area-weighted result (3.67 m), so simple_average_used at step 6 is a live diagnostic rather than a label \u2014 this satisfies the Architect E4 condition that the signal attach to a real weighting step. 3-signal mapping content-earned: sign_or_placement_error at step 5 (part-centroid location), simple_average_used at step 6 (area weighting), unclassified at step 8 (reporting and sanity check). axis_confusion omitted: single beam-axis coordinate, no step resolves components. Procedure step 5 amended at the review beat to name the maximum-intensity end explicitly \u2014 the step its own signal targets had said 'the appropriate end', which is precisely what the failing student does not know. Symbols w and L declared at the review beat.",
+        "reviewer": "Phase D sign-off review (PHASE-D-DISTRIBUTED-LOAD-RESULTANT-BY-CENTROID-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "distributed_load_resultant_by_centroid",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-pappus-guldinus-surface-area-v1:concept explanation",
+      "explanation_type": "concept explanation",
+      "linked_procedure_id": "proc-statics-centroids-pappus-guldinus-surface-area-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "First theorem of Pappus-Guldinus, surface area generated by revolving a plane CURVE about a non-intersecting axis, A = theta * r_bar_c * L with theta in radians. Independently re-derived. Case 1: a segment of length 60 mm parallel to the axis at constant 40 mm, revolved through pi/2, gives A = (pi/2)(40)(60) = 1200 pi = 3769.91 mm^2. Verified by an independent elementary route that does not reuse the theorem: the swept surface is a quarter of a cylindrical lateral surface of radius 40 and height 60, whose full area is 2 pi (40)(60) = 4800 pi, one quarter of which is 1200 pi \u2014 an exact match. Case 2 carries the discrimination: the hypotenuse of a 30-40-50 right triangle placed with vertices at (30, 0), (60, 0) and (30, 40), revolved about x = 0. Both centroid distances were re-derived from those vertices: hypotenuse length sqrt(900 + 1600) = 50 mm, curve centroid at the midpoint (45, 20) giving r_bar_c = 45 mm, and the centroid of the triangular AREA at the vertex average (40, 13.33) giving 40 mm. A = (pi/2)(45)(50) = 1125 pi = 3534.29 mm^2 from the curve centroid, against 1000 pi = 3141.59 mm^2 from the area centroid \u2014 a gap of 125 pi, about 11 percent, making the line-centroid versus area-centroid distinction visible numerically rather than asserted in prose. The axis does not intersect the triangle, all of whose points lie at x >= 30. Theta is stated in radians and a quarter revolution is used so that theta is a visible variable rather than an invisible 2 pi; the dimensional argument that degrees cannot produce a correct area is recorded. BOUNDARY, the central requirement of this lane: pappus_guldinus_volume is an UNSIGNED sibling in the SAME subtopic owning the second theorem, volume from revolving a plane AREA using the area centroid. Verified excluded \u2014 no volume is computed anywhere, no generating-area or volume symbol is introduced, and the complement is named in exactly one sentence so a student can distinguish the theorems without this artifact performing the other. centroid_first_moments supplies the curve centroid, taken as given and not re-derived; composite weighting for segmented curves is owned elsewhere; the theorem replaces integration; no mass or density. Two earned signals: axis_confusion at step 2 where the centroid is identified and its perpendicular distance measured, this being where substituting the area centroid occurs, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL as the earliest general recovery step stating the theorem and the exclusions. simple_average_used omitted as unearned despite this being a Centroids-family skill where the signal is permitted: the centroid is given or taken from standard results and no averaging step is authored, so family membership alone does not earn it. sign_or_placement_error omitted as unearned: no authored step assigns a sense or a placement, and substituting the wrong centroid is an axis-identity error. solution_sequencing_error omitted as unearned: L, r_bar_c and theta are independently available and no step strands a prerequisite. Honest limitation recorded in the artifact: the cylindrical cross-check is available only because the Case 1 generator sits at constant distance from the axis, is not available for a general curve, and does not validate the Case 2 centroid inputs. First draft BLOCKED because Case 2 asserted the area-centroid distance of 40 mm without placing the triangle, leaving the discriminating number underivable from the stated configuration; the defect originated in the Operator packet text rather than in execution, and was corrected under PHASE-D-PAPPUS-GULDINUS-SURFACE-AREA-CURSOR-CORRECTION-001 by stating explicit vertex coordinates from which both centroid distances follow.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "pappus_guldinus_surface_area",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-pappus-guldinus-surface-area-v1:procedure explanation",
+      "explanation_type": "procedure explanation",
+      "linked_procedure_id": "proc-statics-centroids-pappus-guldinus-surface-area-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "First theorem of Pappus-Guldinus, surface area generated by revolving a plane CURVE about a non-intersecting axis, A = theta * r_bar_c * L with theta in radians. Independently re-derived. Case 1: a segment of length 60 mm parallel to the axis at constant 40 mm, revolved through pi/2, gives A = (pi/2)(40)(60) = 1200 pi = 3769.91 mm^2. Verified by an independent elementary route that does not reuse the theorem: the swept surface is a quarter of a cylindrical lateral surface of radius 40 and height 60, whose full area is 2 pi (40)(60) = 4800 pi, one quarter of which is 1200 pi \u2014 an exact match. Case 2 carries the discrimination: the hypotenuse of a 30-40-50 right triangle placed with vertices at (30, 0), (60, 0) and (30, 40), revolved about x = 0. Both centroid distances were re-derived from those vertices: hypotenuse length sqrt(900 + 1600) = 50 mm, curve centroid at the midpoint (45, 20) giving r_bar_c = 45 mm, and the centroid of the triangular AREA at the vertex average (40, 13.33) giving 40 mm. A = (pi/2)(45)(50) = 1125 pi = 3534.29 mm^2 from the curve centroid, against 1000 pi = 3141.59 mm^2 from the area centroid \u2014 a gap of 125 pi, about 11 percent, making the line-centroid versus area-centroid distinction visible numerically rather than asserted in prose. The axis does not intersect the triangle, all of whose points lie at x >= 30. Theta is stated in radians and a quarter revolution is used so that theta is a visible variable rather than an invisible 2 pi; the dimensional argument that degrees cannot produce a correct area is recorded. BOUNDARY, the central requirement of this lane: pappus_guldinus_volume is an UNSIGNED sibling in the SAME subtopic owning the second theorem, volume from revolving a plane AREA using the area centroid. Verified excluded \u2014 no volume is computed anywhere, no generating-area or volume symbol is introduced, and the complement is named in exactly one sentence so a student can distinguish the theorems without this artifact performing the other. centroid_first_moments supplies the curve centroid, taken as given and not re-derived; composite weighting for segmented curves is owned elsewhere; the theorem replaces integration; no mass or density. Two earned signals: axis_confusion at step 2 where the centroid is identified and its perpendicular distance measured, this being where substituting the area centroid occurs, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL as the earliest general recovery step stating the theorem and the exclusions. simple_average_used omitted as unearned despite this being a Centroids-family skill where the signal is permitted: the centroid is given or taken from standard results and no averaging step is authored, so family membership alone does not earn it. sign_or_placement_error omitted as unearned: no authored step assigns a sense or a placement, and substituting the wrong centroid is an axis-identity error. solution_sequencing_error omitted as unearned: L, r_bar_c and theta are independently available and no step strands a prerequisite. Honest limitation recorded in the artifact: the cylindrical cross-check is available only because the Case 1 generator sits at constant distance from the axis, is not available for a general curve, and does not validate the Case 2 centroid inputs. First draft BLOCKED because Case 2 asserted the area-centroid distance of 40 mm without placing the triangle, leaving the discriminating number underivable from the stated configuration; the defect originated in the Operator packet text rather than in execution, and was corrected under PHASE-D-PAPPUS-GULDINUS-SURFACE-AREA-CURSOR-CORRECTION-001 by stating explicit vertex coordinates from which both centroid distances follow.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "pappus_guldinus_surface_area",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-pappus-guldinus-surface-area-v1:remediation explanation",
+      "explanation_type": "remediation explanation",
+      "linked_procedure_id": "proc-statics-centroids-pappus-guldinus-surface-area-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "First theorem of Pappus-Guldinus, surface area generated by revolving a plane CURVE about a non-intersecting axis, A = theta * r_bar_c * L with theta in radians. Independently re-derived. Case 1: a segment of length 60 mm parallel to the axis at constant 40 mm, revolved through pi/2, gives A = (pi/2)(40)(60) = 1200 pi = 3769.91 mm^2. Verified by an independent elementary route that does not reuse the theorem: the swept surface is a quarter of a cylindrical lateral surface of radius 40 and height 60, whose full area is 2 pi (40)(60) = 4800 pi, one quarter of which is 1200 pi \u2014 an exact match. Case 2 carries the discrimination: the hypotenuse of a 30-40-50 right triangle placed with vertices at (30, 0), (60, 0) and (30, 40), revolved about x = 0. Both centroid distances were re-derived from those vertices: hypotenuse length sqrt(900 + 1600) = 50 mm, curve centroid at the midpoint (45, 20) giving r_bar_c = 45 mm, and the centroid of the triangular AREA at the vertex average (40, 13.33) giving 40 mm. A = (pi/2)(45)(50) = 1125 pi = 3534.29 mm^2 from the curve centroid, against 1000 pi = 3141.59 mm^2 from the area centroid \u2014 a gap of 125 pi, about 11 percent, making the line-centroid versus area-centroid distinction visible numerically rather than asserted in prose. The axis does not intersect the triangle, all of whose points lie at x >= 30. Theta is stated in radians and a quarter revolution is used so that theta is a visible variable rather than an invisible 2 pi; the dimensional argument that degrees cannot produce a correct area is recorded. BOUNDARY, the central requirement of this lane: pappus_guldinus_volume is an UNSIGNED sibling in the SAME subtopic owning the second theorem, volume from revolving a plane AREA using the area centroid. Verified excluded \u2014 no volume is computed anywhere, no generating-area or volume symbol is introduced, and the complement is named in exactly one sentence so a student can distinguish the theorems without this artifact performing the other. centroid_first_moments supplies the curve centroid, taken as given and not re-derived; composite weighting for segmented curves is owned elsewhere; the theorem replaces integration; no mass or density. Two earned signals: axis_confusion at step 2 where the centroid is identified and its perpendicular distance measured, this being where substituting the area centroid occurs, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL as the earliest general recovery step stating the theorem and the exclusions. simple_average_used omitted as unearned despite this being a Centroids-family skill where the signal is permitted: the centroid is given or taken from standard results and no averaging step is authored, so family membership alone does not earn it. sign_or_placement_error omitted as unearned: no authored step assigns a sense or a placement, and substituting the wrong centroid is an axis-identity error. solution_sequencing_error omitted as unearned: L, r_bar_c and theta are independently available and no step strands a prerequisite. Honest limitation recorded in the artifact: the cylindrical cross-check is available only because the Case 1 generator sits at constant distance from the axis, is not available for a general curve, and does not validate the Case 2 centroid inputs. First draft BLOCKED because Case 2 asserted the area-centroid distance of 40 mm without placing the triangle, leaving the discriminating number underivable from the stated configuration; the defect originated in the Operator packet text rather than in execution, and was corrected under PHASE-D-PAPPUS-GULDINUS-SURFACE-AREA-CURSOR-CORRECTION-001 by stating explicit vertex coordinates from which both centroid distances follow.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "pappus_guldinus_surface_area",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-pappus-guldinus-surface-area-v1:solution explanation",
+      "explanation_type": "solution explanation",
+      "linked_procedure_id": "proc-statics-centroids-pappus-guldinus-surface-area-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "First theorem of Pappus-Guldinus, surface area generated by revolving a plane CURVE about a non-intersecting axis, A = theta * r_bar_c * L with theta in radians. Independently re-derived. Case 1: a segment of length 60 mm parallel to the axis at constant 40 mm, revolved through pi/2, gives A = (pi/2)(40)(60) = 1200 pi = 3769.91 mm^2. Verified by an independent elementary route that does not reuse the theorem: the swept surface is a quarter of a cylindrical lateral surface of radius 40 and height 60, whose full area is 2 pi (40)(60) = 4800 pi, one quarter of which is 1200 pi \u2014 an exact match. Case 2 carries the discrimination: the hypotenuse of a 30-40-50 right triangle placed with vertices at (30, 0), (60, 0) and (30, 40), revolved about x = 0. Both centroid distances were re-derived from those vertices: hypotenuse length sqrt(900 + 1600) = 50 mm, curve centroid at the midpoint (45, 20) giving r_bar_c = 45 mm, and the centroid of the triangular AREA at the vertex average (40, 13.33) giving 40 mm. A = (pi/2)(45)(50) = 1125 pi = 3534.29 mm^2 from the curve centroid, against 1000 pi = 3141.59 mm^2 from the area centroid \u2014 a gap of 125 pi, about 11 percent, making the line-centroid versus area-centroid distinction visible numerically rather than asserted in prose. The axis does not intersect the triangle, all of whose points lie at x >= 30. Theta is stated in radians and a quarter revolution is used so that theta is a visible variable rather than an invisible 2 pi; the dimensional argument that degrees cannot produce a correct area is recorded. BOUNDARY, the central requirement of this lane: pappus_guldinus_volume is an UNSIGNED sibling in the SAME subtopic owning the second theorem, volume from revolving a plane AREA using the area centroid. Verified excluded \u2014 no volume is computed anywhere, no generating-area or volume symbol is introduced, and the complement is named in exactly one sentence so a student can distinguish the theorems without this artifact performing the other. centroid_first_moments supplies the curve centroid, taken as given and not re-derived; composite weighting for segmented curves is owned elsewhere; the theorem replaces integration; no mass or density. Two earned signals: axis_confusion at step 2 where the centroid is identified and its perpendicular distance measured, this being where substituting the area centroid occurs, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL as the earliest general recovery step stating the theorem and the exclusions. simple_average_used omitted as unearned despite this being a Centroids-family skill where the signal is permitted: the centroid is given or taken from standard results and no averaging step is authored, so family membership alone does not earn it. sign_or_placement_error omitted as unearned: no authored step assigns a sense or a placement, and substituting the wrong centroid is an axis-identity error. solution_sequencing_error omitted as unearned: L, r_bar_c and theta are independently available and no step strands a prerequisite. Honest limitation recorded in the artifact: the cylindrical cross-check is available only because the Case 1 generator sits at constant distance from the axis, is not available for a general curve, and does not validate the Case 2 centroid inputs. First draft BLOCKED because Case 2 asserted the area-centroid distance of 40 mm without placing the triangle, leaving the discriminating number underivable from the stated configuration; the defect originated in the Operator packet text rather than in execution, and was corrected under PHASE-D-PAPPUS-GULDINUS-SURFACE-AREA-CURSOR-CORRECTION-001 by stating explicit vertex coordinates from which both centroid distances follow.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "pappus_guldinus_surface_area",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-pappus-guldinus-surface-area-v1:worked example",
+      "explanation_type": "worked example",
+      "linked_procedure_id": "proc-statics-centroids-pappus-guldinus-surface-area-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "First theorem of Pappus-Guldinus, surface area generated by revolving a plane CURVE about a non-intersecting axis, A = theta * r_bar_c * L with theta in radians. Independently re-derived. Case 1: a segment of length 60 mm parallel to the axis at constant 40 mm, revolved through pi/2, gives A = (pi/2)(40)(60) = 1200 pi = 3769.91 mm^2. Verified by an independent elementary route that does not reuse the theorem: the swept surface is a quarter of a cylindrical lateral surface of radius 40 and height 60, whose full area is 2 pi (40)(60) = 4800 pi, one quarter of which is 1200 pi \u2014 an exact match. Case 2 carries the discrimination: the hypotenuse of a 30-40-50 right triangle placed with vertices at (30, 0), (60, 0) and (30, 40), revolved about x = 0. Both centroid distances were re-derived from those vertices: hypotenuse length sqrt(900 + 1600) = 50 mm, curve centroid at the midpoint (45, 20) giving r_bar_c = 45 mm, and the centroid of the triangular AREA at the vertex average (40, 13.33) giving 40 mm. A = (pi/2)(45)(50) = 1125 pi = 3534.29 mm^2 from the curve centroid, against 1000 pi = 3141.59 mm^2 from the area centroid \u2014 a gap of 125 pi, about 11 percent, making the line-centroid versus area-centroid distinction visible numerically rather than asserted in prose. The axis does not intersect the triangle, all of whose points lie at x >= 30. Theta is stated in radians and a quarter revolution is used so that theta is a visible variable rather than an invisible 2 pi; the dimensional argument that degrees cannot produce a correct area is recorded. BOUNDARY, the central requirement of this lane: pappus_guldinus_volume is an UNSIGNED sibling in the SAME subtopic owning the second theorem, volume from revolving a plane AREA using the area centroid. Verified excluded \u2014 no volume is computed anywhere, no generating-area or volume symbol is introduced, and the complement is named in exactly one sentence so a student can distinguish the theorems without this artifact performing the other. centroid_first_moments supplies the curve centroid, taken as given and not re-derived; composite weighting for segmented curves is owned elsewhere; the theorem replaces integration; no mass or density. Two earned signals: axis_confusion at step 2 where the centroid is identified and its perpendicular distance measured, this being where substituting the area centroid occurs, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL as the earliest general recovery step stating the theorem and the exclusions. simple_average_used omitted as unearned despite this being a Centroids-family skill where the signal is permitted: the centroid is given or taken from standard results and no averaging step is authored, so family membership alone does not earn it. sign_or_placement_error omitted as unearned: no authored step assigns a sense or a placement, and substituting the wrong centroid is an axis-identity error. solution_sequencing_error omitted as unearned: L, r_bar_c and theta are independently available and no step strands a prerequisite. Honest limitation recorded in the artifact: the cylindrical cross-check is available only because the Case 1 generator sits at constant distance from the axis, is not available for a general curve, and does not validate the Case 2 centroid inputs. First draft BLOCKED because Case 2 asserted the area-centroid distance of 40 mm without placing the triangle, leaving the discriminating number underivable from the stated configuration; the defect originated in the Operator packet text rather than in execution, and was corrected under PHASE-D-PAPPUS-GULDINUS-SURFACE-AREA-CURSOR-CORRECTION-001 by stating explicit vertex coordinates from which both centroid distances follow.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "pappus_guldinus_surface_area",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-pappus-guldinus-volume-v1:concept explanation",
+      "explanation_type": "concept explanation",
+      "linked_procedure_id": "proc-statics-centroids-pappus-guldinus-volume-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "Second theorem of Pappus-Guldinus, volume generated by revolving a plane AREA about a non-intersecting axis, V = theta * r_bar_a * A_gen with theta in radians. Independently re-derived. Case 1: a right triangle with vertices (30, 0), (60, 0), (30, 40) has A_gen = 600 mm^2 and an area centroid at the vertex average (40, 13.333), giving r_bar_a = 40 mm from the axis x = 0, which the triangle does not meet since all its points lie at x >= 30; revolved through pi/2 this gives V = 12000 pi = 37699.11 mm^3. Case 2 carries the discrimination on a semicircular region of radius 30 with its diameter edge at x = 40: A_gen = 450 pi mm^2, area centroid at the cited standard 4R/(3 pi) = 40/pi from the edge so r_bar_a = 40 + 40/pi = 52.7324 mm, against the bounding arc's line centroid at the cited 2R/pi = 60/pi giving 59.0986 mm \u2014 provably different points. Correct volume 9000 pi (pi + 1) = 117100.8 mm^3 against the arc-centroid error 9000 pi (pi + 1.5) = 131237.9 mm^3, a gap of 14137.2 mm^3 or about twelve percent, making the area-centroid versus line-centroid distinction visible numerically. A right triangle was deliberately NOT used for the discrimination: its area centroid and the line centroid of its boundary both fall at x = 40, so that configuration would have been silently vacuous \u2014 the semicircle was chosen because 4R/(3 pi) and 2R/pi provably differ. EXECUTOR CATCH, recorded: the DRAFT-001 packet supplied Case 2 decimals of 37542.9 and 42074.4, which had dropped the factor of pi from A_gen = 450 pi. Cursor evaluated rather than transcribed, flagged the discrepancy, and computed the correct values, which the Operator then independently confirmed in closed form as 9000 pi (pi + 1) and 9000 pi (pi + 1.5). The defect originated in Operator packet data. BOUNDARY, the central requirement of this lane: pappus_guldinus_surface_area, SIGNED at position 4 in the SAME subtopic, owns the first theorem and explicitly ceded the second here. Verified reciprocal \u2014 no surface area is computed anywhere, no generated-surface-area or curve-length symbol is introduced, and the complement is named in exactly one sentence. centroid_composite_volumes is distinguished in one sentence as assembling a composite volume from known primitives rather than generating one by revolution, and no composite assembly is performed. Area centroids taken as given or cited from standard results, not re-derived; the theorem replaces integration; no mass or density. Theta stated in radians with the dimensional argument that degrees cannot produce a correct volume. Two earned signals: axis_confusion at step 2 where the area centroid is identified and its perpendicular distance measured, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL as the earliest general recovery step. simple_average_used omitted as unearned despite Centroids-family permission: the triangle's vertex average IS the correct standard result for a triangular area rather than an unweighted stand-in for a weighted computation, and the semicircle uses a cited closed form, so no authored step exhibits the weighted-versus-unweighted failure mode. sign_or_placement_error omitted: no authored step assigns a sense or placement. solution_sequencing_error omitted: A_gen, r_bar_a and theta are independently available. Honest limitation recorded in the artifact and deliberately not overstated: the full-versus-partial ratio check reuses the same theorem and the same centroid, so it confirms that theta enters linearly and that the arithmetic is consistent but is NOT an independent route to the volume and does NOT validate r_bar_a, since a wrong centroid would propagate identically through both computations. This is a weaker verification than the independent geometric routes used elsewhere in the batch, and the artifact says so plainly.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "pappus_guldinus_volume",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-pappus-guldinus-volume-v1:procedure explanation",
+      "explanation_type": "procedure explanation",
+      "linked_procedure_id": "proc-statics-centroids-pappus-guldinus-volume-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "Second theorem of Pappus-Guldinus, volume generated by revolving a plane AREA about a non-intersecting axis, V = theta * r_bar_a * A_gen with theta in radians. Independently re-derived. Case 1: a right triangle with vertices (30, 0), (60, 0), (30, 40) has A_gen = 600 mm^2 and an area centroid at the vertex average (40, 13.333), giving r_bar_a = 40 mm from the axis x = 0, which the triangle does not meet since all its points lie at x >= 30; revolved through pi/2 this gives V = 12000 pi = 37699.11 mm^3. Case 2 carries the discrimination on a semicircular region of radius 30 with its diameter edge at x = 40: A_gen = 450 pi mm^2, area centroid at the cited standard 4R/(3 pi) = 40/pi from the edge so r_bar_a = 40 + 40/pi = 52.7324 mm, against the bounding arc's line centroid at the cited 2R/pi = 60/pi giving 59.0986 mm \u2014 provably different points. Correct volume 9000 pi (pi + 1) = 117100.8 mm^3 against the arc-centroid error 9000 pi (pi + 1.5) = 131237.9 mm^3, a gap of 14137.2 mm^3 or about twelve percent, making the area-centroid versus line-centroid distinction visible numerically. A right triangle was deliberately NOT used for the discrimination: its area centroid and the line centroid of its boundary both fall at x = 40, so that configuration would have been silently vacuous \u2014 the semicircle was chosen because 4R/(3 pi) and 2R/pi provably differ. EXECUTOR CATCH, recorded: the DRAFT-001 packet supplied Case 2 decimals of 37542.9 and 42074.4, which had dropped the factor of pi from A_gen = 450 pi. Cursor evaluated rather than transcribed, flagged the discrepancy, and computed the correct values, which the Operator then independently confirmed in closed form as 9000 pi (pi + 1) and 9000 pi (pi + 1.5). The defect originated in Operator packet data. BOUNDARY, the central requirement of this lane: pappus_guldinus_surface_area, SIGNED at position 4 in the SAME subtopic, owns the first theorem and explicitly ceded the second here. Verified reciprocal \u2014 no surface area is computed anywhere, no generated-surface-area or curve-length symbol is introduced, and the complement is named in exactly one sentence. centroid_composite_volumes is distinguished in one sentence as assembling a composite volume from known primitives rather than generating one by revolution, and no composite assembly is performed. Area centroids taken as given or cited from standard results, not re-derived; the theorem replaces integration; no mass or density. Theta stated in radians with the dimensional argument that degrees cannot produce a correct volume. Two earned signals: axis_confusion at step 2 where the area centroid is identified and its perpendicular distance measured, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL as the earliest general recovery step. simple_average_used omitted as unearned despite Centroids-family permission: the triangle's vertex average IS the correct standard result for a triangular area rather than an unweighted stand-in for a weighted computation, and the semicircle uses a cited closed form, so no authored step exhibits the weighted-versus-unweighted failure mode. sign_or_placement_error omitted: no authored step assigns a sense or placement. solution_sequencing_error omitted: A_gen, r_bar_a and theta are independently available. Honest limitation recorded in the artifact and deliberately not overstated: the full-versus-partial ratio check reuses the same theorem and the same centroid, so it confirms that theta enters linearly and that the arithmetic is consistent but is NOT an independent route to the volume and does NOT validate r_bar_a, since a wrong centroid would propagate identically through both computations. This is a weaker verification than the independent geometric routes used elsewhere in the batch, and the artifact says so plainly.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "pappus_guldinus_volume",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-pappus-guldinus-volume-v1:remediation explanation",
+      "explanation_type": "remediation explanation",
+      "linked_procedure_id": "proc-statics-centroids-pappus-guldinus-volume-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "Second theorem of Pappus-Guldinus, volume generated by revolving a plane AREA about a non-intersecting axis, V = theta * r_bar_a * A_gen with theta in radians. Independently re-derived. Case 1: a right triangle with vertices (30, 0), (60, 0), (30, 40) has A_gen = 600 mm^2 and an area centroid at the vertex average (40, 13.333), giving r_bar_a = 40 mm from the axis x = 0, which the triangle does not meet since all its points lie at x >= 30; revolved through pi/2 this gives V = 12000 pi = 37699.11 mm^3. Case 2 carries the discrimination on a semicircular region of radius 30 with its diameter edge at x = 40: A_gen = 450 pi mm^2, area centroid at the cited standard 4R/(3 pi) = 40/pi from the edge so r_bar_a = 40 + 40/pi = 52.7324 mm, against the bounding arc's line centroid at the cited 2R/pi = 60/pi giving 59.0986 mm \u2014 provably different points. Correct volume 9000 pi (pi + 1) = 117100.8 mm^3 against the arc-centroid error 9000 pi (pi + 1.5) = 131237.9 mm^3, a gap of 14137.2 mm^3 or about twelve percent, making the area-centroid versus line-centroid distinction visible numerically. A right triangle was deliberately NOT used for the discrimination: its area centroid and the line centroid of its boundary both fall at x = 40, so that configuration would have been silently vacuous \u2014 the semicircle was chosen because 4R/(3 pi) and 2R/pi provably differ. EXECUTOR CATCH, recorded: the DRAFT-001 packet supplied Case 2 decimals of 37542.9 and 42074.4, which had dropped the factor of pi from A_gen = 450 pi. Cursor evaluated rather than transcribed, flagged the discrepancy, and computed the correct values, which the Operator then independently confirmed in closed form as 9000 pi (pi + 1) and 9000 pi (pi + 1.5). The defect originated in Operator packet data. BOUNDARY, the central requirement of this lane: pappus_guldinus_surface_area, SIGNED at position 4 in the SAME subtopic, owns the first theorem and explicitly ceded the second here. Verified reciprocal \u2014 no surface area is computed anywhere, no generated-surface-area or curve-length symbol is introduced, and the complement is named in exactly one sentence. centroid_composite_volumes is distinguished in one sentence as assembling a composite volume from known primitives rather than generating one by revolution, and no composite assembly is performed. Area centroids taken as given or cited from standard results, not re-derived; the theorem replaces integration; no mass or density. Theta stated in radians with the dimensional argument that degrees cannot produce a correct volume. Two earned signals: axis_confusion at step 2 where the area centroid is identified and its perpendicular distance measured, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL as the earliest general recovery step. simple_average_used omitted as unearned despite Centroids-family permission: the triangle's vertex average IS the correct standard result for a triangular area rather than an unweighted stand-in for a weighted computation, and the semicircle uses a cited closed form, so no authored step exhibits the weighted-versus-unweighted failure mode. sign_or_placement_error omitted: no authored step assigns a sense or placement. solution_sequencing_error omitted: A_gen, r_bar_a and theta are independently available. Honest limitation recorded in the artifact and deliberately not overstated: the full-versus-partial ratio check reuses the same theorem and the same centroid, so it confirms that theta enters linearly and that the arithmetic is consistent but is NOT an independent route to the volume and does NOT validate r_bar_a, since a wrong centroid would propagate identically through both computations. This is a weaker verification than the independent geometric routes used elsewhere in the batch, and the artifact says so plainly.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "pappus_guldinus_volume",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-pappus-guldinus-volume-v1:solution explanation",
+      "explanation_type": "solution explanation",
+      "linked_procedure_id": "proc-statics-centroids-pappus-guldinus-volume-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "Second theorem of Pappus-Guldinus, volume generated by revolving a plane AREA about a non-intersecting axis, V = theta * r_bar_a * A_gen with theta in radians. Independently re-derived. Case 1: a right triangle with vertices (30, 0), (60, 0), (30, 40) has A_gen = 600 mm^2 and an area centroid at the vertex average (40, 13.333), giving r_bar_a = 40 mm from the axis x = 0, which the triangle does not meet since all its points lie at x >= 30; revolved through pi/2 this gives V = 12000 pi = 37699.11 mm^3. Case 2 carries the discrimination on a semicircular region of radius 30 with its diameter edge at x = 40: A_gen = 450 pi mm^2, area centroid at the cited standard 4R/(3 pi) = 40/pi from the edge so r_bar_a = 40 + 40/pi = 52.7324 mm, against the bounding arc's line centroid at the cited 2R/pi = 60/pi giving 59.0986 mm \u2014 provably different points. Correct volume 9000 pi (pi + 1) = 117100.8 mm^3 against the arc-centroid error 9000 pi (pi + 1.5) = 131237.9 mm^3, a gap of 14137.2 mm^3 or about twelve percent, making the area-centroid versus line-centroid distinction visible numerically. A right triangle was deliberately NOT used for the discrimination: its area centroid and the line centroid of its boundary both fall at x = 40, so that configuration would have been silently vacuous \u2014 the semicircle was chosen because 4R/(3 pi) and 2R/pi provably differ. EXECUTOR CATCH, recorded: the DRAFT-001 packet supplied Case 2 decimals of 37542.9 and 42074.4, which had dropped the factor of pi from A_gen = 450 pi. Cursor evaluated rather than transcribed, flagged the discrepancy, and computed the correct values, which the Operator then independently confirmed in closed form as 9000 pi (pi + 1) and 9000 pi (pi + 1.5). The defect originated in Operator packet data. BOUNDARY, the central requirement of this lane: pappus_guldinus_surface_area, SIGNED at position 4 in the SAME subtopic, owns the first theorem and explicitly ceded the second here. Verified reciprocal \u2014 no surface area is computed anywhere, no generated-surface-area or curve-length symbol is introduced, and the complement is named in exactly one sentence. centroid_composite_volumes is distinguished in one sentence as assembling a composite volume from known primitives rather than generating one by revolution, and no composite assembly is performed. Area centroids taken as given or cited from standard results, not re-derived; the theorem replaces integration; no mass or density. Theta stated in radians with the dimensional argument that degrees cannot produce a correct volume. Two earned signals: axis_confusion at step 2 where the area centroid is identified and its perpendicular distance measured, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL as the earliest general recovery step. simple_average_used omitted as unearned despite Centroids-family permission: the triangle's vertex average IS the correct standard result for a triangular area rather than an unweighted stand-in for a weighted computation, and the semicircle uses a cited closed form, so no authored step exhibits the weighted-versus-unweighted failure mode. sign_or_placement_error omitted: no authored step assigns a sense or placement. solution_sequencing_error omitted: A_gen, r_bar_a and theta are independently available. Honest limitation recorded in the artifact and deliberately not overstated: the full-versus-partial ratio check reuses the same theorem and the same centroid, so it confirms that theta enters linearly and that the arithmetic is consistent but is NOT an independent route to the volume and does NOT validate r_bar_a, since a wrong centroid would propagate identically through both computations. This is a weaker verification than the independent geometric routes used elsewhere in the batch, and the artifact says so plainly.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "pappus_guldinus_volume",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    },
+    {
+      "explanation_id": "procedure:proc-statics-centroids-pappus-guldinus-volume-v1:worked example",
+      "explanation_type": "worked example",
+      "linked_procedure_id": "proc-statics-centroids-pappus-guldinus-volume-v1",
+      "linked_procedure_signature": {
+        "date": "2026-07-23",
+        "notes": "Second theorem of Pappus-Guldinus, volume generated by revolving a plane AREA about a non-intersecting axis, V = theta * r_bar_a * A_gen with theta in radians. Independently re-derived. Case 1: a right triangle with vertices (30, 0), (60, 0), (30, 40) has A_gen = 600 mm^2 and an area centroid at the vertex average (40, 13.333), giving r_bar_a = 40 mm from the axis x = 0, which the triangle does not meet since all its points lie at x >= 30; revolved through pi/2 this gives V = 12000 pi = 37699.11 mm^3. Case 2 carries the discrimination on a semicircular region of radius 30 with its diameter edge at x = 40: A_gen = 450 pi mm^2, area centroid at the cited standard 4R/(3 pi) = 40/pi from the edge so r_bar_a = 40 + 40/pi = 52.7324 mm, against the bounding arc's line centroid at the cited 2R/pi = 60/pi giving 59.0986 mm \u2014 provably different points. Correct volume 9000 pi (pi + 1) = 117100.8 mm^3 against the arc-centroid error 9000 pi (pi + 1.5) = 131237.9 mm^3, a gap of 14137.2 mm^3 or about twelve percent, making the area-centroid versus line-centroid distinction visible numerically. A right triangle was deliberately NOT used for the discrimination: its area centroid and the line centroid of its boundary both fall at x = 40, so that configuration would have been silently vacuous \u2014 the semicircle was chosen because 4R/(3 pi) and 2R/pi provably differ. EXECUTOR CATCH, recorded: the DRAFT-001 packet supplied Case 2 decimals of 37542.9 and 42074.4, which had dropped the factor of pi from A_gen = 450 pi. Cursor evaluated rather than transcribed, flagged the discrepancy, and computed the correct values, which the Operator then independently confirmed in closed form as 9000 pi (pi + 1) and 9000 pi (pi + 1.5). The defect originated in Operator packet data. BOUNDARY, the central requirement of this lane: pappus_guldinus_surface_area, SIGNED at position 4 in the SAME subtopic, owns the first theorem and explicitly ceded the second here. Verified reciprocal \u2014 no surface area is computed anywhere, no generated-surface-area or curve-length symbol is introduced, and the complement is named in exactly one sentence. centroid_composite_volumes is distinguished in one sentence as assembling a composite volume from known primitives rather than generating one by revolution, and no composite assembly is performed. Area centroids taken as given or cited from standard results, not re-derived; the theorem replaces integration; no mass or density. Theta stated in radians with the dimensional argument that degrees cannot produce a correct volume. Two earned signals: axis_confusion at step 2 where the area centroid is identified and its perpendicular distance measured, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL as the earliest general recovery step. simple_average_used omitted as unearned despite Centroids-family permission: the triangle's vertex average IS the correct standard result for a triangular area rather than an unweighted stand-in for a weighted computation, and the semicircle uses a cited closed form, so no authored step exhibits the weighted-versus-unweighted failure mode. sign_or_placement_error omitted: no authored step assigns a sense or placement. solution_sequencing_error omitted: A_gen, r_bar_a and theta are independently available. Honest limitation recorded in the artifact and deliberately not overstated: the full-versus-partial ratio check reuses the same theorem and the same centroid, so it confirms that theta enters linearly and that the arithmetic is consistent but is NOT an independent route to the volume and does NOT validate r_bar_a, since a wrong centroid would propagate identically through both computations. This is a weaker verification than the independent geometric routes used elsewhere in the batch, and the artifact says so plainly.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "linked_worked_example_available": true,
+      "micro_skill_code": "pappus_guldinus_volume",
+      "representability": "BLOCKED_FROZEN_FORMULA_ALLOWLIST",
+      "required_renderer_category": "centroids",
+      "required_renderer_id": "statics_composite_area_v1",
+      "source": "authority_bundle:signed_procedure_library.json",
+      "spec_emitted": false,
+      "topic_code": "STATICS_CENTROIDS"
+    }
+  ],
+  "frozen_formula_ids": [
+    "cartesian_fx_from_magnitude_angle_deg",
+    "cartesian_fy_from_magnitude_angle_deg",
+    "sum_selected",
+    "resultant_magnitude_from_rx_ry",
+    "resultant_direction_deg_from_rx_ry"
+  ],
+  "negative_validation_cases": [],
+  "positive_validation_cases": [],
+  "renderer_categories": [
+    {
+      "category": "centroids",
+      "explanations": 46,
+      "frozen_formula_contract_fit": false,
+      "renderer_allowlisted": true,
+      "renderer_id": "statics_composite_area_v1"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "scope_statement": "No schema, validator, formula allowlist, renderer allowlist, shared core, authority bundle, or cross-topic artifact was modified.",
+  "signed_procedures": [
+    {
+      "formula_notation": "x\u0304 = (1/V) \u222b x dV ; \u0233 = (1/V) \u222b y dV ; z\u0304 = (1/V) \u222b z dV",
+      "git_blob_sha": "879039a951045d4f12d7ca1609ee3e69a77d86a3",
+      "micro_skill_code": "centroid_volume_primitives",
+      "procedure_id": "STATICS_CENTROIDS_centroid_volume_primitives",
+      "signature": {
+        "date": "2026-07-05",
+        "notes": "Eleventh Phase D sign-off; metadata-only upgrade of existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_CENTROIDS:CENTROID_OF_VOLUMES; worked example answer preserved as (0, 0, 0.15 m) from approved audit; failure_signal_mappings preserved byte-identical by hash including unclassified, axis_confusion, and simple_average_used; schema-valid v1_1; Centroids-family simple_average_used signal retained as applicable; single volume-primitives scope preserved; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-VOLUME-PRIMITIVES-UPGRADE-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off",
+      "worked_example_present": true
+    },
+    {
+      "formula_notation": "Decomposition table: for each part i, record (A\u1d62, x\u0304\u1d62, \u0233\u1d62) with A\u1d62 > 0 for material regions and A\u1d62 < 0 for holes/cutouts; all coordinates measured from the same reference origin and axis directions.",
+      "git_blob_sha": "dad8460c118d37f6846cebe5bb13367be2ab440e",
+      "micro_skill_code": "centroid_composite_areas",
+      "procedure_id": "proc-statics-centroids-centroid-composite-areas-v1",
+      "signature": {
+        "date": "2026-07-13",
+        "notes": "Decomposition-only: partition composite area, build (A_i, x\u0304_i, \u0233_i) parts table with negative cutouts; STOPS before \u03a3A division (composite_centroid) and before Qx/Qy sums (centroid_first_moments). 3-signal {sign_or_placement_error:4, simple_average_used:5, unclassified:7}; simple_average_used honest at table-assembly (unweighted-average error), axis_confusion absent (direct primitive geometry). Decomposition independently verified (P1 +24 @ (3,2); P2 cutout -4 @ (5,2)). Batch 4B skill 2 of 4. NOTE: graph lists composite_centroid as prereq \u2014 pedagogically inverted but graph is authoritative; content respects R3 regardless. Flagged to Architect, not altered.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-COMPOSITE-AREAS-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off",
+      "worked_example_present": true
+    },
+    {
+      "formula_notation": "Composite volume centroid (volume-weighted): V = \u03a3 V_i; x\u0304 = (\u03a3 V_i x_i) / V; \u0233 = (\u03a3 V_i y_i) / V; z\u0304 = (\u03a3 V_i z_i) / V, with each first moment of volume V_i x_i (or V_i y_i, V_i z_i) formed about a stated reference. V has units of length\u00b3; each first moment of volume has units of length\u2074; x\u0304, \u0233, z\u0304 have units of length. Per-primitive symbols: V_1, V_2, x_1, x_2, y_1, y_2, z_1, z_2; generic index forms V_i, x_i, z_i.",
+      "git_blob_sha": "c34f3d1b38c2fa7dea7cbc0c1acf02536560da07",
+      "micro_skill_code": "centroid_composite_volumes",
+      "procedure_id": "proc-statics-centroids-centroid-composite-volumes-v1",
+      "signature": {
+        "date": "2026-07-23",
+        "notes": "Centroid of a composite volume as the volume-weighted assembly of volumetric primitives. Independently re-derived: V_1 = 192000 mm^3 at (60, 40, 10) and V_2 = 96000 mm^3 at (20, 40, 35), volumes differing by a factor of two; V = 288000 mm^3. First moments about x = 0: 11520000 + 1920000 = 13440000 mm^4, x-bar = 46.6667 mm reported as 46.67 mm with the rounding stated. About z = 0: 1920000 + 3360000 = 5280000 mm^4, z-bar = 18.3333 mm reported as 18.33 mm with the rounding stated. y-bar = 40 mm stated by symmetry rather than the axis being silently omitted. Verified by an independent shifted-reference route: moments about x = 120 give 11520000 + 9600000 = 21120000 mm^4, a distance of 73.3333 mm from that plane, and 120 - 73.3333 = 46.6667 mm, agreeing with the direct result \u2014 two reference planes returning the same physical point. Discrimination confirmed live rather than asserted: the unweighted average of the x-coordinates is 40 mm against the weighted 46.67 mm, and on z is 22.5 mm against 18.33 mm, gaps that exist precisely because the volumes differ. Boundary recorded: centroid_volume_primitives supplies each primitive's volume and own centroid, taken as given and not re-derived; composite_centroid owns the same weighting logic for areas and this skill is its volumetric counterpart without re-deriving the principle; centroid_first_moments owns the first-moment idea, used not re-derived; no integration; Pappus-Guldinus revolution methods excluded as batch siblings. Mass and density verified absent from every symbol and step, with the homogeneous-body coincidence and the negative-volume treatment of a removed region each confined to a single concept sentence carrying no authored step and no mapped signal. Three earned signals: axis_confusion at step 3 where per-axis coordinate pairing occurs, simple_average_used at step 4 where the volume-weighted first moments are formed \u2014 this being a Centroids-family skill where that signal is permitted and where the authored gap makes it genuinely earned \u2014 and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL, step 1 being the earliest general recovery step stating the given-inputs rule and the exclusions. sign_or_placement_error omitted as unearned, not trimmed: all coordinates are positive and no removed region is exercised, so no authored step assigns a sense or places a cutout. solution_sequencing_error omitted as unearned, not trimmed: the total volume may be formed before or after the first-moment sums without stranding a prerequisite unknown. First draft BLOCKED on the formula-variable audit \u2014 notation used y_i in the y-bar expression while formula.variables declared only y_1 and y_2; corrected under PHASE-D-CENTROID-COMPOSITE-VOLUMES-CURSOR-CORRECTION-001 by declaring y_i alongside the other generic index forms, with no other field altered. Honest limitation recorded in the artifact: the shifted-reference check confirms consistent weighting and division but does not validate the given primitive volumes or centroid locations, since a wrong input would be carried identically through both references and the two would still agree.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "status": "signed_off",
+      "worked_example_present": true
+    },
+    {
+      "formula_notation": "Qx = \u03a3(A\u1d62\u00b7\u0233\u1d62)   and   Qy = \u03a3(A\u1d62\u00b7x\u0304\u1d62)",
+      "git_blob_sha": "fbd94921dc72bcba38e7d4b88df220db61625930",
+      "micro_skill_code": "centroid_first_moments",
+      "procedure_id": "proc-statics-centroids-centroid-first-moments-v1",
+      "signature": {
+        "date": "2026-07-11",
+        "notes": "First moments of area Qx=\u03a3A\u1d62\u0233\u1d62, Qy=\u03a3A\u1d62x\u0304\u1d62; setup-only, stops before \u03a3A division (composite_centroid owns that). 3-signal {sign_or_placement_error:3, simple_average_used:4, unclassified:8}. Worked example independently re-derived (Qx=10 m\u00b3, Qy=25 m\u00b3). Batch 4A routine under closed-field enforcement.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-FIRST-MOMENTS-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off",
+      "worked_example_present": true
+    },
+    {
+      "formula_notation": "Symmetry principle: if line L is an axis of symmetry of area A, then the centroid (x\u0304, \u0233) lies on L. Vertical symmetry line x = a \u27f9 x\u0304 = a. Horizontal symmetry line y = b \u27f9 \u0233 = b. Two non-parallel symmetry lines \u27f9 centroid at their intersection.",
+      "git_blob_sha": "b02a190b9a78222aaac425b1f7442a9af50c0681",
+      "micro_skill_code": "centroid_symmetry",
+      "procedure_id": "proc-statics-centroids-centroid-symmetry-v1",
+      "signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 1/5. Retires the composite_centroid <- centroid_symmetry pre-gate unsigned-prereq debt (Architect Pass #2 Decision C). Worked example independently re-derived by Operator: isosceles triangle (-3,0),(3,0),(0,4), legs 5 and 5; reflection across x=0 confirmed; x-bar = 0 by symmetry; y-bar correctly left undetermined (out of scope). 3-signal mapping content-earned: axis_confusion at step 4 extends the component-resolution precedent \u2014 step 4 resolves no components but maps axis to fixed coordinate, and 'vertical symmetry fixes y-bar' is an x/y swap, the canonical definition. Recorded for Architect override. simple_average_used omitted: symmetry replaces computation, no averaging step exists to attach it to.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CENTROID-SYMMETRY-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off",
+      "worked_example_present": true
+    },
+    {
+      "formula_notation": "x\u0304 = \u03a3A\u1d62x\u1d62 / \u03a3A\u1d62   and   \u0233 = \u03a3A\u1d62y\u1d62 / \u03a3A\u1d62",
+      "git_blob_sha": "fe6c40361b32594d2cc1df7fdb4b59a1fc19d8c2",
+      "micro_skill_code": "composite_centroid",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "signature": {
+        "date": "2026-07-01",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "status": "signed_off"
+      },
+      "status": "signed_off",
+      "worked_example_present": true
+    },
+    {
+      "formula_notation": "R = \u03a3 R_i ;  x_bar = \u03a3(R_i \u00b7 x_i) / R . Each R_i is the area of load part i (force units); x_i is the centroid of part i measured from the stated origin. R acts in the same direction as the distributed load.",
+      "git_blob_sha": "3e22d535d9fb16753653bbdc79dedb0cc38958c5",
+      "micro_skill_code": "distributed_load_resultant_by_centroid",
+      "procedure_id": "proc-statics-centroids-distributed-load-resultant-by-centroid-v1",
+      "signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 4/5. Closes the E3 distributed-load boundary pair with general_distributed_load_resultant (signed e8bf7f79): that skill integrates w(x); this one decomposes a load diagram into standard shapes and area-weights the part centroids. Entry point is the distinction. Worked example independently re-derived by Operator: trapezoid 2 -> 10 kN/m on [0, 6]; rectangle R_1 = 12 kN at x_1 = 3.0 m; triangle R_2 = 24 kN at x_2 = 2L/3 = 4.0 m; R = 36 kN; x_bar = 132/36 = 3.67 m. Cross-checked by integration of the equivalent w(x) = 2 + (4/3)x: R = 36 kN, M = 132 kN-m, x_bar = 3.67 m \u2014 both methods agree. Example is asymmetric by design (x_bar 3.67 != L/2 3.0) and the naive average of part centroids (3.5 m) differs from the area-weighted result (3.67 m), so simple_average_used at step 6 is a live diagnostic rather than a label \u2014 this satisfies the Architect E4 condition that the signal attach to a real weighting step. 3-signal mapping content-earned: sign_or_placement_error at step 5 (part-centroid location), simple_average_used at step 6 (area weighting), unclassified at step 8 (reporting and sanity check). axis_confusion omitted: single beam-axis coordinate, no step resolves components. Procedure step 5 amended at the review beat to name the maximum-intensity end explicitly \u2014 the step its own signal targets had said 'the appropriate end', which is precisely what the failing student does not know. Symbols w and L declared at the review beat.",
+        "reviewer": "Phase D sign-off review (PHASE-D-DISTRIBUTED-LOAD-RESULTANT-BY-CENTROID-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off",
+      "worked_example_present": true
+    },
+    {
+      "formula_notation": "A = \u03b8 \u00b7 r\u0304_c \u00b7 L, with \u03b8 in radians (\u03b8 = 2\u03c0 for a full revolution). L is length; r\u0304_c is length; \u03b8 is dimensionless (radians); A is length\u00b2. The dimensional check requires \u03b8 in radians \u2014 degrees would not produce a correct area.",
+      "git_blob_sha": "89b62984c0b6452ba88fa57d244785c483d59c9b",
+      "micro_skill_code": "pappus_guldinus_surface_area",
+      "procedure_id": "proc-statics-centroids-pappus-guldinus-surface-area-v1",
+      "signature": {
+        "date": "2026-07-23",
+        "notes": "First theorem of Pappus-Guldinus, surface area generated by revolving a plane CURVE about a non-intersecting axis, A = theta * r_bar_c * L with theta in radians. Independently re-derived. Case 1: a segment of length 60 mm parallel to the axis at constant 40 mm, revolved through pi/2, gives A = (pi/2)(40)(60) = 1200 pi = 3769.91 mm^2. Verified by an independent elementary route that does not reuse the theorem: the swept surface is a quarter of a cylindrical lateral surface of radius 40 and height 60, whose full area is 2 pi (40)(60) = 4800 pi, one quarter of which is 1200 pi \u2014 an exact match. Case 2 carries the discrimination: the hypotenuse of a 30-40-50 right triangle placed with vertices at (30, 0), (60, 0) and (30, 40), revolved about x = 0. Both centroid distances were re-derived from those vertices: hypotenuse length sqrt(900 + 1600) = 50 mm, curve centroid at the midpoint (45, 20) giving r_bar_c = 45 mm, and the centroid of the triangular AREA at the vertex average (40, 13.33) giving 40 mm. A = (pi/2)(45)(50) = 1125 pi = 3534.29 mm^2 from the curve centroid, against 1000 pi = 3141.59 mm^2 from the area centroid \u2014 a gap of 125 pi, about 11 percent, making the line-centroid versus area-centroid distinction visible numerically rather than asserted in prose. The axis does not intersect the triangle, all of whose points lie at x >= 30. Theta is stated in radians and a quarter revolution is used so that theta is a visible variable rather than an invisible 2 pi; the dimensional argument that degrees cannot produce a correct area is recorded. BOUNDARY, the central requirement of this lane: pappus_guldinus_volume is an UNSIGNED sibling in the SAME subtopic owning the second theorem, volume from revolving a plane AREA using the area centroid. Verified excluded \u2014 no volume is computed anywhere, no generating-area or volume symbol is introduced, and the complement is named in exactly one sentence so a student can distinguish the theorems without this artifact performing the other. centroid_first_moments supplies the curve centroid, taken as given and not re-derived; composite weighting for segmented curves is owned elsewhere; the theorem replaces integration; no mass or density. Two earned signals: axis_confusion at step 2 where the centroid is identified and its perpendicular distance measured, this being where substituting the area centroid occurs, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL as the earliest general recovery step stating the theorem and the exclusions. simple_average_used omitted as unearned despite this being a Centroids-family skill where the signal is permitted: the centroid is given or taken from standard results and no averaging step is authored, so family membership alone does not earn it. sign_or_placement_error omitted as unearned: no authored step assigns a sense or a placement, and substituting the wrong centroid is an axis-identity error. solution_sequencing_error omitted as unearned: L, r_bar_c and theta are independently available and no step strands a prerequisite. Honest limitation recorded in the artifact: the cylindrical cross-check is available only because the Case 1 generator sits at constant distance from the axis, is not available for a general curve, and does not validate the Case 2 centroid inputs. First draft BLOCKED because Case 2 asserted the area-centroid distance of 40 mm without placing the triangle, leaving the discriminating number underivable from the stated configuration; the defect originated in the Operator packet text rather than in execution, and was corrected under PHASE-D-PAPPUS-GULDINUS-SURFACE-AREA-CURSOR-CORRECTION-001 by stating explicit vertex coordinates from which both centroid distances follow.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "status": "signed_off",
+      "worked_example_present": true
+    },
+    {
+      "formula_notation": "V = \u03b8 \u00b7 r\u0304_a \u00b7 A_gen, with \u03b8 in radians (\u03b8 = 2\u03c0 for a full revolution). A_gen is length\u00b2; r\u0304_a is length; \u03b8 is dimensionless (radians); V is length\u00b3. The dimensional check requires \u03b8 in radians \u2014 degrees would not produce a correct volume.",
+      "git_blob_sha": "efe16b7088f1f2a9bdec425b0bbc943299bda0f6",
+      "micro_skill_code": "pappus_guldinus_volume",
+      "procedure_id": "proc-statics-centroids-pappus-guldinus-volume-v1",
+      "signature": {
+        "date": "2026-07-23",
+        "notes": "Second theorem of Pappus-Guldinus, volume generated by revolving a plane AREA about a non-intersecting axis, V = theta * r_bar_a * A_gen with theta in radians. Independently re-derived. Case 1: a right triangle with vertices (30, 0), (60, 0), (30, 40) has A_gen = 600 mm^2 and an area centroid at the vertex average (40, 13.333), giving r_bar_a = 40 mm from the axis x = 0, which the triangle does not meet since all its points lie at x >= 30; revolved through pi/2 this gives V = 12000 pi = 37699.11 mm^3. Case 2 carries the discrimination on a semicircular region of radius 30 with its diameter edge at x = 40: A_gen = 450 pi mm^2, area centroid at the cited standard 4R/(3 pi) = 40/pi from the edge so r_bar_a = 40 + 40/pi = 52.7324 mm, against the bounding arc's line centroid at the cited 2R/pi = 60/pi giving 59.0986 mm \u2014 provably different points. Correct volume 9000 pi (pi + 1) = 117100.8 mm^3 against the arc-centroid error 9000 pi (pi + 1.5) = 131237.9 mm^3, a gap of 14137.2 mm^3 or about twelve percent, making the area-centroid versus line-centroid distinction visible numerically. A right triangle was deliberately NOT used for the discrimination: its area centroid and the line centroid of its boundary both fall at x = 40, so that configuration would have been silently vacuous \u2014 the semicircle was chosen because 4R/(3 pi) and 2R/pi provably differ. EXECUTOR CATCH, recorded: the DRAFT-001 packet supplied Case 2 decimals of 37542.9 and 42074.4, which had dropped the factor of pi from A_gen = 450 pi. Cursor evaluated rather than transcribed, flagged the discrepancy, and computed the correct values, which the Operator then independently confirmed in closed form as 9000 pi (pi + 1) and 9000 pi (pi + 1.5). The defect originated in Operator packet data. BOUNDARY, the central requirement of this lane: pappus_guldinus_surface_area, SIGNED at position 4 in the SAME subtopic, owns the first theorem and explicitly ceded the second here. Verified reciprocal \u2014 no surface area is computed anywhere, no generated-surface-area or curve-length symbol is introduced, and the complement is named in exactly one sentence. centroid_composite_volumes is distinguished in one sentence as assembling a composite volume from known primitives rather than generating one by revolution, and no composite assembly is performed. Area centroids taken as given or cited from standard results, not re-derived; the theorem replaces integration; no mass or density. Theta stated in radians with the dimensional argument that degrees cannot produce a correct volume. Two earned signals: axis_confusion at step 2 where the area centroid is identified and its perpendicular distance measured, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL as the earliest general recovery step. simple_average_used omitted as unearned despite Centroids-family permission: the triangle's vertex average IS the correct standard result for a triangular area rather than an unweighted stand-in for a weighted computation, and the semicircle uses a cited closed form, so no authored step exhibits the weighted-versus-unweighted failure mode. sign_or_placement_error omitted: no authored step assigns a sense or placement. solution_sequencing_error omitted: A_gen, r_bar_a and theta are independently available. Honest limitation recorded in the artifact and deliberately not overstated: the full-versus-partial ratio check reuses the same theorem and the same centroid, so it confirms that theta enters linearly and that the arithmetic is consistent but is NOT an independent route to the volume and does NOT validate r_bar_a, since a wrong centroid would propagate identically through both computations. This is a weaker verification than the independent geometric routes used elsewhere in the batch, and the artifact says so plainly.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "status": "signed_off",
+      "worked_example_present": true
+    }
+  ],
+  "stages_1_4": [
+    {
+      "detail": "No production specs emitted because all required centroid mathematics must be exact.",
+      "name": "compiler_emits",
+      "result": "BLOCKED",
+      "stage": 1
+    },
+    {
+      "detail": "The frozen renderer is accepted, but the security allowlist rejects any required new centroid formula_id.",
+      "name": "schema_and_security_validation",
+      "result": "BLOCKED",
+      "stage": 2
+    },
+    {
+      "detail": "No mathematically complete spec existed after the mandated stop.",
+      "name": "mathematical_adapter",
+      "result": "NOT_RUN",
+      "stage": 3
+    },
+    {
+      "detail": "All explanation authority links were inventoried; no emitted spec existed to audit.",
+      "name": "procedure_linkage_and_step_order",
+      "result": "NOT_RUN",
+      "stage": 4
+    }
+  ],
+  "topic": {
+    "display_name": "Centroids",
+    "graph_topic_codes": [
+      "STATICS_CENTROIDS"
+    ]
+  },
+  "verdict": "SPEC_W1_LANE_BLOCKED"
+}
