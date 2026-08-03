@@ -1,0 +1,865 @@
+{
+  "$id": "https://axiomiq.local/schemas/axiomiq_interactive_instructional_diagram_interaction_v1_1.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "adjustable_variable": {
+      "additionalProperties": false,
+      "properties": {
+        "applies_to_entity": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$",
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$",
+          "type": "string"
+        },
+        "increment": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "interaction": {
+          "enum": [
+            "drag_vector_endpoint",
+            "numeric_spinner",
+            "angle_dial",
+            "keyboard_nudge"
+          ],
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "maximum": {
+          "$ref": "#/definitions/numeric"
+        },
+        "minimum": {
+          "$ref": "#/definitions/numeric"
+        },
+        "unit": {
+          "enum": [
+            "MPa",
+            "N",
+            "N*m",
+            "N/m",
+            "Pa",
+            "cm",
+            "deg",
+            "dimensionless",
+            "ft",
+            "in",
+            "kN",
+            "kN*m",
+            "kN/m",
+            "kg",
+            "kg*m^2",
+            "lb",
+            "m",
+            "m^2",
+            "m^3",
+            "m^4",
+            "mm",
+            "rad"
+          ],
+          "type": "string"
+        },
+        "value_type": {
+          "enum": [
+            "number"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "value_type",
+        "unit",
+        "minimum",
+        "maximum",
+        "increment",
+        "interaction"
+      ],
+      "type": "object"
+    },
+    "calculated_value": {
+      "additionalProperties": false,
+      "properties": {
+        "formula_id": {
+          "enum": [
+            "cartesian_fx_from_magnitude_angle_deg",
+            "cartesian_fy_from_magnitude_angle_deg",
+            "sum_selected",
+            "resultant_magnitude_from_rx_ry",
+            "resultant_direction_deg_from_rx_ry",
+            "vector_component_from_magnitude_direction_cosine",
+            "vector_subtract_component",
+            "vector_scale_component",
+            "vector_norm_2d",
+            "vector_norm_3d",
+            "unit_vector_component",
+            "dot_product_2d",
+            "dot_product_3d",
+            "scalar_projection",
+            "direction_angle_deg_from_component_norm",
+            "cross_product_x",
+            "cross_product_y",
+            "cross_product_z",
+            "signed_moment_2d",
+            "moment_axis_projection",
+            "couple_moment_signed",
+            "force_couple_resultant_moment",
+            "resultant_line_of_action_offset",
+            "equilibrium_force_residual",
+            "equilibrium_moment_residual",
+            "unknown_from_linear_equilibrium",
+            "uniform_distributed_load_resultant",
+            "triangular_distributed_load_resultant",
+            "trapezoidal_distributed_load_resultant",
+            "uniform_load_centroid_from_start",
+            "triangular_load_centroid_from_zero_end",
+            "trapezoidal_load_centroid_from_start",
+            "simply_supported_reaction_from_moment",
+            "internal_force_from_section_equilibrium",
+            "internal_moment_from_section_equilibrium",
+            "linear_load_integral",
+            "linear_shear_integral",
+            "two_force_member_axial",
+            "area_first_moment",
+            "weighted_centroid_coordinate",
+            "pappus_surface_area",
+            "pappus_volume",
+            "symmetry_axis_centroid_coordinate",
+            "friction_limit",
+            "friction_actual_before_slip",
+            "belt_tension_ratio",
+            "parallel_axis_inertia",
+            "radius_of_gyration",
+            "rectangle_area_inertia_centroid",
+            "circle_area_inertia_centroid",
+            "rod_mass_inertia_centroid",
+            "disk_mass_inertia_center",
+            "composite_inertia_sum"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$",
+          "type": "string"
+        },
+        "inputs": {
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "pattern": "^[A-Za-z][A-Za-z0-9_\\.]*$",
+                "type": "string"
+              },
+              {
+                "items": {
+                  "pattern": "^[A-Za-z][A-Za-z0-9_\\.]*$",
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ]
+          },
+          "minProperties": 1,
+          "type": "object"
+        },
+        "label": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "unit": {
+          "enum": [
+            "MPa",
+            "N",
+            "N*m",
+            "N/m",
+            "Pa",
+            "cm",
+            "deg",
+            "dimensionless",
+            "ft",
+            "in",
+            "kN",
+            "kN*m",
+            "kN/m",
+            "kg",
+            "kg*m^2",
+            "lb",
+            "m",
+            "m^2",
+            "m^3",
+            "m^4",
+            "mm",
+            "rad"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "unit",
+        "formula_id",
+        "inputs"
+      ],
+      "type": "object"
+    },
+    "interaction_state": {
+      "additionalProperties": false,
+      "properties": {
+        "active_step_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "type": "string"
+        },
+        "toggles": {
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "type": "object"
+        },
+        "variables": {
+          "additionalProperties": {
+            "$ref": "#/definitions/numeric"
+          },
+          "minProperties": 1,
+          "type": "object"
+        }
+      },
+      "required": [
+        "variables",
+        "toggles",
+        "active_step_id"
+      ],
+      "type": "object"
+    },
+    "keyboard_interaction_model": {
+      "additionalProperties": false,
+      "properties": {
+        "bindings": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "nudge_magnitude",
+                  "nudge_angle",
+                  "toggle",
+                  "next_step",
+                  "previous_step",
+                  "reset",
+                  "focus_next"
+                ],
+                "type": "string"
+              },
+              "delta": {
+                "type": "number"
+              },
+              "key": {
+                "enum": [
+                  "ArrowUp",
+                  "ArrowDown",
+                  "ArrowLeft",
+                  "ArrowRight",
+                  "Home",
+                  "End",
+                  "Enter",
+                  "Escape",
+                  "KeyR",
+                  "KeyN",
+                  "KeyP",
+                  "Digit1",
+                  "Digit2",
+                  "Digit3",
+                  "Digit4"
+                ],
+                "type": "string"
+              },
+              "target": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "key",
+              "action",
+              "target"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "focus_order": {
+          "items": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "focus_order",
+        "bindings"
+      ],
+      "type": "object"
+    },
+    "numeric": {
+      "not": {
+        "type": "string"
+      },
+      "type": "number"
+    },
+    "procedural_step_state": {
+      "additionalProperties": false,
+      "properties": {
+        "enabled_interactions": {
+          "items": {
+            "enum": [
+              "drag_vector_endpoint",
+              "numeric_spinner",
+              "angle_dial",
+              "keyboard_nudge",
+              "toggle_visibility",
+              "step_next",
+              "step_previous",
+              "reset"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "procedure_step_index": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "required_toggles": {
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "type": "object"
+        },
+        "step_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "visible_entities": {
+          "items": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$",
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "step_id",
+        "procedure_step_index",
+        "title",
+        "visible_entities",
+        "enabled_interactions",
+        "required_toggles"
+      ],
+      "type": "object"
+    },
+    "state_transition": {
+      "additionalProperties": false,
+      "properties": {
+        "from_step_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$",
+          "type": "string"
+        },
+        "to_step_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "type": "string"
+        },
+        "trigger": {
+          "enum": [
+            "student_next_step",
+            "student_previous_step",
+            "student_reset",
+            "auto_enter_on_load"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "from_step_id",
+        "to_step_id",
+        "trigger"
+      ],
+      "type": "object"
+    },
+    "static_fallback_specification": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_kind": {
+          "enum": [
+            "structured_svg_snapshot",
+            "static_svg",
+            "inline_primitive_snapshot"
+          ],
+          "type": "string"
+        },
+        "captures_initial_state": {
+          "const": true
+        },
+        "description": {
+          "minLength": 8,
+          "type": "string"
+        },
+        "fallback_type": {
+          "const": "static_diagram"
+        },
+        "local_asset_ref": {
+          "description": "Repository-relative local asset only. Remote schemes are rejected by the security validator.",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_./-]{0,240}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fallback_type",
+        "asset_kind",
+        "description",
+        "captures_initial_state",
+        "local_asset_ref"
+      ],
+      "type": "object"
+    },
+    "toggle": {
+      "additionalProperties": false,
+      "properties": {
+        "affects": {
+          "items": {
+            "enum": [
+              "vector_x_component",
+              "vector_y_component",
+              "resultant",
+              "component_labels",
+              "resultant_labels"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "id": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$",
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "default"
+      ],
+      "type": "object"
+    },
+    "typed_constraint": {
+      "additionalProperties": false,
+      "properties": {
+        "constraint_type": {
+          "enum": [
+            "angle_in_closed_interval",
+            "magnitude_non_negative",
+            "variable_within_declared_bounds",
+            "coplanar_origin_concurrent",
+            "degrees_mode",
+            "dependent_matches_formula",
+            "nonzero_denominator",
+            "unit_vector_norm",
+            "equilibrium_residual_zero",
+            "signed_area_convention",
+            "friction_inequality",
+            "right_hand_rule",
+            "support_kinematic_constraint",
+            "section_sign_convention"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$",
+          "type": "string"
+        },
+        "operands": {
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "pattern": "^[A-Za-z][A-Za-z0-9_\\.]*$",
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "items": {
+                  "oneOf": [
+                    {
+                      "pattern": "^[A-Za-z][A-Za-z0-9_\\.]*$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "type": "array"
+              }
+            ]
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "constraint_type",
+        "operands"
+      ],
+      "type": "object"
+    },
+    "validation_case": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "type": "string"
+        },
+        "expected_calculated": {
+          "additionalProperties": {
+            "$ref": "#/definitions/numeric"
+          },
+          "minProperties": 1,
+          "type": "object"
+        },
+        "input_variables": {
+          "additionalProperties": {
+            "$ref": "#/definitions/numeric"
+          },
+          "minProperties": 1,
+          "type": "object"
+        },
+        "toggle_overrides": {
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "type": "object"
+        },
+        "tolerance": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "minProperties": 1,
+          "type": "object"
+        }
+      },
+      "required": [
+        "case_id",
+        "input_variables",
+        "expected_calculated",
+        "tolerance"
+      ],
+      "type": "object"
+    },
+    "visible_label": {
+      "additionalProperties": false,
+      "properties": {
+        "binds_to": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_\\.]*$",
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 200,
+          "minLength": 1,
+          "type": "string"
+        },
+        "visible_when_toggle": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "binds_to"
+      ],
+      "type": "object"
+    }
+  },
+  "description": "Versioned declarative interaction schema for interactive instructional diagrams (AXIOMIQ-INTERACTIVE-INSTRUCTIONAL-DIAGRAM-CONTRACT-009 \u00a72). Specs are data-only: no scripts, inline event code, remote executable assets, or free-form expressions. Version 1.1.0 additively expands trusted renderer and formula registries.",
+  "properties": {
+    "accessibility_description": {
+      "maxLength": 4000,
+      "minLength": 16,
+      "type": "string"
+    },
+    "available_toggles": {
+      "items": {
+        "$ref": "#/definitions/toggle"
+      },
+      "type": "array"
+    },
+    "dependent_calculated_values": {
+      "items": {
+        "$ref": "#/definitions/calculated_value"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "deterministic_validation_cases": {
+      "items": {
+        "$ref": "#/definitions/validation_case"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "diagram_fingerprint": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "diagram_type": {
+      "enum": [
+        "area_mass_inertia",
+        "beam_loading",
+        "centroid_volume",
+        "composite_area",
+        "distributed_load",
+        "force_vector",
+        "frame_machine",
+        "free_body_diagram",
+        "friction_system",
+        "internal_force_diagram",
+        "moment_couple_system",
+        "particle_equilibrium",
+        "rigid_body_equilibrium",
+        "shear_bending_moment_diagram",
+        "truss",
+        "vector_plane",
+        "vector_space_3d"
+      ],
+      "type": "string"
+    },
+    "expected_state_transitions": {
+      "items": {
+        "$ref": "#/definitions/state_transition"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "geometric_constraints": {
+      "items": {
+        "$ref": "#/definitions/typed_constraint"
+      },
+      "type": "array"
+    },
+    "initial_state": {
+      "$ref": "#/definitions/interaction_state"
+    },
+    "instructional_objective": {
+      "maxLength": 2000,
+      "minLength": 16,
+      "type": "string"
+    },
+    "interaction_fingerprint": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "keyboard_interaction_model": {
+      "$ref": "#/definitions/keyboard_interaction_model"
+    },
+    "linked_explanation_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{2,127}$",
+      "type": "string"
+    },
+    "linked_procedure_id": {
+      "maxLength": 200,
+      "minLength": 3,
+      "type": "string"
+    },
+    "linked_procedure_signature": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "reviewer": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "status": {
+          "const": "signed_off"
+        }
+      },
+      "required": [
+        "status",
+        "reviewer",
+        "date"
+      ],
+      "type": "object"
+    },
+    "linked_worked_example_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{2,127}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "mathematical_constraints": {
+      "items": {
+        "$ref": "#/definitions/typed_constraint"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "procedural_step_states": {
+      "items": {
+        "$ref": "#/definitions/procedural_step_state"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "renderer_id": {
+      "enum": [
+        "statics_vector_plane_v1",
+        "statics_force_vector_v1",
+        "statics_vectors_3d_v1",
+        "statics_fbd_v1",
+        "statics_moments_couples_v1",
+        "statics_particle_equilibrium_v1",
+        "statics_rigid_body_equilibrium_v1",
+        "statics_distributed_loads_v1",
+        "statics_beams_internal_forces_v1",
+        "statics_shear_bending_moment_v1",
+        "statics_trusses_v1",
+        "statics_frames_machines_v1",
+        "statics_composite_area_v1",
+        "statics_centroids_3d_v1",
+        "statics_friction_v1",
+        "statics_area_mass_inertia_v1"
+      ],
+      "type": "string"
+    },
+    "reset_state": {
+      "$ref": "#/definitions/interaction_state"
+    },
+    "schema_id": {
+      "const": "axiomiq_interactive_instructional_diagram_interaction_v1"
+    },
+    "schema_version": {
+      "const": "1.1.0"
+    },
+    "spec_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{2,127}$",
+      "type": "string"
+    },
+    "static_fallback_specification": {
+      "$ref": "#/definitions/static_fallback_specification"
+    },
+    "student_adjustable_variables": {
+      "items": {
+        "$ref": "#/definitions/adjustable_variable"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "units": {
+      "additionalProperties": {
+        "enum": [
+          "MPa",
+          "N",
+          "N*m",
+          "N/m",
+          "Pa",
+          "cm",
+          "deg",
+          "dimensionless",
+          "ft",
+          "in",
+          "kN",
+          "kN*m",
+          "kN/m",
+          "kg",
+          "kg*m^2",
+          "lb",
+          "m",
+          "m^2",
+          "m^3",
+          "m^4",
+          "mm",
+          "rad"
+        ],
+        "type": "string"
+      },
+      "minProperties": 1,
+      "type": "object"
+    },
+    "visible_labels": {
+      "items": {
+        "$ref": "#/definitions/visible_label"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "spec_id",
+    "diagram_type",
+    "renderer_id",
+    "instructional_objective",
+    "linked_explanation_id",
+    "linked_procedure_id",
+    "linked_procedure_signature",
+    "initial_state",
+    "student_adjustable_variables",
+    "geometric_constraints",
+    "mathematical_constraints",
+    "dependent_calculated_values",
+    "visible_labels",
+    "units",
+    "available_toggles",
+    "procedural_step_states",
+    "reset_state",
+    "expected_state_transitions",
+    "accessibility_description",
+    "keyboard_interaction_model",
+    "static_fallback_specification",
+    "diagram_fingerprint",
+    "interaction_fingerprint",
+    "deterministic_validation_cases"
+  ],
+  "title": "AXIOMIQ_INTERACTIVE_INSTRUCTIONAL_DIAGRAM_INTERACTION_v1_1",
+  "type": "object"
+}

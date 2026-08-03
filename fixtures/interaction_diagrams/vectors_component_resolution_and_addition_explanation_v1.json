@@ -1,0 +1,678 @@
+{
+  "schema_id": "axiomiq_interactive_instructional_diagram_interaction_v1",
+  "schema_version": "1.0.0",
+  "spec_id": "vectors_component_resolution_and_addition_explanation_v1",
+  "diagram_type": "vector_plane",
+  "renderer_id": "statics_vector_plane_v1",
+  "instructional_objective": "Explain 2D concurrent-force resultant formation by letting learners drag each vector, change magnitude and direction, reveal Cartesian components and the resultant, and step through component resolution then vector addition.",
+  "linked_explanation_id": "explanation.statics.resultant_2d_addition.vector_plane.v1",
+  "linked_procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+  "linked_procedure_signature": {
+    "status": "signed_off",
+    "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-2D-ADDITION-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+    "date": "2026-07-05",
+    "notes": "Seventh Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_RESULTANT_FORCES:MAGNITUDE_AND_ADDITION; full integrated 2D resultant-addition scope (component form plus magnitude and direction); worked example independently re-verified F_R=<40,30> N, |F_R|=50 N, phi=36.9 deg; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED"
+  },
+  "linked_worked_example_id": "worked_example.statics.resultant_2d_addition.two_angled_forces.v1",
+  "initial_state": {
+    "variables": {
+      "F_A_mag": 40.0,
+      "F_A_ang": 0.0,
+      "F_B_mag": 30.0,
+      "F_B_ang": 90.0
+    },
+    "toggles": {
+      "show_x_components": true,
+      "show_y_components": true,
+      "show_resultant": true
+    },
+    "active_step_id": "step_list_forces"
+  },
+  "student_adjustable_variables": [
+    {
+      "id": "F_A_mag",
+      "label": "Force A magnitude",
+      "value_type": "number",
+      "unit": "N",
+      "minimum": 0.0,
+      "maximum": 100.0,
+      "increment": 1.0,
+      "interaction": "drag_vector_endpoint",
+      "applies_to_entity": "vector_A"
+    },
+    {
+      "id": "F_A_ang",
+      "label": "Force A direction angle",
+      "value_type": "number",
+      "unit": "deg",
+      "minimum": 0.0,
+      "maximum": 360.0,
+      "increment": 1.0,
+      "interaction": "angle_dial",
+      "applies_to_entity": "vector_A"
+    },
+    {
+      "id": "F_B_mag",
+      "label": "Force B magnitude",
+      "value_type": "number",
+      "unit": "N",
+      "minimum": 0.0,
+      "maximum": 100.0,
+      "increment": 1.0,
+      "interaction": "drag_vector_endpoint",
+      "applies_to_entity": "vector_B"
+    },
+    {
+      "id": "F_B_ang",
+      "label": "Force B direction angle",
+      "value_type": "number",
+      "unit": "deg",
+      "minimum": 0.0,
+      "maximum": 360.0,
+      "increment": 1.0,
+      "interaction": "angle_dial",
+      "applies_to_entity": "vector_B"
+    }
+  ],
+  "geometric_constraints": [
+    {
+      "id": "concurrent_at_origin",
+      "constraint_type": "coplanar_origin_concurrent",
+      "operands": {
+        "entities": [
+          "vector_A",
+          "vector_B",
+          "resultant"
+        ]
+      }
+    },
+    {
+      "id": "angles_are_degrees",
+      "constraint_type": "degrees_mode",
+      "operands": {
+        "variables": [
+          "F_A_ang",
+          "F_B_ang"
+        ]
+      }
+    }
+  ],
+  "mathematical_constraints": [
+    {
+      "id": "mag_a_nonneg",
+      "constraint_type": "magnitude_non_negative",
+      "operands": {
+        "variable": "F_A_mag"
+      }
+    },
+    {
+      "id": "mag_b_nonneg",
+      "constraint_type": "magnitude_non_negative",
+      "operands": {
+        "variable": "F_B_mag"
+      }
+    },
+    {
+      "id": "ang_a_bounds",
+      "constraint_type": "angle_in_closed_interval",
+      "operands": {
+        "variable": "F_A_ang",
+        "minimum": 0.0,
+        "maximum": 360.0
+      }
+    },
+    {
+      "id": "ang_b_bounds",
+      "constraint_type": "angle_in_closed_interval",
+      "operands": {
+        "variable": "F_B_ang",
+        "minimum": 0.0,
+        "maximum": 360.0
+      }
+    },
+    {
+      "id": "vars_in_bounds",
+      "constraint_type": "variable_within_declared_bounds",
+      "operands": {
+        "variables": [
+          "F_A_mag",
+          "F_A_ang",
+          "F_B_mag",
+          "F_B_ang"
+        ]
+      }
+    }
+  ],
+  "dependent_calculated_values": [
+    {
+      "id": "F_Ax",
+      "label": "Force A x-component",
+      "unit": "N",
+      "formula_id": "cartesian_fx_from_magnitude_angle_deg",
+      "inputs": {
+        "magnitude": "F_A_mag",
+        "angle_deg": "F_A_ang"
+      }
+    },
+    {
+      "id": "F_Ay",
+      "label": "Force A y-component",
+      "unit": "N",
+      "formula_id": "cartesian_fy_from_magnitude_angle_deg",
+      "inputs": {
+        "magnitude": "F_A_mag",
+        "angle_deg": "F_A_ang"
+      }
+    },
+    {
+      "id": "F_Bx",
+      "label": "Force B x-component",
+      "unit": "N",
+      "formula_id": "cartesian_fx_from_magnitude_angle_deg",
+      "inputs": {
+        "magnitude": "F_B_mag",
+        "angle_deg": "F_B_ang"
+      }
+    },
+    {
+      "id": "F_By",
+      "label": "Force B y-component",
+      "unit": "N",
+      "formula_id": "cartesian_fy_from_magnitude_angle_deg",
+      "inputs": {
+        "magnitude": "F_B_mag",
+        "angle_deg": "F_B_ang"
+      }
+    },
+    {
+      "id": "R_x",
+      "label": "Resultant x-component",
+      "unit": "N",
+      "formula_id": "sum_selected",
+      "inputs": {
+        "terms": [
+          "F_Ax",
+          "F_Bx"
+        ]
+      }
+    },
+    {
+      "id": "R_y",
+      "label": "Resultant y-component",
+      "unit": "N",
+      "formula_id": "sum_selected",
+      "inputs": {
+        "terms": [
+          "F_Ay",
+          "F_By"
+        ]
+      }
+    },
+    {
+      "id": "R_mag",
+      "label": "Resultant magnitude",
+      "unit": "N",
+      "formula_id": "resultant_magnitude_from_rx_ry",
+      "inputs": {
+        "rx": "R_x",
+        "ry": "R_y"
+      }
+    },
+    {
+      "id": "R_ang",
+      "label": "Resultant direction",
+      "unit": "deg",
+      "formula_id": "resultant_direction_deg_from_rx_ry",
+      "inputs": {
+        "rx": "R_x",
+        "ry": "R_y"
+      }
+    }
+  ],
+  "visible_labels": [
+    {
+      "id": "label_FA",
+      "text": "F_A",
+      "binds_to": "F_A_mag"
+    },
+    {
+      "id": "label_FB",
+      "text": "F_B",
+      "binds_to": "F_B_mag"
+    },
+    {
+      "id": "label_FAx",
+      "text": "F_Ax",
+      "binds_to": "F_Ax",
+      "visible_when_toggle": "show_x_components"
+    },
+    {
+      "id": "label_FAy",
+      "text": "F_Ay",
+      "binds_to": "F_Ay",
+      "visible_when_toggle": "show_y_components"
+    },
+    {
+      "id": "label_FBx",
+      "text": "F_Bx",
+      "binds_to": "F_Bx",
+      "visible_when_toggle": "show_x_components"
+    },
+    {
+      "id": "label_FBy",
+      "text": "F_By",
+      "binds_to": "F_By",
+      "visible_when_toggle": "show_y_components"
+    },
+    {
+      "id": "label_R",
+      "text": "F_R",
+      "binds_to": "R_mag",
+      "visible_when_toggle": "show_resultant"
+    },
+    {
+      "id": "label_R_dir",
+      "text": "phi",
+      "binds_to": "R_ang",
+      "visible_when_toggle": "show_resultant"
+    }
+  ],
+  "units": {
+    "F_A_mag": "N",
+    "F_B_mag": "N",
+    "F_A_ang": "deg",
+    "F_B_ang": "deg",
+    "F_Ax": "N",
+    "F_Ay": "N",
+    "F_Bx": "N",
+    "F_By": "N",
+    "R_x": "N",
+    "R_y": "N",
+    "R_mag": "N",
+    "R_ang": "deg"
+  },
+  "available_toggles": [
+    {
+      "id": "show_x_components",
+      "label": "Show x components",
+      "default": true,
+      "affects": [
+        "vector_x_component",
+        "component_labels"
+      ]
+    },
+    {
+      "id": "show_y_components",
+      "label": "Show y components",
+      "default": true,
+      "affects": [
+        "vector_y_component",
+        "component_labels"
+      ]
+    },
+    {
+      "id": "show_resultant",
+      "label": "Show resultant",
+      "default": true,
+      "affects": [
+        "resultant",
+        "resultant_labels"
+      ]
+    }
+  ],
+  "procedural_step_states": [
+    {
+      "step_id": "step_list_forces",
+      "procedure_step_index": 1,
+      "title": "List all concurrent forces",
+      "visible_entities": [
+        "vector_A",
+        "vector_B"
+      ],
+      "enabled_interactions": [
+        "drag_vector_endpoint",
+        "angle_dial",
+        "numeric_spinner",
+        "keyboard_nudge",
+        "step_next"
+      ],
+      "required_toggles": {
+        "show_resultant": false,
+        "show_x_components": false,
+        "show_y_components": false
+      }
+    },
+    {
+      "step_id": "step_resolve_components",
+      "procedure_step_index": 2,
+      "title": "Resolve each force into x and y components",
+      "visible_entities": [
+        "vector_A",
+        "vector_B",
+        "comp_Ax",
+        "comp_Ay",
+        "comp_Bx",
+        "comp_By"
+      ],
+      "enabled_interactions": [
+        "drag_vector_endpoint",
+        "angle_dial",
+        "toggle_visibility",
+        "step_next",
+        "step_previous"
+      ],
+      "required_toggles": {
+        "show_x_components": true,
+        "show_y_components": true,
+        "show_resultant": false
+      }
+    },
+    {
+      "step_id": "step_sum_components",
+      "procedure_step_index": 3,
+      "title": "Sum x components and y components",
+      "visible_entities": [
+        "comp_Ax",
+        "comp_Ay",
+        "comp_Bx",
+        "comp_By",
+        "R_x_arrow",
+        "R_y_arrow"
+      ],
+      "enabled_interactions": [
+        "toggle_visibility",
+        "step_next",
+        "step_previous"
+      ],
+      "required_toggles": {
+        "show_x_components": true,
+        "show_y_components": true,
+        "show_resultant": false
+      }
+    },
+    {
+      "step_id": "step_resultant_magnitude",
+      "procedure_step_index": 4,
+      "title": "Compute resultant magnitude",
+      "visible_entities": [
+        "resultant",
+        "R_x_arrow",
+        "R_y_arrow"
+      ],
+      "enabled_interactions": [
+        "toggle_visibility",
+        "step_next",
+        "step_previous"
+      ],
+      "required_toggles": {
+        "show_resultant": true
+      }
+    },
+    {
+      "step_id": "step_resultant_direction",
+      "procedure_step_index": 5,
+      "title": "Compute resultant direction with quadrant awareness",
+      "visible_entities": [
+        "resultant"
+      ],
+      "enabled_interactions": [
+        "toggle_visibility",
+        "step_next",
+        "step_previous"
+      ],
+      "required_toggles": {
+        "show_resultant": true
+      }
+    },
+    {
+      "step_id": "step_final_resultant",
+      "procedure_step_index": 6,
+      "title": "State the final resultant",
+      "visible_entities": [
+        "vector_A",
+        "vector_B",
+        "resultant"
+      ],
+      "enabled_interactions": [
+        "toggle_visibility",
+        "step_previous",
+        "reset"
+      ],
+      "required_toggles": {
+        "show_resultant": true,
+        "show_x_components": true,
+        "show_y_components": true
+      }
+    }
+  ],
+  "reset_state": {
+    "variables": {
+      "F_A_mag": 40.0,
+      "F_A_ang": 0.0,
+      "F_B_mag": 30.0,
+      "F_B_ang": 90.0
+    },
+    "toggles": {
+      "show_x_components": true,
+      "show_y_components": true,
+      "show_resultant": true
+    },
+    "active_step_id": "step_list_forces"
+  },
+  "expected_state_transitions": [
+    {
+      "id": "enter_load",
+      "from_step_id": "step_list_forces",
+      "to_step_id": "step_list_forces",
+      "trigger": "auto_enter_on_load"
+    },
+    {
+      "id": "next_1_2",
+      "from_step_id": "step_list_forces",
+      "to_step_id": "step_resolve_components",
+      "trigger": "student_next_step"
+    },
+    {
+      "id": "next_2_3",
+      "from_step_id": "step_resolve_components",
+      "to_step_id": "step_sum_components",
+      "trigger": "student_next_step"
+    },
+    {
+      "id": "next_3_4",
+      "from_step_id": "step_sum_components",
+      "to_step_id": "step_resultant_magnitude",
+      "trigger": "student_next_step"
+    },
+    {
+      "id": "next_4_5",
+      "from_step_id": "step_resultant_magnitude",
+      "to_step_id": "step_resultant_direction",
+      "trigger": "student_next_step"
+    },
+    {
+      "id": "next_5_6",
+      "from_step_id": "step_resultant_direction",
+      "to_step_id": "step_final_resultant",
+      "trigger": "student_next_step"
+    },
+    {
+      "id": "prev_2_1",
+      "from_step_id": "step_resolve_components",
+      "to_step_id": "step_list_forces",
+      "trigger": "student_previous_step"
+    },
+    {
+      "id": "prev_3_2",
+      "from_step_id": "step_sum_components",
+      "to_step_id": "step_resolve_components",
+      "trigger": "student_previous_step"
+    },
+    {
+      "id": "prev_4_3",
+      "from_step_id": "step_resultant_magnitude",
+      "to_step_id": "step_sum_components",
+      "trigger": "student_previous_step"
+    },
+    {
+      "id": "prev_5_4",
+      "from_step_id": "step_resultant_direction",
+      "to_step_id": "step_resultant_magnitude",
+      "trigger": "student_previous_step"
+    },
+    {
+      "id": "prev_6_5",
+      "from_step_id": "step_final_resultant",
+      "to_step_id": "step_resultant_direction",
+      "trigger": "student_previous_step"
+    },
+    {
+      "id": "reset_any",
+      "from_step_id": "step_final_resultant",
+      "to_step_id": "step_list_forces",
+      "trigger": "student_reset"
+    }
+  ],
+  "accessibility_description": "Interactive vector-plane diagram for two concurrent forces. Learners can drag each vector, change magnitude and direction angle, show or hide x and y components, show or hide the resultant, observe component values update, observe resultant magnitude and direction update, step through component resolution and vector addition, and reset to the worked-example values of 40 N at 0 degrees and 30 N at 90 degrees.",
+  "keyboard_interaction_model": {
+    "focus_order": [
+      "F_A_mag",
+      "F_A_ang",
+      "F_B_mag",
+      "F_B_ang",
+      "show_x_components",
+      "show_y_components",
+      "show_resultant"
+    ],
+    "bindings": [
+      {
+        "key": "ArrowUp",
+        "action": "nudge_magnitude",
+        "target": "F_A_mag",
+        "delta": 1.0
+      },
+      {
+        "key": "ArrowDown",
+        "action": "nudge_magnitude",
+        "target": "F_A_mag",
+        "delta": -1.0
+      },
+      {
+        "key": "ArrowLeft",
+        "action": "nudge_angle",
+        "target": "F_A_ang",
+        "delta": -1.0
+      },
+      {
+        "key": "ArrowRight",
+        "action": "nudge_angle",
+        "target": "F_A_ang",
+        "delta": 1.0
+      },
+      {
+        "key": "Digit1",
+        "action": "toggle",
+        "target": "show_x_components"
+      },
+      {
+        "key": "Digit2",
+        "action": "toggle",
+        "target": "show_y_components"
+      },
+      {
+        "key": "Digit3",
+        "action": "toggle",
+        "target": "show_resultant"
+      },
+      {
+        "key": "KeyN",
+        "action": "next_step",
+        "target": "procedural_steps"
+      },
+      {
+        "key": "KeyP",
+        "action": "previous_step",
+        "target": "procedural_steps"
+      },
+      {
+        "key": "KeyR",
+        "action": "reset",
+        "target": "reset_state"
+      },
+      {
+        "key": "Escape",
+        "action": "reset",
+        "target": "reset_state"
+      }
+    ]
+  },
+  "static_fallback_specification": {
+    "fallback_type": "static_diagram",
+    "asset_kind": "inline_primitive_snapshot",
+    "description": "Static snapshot of the worked-example concurrent forces and resultant at the origin.",
+    "captures_initial_state": true,
+    "local_asset_ref": "fixtures/interaction_diagrams/fallbacks/vectors_component_resolution_and_addition_explanation_v1.svg"
+  },
+  "diagram_fingerprint": "dd4945498037e053f19e1c926ba1f3f9692690c0ab59c6e780f477cc6fa451e8",
+  "interaction_fingerprint": "fea5f00f50df849da2e672a2f7e2af16a9ead9c25ad769f7264d722fc800fa87",
+  "deterministic_validation_cases": [
+    {
+      "case_id": "worked_example_reset",
+      "input_variables": {
+        "F_A_mag": 40.0,
+        "F_A_ang": 0.0,
+        "F_B_mag": 30.0,
+        "F_B_ang": 90.0
+      },
+      "expected_calculated": {
+        "F_Ax": 40.0,
+        "F_Ay": 0.0,
+        "F_Bx": 1.83697019872103e-15,
+        "F_By": 30.0,
+        "R_x": 40.0,
+        "R_y": 30.0,
+        "R_mag": 50.0,
+        "R_ang": 36.86989764584402
+      },
+      "tolerance": {
+        "F_Ax": 1e-09,
+        "F_Ay": 1e-09,
+        "F_Bx": 1e-09,
+        "F_By": 1e-09,
+        "R_x": 1e-09,
+        "R_y": 1e-09,
+        "R_mag": 1e-09,
+        "R_ang": 0.05
+      }
+    },
+    {
+      "case_id": "quadrant_two_pair",
+      "input_variables": {
+        "F_A_mag": 50.0,
+        "F_A_ang": 120.0,
+        "F_B_mag": 20.0,
+        "F_B_ang": 180.0
+      },
+      "expected_calculated": {
+        "F_Ax": -24.99999999999999,
+        "F_Ay": 43.30127018922194,
+        "F_Bx": -20.0,
+        "F_By": 2.4492935982947065e-15,
+        "R_x": -44.999999999999986,
+        "R_y": 43.30127018922194,
+        "R_mag": 62.44997998398397,
+        "R_ang": 136.10211375198602
+      },
+      "tolerance": {
+        "F_Ax": 1e-06,
+        "F_Ay": 1e-06,
+        "F_Bx": 1e-09,
+        "F_By": 1e-09,
+        "R_x": 1e-06,
+        "R_y": 1e-06,
+        "R_mag": 1e-06,
+        "R_ang": 0.05
+      }
+    }
+  ]
+}

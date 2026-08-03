@@ -1,0 +1,102 @@
+{
+  "entries": [
+    {
+      "category": "vectors_2d",
+      "declarative_data_only": true,
+      "renderer_id": "statics_vector_plane_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_vector_plane_v1"
+    },
+    {
+      "category": "vectors_2d",
+      "declarative_data_only": true,
+      "renderer_id": "statics_force_vector_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_force_vector_v1"
+    },
+    {
+      "category": "vectors_3d",
+      "declarative_data_only": true,
+      "renderer_id": "statics_vectors_3d_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_vectors_3d_v1"
+    },
+    {
+      "category": "free_body_diagrams",
+      "declarative_data_only": true,
+      "renderer_id": "statics_fbd_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_fbd_v1"
+    },
+    {
+      "category": "moments_and_couples",
+      "declarative_data_only": true,
+      "renderer_id": "statics_moments_couples_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_moments_couples_v1"
+    },
+    {
+      "category": "particle_equilibrium",
+      "declarative_data_only": true,
+      "renderer_id": "statics_particle_equilibrium_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_particle_equilibrium_v1"
+    },
+    {
+      "category": "rigid_body_equilibrium",
+      "declarative_data_only": true,
+      "renderer_id": "statics_rigid_body_equilibrium_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_rigid_body_equilibrium_v1"
+    },
+    {
+      "category": "distributed_loads",
+      "declarative_data_only": true,
+      "renderer_id": "statics_distributed_loads_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_distributed_loads_v1"
+    },
+    {
+      "category": "beams_and_internal_forces",
+      "declarative_data_only": true,
+      "renderer_id": "statics_beams_internal_forces_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_beams_internal_forces_v1"
+    },
+    {
+      "category": "shear_and_bending_moment_diagrams",
+      "declarative_data_only": true,
+      "renderer_id": "statics_shear_bending_moment_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_shear_bending_moment_v1"
+    },
+    {
+      "category": "trusses_frames_machines",
+      "declarative_data_only": true,
+      "renderer_id": "statics_trusses_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_trusses_v1"
+    },
+    {
+      "category": "trusses_frames_machines",
+      "declarative_data_only": true,
+      "renderer_id": "statics_frames_machines_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_frames_machines_v1"
+    },
+    {
+      "category": "centroids",
+      "declarative_data_only": true,
+      "renderer_id": "statics_composite_area_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_composite_area_v1"
+    },
+    {
+      "category": "centroids",
+      "declarative_data_only": true,
+      "renderer_id": "statics_centroids_3d_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_centroids_3d_v1"
+    },
+    {
+      "category": "friction",
+      "declarative_data_only": true,
+      "renderer_id": "statics_friction_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_friction_v1"
+    },
+    {
+      "category": "area_and_mass_moments_of_inertia",
+      "declarative_data_only": true,
+      "renderer_id": "statics_area_mass_inertia_v1",
+      "trusted_beta_implementation_id": "beta.renderer.statics_area_mass_inertia_v1"
+    }
+  ],
+  "registry_id": "axiomiq_interaction_renderer_registry",
+  "registry_version": "1.1.0"
+}
