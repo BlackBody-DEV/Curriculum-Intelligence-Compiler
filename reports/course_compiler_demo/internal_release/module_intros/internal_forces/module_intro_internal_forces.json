@@ -1,86 +1,166 @@
 {
-  "schema": "axiomiq_module_introduction_draft_v1",
-  "module_intro_id": "module-intro-internal_forces-001",
+  "accessible_static_fallback": {
+    "artifact_path": "module_intro_internal_forces_static_fallback.json",
+    "available": true,
+    "required": true
+  },
   "canonical_identity": {
     "course_code": "STATICS",
     "topic_code": "STATICS_INTERNAL_FORCES_BEAMS",
     "topic_title": "Internal Forces"
   },
-  "topic_objective": "Expose and interpret normal force, shear force, bending moment, and torque at a section using a consistent cut-face sign convention and equilibrium of an isolated segment.",
-  "prerequisite_framing": "Use complete external free-body diagrams, support reactions, rigid-body equilibrium, section cuts, moment sense, and force-component conventions.",
-  "procedure_overview": [
-    {
-      "sequence": 1,
-      "procedure_id": "proc-statics-internal-forces-beams-internal-loading-at-section-v1",
-      "micro_skill_code": "internal_loading_at_section",
-      "signature_status": "signed_off",
-      "overview": "Introduce internal loading at section as a signed procedure within Internal Forces."
-    },
-    {
-      "sequence": 2,
-      "procedure_id": "proc-statics-internal-forces-beams-internal-force-sign-convention-v1",
-      "micro_skill_code": "internal_force_sign_convention",
-      "signature_status": "signed_off",
-      "overview": "Introduce internal force sign convention as a signed procedure within Internal Forces."
-    },
-    {
-      "sequence": 3,
-      "procedure_id": "proc-statics-internal-forces-beams-normal-force-internal-loading-v1",
-      "micro_skill_code": "normal_force_internal_loading",
-      "signature_status": "signed_off",
-      "overview": "Introduce normal force internal loading as a signed procedure within Internal Forces."
-    },
-    {
-      "sequence": 4,
-      "procedure_id": "proc-statics-internal-forces-beams-shear-force-internal-loading-v1",
-      "micro_skill_code": "shear_force_internal_loading",
-      "signature_status": "signed_off",
-      "overview": "Introduce shear force internal loading as a signed procedure within Internal Forces."
-    },
-    {
-      "sequence": 5,
-      "procedure_id": "proc-statics-internal-forces-beams-bending-moment-internal-loading-v1",
-      "micro_skill_code": "bending_moment_internal_loading",
-      "signature_status": "signed_off",
-      "overview": "Introduce bending moment internal loading as a signed procedure within Internal Forces."
-    },
-    {
-      "sequence": 6,
-      "procedure_id": "proc-statics-internal-forces-beams-torque-internal-loading-v1",
-      "micro_skill_code": "torque_internal_loading",
-      "signature_status": "signed_off",
-      "overview": "Introduce torque internal loading as a signed procedure within Internal Forces."
-    }
-  ],
-  "procedure_coverage": {
-    "expected_signed_count": 6,
-    "covered_signed_count": 6,
-    "complete": true
-  },
-  "worked_example_entry_point": {
-    "procedure_id": "proc-statics-internal-forces-beams-internal-loading-at-section-v1",
-    "scenario": "Move a cut through a loaded member, isolate one side, and reveal the N-V-M-T resultants required for equilibrium under the declared cut-face sign convention.",
-    "launch_state": "static_fallback_available_diagram_pending_v1_1_registry"
-  },
-  "accessible_static_fallback": {
-    "artifact_path": "module_intro_internal_forces_static_fallback.json",
-    "required": true,
-    "available": true
-  },
-  "interactive_diagram": {
-    "draft_artifact_path": "module_intro_internal_forces_diagram_draft.json",
-    "production_bound": true,
-    "target_schema_version": "1.1.0",
-    "registry_digest": null,
-    "status": "DRAFT_PENDING_PUBLISHED_REGISTRY"
-  },
+  "database_eligible": false,
   "deterministic_validation": {
     "artifact_path": "module_intro_internal_forces_validation.json",
     "content_validation": "PASS",
-    "diagram_schema_validation": "PENDING_PUBLISHED_V1_1_0"
+    "static_diagram_validation": "PASS",
+    "topic_scope_binding_validation": "PASS"
   },
   "human_review_required": true,
+  "is_active": false,
+  "module_intro_id": "module-intro-internal_forces-001",
+  "prerequisite_framing": "Use complete external free-body diagrams, support reactions, rigid-body equilibrium, section cuts, moment sense, and force-component conventions.",
+  "procedure_coverage": {
+    "complete": true,
+    "covered_signed_count": 6,
+    "expected_signed_count": 6
+  },
+  "procedure_overview": [
+    {
+      "micro_skill_code": "internal_loading_at_section",
+      "overview": "Introduce internal loading at section as a signed procedure within Internal Forces.",
+      "procedure_id": "proc-statics-internal-forces-beams-internal-loading-at-section-v1",
+      "sequence": 1,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "internal_force_sign_convention",
+      "overview": "Introduce internal force sign convention as a signed procedure within Internal Forces.",
+      "procedure_id": "proc-statics-internal-forces-beams-internal-force-sign-convention-v1",
+      "sequence": 2,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "normal_force_internal_loading",
+      "overview": "Introduce normal force internal loading as a signed procedure within Internal Forces.",
+      "procedure_id": "proc-statics-internal-forces-beams-normal-force-internal-loading-v1",
+      "sequence": 3,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "shear_force_internal_loading",
+      "overview": "Introduce shear force internal loading as a signed procedure within Internal Forces.",
+      "procedure_id": "proc-statics-internal-forces-beams-shear-force-internal-loading-v1",
+      "sequence": 4,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "bending_moment_internal_loading",
+      "overview": "Introduce bending moment internal loading as a signed procedure within Internal Forces.",
+      "procedure_id": "proc-statics-internal-forces-beams-bending-moment-internal-loading-v1",
+      "sequence": 5,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "torque_internal_loading",
+      "overview": "Introduce torque internal loading as a signed procedure within Internal Forces.",
+      "procedure_id": "proc-statics-internal-forces-beams-torque-internal-loading-v1",
+      "sequence": 6,
+      "signature_status": "signed_off"
+    }
+  ],
+  "schema": "axiomiq_module_introduction_static_v1",
+  "static_diagram": {
+    "alt_text": "Static Internal Forces overview showing the topic model and entry geometry; all 6 signed procedures are represented by the accompanying ordered procedure overview.",
+    "artifact_path": "module_intro_internal_forces_static_diagram.svg",
+    "contains_adjustable_variables": false,
+    "contains_interactive_controls": false,
+    "contains_step_states": false,
+    "diagram_fingerprint": "e01de2870c1310d8504a6af3a422e81dc1639fefd647f81e09c31ab3300e2653",
+    "renderer_category": "beam_cut_internal_force_diagram",
+    "sha256": "855a6c899702f7b8a2fe88dc49332d2d6eafb35f69172c7327a65fd5ccf77154",
+    "specification_path": "module_intro_internal_forces_diagram_draft.json",
+    "static_only": true
+  },
   "student_visible": false,
-  "database_eligible": false,
-  "is_active": false
+  "topic_objective": "Expose and interpret normal force, shear force, bending moment, and torque at a section using a consistent cut-face sign convention and equilibrium of an isolated segment.",
+  "topic_scope_binding": {
+    "binding_rule": "021B_TOPIC_SCOPE_COMPLETE_SIGNED_PROCEDURE_SET",
+    "canonical_topic_code": "STATICS_INTERNAL_FORCES_BEAMS",
+    "complete": true,
+    "procedure_count": 6,
+    "procedures": [
+      {
+        "micro_skill_code": "internal_loading_at_section",
+        "procedure_id": "proc-statics-internal-forces-beams-internal-loading-at-section-v1",
+        "topic_code": "STATICS_INTERNAL_FORCES_BEAMS",
+        "verified_signature": {
+          "date": "2026-07-13",
+          "notes": "Internal N/V/M at a single section via method of sections; reactions from beam_reactions prereq. 2-signal {sign_or_placement_error:4, unclassified:9}; axis_confusion correctly absent (straight horizontal beam, vertical loads, no component-resolution step). Scope excludes full shear/moment diagrams (separate downstream skill). Worked example independently re-derived (N=0, V=10 kN, M=10 kN·m). Batch 4A routine, skill 3 of 3, under closed-field enforcement.",
+          "reviewer": "Phase D sign-off review (PHASE-D-INTERNAL-LOADING-AT-SECTION-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "internal_force_sign_convention",
+        "procedure_id": "proc-statics-internal-forces-beams-internal-force-sign-convention-v1",
+        "topic_code": "STATICS_INTERNAL_FORCES_BEAMS",
+        "verified_signature": {
+          "date": "2026-07-20",
+          "notes": "Batch 4H skill 1/4 (four-skill exception). Scope Operator-derived. Owns the internal-force SIGN CONVENTION itself, distinct from the computation specializations: declaring a consistent positive sense for N/V/M, interpreting a negative result as the opposite physical sense on the chosen face, the equal-and-opposite relationship between opposite cut faces, reporting SIGNED internal loadings (not bare magnitudes), and reconciling the same internal state solved from either segment. The signed specializations shear_force_internal_loading, bending_moment_internal_loading, normal_force_internal_loading own the actual V/M/N computation and are CITED as equation sources, not re-taught. Does not own diagram construction, dV/dx or dM/dx relations, stress, or deflection. Worked example Operator-re-derived (source-locked to the on-disk prompt; no inclined vector, trig cross-check N/A): SS 6 m beam, P=30 kN at 2 m, Ay=20/By=10 given; convention N+/tension, V+/upward-on-left-face, M+/sagging-CCW-on-left-face; cut at x=4 m. Left portion: SigmaFy Ay-P-V=0 -> V=-10 kN (NEGATIVE under the convention = 10 kN downward on the left face); SigmaM about the cut M-Ay(4)+P(2)=0 -> M=+20 kN·m (sagging). Two resultants shown; the negative V is the mandated at-least-one-negative result; a magnitude-only answer (V=10, M=20) is explicitly rejected as incomplete. Opposite faces equal-and-opposite: left face V=10 down/M=20 CCW pairs with right face V=10 up/M=20 CW. Right-segment reconciliation closes: By-V_rightface = 10-10 = 0 and By(2)-20 = 0 - same internal state from both segments. The distinguishing feature (the convention makes the answer signed and face/segment-consistent, not a bare magnitude) is decisive throughout. TWO-signal mapping: sign_or_placement_error at step 6 (CENTRAL - correct magnitude but wrong sense/face under the declared convention, or treating opposite-face resultants as same-sense), unclassified at step 8 (missing convention declaration, magnitude-only report, or skipped reconciliation). axis_confusion OMITTED: a convention skill with no inclined-load/component-resolution step - genuine omission, no axis assignment authored. solution_sequencing_error OMITTED: no order dependency that strands an unknown. simple_average_used omitted (Centroids-family). Opens Batch 4H.",
+          "reviewer": "Phase D sign-off review (PHASE-D-INTERNAL-FORCE-SIGN-CONVENTION-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "normal_force_internal_loading",
+        "procedure_id": "proc-statics-internal-forces-beams-normal-force-internal-loading-v1",
+        "topic_code": "STATICS_INTERNAL_FORCES_BEAMS",
+        "verified_signature": {
+          "date": "2026-07-20",
+          "notes": "Batch 4G skill 5/5, batch closer. Scope Operator-derived. The third member of the N/V/M trio and the axial parallel to shear_force_internal_loading: shear owns V (transverse, SigmaFy), bending_moment owns M (SigmaM about the cut), this owns N - the internal normal/axial force at a cut, from SigmaFx = 0 on the isolated portion, tension-positive / compression-negative. Same parent internal_loading_at_section, same cut-and-equilibrate method, different equation (axial) and sign convention. V and M are the siblings (cited, not solved); axial stress (N/A) and deformation out of scope. Worked example Operator-re-derived (and re-verified after a first-pass review error): inclined F=50 kN at 36.9 deg below +x on a horizontal member, so the 3-4-5 components are Fx = F cos 36.9 = 40 kN (AXIAL, along the member) and Fy = F sin 36.9 = 30 kN (transverse). Overall axial equilibrium gives Ax = -40 kN. Cut at x=1 m (before the load at 2 m); left portion carries Ax to the cut; SigmaFx = 0: Ax - N = 0 -> N = -40 kN = 40 kN COMPRESSION under the tension-positive convention. N is genuinely nonzero because the example carries a real axial load - a transverse-only beam gives N=0 vacuously; the inclined-load resolution makes N real and signed. THREE-signal mapping: axis_confusion at step 3 (the resolution step - assigning the wrong resolved component as axial, e.g. feeding Fy into SigmaFx, or swapping which component is parallel to the member), sign_or_placement_error at step 6 (the tension/compression sign under the convention and the axial-inclusion of Ax), unclassified at step 8 (report/convention boundary). axis_confusion is GENUINELY EARNED and this is the FIRST internal-forces skill to earn it - shear, bending-moment, and the relations/diagram skills had transverse-only or pre-resolved loads with no resolution step, so it was correctly omitted there four times; the inclined load here CREATES a resolution step and the axis-assignment error becomes real. Signal placed by error model, not reflex. solution_sequencing_error OMITTED: single-cut axial solve with given axial reaction, no out-of-order-strands-prerequisite step. simple_average_used omitted (Centroids-family). NOTE the axial component is F cos(36.9)=40 (cos of the smaller angle), not 30 - the resolution is unambiguous from the stated 36.9-deg geometry. CLOSES Batch 4G: skills 45-49 = bending_moment_internal_loading, shear_moment_load_relationships, shear_moment_diagram_construction, maximum_moment_from_zero_shear, normal_force_internal_loading.",
+          "reviewer": "Phase D sign-off review (PHASE-D-NORMAL-FORCE-INTERNAL-LOADING-SIGNOFF-002)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "shear_force_internal_loading",
+        "procedure_id": "proc-statics-internal-forces-beams-shear-force-internal-loading-v1",
+        "topic_code": "STATICS_INTERNAL_FORCES_BEAMS",
+        "verified_signature": {
+          "date": "2026-07-19",
+          "notes": "Batch 4F skill 5/5, batch closer. Scope Operator-derived. The shear specialization of internal_loading_at_section (the signed parent that finds the full N/V/M trio at a section): this skill owns the internal shear force V, the SigmaFy step that determines it, and the sign convention that makes V a signed quantity rather than a magnitude. Bending moment M is owned by bending_moment_internal_loading; shear/moment diagrams and the dV/dx relations are downstream; none are solved here. Worked example Operator-re-derived: simply-supported 6 m beam, P=30 kN down at 2 m, reactions Ay=20/By=10 kN given; cut at x=4 m, left portion SigmaFy: Ay - P - V = 20 - 30 - V = 0 -> V = -10 kN under the stated convention (positive upward on the left face). The cut is placed AFTER the load so the inclusion rule bites - forgetting P gives the wrong V=20; this is the distinguishing-feature-must-bite discipline, the same family as contact_force_modeling's single interface, applied and satisfied. Two-portion action-reaction check confirms V. TWO-signal mapping, both content-earned: sign_or_placement_error at step 5 (the SigmaFy/sign/inclusion step - the skill's crux, since V is meaningless without its sign), unclassified at step 7 (report/convention/diagram boundary). axis_confusion OMITTED: all loads transverse, no component-resolution step. solution_sequencing_error OMITTED although newly live this batch (adopted at 35c2ddb7): considered honestly and declined - reactions are given and no authored step strands a prerequisite unknown on an out-of-order solve, unlike the multi-member frame that earned the signal. The fifth signal is mapped only where earned, not defaulted onto a skill that does not exhibit its error class. simple_average_used omitted (Centroids-family). This closes Batch 4F: skills 40-44 = three_force_member_identification, simple_truss_modeling, frame_machine_fbd, frame_machine_equilibrium, shear_force_internal_loading.",
+          "reviewer": "Phase D sign-off review (PHASE-D-SHEAR-FORCE-INTERNAL-LOADING-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "bending_moment_internal_loading",
+        "procedure_id": "proc-statics-internal-forces-beams-bending-moment-internal-loading-v1",
+        "topic_code": "STATICS_INTERNAL_FORCES_BEAMS",
+        "verified_signature": {
+          "date": "2026-07-19",
+          "notes": "Batch 4G skill 1/5. Scope Operator-derived. The bending-moment specialization of internal_loading_at_section (the signed parent that finds the full N/V/M trio at a section): this skill owns the internal bending moment M at one cut, the SigmaM=0 about the cut that determines it, the force lever arms about the cut, and the sign convention that makes M signed rather than a magnitude. Shear V at the same cut is owned by the signed sibling shear_force_internal_loading (cited, not re-solved); shear/moment diagrams (shear_moment_diagram_construction, downstream skill 3) and the load-shear-moment relations (shear_moment_load_relationships, downstream skill 2) are excluded; stress/deflection out of scope. Worked example Operator-re-derived, continuous with the shear skill's beam: simply-supported 6 m beam, P=30 kN down at 2 m, reactions Ay=20/By=10 kN given; cut at x=4 m (after the load), left portion SigmaM about the cut (CCW+): M - Ay(4) + P(2) = M - 80 + 60 = 0 -> M = +20 kN·m, sagging under the stated convention. The sign is meaningful, not a bare magnitude: Ay's CCW moment exceeds P's CW moment, netting sagging; a flipped convention or lever-arm sense gives the wrong sign. The cut is placed after the load so the nonzero-lever-arm feature bites - forgetting P gives the wrong M=80; distinguishing-feature-must-bite discipline satisfied. Opposite-segment check closes: right portion By(2)-20 = 20-20 = 0, confirming +20 CCW left face pairs with 20 CW right face. TWO-signal mapping, both content-earned: sign_or_placement_error at step 5 (the SigmaM/sign/lever-arm crux - M is meaningless without its sign), unclassified at step 7 (report/convention/diagram boundary). axis_confusion OMITTED: transverse loads, no component-resolution step. solution_sequencing_error OMITTED although live: single-cut solve with given reactions, no step strands a prerequisite unknown on an out-of-order solve - the fifth signal mapped only where earned, consistent with its omission on shear_force_internal_loading. simple_average_used omitted (Centroids-family). Opens Batch 4G; unlocks shear_moment_load_relationships (skill 2).",
+          "reviewer": "Phase D sign-off review (PHASE-D-BENDING-MOMENT-INTERNAL-LOADING-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "torque_internal_loading",
+        "procedure_id": "proc-statics-internal-forces-beams-torque-internal-loading-v1",
+        "topic_code": "STATICS_INTERNAL_FORCES_BEAMS",
+        "verified_signature": {
+          "date": "2026-07-20",
+          "notes": "Batch 4H skill 2/4 (four-skill exception). Scope Operator-derived. The FOURTH member of the N/V/M/T family: owns the internal TORQUE T - the twisting moment about the member's LONGITUDINAL axis - from SigmaM_axis = 0 on the isolated portion, under a stated RHR (+x) sign convention. Normal owns N (SigmaFx), shear owns V (SigmaFy), bending owns M (SigmaM about a transverse axis); T is the axial-moment counterpart. STATICS SCOPE ONLY: finds the internal torque value by equilibrium and STOPS - the scope ceiling excludes torsional stress, member rotation under load, section torsional constants, allowable-stress sizing, and rotational power (stated in MoM-mechanism-term-free language after a review-scan false-positive on the exclusion sentence was correctly resolved by rephrasing the boundary, NOT deleting it; the torque-vs-torsion boundary is preserved). Worked example Operator-re-derived: shaft along x, A(0)/B(2.5)/C(4), applied axial torques TA=+120, TB=-45, TC=-75 N·m (RHR+x), overall equilibrium 120-45-75=0; cut at x=3 (after A,B, before C), left portion SigmaM_x: TA+TB-T = 120-45-T = 0 -> T = +75 N·m. Net torque NONZERO (120-45=75, the torques do not cancel before the cut - non-vacuous per the directive); signed and meaningful under RHR+x (not a bare magnitude); forgetting TB gives the wrong 120 (inclusion rule bites); right-portion check closes against TC. THREE-signal mapping: axis_confusion at step 1 (confusing the LONGITUDINAL torque axis with a transverse bending axis - feeding an M into SigmaM_axis; earned by the axis-IDENTIFICATION step, a legitimately different earn than the normal-force skill's component-RESOLUTION earn), sign_or_placement_error at step 5 (RHR sign, torque inclusion), unclassified at step 7 (boundary; reaching into stress/rotation/section-constants/power). solution_sequencing_error OMITTED: single-cut solve with given torques, no stranded prerequisite. Trig cross-check N/A: torques stated as already resolved about the axis, no inclined-vector resolution. simple_average_used omitted (Centroids-family).",
+          "reviewer": "Phase D sign-off review (PHASE-D-TORQUE-INTERNAL-LOADING-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      }
+    ]
+  },
+  "worked_example_entry_point": {
+    "launch_state": "static_diagram_available_human_review_required",
+    "procedure_id": "proc-statics-internal-forces-beams-internal-loading-at-section-v1",
+    "scenario": "Move a cut through a loaded member, isolate one side, and reveal the N-V-M-T resultants required for equilibrium under the declared cut-face sign convention."
+  }
 }

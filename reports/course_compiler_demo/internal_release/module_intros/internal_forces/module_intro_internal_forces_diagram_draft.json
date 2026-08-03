@@ -1,54 +1,29 @@
 {
-  "schema": "axiomiq_interactive_instructional_diagram_draft_v1_1",
-  "draft_id": "module-intro-internal_forces-diagram-001",
-  "explanation_type": "module introduction",
+  "alt_text": "Static Internal Forces overview showing the topic model and entry geometry; all 6 signed procedures are represented by the accompanying ordered procedure overview.",
+  "artifact_path": "module_intro_internal_forces_static_diagram.svg",
   "canonical_topic_code": "STATICS_INTERNAL_FORCES_BEAMS",
-  "linked_module_intro_id": "module-intro-internal_forces-001",
-  "production_bound": true,
-  "renderer_category": "beam section cut and internal-resultant workspace",
-  "required_operations": [
-    "drag a section cut along a member",
-    "choose left or right isolated segment",
-    "toggle cut-face sign convention",
-    "show normal-force arrow",
-    "show shear-force arrow",
-    "show bending-moment couple",
-    "show torque couple",
-    "update internal resultants from segment equilibrium"
-  ],
-  "target_contract": {
-    "interaction_schema": "axiomiq_interactive_instructional_diagram_interaction_v1_1",
-    "schema_version": "1.1.0",
-    "renderer_registry_version": "1.1.0",
-    "renderer_registry_sha256": null,
-    "formula_registry_version": "1.1.0",
-    "formula_registry_sha256": null,
-    "binding_status": "PENDING_LANE_A_PUBLISHED_DIGESTS"
-  },
-  "v1_0_0_expressibility": {
-    "complete": false,
-    "renderer_allowlist": [
-      "statics_vector_plane_v1",
-      "statics_force_vector_v1",
-      "statics_fbd_v1",
-      "statics_composite_area_v1"
-    ],
-    "formula_allowlist": [
-      "cartesian_fx_from_magnitude_angle_deg",
-      "cartesian_fy_from_magnitude_angle_deg",
-      "sum_selected",
-      "resultant_magnitude_from_rx_ry",
-      "resultant_direction_deg_from_rx_ry"
-    ],
-    "exact_gaps": [
-      "No v1.0.0 renderer represents a movable section cut or the coupled N-V-M-T internal-resultant set.",
-      "The v1.0.0 formula allowlist has no section-equilibrium or cut-face sign-convention operation."
-    ]
-  },
-  "completion_gate": "Does not count as complete until validated against Lane A's published v1.1.0 schema and registry digests.",
+  "contains_adjustable_variables": false,
   "contains_executable_code": false,
-  "human_review_required": true,
-  "student_visible": false,
+  "contains_interactive_controls": false,
+  "contains_step_states": false,
   "database_eligible": false,
-  "is_active": false
+  "diagram_fingerprint": "e01de2870c1310d8504a6af3a422e81dc1639fefd647f81e09c31ab3300e2653",
+  "diagram_sha256": "855a6c899702f7b8a2fe88dc49332d2d6eafb35f69172c7327a65fd5ccf77154",
+  "explanation_type": "module_introduction",
+  "human_review_required": true,
+  "is_active": false,
+  "linked_module_intro_id": "module-intro-internal_forces-001",
+  "renderer_category": "beam_cut_internal_force_diagram",
+  "schema": "axiomiq_module_intro_static_diagram_spec_v1",
+  "static_diagram_id": "module-intro-internal_forces-static-diagram-001",
+  "static_only": true,
+  "student_visible": false,
+  "topic_scope_procedure_ids": [
+    "proc-statics-internal-forces-beams-internal-loading-at-section-v1",
+    "proc-statics-internal-forces-beams-internal-force-sign-convention-v1",
+    "proc-statics-internal-forces-beams-normal-force-internal-loading-v1",
+    "proc-statics-internal-forces-beams-shear-force-internal-loading-v1",
+    "proc-statics-internal-forces-beams-bending-moment-internal-loading-v1",
+    "proc-statics-internal-forces-beams-torque-internal-loading-v1"
+  ]
 }
