@@ -1,11 +1,7 @@
 {
-  "schema": "axiomiq_module_intro_static_fallback_v1",
-  "fallback_id": "module-intro-structural_analysis-static-001",
-  "canonical_topic_code": "STATICS_STRUCTURAL_ANALYSIS",
-  "language": "en",
   "accessibility": {
-    "role": "figure",
-    "title": "Structural Analysis module introduction static overview",
+    "color_independent": true,
+    "keyboard_interaction_required": false,
     "long_description": "A text-first overview of Structural Analysis. Model trusses, frames, machines, and cables; select joint or section equilibrium; identify zero-force members; classify member force sense; and preserve action-reaction and support behavior.",
     "reading_order": [
       "objective",
@@ -14,75 +10,102 @@
       "worked-example entry",
       "diagram description"
     ],
-    "color_independent": true,
-    "keyboard_interaction_required": false
+    "role": "figure",
+    "title": "Structural Analysis module introduction static overview"
   },
+  "canonical_topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+  "database_eligible": false,
+  "diagram_asset": {
+    "alt_text": "Static Structural Analysis overview showing the topic model and entry geometry; all 11 signed procedures are represented by the accompanying ordered procedure overview.",
+    "diagram_fingerprint": "691960dfadc8e9c2fbecc1a886a12584e12c182dcdcff1b1967956c38d512073",
+    "path": "module_intro_structural_analysis_static_diagram.svg",
+    "renderer_category": "truss_frame_machine_or_cable_diagram",
+    "sha256": "877b00001172c8f7f2f867baefeafecb7591fbf9a9ec6a8bd8c7ab9c245db4f4"
+  },
+  "diagram_description": "Static Structural Analysis overview showing the topic model and entry geometry; all 11 signed procedures are represented by the accompanying ordered procedure overview.",
+  "fallback_id": "module-intro-structural_analysis-static-001",
+  "human_review_required": true,
+  "is_active": false,
+  "language": "en",
   "objective": "Model trusses, frames, machines, and cables; select joint or section equilibrium; identify zero-force members; classify member force sense; and preserve action-reaction and support behavior.",
   "prerequisites": "Bring rigid-body free-body diagrams, support reactions, two-force-member behavior, planar equilibrium, and consistent tension/compression sign conventions.",
   "procedure_map": [
     {
-      "sequence": 1,
+      "micro_skill_code": "simple_truss_modeling",
       "procedure_id": "proc-statics-structural-analysis-simple-truss-modeling-v1",
-      "micro_skill_code": "simple_truss_modeling"
+      "sequence": 1
     },
     {
-      "sequence": 2,
+      "micro_skill_code": "method_of_joints",
       "procedure_id": "proc-statics-structural-analysis-method-of-joints-v1",
-      "micro_skill_code": "method_of_joints"
+      "sequence": 2
     },
     {
-      "sequence": 3,
+      "micro_skill_code": "zero_force_members",
       "procedure_id": "proc-statics-structural-analysis-zero-force-members-v1",
-      "micro_skill_code": "zero_force_members"
+      "sequence": 3
     },
     {
-      "sequence": 4,
+      "micro_skill_code": "truss_support_reactions",
       "procedure_id": "proc-statics-structural-analysis-truss-support-reactions-v1",
-      "micro_skill_code": "truss_support_reactions"
+      "sequence": 4
     },
     {
-      "sequence": 5,
+      "micro_skill_code": "method_of_sections",
       "procedure_id": "proc-statics-structural-analysis-method-of-sections-v1",
-      "micro_skill_code": "method_of_sections"
+      "sequence": 5
     },
     {
-      "sequence": 6,
+      "micro_skill_code": "member_tension_compression_signs",
       "procedure_id": "proc-statics-structural-analysis-member-tension-compression-signs-v1",
-      "micro_skill_code": "member_tension_compression_signs"
+      "sequence": 6
     },
     {
-      "sequence": 7,
+      "micro_skill_code": "frame_machine_fbd",
       "procedure_id": "proc-statics-structural-analysis-frame-machine-fbd-v1",
-      "micro_skill_code": "frame_machine_fbd"
+      "sequence": 7
     },
     {
-      "sequence": 8,
+      "micro_skill_code": "frame_machine_equilibrium",
       "procedure_id": "proc-statics-structural-analysis-frame-machine-equilibrium-v1",
-      "micro_skill_code": "frame_machine_equilibrium"
+      "sequence": 8
     },
     {
-      "sequence": 9,
+      "micro_skill_code": "pin_action_reaction_forces",
       "procedure_id": "proc-statics-structural-analysis-pin-action-reaction-forces-v1",
-      "micro_skill_code": "pin_action_reaction_forces"
+      "sequence": 9
     },
     {
-      "sequence": 10,
+      "micro_skill_code": "space_trusses",
       "procedure_id": "proc-statics-structural-analysis-space-trusses-v1",
-      "micro_skill_code": "space_trusses"
+      "sequence": 10
     },
     {
-      "sequence": 11,
+      "micro_skill_code": "cables",
       "procedure_id": "proc-statics-structural-analysis-cables-v1",
-      "micro_skill_code": "cables"
+      "sequence": 11
     }
   ],
-  "worked_example": {
-    "procedure_id": "proc-statics-structural-analysis-simple-truss-modeling-v1",
-    "entry_description": "Inspect a pin-connected structure, test the simple-truss assumptions and determinacy counts, then choose a joint or section entry point without collapsing the canonical topic to the TRUSSES runtime alias."
-  },
-  "diagram_description": "The planned structural systems, trusses, frames, and cables will support: drag joint geometry; toggle pin roller and fixed supports; apply joint loads; highlight two-force and zero-force members; select a joint free-body diagram; place a section cut through members; toggle tension and compression assumptions; show pin action-reaction pairs; rotate a space-truss view; adjust cable geometry. Until v1.1.0 is published, this description and procedure map are the complete accessible fallback.",
-  "human_review_required": true,
+  "schema": "axiomiq_module_intro_static_fallback_v2",
   "student_visible": false,
-  "database_eligible": false,
-  "is_active": false
+  "topic_scope_binding": {
+    "procedure_count": 11,
+    "procedure_ids": [
+      "proc-statics-structural-analysis-simple-truss-modeling-v1",
+      "proc-statics-structural-analysis-method-of-joints-v1",
+      "proc-statics-structural-analysis-zero-force-members-v1",
+      "proc-statics-structural-analysis-truss-support-reactions-v1",
+      "proc-statics-structural-analysis-method-of-sections-v1",
+      "proc-statics-structural-analysis-member-tension-compression-signs-v1",
+      "proc-statics-structural-analysis-frame-machine-fbd-v1",
+      "proc-statics-structural-analysis-frame-machine-equilibrium-v1",
+      "proc-statics-structural-analysis-pin-action-reaction-forces-v1",
+      "proc-statics-structural-analysis-space-trusses-v1",
+      "proc-statics-structural-analysis-cables-v1"
+    ]
+  },
+  "worked_example": {
+    "entry_description": "Inspect a pin-connected structure, test the simple-truss assumptions and determinacy counts, then choose a joint or section entry point without collapsing the canonical topic to the TRUSSES runtime alias.",
+    "procedure_id": "proc-statics-structural-analysis-simple-truss-modeling-v1"
+  }
 }

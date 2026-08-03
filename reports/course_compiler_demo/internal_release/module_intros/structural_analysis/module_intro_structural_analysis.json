@@ -1,125 +1,260 @@
 {
-  "schema": "axiomiq_module_introduction_draft_v1",
-  "module_intro_id": "module-intro-structural_analysis-001",
+  "accessible_static_fallback": {
+    "artifact_path": "module_intro_structural_analysis_static_fallback.json",
+    "available": true,
+    "required": true
+  },
   "canonical_identity": {
+    "alias_policy": "runtime alias only; canonical identity remains STATICS_STRUCTURAL_ANALYSIS",
     "course_code": "STATICS",
-    "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
-    "topic_title": "Structural Analysis",
     "runtime_aliases": [
       "TRUSSES"
     ],
-    "alias_policy": "runtime alias only; canonical identity remains STATICS_STRUCTURAL_ANALYSIS"
+    "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+    "topic_title": "Structural Analysis"
   },
-  "topic_objective": "Model trusses, frames, machines, and cables; select joint or section equilibrium; identify zero-force members; classify member force sense; and preserve action-reaction and support behavior.",
-  "prerequisite_framing": "Bring rigid-body free-body diagrams, support reactions, two-force-member behavior, planar equilibrium, and consistent tension/compression sign conventions.",
-  "procedure_overview": [
-    {
-      "sequence": 1,
-      "procedure_id": "proc-statics-structural-analysis-simple-truss-modeling-v1",
-      "micro_skill_code": "simple_truss_modeling",
-      "signature_status": "signed_off",
-      "overview": "Introduce simple truss modeling as a signed procedure within Structural Analysis."
-    },
-    {
-      "sequence": 2,
-      "procedure_id": "proc-statics-structural-analysis-method-of-joints-v1",
-      "micro_skill_code": "method_of_joints",
-      "signature_status": "signed_off",
-      "overview": "Introduce method of joints as a signed procedure within Structural Analysis."
-    },
-    {
-      "sequence": 3,
-      "procedure_id": "proc-statics-structural-analysis-zero-force-members-v1",
-      "micro_skill_code": "zero_force_members",
-      "signature_status": "signed_off",
-      "overview": "Introduce zero force members as a signed procedure within Structural Analysis."
-    },
-    {
-      "sequence": 4,
-      "procedure_id": "proc-statics-structural-analysis-truss-support-reactions-v1",
-      "micro_skill_code": "truss_support_reactions",
-      "signature_status": "signed_off",
-      "overview": "Introduce truss support reactions as a signed procedure within Structural Analysis."
-    },
-    {
-      "sequence": 5,
-      "procedure_id": "proc-statics-structural-analysis-method-of-sections-v1",
-      "micro_skill_code": "method_of_sections",
-      "signature_status": "signed_off",
-      "overview": "Introduce method of sections as a signed procedure within Structural Analysis."
-    },
-    {
-      "sequence": 6,
-      "procedure_id": "proc-statics-structural-analysis-member-tension-compression-signs-v1",
-      "micro_skill_code": "member_tension_compression_signs",
-      "signature_status": "signed_off",
-      "overview": "Introduce member tension compression signs as a signed procedure within Structural Analysis."
-    },
-    {
-      "sequence": 7,
-      "procedure_id": "proc-statics-structural-analysis-frame-machine-fbd-v1",
-      "micro_skill_code": "frame_machine_fbd",
-      "signature_status": "signed_off",
-      "overview": "Introduce frame machine fbd as a signed procedure within Structural Analysis."
-    },
-    {
-      "sequence": 8,
-      "procedure_id": "proc-statics-structural-analysis-frame-machine-equilibrium-v1",
-      "micro_skill_code": "frame_machine_equilibrium",
-      "signature_status": "signed_off",
-      "overview": "Introduce frame machine equilibrium as a signed procedure within Structural Analysis."
-    },
-    {
-      "sequence": 9,
-      "procedure_id": "proc-statics-structural-analysis-pin-action-reaction-forces-v1",
-      "micro_skill_code": "pin_action_reaction_forces",
-      "signature_status": "signed_off",
-      "overview": "Introduce pin action reaction forces as a signed procedure within Structural Analysis."
-    },
-    {
-      "sequence": 10,
-      "procedure_id": "proc-statics-structural-analysis-space-trusses-v1",
-      "micro_skill_code": "space_trusses",
-      "signature_status": "signed_off",
-      "overview": "Introduce space trusses as a signed procedure within Structural Analysis."
-    },
-    {
-      "sequence": 11,
-      "procedure_id": "proc-statics-structural-analysis-cables-v1",
-      "micro_skill_code": "cables",
-      "signature_status": "signed_off",
-      "overview": "Introduce cables as a signed procedure within Structural Analysis."
-    }
-  ],
-  "procedure_coverage": {
-    "expected_signed_count": 11,
-    "covered_signed_count": 11,
-    "complete": true
-  },
-  "worked_example_entry_point": {
-    "procedure_id": "proc-statics-structural-analysis-simple-truss-modeling-v1",
-    "scenario": "Inspect a pin-connected structure, test the simple-truss assumptions and determinacy counts, then choose a joint or section entry point without collapsing the canonical topic to the TRUSSES runtime alias.",
-    "launch_state": "static_fallback_available_diagram_pending_v1_1_registry"
-  },
-  "accessible_static_fallback": {
-    "artifact_path": "module_intro_structural_analysis_static_fallback.json",
-    "required": true,
-    "available": true
-  },
-  "interactive_diagram": {
-    "draft_artifact_path": "module_intro_structural_analysis_diagram_draft.json",
-    "production_bound": true,
-    "target_schema_version": "1.1.0",
-    "registry_digest": null,
-    "status": "DRAFT_PENDING_PUBLISHED_REGISTRY"
-  },
+  "database_eligible": false,
   "deterministic_validation": {
     "artifact_path": "module_intro_structural_analysis_validation.json",
     "content_validation": "PASS",
-    "diagram_schema_validation": "PENDING_PUBLISHED_V1_1_0"
+    "static_diagram_validation": "PASS",
+    "topic_scope_binding_validation": "PASS"
   },
   "human_review_required": true,
+  "is_active": false,
+  "module_intro_id": "module-intro-structural_analysis-001",
+  "prerequisite_framing": "Bring rigid-body free-body diagrams, support reactions, two-force-member behavior, planar equilibrium, and consistent tension/compression sign conventions.",
+  "procedure_coverage": {
+    "complete": true,
+    "covered_signed_count": 11,
+    "expected_signed_count": 11
+  },
+  "procedure_overview": [
+    {
+      "micro_skill_code": "simple_truss_modeling",
+      "overview": "Introduce simple truss modeling as a signed procedure within Structural Analysis.",
+      "procedure_id": "proc-statics-structural-analysis-simple-truss-modeling-v1",
+      "sequence": 1,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "method_of_joints",
+      "overview": "Introduce method of joints as a signed procedure within Structural Analysis.",
+      "procedure_id": "proc-statics-structural-analysis-method-of-joints-v1",
+      "sequence": 2,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "zero_force_members",
+      "overview": "Introduce zero force members as a signed procedure within Structural Analysis.",
+      "procedure_id": "proc-statics-structural-analysis-zero-force-members-v1",
+      "sequence": 3,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "truss_support_reactions",
+      "overview": "Introduce truss support reactions as a signed procedure within Structural Analysis.",
+      "procedure_id": "proc-statics-structural-analysis-truss-support-reactions-v1",
+      "sequence": 4,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "method_of_sections",
+      "overview": "Introduce method of sections as a signed procedure within Structural Analysis.",
+      "procedure_id": "proc-statics-structural-analysis-method-of-sections-v1",
+      "sequence": 5,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "member_tension_compression_signs",
+      "overview": "Introduce member tension compression signs as a signed procedure within Structural Analysis.",
+      "procedure_id": "proc-statics-structural-analysis-member-tension-compression-signs-v1",
+      "sequence": 6,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "frame_machine_fbd",
+      "overview": "Introduce frame machine fbd as a signed procedure within Structural Analysis.",
+      "procedure_id": "proc-statics-structural-analysis-frame-machine-fbd-v1",
+      "sequence": 7,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "frame_machine_equilibrium",
+      "overview": "Introduce frame machine equilibrium as a signed procedure within Structural Analysis.",
+      "procedure_id": "proc-statics-structural-analysis-frame-machine-equilibrium-v1",
+      "sequence": 8,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "pin_action_reaction_forces",
+      "overview": "Introduce pin action reaction forces as a signed procedure within Structural Analysis.",
+      "procedure_id": "proc-statics-structural-analysis-pin-action-reaction-forces-v1",
+      "sequence": 9,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "space_trusses",
+      "overview": "Introduce space trusses as a signed procedure within Structural Analysis.",
+      "procedure_id": "proc-statics-structural-analysis-space-trusses-v1",
+      "sequence": 10,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "cables",
+      "overview": "Introduce cables as a signed procedure within Structural Analysis.",
+      "procedure_id": "proc-statics-structural-analysis-cables-v1",
+      "sequence": 11,
+      "signature_status": "signed_off"
+    }
+  ],
+  "schema": "axiomiq_module_introduction_static_v1",
+  "static_diagram": {
+    "alt_text": "Static Structural Analysis overview showing the topic model and entry geometry; all 11 signed procedures are represented by the accompanying ordered procedure overview.",
+    "artifact_path": "module_intro_structural_analysis_static_diagram.svg",
+    "contains_adjustable_variables": false,
+    "contains_interactive_controls": false,
+    "contains_step_states": false,
+    "diagram_fingerprint": "691960dfadc8e9c2fbecc1a886a12584e12c182dcdcff1b1967956c38d512073",
+    "renderer_category": "truss_frame_machine_or_cable_diagram",
+    "sha256": "877b00001172c8f7f2f867baefeafecb7591fbf9a9ec6a8bd8c7ab9c245db4f4",
+    "specification_path": "module_intro_structural_analysis_diagram_draft.json",
+    "static_only": true
+  },
   "student_visible": false,
-  "database_eligible": false,
-  "is_active": false
+  "topic_objective": "Model trusses, frames, machines, and cables; select joint or section equilibrium; identify zero-force members; classify member force sense; and preserve action-reaction and support behavior.",
+  "topic_scope_binding": {
+    "binding_rule": "021B_TOPIC_SCOPE_COMPLETE_SIGNED_PROCEDURE_SET",
+    "canonical_topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+    "complete": true,
+    "procedure_count": 11,
+    "procedures": [
+      {
+        "micro_skill_code": "simple_truss_modeling",
+        "procedure_id": "proc-statics-structural-analysis-simple-truss-modeling-v1",
+        "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+        "verified_signature": {
+          "date": "2026-07-18",
+          "notes": "Batch 4F skill 2/5. Scope Operator-derived. FIRST multi-parent synthesis skill of 4F and first STATICS_STRUCTURAL_ANALYSIS sign-off. A simple truss is a MODELING idealization that precedes any solution method; this skill stops at the model and the determinacy count and never solves. Synthesis of three signed parents, verified woven not restated: two_force_member_identification (3ba94601) supplies why every member is axial-only — loaded at two joints, no intermediate load, collinear along the member; support_reaction_modeling supplies r, the reaction-component count from the catalog; constraints_static_determinacy supplies the determinacy LOGIC, here specialised from n_e = 3 to the truss count m + r vs 2j. The misconception owned: students treat the three assumptions (frictionless-pin joints, joint-only loading, axial-only straight members) as physical facts rather than modeling choices, and conflate simple-by-construction (m = 2j − 3) with determinate-by-count (m + r = 2j). The worked example, Operator-re-derived, makes both bite: j=4, m=5, m=2j−3 holds; Arrangement 1 (pin+roller) r=3, m+r=8=2j determinate; Arrangement 2 (pin+pin) r=4, m+r=9>8 indeterminate though STILL simple by construction — the simple≠determinate contrast; Arrangement 3 puts a load at the midpoint of BC, violating joint-only loading so BC is not two-force and the model is invalid. A single clean truss with nothing to contrast would have made the modeling test unmeasurable — the defect family caught on contact_force_modeling and two_force_member_identification. Method of joints, method of sections, and zero-force-member rules are the downstream ceiling (method_of_joints owns solving); no step solves, writes joint equations, identifies zero-force members, analyses frames/machines, or goes 3D. SIGNAL MAPPING, corrected at the review beat to a single content-earned signal: unclassified at step 6. The draft first carried sign_or_placement_error at step 1, but step 1 only INVENTORIES (lists joints, members, supports, load locations) and assigns no line of action or sense — the probe confirmed only step 2 references placement, and that is a citation of two_force_member_identification, not this skill placing a vector. The three failure modes bundled under that signal resolve to a modeling error, a miscount, and inventory bookkeeping, all of which fall to unclassified or the Decision B debt class; the signal named a placement the step does not perform. It was removed and its real error content folded into the unclassified@6 trigger, so coverage is preserved. This matches constraints_static_determinacy, the other count-and-classify skill, which also carries unclassified alone. SIGNAL-POLICY DEBT per Decision B, now a SECOND instance: modeling-error subclasses (assumption-as-fact, invalid-model-accepted, miscount) have no canonical signal and collapse onto unclassified. Two count-and-classify skills now show this — constraints_static_determinacy and simple_truss_modeling — which suggests the gap is structural to identification/modeling/classification skills that never resolve a vector, not incidental. Flagged for an Architect taxonomy ruling before Phase E authors questions against these procedures. axis_confusion omitted: no component-resolution step. simple_average_used omitted: Centroids-family. No content defect at the review beat; the only correction was the signal mapping.",
+          "reviewer": "Phase D sign-off review (PHASE-D-SIMPLE-TRUSS-MODELING-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "method_of_joints",
+        "procedure_id": "proc-statics-structural-analysis-method-of-joints-v1",
+        "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+        "verified_signature": {
+          "date": "2026-07-23",
+          "notes": "Batch 4J skill 2/5. Owns determination of truss MEMBER forces by isolating one joint at a time: each joint is a concurrent force system with exactly two independent equations, SigmaFx = 0 and SigmaFy = 0, so at most two unknown member forces can be resolved at any one joint. Owns the START-JOINT constraint and the propagation that follows - begin at a joint with at most two unknowns, and each solved joint reduces the unknown count at adjacent joints. Boundary: truss_support_reactions (signed, skill 1 of this batch) determines the external reactions and states that this skill takes them as input; the artifact carries the complement - Ax, Ay and Cy are GIVEN and are not re-derived, and this skill computes member forces only. simple_truss_modeling (signed) supplies the idealisation of pin joints, two-force members and loads at joints, cited not re-derived; two-force members are why each member force acts along the member axis. particle_fbd_2d and solve_particle_equil_2d (signed) are the concurrent-equilibrium analogue - a joint IS a particle - cited not re-taught. method_of_sections (batch sibling, position 3) obtains a few member forces by cutting through the truss and is excluded as a different method for the same quantity. member_tension_compression_signs (batch sibling, position 4, not yet signed) owns the tension/compression sign CONVENTION and its cross-method consistency; this skill USES the convention - assume tension, a force pulling away from the joint, read a negative result as compression - and names the sibling as owner, a forward cession. zero_force_members (batch sibling, position 5) owns identification by INSPECTION rules; this skill computes member forces by equilibrium and does not teach those rules. Worked example Operator-re-derived from the on-disk prompt and independently recomputed: joints A(0,0) pin, D(4,0), C(8,0) roller, B(4,3); five members AB, AD, BD, BC, DC; loads 8 kN toward +x and 12 kN down at B, 6 kN down at D; reactions given Ax = 8 kN left, Ay = 6 kN up, Cy = 12 kN up. Unknown member forces before any solve: A has 2, B has 3, C has 2, D has 3. Joint A: SigmaFy 6 + 0.6 F_AB = 0 -> F_AB = -10 kN (10 kN COMPRESSION); SigmaFx -8 + 0.8(-10) + F_AD = 0 -> F_AD = +16 kN (TENSION). Propagation: with AD known, joint D drops to two unknowns - SigmaFy -6 + F_BD = 0 -> F_BD = +6 kN (TENSION); SigmaFx -16 + F_DC = 0 -> F_DC = +16 kN (TENSION). Joint C: SigmaFy 12 + 0.6 F_BC = 0 -> F_BC = -20 kN (20 kN COMPRESSION), with SigmaFx closing at -16 + (-0.8)(-20) = 0. Distinguishing feature bites: joints B and D each carry THREE unknown member forces so beginning there strands them against only two equations - the start-joint constraint is a real constraint, not a stated preference; joint D becomes tractable ONLY after joint A is solved, demonstrating propagation; tension and compression both appear so the sign convention carries meaning; no member force is zero, which would belong to the position-5 sibling; and F_AB = -10 against F_BC = -20 means the member forces are not symmetric, so a student cannot mirror rather than propagate. HONEST LIMITATION recorded: verifying at one unused joint checks ONLY the members meeting at that joint. VERIFICATION PRECEDES REPORT in both arrays, taken at joint B which was never used in the solve: AB contributes (8, 6), BD contributes (0, -6), BC contributes (-16, 12), loads (8, -12); SigmaFx = 0 and SigmaFy = 0, both closing. The artifact names AB, BD and BC as the members checked and states plainly that AD and DC do not meet at joint B and are not verified by it. FOUR-signal mapping, each a distinct authored act, with the triggers explicitly partitioned in a chain: solution_sequencing_error at step 2 (start-joint selection), sign_or_placement_error at step 3 (tension convention - its trigger opens by stipulating a valid start joint has been selected), axis_confusion at step 4 (member-axis component resolution - its trigger opens by stipulating the tension sense is correct), unclassified at step 7 (report and boundary). solution_sequencing_error is GENUINELY EARNED here and this is the first earn since wedge_friction: beginning at a joint carrying three unknown member forces writes two equilibrium equations against three unknowns, which are then mathematically underivable AT THAT JOINT rather than merely solved inefficiently, and the trigger keys on direct evidence of where the solve began, never inferred from a wrong final number. This contrasts with its correct omission across all five Batch 4I skills, where the component sums were independent and any order succeeded; the signal continues to be placed by error model rather than by recency or quota. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: member directions are given by joint coordinates and no inclined vector is decomposed from a stated angle. No archetype is asserted while PROCEDURE-ARCHETYPE-LIBRARY-V1 remains unapproved. Operator observation recorded, not corrected: this artifact declares SigmaFx and SigmaFy among its formula variables while truss_support_reactions declares M, x, y, Fx and Fy but not the summation symbols; both satisfy the declare-what-notation-uses floor and the difference is over-declaration rather than a gap, noted for a future normalisation pass. Review beat cleared at first pass; no correction lane. Unlocks zero_force_members.",
+          "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4J-SKILL-2-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "zero_force_members",
+        "procedure_id": "proc-statics-structural-analysis-zero-force-members-v1",
+        "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+        "verified_signature": {
+          "date": "2026-07-23",
+          "notes": "Batch 4J skill 5/5, BATCH CLOSER. Owns identification of zero-force members BY INSPECTION, without computing the full set of member forces, and owns the two standard rules together with the CONDITIONS each requires. Rule 1: a joint connecting exactly two non-collinear members and carrying no applied load and no support reaction makes both members zero-force. Rule 2: a joint connecting exactly three members of which two are collinear, carrying no applied load and no support reaction, makes the third member zero-force. Owns the discipline of checking every condition before applying a rule - member count, collinearity, and absence of any load or reaction. Boundary: method_of_joints (signed, skill 2) computes member forces by joint equilibrium and explicitly cedes inspection identification here; the artifact carries the complement - this skill identifies by rule without solving the truss and does not compute the remaining member forces. method_of_sections excluded. member_tension_compression_signs (signed, skill 4) states that a zero-force member has no sign to assign; the complement is stated here - a zero-force member is neither in tension nor in compression. simple_truss_modeling (signed) supplies the idealisation the rules depend on and the artifact states plainly that the rules are invalid without it. truss_support_reactions (signed, skill 1) - a joint carrying a support reaction counts as LOADED for these rules, so reaction PRESENCE must be checked even though reaction VALUES are never computed. Worked example Operator-verified independently: joints A(0,0) pin, B(4,0), C(8,0), D(12,0) roller on the bottom chord and E(4,3), F(8,3) on the top; nine members AB, BC, CD, AE, EF, FD, BE, BF, CF, with m = 2j - 3 = 9, determinate; single applied load 12 kN downward at E. Inspection joint by joint: joint A has two members and no applied load BUT a pin reaction acts there, so Rule 1 does not apply; joint B has the collinear bottom-chord pair BA and BC and no load, which resembles Rule 2, BUT four members meet there rather than exactly three, so Rule 2 does not apply; joint C has exactly three members with CB and CD collinear and neither load nor reaction, so every condition of Rule 2 is met and CF is ZERO-FORCE; joint D has two members and no applied load BUT a roller reaction acts there, so Rule 1 does not apply; joints E and F satisfy no rule. Result by inspection: CF only. Distinguishing feature bites: the result is reachable by inspection alone, and THREE distinct near-miss joints fail on TWO different conditions - support reaction present at A and at D, member count at B - so a student cannot pattern-match on shape and must check conditions. VERIFICATION PRECEDES REPORT in both arrays and confirms rather than produces the result: at joint C the unit directions are (-1,0) toward B, (+1,0) toward D and (0,+1) toward F, so summing vertical components leaves only CF and gives F_CF = 0. The conclusion uses no reaction value and no other member force, which is precisely what makes it an inspection result. HONEST LIMITATION recorded in concept, procedure, solution and common_errors: a zero-force member is zero FOR THIS LOADING ONLY. It is not redundant and must not be removed - under a different load case it may carry force, and such members commonly brace long members or serve other cases. A student who concludes from a correct answer that CF could be deleted has learned the wrong thing. TWO-signal mapping: axis_confusion at step 3 (the collinearity determination - treating two non-collinear members as collinear, or failing to recognise a collinear chord pair, when comparing unit directions at a joint; its trigger opens by stipulating that member counts and load/reaction presence have already been recorded, which partitions it from step 4), unclassified at step 4 (applying a rule without every condition met). sign_or_placement_error OMITTED: a zero-force member carries no sign, so nothing earns it. solution_sequencing_error OMITTED: the joints may be inspected in any order and no authored step strands a prerequisite unknown. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: no inclined vector is decomposed from a stated angle. No archetype is asserted while PROCEDURE-ARCHETYPE-LIBRARY-V1 remains unapproved. SIGNAL-VOCABULARY GAP RECORDED AND ROUTED TO THE ARCHITECT, not force-fit and with no new signal proposed: the unclassified mapping at step 4 carries SEVEN distinct error classes - ignoring a support reaction at a two-member joint, applying Rule 2 at a four-member joint, miscounting members at a joint, treating an identified zero-force member as permanently redundant, skipping the verification, computing remaining member forces or reaction values, and assigning a tension or compression designation to a zero-force member. A student who errs cannot be routed to a remedy, because the diagnostic can say only that something in the boundary went wrong. This is the THIRD independent instance of the gap for identification, modelling and classification skills, after the Wave 1 records on simple_truss_modeling, constraints_static_determinacy and dry_friction_static_kinetic, and it is the most severe ratio observed. Two further Operator observations recorded, neither corrected: first, the axis_confusion earn at step 3 is the corpus's most marginal - procedure step 3 genuinely authors a directional comparison so the mapping meets the stated criterion, but collinearity RECOGNITION is a weaker relative of the component-ASSIGNMENT errors that earned this signal elsewhere, and the worked example does not exercise it because every collinear pair in it is exactly horizontal; second, the term near-miss appears in solution_steps and in the answer, which is authoring vocabulary rather than domain vocabulary, though it describes a real property of those joints rather than the diagnostic apparatus and so reads as instructional. Review beat cleared at first pass; no correction lane. CLOSES BATCH 4J 5/5.",
+          "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4J-SKILL-5-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "truss_support_reactions",
+        "procedure_id": "proc-statics-structural-analysis-truss-support-reactions-v1",
+        "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+        "verified_signature": {
+          "date": "2026-07-23",
+          "notes": "Batch 4J skill 1/5, batch open. Owns determination of the EXTERNAL support reactions of a planar truss by treating the entire truss as a single rigid body, before any member analysis: the external free-body diagram carries only applied loads and support reactions, no member force appears on it however many members the truss has, and the internal member layout does not enter the reaction calculation at all. Solved by SigmaFx = 0, SigmaFy = 0, SigmaM = 0. Boundary: simple_truss_modeling (signed prerequisite) supplies the truss idealisation - pin joints, two-force members, loads at joints - cited not re-derived; beam_reactions (signed prerequisite) is the direct analogue, and the distinction this skill carries is that a truss is an assembly of many members yet still reduces to ONE rigid body for the external solve; rigid_body_equilibrium_2d, support_reactions_2d and support_reaction_modeling (signed) supply the equilibrium method and support-reaction modelling and are cited, not re-taught; method_of_joints and method_of_sections (batch siblings, positions 2 and 3) own MEMBER forces and will cite these reactions as their input, so this skill stops at Ax, Ay and Dy and computes no member force; zero_force_members and member_tension_compression_signs excluded. Worked example Operator-re-derived from the on-disk prompt: planar truss spanning 12 m, pin at A(0,0), roller at D(12,0); loads 12 kN down and 8 kN toward +x at joint B(4,3), and 24 kN down at joint C(8,3); nine members, none on the external FBD. SigmaM_A = 0: 12 Dy + [4(-12) - 3(8)] + [8(-24) - 3(0)] = 12 Dy - 72 - 192 = 0 -> Dy = 22 kN up; SigmaFy = 0 -> Ay = 14 kN up; SigmaFx = 0 -> Ax = 8 kN to the LEFT. Distinguishing feature bites: the truss carries nine members and none appears on the external diagram, so including any of them would be visibly wrong; the horizontal applied load makes Ax genuinely nonzero so SigmaFx does real work rather than resolving trivially; and the loads sit 3 m above the support line so the horizontal force carries a real moment arm and the arm choice is decisive. HONEST LIMITATION recorded in concept, procedure, solution and common_errors - the sharp point of this skill: a moment check taken about the OTHER SUPPORT is blind to two of the three reactions. The far support's own reaction has zero moment arm about itself, and a horizontal reaction at a support collinear with the check point also has zero arm; a check about D closes for Dy = 21, for Ax = +8 with the wrong sign, and for Ax = 0 omitted, detecting only an error in Ay. VERIFICATION PRECEDES REPORT in both arrays (verify at index 5, report at index 6), and the verification is taken about joint C(8,3), a point OFF the support line, which detects all three: load at B (-4)(-12) - (0)(8) = 48, reaction A (-8)(14) - (-3)(-8) = -136, reaction D (4)(22) - (-3)(0) = 88, SigmaM_C = 48 - 136 + 88 = 0. This is the second skill in recent batches where the conventional check is the one that fails, after position_vector_3d's sign-blind magnitude, and the artifact states plainly what the conventional check misses and why. THREE-signal mapping: sign_or_placement_error at step 2 (external FBD contents and assumed senses - placing a member force on the external diagram, omitting a reaction component especially Ax when a horizontal load is present, or assigning an inconsistent assumed sense), axis_confusion at step 3 (moment-arm pairing - the arm of a vertical force is the horizontal coordinate distance and the arm of a horizontal force is the vertical distance; its trigger opens by stipulating correct FBD contents, which cleanly partitions it from step 2 rather than duplicating the crux), unclassified at step 7 (report and boundary - incomplete reaction set, treating a moment check about the other support as sufficient, skipped off-line verification, or proceeding into member forces, zero-force members or tension/compression signs). solution_sequencing_error OMITTED with explicit argument: the three equilibrium equations form a solvable set and no authored step strands a prerequisite unknown; choosing a moment point that isolates one unknown is an efficiency choice, not a stranding. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: loads are given as components and no inclined vector is decomposed. No archetype is asserted while PROCEDURE-ARCHETYPE-LIBRARY-V1 remains unapproved. One correction lane preceded sign-off: CORRECTION-001 appended five entries to formula.variables (M, x, y, Fx, Fy) which appear in formula.notation but were undeclared, bringing the set to 8; it was a pure append with every other field byte-identical, and the gap arose because the Operator's symbol instruction listed which symbols to use without restating the declaration requirement. Opens Batch 4J; unlocks method_of_joints and method_of_sections.",
+          "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4J-SKILL-1-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "method_of_sections",
+        "procedure_id": "proc-statics-structural-analysis-method-of-sections-v1",
+        "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+        "verified_signature": {
+          "date": "2026-07-23",
+          "notes": "Batch 4J skill 3/5. Owns obtaining truss member forces by passing an imaginary CUT through the truss and isolating one side as a RIGID BODY. Unlike a joint, a cut portion carries THREE independent equations - SigmaFx = 0, SigmaFy = 0, SigmaM = 0 - so at most three unknown member forces can be resolved by one section. Owns CUT SELECTION (the cut must pass through the wanted members and expose no more than three unknowns) and STRATEGIC MOMENT-POINT SELECTION (taking moments about the point where two unknowns intersect isolates the third in a single equation). Boundary: truss_support_reactions (signed, skill 1) determines the external reactions; the artifact carries the complement - Ax, Ay and Gy are GIVEN and not re-derived. method_of_joints (signed, skill 2) obtains the same quantity by isolating one joint at a time, a particle with two equations, and must propagate joint to joint; that skill names this one as a different method for the same quantity and this artifact states the COMPLEMENT - a section isolates a rigid body with three equations and reaches a member DIRECTLY without solving the joints before it, with 'do not solve joint by joint' authored into the procedure rather than left implicit. rigid_body_equilibrium_2d (signed) supplies the three-equation rigid-body method and is the analogue for a section exactly as particle equilibrium was the analogue for a joint - cited, not re-taught. simple_truss_modeling (signed) supplies the idealisation. member_tension_compression_signs (batch sibling, position 4, not yet signed) owns the tension/compression sign CONVENTION and its cross-method consistency; this skill USES it - assume tension, the cut force pulls the isolated portion toward the removed side - and names the sibling as owner, a forward cession matching the one made by method_of_joints. zero_force_members excluded. Worked example Operator-re-derived and independently recomputed: joints A(0,0) pin, D(4,0), E(8,0), G(12,0) on the bottom chord and B(4,3), F(8,3) on the top; nine members, m = 2j - 3 = 9, determinate; loads 6 kN down at D and 24 kN down at E; reactions given Ax = 0, Ay = 12 kN up, Gy = 18 kN up. A vertical cut through BF, DF and DE exposes exactly three unknowns; the left portion (A, B, D) is isolated. SigmaM about D isolates F_BF because F_DF and F_DE both pass through D: -48 - 3 F_BF = 0 -> F_BF = -16 kN (16 kN COMPRESSION). SigmaM about F isolates F_DE because F_BF and F_DF both pass through F: -96 + 24 + 3 F_DE = 0 -> F_DE = +24 kN (24 kN TENSION). SigmaFy isolates F_DF because the other two are horizontal: 12 - 6 + 0.6 F_DF = 0 -> F_DF = -10 kN (10 kN COMPRESSION). Distinguishing feature bites: DIRECT ACCESS is demonstrated with evidence rather than asserted - joint member counts are A 2, B 3, D 4, E 3, F 4, G 2, so reaching DF by method of joints requires THREE joints (A then B then D, or G then E then F) while one section reaches it directly; the cut exposes exactly three unknowns, enough to need all three equations but not so many that the section is unsolvable; both moment points do real work, each isolating a single unknown in one equation rather than requiring a simultaneous solve; and tension and compression both appear. HONEST LIMITATION recorded in concept, procedure, solution and common_errors: once two moment equations and one force equation have been used on a portion, the remaining force equation on that SAME portion is a linear consequence of them - it confirms arithmetic but supplies no independent equilibrium information. VERIFICATION PRECEDES REPORT in both arrays and is taken on the OTHER portion (joints E, F, G), which brings in Gy = 18 kN and the 24 kN load, neither of which appeared in the left-portion solve: F_BF gives (+16, 0), F_DF gives (+8, +6), F_DE gives (-24, 0), so SigmaFx = 16 + 8 - 24 = 0 and SigmaFy = 18 - 24 + 6 = 0. The artifact notes that SigmaFx on the left portion also closes at zero but is not independent. THREE-signal mapping with chained triggers: sign_or_placement_error at step 3 (the tension assumption - a cut force pulls the isolated portion toward the removed side and acts oppositely on the other portion; its trigger opens by stipulating a valid cut has been selected), axis_confusion at step 4 (component resolution of the diagonal cut force and moment-arm pairing; its trigger opens by stipulating the tension sense is correct), unclassified at step 7 (report and boundary). solution_sequencing_error OMITTED with an explicit contrast against method_of_joints, where it was earned: there, beginning at a three-unknown joint writes two equations against three unknowns and strands them; here the three rigid-body equations are independent and may be written in any order, so choosing a moment point that isolates one unknown is an efficiency choice rather than a stranding. Cutting through four or more unknown members is a CUT-SELECTION error, not a solve-order error, and is routed to unclassified rather than force-fit to sequencing. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: member directions follow from joint coordinates and no inclined vector is decomposed from a stated angle. No archetype is asserted while PROCEDURE-ARCHETYPE-LIBRARY-V1 remains unapproved. Operator observation recorded, not corrected: two distinct error classes - cutting through more than three unknown members, and treating a same-portion force check as independent - both route to unclassified because the canonical vocabulary cannot name either; this is a further instance of the signal-vocabulary gap already recorded independently by two Wave 1 windows and is surfaced for the pending taxonomy ruling, with no new signal proposed here. Review beat cleared at first pass; no correction lane.",
+          "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4J-SKILL-3-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "member_tension_compression_signs",
+        "procedure_id": "proc-statics-structural-analysis-member-tension-compression-signs-v1",
+        "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+        "verified_signature": {
+          "date": "2026-07-23",
+          "notes": "Batch 4J skill 4/5. Owns the CONVENTION itself rather than any computation: the assume-tension convention for structural members (every unknown member force assumed positive in tension, a negative solved value meaning compression); the physical meaning that a member in tension pulls both of its end joints toward each other while a member in compression pushes both of them apart; the fact that the ARROW on a joint free-body diagram REVERSES between a member's two ends while the member's SIGNED VALUE does not change; CROSS-METHOD CONSISTENCY, so the same member reads the same signed value whether reached by joints or by section; and reporting a signed result with a T or C designation rather than a bare magnitude. Boundary: method_of_joints (signed, skill 2) and method_of_sections (signed, skill 3) both USE this convention and both name this skill as its owner; the artifact carries the complement - those skills compute member forces, this one owns the convention they apply, member values are taken as GIVEN, and 'do not recompute' is authored into both the procedure and the prompt rather than left implicit. internal_force_sign_convention (signed, Batch 4H) is the direct beams-family analogue - it owns the N/V/M convention, the equal-and-opposite relationship between the two faces of a cut, and signed rather than bare-magnitude reporting - and this skill is its truss-member counterpart. truss_support_reactions (signed, skill 1) supplies reactions, given not re-derived. zero_force_members (batch sibling, position 5) is excluded with a stated reason: a zero-force member has no sign to assign. Worked example Operator-verified against the same truss analysed by method_of_sections: joints A(0,0) pin, D(4,0), E(8,0), G(12,0) on the bottom chord and B(4,3), F(8,3) on the top; nine members; loads 6 kN down at D and 24 kN down at E; reactions Ax = 0, Ay = 12 kN up, Gy = 18 kN up. Member values given from both signed methods: F_BF = -16, F_DF = -10, F_DE = +24 by method of joints propagating A then B then D, and identically by method of sections cutting BF, DF and DE. Interpretation under the convention: F_BF = -16 kN is 16 kN COMPRESSION, F_DF = -10 kN is 10 kN COMPRESSION, F_DE = +24 kN is 24 kN TENSION. Distinguishing feature bites: compression and tension are both present so the sign carries meaning; ARROW REVERSAL is demonstrated explicitly for one member of each state - for BF the unit direction from B toward F is (1,0) giving a force on B of (-16,0) pushing B AWAY from F, while the unit direction from F toward B is (-1,0) giving a force on F of (+16,0) pushing F AWAY from B, opposite arrows with the signed value -16 at both ends; for DE the force on D is (+24,0) pulling D TOWARD E and the force on E is (-24,0) pulling E TOWARD D, again opposite arrows with the signed value +24 at both ends and both arrows pulling the joints together; cross-method agreement is shown on all three members; and a magnitude-only report is detectably incomplete because 16 kN alone does not distinguish BF, which is in compression, from a tension member of the same magnitude. Reporting a member as positive at one end and negative at the other is the specific misconception this skill exists to correct, and the artifact names it directly. HONEST LIMITATION recorded in concept, procedure, solution and common_errors, and it is the subtlest in this batch: cross-method agreement confirms the VALUE but not the INTERPRETATION, because both methods rest on the same assumed-tension convention - if that convention were declared backwards both methods would agree and both would be wrong. The mapping from a negative value to compression is a declaration that must be stated, not something the agreement verifies. VERIFICATION PRECEDES REPORT in both arrays, and the verification is the cross-method comparison with that circularity caveat recorded alongside it. TWO-signal mapping, matching the shape of the beams analogue internal_force_sign_convention: sign_or_placement_error at step 3 (CENTRAL - reading the arrow direction at one end as the member's sign, reporting the member as positive at one end and negative at the other, or inverting the negative-to-compression mapping; its trigger opens by stipulating the given signed values are in hand, which partitions it from the interpretation inputs), unclassified at step 7 (report and boundary - magnitude-only report, omitted convention declaration, skipped cross-method check, recomputation by either method, or assigning a sign to a zero-force member). axis_confusion OMITTED with an explicit argument: this is a convention skill and no authored step resolves a force into components along a chosen axis; unit directions appear only to demonstrate arrow sense, which is not a resolution. The beams analogue omitted it for exactly the same reason, and the two-signal shape was reached by argument rather than by targeting a count. solution_sequencing_error OMITTED: no authored step strands a prerequisite unknown. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: no inclined vector is decomposed from a stated angle. No archetype is asserted while PROCEDURE-ARCHETYPE-LIBRARY-V1 remains unapproved. Review beat cleared at first pass; no correction lane.",
+          "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4J-SKILL-4-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "frame_machine_fbd",
+        "procedure_id": "proc-statics-structural-analysis-frame-machine-fbd-v1",
+        "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+        "verified_signature": {
+          "date": "2026-07-18",
+          "notes": "Batch 4F skill 3/5. Scope Operator-derived. The CONTRAST skill to the trusses just signed: a frame or machine contains at least one multi-force member (loaded at more than two points, between its end connections, or by an applied couple), so its pin force is NOT axial — it has two unknown components, unlike a two-force member whose direction two_force_member_identification fixed. This is the FBD and modeling step; solving is frame_machine_equilibrium (skill 4/5), the ceiling, which lists this node as a prerequisite. Synthesis of three signed parents, verified woven: two_force_member_identification (the two-force test, so the multi-force contrast is sharp and a two-force link inside a frame can reduce unknowns), support_reaction_modeling (external reaction components), rigid_body_fbd_2d (how to draw one body's FBD, extended here to dismembered members with pin-interaction forces). The skill owns Newton's third law at each internal pin as a DRAWING rule: the pair on the two adjoining member FBDs is equal and opposite. REVIEW-BEAT CORRECTION, a genuine pedagogy defect not mere wording: the first draft's only internal pin (B) connected multi-force AB to TWO-FORCE BD. Because BD is two-force, the force at B lies along BD — one unknown, not two — and the draft conceded as much in its own solution. The example therefore never demonstrated the two-component pin force that is the entire point of the skill, and it contradicted its own concept (which says a two-force member inside a frame REDUCES unknowns, then drew two components at exactly the reducing pin). Root cause is structural: in any two-member frame with one two-force member the shared pin is always adjacent to it and thus constrained. Redesigned so BOTH members are multi-force — AB vertical with a horizontal load H at midheight, BC horizontal with a downward load P at midspan, joined at internal pin B — so neither is two-force and the pin force at B is a genuine two-component unknown, Operator-verified on disk. 3-signal mapping, all genuinely EARNED and the OPPOSITE of the Decision B count-and-classify debt, because this is the first 4F skill that actually places and resolves forces: axis_confusion at step 4 (mislabeling which of the two rectangular pin components is x versus y — a real error only because the components are now independent, not locked to a member axis), sign_or_placement_error at step 5 (drawing the Newton's-third-law pair with the same sense instead of opposite), unclassified at step 6 (misclassification, incomplete FBD, importing a solve). simple_average_used omitted (Centroids-family). Hard stops verified absent: no equilibrium equations solved, no pin/reaction/member magnitude found, no method of joints or sections, no truss determinacy count, no 3D. This lane also recorded a third cross-phase pattern for the Architect: an identification/FBD skill's worked example must EXERCISE the skill's distinguishing feature, not merely include it — the same defect family as contact_force_modeling's single interface and two_force_member_identification's single member, here the constrained pin. Caught and corrected before sign-off.",
+          "reviewer": "Phase D sign-off review (PHASE-D-FRAME-MACHINE-FBD-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "frame_machine_equilibrium",
+        "procedure_id": "proc-statics-structural-analysis-frame-machine-equilibrium-v1",
+        "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+        "verified_signature": {
+          "date": "2026-07-19",
+          "notes": "Batch 4F skill 4/5. Scope Operator-derived. The SOLVE skill for dismembered frames and machines: frame_machine_fbd (35c52289) drew the member FBDs with two-component pin forces and Newton's-third-law pairing; this skill SOLVES those coupled members for the unknowns. Synthesis of three signed parents: frame_machine_fbd (the FBDs and third-law pairs being solved), rigid_body_equilibrium_2d (the equilibrium equations and how to solve them), two_force_member_identification (which members give one unknown, not two). The essence beyond single-body equilibrium is the MULTI-body coupling: a shared internal pin passes an unknown from one member to the next. Worked example Operator-re-derived: Ax=-250, Ay=300, Bx=-250, By=-300 N, with the internal-pin pair equal-and-opposite and the assembled-frame equilibrium check closing to zero. FOUR-signal mapping, all content-earned: solution_sequencing_error at step 3, axis_confusion at step 4, sign_or_placement_error at step 5, unclassified at step 6. solution_sequencing_error is the FIFTH canonical signal, adopted this batch under Architect Ruling A after this skill exposed a member-sequencing error class - solving a member before its shared-pin unknown is available - that none of the original four could name without a silent force-fit. It is EVIDENCE-GATED per the ruling's mandatory classification constraint: emitted only on direct evidence of solve order (a structured intermediate, an explicitly chosen first body, an ordered response, or a family distractor representing premature member solving), never inferred from a wrong final number alone; absent solve-order evidence it falls to unclassified. The taxonomy was adopted atomically across all four enforcement surfaces (schema both enums, policy module, backend loader, Alpha10 test rename) at commit 35c2ddb7, after a pre-existing content defect - solve_particle_equil_2d's unknown_direction_not_modeled annotation mapping to axis_confusion instead of the policy's unclassified - was corrected first (commit 3cb5cdbc) so the full regression suite was green before the taxonomy landed. axis_confusion and sign_or_placement_error are genuinely earned here (the skill resolves forces into components and signs them across the third-law pin), the same as frame_machine_fbd and unlike the count-and-classify skills. simple_average_used omitted (Centroids-family). Hard stops verified absent: this skill does not re-teach FBD drawing (frame_machine_fbd's job), run method of joints/sections, apply a truss determinacy count, or go 3D. The single-source import refactor (backend loader and Alpha10 test each redefine the canonical set locally instead of importing the policy module) is deferred to the Batch 4F close report as debt.",
+          "reviewer": "Phase D sign-off review (PHASE-D-FRAME-MACHINE-EQUILIBRIUM-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "pin_action_reaction_forces",
+        "procedure_id": "proc-statics-structural-analysis-pin-action-reaction-forces-v1",
+        "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "Pin action-reaction forces in frame and machine disassembly — a connecting pin exerts ONE pair of equal-and-opposite forces, not two independent forces. The action-reaction relationship is imposed as Newton's third law: with (Bx, By) assumed on member AB at the shared pin, (-Bx, -By) must appear on member BC, equal in magnitude and opposite in direction. THE LOAD-BEARING IDEA IS CORRECTLY DEVELOPED: the two-not-four unknown count is shown as the consequence that matters, since the shared pin introduces the same two unknowns on both member diagrams and thereby couples them, whereas treating the pin forces as four independent unknowns would leave the disassembled system under-determined. The sign relationship is therefore structural, not bookkeeping — it is what makes disassembly solvable. Internal versus external is clean: pin B is internal and exposes the action-reaction pair on separation, while support pins A and C each contribute a single ground reaction, with the precise edge qualifier that a support reaction becomes a pair only if the member is itself separated from the support. LATERAL BOUNDARIES held in one sentence each along the correct pre-solve/solve seam: frame_machine_fbd draws the member diagrams and this skill fixes the relationship between the already-drawn pin forces, while frame_machine_equilibrium solves for numeric values and this skill imposes the action-reaction constraint that must hold before solving — neither re-authored, and no equilibrium solved as the deliverable. Each member diagram is based on rigid_body_fbd_2d, cited not re-authored; the two-force special case is cited to two_force_member_identification, which would fix a member's pin-force direction along its axis, with the general two-component case kept here. The consistency check verifies the pairing independently of any equilibrium: Bx + (-Bx) = 0 and By + (-By) = 0, and the same two symbols appear with opposite signs on the two diagrams rather than four distinct symbols. Honest limitation recorded: the check confirms the action-reaction relationship of equal magnitude, opposite sign and shared unknowns but does not determine numeric pin-force values, owned by frame_machine_equilibrium, and does not confirm the assumed positive directions are the true physical ones — a negative solved value later would simply mean the true sense opposes the assumption, resolved at the solving stage. Two earned signals at distinct steps: sign_or_placement_error at step 3 where the action-reaction pair is drawn and same-direction drawing on both members is the failure, and unclassified at step 1 as the boundary fallback covering four-independent-unknown treatment, solving as the deliverable, FBD re-authoring, and internal-external confusion. axis_confusion was scrutinized specifically per the packet and correctly omitted: the authored content is entirely about the SIGN reversal between members, an action-reaction relationship, and no authored step makes transposing Bx and By between axes the characteristic failure, so mapping axis_confusion would pad a signal the skill does not earn. simple_average_used and solution_sequencing_error cannot be earned: no averaging and no stranded prerequisite chain. Symbol reuse deliberate: Bx and By reused with identical meaning from frame_machine_fbd and frame_machine_equilibrium, member and support labels AB, BC, A, C added, and the load symbols H and P deliberately not bound since loads are unspecified here; no binding of u, d, k, I, M_O or theta. This draft required no correction, the fifth consecutive clean draft, closing the computational tail of the batch without a correction in contrast to the conceptual middle.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "space_trusses",
+        "procedure_id": "proc-statics-structural-analysis-space-trusses-v1",
+        "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "Space trusses — three-dimensional joint and member equilibrium, authored to the Architect scope ruling that the distinguishing feature be genuinely three-dimensional and not a re-run of the planar method of joints. Independently re-derived: |r_AD| = sqrt(4 + 9 + 36) = sqrt(49) = 7 m, u_AD = (2/7, 3/7, 6/7) with all three components nonzero and normalization (4 + 9 + 36)/49 = 1, so member AD has a genuinely three-dimensional line of action rather than a coordinate-aligned one. The joint solves by THREE scalar equations: from sum Fz, F_AD = 7(7/6) = 49/6 = 8.1667 kN tension; from sum Fy, F_AC = -(49/6)(3/7) = -3.5 kN compression; from sum Fx, F_AB = -(49/6)(2/7) = -7/3 = -2.3333 kN compression. Verified by an independent z-balance, F_AD(6/7) = 49/7 = 7 kN balancing the applied load without reference to the x or y equations, and by sign reading consistent with a downward load putting AD in tension while AB and AC resist. THE DISTINGUISHING FEATURE BITES: the third equation carries real work because the member with the only z-component isolates from sum Fz, so the resolution genuinely exercises three-dimensional direction cosines and cannot be a planar problem wearing a z-axis; the artifact states explicitly that a planar two-equation resolution is insufficient and sum Fz is not optional, and states the space-truss determinacy relation m + r = 3j contrasted with the planar m + r = 2j. BOUNDARY against the signed plane-truss family: method_of_joints owns the planar two-equation joint and its complement is named in one sentence; simple_truss_modeling's planar idealization is cited as the analogue with ball-and-socket joints replacing pins and not re-authored; zero_force_members and method_of_sections are excluded; the 3D unit-vector and force-along-line mechanics of unit_vector_along_line and force_directed_along_line are cited and not re-derived. No mass, no dynamics. SYMBOL DISCIPLINE, with one sharp catch: cartesian_vector_components_3d binds k as the +z unit vector, and this artifact uses sum Fz and z-components throughout without ever binding a bare k, avoiding the collision rather than stumbling into it; F_AB, F_AC, F_AD reused tension-positive from method_of_joints, the unit-vector framing reused from unit_vector_along_line, and m, r, j reused as counts from simple_truss_modeling; no binding of d, k, I, M_O, theta, A_gen or V. Three earned signals at distinct steps: sign_or_placement_error at step 2 where each unit vector is formed from the joint outward and the tension-positive convention is set, covering unit-vector reversal and wrong force sense; axis_confusion at step 3 where the three scalar equations are assembled, covering applying only two equations, dropping sum Fz, and Cartesian component mismatch; and unclassified at step 1 as the boundary fallback covering re-running the planar method as the objective and using 2j determinacy. simple_average_used cannot be earned. solution_sequencing_error omitted and argued: solving sum Fz first is convenient algebra on a simultaneous set of three equations all available at once, not a forced phase order stranding a prerequisite — the correct distinction from general_analysis_procedure, where the phases genuinely could not proceed out of order. Honest limitation recorded: the single-joint solution with three unknowns and three equations determines these member forces but does not verify global determinacy or proper constraint, owned by the determinacy and constraint skills; a negative scalar means compression, not an error; and the normalization check confirms u_AD is a unit vector but does not validate the given joint coordinates. First skill authored in the newly created SPACE_TRUSSES subtopic; signed from that re-parented location; required no correction at review.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "cables",
+        "procedure_id": "proc-statics-structural-analysis-cables-v1",
+        "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "Cables — the statics of a cable supporting concentrated loads, authored to the Architect scope ruling of cable geometry, tension direction, and equilibrium, with elasticity, sag deformation, and material design excluded. Independently re-derived: segment AB has run 3 and drop 4 giving L_AB = 5 and direction cosines (0.6, 0.8) that normalize to one; segment BC has run 6 and drop 2 giving L_BC = sqrt(40) = 6.3246 and direction cosines (0.9487, 0.3162) that normalize to one; the two slopes differ so the cable changes direction at the load point B. Concurrent equilibrium at B with a 10 kN downward load gives, from sum Fx, T_AB = 1.5811 T_BC, and substituting into sum Fy, 0.9487 T_BC = 10 so T_BC = 10.541 kN and T_AB = 16.666 kN, the latter exact as 50/3. THE HORIZONTAL-COMPONENT CONSERVATION IS THE CONCEPTUAL SPINE and lands exactly: H = 0.6(16.666) = 10.0 kN on AB and H = 0.9487(10.541) = 10.0 kN on BC, equal to three figures, derived from sum Fx alone and therefore an independent check against the sum Fy solve, and framed as the defining property that makes a cable under vertical loads tractable rather than a coincidence. The vertical balance confirms independently: 0.8(16.666) - 0.3162(10.541) = 13.333 - 3.333 = 10.0 kN. THE BOUNDARY to cable_tension_modeling is the central requirement and is drawn cleanly with a real distinction rather than a restated overlap: that skill models the cable FORCE at a support or pulley, tension-only and equal across a frictionless pulley, while this skill finds the loaded GEOMETRY and segment tensions under concentrated loads — force-model versus loaded-geometry — and the pulley model is not re-authored. The piecewise-straight funicular geometry with a direction change at B is the distinguishing content and bites: the cable is explicitly not treated as a single straight member from A to C. The ruled exclusions are all held — no elasticity, no sag deformation, no self-weight curvature, no cross-section sizing — and the honest limitation bounds the claim correctly: the tensions are found for the given piecewise-straight geometry, and an unknown geometry would require length or sag constraints not treated here, so the skill does not pretend to solve the harder unknown-shape problem. Concurrent two-equation equilibrium at the load point is cited from the signed 2D equilibrium skills and not re-authored as a general method. Three earned signals at distinct steps: sign_or_placement_error at step 2 where each tension is directed along its segment and reversing a segment direction is the failure, axis_confusion at step 3 where the two concurrent equations are written and mismatching horizontal and vertical components or breaking H conservation under vertical loads is the failure, and unclassified at step 1 as the boundary fallback covering elasticity, sag, sizing, pulley-model re-authoring, and single-straight-member treatment. simple_average_used and solution_sequencing_error cannot be earned: the joint equations are simultaneous and the H check is verification, not a forced phase order. Symbol discipline: T_AB and T_BC reuse the T framing from cable_tension_modeling with segment-specific meaning, H is introduced for the conserved horizontal component, and slope is expressed by rise over run with no angle symbol bound, sidestepping the theta collision; no binding of u, d, k, I, M_O, A_gen or V. Third skill of Batch 4N, second authored in a newly created subtopic; signed from its re-parented CABLES location; required no correction at review.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      }
+    ]
+  },
+  "worked_example_entry_point": {
+    "launch_state": "static_diagram_available_human_review_required",
+    "procedure_id": "proc-statics-structural-analysis-simple-truss-modeling-v1",
+    "scenario": "Inspect a pin-connected structure, test the simple-truss assumptions and determinacy counts, then choose a joint or section entry point without collapsing the canonical topic to the TRUSSES runtime alias."
+  }
 }

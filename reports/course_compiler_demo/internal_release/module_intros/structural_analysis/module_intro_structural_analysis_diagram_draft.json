@@ -1,56 +1,34 @@
 {
-  "schema": "axiomiq_interactive_instructional_diagram_draft_v1_1",
-  "draft_id": "module-intro-structural_analysis-diagram-001",
-  "explanation_type": "module introduction",
+  "alt_text": "Static Structural Analysis overview showing the topic model and entry geometry; all 11 signed procedures are represented by the accompanying ordered procedure overview.",
+  "artifact_path": "module_intro_structural_analysis_static_diagram.svg",
   "canonical_topic_code": "STATICS_STRUCTURAL_ANALYSIS",
-  "linked_module_intro_id": "module-intro-structural_analysis-001",
-  "production_bound": true,
-  "renderer_category": "structural systems, trusses, frames, and cables",
-  "required_operations": [
-    "drag joint geometry",
-    "toggle pin roller and fixed supports",
-    "apply joint loads",
-    "highlight two-force and zero-force members",
-    "select a joint free-body diagram",
-    "place a section cut through members",
-    "toggle tension and compression assumptions",
-    "show pin action-reaction pairs",
-    "rotate a space-truss view",
-    "adjust cable geometry"
-  ],
-  "target_contract": {
-    "interaction_schema": "axiomiq_interactive_instructional_diagram_interaction_v1_1",
-    "schema_version": "1.1.0",
-    "renderer_registry_version": "1.1.0",
-    "renderer_registry_sha256": null,
-    "formula_registry_version": "1.1.0",
-    "formula_registry_sha256": null,
-    "binding_status": "PENDING_LANE_A_PUBLISHED_DIGESTS"
-  },
-  "v1_0_0_expressibility": {
-    "complete": false,
-    "renderer_allowlist": [
-      "statics_vector_plane_v1",
-      "statics_force_vector_v1",
-      "statics_fbd_v1",
-      "statics_composite_area_v1"
-    ],
-    "formula_allowlist": [
-      "cartesian_fx_from_magnitude_angle_deg",
-      "cartesian_fy_from_magnitude_angle_deg",
-      "sum_selected",
-      "resultant_magnitude_from_rx_ry",
-      "resultant_direction_deg_from_rx_ry"
-    ],
-    "exact_gaps": [
-      "No v1.0.0 renderer represents connected joints, members, section cuts, frame-machine parts, cable geometry, or a rotatable space truss.",
-      "The v1.0.0 formula allowlist has no truss determinacy, joint equilibrium, section equilibrium, member-force classification, or cable-geometry operation."
-    ]
-  },
-  "completion_gate": "Does not count as complete until validated against Lane A's published v1.1.0 schema and registry digests.",
+  "contains_adjustable_variables": false,
   "contains_executable_code": false,
-  "human_review_required": true,
-  "student_visible": false,
+  "contains_interactive_controls": false,
+  "contains_step_states": false,
   "database_eligible": false,
-  "is_active": false
+  "diagram_fingerprint": "691960dfadc8e9c2fbecc1a886a12584e12c182dcdcff1b1967956c38d512073",
+  "diagram_sha256": "877b00001172c8f7f2f867baefeafecb7591fbf9a9ec6a8bd8c7ab9c245db4f4",
+  "explanation_type": "module_introduction",
+  "human_review_required": true,
+  "is_active": false,
+  "linked_module_intro_id": "module-intro-structural_analysis-001",
+  "renderer_category": "truss_frame_machine_or_cable_diagram",
+  "schema": "axiomiq_module_intro_static_diagram_spec_v1",
+  "static_diagram_id": "module-intro-structural_analysis-static-diagram-001",
+  "static_only": true,
+  "student_visible": false,
+  "topic_scope_procedure_ids": [
+    "proc-statics-structural-analysis-simple-truss-modeling-v1",
+    "proc-statics-structural-analysis-method-of-joints-v1",
+    "proc-statics-structural-analysis-zero-force-members-v1",
+    "proc-statics-structural-analysis-truss-support-reactions-v1",
+    "proc-statics-structural-analysis-method-of-sections-v1",
+    "proc-statics-structural-analysis-member-tension-compression-signs-v1",
+    "proc-statics-structural-analysis-frame-machine-fbd-v1",
+    "proc-statics-structural-analysis-frame-machine-equilibrium-v1",
+    "proc-statics-structural-analysis-pin-action-reaction-forces-v1",
+    "proc-statics-structural-analysis-space-trusses-v1",
+    "proc-statics-structural-analysis-cables-v1"
+  ]
 }
