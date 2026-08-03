@@ -1,0 +1,41 @@
+{
+  "base_commit": "b188c7db7faaed3835d41e6870cf36a4902aecfa",
+  "branch": "task/diag-prod-003b-resultant-forces",
+  "diagrams_produced": 71,
+  "explanations_covered_by_type": {
+    "concept": 4,
+    "procedure": 4,
+    "remediation": 4,
+    "solution": 55,
+    "worked_example": 4
+  },
+  "lane_id": "DIAG-PROD-003B-EXPLANATIONS-1218",
+  "renderer_breakdown": {
+    "dimensional_relationship_diagram": 1,
+    "resultant_vector_diagram": 70
+  },
+  "safety": {
+    "database_eligible": false,
+    "human_review_required": true,
+    "is_active": false,
+    "student_visible": false
+  },
+  "schema_version": "explanation_diagram_lane_evidence_v1",
+  "topic": "STATICS_RESULTANT_FORCES",
+  "validation": {
+    "alt_text_covered": 71,
+    "answer_not_revealed_passed": 71,
+    "asset_resolution_passed": 71,
+    "diagram_to_content_passed": 71,
+    "failed": 0,
+    "no_executable_content_passed": 71,
+    "procedure_linkage_passed": 71,
+    "responsive_passed": 71
+  },
+  "verdict": "EXPLANATION_DIAGRAM_LANE_COMPLETE",
+  "worked_examples": {
+    "failed": 0,
+    "total": 4,
+    "value_match_passed": 4
+  }
+}
