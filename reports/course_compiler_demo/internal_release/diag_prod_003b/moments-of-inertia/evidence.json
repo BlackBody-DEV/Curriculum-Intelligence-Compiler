@@ -1,0 +1,41 @@
+{
+  "base_commit": "b188c7db7faaed3835d41e6870cf36a4902aecfa",
+  "branch": "task/diag-prod-003b-moments-of-inertia",
+  "diagrams_produced": 50,
+  "explanations_covered_by_type": {
+    "concept": 10,
+    "procedure": 10,
+    "remediation": 10,
+    "solution": 10,
+    "worked_example": 10
+  },
+  "lane_id": "DIAG-PROD-003B-EXPLANATIONS-1218",
+  "renderer_breakdown": {
+    "area_or_mass_moment_of_inertia_diagram": 39,
+    "dimensional_relationship_diagram": 11
+  },
+  "safety": {
+    "database_eligible": false,
+    "human_review_required": true,
+    "is_active": false,
+    "student_visible": false
+  },
+  "schema_version": "explanation_diagram_lane_evidence_v1",
+  "topic": "STATICS_MOMENTS_OF_INERTIA",
+  "validation": {
+    "alt_text_covered": 50,
+    "answer_not_revealed_passed": 50,
+    "asset_resolution_passed": 50,
+    "diagram_to_content_passed": 50,
+    "failed": 0,
+    "no_executable_content_passed": 50,
+    "procedure_linkage_passed": 50,
+    "responsive_passed": 50
+  },
+  "verdict": "EXPLANATION_DIAGRAM_LANE_COMPLETE",
+  "worked_examples": {
+    "failed": 0,
+    "total": 10,
+    "value_match_passed": 10
+  }
+}
