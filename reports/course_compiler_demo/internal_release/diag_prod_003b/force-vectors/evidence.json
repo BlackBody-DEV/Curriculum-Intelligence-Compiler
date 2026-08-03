@@ -1,0 +1,41 @@
+{
+  "base_commit": "b188c7db7faaed3835d41e6870cf36a4902aecfa",
+  "branch": "task/diag-prod-003b-force-vectors",
+  "diagrams_produced": 122,
+  "explanations_covered_by_type": {
+    "concept": 9,
+    "procedure": 9,
+    "remediation": 9,
+    "solution": 86,
+    "worked_example": 9
+  },
+  "lane_id": "DIAG-PROD-003B-EXPLANATIONS-1218",
+  "renderer_breakdown": {
+    "dimensional_relationship_diagram": 10,
+    "force_vector_and_coordinate_system_diagram": 112
+  },
+  "safety": {
+    "database_eligible": false,
+    "human_review_required": true,
+    "is_active": false,
+    "student_visible": false
+  },
+  "schema_version": "explanation_diagram_lane_evidence_v1",
+  "topic": "STATICS_FORCE_VECTORS",
+  "validation": {
+    "alt_text_covered": 122,
+    "answer_not_revealed_passed": 122,
+    "asset_resolution_passed": 122,
+    "diagram_to_content_passed": 122,
+    "failed": 0,
+    "no_executable_content_passed": 122,
+    "procedure_linkage_passed": 122,
+    "responsive_passed": 122
+  },
+  "verdict": "EXPLANATION_DIAGRAM_LANE_COMPLETE",
+  "worked_examples": {
+    "failed": 0,
+    "total": 9,
+    "value_match_passed": 9
+  }
+}
