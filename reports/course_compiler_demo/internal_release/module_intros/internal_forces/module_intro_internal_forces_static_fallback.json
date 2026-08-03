@@ -1,0 +1,63 @@
+{
+  "schema": "axiomiq_module_intro_static_fallback_v1",
+  "fallback_id": "module-intro-internal_forces-static-001",
+  "canonical_topic_code": "STATICS_INTERNAL_FORCES_BEAMS",
+  "language": "en",
+  "accessibility": {
+    "role": "figure",
+    "title": "Internal Forces module introduction static overview",
+    "long_description": "A text-first overview of Internal Forces. Expose and interpret normal force, shear force, bending moment, and torque at a section using a consistent cut-face sign convention and equilibrium of an isolated segment.",
+    "reading_order": [
+      "objective",
+      "prerequisites",
+      "procedure map",
+      "worked-example entry",
+      "diagram description"
+    ],
+    "color_independent": true,
+    "keyboard_interaction_required": false
+  },
+  "objective": "Expose and interpret normal force, shear force, bending moment, and torque at a section using a consistent cut-face sign convention and equilibrium of an isolated segment.",
+  "prerequisites": "Use complete external free-body diagrams, support reactions, rigid-body equilibrium, section cuts, moment sense, and force-component conventions.",
+  "procedure_map": [
+    {
+      "sequence": 1,
+      "procedure_id": "proc-statics-internal-forces-beams-internal-loading-at-section-v1",
+      "micro_skill_code": "internal_loading_at_section"
+    },
+    {
+      "sequence": 2,
+      "procedure_id": "proc-statics-internal-forces-beams-internal-force-sign-convention-v1",
+      "micro_skill_code": "internal_force_sign_convention"
+    },
+    {
+      "sequence": 3,
+      "procedure_id": "proc-statics-internal-forces-beams-normal-force-internal-loading-v1",
+      "micro_skill_code": "normal_force_internal_loading"
+    },
+    {
+      "sequence": 4,
+      "procedure_id": "proc-statics-internal-forces-beams-shear-force-internal-loading-v1",
+      "micro_skill_code": "shear_force_internal_loading"
+    },
+    {
+      "sequence": 5,
+      "procedure_id": "proc-statics-internal-forces-beams-bending-moment-internal-loading-v1",
+      "micro_skill_code": "bending_moment_internal_loading"
+    },
+    {
+      "sequence": 6,
+      "procedure_id": "proc-statics-internal-forces-beams-torque-internal-loading-v1",
+      "micro_skill_code": "torque_internal_loading"
+    }
+  ],
+  "worked_example": {
+    "procedure_id": "proc-statics-internal-forces-beams-internal-loading-at-section-v1",
+    "entry_description": "Move a cut through a loaded member, isolate one side, and reveal the N-V-M-T resultants required for equilibrium under the declared cut-face sign convention."
+  },
+  "diagram_description": "The planned beam section cut and internal-resultant workspace will support: drag a section cut along a member; choose left or right isolated segment; toggle cut-face sign convention; show normal-force arrow; show shear-force arrow; show bending-moment couple; show torque couple; update internal resultants from segment equilibrium. Until v1.1.0 is published, this description and procedure map are the complete accessible fallback.",
+  "human_review_required": true,
+  "student_visible": false,
+  "database_eligible": false,
+  "is_active": false
+}

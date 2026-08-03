@@ -1,0 +1,86 @@
+{
+  "schema": "axiomiq_module_introduction_draft_v1",
+  "module_intro_id": "module-intro-internal_forces-001",
+  "canonical_identity": {
+    "course_code": "STATICS",
+    "topic_code": "STATICS_INTERNAL_FORCES_BEAMS",
+    "topic_title": "Internal Forces"
+  },
+  "topic_objective": "Expose and interpret normal force, shear force, bending moment, and torque at a section using a consistent cut-face sign convention and equilibrium of an isolated segment.",
+  "prerequisite_framing": "Use complete external free-body diagrams, support reactions, rigid-body equilibrium, section cuts, moment sense, and force-component conventions.",
+  "procedure_overview": [
+    {
+      "sequence": 1,
+      "procedure_id": "proc-statics-internal-forces-beams-internal-loading-at-section-v1",
+      "micro_skill_code": "internal_loading_at_section",
+      "signature_status": "signed_off",
+      "overview": "Introduce internal loading at section as a signed procedure within Internal Forces."
+    },
+    {
+      "sequence": 2,
+      "procedure_id": "proc-statics-internal-forces-beams-internal-force-sign-convention-v1",
+      "micro_skill_code": "internal_force_sign_convention",
+      "signature_status": "signed_off",
+      "overview": "Introduce internal force sign convention as a signed procedure within Internal Forces."
+    },
+    {
+      "sequence": 3,
+      "procedure_id": "proc-statics-internal-forces-beams-normal-force-internal-loading-v1",
+      "micro_skill_code": "normal_force_internal_loading",
+      "signature_status": "signed_off",
+      "overview": "Introduce normal force internal loading as a signed procedure within Internal Forces."
+    },
+    {
+      "sequence": 4,
+      "procedure_id": "proc-statics-internal-forces-beams-shear-force-internal-loading-v1",
+      "micro_skill_code": "shear_force_internal_loading",
+      "signature_status": "signed_off",
+      "overview": "Introduce shear force internal loading as a signed procedure within Internal Forces."
+    },
+    {
+      "sequence": 5,
+      "procedure_id": "proc-statics-internal-forces-beams-bending-moment-internal-loading-v1",
+      "micro_skill_code": "bending_moment_internal_loading",
+      "signature_status": "signed_off",
+      "overview": "Introduce bending moment internal loading as a signed procedure within Internal Forces."
+    },
+    {
+      "sequence": 6,
+      "procedure_id": "proc-statics-internal-forces-beams-torque-internal-loading-v1",
+      "micro_skill_code": "torque_internal_loading",
+      "signature_status": "signed_off",
+      "overview": "Introduce torque internal loading as a signed procedure within Internal Forces."
+    }
+  ],
+  "procedure_coverage": {
+    "expected_signed_count": 6,
+    "covered_signed_count": 6,
+    "complete": true
+  },
+  "worked_example_entry_point": {
+    "procedure_id": "proc-statics-internal-forces-beams-internal-loading-at-section-v1",
+    "scenario": "Move a cut through a loaded member, isolate one side, and reveal the N-V-M-T resultants required for equilibrium under the declared cut-face sign convention.",
+    "launch_state": "static_fallback_available_diagram_pending_v1_1_registry"
+  },
+  "accessible_static_fallback": {
+    "artifact_path": "module_intro_internal_forces_static_fallback.json",
+    "required": true,
+    "available": true
+  },
+  "interactive_diagram": {
+    "draft_artifact_path": "module_intro_internal_forces_diagram_draft.json",
+    "production_bound": true,
+    "target_schema_version": "1.1.0",
+    "registry_digest": null,
+    "status": "DRAFT_PENDING_PUBLISHED_REGISTRY"
+  },
+  "deterministic_validation": {
+    "artifact_path": "module_intro_internal_forces_validation.json",
+    "content_validation": "PASS",
+    "diagram_schema_validation": "PENDING_PUBLISHED_V1_1_0"
+  },
+  "human_review_required": true,
+  "student_visible": false,
+  "database_eligible": false,
+  "is_active": false
+}
