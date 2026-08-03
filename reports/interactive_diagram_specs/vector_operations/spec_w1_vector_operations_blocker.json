@@ -1,0 +1,68 @@
+{
+  "artifact_id": "SPEC-W1-VECTOR-OPERATIONS-BLOCKER-001",
+  "schema_version": "1.0.0",
+  "lane_id": "SPEC-W1-REACHABLE-CONTENT",
+  "topic": "Vector Operations",
+  "verdict": "SPEC_W1_LANE_BLOCKED",
+  "authority": {
+    "adaptive_authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+    "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+    "interaction_schema_id": "axiomiq_interactive_instructional_diagram_interaction_v1",
+    "interaction_schema_version": "1.0.0"
+  },
+  "explanation_inventory": {
+    "total": 131,
+    "by_recorded_topic_identity": {"STATICS_VECTORS":39,"STATICS_FORCE_VECTORS":91,"PHYSICS_VECTORS":1},
+    "by_type": {"module introduction":8,"concept explanation":9,"procedure explanation":9,"worked example":9,"solution explanation":86,"remediation explanation":9,"assessment-review explanation":1},
+    "inventory_source": "/Users/fanarichardson/AxiomIQ_Work/diagnostics/diag-002-requirements-census/interactive_diagram_requirements_census.json",
+    "identity_scope_basis": "The frozen eight-lane inventory assigns STATICS_VECTORS and STATICS_FORCE_VECTORS to the STATICS_VECTORS owner; PHYSICS_VECTORS is its recorded module alias."
+  },
+  "signed_procedures": [
+    {"topic_code":"STATICS_VECTORS","micro_skill_code":"scalar_vector_classification","procedure_id":"proc-statics-vectors-scalar-vector-classification-v1","signature_status":"signed_off"},
+    {"topic_code":"STATICS_VECTORS","micro_skill_code":"vector_components_2d","procedure_id":"proc-statics-vectors-vector-components-2d-v1","signature_status":"signed_off"},
+    {"topic_code":"STATICS_VECTORS","micro_skill_code":"cartesian_vector_components_3d","procedure_id":"proc-statics-vectors-cartesian-vector-components-3d-v1","signature_status":"signed_off"},
+    {"topic_code":"STATICS_VECTORS","micro_skill_code":"cartesian_vector_addition_3d","procedure_id":"proc-statics-vectors-cartesian-vector-addition-3d-v1","signature_status":"signed_off"},
+    {"topic_code":"STATICS_VECTORS","micro_skill_code":"coordinate_direction_angles","procedure_id":"proc-statics-vectors-coordinate-direction-angles-v1","signature_status":"signed_off"},
+    {"topic_code":"STATICS_VECTORS","micro_skill_code":"position_vector_3d","procedure_id":"proc-statics-vectors-position-vector-3d-v1","signature_status":"signed_off"},
+    {"topic_code":"STATICS_VECTORS","micro_skill_code":"unit_vector_along_line","procedure_id":"proc-statics-vectors-unit-vector-along-line-v1","signature_status":"signed_off"},
+    {"topic_code":"STATICS_FORCE_VECTORS","micro_skill_code":"force_directed_along_line","procedure_id":"proc-statics-force-vectors-force-directed-along-line-v1","signature_status":"signed_off"},
+    {"topic_code":"STATICS_FORCE_VECTORS","micro_skill_code":"dot_product_projection","procedure_id":"proc-statics-force-vectors-dot-product-projection-v1","signature_status":"signed_off"}
+  ],
+  "frozen_capability": {
+    "renderer_category":"vectors and coordinate systems",
+    "renderer_ids":["statics_vector_plane_v1","statics_force_vector_v1"],
+    "allowlisted_formula_ids":["cartesian_fx_from_magnitude_angle_deg","cartesian_fy_from_magnitude_angle_deg","sum_selected","resultant_magnitude_from_rx_ry","resultant_direction_deg_from_rx_ry"],
+    "schema_sha256":"5b8cc1c43a63e21a87ccce134769aee0529e49728b5ecbe43680a1ee18b55c88",
+    "formula_registry_sha256":"2b363bdbf689a39ef37a12deb0c4498f78bbe2c314d34f3cdc0906070fc921b5",
+    "validator_sha256":"d56dbf91163f0de9f543dad550cd1eee53853f1a002ecaebe55d72a1de97e0e2"
+  },
+  "unrepresentable_required_mathematics": [
+    {"micro_skill_code":"cartesian_vector_components_3d","required_operations":["three-axis Cartesian state","3D magnitude"]},
+    {"micro_skill_code":"cartesian_vector_addition_3d","required_operations":["three-axis component summation","3D magnitude and direction"]},
+    {"micro_skill_code":"coordinate_direction_angles","required_operations":["3D norm","direction cosines","inverse cosine"]},
+    {"micro_skill_code":"position_vector_3d","required_operations":["head-minus-tail x/y/z subtraction","3D distance"]},
+    {"micro_skill_code":"unit_vector_along_line","required_operations":["head-minus-tail subtraction","3D norm","normalization"]},
+    {"micro_skill_code":"force_directed_along_line","required_operations":["3D normalization","scalar-vector multiplication"]},
+    {"micro_skill_code":"dot_product_projection","required_operations":["dot product","norm","scalar and vector projection"]}
+  ],
+  "stop_condition": {
+    "code":"FROZEN_FORMULA_ALLOWLIST_CANNOT_REPRESENT_SIGNED_VECTOR_AUTHORITY",
+    "finding":"The schema and validator reject every formula_id outside the five-item allowlist and reject expression-like operands. Seven of nine signed Vector Operations procedures require deterministic dependent calculations absent from that allowlist.",
+    "forbidden_workarounds":["executable or free-form expressions","frozen allowlist/schema/validator changes","decorative state claimed as mathematical reproduction"],
+    "required_external_resolution":"Authorize a reviewed frozen-contract revision adding typed 3D subtraction, norm, normalization, scalar multiplication, dot-product, projection, and inverse-cosine formulas, or narrow scope by explicit authority ruling."
+  },
+  "production": {"specifications_emitted":0,"static_fallbacks_emitted":0,"reference_fixture_counted_as_production":false},
+  "stages_1_to_4": {
+    "stage_1_compiler_emits":"BLOCKED_BEFORE_EMISSION",
+    "stage_2_schema_and_security":"FAILED_REPRESENTABILITY_PREFLIGHT",
+    "stage_3_mathematical_adapter":"FAILED_MISSING_TYPED_FORMULAS",
+    "stage_4_procedure_auditor":"NOT_RUN_NO_VALID_SPEC",
+    "mathematical_validation_passed":0,
+    "mathematical_validation_failed":7
+  },
+  "validation_cases": {
+    "positive":"The 2D architectural reference validates the existing five-formula surface but is excluded from production.",
+    "negative":"Any required unregistered 3D, normalization, dot-product, projection, or inverse-cosine formula is rejected by schema enum and security collection before mathematical evaluation."
+  },
+  "exceptions": []
+}
