@@ -58,7 +58,7 @@ def test_all_formula_reference_cases(formula_id):
 
 @pytest.mark.parametrize('bad',[
     {'script':'alert(1)'},{'onclick':'doThing()'},{'caption':'https://evil.invalid/x'},
-    {'expression':'x+y'},{'javascript':'eval(x)'},
+    {'expression':'x+y'},{'javascript':'eval(x)'},{'caption':'safe data:image/svg+xml,abc'},
 ])
 def test_executable_and_remote_surfaces_rejected(bad):
     spec=load(FIX11); spec.update(bad)
@@ -80,6 +80,8 @@ def test_package_declaration_is_exact_and_digest_reproduces():
     assert declaration['interaction_schema_id']=='axiomiq_interactive_instructional_diagram_interaction_v1'
     assert declaration['interaction_schema_version']=='1.1.0'
     assert declaration['interaction_schema_sha256']==hashlib.sha256(V11.read_bytes()).hexdigest()==schema_sha256()
+    assert declaration['interaction_formula_registry_sha256']==hashlib.sha256((ROOT/'schemas/interaction_formula_registry_v1_1.json').read_bytes()).hexdigest()
+    assert declaration['interaction_renderer_registry_sha256']==hashlib.sha256((ROOT/'schemas/interaction_renderer_registry_v1_1.json').read_bytes()).hexdigest()
     assert validate_package_declaration(declaration)==[]
     bad=dict(declaration,interaction_schema_version='1.0.0')
     assert validate_package_declaration(bad)==['interaction_schema_version mismatch']
@@ -90,3 +92,28 @@ def test_schema_envelope_remains_closed():
 
 def test_zero_denominator_is_rejected_by_trusted_adapter():
     with pytest.raises(FormulaError): evaluate_formula('unit_vector_component',{'component':1,'norm':0},{'component':'component','norm':'norm'})
+
+@pytest.mark.parametrize(('formula_id','values','inputs'),[
+ ('vector_component_from_magnitude_direction_cosine',{'m':10,'c':2},{'magnitude':'m','direction_cosine':'c'}),
+ ('friction_limit',{'mu':-1,'n':10},{'coefficient':'mu','normal_force':'n'}),
+ ('uniform_distributed_load_resultant',{'w':10,'l':-2},{'intensity':'w','length':'l'}),
+ ('resultant_line_of_action_offset',{'m':5,'f':0},{'resultant_moment':'m','resultant_force':'f'}),
+])
+def test_registry_parameter_bounds_are_enforced(formula_id,values,inputs):
+    with pytest.raises(FormulaError): evaluate_formula(formula_id,values,inputs)
+
+def test_declared_output_unit_dimension_is_enforced():
+    spec=load(FIX11); spec['dependent_calculated_values'][0]['unit']='m'
+    from scripts.interaction_diagram.validate_interaction_spec import compute_interaction_fingerprint
+    # v1.1 fingerprint additionally includes deterministic cases.
+    keys=('student_adjustable_variables','available_toggles','dependent_calculated_values','geometric_constraints','mathematical_constraints','procedural_step_states','expected_state_transitions','keyboard_interaction_model','initial_state','reset_state','deterministic_validation_cases')
+    spec['interaction_fingerprint']=hashlib.sha256(json.dumps({k:spec[k] for k in keys},sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()).hexdigest()
+    report=validate_interaction_spec(spec)
+    assert not report.passed
+    assert any('unit dimension' in e for g in report.gate_results for e in g.errors)
+
+def test_v11_fingerprint_binds_deterministic_cases():
+    spec=load(FIX11); spec['deterministic_validation_cases'][0]['expected_calculated']['R_x']+=1
+    report=validate_interaction_spec(spec)
+    assert not report.passed
+    assert any('interaction_fingerprint mismatch' in e for g in report.gate_results for e in g.errors)

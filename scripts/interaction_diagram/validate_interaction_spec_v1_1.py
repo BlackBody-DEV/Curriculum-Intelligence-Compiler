@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parents[2]
 SCHEMA=ROOT/'schemas'/'axiomiq_interactive_instructional_diagram_interaction_v1_1.schema.json'
 RENDERERS={x['renderer_id'] for x in json.loads((ROOT/'schemas'/'interaction_renderer_registry_v1_1.json').read_text())['entries']}
 FORBIDDEN_KEYS={'script','javascript','__proto__','constructor','eval','expression','expr','code','handler','callback','onclick','onerror','onload','onkeydown','onkeyup'}
-FORBIDDEN=(re.compile(r'(?i)<\s*script\b'),re.compile(r'(?i)\bjavascript\s*:'),re.compile(r'(?i)\bhttps?\s*:'),re.compile(r'(?i)\beval\s*\('),re.compile(r'(?i)\bnew\s+Function\b'),re.compile(r'(?i)\bimport\s*\('))
+FORBIDDEN=(re.compile(r'(?i)<\s*script\b'),re.compile(r'(?i)\bjavascript\s*:'),re.compile(r'(?i)\bdata\s*:'),re.compile(r'(?i)\bhttps?\s*:'),re.compile(r'(?i)\beval\s*\('),re.compile(r'(?i)\bnew\s+Function\b'),re.compile(r'(?i)\bimport\s*\('))
 GATES=('schema','procedure_link','diagram_to_text_consistency','mathematical_state','deterministic_replay','variable_bound','reset_state','step_transition')
 @dataclass
 class GateResult: gate:str; passed:bool; errors:list[str]=field(default_factory=list)
@@ -51,6 +51,24 @@ def _eval(spec,variables):
         vals[c['id']]=evaluate_formula(c['formula_id'],vals,c['inputs']); result[c['id']]=vals[c['id']]
     return result
 
+UNIT_DIMENSIONS={'N':'force','kN':'force','lb':'force','m':'length','mm':'length','cm':'length','ft':'length','in':'length','deg':'angle','rad':'angle','dimensionless':'dimensionless','N*m':'moment','kN*m':'moment','N/m':'force_per_length','kN/m':'force_per_length','m^2':'area','m^3':'volume','m^4':'length_fourth','kg':'mass','kg*m^2':'mass_length_squared','Pa':'pressure','MPa':'pressure'}
+CONCRETE_OUTPUTS={'force','moment','length','angle','dimensionless','area','volume','length_fourth','mass_length_squared'}
+def _unit_contract_errors(spec):
+    errors=[]
+    units={x['id']:x['unit'] for x in spec.get('student_adjustable_variables',[])}
+    for calc in spec.get('dependent_calculated_values',[]):
+        meta=FORMULA_METADATA[calc['formula_id']]; declared=UNIT_DIMENSIONS.get(calc['unit']); expected=meta['typed_output']['dimension']
+        if expected in CONCRETE_OUTPUTS and declared!=expected: errors.append(f"{calc['id']} unit dimension {declared} does not match {expected}")
+        if expected=='inertia' and declared not in {'length_fourth','mass_length_squared'}: errors.append(f"{calc['id']} must use area or mass inertia units")
+        if expected.startswith('same_as'):
+            refs=[]
+            for value in calc['inputs'].values(): refs.extend(value if isinstance(value,list) else [value])
+            input_dims={UNIT_DIMENSIONS.get(units.get(ref)) for ref in refs if units.get(ref)}
+            input_dims.discard(None)
+            if input_dims and declared not in input_dims: errors.append(f"{calc['id']} output unit does not match input dimension")
+        units[calc['id']]=calc['unit']
+    return errors
+
 def validate_interaction_spec(spec,*,procedure_registry=None):
     if isinstance(spec,dict) and spec.get('schema_version')=='1.0.0': return validate_v1(spec,procedure_registry=procedure_registry)
     rejects=security_rejections(spec)
@@ -60,7 +78,10 @@ def validate_interaction_spec(spec,*,procedure_registry=None):
     except Exception as e: errors['schema'].append(str(e))
     try:
         if spec.get('diagram_fingerprint')!=compute_diagram_fingerprint(spec): errors['schema'].append('diagram_fingerprint mismatch')
-        if spec.get('interaction_fingerprint')!=compute_interaction_fingerprint(spec): errors['schema'].append('interaction_fingerprint mismatch')
+        payload={key:spec[key] for key in ('student_adjustable_variables','available_toggles','dependent_calculated_values','geometric_constraints','mathematical_constraints','procedural_step_states','expected_state_transitions','keyboard_interaction_model','initial_state','reset_state','deterministic_validation_cases')}
+        expected_fingerprint=hashlib.sha256(json.dumps(payload,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()).hexdigest()
+        if spec.get('interaction_fingerprint')!=expected_fingerprint: errors['schema'].append('interaction_fingerprint mismatch')
+        errors['mathematical_state'].extend(_unit_contract_errors(spec))
     except Exception as e: errors['schema'].append(f'fingerprint failure: {e}')
     if procedure_registry is not None:
         rec=procedure_registry.get(str(spec.get('linked_procedure_id')))

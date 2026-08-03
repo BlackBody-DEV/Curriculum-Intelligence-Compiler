@@ -614,7 +614,7 @@
     "local_asset_ref": "fixtures/interaction_diagrams/fallbacks/vectors_component_resolution_and_addition_explanation_v1.svg"
   },
   "diagram_fingerprint": "dd4945498037e053f19e1c926ba1f3f9692690c0ab59c6e780f477cc6fa451e8",
-  "interaction_fingerprint": "fea5f00f50df849da2e672a2f7e2af16a9ead9c25ad769f7264d722fc800fa87",
+  "interaction_fingerprint": "9d6742cfd6c572dac719b4505dc74708e78c3973cdc9ffd8644c6451c67a1d97",
   "deterministic_validation_cases": [
     {
       "case_id": "worked_example_reset",
