@@ -1,0 +1,40 @@
+{
+  "base_commit": "b188c7db7faaed3835d41e6870cf36a4902aecfa",
+  "branch": "task/diag-prod-003b-internal-forces",
+  "diagrams_produced": 130,
+  "explanations_covered_by_type": {
+    "concept": 6,
+    "procedure": 6,
+    "remediation": 6,
+    "solution": 106,
+    "worked_example": 6
+  },
+  "lane_id": "DIAG-PROD-003B-EXPLANATIONS-1218",
+  "renderer_breakdown": {
+    "beam_cut_internal_force_diagram": 130
+  },
+  "safety": {
+    "database_eligible": false,
+    "human_review_required": true,
+    "is_active": false,
+    "student_visible": false
+  },
+  "schema_version": "explanation_diagram_lane_evidence_v1",
+  "topic": "STATICS_INTERNAL_FORCES",
+  "validation": {
+    "alt_text_covered": 130,
+    "answer_not_revealed_passed": 130,
+    "asset_resolution_passed": 130,
+    "diagram_to_content_passed": 130,
+    "failed": 0,
+    "no_executable_content_passed": 130,
+    "procedure_linkage_passed": 130,
+    "responsive_passed": 130
+  },
+  "verdict": "EXPLANATION_DIAGRAM_LANE_COMPLETE",
+  "worked_examples": {
+    "failed": 0,
+    "total": 6,
+    "value_match_passed": 6
+  }
+}
