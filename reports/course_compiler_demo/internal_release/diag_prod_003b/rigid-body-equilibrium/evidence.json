@@ -1,0 +1,40 @@
+{
+  "base_commit": "b188c7db7faaed3835d41e6870cf36a4902aecfa",
+  "branch": "task/diag-prod-003b-rigid-body-equilibrium",
+  "diagrams_produced": 35,
+  "explanations_covered_by_type": {
+    "concept": 7,
+    "procedure": 7,
+    "remediation": 7,
+    "solution": 7,
+    "worked_example": 7
+  },
+  "lane_id": "DIAG-PROD-003B-EXPLANATIONS-1218",
+  "renderer_breakdown": {
+    "rigid_body_free_body_diagram": 35
+  },
+  "safety": {
+    "database_eligible": false,
+    "human_review_required": true,
+    "is_active": false,
+    "student_visible": false
+  },
+  "schema_version": "explanation_diagram_lane_evidence_v1",
+  "topic": "STATICS_RIGID_BODY_EQUILIBRIUM",
+  "validation": {
+    "alt_text_covered": 35,
+    "answer_not_revealed_passed": 35,
+    "asset_resolution_passed": 35,
+    "diagram_to_content_passed": 35,
+    "failed": 0,
+    "no_executable_content_passed": 35,
+    "procedure_linkage_passed": 35,
+    "responsive_passed": 35
+  },
+  "verdict": "EXPLANATION_DIAGRAM_LANE_COMPLETE",
+  "worked_examples": {
+    "failed": 0,
+    "total": 7,
+    "value_match_passed": 7
+  }
+}
