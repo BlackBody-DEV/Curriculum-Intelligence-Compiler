@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "SPEC-W1-MOMENTS-AND-COUPLES-BLOCKER-001",
+  "lane_id": "SPEC-W1-REACHABLE-CONTENT",
+  "topic": {
+    "canonical_topic_code": "STATICS_MOMENTS_AND_COUPLES",
+    "display_name": "Moments and Couples",
+    "renderer_category_required": "moments and couples"
+  },
+  "authority": {
+    "compiler_base": "92fe304a5b6fc92d62ea23e523e72fd55f344962",
+    "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+    "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+    "interaction_contract": "axiomiq_interactive_instructional_diagram_interaction_v1",
+    "interaction_schema_version": "1.0.0",
+    "interaction_schema_sha256": "5b8cc1c43a63e21a87ccce134769aee0529e49728b5ecbe43680a1ee18b55c88",
+    "formula_registry_sha256": "2b363bdbf689a39ef37a12deb0c4498f78bbe2c314d34f3cdc0906070fc921b5",
+    "validator_sha256": "d56dbf91163f0de9f543dad550cd1eee53853f1a002ecaebe55d72a1de97e0e2",
+    "sources_read_only": true
+  },
+  "verdict": "SPEC_W1_LANE_BLOCKED",
+  "representability_gate": {
+    "passed": false,
+    "production_specifications_emitted": 0,
+    "reason": "The frozen schema and security allowlist cannot express mathematically correct moment/couple interactions without shared schema and trusted-computation changes.",
+    "diagram_type_enum": ["force_vector", "vector_plane", "free_body_diagram", "composite_area", "beam_loading"],
+    "renderer_id_enum": ["statics_vector_plane_v1", "statics_force_vector_v1", "statics_fbd_v1", "statics_composite_area_v1"],
+    "formula_id_enum": ["cartesian_fx_from_magnitude_angle_deg", "cartesian_fy_from_magnitude_angle_deg", "sum_selected", "resultant_magnitude_from_rx_ry", "resultant_direction_deg_from_rx_ry"],
+    "missing_renderer_capabilities": [
+      "signed scalar moment about a point with clockwise/counterclockwise sense",
+      "3D position-force cross product and right-hand-rule moment vector",
+      "moment projection about a specified axis",
+      "couple free-vector representation",
+      "force-couple reduction at a reference point",
+      "resultant line-of-action relocation",
+      "Varignon component-moment decomposition"
+    ],
+    "missing_trusted_formula_capabilities": [
+      "M_O = x F_y - y F_x",
+      "M_O = r cross F",
+      "M_a = u_a dot (r cross F)",
+      "M = F d with signed rotational sense",
+      "residual couple = sum of force moments plus applied couples",
+      "line-of-action offset = resultant moment divided by resultant force"
+    ],
+    "why_existing_renderers_cannot_be_reused": "A vector-plane renderer can display force components but does not declare moment arcs, couple free vectors, point/axis moment semantics, line-of-action relocation, or 3D right-hand-rule state. Reusing it would pass labels through the wrong trusted semantic adapter.",
+    "required_change_class": ["shared frozen-schema enum extension", "new trusted moments-and-couples renderer", "security-reviewed formula allowlist extension", "mathematical adapter additions"],
+    "stop_condition_triggered": "shared schema change and formula allowlist material security redesign required"
+  },
+  "explanation_inventory": {
+    "total": 43,
+    "by_type": {
+      "module introduction": 3,
+      "concept explanation": 8,
+      "procedure explanation": 8,
+      "worked example": 8,
+      "solution explanation": 8,
+      "remediation explanation": 8,
+      "assessment-review explanation": 0
+    },
+    "module_introductions": [
+      "module:statics.STATICS_MOMENTS_AND_COUPLES.moment_magnitude_2d",
+      "module:statics.STATICS_MOMENTS_AND_COUPLES.moment_sign_cw_ccw_2d",
+      "module:statics.STATICS_MOMENTS_AND_COUPLES.resolve_force_before_moment_2d"
+    ],
+    "procedure_explanation_sets": [
+      {"micro_skill_code":"moment_of_force_scalar_2d","procedure_id":"e96a80cc-3573-4f38-94ae-3c6c90ad25b9","procedure_sha256":"768219d68a532fce2d419fed45012a6a430f2ac12612bbda42dbb4733d17a0a3","signature_status":"signed_off","explanation_count":5},
+      {"micro_skill_code":"cross_product_moment_3d","procedure_id":"proc-statics-moments-and-couples-cross-product-moment-3d-v1","procedure_sha256":"871b7309d06839efd3bc357c677781d21871332ff1351e5b522bf3751d5e4af3","signature_status":"signed_off","explanation_count":5},
+      {"micro_skill_code":"moment_of_force_vector_3d","procedure_id":"proc-statics-moments-and-couples-moment-of-force-vector-3d-v1","procedure_sha256":"1964f9c62613b420a9c63bcf7be05c8c4bce64eab0b0f6ae6825e09ffc165816","signature_status":"signed_off","explanation_count":5},
+      {"micro_skill_code":"principle_of_moments_varignon","procedure_id":"773faaf2-4595-48b7-9e0a-b5846b5d6c13","procedure_sha256":"fee300d8db44032f4bbd9032f06f81b4017583ce7d04fb050c172aa38a1960cd","signature_status":"signed_off","explanation_count":5},
+      {"micro_skill_code":"moment_about_specified_axis","procedure_id":"proc-statics-moments-and-couples-moment-about-specified-axis-v1","procedure_sha256":"5820cdf3567a8bcd5ac5503484d9979f787c0b4e0952c249fff6640736ea9aa7","signature_status":"signed_off","explanation_count":5},
+      {"micro_skill_code":"couple_moment","procedure_id":"f4fd624f-4dbb-4545-a999-d7afe523d500","procedure_sha256":"c690b8c9f91a81f487126ec45f4989e035d6263734542b7dffc8a939e253174e","signature_status":"signed_off","explanation_count":5},
+      {"micro_skill_code":"force_couple_system_reduction","procedure_id":"d25dea99-b4fe-4030-8f34-67d17b04d476","procedure_sha256":"558159d5e8d87e7289c9be4d9a01714dbceb39edbd35d89d7edfabe2b4a72b8c","signature_status":"signed_off","explanation_count":5},
+      {"micro_skill_code":"resultant_line_of_action","procedure_id":"0a9efe4f-8399-4077-a22d-55b3fde1fa20","procedure_sha256":"5434f755d43ceb8a0dc248e4e39c358005fbbf5a358cb7d7b89151056dc81434","signature_status":"signed_off","explanation_count":5}
+    ],
+    "linkage_impact": {
+      "explanations_blocked": 43,
+      "specifications_produced": 0,
+      "exact_explanation_links_produced": 0,
+      "signed_procedure_links_produced": 0,
+      "worked_example_links_produced": 0,
+      "count_toward_1298": 0,
+      "reason": "No artifact may claim explanation, procedure, or worked-example linkage until a semantically correct trusted renderer and formula adapter exist."
+    }
+  },
+  "stages_1_through_4": [
+    {"stage":1,"name":"compiler emits","result":"BLOCKED","passed":0,"failed":43,"detail":"Representability preflight stopped emission before any production spec was authored."},
+    {"stage":2,"name":"deterministic schema and security validation","result":"NOT_RUN_PRODUCTION_ARTIFACT_ABSENT","passed":0,"failed":0,"detail":"A moments renderer_id or formula_id is rejected as unsupported; substituting an allowed vector identifier would be semantically false."},
+    {"stage":3,"name":"mathematical adapter expected-value reproduction","result":"BLOCKED","passed":0,"failed":43,"detail":"No trusted adapter implements moments or couples mathematics."},
+    {"stage":4,"name":"procedure linkage and step-order audit","result":"BLOCKED","passed":0,"failed":43,"detail":"All eight authorities are signed, but no representable interaction spec exists for ordered-step audit."}
+  ],
+  "mathematical_validation": {"passed":0,"failed":43,"failure_kind":"adapter absent; no mathematically false substitute accepted"},
+  "validation_case_status": {
+    "positive_cases": "not emitted because no conforming moments interaction is representable",
+    "negative_cases": "frozen validator inspection confirms unknown renderer_id and formula_id values are fail-closed",
+    "schema_conformance_only_claimed": false
+  },
+  "blockers": [
+    "No moments-and-couples renderer_id exists in the frozen schema or trusted renderer allowlist.",
+    "No allowlisted formulas exist for signed 2D moment, 3D cross product, axis projection, couple moment, force-couple reduction, or line-of-action relocation.",
+    "Correct production requires prohibited shared schema/security allowlist changes and new trusted mathematical adapters."
+  ],
+  "prohibited_actions_confirmed_absent": {
+    "adaptive_access": true,
+    "database_access": true,
+    "content_import": true,
+    "activation": true,
+    "frozen_schema_modified": false,
+    "security_allowlist_modified": false,
+    "shared_core_modified": false,
+    "executable_code_in_specs": false
+  }
+}
