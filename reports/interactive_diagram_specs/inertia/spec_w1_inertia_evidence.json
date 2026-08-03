@@ -1,0 +1,22 @@
+{
+  "artifact": "spec_w1_inertia_stage_1_4_evidence",
+  "schema_version": "1.0.0",
+  "topic": "Area and Mass Moments of Inertia",
+  "topic_codes": ["STATICS_MOMENTS_OF_INERTIA", "MECHANICS_MATERIALS_INERTIA"],
+  "branch": "task/spec-w1-inertia-001",
+  "worktree": "/Users/fanarichardson/AxiomIQ_Work/worktrees/spec-w1/inertia",
+  "verdict": "SPEC_W1_LANE_BLOCKED",
+  "authority": {"bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987", "interaction_schema_id": "axiomiq_interactive_instructional_diagram_interaction_v1", "interaction_schema_sha256": "5b8cc1c43a63e21a87ccce134769aee0529e49728b5ecbe43680a1ee18b55c88"},
+  "explanation_inventory": {"available_census_count": 52, "signed_procedure_explanations": 50, "module_introductions": 2, "explanations_covered": 0},
+  "specifications_produced": 0,
+  "renderer_categories_required": ["area and mass moments of inertia"],
+  "frozen_allowlist": {"renderers": ["statics_vector_plane_v1", "statics_force_vector_v1", "statics_fbd_v1", "statics_composite_area_v1"], "formula_ids": ["cartesian_fx_from_magnitude_angle_deg", "cartesian_fy_from_magnitude_angle_deg", "sum_selected", "resultant_magnitude_from_rx_ry", "resultant_direction_deg_from_rx_ry"]},
+  "mathematical_validation": {"passed": 0, "failed": 1, "result": "NOT_RUN_REPRESENTABILITY_STOP", "reason": "No inertia renderer or area/mass moment, parallel-axis, radius-of-gyration, or composite-inertia formula is allowlisted."},
+  "stages_1_4": {"stage_1_compiler_emits": "BLOCKED_BEFORE_EMIT", "stage_2_schema_and_security": "BLOCKED_ALLOWLIST_INSUFFICIENT", "stage_3_mathematical_adapter": "NOT_RUN", "stage_4_procedure_auditor": "NOT_RUN"},
+  "positive_validation_cases": 0,
+  "negative_validation_cases": 1,
+  "static_fallbacks_produced": 0,
+  "blockers": [{"code": "FROZEN_SCHEMA_CANNOT_REPRESENT_INERTIA_INTERACTION", "stop_condition": "frozen schema cannot represent a required interaction", "detail": "The composite-area renderer does not define reference-axis inertia behavior, and the formula allowlist contains only vector component/resultant formulas."}],
+  "shared_files_modified": false,
+  "executable_code_in_specs": false
+}
