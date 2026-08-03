@@ -1,0 +1,55 @@
+{
+  "schema": "axiomiq_interactive_instructional_diagram_draft_v1_1",
+  "draft_id": "module-intro-friction-diagram-001",
+  "explanation_type": "module introduction",
+  "canonical_topic_code": "STATICS_FRICTION",
+  "linked_module_intro_id": "module-intro-friction-001",
+  "production_bound": true,
+  "renderer_category": "contact and friction-regime workspace",
+  "required_operations": [
+    "adjust normal force",
+    "adjust static friction coefficient",
+    "adjust kinetic friction coefficient",
+    "adjust required tangential force",
+    "classify static impending or kinetic regime",
+    "show actual and limiting friction vectors",
+    "toggle contact free-body diagram",
+    "compare tipping and sliding thresholds",
+    "adjust wedge screw belt bearing and rolling-resistance parameters"
+  ],
+  "target_contract": {
+    "interaction_schema": "axiomiq_interactive_instructional_diagram_interaction_v1_1",
+    "schema_version": "1.1.0",
+    "renderer_registry_version": "1.1.0",
+    "renderer_registry_sha256": null,
+    "formula_registry_version": "1.1.0",
+    "formula_registry_sha256": null,
+    "binding_status": "PENDING_LANE_A_PUBLISHED_DIGESTS"
+  },
+  "v1_0_0_expressibility": {
+    "complete": false,
+    "renderer_allowlist": [
+      "statics_vector_plane_v1",
+      "statics_force_vector_v1",
+      "statics_fbd_v1",
+      "statics_composite_area_v1"
+    ],
+    "formula_allowlist": [
+      "cartesian_fx_from_magnitude_angle_deg",
+      "cartesian_fy_from_magnitude_angle_deg",
+      "sum_selected",
+      "resultant_magnitude_from_rx_ry",
+      "resultant_direction_deg_from_rx_ry"
+    ],
+    "exact_gaps": [
+      "The v1.0.0 FBD renderer cannot express friction-regime state, limiting-versus-actual friction, tipping/sliding threshold comparison, or specialized wedge, screw, belt, bearing, and rolling-resistance geometry.",
+      "The v1.0.0 formula allowlist has no Coulomb limit, kinetic friction, capstan, screw, bearing, or rolling-resistance operation."
+    ]
+  },
+  "completion_gate": "Does not count as complete until validated against Lane A's published v1.1.0 schema and registry digests.",
+  "contains_executable_code": false,
+  "human_review_required": true,
+  "student_visible": false,
+  "database_eligible": false,
+  "is_active": false
+}

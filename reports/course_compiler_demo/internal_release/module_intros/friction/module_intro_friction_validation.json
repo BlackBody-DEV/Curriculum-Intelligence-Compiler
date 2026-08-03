@@ -1,0 +1,70 @@
+{
+  "schema": "axiomiq_module_intro_validation_v1",
+  "validation_id": "module-intro-friction-validation-001",
+  "deterministic_policy": {
+    "canonical_json_sort_keys": true,
+    "sha256_sidecars_required": true,
+    "authority_bundle": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+    "authority_commit": "0ae79257dc2ed256ce32332130766d6170a98f3e"
+  },
+  "checks": [
+    {
+      "check": "canonical_topic_identity",
+      "status": "PASS",
+      "observed": "STATICS_FRICTION"
+    },
+    {
+      "check": "required_intro_sections",
+      "status": "PASS",
+      "observed": [
+        "topic_objective",
+        "prerequisite_framing",
+        "procedure_overview",
+        "worked_example_entry_point",
+        "accessible_static_fallback"
+      ]
+    },
+    {
+      "check": "signed_procedure_coverage",
+      "status": "PASS",
+      "expected": 11,
+      "observed": 11
+    },
+    {
+      "check": "mandatory_labels",
+      "status": "PASS",
+      "observed": {
+        "human_review_required": true,
+        "student_visible": false,
+        "database_eligible": false,
+        "is_active": false
+      }
+    },
+    {
+      "check": "static_fallback_accessibility",
+      "status": "PASS",
+      "observed": "module_intro_friction_static_fallback.json"
+    },
+    {
+      "check": "diagram_draft_non_executable",
+      "status": "PASS",
+      "observed": true
+    },
+    {
+      "check": "v1_1_0_schema_and_registry_validation",
+      "status": "PENDING",
+      "observed": "Lane A published digests unavailable"
+    }
+  ],
+  "content_validation": "PASS",
+  "diagram_validation": "PENDING_PUBLISHED_V1_1_0",
+  "verdict": "MODULE_INTRO_LANE_DRAFT_PENDING_SCHEMA",
+  "blockers": [
+    "Lane A must publish the v1.1.0 interaction schema and renderer/formula registry digests.",
+    "The diagram draft must then bind those digests and pass the published validator."
+  ],
+  "human_review_required": true,
+  "student_visible": false,
+  "database_eligible": false,
+  "is_active": false
+}

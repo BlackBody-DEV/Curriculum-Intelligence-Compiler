@@ -1,0 +1,121 @@
+{
+  "schema": "axiomiq_module_introduction_draft_v1",
+  "module_intro_id": "module-intro-friction-001",
+  "canonical_identity": {
+    "course_code": "STATICS",
+    "topic_code": "STATICS_FRICTION",
+    "topic_title": "Friction"
+  },
+  "topic_objective": "Model dry-friction contacts and determine static, impending, or kinetic regimes across sliding, tipping, wedges, screws, belts, collars, bearings, and rolling resistance.",
+  "prerequisite_framing": "Use contact free-body diagrams, normal-force direction, equilibrium, impending-motion sense, moments, and consistent force and angle units.",
+  "procedure_overview": [
+    {
+      "sequence": 1,
+      "procedure_id": "proc-statics-friction-dry-friction-static-kinetic-v1",
+      "micro_skill_code": "dry_friction_static_kinetic",
+      "signature_status": "signed_off",
+      "overview": "Introduce dry friction static kinetic as a signed procedure within Friction."
+    },
+    {
+      "sequence": 2,
+      "procedure_id": "proc-statics-friction-friction-fbd-normal-force-v1",
+      "micro_skill_code": "friction_fbd_normal_force",
+      "signature_status": "signed_off",
+      "overview": "Introduce friction fbd normal force as a signed procedure within Friction."
+    },
+    {
+      "sequence": 3,
+      "procedure_id": "STATICS_FRICTION_coulomb_friction_impending",
+      "micro_skill_code": "coulomb_friction_impending",
+      "signature_status": "signed_off",
+      "overview": "Introduce coulomb friction impending as a signed procedure within Friction."
+    },
+    {
+      "sequence": 4,
+      "procedure_id": "proc-statics-friction-friction-equilibrium-sliding-v1",
+      "micro_skill_code": "friction_equilibrium_sliding",
+      "signature_status": "signed_off",
+      "overview": "Introduce friction equilibrium sliding as a signed procedure within Friction."
+    },
+    {
+      "sequence": 5,
+      "procedure_id": "proc-statics-friction-friction-tipping-vs-sliding-v1",
+      "micro_skill_code": "friction_tipping_vs_sliding",
+      "signature_status": "signed_off",
+      "overview": "Introduce friction tipping vs sliding as a signed procedure within Friction."
+    },
+    {
+      "sequence": 6,
+      "procedure_id": "proc-statics-friction-wedge-friction-v1",
+      "micro_skill_code": "wedge_friction",
+      "signature_status": "signed_off",
+      "overview": "Introduce wedge friction as a signed procedure within Friction."
+    },
+    {
+      "sequence": 7,
+      "procedure_id": "proc-statics-friction-screw-friction-v1",
+      "micro_skill_code": "screw_friction",
+      "signature_status": "signed_off",
+      "overview": "Introduce screw friction as a signed procedure within Friction."
+    },
+    {
+      "sequence": 8,
+      "procedure_id": "STATICS_FRICTION_belt_friction_tension",
+      "micro_skill_code": "belt_friction_tension",
+      "signature_status": "signed_off",
+      "overview": "Introduce belt friction tension as a signed procedure within Friction."
+    },
+    {
+      "sequence": 9,
+      "procedure_id": "proc-statics-friction-collar-bearing-friction-v1",
+      "micro_skill_code": "collar_bearing_friction",
+      "signature_status": "signed_off",
+      "overview": "Introduce collar bearing friction as a signed procedure within Friction."
+    },
+    {
+      "sequence": 10,
+      "procedure_id": "proc-statics-friction-journal-bearing-friction-v1",
+      "micro_skill_code": "journal_bearing_friction",
+      "signature_status": "signed_off",
+      "overview": "Introduce journal bearing friction as a signed procedure within Friction."
+    },
+    {
+      "sequence": 11,
+      "procedure_id": "proc-statics-friction-rolling-resistance-v1",
+      "micro_skill_code": "rolling_resistance",
+      "signature_status": "signed_off",
+      "overview": "Introduce rolling resistance as a signed procedure within Friction."
+    }
+  ],
+  "procedure_coverage": {
+    "expected_signed_count": 11,
+    "covered_signed_count": 11,
+    "complete": true
+  },
+  "worked_example_entry_point": {
+    "procedure_id": "proc-statics-friction-dry-friction-static-kinetic-v1",
+    "scenario": "Adjust normal force, static and kinetic coefficients, and required tangential force; classify the regime and reveal the actual friction force without assuming static friction is always at its maximum.",
+    "launch_state": "static_fallback_available_diagram_pending_v1_1_registry"
+  },
+  "accessible_static_fallback": {
+    "artifact_path": "module_intro_friction_static_fallback.json",
+    "required": true,
+    "available": true
+  },
+  "interactive_diagram": {
+    "draft_artifact_path": "module_intro_friction_diagram_draft.json",
+    "production_bound": true,
+    "target_schema_version": "1.1.0",
+    "registry_digest": null,
+    "status": "DRAFT_PENDING_PUBLISHED_REGISTRY"
+  },
+  "deterministic_validation": {
+    "artifact_path": "module_intro_friction_validation.json",
+    "content_validation": "PASS",
+    "diagram_schema_validation": "PENDING_PUBLISHED_V1_1_0"
+  },
+  "human_review_required": true,
+  "student_visible": false,
+  "database_eligible": false,
+  "is_active": false
+}
