@@ -1,0 +1,48 @@
+{
+  "authority_commit": "e0b7936ae75614a220070ea83405a877909e3299",
+  "diagram_types": [
+    "force_vector",
+    "vector_plane",
+    "free_body_diagram",
+    "composite_area",
+    "beam_loading"
+  ],
+  "document": "interaction_schema_authority_documentation_v1",
+  "notes": [
+    "Derived solely from committed schema blob at authority commit.",
+    "Not a working-tree read."
+  ],
+  "required_top_level_fields": [
+    "schema_id",
+    "schema_version",
+    "spec_id",
+    "diagram_type",
+    "renderer_id",
+    "instructional_objective",
+    "linked_explanation_id",
+    "linked_procedure_id",
+    "linked_procedure_signature",
+    "initial_state",
+    "student_adjustable_variables",
+    "geometric_constraints",
+    "mathematical_constraints",
+    "dependent_calculated_values",
+    "visible_labels",
+    "units",
+    "available_toggles",
+    "procedural_step_states",
+    "reset_state",
+    "expected_state_transitions",
+    "accessibility_description",
+    "keyboard_interaction_model",
+    "static_fallback_specification",
+    "diagram_fingerprint",
+    "interaction_fingerprint",
+    "deterministic_validation_cases"
+  ],
+  "schema_description": "Versioned declarative interaction schema for interactive instructional diagrams (AXIOMIQ-INTERACTIVE-INSTRUCTIONAL-DIAGRAM-CONTRACT-009 \u00a72). Specs are data-only: no scripts, inline event code, remote executable assets, or free-form expressions.",
+  "schema_identifier": "axiomiq_interactive_instructional_diagram_interaction_v1",
+  "schema_title": "AXIOMIQ_INTERACTIVE_INSTRUCTIONAL_DIAGRAM_INTERACTION_v1",
+  "schema_version": "1.0.0",
+  "source_path": "schemas/axiomiq_interactive_instructional_diagram_interaction_v1.schema.json"
+}

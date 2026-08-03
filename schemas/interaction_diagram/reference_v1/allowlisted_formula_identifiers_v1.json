@@ -1,0 +1,12 @@
+{
+  "authority_commit": "e0b7936ae75614a220070ea83405a877909e3299",
+  "document": "allowlisted_formula_identifiers_v1",
+  "identifiers": [
+    "cartesian_fx_from_magnitude_angle_deg",
+    "cartesian_fy_from_magnitude_angle_deg",
+    "sum_selected",
+    "resultant_magnitude_from_rx_ry",
+    "resultant_direction_deg_from_rx_ry"
+  ],
+  "source": "schema.definitions.calculated_value.properties.formula_id.enum"
+}

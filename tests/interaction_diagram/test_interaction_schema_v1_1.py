@@ -17,6 +17,20 @@ def test_audited_v1_baseline_is_byte_exact_and_schema_valid():
     assert hashlib.sha256(V1.read_bytes()).hexdigest()=='5b8cc1c43a63e21a87ccce134769aee0529e49728b5ecbe43680a1ee18b55c88'
     jsonschema.validate(load(FIX1),load(V1))
 
+def test_all_nine_canonical_v1_bundle_artifacts_are_preserved():
+    expected={
+      'schemas/axiomiq_interactive_instructional_diagram_interaction_v1.schema.json':'5b8cc1c43a63e21a87ccce134769aee0529e49728b5ecbe43680a1ee18b55c88',
+      'scripts/interaction_diagram/__init__.py':'e2aff6ab63b5a7ed85db53cd4e200c197825cecc6d97cf625dfce70b69b7c314',
+      'scripts/interaction_diagram/formulas.py':'2b363bdbf689a39ef37a12deb0c4498f78bbe2c314d34f3cdc0906070fc921b5',
+      'scripts/interaction_diagram/validate_interaction_spec.py':'d56dbf91163f0de9f543dad550cd1eee53853f1a002ecaebe55d72a1de97e0e2',
+      'fixtures/interaction_diagrams/vectors_component_resolution_and_addition_explanation_v1.json':'f39f8c8c4a78b6d10337f44f94d247037dd29c7a9edf54a36a5077742a27ad8b',
+      'fixtures/interaction_diagrams/fallbacks/vectors_component_resolution_and_addition_explanation_v1.svg':'cc4a4a627536528784150e299d4566428783be140af090a512e6f4ec77b5870f',
+      'schemas/interaction_diagram/reference_v1/allowlisted_formula_identifiers_v1.json':'7469a16087448c00820f65db834039409fa4a6bf0b96264a0ac72e582b9e9239',
+      'schemas/interaction_diagram/reference_v1/allowlisted_renderer_identifiers_v1.json':'a80129a24a9c19e000b83e42c0d5a68c9111dddca79064a8aac07402a05636d6',
+      'schemas/interaction_diagram/reference_v1/schema_documentation_v1.json':'f203a3f017860311ea4242c7869d8f00ea86b5392a706ed760f0f4270cc88405',
+    }
+    for rel,digest in expected.items(): assert hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()==digest
+
 def test_v1_dispatch_remains_valid():
     spec=load(FIX1); sig=spec['linked_procedure_signature']; steps=[{} for _ in spec['procedural_step_states']]
     registry={spec['linked_procedure_id']:{'status':'signed_off','phase_d_sign_off':sig,'procedure':steps}}

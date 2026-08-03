@@ -1,0 +1,11 @@
+{
+  "authority_commit": "e0b7936ae75614a220070ea83405a877909e3299",
+  "document": "allowlisted_renderer_identifiers_v1",
+  "identifiers": [
+    "statics_vector_plane_v1",
+    "statics_force_vector_v1",
+    "statics_fbd_v1",
+    "statics_composite_area_v1"
+  ],
+  "source": "schema.properties.renderer_id.enum"
+}
