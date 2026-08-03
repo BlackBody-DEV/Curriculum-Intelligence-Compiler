@@ -1,0 +1,473 @@
+{
+  "bindings": [
+    {
+      "alt_text": "dimensional relationship diagram for solve_particle_equil_2d; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "8c3853edab38a674b86a4c23636565db74f9ce5b4ded0119c766f65d5897aba7",
+      "diagram_path": "assets/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d-concept-41260a3174d3.svg",
+      "diagram_sha256": "c676fbb881d0d288f88b7729bfb0380341bd3be1be3e867ab1fcd5d87eb2ad24",
+      "explanation_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d:concept",
+      "explanation_type": "concept",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+      "procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Sixth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:EQUILIBRIUM_CONDITIONS; worked example independently re-verified F_3=<-100,-75> N and |F_3|=125 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "dimensional_relationship_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": null
+    },
+    {
+      "alt_text": "particle free body diagram for solve_particle_equil_2d; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "a43fab3e28d9811c84fdc6cc3f1a89f262fe3989936c233f3c0be0f34f327707",
+      "diagram_path": "assets/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d-procedure-6076f3a0e41a.svg",
+      "diagram_sha256": "be83f1401c6db345fce73ee7f6b06eff3acffb98ecf8acd1b325881889c539c4",
+      "explanation_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d:procedure",
+      "explanation_type": "procedure",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+      "procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Sixth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:EQUILIBRIUM_CONDITIONS; worked example independently re-verified F_3=<-100,-75> N and |F_3|=125 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": null
+    },
+    {
+      "alt_text": "particle free body diagram for solve_particle_equil_2d; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "a92c68180efe338e63e45596a78e224299f11adc75dcf8d7a00fd33c138104de",
+      "diagram_path": "assets/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d-worked_example-049859475a5f.svg",
+      "diagram_sha256": "54457a7569fac1591085800ab8adbf3b984d0b7b7b00fb4d8edb171302a3530e",
+      "explanation_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d:worked_example",
+      "explanation_type": "worked_example",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+      "procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Sixth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:EQUILIBRIUM_CONDITIONS; worked example independently re-verified F_3=<-100,-75> N and |F_3|=125 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": true
+    },
+    {
+      "alt_text": "particle free body diagram for solve_particle_equil_2d; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "ab86b6d9625b750100e716881ec35823a653aa6a6b0e413e500a264ea25ecda1",
+      "diagram_path": "assets/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d-solution-fecd30d9c7f0.svg",
+      "diagram_sha256": "84cb75e378be6cfb709dea6023731624fdb4af5a3572471c9b01b824df07fdde",
+      "explanation_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d:solution",
+      "explanation_type": "solution",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+      "procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Sixth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:EQUILIBRIUM_CONDITIONS; worked example independently re-verified F_3=<-100,-75> N and |F_3|=125 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": null
+    },
+    {
+      "alt_text": "particle free body diagram for solve_particle_equil_2d; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "21ed1de5d8efa6f59818e5852adf43f5bc6f8e283b63afa13d9ff9d9ac6af7f3",
+      "diagram_path": "assets/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d-remediation-e4cae05bfe8f.svg",
+      "diagram_sha256": "339cf7a8eddfbc814bedc04ec0400b34b3e451acf7b604e5fe5779aebe298b84",
+      "explanation_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d:remediation",
+      "explanation_type": "remediation",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+      "procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Sixth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:EQUILIBRIUM_CONDITIONS; worked example independently re-verified F_3=<-100,-75> N and |F_3|=125 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": null
+    },
+    {
+      "alt_text": "dimensional relationship diagram for solve_particle_equil_3d; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "891a6935ec18cc888bbe476f6e9143981b5d42277e60b1927537b48b189f69ab",
+      "diagram_path": "assets/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d-concept-d1f6251ae48b.svg",
+      "diagram_sha256": "37dcaee399516033da630768730ed2494b6405e0d0a79c6417e6f3e90a096c86",
+      "explanation_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d:concept",
+      "explanation_type": "concept",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d",
+      "procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Eighth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:THREE_DIMENSIONAL_SYSTEMS; 3D concurrent particle equilibrium scope (unit vectors/direction cosines; SigmaF_x=SigmaF_y=SigmaF_z=0; up to three unknown scalar force magnitudes when statically determinate); worked example independently re-verified unit vectors normalized and T_1=T_2=312.5 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-3D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "dimensional_relationship_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": null
+    },
+    {
+      "alt_text": "particle free body diagram for solve_particle_equil_3d; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "f0c1fb6f8f104b6f128ef893af49e98b28c39c65df7f98a608047e2ca6815fb5",
+      "diagram_path": "assets/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d-procedure-c9cb7469cdb1.svg",
+      "diagram_sha256": "6d92769bc101584c4fd73133fe67ed0c52ed4e2323969a3a9ec66c48e14bbb2c",
+      "explanation_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d:procedure",
+      "explanation_type": "procedure",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d",
+      "procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Eighth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:THREE_DIMENSIONAL_SYSTEMS; 3D concurrent particle equilibrium scope (unit vectors/direction cosines; SigmaF_x=SigmaF_y=SigmaF_z=0; up to three unknown scalar force magnitudes when statically determinate); worked example independently re-verified unit vectors normalized and T_1=T_2=312.5 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-3D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": null
+    },
+    {
+      "alt_text": "particle free body diagram for solve_particle_equil_3d; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "a3cf86c4a33ef15f27a05643690837c4e0ab4d795b7dad0666b885d61a5d4544",
+      "diagram_path": "assets/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d-worked_example-ec77bc7b0480.svg",
+      "diagram_sha256": "cb6a0f28eca011a617e9ed570771d2a31662b0ce1c4d4c3dd88ce42e51171c98",
+      "explanation_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d:worked_example",
+      "explanation_type": "worked_example",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d",
+      "procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Eighth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:THREE_DIMENSIONAL_SYSTEMS; 3D concurrent particle equilibrium scope (unit vectors/direction cosines; SigmaF_x=SigmaF_y=SigmaF_z=0; up to three unknown scalar force magnitudes when statically determinate); worked example independently re-verified unit vectors normalized and T_1=T_2=312.5 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-3D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": true
+    },
+    {
+      "alt_text": "particle free body diagram for solve_particle_equil_3d; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "75df2481876fa27f9bbd21bc7848c90565de62932833bdd5cccd5c4b53182659",
+      "diagram_path": "assets/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d-solution-09b2fdcfed69.svg",
+      "diagram_sha256": "4637198410b8bf23f4fe192c90d0fde41e735783b6c1068132f499d4edb63d59",
+      "explanation_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d:solution",
+      "explanation_type": "solution",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d",
+      "procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Eighth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:THREE_DIMENSIONAL_SYSTEMS; 3D concurrent particle equilibrium scope (unit vectors/direction cosines; SigmaF_x=SigmaF_y=SigmaF_z=0; up to three unknown scalar force magnitudes when statically determinate); worked example independently re-verified unit vectors normalized and T_1=T_2=312.5 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-3D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": null
+    },
+    {
+      "alt_text": "particle free body diagram for solve_particle_equil_3d; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "c38bc809d46aa1a402b469937bcf156a9792a324fe0ed74eb75aa44176ebd2da",
+      "diagram_path": "assets/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d-remediation-5a5d1ed22d45.svg",
+      "diagram_sha256": "b3c594ea9a14b377e64f17605ed1e7193e3cd737f9d894c3e4701941a96eb05a",
+      "explanation_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d:remediation",
+      "explanation_type": "remediation",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d",
+      "procedure_signature": {
+        "date": "2026-07-05",
+        "notes": "Eighth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:THREE_DIMENSIONAL_SYSTEMS; 3D concurrent particle equilibrium scope (unit vectors/direction cosines; SigmaF_x=SigmaF_y=SigmaF_z=0; up to three unknown scalar force magnitudes when statically determinate); worked example independently re-verified unit vectors normalized and T_1=T_2=312.5 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-3D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": null
+    },
+    {
+      "alt_text": "particle free body diagram for equilibrant_force; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "3f2a3561e12959d0eeff30b8933f33f2fbd972e1280bcf1a8b0d434b29a5b8b6",
+      "diagram_path": "assets/proc-statics-particle-equilibrium-equilibrant-force-v1-concept-ef77a85dd09c.svg",
+      "diagram_sha256": "ac0f973c4d267a3df5fa6ceaa6e0dd57a32f6d358944b418cfb64bcb92b5a8ae",
+      "explanation_id": "proc-statics-particle-equilibrium-equilibrant-force-v1:concept",
+      "explanation_type": "concept",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-particle-equilibrium-equilibrant-force-v1",
+      "procedure_signature": {
+        "date": "2026-07-04",
+        "notes": "Fourth Phase D sign-off; worked example independently re-verified R=<300,400>, E=<-300,-400>, |E|=500, direction=233.1 degrees, equilibrium check zero; schema-valid v1_1; canonical-four live mappings; magnitude+direction scope (equilibrant equal magnitude and opposite direction to resultant); MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-EQUILIBRANT-FORCE-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": null
+    },
+    {
+      "alt_text": "particle free body diagram for equilibrant_force; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "4b1dacb86ede414876fb41613fcda687f78f6d46617cba4857f8db3a56cf0d9a",
+      "diagram_path": "assets/proc-statics-particle-equilibrium-equilibrant-force-v1-procedure-293d718b057d.svg",
+      "diagram_sha256": "d4792da19073effe056d45bb59d0750d0335ea30bf852528521a238cb9e6d71f",
+      "explanation_id": "proc-statics-particle-equilibrium-equilibrant-force-v1:procedure",
+      "explanation_type": "procedure",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-particle-equilibrium-equilibrant-force-v1",
+      "procedure_signature": {
+        "date": "2026-07-04",
+        "notes": "Fourth Phase D sign-off; worked example independently re-verified R=<300,400>, E=<-300,-400>, |E|=500, direction=233.1 degrees, equilibrium check zero; schema-valid v1_1; canonical-four live mappings; magnitude+direction scope (equilibrant equal magnitude and opposite direction to resultant); MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-EQUILIBRANT-FORCE-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": null
+    },
+    {
+      "alt_text": "particle free body diagram for equilibrant_force; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "2a97632f428f004636a89a066e345356e28f3755ba2410bc0751c41dd37e1d7d",
+      "diagram_path": "assets/proc-statics-particle-equilibrium-equilibrant-force-v1-worked_example-d4a09d3d2113.svg",
+      "diagram_sha256": "e916e56b11e5d9856687f3ffbe8a56d89ac7f1459a2e19464e52c5342ae1feca",
+      "explanation_id": "proc-statics-particle-equilibrium-equilibrant-force-v1:worked_example",
+      "explanation_type": "worked_example",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-particle-equilibrium-equilibrant-force-v1",
+      "procedure_signature": {
+        "date": "2026-07-04",
+        "notes": "Fourth Phase D sign-off; worked example independently re-verified R=<300,400>, E=<-300,-400>, |E|=500, direction=233.1 degrees, equilibrium check zero; schema-valid v1_1; canonical-four live mappings; magnitude+direction scope (equilibrant equal magnitude and opposite direction to resultant); MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-EQUILIBRANT-FORCE-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": true
+    },
+    {
+      "alt_text": "particle free body diagram for equilibrant_force; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "145d8044e1cae7e89125c4ccce89b190a3868c5ad59e80a318d831359aea1626",
+      "diagram_path": "assets/proc-statics-particle-equilibrium-equilibrant-force-v1-solution-9c633a1eeec0.svg",
+      "diagram_sha256": "16ff450bc0e9067a41ac22a03f77ec16d7fb8bbe33913e5c846bb547f5da4bf6",
+      "explanation_id": "proc-statics-particle-equilibrium-equilibrant-force-v1:solution",
+      "explanation_type": "solution",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-particle-equilibrium-equilibrant-force-v1",
+      "procedure_signature": {
+        "date": "2026-07-04",
+        "notes": "Fourth Phase D sign-off; worked example independently re-verified R=<300,400>, E=<-300,-400>, |E|=500, direction=233.1 degrees, equilibrium check zero; schema-valid v1_1; canonical-four live mappings; magnitude+direction scope (equilibrant equal magnitude and opposite direction to resultant); MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-EQUILIBRANT-FORCE-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": null
+    },
+    {
+      "alt_text": "particle free body diagram for equilibrant_force; shows the explanation-specific configuration and labeled givens without displaying the answer.",
+      "database_eligible": false,
+      "diagram_fingerprint": "f3cfd1c840a9a455be770d797432e5dbc8ffa0a7efc9f41d9be3cd2c13a05756",
+      "diagram_path": "assets/proc-statics-particle-equilibrium-equilibrant-force-v1-remediation-976a061306d6.svg",
+      "diagram_sha256": "6c710d823ea384d2f8f30416f0d87fb5f2765690565bfe85c8b4af5faf3bac73",
+      "explanation_id": "proc-statics-particle-equilibrium-equilibrant-force-v1:remediation",
+      "explanation_type": "remediation",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-particle-equilibrium-equilibrant-force-v1",
+      "procedure_signature": {
+        "date": "2026-07-04",
+        "notes": "Fourth Phase D sign-off; worked example independently re-verified R=<300,400>, E=<-300,-400>, |E|=500, direction=233.1 degrees, equilibrium check zero; schema-valid v1_1; canonical-four live mappings; magnitude+direction scope (equilibrant equal magnitude and opposite direction to resultant); MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-EQUILIBRANT-FORCE-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "renderer_category": "particle_free_body_diagram",
+      "student_visible": false,
+      "validation": {
+        "answer_not_revealed": true,
+        "asset_resolves": true,
+        "deterministic_spec": true,
+        "diagram_to_content": true,
+        "meaningful_alt_text": true,
+        "no_executable_content": true,
+        "procedure_consistency": true,
+        "responsive": true
+      },
+      "worked_example_value_match": null
+    }
+  ],
+  "count": 15,
+  "manifest_sha256": "8d142ac05db5316ea256ca09d1a1deb091cb957f46aaf980fa6e4a8c7b32beef",
+  "schema_version": "explanation_diagram_bindings_v1",
+  "topic": "STATICS_PARTICLE_EQUILIBRIUM"
+}

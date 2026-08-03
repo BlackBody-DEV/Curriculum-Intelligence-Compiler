@@ -1,0 +1,41 @@
+{
+  "base_commit": "b188c7db7faaed3835d41e6870cf36a4902aecfa",
+  "branch": "task/diag-prod-003b-particle-equilibrium",
+  "diagrams_produced": 15,
+  "explanations_covered_by_type": {
+    "concept": 3,
+    "procedure": 3,
+    "remediation": 3,
+    "solution": 3,
+    "worked_example": 3
+  },
+  "lane_id": "DIAG-PROD-003B-EXPLANATIONS-1218",
+  "renderer_breakdown": {
+    "dimensional_relationship_diagram": 2,
+    "particle_free_body_diagram": 13
+  },
+  "safety": {
+    "database_eligible": false,
+    "human_review_required": true,
+    "is_active": false,
+    "student_visible": false
+  },
+  "schema_version": "explanation_diagram_lane_evidence_v1",
+  "topic": "STATICS_PARTICLE_EQUILIBRIUM",
+  "validation": {
+    "alt_text_covered": 15,
+    "answer_not_revealed_passed": 15,
+    "asset_resolution_passed": 15,
+    "diagram_to_content_passed": 15,
+    "failed": 0,
+    "no_executable_content_passed": 15,
+    "procedure_linkage_passed": 15,
+    "responsive_passed": 15
+  },
+  "verdict": "EXPLANATION_DIAGRAM_LANE_COMPLETE",
+  "worked_examples": {
+    "failed": 0,
+    "total": 3,
+    "value_match_passed": 3
+  }
+}
