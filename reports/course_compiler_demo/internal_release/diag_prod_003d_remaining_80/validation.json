@@ -1,0 +1,33 @@
+{
+  "alt_text_coverage": 80,
+  "combined_census": {
+    "difference": 0,
+    "previously_produced": 1218,
+    "remaining_produced": 80,
+    "total": 1298
+  },
+  "counts": {
+    "set_scope_extension_021B": 12,
+    "single_procedure": 50,
+    "topic_scope": 18
+  },
+  "database_eligible": false,
+  "diagram_count": 80,
+  "human_review_required": true,
+  "is_active": false,
+  "procedure_linkage": {
+    "all_signatures_present": true,
+    "records_with_linkage": 80,
+    "set_scope_records": 12
+  },
+  "schema_version": "DIAG_PROD_003D_VALIDATION_v1",
+  "static_asset_validation": {
+    "all_assets_resolve": true,
+    "all_sha256_match": true,
+    "no_script_tags": true
+  },
+  "student_visible": false,
+  "unique_explanation_ids": 80,
+  "unique_fingerprints": 80,
+  "verdict": "REMAINING_80_COMPLETE"
+}
