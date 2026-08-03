@@ -3399,17 +3399,30 @@
       "deterministic_reference_cases": [
         {
           "absolute_tolerance": 1e-12,
-          "case_id": "hydrostatic_cp_ref",
+          "case_id": "hydrostatic_cp_vertical_ref",
           "expected": 3.0,
           "inputs": {
             "area": 2.0,
             "centroid_depth": 2.0,
-            "centroidal_area_inertia": 4.0
+            "centroidal_area_inertia": 4.0,
+            "inclination_angle_deg": 90.0
+          }
+        },
+        {
+          "absolute_tolerance": 1e-12,
+          "case_id": "hydrostatic_cp_inclined_ref",
+          "expected": 2.25,
+          "inputs": {
+            "area": 2.0,
+            "centroid_depth": 2.0,
+            "centroidal_area_inertia": 4.0,
+            "inclination_angle_deg": 30.0
           }
         }
       ],
       "dimensional_and_unit_rules": [
-        "centroidal_area_inertia divided by centroid_depth times area has dimension length",
+        "centroidal_area_inertia times sin squared inclination divided by centroid_depth times area has dimension length",
+        "inclination is measured from the free-surface plane",
         "all length-derived inputs use one coherent unit system"
       ],
       "formula_id": "statics_hydrostatic_center_of_pressure_v1",
@@ -3417,14 +3430,16 @@
         "required_dimensions": {
           "area": "area",
           "centroid_depth": "length",
-          "centroidal_area_inertia": "length_fourth"
+          "centroidal_area_inertia": "length_fourth",
+          "inclination_angle_deg": "angle"
         },
         "same_dimension_groups": [],
         "unknown_units_rejected": true
       },
       "mathematical_invariants": [
         "center_of_pressure_not_above_centroid_for_positive_depth",
-        "zero_centroidal_inertia_returns_centroid_depth"
+        "zero_centroidal_inertia_or_zero_inclination_returns_centroid_depth",
+        "vertical_plane_is_inclination_90_degrees"
       ],
       "negative_cases": [
         {
@@ -3432,18 +3447,20 @@
           "inputs": {
             "area": 2,
             "centroid_depth": 0,
-            "centroidal_area_inertia": 4
+            "centroidal_area_inertia": 4,
+            "inclination_angle_deg": 90
           },
           "rejection": "centroid_depth_must_be_positive"
         },
         {
-          "case_id": "hydrostatic_cp_zero_area",
+          "case_id": "hydrostatic_cp_angle_out_of_range",
           "inputs": {
-            "area": 0,
+            "area": 2,
             "centroid_depth": 2,
-            "centroidal_area_inertia": 4
+            "centroidal_area_inertia": 4,
+            "inclination_angle_deg": 120
           },
-          "rejection": "area_must_be_positive"
+          "rejection": "inclination_angle_must_be_between_zero_and_90"
         }
       ],
       "operation": "hydrostatic_center_of_pressure",
@@ -3458,6 +3475,10 @@
         },
         "centroidal_area_inertia": {
           "maximum": 1e+24,
+          "minimum": 0
+        },
+        "inclination_angle_deg": {
+          "maximum": 90,
           "minimum": 0
         }
       },
@@ -3476,6 +3497,11 @@
         {
           "dimension": "area",
           "name": "area",
+          "type": "number"
+        },
+        {
+          "dimension": "angle",
+          "name": "inclination_angle_deg",
           "type": "number"
         }
       ],

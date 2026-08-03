@@ -1,6 +1,6 @@
 """Closed trusted formula adapter for interaction schema v1.2.0."""
 from __future__ import annotations
-import json
+import json,math
 from pathlib import Path
 from typing import Any,Mapping
 from .formulas_v1_1 import FormulaError,_calculate,_enforce_bounds,_n,_resolved
@@ -10,8 +10,8 @@ FORMULA_METADATA={x['formula_id']:x for x in json.loads(REGISTRY_PATH.read_text(
 
 def _evaluate(meta,ordered):
     if meta['operation']=='hydrostatic_center_of_pressure':
-        depth=ordered['centroid_depth']; inertia=ordered['centroidal_area_inertia']; area=ordered['area']
-        return depth+inertia/(depth*area)
+        depth=ordered['centroid_depth']; inertia=ordered['centroidal_area_inertia']; area=ordered['area']; angle=ordered['inclination_angle_deg']
+        return depth+inertia*math.sin(math.radians(angle))**2/(depth*area)
     return _calculate(meta['operation'],ordered)
 
 def evaluate_formula(formula_id:str,values:Mapping[str,float],inputs:Mapping[str,Any])->float:

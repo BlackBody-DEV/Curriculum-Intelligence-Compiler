@@ -12,8 +12,9 @@ from .validate_interaction_spec_v1_1 import validate_interaction_spec as validat
 ROOT=Path(__file__).resolve().parents[2]
 SCHEMA=ROOT/'schemas'/'axiomiq_interactive_instructional_diagram_interaction_v1_2.schema.json'
 RENDERERS={x['renderer_id'] for x in json.loads((ROOT/'schemas'/'interaction_renderer_registry_v1_2.json').read_text())['entries']}
-CONSTRAINT_MODELS={x['constraint_model_id'] for x in json.loads((ROOT/'schemas'/'interaction_constraint_model_registry_v1_2.json').read_text())['entries']}
-DISPLAY_VOCABULARIES={x['display_vocabulary_id'] for x in json.loads((ROOT/'schemas'/'interaction_display_vocabulary_registry_v1_2.json').read_text())['entries']}
+CONSTRAINT_MODEL_METADATA={x['constraint_model_id']:x for x in json.loads((ROOT/'schemas'/'interaction_constraint_model_registry_v1_2.json').read_text())['entries']}
+DISPLAY_VOCABULARY_METADATA={x['display_vocabulary_id']:x for x in json.loads((ROOT/'schemas'/'interaction_display_vocabulary_registry_v1_2.json').read_text())['entries']}
+CONSTRAINT_MODELS=set(CONSTRAINT_MODEL_METADATA); DISPLAY_VOCABULARIES=set(DISPLAY_VOCABULARY_METADATA)
 FORBIDDEN_KEYS={'script','javascript','__proto__','constructor','eval','expression','expr','code','handler','callback','onclick','onerror','onload','onkeydown','onkeyup'}
 FORBIDDEN=(re.compile(r'(?i)<\s*script\b'),re.compile(r'(?i)\bjavascript\s*:'),re.compile(r'(?i)\bdata\s*:'),re.compile(r'(?i)\bhttps?\s*:'),re.compile(r'(?i)\beval\s*\('),re.compile(r'(?i)\bnew\s+Function\b'),re.compile(r'(?i)\bimport\s*\('))
 GATES=('schema','procedure_link','diagram_to_text_consistency','mathematical_state','deterministic_replay','variable_bound','reset_state','step_transition')
@@ -100,6 +101,30 @@ def _unit_contract_errors(spec):
             if input_dims and declared not in input_dims: errors.append(f"{calc['id']} output unit does not match input dimension")
         units[calc['id']]=calc['unit']
     return errors
+def _registry_semantic_errors(spec):
+    errors=[]
+    if spec.get('renderer_id')=='statics_fbd_3d_v1':
+        if spec.get('diagram_type')!='free_body_diagram': errors.append('statics_fbd_3d_v1 requires free_body_diagram')
+        known={x['id'] for x in spec.get('student_adjustable_variables',[])}|{x['id'] for x in spec.get('dependent_calculated_values',[])}
+        required={'force_x','force_y','force_z','moment_x','moment_y','moment_z','origin_x','origin_y','origin_z'}
+        if not required<=known: errors.append('statics_fbd_3d_v1 missing force, moment, or origin state')
+        text=(str(spec.get('instructional_objective',''))+' '+str(spec.get('accessibility_description',''))).lower()
+        for token in ('3d','x','y','z','force','moment','origin'):
+            if token not in text: errors.append(f'statics_fbd_3d_v1 accessibility text missing {token}')
+    for constraint in list(spec.get('geometric_constraints',[]))+list(spec.get('mathematical_constraints',[])):
+        model_id=constraint.get('constraint_model_id')
+        if not model_id or model_id not in CONSTRAINT_MODEL_METADATA: continue
+        meta=CONSTRAINT_MODEL_METADATA[model_id]; operands=constraint.get('operands') or {}; required={x['name'] for x in meta['typed_inputs']}
+        missing=required-set(operands)
+        if missing: errors.append(f'{model_id} missing operands: {sorted(missing)}')
+        for item in meta['typed_inputs']:
+            if item.get('type')=='enum' and item['name'] in operands and operands[item['name']] not in item['values']: errors.append(f"{model_id} operand {item['name']} is not allowlisted")
+    overlay=[x for x in spec.get('visible_labels',[]) if x.get('display_vocabulary_id')=='statics_beam_sign_convention_overlay_v1']
+    if overlay:
+        texts={x.get('text') for x in overlay}
+        if not {'+N','+V','+M'}<=texts: errors.append('beam sign convention overlay requires +N, +V, and +M labels')
+        if 'sign' not in str(spec.get('accessibility_description','')).lower(): errors.append('beam sign convention overlay requires accessible sign instructions')
+    return errors
 
 def validate_interaction_spec(spec,*,procedure_registry=None):
     if isinstance(spec,dict) and spec.get('schema_version')=='1.0.0': return validate_v1(spec,procedure_registry=procedure_registry)
@@ -115,6 +140,7 @@ def validate_interaction_spec(spec,*,procedure_registry=None):
         expected_fingerprint=hashlib.sha256(json.dumps(payload,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()).hexdigest()
         if spec.get('interaction_fingerprint')!=expected_fingerprint: errors['schema'].append('interaction_fingerprint mismatch')
         errors['mathematical_state'].extend(_unit_contract_errors(spec))
+        errors['diagram_to_text_consistency'].extend(_registry_semantic_errors(spec))
     except Exception as e: errors['schema'].append(f'fingerprint failure: {e}')
     if procedure_registry is not None:
         rec=procedure_registry.get(str(spec.get('linked_procedure_id')))

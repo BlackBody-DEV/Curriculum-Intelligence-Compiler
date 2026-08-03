@@ -38,7 +38,7 @@ def test_all_v12_formula_reference_cases(formula_id):
  c=FORMULA_METADATA[formula_id]['deterministic_reference_cases'][0]; assert evaluate_reference_case(formula_id,c['inputs'])==pytest.approx(c['expected'],abs=c['absolute_tolerance'])
 
 def recompute(spec):
- keys=('student_adjustable_variables','available_toggles','dependent_calculated_values','geometric_constraints','mathematical_constraints','procedural_step_states','expected_state_transitions','keyboard_interaction_model','initial_state','reset_state','deterministic_validation_cases'); spec['interaction_fingerprint']=hashlib.sha256(json.dumps({k:spec[k] for k in keys},sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()).hexdigest(); return spec
+ keys=('student_adjustable_variables','available_toggles','dependent_calculated_values','geometric_constraints','mathematical_constraints','procedural_step_states','expected_state_transitions','keyboard_interaction_model','initial_state','reset_state','deterministic_validation_cases'); spec['interaction_fingerprint']=hashlib.sha256(json.dumps({k:spec[k] for k in keys},sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()).hexdigest(); dkeys=('diagram_type','renderer_id','visible_labels','units','static_fallback_specification'); spec['diagram_fingerprint']=hashlib.sha256(json.dumps({k:spec[k] for k in dkeys},sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()).hexdigest(); return spec
 
 @pytest.mark.parametrize('kind',('renderer','formula','constraint','vocabulary'))
 def test_unknown_registry_identifiers_fail_closed(kind):
@@ -54,9 +54,32 @@ def test_security_envelope_remains_fail_closed(payload):
  s=load(V12); s.update(payload); assert validate_interaction_spec(s).security_rejections
 
 def test_hydrostatic_formula_and_negative_domains():
- assert evaluate_formula('statics_hydrostatic_center_of_pressure_v1',{'d':2,'i':4,'a':2},{'centroid_depth':'d','centroidal_area_inertia':'i','area':'a'})==3
- with pytest.raises(FormulaError): evaluate_formula('statics_hydrostatic_center_of_pressure_v1',{'d':0,'i':4,'a':2},{'centroid_depth':'d','centroidal_area_inertia':'i','area':'a'})
- with pytest.raises(FormulaError): evaluate_formula('statics_hydrostatic_center_of_pressure_v1',{'d':2,'i':4,'a':0},{'centroid_depth':'d','centroidal_area_inertia':'i','area':'a'})
+ inputs={'centroid_depth':'d','centroidal_area_inertia':'i','area':'a','inclination_angle_deg':'t'}
+ assert evaluate_formula('statics_hydrostatic_center_of_pressure_v1',{'d':2,'i':4,'a':2,'t':90},inputs)==3
+ assert evaluate_formula('statics_hydrostatic_center_of_pressure_v1',{'d':2,'i':4,'a':2,'t':30},inputs)==pytest.approx(2.25)
+ with pytest.raises(FormulaError): evaluate_formula('statics_hydrostatic_center_of_pressure_v1',{'d':0,'i':4,'a':2,'t':90},inputs)
+ with pytest.raises(FormulaError): evaluate_formula('statics_hydrostatic_center_of_pressure_v1',{'d':2,'i':4,'a':2,'t':120},inputs)
+
+def test_fbd_3d_reference_has_semantic_state_and_local_accessible_fallback():
+ s=load(V12); assert validate_interaction_spec(s).passed
+ assert s['static_fallback_specification']['local_asset_ref'].endswith('statics_fbd_3d_hydrostatic_reference_v1_2.svg')
+ assert (ROOT/s['static_fallback_specification']['local_asset_ref']).is_file()
+ broken=copy.deepcopy(s); broken['student_adjustable_variables']=[x for x in broken['student_adjustable_variables'] if x['id']!='force_z']; broken['initial_state']['variables'].pop('force_z'); broken['reset_state']['variables'].pop('force_z'); [c['input_variables'].pop('force_z') for c in broken['deterministic_validation_cases']]; recompute(broken)
+ assert not validate_interaction_spec(broken).passed
+
+def test_each_constraint_model_validates_declared_operands_and_rejects_missing():
+ registry=load('schemas/interaction_constraint_model_registry_v1_2.json')['entries']
+ for meta in registry:
+  s=load(V12); operands=meta['deterministic_reference_cases'][0]['input']; s['mathematical_constraints'].append({'id':'model_contract','constraint_type':'variable_within_declared_bounds','constraint_model_id':meta['constraint_model_id'],'operands':operands}); recompute(s)
+  assert validate_interaction_spec(s).passed,meta['constraint_model_id']
+  broken=copy.deepcopy(s); broken['mathematical_constraints'][-1]['operands'].pop(meta['typed_inputs'][0]['name']); recompute(broken); assert not validate_interaction_spec(broken).passed
+
+def test_beam_sign_vocabulary_requires_complete_accessible_overlay():
+ s=load(V12)
+ s['accessibility_description']+=' Positive sign instructions identify +N axial force, +V shear force, and +M bending moment on the selected cut face.'
+ for text,bind in [('+N','force_x'),('+V','force_y'),('+M','moment_z')]: s['visible_labels'].append({'id':'overlay_'+bind,'text':text,'binds_to':bind,'display_vocabulary_id':'statics_beam_sign_convention_overlay_v1'})
+ recompute(s); assert validate_interaction_spec(s).passed
+ s['visible_labels']=[x for x in s['visible_labels'] if x.get('text')!='+M']; recompute(s); assert not validate_interaction_spec(s).passed
 
 def test_package_binds_every_v12_registry_digest():
  d=package_declaration(); assert d['interaction_schema_version']=='1.2.0'; assert validate_package_declaration(d)==[]

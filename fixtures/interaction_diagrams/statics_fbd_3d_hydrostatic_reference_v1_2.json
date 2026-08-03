@@ -4,16 +4,16 @@
   "spec_id": "statics_fbd_3d_hydrostatic_reference_v1_2",
   "diagram_type": "free_body_diagram",
   "renderer_id": "statics_fbd_3d_v1",
-  "instructional_objective": "Explain 2D concurrent-force resultant formation by letting learners drag each vector, change magnitude and direction, reveal Cartesian components and the resultant, and step through component resolution then vector addition.",
-  "linked_explanation_id": "explanation.statics.resultant_2d_addition.vector_plane.v1",
-  "linked_procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+  "instructional_objective": "Construct an accessible three-dimensional free-body diagram of an inclined submerged plane, resolve the hydrostatic resultant force on x, y, and z axes, show the reaction moment about the origin, and calculate center-of-pressure depth from the free surface.",
+  "linked_explanation_id": "reference.statics_fbd_3d.hydrostatic_center_of_pressure",
+  "linked_procedure_id": "reference-procedure-statics-hydrostatic-center-pressure-v1",
   "linked_procedure_signature": {
     "status": "signed_off",
     "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-2D-ADDITION-V1_1-UPGRADE-SIGNOFF-FAST-001)",
     "date": "2026-07-05",
     "notes": "Seventh Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_RESULTANT_FORCES:MAGNITUDE_AND_ADDITION; full integrated 2D resultant-addition scope (component form plus magnitude and direction); worked example independently re-verified F_R=<40,30> N, |F_R|=50 N, phi=36.9 deg; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED"
   },
-  "linked_worked_example_id": "worked_example.statics.resultant_2d_addition.two_angled_forces.v1",
+  "linked_worked_example_id": "reference-worked-example-statics-hydrostatic-center-pressure-v1",
   "initial_state": {
     "variables": {
       "F_A_mag": 40.0,
@@ -22,7 +22,17 @@
       "F_B_ang": 90.0,
       "centroid_depth": 2,
       "centroidal_area_inertia": 4,
-      "hydrostatic_area": 2
+      "hydrostatic_area": 2,
+      "inclination_angle_deg": 90,
+      "force_x": 40,
+      "force_y": 30,
+      "force_z": 0,
+      "moment_x": 0,
+      "moment_y": 0,
+      "moment_z": 10,
+      "origin_x": 0,
+      "origin_y": 0,
+      "origin_z": 0
     },
     "toggles": {
       "show_x_components": true,
@@ -105,6 +115,106 @@
       "maximum": 1000,
       "increment": 0.1,
       "interaction": "numeric_spinner"
+    },
+    {
+      "id": "inclination_angle_deg",
+      "label": "Inclination angle",
+      "value_type": "number",
+      "unit": "deg",
+      "minimum": 0,
+      "maximum": 90,
+      "increment": 1,
+      "interaction": "numeric_spinner"
+    },
+    {
+      "id": "force_x",
+      "label": "Hydrostatic force x",
+      "value_type": "number",
+      "unit": "N",
+      "minimum": -1000,
+      "maximum": 1000,
+      "increment": 1,
+      "interaction": "numeric_spinner"
+    },
+    {
+      "id": "force_y",
+      "label": "Hydrostatic force y",
+      "value_type": "number",
+      "unit": "N",
+      "minimum": -1000,
+      "maximum": 1000,
+      "increment": 1,
+      "interaction": "numeric_spinner"
+    },
+    {
+      "id": "force_z",
+      "label": "Hydrostatic force z",
+      "value_type": "number",
+      "unit": "N",
+      "minimum": -1000,
+      "maximum": 1000,
+      "increment": 1,
+      "interaction": "numeric_spinner"
+    },
+    {
+      "id": "moment_x",
+      "label": "Reaction moment x",
+      "value_type": "number",
+      "unit": "N*m",
+      "minimum": -1000,
+      "maximum": 1000,
+      "increment": 1,
+      "interaction": "numeric_spinner"
+    },
+    {
+      "id": "moment_y",
+      "label": "Reaction moment y",
+      "value_type": "number",
+      "unit": "N*m",
+      "minimum": -1000,
+      "maximum": 1000,
+      "increment": 1,
+      "interaction": "numeric_spinner"
+    },
+    {
+      "id": "moment_z",
+      "label": "Reaction moment z",
+      "value_type": "number",
+      "unit": "N*m",
+      "minimum": -1000,
+      "maximum": 1000,
+      "increment": 1,
+      "interaction": "numeric_spinner"
+    },
+    {
+      "id": "origin_x",
+      "label": "Origin x",
+      "value_type": "number",
+      "unit": "m",
+      "minimum": -100,
+      "maximum": 100,
+      "increment": 1,
+      "interaction": "numeric_spinner"
+    },
+    {
+      "id": "origin_y",
+      "label": "Origin y",
+      "value_type": "number",
+      "unit": "m",
+      "minimum": -100,
+      "maximum": 100,
+      "increment": 1,
+      "interaction": "numeric_spinner"
+    },
+    {
+      "id": "origin_z",
+      "label": "Origin z",
+      "value_type": "number",
+      "unit": "m",
+      "minimum": -100,
+      "maximum": 100,
+      "increment": 1,
+      "interaction": "numeric_spinner"
     }
   ],
   "geometric_constraints": [
@@ -136,8 +246,7 @@
       "constraint_type": "magnitude_non_negative",
       "operands": {
         "variable": "F_A_mag"
-      },
-      "constraint_model_id": "statics_support_reaction_model_v1"
+      }
     },
     {
       "id": "mag_b_nonneg",
@@ -270,7 +379,8 @@
       "inputs": {
         "centroid_depth": "centroid_depth",
         "centroidal_area_inertia": "centroidal_area_inertia",
-        "area": "hydrostatic_area"
+        "area": "hydrostatic_area",
+        "inclination_angle_deg": "inclination_angle_deg"
       }
     }
   ],
@@ -324,8 +434,52 @@
     {
       "id": "cp_label",
       "text": "Center of pressure depth",
-      "binds_to": "center_of_pressure_depth",
-      "display_vocabulary_id": "statics_beam_sign_convention_overlay_v1"
+      "binds_to": "center_of_pressure_depth"
+    },
+    {
+      "id": "force_x_label",
+      "text": "Hydrostatic force x",
+      "binds_to": "force_x"
+    },
+    {
+      "id": "force_y_label",
+      "text": "Hydrostatic force y",
+      "binds_to": "force_y"
+    },
+    {
+      "id": "force_z_label",
+      "text": "Hydrostatic force z",
+      "binds_to": "force_z"
+    },
+    {
+      "id": "moment_x_label",
+      "text": "Reaction moment x",
+      "binds_to": "moment_x"
+    },
+    {
+      "id": "moment_y_label",
+      "text": "Reaction moment y",
+      "binds_to": "moment_y"
+    },
+    {
+      "id": "moment_z_label",
+      "text": "Reaction moment z",
+      "binds_to": "moment_z"
+    },
+    {
+      "id": "origin_x_label",
+      "text": "Origin x",
+      "binds_to": "origin_x"
+    },
+    {
+      "id": "origin_y_label",
+      "text": "Origin y",
+      "binds_to": "origin_y"
+    },
+    {
+      "id": "origin_z_label",
+      "text": "Origin z",
+      "binds_to": "origin_z"
     }
   ],
   "units": {
@@ -343,7 +497,17 @@
     "R_ang": "deg",
     "centroid_depth": "m",
     "centroidal_area_inertia": "m^4",
-    "hydrostatic_area": "m^2"
+    "hydrostatic_area": "m^2",
+    "inclination_angle_deg": "deg",
+    "force_x": "N",
+    "force_y": "N",
+    "force_z": "N",
+    "moment_x": "N*m",
+    "moment_y": "N*m",
+    "moment_z": "N*m",
+    "origin_x": "m",
+    "origin_y": "m",
+    "origin_z": "m"
   },
   "available_toggles": [
     {
@@ -378,7 +542,7 @@
     {
       "step_id": "step_list_forces",
       "procedure_step_index": 1,
-      "title": "List all concurrent forces",
+      "title": "Identify the submerged plane and free-surface reference",
       "visible_entities": [
         "vector_A",
         "vector_B"
@@ -399,7 +563,7 @@
     {
       "step_id": "step_resolve_components",
       "procedure_step_index": 2,
-      "title": "Resolve each force into x and y components",
+      "title": "Place the 3D origin and x, y, z axes",
       "visible_entities": [
         "vector_A",
         "vector_B",
@@ -424,7 +588,7 @@
     {
       "step_id": "step_sum_components",
       "procedure_step_index": 3,
-      "title": "Sum x components and y components",
+      "title": "Draw hydrostatic and support-reaction force vectors",
       "visible_entities": [
         "comp_Ax",
         "comp_Ay",
@@ -447,7 +611,7 @@
     {
       "step_id": "step_resultant_magnitude",
       "procedure_step_index": 4,
-      "title": "Compute resultant magnitude",
+      "title": "Resolve force and moment components",
       "visible_entities": [
         "resultant",
         "R_x_arrow",
@@ -465,7 +629,7 @@
     {
       "step_id": "step_resultant_direction",
       "procedure_step_index": 5,
-      "title": "Compute resultant direction with quadrant awareness",
+      "title": "Calculate center-of-pressure depth including inclination",
       "visible_entities": [
         "resultant"
       ],
@@ -481,7 +645,7 @@
     {
       "step_id": "step_final_resultant",
       "procedure_step_index": 6,
-      "title": "State the final resultant",
+      "title": "Verify labels, units, signs, and equilibrium",
       "visible_entities": [
         "vector_A",
         "vector_B",
@@ -507,7 +671,17 @@
       "F_B_ang": 90.0,
       "centroid_depth": 2,
       "centroidal_area_inertia": 4,
-      "hydrostatic_area": 2
+      "hydrostatic_area": 2,
+      "inclination_angle_deg": 90,
+      "force_x": 40,
+      "force_y": 30,
+      "force_z": 0,
+      "moment_x": 0,
+      "moment_y": 0,
+      "moment_z": 10,
+      "origin_x": 0,
+      "origin_y": 0,
+      "origin_z": 0
     },
     "toggles": {
       "show_x_components": true,
@@ -590,7 +764,7 @@
       "trigger": "student_reset"
     }
   ],
-  "accessibility_description": "Interactive vector-plane diagram for two concurrent forces. Learners can drag each vector, change magnitude and direction angle, show or hide x and y components, show or hide the resultant, observe component values update, observe resultant magnitude and direction update, step through component resolution and vector addition, and reset to the worked-example values of 40 N at 0 degrees and 30 N at 90 degrees.",
+  "accessibility_description": "Interactive 3D free-body diagram with visible x, y, and z axes, origin coordinates, hydrostatic force components, reaction moment components, resultant magnitude and direction, centroid depth, inclination angle, area, and center-of-pressure depth with announced units.",
   "keyboard_interaction_model": {
     "focus_order": [
       "F_A_mag",
@@ -666,12 +840,12 @@
   "static_fallback_specification": {
     "fallback_type": "static_diagram",
     "asset_kind": "inline_primitive_snapshot",
-    "description": "Static snapshot of the worked-example concurrent forces and resultant at the origin.",
+    "description": "Accessible static 3D free-body diagram of the inclined submerged plane, hydrostatic resultant, support reactions, axes, origin, and center-of-pressure depth.",
     "captures_initial_state": true,
-    "local_asset_ref": "fixtures/interaction_diagrams/fallbacks/vectors_component_resolution_and_addition_explanation_v1.svg"
+    "local_asset_ref": "fixtures/interaction_diagrams/fallbacks/statics_fbd_3d_hydrostatic_reference_v1_2.svg"
   },
-  "diagram_fingerprint": "753e3ca85e593ae51f4b274ba804ac88b0c784e2ce7fa8c2340384ba1fe9515e",
-  "interaction_fingerprint": "7caa6b19b73542a8e53d0344a5d12d7d3152f5228ec54c1bc82d27987b262c82",
+  "diagram_fingerprint": "f3a1a8d2a8ca88a217c523dc285e737cc531775d6ace8fe5b6af81c2f5dfb310",
+  "interaction_fingerprint": "f11461a220aa602c8064941ee0cd9733e5272f881b725239a6448d384b6ec432",
   "deterministic_validation_cases": [
     {
       "case_id": "worked_example_reset",
@@ -682,7 +856,17 @@
         "F_B_ang": 90.0,
         "centroid_depth": 2,
         "centroidal_area_inertia": 4,
-        "hydrostatic_area": 2
+        "hydrostatic_area": 2,
+        "inclination_angle_deg": 90,
+        "force_x": 40,
+        "force_y": 30,
+        "force_z": 0,
+        "moment_x": 0,
+        "moment_y": 0,
+        "moment_z": 10,
+        "origin_x": 0,
+        "origin_y": 0,
+        "origin_z": 0
       },
       "expected_calculated": {
         "F_Ax": 40.0,
@@ -716,7 +900,17 @@
         "F_B_ang": 180.0,
         "centroid_depth": 2,
         "centroidal_area_inertia": 4,
-        "hydrostatic_area": 2
+        "hydrostatic_area": 2,
+        "inclination_angle_deg": 90,
+        "force_x": 40,
+        "force_y": 30,
+        "force_z": 0,
+        "moment_x": 0,
+        "moment_y": 0,
+        "moment_z": 10,
+        "origin_x": 0,
+        "origin_y": 0,
+        "origin_z": 0
       },
       "expected_calculated": {
         "F_Ax": -24.99999999999999,
