@@ -1,0 +1,3490 @@
+{
+  "entries": [
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "cartesian_fx_from_magnitude_angle_deg_ref",
+          "expected": 5,
+          "inputs": {
+            "angle_deg": 60,
+            "magnitude": 10
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "output_force_unit_matches_magnitude"
+      ],
+      "formula_id": "cartesian_fx_from_magnitude_angle_deg",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "angle_deg": "angle",
+          "magnitude": "force"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "fx_squared_plus_fy_squared_equals_magnitude_squared"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "cartesian_fx_from_magnitude_angle_deg_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "polar_x",
+      "parameter_bounds": {
+        "angle_deg": {
+          "maximum": 360,
+          "minimum": -360
+        },
+        "magnitude": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.polar_x.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "magnitude",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "angle_deg",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "force",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "cartesian_fy_from_magnitude_angle_deg_ref",
+          "expected": 5,
+          "inputs": {
+            "angle_deg": 30,
+            "magnitude": 10
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "output_force_unit_matches_magnitude"
+      ],
+      "formula_id": "cartesian_fy_from_magnitude_angle_deg",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "angle_deg": "angle",
+          "magnitude": "force"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "fx_squared_plus_fy_squared_equals_magnitude_squared"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "cartesian_fy_from_magnitude_angle_deg_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "polar_y",
+      "parameter_bounds": {
+        "angle_deg": {
+          "maximum": 360,
+          "minimum": -360
+        },
+        "magnitude": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.polar_y.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "magnitude",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "angle_deg",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "force",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "sum_selected_ref",
+          "expected": 5.0,
+          "inputs": {
+            "terms": [
+              2.0,
+              3.0
+            ]
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "all_terms_and_output_share_dimension"
+      ],
+      "formula_id": "sum_selected",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "terms"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "commutative_sum"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "sum_selected_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "sum",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.sum.v1",
+      "typed_inputs": [
+        {
+          "dimension": "common_declared_dimension",
+          "name": "terms",
+          "type": "number_list"
+        }
+      ],
+      "typed_output": {
+        "dimension": "same_as_inputs",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "resultant_magnitude_from_rx_ry_ref",
+          "expected": 5,
+          "inputs": {
+            "rx": 3,
+            "ry": 4
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "components_share_dimension"
+      ],
+      "formula_id": "resultant_magnitude_from_rx_ry",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "rx",
+            "ry"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "result_nonnegative"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "resultant_magnitude_from_rx_ry_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "norm2",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.norm2.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "rx",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "ry",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "same_as_components",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "resultant_direction_deg_from_rx_ry_ref",
+          "expected": 90,
+          "inputs": {
+            "rx": 0,
+            "ry": 1
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "output_is_degrees"
+      ],
+      "formula_id": "resultant_direction_deg_from_rx_ry",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "rx",
+            "ry"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "range_zero_inclusive_360_exclusive"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "resultant_direction_deg_from_rx_ry_negative",
+          "rejection": "zero_vector_direction_undefined"
+        }
+      ],
+      "operation": "direction2",
+      "parameter_bounds": {
+        "not_both_zero": true,
+        "rx": {
+          "maximum": 1000000,
+          "minimum": -1000000
+        },
+        "ry": {
+          "maximum": 1000000,
+          "minimum": -1000000
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.direction2.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "rx",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "ry",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "angle",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "vector_component_from_magnitude_direction_cosine_ref",
+          "expected": 6,
+          "inputs": {
+            "direction_cosine": 0.6,
+            "magnitude": 10
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "direction_cosine_dimensionless"
+      ],
+      "formula_id": "vector_component_from_magnitude_direction_cosine",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "direction_cosine": "dimensionless"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "absolute_component_not_greater_than_magnitude"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "vector_component_from_magnitude_direction_cosine_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "multiply",
+      "parameter_bounds": {
+        "direction_cosine": {
+          "maximum": 1,
+          "minimum": -1
+        },
+        "magnitude": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.multiply.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "magnitude",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "direction_cosine",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "same_as_magnitude",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "vector_subtract_component_ref",
+          "expected": 3,
+          "inputs": {
+            "head": 5,
+            "tail": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "inputs_and_output_share_dimension"
+      ],
+      "formula_id": "vector_subtract_component",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "head",
+            "tail"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "head_equals_output_plus_tail"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "vector_subtract_component_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "subtract",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.subtract.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "head",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "tail",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "same_as_inputs",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "vector_scale_component_ref",
+          "expected": 6,
+          "inputs": {
+            "component": 2,
+            "scalar": 3
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "scalar_dimensionless"
+      ],
+      "formula_id": "vector_scale_component",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "scalar": "dimensionless"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "zero_scalar_gives_zero"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "vector_scale_component_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "multiply",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.multiply.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "scalar",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "component",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "same_as_component",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "vector_norm_2d_ref",
+          "expected": 5,
+          "inputs": {
+            "x": 3,
+            "y": 4
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "components_share_dimension"
+      ],
+      "formula_id": "vector_norm_2d",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "x",
+            "y"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "result_nonnegative"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "vector_norm_2d_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "norm2",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.norm2.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "x",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "y",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "same_as_components",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "vector_norm_3d_ref",
+          "expected": 7,
+          "inputs": {
+            "x": 2,
+            "y": 3,
+            "z": 6
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "components_share_dimension"
+      ],
+      "formula_id": "vector_norm_3d",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "x",
+            "y",
+            "z"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "result_nonnegative"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "vector_norm_3d_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "norm3",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.norm3.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "x",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "y",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "z",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "same_as_components",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "unit_vector_component_ref",
+          "expected": 0.6,
+          "inputs": {
+            "component": 3,
+            "norm": 5
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "component_and_norm_share_dimension"
+      ],
+      "formula_id": "unit_vector_component",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "component",
+            "norm"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "components_collectively_have_unit_norm"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "unit_vector_component_negative",
+          "rejection": "zero_norm_rejected"
+        }
+      ],
+      "operation": "divide",
+      "parameter_bounds": {
+        "norm": {
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.divide.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "component",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "norm",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "dimensionless",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "dot_product_2d_ref",
+          "expected": 11,
+          "inputs": {
+            "ax": 1,
+            "ay": 2,
+            "bx": 3,
+            "by": 4
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "output_dimension_is_product_of_vector_dimensions"
+      ],
+      "formula_id": "dot_product_2d",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "ax": "force",
+          "ay": "force",
+          "bx": "dimensionless",
+          "by": "dimensionless"
+        },
+        "same_dimension_groups": [
+          [
+            "ax",
+            "ay"
+          ],
+          [
+            "bx",
+            "by"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "commutative"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "dot_product_2d_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "dot2",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.dot2.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "ax",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "ay",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "bx",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "by",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "product_dimension",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "dot_product_3d_ref",
+          "expected": 32,
+          "inputs": {
+            "ax": 1,
+            "ay": 2,
+            "az": 3,
+            "bx": 4,
+            "by": 5,
+            "bz": 6
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "output_dimension_is_product_of_vector_dimensions"
+      ],
+      "formula_id": "dot_product_3d",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "ax": "force",
+          "ay": "force",
+          "az": "force",
+          "bx": "dimensionless",
+          "by": "dimensionless",
+          "bz": "dimensionless"
+        },
+        "same_dimension_groups": [
+          [
+            "ax",
+            "ay",
+            "az"
+          ],
+          [
+            "bx",
+            "by",
+            "bz"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "commutative"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "dot_product_3d_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "dot3",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.dot3.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "ax",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "ay",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "az",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "bx",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "by",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "bz",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "product_dimension",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "scalar_projection_ref",
+          "expected": 3,
+          "inputs": {
+            "dot": 12,
+            "target_norm": 4
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "dot_dimension_divided_by_target_dimension"
+      ],
+      "formula_id": "scalar_projection",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "dot": "force",
+          "target_norm": "dimensionless"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "cauchy_schwarz_bound"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "scalar_projection_negative",
+          "rejection": "zero_target_norm_rejected"
+        }
+      ],
+      "operation": "divide",
+      "parameter_bounds": {
+        "target_norm": {
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.divide.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "dot",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "target_norm",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "same_as_projected_vector",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "direction_angle_deg_from_component_norm_ref",
+          "expected": 90,
+          "inputs": {
+            "component": 0,
+            "norm": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "output_is_degrees"
+      ],
+      "formula_id": "direction_angle_deg_from_component_norm",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "component",
+            "norm"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "range_zero_to_180"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "direction_angle_deg_from_component_norm_negative",
+          "rejection": "ratio_outside_unit_interval"
+        }
+      ],
+      "operation": "acos_ratio",
+      "parameter_bounds": {
+        "norm": {
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        },
+        "ratio": {
+          "maximum": 1,
+          "minimum": -1
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.acos_ratio.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "component",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "norm",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "angle",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "cross_product_x_ref",
+          "expected": -1,
+          "inputs": {
+            "ay": 2,
+            "az": 3,
+            "by": 5,
+            "bz": 7
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "output_dimension_is_product_of_vector_dimensions"
+      ],
+      "formula_id": "cross_product_x",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "ay": "length",
+          "az": "length",
+          "by": "force",
+          "bz": "force"
+        },
+        "same_dimension_groups": [
+          [
+            "ay",
+            "az"
+          ],
+          [
+            "by",
+            "bz"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "antisymmetric_cross_product"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "cross_product_x_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "cross_x",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.cross_x.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "ay",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "az",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "by",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "bz",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "product_dimension",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "cross_product_y_ref",
+          "expected": 5,
+          "inputs": {
+            "ax": 1,
+            "az": 3,
+            "bx": 4,
+            "bz": 7
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "output_dimension_is_product_of_vector_dimensions"
+      ],
+      "formula_id": "cross_product_y",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "ax": "length",
+          "az": "length",
+          "bx": "force",
+          "bz": "force"
+        },
+        "same_dimension_groups": [
+          [
+            "az",
+            "ax"
+          ],
+          [
+            "bz",
+            "bx"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "antisymmetric_cross_product"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "cross_product_y_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "cross_y",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.cross_y.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "az",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "ax",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "bz",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "bx",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "product_dimension",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "cross_product_z_ref",
+          "expected": -3,
+          "inputs": {
+            "ax": 1,
+            "ay": 2,
+            "bx": 4,
+            "by": 5
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "output_dimension_is_product_of_vector_dimensions"
+      ],
+      "formula_id": "cross_product_z",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "ax": "length",
+          "ay": "length",
+          "bx": "force",
+          "by": "force"
+        },
+        "same_dimension_groups": [
+          [
+            "ax",
+            "ay"
+          ],
+          [
+            "bx",
+            "by"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "antisymmetric_cross_product"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "cross_product_z_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "cross_z",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.cross_z.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "ax",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "ay",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "bx",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "by",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "product_dimension",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "signed_moment_2d_ref",
+          "expected": 5,
+          "inputs": {
+            "fx": 3,
+            "fy": 4,
+            "rx": 2,
+            "ry": 1
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "length_times_force"
+      ],
+      "formula_id": "signed_moment_2d",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "fx": "force",
+          "fy": "force",
+          "rx": "length",
+          "ry": "length"
+        },
+        "same_dimension_groups": [
+          [
+            "rx",
+            "ry"
+          ],
+          [
+            "fx",
+            "fy"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "positive_is_counterclockwise"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "signed_moment_2d_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "moment2",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.moment2.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "rx",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "ry",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "fx",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "fy",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "moment",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "moment_axis_projection_ref",
+          "expected": 4,
+          "inputs": {
+            "mx": 2,
+            "my": 3,
+            "mz": 4,
+            "ux": 0,
+            "uy": 0,
+            "uz": 1
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "axis_vector_dimensionless_and_unit_length"
+      ],
+      "formula_id": "moment_axis_projection",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "mx": "moment",
+          "my": "moment",
+          "mz": "moment",
+          "ux": "dimensionless",
+          "uy": "dimensionless",
+          "uz": "dimensionless"
+        },
+        "same_dimension_groups": [
+          [
+            "ux",
+            "uy",
+            "uz"
+          ],
+          [
+            "mx",
+            "my",
+            "mz"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "absolute_projection_not_greater_than_moment_norm"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "moment_axis_projection_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "dot3",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.dot3.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "ux",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "uy",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "uz",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "mx",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "my",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "mz",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "moment",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "couple_moment_signed_ref",
+          "expected": 10,
+          "inputs": {
+            "force": 5,
+            "signed_distance": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "force_times_length"
+      ],
+      "formula_id": "couple_moment_signed",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "force": "force",
+          "signed_distance": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "couple_is_free_vector"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "couple_moment_signed_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "multiply",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.multiply.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "force",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "signed_distance",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "moment",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "force_couple_resultant_moment_ref",
+          "expected": 5,
+          "inputs": {
+            "applied_couple": -3,
+            "force_moment": 8
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "both_inputs_are_moments"
+      ],
+      "formula_id": "force_couple_resultant_moment",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "applied_couple": "moment",
+          "force_moment": "moment"
+        },
+        "same_dimension_groups": [
+          [
+            "force_moment",
+            "applied_couple"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "reference_point_reduction_equivalence"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "force_couple_resultant_moment_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "sum",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.sum.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "force_moment",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "applied_couple",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "moment",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "resultant_line_of_action_offset_ref",
+          "expected": 4,
+          "inputs": {
+            "resultant_force": 5,
+            "resultant_moment": 20
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "moment_divided_by_force"
+      ],
+      "formula_id": "resultant_line_of_action_offset",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "resultant_force": "force",
+          "resultant_moment": "moment"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "force_times_offset_equals_moment"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "resultant_line_of_action_offset_negative",
+          "rejection": "zero_resultant_force_rejected"
+        }
+      ],
+      "operation": "divide",
+      "parameter_bounds": {
+        "resultant_force": {
+          "notEqual": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.divide.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "resultant_moment",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "resultant_force",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "length",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "equilibrium_force_residual_ref",
+          "expected": 0,
+          "inputs": {
+            "force_a": 7,
+            "force_b": -7
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "all_terms_are_force"
+      ],
+      "formula_id": "equilibrium_force_residual",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "force_a": "force",
+          "force_b": "force"
+        },
+        "same_dimension_groups": [
+          [
+            "force_a",
+            "force_b"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "equilibrium_when_zero"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "equilibrium_force_residual_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "sum",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.sum.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "force_a",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "force_b",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "force",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "equilibrium_moment_residual_ref",
+          "expected": 0,
+          "inputs": {
+            "moment_a": 7,
+            "moment_b": -7
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "all_terms_are_moment"
+      ],
+      "formula_id": "equilibrium_moment_residual",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "moment_a": "moment",
+          "moment_b": "moment"
+        },
+        "same_dimension_groups": [
+          [
+            "moment_a",
+            "moment_b"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "equilibrium_when_zero"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "equilibrium_moment_residual_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "sum",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.sum.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "moment_a",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "moment_b",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "moment",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "unknown_from_linear_equilibrium_ref",
+          "expected": -4,
+          "inputs": {
+            "coefficient": 3,
+            "known_sum": 12
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "coefficient_times_unknown_matches_negative_known_sum"
+      ],
+      "formula_id": "unknown_from_linear_equilibrium",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "coefficient": "dimensionless"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "residual_equals_zero"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "unknown_from_linear_equilibrium_negative",
+          "rejection": "zero_coefficient_rejected"
+        }
+      ],
+      "operation": "neg_divide",
+      "parameter_bounds": {
+        "coefficient": {
+          "notEqual": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.neg_divide.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "known_sum",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "coefficient",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "declared_unknown_dimension",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "uniform_distributed_load_resultant_ref",
+          "expected": 12,
+          "inputs": {
+            "intensity": 4,
+            "length": 3
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "force_per_length_times_length"
+      ],
+      "formula_id": "uniform_distributed_load_resultant",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "intensity": "force_per_length",
+          "length": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "resultant_nonnegative_for_nonnegative_intensity"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "uniform_distributed_load_resultant_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "multiply",
+      "parameter_bounds": {
+        "length": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.multiply.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "intensity",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "length",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "force",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "triangular_distributed_load_resultant_ref",
+          "expected": 6,
+          "inputs": {
+            "length": 3,
+            "peak_intensity": 4
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "force_per_length_times_length"
+      ],
+      "formula_id": "triangular_distributed_load_resultant",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "length": "length",
+          "peak_intensity": "force_per_length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "half_base_times_height"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "triangular_distributed_load_resultant_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "half_product",
+      "parameter_bounds": {
+        "length": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.half_product.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "peak_intensity",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "length",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "force",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "trapezoidal_distributed_load_resultant_ref",
+          "expected": 9,
+          "inputs": {
+            "end_intensity": 4,
+            "length": 3,
+            "start_intensity": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "force_per_length_times_length"
+      ],
+      "formula_id": "trapezoidal_distributed_load_resultant",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "end_intensity": "force_per_length",
+          "length": "length",
+          "start_intensity": "force_per_length"
+        },
+        "same_dimension_groups": [
+          [
+            "start_intensity",
+            "end_intensity"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "equals_rectangle_plus_triangle_decomposition"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "trapezoidal_distributed_load_resultant_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "trapezoid_area",
+      "parameter_bounds": {
+        "length": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.trapezoid_area.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "start_intensity",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "end_intensity",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "length",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "force",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "uniform_load_centroid_from_start_ref",
+          "expected": 4,
+          "inputs": {
+            "length": 8
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "same_length_unit"
+      ],
+      "formula_id": "uniform_load_centroid_from_start",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "length": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "centroid_at_midspan"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "uniform_load_centroid_from_start_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "half",
+      "parameter_bounds": {
+        "length": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.half.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "length",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "length",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "triangular_load_centroid_from_zero_end_ref",
+          "expected": 4,
+          "inputs": {
+            "length": 6
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "same_length_unit"
+      ],
+      "formula_id": "triangular_load_centroid_from_zero_end",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "length": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "centroid_two_thirds_from_zero_end"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "triangular_load_centroid_from_zero_end_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "two_thirds",
+      "parameter_bounds": {
+        "length": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.two_thirds.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "length",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "length",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "trapezoidal_load_centroid_from_start_ref",
+          "expected": 1.6666666666666667,
+          "inputs": {
+            "end_intensity": 4,
+            "length": 3,
+            "start_intensity": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "intensities_share_unit_and_output_matches_length"
+      ],
+      "formula_id": "trapezoidal_load_centroid_from_start",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "end_intensity": "force_per_length",
+          "length": "length",
+          "start_intensity": "force_per_length"
+        },
+        "same_dimension_groups": [
+          [
+            "start_intensity",
+            "end_intensity"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "centroid_within_loaded_interval"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "trapezoidal_load_centroid_from_start_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "trapezoid_centroid",
+      "parameter_bounds": {
+        "intensity_sum": {
+          "exclusiveMinimum": 0
+        },
+        "length": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.trapezoid_centroid.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "start_intensity",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "end_intensity",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "length",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "length",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "simply_supported_reaction_from_moment_ref",
+          "expected": 5,
+          "inputs": {
+            "load_moment_about_other_support": 30,
+            "support_span": 6
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "moment_divided_by_length"
+      ],
+      "formula_id": "simply_supported_reaction_from_moment",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "load_moment_about_other_support": "moment",
+          "support_span": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "moment_equilibrium"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "simply_supported_reaction_from_moment_negative",
+          "rejection": "zero_span_rejected"
+        }
+      ],
+      "operation": "divide",
+      "parameter_bounds": {
+        "support_span": {
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.divide.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "load_moment_about_other_support",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "support_span",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "force",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "internal_force_from_section_equilibrium_ref",
+          "expected": -8,
+          "inputs": {
+            "external_component": 8
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "same_force_unit"
+      ],
+      "formula_id": "internal_force_from_section_equilibrium",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "external_component": "force"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "section_residual_zero"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "internal_force_from_section_equilibrium_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "negative",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.negative.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "external_component",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "force",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "internal_moment_from_section_equilibrium_ref",
+          "expected": -8,
+          "inputs": {
+            "external_moment": 8
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "same_moment_unit"
+      ],
+      "formula_id": "internal_moment_from_section_equilibrium",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "external_moment": "moment"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "section_moment_residual_zero"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "internal_moment_from_section_equilibrium_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "negative",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.negative.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "external_moment",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "moment",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "linear_load_integral_ref",
+          "expected": 9,
+          "inputs": {
+            "length": 3,
+            "load_end": 4,
+            "load_start": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "force_per_length_times_length"
+      ],
+      "formula_id": "linear_load_integral",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "length": "length",
+          "load_end": "force_per_length",
+          "load_start": "force_per_length"
+        },
+        "same_dimension_groups": [
+          [
+            "load_start",
+            "load_end"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "shear_change_equals_negative_load_area_by_sign_convention"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "linear_load_integral_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "trapezoid_area",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.trapezoid_area.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "load_start",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "load_end",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "length",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "force",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "linear_shear_integral_ref",
+          "expected": 9,
+          "inputs": {
+            "length": 3,
+            "shear_end": 4,
+            "shear_start": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "force_times_length"
+      ],
+      "formula_id": "linear_shear_integral",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "length": "length",
+          "shear_end": "force",
+          "shear_start": "force"
+        },
+        "same_dimension_groups": [
+          [
+            "shear_start",
+            "shear_end"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "moment_change_equals_shear_area"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "linear_shear_integral_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "trapezoid_area",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.trapezoid_area.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "shear_start",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "shear_end",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "length",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "moment",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "two_force_member_axial_ref",
+          "expected": -12,
+          "inputs": {
+            "direction_component": 0.5,
+            "joint_load_component": -6
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "direction_component_dimensionless"
+      ],
+      "formula_id": "two_force_member_axial",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "direction_component": "dimensionless",
+          "joint_load_component": "force"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "joint_component_equilibrium"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "two_force_member_axial_negative",
+          "rejection": "zero_direction_component_rejected"
+        }
+      ],
+      "operation": "divide",
+      "parameter_bounds": {
+        "direction_component": {
+          "notEqual": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.divide.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "joint_load_component",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "direction_component",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "force",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "area_first_moment_ref",
+          "expected": 12,
+          "inputs": {
+            "coordinate": 3,
+            "signed_area": 4
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "area_times_length"
+      ],
+      "formula_id": "area_first_moment",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "coordinate": "length",
+          "signed_area": "area"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "cutouts_use_negative_signed_area"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "area_first_moment_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "multiply",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.multiply.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "signed_area",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "coordinate",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "length_cubed",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "weighted_centroid_coordinate_ref",
+          "expected": 3,
+          "inputs": {
+            "first_moment_sum": 12,
+            "signed_measure_sum": 4
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "first_moment_divided_by_area_or_volume"
+      ],
+      "formula_id": "weighted_centroid_coordinate",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "first_moment_sum": "length_cubed",
+          "signed_measure_sum": "area"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "translation_covariance"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "weighted_centroid_coordinate_negative",
+          "rejection": "zero_net_measure_rejected"
+        }
+      ],
+      "operation": "divide",
+      "parameter_bounds": {
+        "signed_measure_sum": {
+          "notEqual": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.divide.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "first_moment_sum",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "signed_measure_sum",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "length",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "pappus_surface_area_ref",
+          "expected": 24,
+          "inputs": {
+            "centroid_radius": 3,
+            "curve_length": 4,
+            "sweep_angle_rad": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "radians_dimensionless_times_length_squared"
+      ],
+      "formula_id": "pappus_surface_area",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "centroid_radius": "length",
+          "curve_length": "length",
+          "sweep_angle_rad": "angle"
+        },
+        "same_dimension_groups": [
+          [
+            "centroid_radius",
+            "curve_length"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "full_sweep_equals_two_pi_r_times_length"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "pappus_surface_area_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "multiply3",
+      "parameter_bounds": {
+        "sweep_angle_rad": {
+          "maximum": 6.283185307179586,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.multiply3.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "sweep_angle_rad",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "centroid_radius",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "curve_length",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "area",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "pappus_volume_ref",
+          "expected": 24,
+          "inputs": {
+            "centroid_radius": 3,
+            "generating_area": 4,
+            "sweep_angle_rad": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "radians_dimensionless_times_length_cubed"
+      ],
+      "formula_id": "pappus_volume",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "centroid_radius": "length",
+          "generating_area": "area",
+          "sweep_angle_rad": "angle"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "full_sweep_equals_two_pi_r_times_area"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "pappus_volume_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "multiply3",
+      "parameter_bounds": {
+        "sweep_angle_rad": {
+          "maximum": 6.283185307179586,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.multiply3.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "sweep_angle_rad",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "centroid_radius",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "generating_area",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "volume",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "symmetry_axis_centroid_coordinate_ref",
+          "expected": 2,
+          "inputs": {
+            "axis_coordinate": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "same_length_unit"
+      ],
+      "formula_id": "symmetry_axis_centroid_coordinate",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "axis_coordinate": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "centroid_lies_on_selected_symmetry_axis"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "symmetry_axis_centroid_coordinate_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "identity",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.identity.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "axis_coordinate",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "length",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "friction_limit_ref",
+          "expected": 4,
+          "inputs": {
+            "coefficient": 0.4,
+            "normal_force": 10
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "coefficient_dimensionless"
+      ],
+      "formula_id": "friction_limit",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "coefficient": "dimensionless",
+          "normal_force": "force"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "limit_nonnegative"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "friction_limit_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "multiply",
+      "parameter_bounds": {
+        "coefficient": {
+          "maximum": 10,
+          "minimum": 0
+        },
+        "normal_force": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.multiply.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "coefficient",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "normal_force",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "force",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "friction_actual_before_slip_ref",
+          "expected": -4,
+          "inputs": {
+            "friction_limit": 4,
+            "required_tangential_force": -6
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "inputs_share_force_unit"
+      ],
+      "formula_id": "friction_actual_before_slip",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "friction_limit": "force",
+          "required_tangential_force": "force"
+        },
+        "same_dimension_groups": [
+          [
+            "required_tangential_force",
+            "friction_limit"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "absolute_friction_not_above_limit"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "friction_actual_before_slip_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "clamp_abs",
+      "parameter_bounds": {
+        "friction_limit": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.clamp_abs.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "required_tangential_force",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "friction_limit",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "force",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "belt_tension_ratio_ref",
+          "expected": 1,
+          "inputs": {
+            "coefficient": 0,
+            "wrap_angle_rad": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "coefficient_and_radians_dimensionless"
+      ],
+      "formula_id": "belt_tension_ratio",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "coefficient": "dimensionless",
+          "wrap_angle_rad": "angle"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "ratio_at_least_one"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "belt_tension_ratio_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "exp_product",
+      "parameter_bounds": {
+        "coefficient": {
+          "maximum": 10,
+          "minimum": 0
+        },
+        "wrap_angle_rad": {
+          "maximum": 20,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.exp_product.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "coefficient",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "wrap_angle_rad",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "dimensionless",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "parallel_axis_inertia_ref",
+          "expected": 50,
+          "inputs": {
+            "centroidal_inertia": 2,
+            "measure": 3,
+            "offset": 4
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "area_or_mass_inertia_plus_measure_times_length_squared"
+      ],
+      "formula_id": "parallel_axis_inertia",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "offset": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "result_not_less_than_centroidal_for_nonnegative_measure"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "parallel_axis_inertia_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "parallel_axis",
+      "parameter_bounds": {
+        "measure": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.parallel_axis.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "centroidal_inertia",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "measure",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "offset",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "inertia",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "radius_of_gyration_ref",
+          "expected": 3,
+          "inputs": {
+            "inertia": 18,
+            "measure": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "inertia_divided_by_area_or_mass_then_square_root"
+      ],
+      "formula_id": "radius_of_gyration",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "measure": "area_or_mass"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "measure_times_radius_squared_equals_inertia"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "radius_of_gyration_negative",
+          "rejection": "nonpositive_measure_rejected"
+        }
+      ],
+      "operation": "sqrt_ratio",
+      "parameter_bounds": {
+        "inertia": {
+          "maximum": 1000000000000,
+          "minimum": 0
+        },
+        "measure": {
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.sqrt_ratio.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "inertia",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "measure",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "length",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "rectangle_area_inertia_centroid_ref",
+          "expected": 2,
+          "inputs": {
+            "base": 3,
+            "height": 2
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "base_times_height_cubed_over_12"
+      ],
+      "formula_id": "rectangle_area_inertia_centroid",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "base": "length",
+          "height": "length"
+        },
+        "same_dimension_groups": [
+          [
+            "base",
+            "height"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "nonnegative"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "rectangle_area_inertia_centroid_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "rectangle_inertia",
+      "parameter_bounds": {
+        "base": {
+          "maximum": 1000000,
+          "minimum": 0
+        },
+        "height": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.rectangle_inertia.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "base",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "height",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "length_fourth",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "circle_area_inertia_centroid_ref",
+          "expected": 0.7853981633974483,
+          "inputs": {
+            "radius": 1
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "pi_times_radius_fourth_over_4"
+      ],
+      "formula_id": "circle_area_inertia_centroid",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "radius": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "nonnegative"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "circle_area_inertia_centroid_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "circle_inertia",
+      "parameter_bounds": {
+        "radius": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.circle_inertia.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "radius",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "length_fourth",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "rod_mass_inertia_centroid_ref",
+          "expected": 1,
+          "inputs": {
+            "length": 2,
+            "mass": 3
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "mass_times_length_squared_over_12"
+      ],
+      "formula_id": "rod_mass_inertia_centroid",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "length": "length",
+          "mass": "mass"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "nonnegative"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "rod_mass_inertia_centroid_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "rod_inertia",
+      "parameter_bounds": {
+        "length": {
+          "maximum": 1000000,
+          "minimum": 0
+        },
+        "mass": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.rod_inertia.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "mass",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "length",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "mass_length_squared",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "disk_mass_inertia_center_ref",
+          "expected": 9,
+          "inputs": {
+            "mass": 2,
+            "radius": 3
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "mass_times_radius_squared_over_2"
+      ],
+      "formula_id": "disk_mass_inertia_center",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "mass": "mass",
+          "radius": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "nonnegative"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "disk_mass_inertia_center_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "disk_inertia",
+      "parameter_bounds": {
+        "mass": {
+          "maximum": 1000000,
+          "minimum": 0
+        },
+        "radius": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.disk_inertia.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "mass",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "radius",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "mass_length_squared",
+        "type": "number"
+      }
+    },
+    {
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-09,
+          "case_id": "composite_inertia_sum_ref",
+          "expected": 5,
+          "inputs": {
+            "component_a": 8,
+            "component_b": -3
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "all_terms_share_inertia_dimension"
+      ],
+      "formula_id": "composite_inertia_sum",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "component_a",
+            "component_b"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "signed_void_terms_may_be_negative"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "composite_inertia_sum_negative",
+          "rejection": "missing_required_input"
+        }
+      ],
+      "operation": "sum",
+      "parameter_bounds": {
+        "all_inputs": {
+          "maximum": 1000000.0,
+          "minimum": -1000000.0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.sum.v1",
+      "typed_inputs": [
+        {
+          "dimension": "declared_by_spec",
+          "name": "component_a",
+          "type": "number"
+        },
+        {
+          "dimension": "declared_by_spec",
+          "name": "component_b",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "inertia",
+        "type": "number"
+      }
+    },
+    {
+      "accessibility_visible_state": {
+        "announces": [
+          "calculated depth",
+          "length unit"
+        ],
+        "required_labels": [
+          "centroid depth",
+          "centroidal area inertia",
+          "area",
+          "center of pressure depth"
+        ]
+      },
+      "deterministic_reference_cases": [
+        {
+          "absolute_tolerance": 1e-12,
+          "case_id": "hydrostatic_cp_ref",
+          "expected": 3.0,
+          "inputs": {
+            "area": 2.0,
+            "centroid_depth": 2.0,
+            "centroidal_area_inertia": 4.0
+          }
+        }
+      ],
+      "dimensional_and_unit_rules": [
+        "centroidal_area_inertia divided by centroid_depth times area has dimension length",
+        "all length-derived inputs use one coherent unit system"
+      ],
+      "formula_id": "statics_hydrostatic_center_of_pressure_v1",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "area": "area",
+          "centroid_depth": "length",
+          "centroidal_area_inertia": "length_fourth"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
+      "mathematical_invariants": [
+        "center_of_pressure_not_above_centroid_for_positive_depth",
+        "zero_centroidal_inertia_returns_centroid_depth"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "hydrostatic_cp_zero_depth",
+          "inputs": {
+            "area": 2,
+            "centroid_depth": 0,
+            "centroidal_area_inertia": 4
+          },
+          "rejection": "centroid_depth_must_be_positive"
+        },
+        {
+          "case_id": "hydrostatic_cp_zero_area",
+          "inputs": {
+            "area": 0,
+            "centroid_depth": 2,
+            "centroidal_area_inertia": 4
+          },
+          "rejection": "area_must_be_positive"
+        }
+      ],
+      "operation": "hydrostatic_center_of_pressure",
+      "parameter_bounds": {
+        "area": {
+          "exclusiveMinimum": 0,
+          "maximum": 1000000000000.0
+        },
+        "centroid_depth": {
+          "exclusiveMinimum": 0,
+          "maximum": 1000000
+        },
+        "centroidal_area_inertia": {
+          "maximum": 1e+24,
+          "minimum": 0
+        }
+      },
+      "trusted_beta_implementation_id": "beta.interaction_math.statics_hydrostatic_center_of_pressure.v1",
+      "typed_inputs": [
+        {
+          "dimension": "length",
+          "name": "centroid_depth",
+          "type": "number"
+        },
+        {
+          "dimension": "length_fourth",
+          "name": "centroidal_area_inertia",
+          "type": "number"
+        },
+        {
+          "dimension": "area",
+          "name": "area",
+          "type": "number"
+        }
+      ],
+      "typed_output": {
+        "dimension": "length",
+        "type": "number"
+      }
+    }
+  ],
+  "registry_id": "axiomiq_interaction_formula_registry",
+  "registry_version": "1.2.0"
+}

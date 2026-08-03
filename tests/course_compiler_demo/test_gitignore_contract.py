@@ -11,6 +11,7 @@ EXPECTED_RULES = (
     "**pycache**/",
     "*.py[cod]",
     "/reports/course_compiler_demo/dashboard_runs/",
+    ".worktrees/",
 )
 TRACKED_VISIBILITY_SAMPLES = (
     "docs/course_compiler_demo/releases/COMPILER_MILESTONE_093_CHECKPOINT.md",
@@ -54,7 +55,7 @@ def _is_ignored(repository: Path, relative_path: str) -> bool:
     return result.returncode == 0
 
 
-def test_gitignore_contains_only_the_three_authorized_rules() -> None:
+def test_gitignore_contains_only_the_four_authorized_rules() -> None:
     rules = tuple((REPOSITORY_ROOT / ".gitignore").read_text(encoding="utf-8").splitlines())
     assert rules == EXPECTED_RULES
 

@@ -1,0 +1,90 @@
+{
+  "entries": [
+    {
+      "accessibility_visible_state": {
+        "announces": [
+          "selected face",
+          "component signs",
+          "units"
+        ],
+        "required_labels": [
+          "positive cut face",
+          "axial force N",
+          "shear force V",
+          "bending moment M",
+          "sign direction"
+        ]
+      },
+      "bounds": {
+        "label_count": {
+          "maximum": 12,
+          "minimum": 3
+        }
+      },
+      "deterministic_reference_cases": [
+        {
+          "case_id": "positive_face_overlay",
+          "expected": {
+            "labels": [
+              "+N",
+              "+V",
+              "+M"
+            ]
+          },
+          "input": {
+            "face_normal": "positive_x_face",
+            "internal_force_components": [
+              1,
+              2,
+              3
+            ]
+          }
+        }
+      ],
+      "display_vocabulary_id": "statics_beam_sign_convention_overlay_v1",
+      "invariants": [
+        "positive_sign_convention_is_consistent_across_cut_faces",
+        "opposite_faces_show_action_reaction_pairs"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "unknown_face",
+          "rejection": "face_normal_not_allowlisted"
+        }
+      ],
+      "trusted_beta_implementation_id": "beta.vocabulary.statics_beam_sign_convention_overlay_v1",
+      "typed_inputs": [
+        {
+          "name": "face_normal",
+          "type": "enum",
+          "values": [
+            "positive_x_face",
+            "negative_x_face"
+          ]
+        },
+        {
+          "dimensions": [
+            "force",
+            "force",
+            "moment"
+          ],
+          "name": "internal_force_components",
+          "type": "NVM_tuple"
+        }
+      ],
+      "typed_outputs": [
+        {
+          "dimension": "dimensionless",
+          "name": "overlay_labels",
+          "type": "accessible_label_set"
+        }
+      ],
+      "units_and_dimensions": [
+        "N and V use force units",
+        "M uses moment units"
+      ]
+    }
+  ],
+  "registry_id": "axiomiq_interaction_display_vocabulary_registry",
+  "registry_version": "1.2.0"
+}

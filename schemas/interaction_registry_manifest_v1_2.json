@@ -1,0 +1,10 @@
+{
+  "manifest_id": "axiomiq_interaction_registry_manifest",
+  "manifest_version": "1.2.0",
+  "registries": {
+    "interaction_constraint_model_registry_v1_2.json": "ec55869a4fb1b17a4708585e15a530447decd9fdb7b3109b663299c1a1a91894",
+    "interaction_display_vocabulary_registry_v1_2.json": "9de591f074009aac9765c0f08c0748ad6e1e74d5e8c7e7c87eaefa347692d7af",
+    "interaction_formula_registry_v1_2.json": "d303fb4b1ae8b4b05e6b54dc8bbd820438e4954a9643e8e4c2ff03ca24cf4152",
+    "interaction_renderer_registry_v1_2.json": "0a36c8782eb5299b1e8d07b3cd0e2b4655ab81ad1e47f25f4c064370e19edc16"
+  }
+}

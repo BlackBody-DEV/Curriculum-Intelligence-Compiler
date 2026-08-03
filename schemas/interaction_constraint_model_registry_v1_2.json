@@ -1,0 +1,407 @@
+{
+  "entries": [
+    {
+      "accessibility_visible_state": {
+        "announces": [
+          "constraint status",
+          "active entities",
+          "units"
+        ],
+        "required_labels": [
+          "support type",
+          "restrained directions",
+          "reaction components"
+        ]
+      },
+      "bounds": {
+        "reaction_count": {
+          "maximum": 6,
+          "minimum": 1
+        }
+      },
+      "constraint_model_id": "statics_support_reaction_model_v1",
+      "deterministic_reference_cases": [
+        {
+          "case_id": "pin_2d",
+          "expected": {
+            "reaction_components": [
+              "Fx",
+              "Fy"
+            ]
+          },
+          "input": {
+            "axes": [
+              "x",
+              "y"
+            ],
+            "support_type": "pin"
+          }
+        }
+      ],
+      "invariants": [
+        "reactions_only_in_restrained_directions",
+        "fixed_support_includes_moment_reactions"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "unknown_support",
+          "rejection": "support_type_not_allowlisted"
+        }
+      ],
+      "trusted_beta_implementation_id": "beta.constraint.statics_support_reaction_model_v1",
+      "typed_inputs": [
+        {
+          "name": "support_type",
+          "type": "enum",
+          "values": [
+            "roller",
+            "pin",
+            "fixed",
+            "ball_and_socket"
+          ]
+        },
+        {
+          "dimension": "dimensionless",
+          "name": "axes",
+          "type": "axis_set"
+        }
+      ],
+      "typed_outputs": [
+        {
+          "dimension": "force_or_moment",
+          "name": "reaction_components",
+          "type": "component_set"
+        }
+      ],
+      "units_and_dimensions": [
+        "reaction forces use force units",
+        "reaction moments use moment units"
+      ]
+    },
+    {
+      "accessibility_visible_state": {
+        "announces": [
+          "constraint status",
+          "active entities",
+          "units"
+        ],
+        "required_labels": [
+          "contact normal",
+          "normal force",
+          "friction force"
+        ]
+      },
+      "bounds": {
+        "normal_force": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "constraint_model_id": "statics_contact_force_model_v1",
+      "deterministic_reference_cases": [
+        {
+          "case_id": "frictionless_horizontal",
+          "expected": {
+            "contact_force": [
+              0,
+              10,
+              0
+            ]
+          },
+          "input": {
+            "contact_normal": [
+              0,
+              1,
+              0
+            ],
+            "friction_force": 0,
+            "normal_force": 10
+          }
+        }
+      ],
+      "invariants": [
+        "normal_force_is_compressive",
+        "friction_is_tangent_to_contact"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "negative_normal",
+          "rejection": "normal_force_must_be_nonnegative"
+        }
+      ],
+      "trusted_beta_implementation_id": "beta.constraint.statics_contact_force_model_v1",
+      "typed_inputs": [
+        {
+          "dimension": "dimensionless",
+          "name": "contact_normal",
+          "type": "unit_vector3"
+        },
+        {
+          "dimension": "force",
+          "name": "normal_force",
+          "type": "number"
+        },
+        {
+          "dimension": "force",
+          "name": "friction_force",
+          "type": "number"
+        }
+      ],
+      "typed_outputs": [
+        {
+          "dimension": "force",
+          "name": "contact_force",
+          "type": "vector3"
+        }
+      ],
+      "units_and_dimensions": [
+        "normal and friction forces share force units"
+      ]
+    },
+    {
+      "accessibility_visible_state": {
+        "announces": [
+          "constraint status",
+          "active entities",
+          "units"
+        ],
+        "required_labels": [
+          "cable endpoints",
+          "tension",
+          "line of action"
+        ]
+      },
+      "bounds": {
+        "line_length": {
+          "exclusiveMinimum": 0
+        },
+        "tension": {
+          "maximum": 1000000,
+          "minimum": 0
+        }
+      },
+      "constraint_model_id": "statics_cable_line_of_action_v1",
+      "deterministic_reference_cases": [
+        {
+          "case_id": "x_axis_cable",
+          "expected": {
+            "force_vector": [
+              5,
+              0,
+              0
+            ]
+          },
+          "input": {
+            "end": [
+              2,
+              0,
+              0
+            ],
+            "start": [
+              0,
+              0,
+              0
+            ],
+            "tension": 5
+          }
+        }
+      ],
+      "invariants": [
+        "cable_force_is_tensile",
+        "force_collinear_with_cable"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "coincident_endpoints",
+          "rejection": "line_length_must_be_positive"
+        }
+      ],
+      "trusted_beta_implementation_id": "beta.constraint.statics_cable_line_of_action_v1",
+      "typed_inputs": [
+        {
+          "dimension": "length",
+          "name": "start",
+          "type": "point3"
+        },
+        {
+          "dimension": "length",
+          "name": "end",
+          "type": "point3"
+        },
+        {
+          "dimension": "force",
+          "name": "tension",
+          "type": "number"
+        }
+      ],
+      "typed_outputs": [
+        {
+          "dimension": "force",
+          "name": "force_vector",
+          "type": "vector3"
+        }
+      ],
+      "units_and_dimensions": [
+        "points use one length unit",
+        "tension uses force units"
+      ]
+    },
+    {
+      "accessibility_visible_state": {
+        "announces": [
+          "constraint status",
+          "active entities",
+          "units"
+        ],
+        "required_labels": [
+          "joint",
+          "member directions",
+          "zero-force members"
+        ]
+      },
+      "bounds": {
+        "member_count": {
+          "maximum": 32,
+          "minimum": 2
+        }
+      },
+      "constraint_model_id": "statics_zero_force_member_rules_v1",
+      "deterministic_reference_cases": [
+        {
+          "case_id": "two_member_unloaded",
+          "expected": {
+            "zero_force_member_ids": [
+              "m1_x",
+              "m2_y"
+            ]
+          },
+          "input": {
+            "external_joint_load": [
+              0,
+              0,
+              0
+            ],
+            "joint_members": [
+              "m1_x",
+              "m2_y"
+            ]
+          }
+        }
+      ],
+      "invariants": [
+        "two_noncollinear_unloaded_joint_members_are_zero",
+        "three_member_rule_requires_two_collinear_members"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "loaded_joint_rule_misuse",
+          "rejection": "external_load_prevents_zero_force_rule"
+        }
+      ],
+      "trusted_beta_implementation_id": "beta.constraint.statics_zero_force_member_rules_v1",
+      "typed_inputs": [
+        {
+          "dimension": "dimensionless",
+          "name": "joint_members",
+          "type": "member_direction_list"
+        },
+        {
+          "dimension": "force",
+          "name": "external_joint_load",
+          "type": "vector3"
+        }
+      ],
+      "typed_outputs": [
+        {
+          "dimension": "dimensionless",
+          "name": "zero_force_member_ids",
+          "type": "identifier_list"
+        }
+      ],
+      "units_and_dimensions": [
+        "external load uses force units"
+      ]
+    },
+    {
+      "accessibility_visible_state": {
+        "announces": [
+          "constraint status",
+          "active entities",
+          "units"
+        ],
+        "required_labels": [
+          "pin location",
+          "body A force",
+          "body B force",
+          "action-reaction status"
+        ]
+      },
+      "bounds": {
+        "component_magnitude": {
+          "maximum": 1000000,
+          "minimum": -1000000
+        }
+      },
+      "constraint_model_id": "statics_pin_action_reaction_pairing_v1",
+      "deterministic_reference_cases": [
+        {
+          "case_id": "opposite_pair",
+          "expected": {
+            "pairing_residual": [
+              0,
+              0,
+              0
+            ]
+          },
+          "input": {
+            "body_a_force": [
+              3,
+              -4,
+              0
+            ],
+            "body_b_force": [
+              -3,
+              4,
+              0
+            ]
+          }
+        }
+      ],
+      "invariants": [
+        "body_a_force_plus_body_b_force_equals_zero",
+        "paired_forces_share_line_of_action"
+      ],
+      "negative_cases": [
+        {
+          "case_id": "unpaired_pin_force",
+          "rejection": "pairing_residual_nonzero"
+        }
+      ],
+      "trusted_beta_implementation_id": "beta.constraint.statics_pin_action_reaction_pairing_v1",
+      "typed_inputs": [
+        {
+          "dimension": "force",
+          "name": "body_a_force",
+          "type": "vector3"
+        },
+        {
+          "dimension": "force",
+          "name": "body_b_force",
+          "type": "vector3"
+        }
+      ],
+      "typed_outputs": [
+        {
+          "dimension": "force",
+          "name": "pairing_residual",
+          "type": "vector3"
+        }
+      ],
+      "units_and_dimensions": [
+        "both body forces use one force unit"
+      ]
+    }
+  ],
+  "registry_id": "axiomiq_interaction_constraint_model_registry",
+  "registry_version": "1.2.0"
+}
