@@ -1,0 +1,41 @@
+{
+  "base_commit": "b188c7db7faaed3835d41e6870cf36a4902aecfa",
+  "branch": "task/diag-prod-003b-friction",
+  "diagrams_produced": 155,
+  "explanations_covered_by_type": {
+    "concept": 11,
+    "procedure": 11,
+    "remediation": 11,
+    "solution": 111,
+    "worked_example": 11
+  },
+  "lane_id": "DIAG-PROD-003B-EXPLANATIONS-1218",
+  "renderer_breakdown": {
+    "dimensional_relationship_diagram": 5,
+    "friction_free_body_or_contact_diagram": 150
+  },
+  "safety": {
+    "database_eligible": false,
+    "human_review_required": true,
+    "is_active": false,
+    "student_visible": false
+  },
+  "schema_version": "explanation_diagram_lane_evidence_v1",
+  "topic": "STATICS_FRICTION",
+  "validation": {
+    "alt_text_covered": 155,
+    "answer_not_revealed_passed": 155,
+    "asset_resolution_passed": 155,
+    "diagram_to_content_passed": 155,
+    "failed": 0,
+    "no_executable_content_passed": 155,
+    "procedure_linkage_passed": 155,
+    "responsive_passed": 155
+  },
+  "verdict": "EXPLANATION_DIAGRAM_LANE_COMPLETE",
+  "worked_examples": {
+    "failed": 0,
+    "total": 11,
+    "value_match_passed": 11
+  }
+}
