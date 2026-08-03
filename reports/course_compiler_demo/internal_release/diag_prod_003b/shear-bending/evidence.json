@@ -1,0 +1,40 @@
+{
+  "base_commit": "b188c7db7faaed3835d41e6870cf36a4902aecfa",
+  "branch": "task/diag-prod-003b-shear-bending",
+  "diagrams_produced": 115,
+  "explanations_covered_by_type": {
+    "concept": 3,
+    "procedure": 3,
+    "remediation": 3,
+    "solution": 103,
+    "worked_example": 3
+  },
+  "lane_id": "DIAG-PROD-003B-EXPLANATIONS-1218",
+  "renderer_breakdown": {
+    "load_shear_bending_moment_diagram": 115
+  },
+  "safety": {
+    "database_eligible": false,
+    "human_review_required": true,
+    "is_active": false,
+    "student_visible": false
+  },
+  "schema_version": "explanation_diagram_lane_evidence_v1",
+  "topic": "STATICS_SHEAR_BENDING",
+  "validation": {
+    "alt_text_covered": 115,
+    "answer_not_revealed_passed": 115,
+    "asset_resolution_passed": 115,
+    "diagram_to_content_passed": 115,
+    "failed": 0,
+    "no_executable_content_passed": 115,
+    "procedure_linkage_passed": 115,
+    "responsive_passed": 115
+  },
+  "verdict": "EXPLANATION_DIAGRAM_LANE_COMPLETE",
+  "worked_examples": {
+    "failed": 0,
+    "total": 3,
+    "value_match_passed": 3
+  }
+}
