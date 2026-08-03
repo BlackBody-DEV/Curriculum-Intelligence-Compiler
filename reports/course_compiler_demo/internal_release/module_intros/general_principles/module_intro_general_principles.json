@@ -1,0 +1,93 @@
+{
+  "schema": "axiomiq_module_introduction_draft_v1",
+  "module_intro_id": "module-intro-general_principles-001",
+  "canonical_identity": {
+    "course_code": "STATICS",
+    "topic_code": "GENERAL_PRINCIPLES",
+    "topic_title": "General Principles"
+  },
+  "topic_objective": "Select an appropriate mechanics model, preserve dimensional consistency, convert SI units, report justified precision, follow a general analysis workflow, and recognize when virtual work is useful.",
+  "prerequisite_framing": "Begin with algebra, trigonometry, vector notation, SI base and derived units, and the distinction between a particle and a rigid body. These are framing prerequisites, not replacements for the signed procedures.",
+  "procedure_overview": [
+    {
+      "sequence": 1,
+      "procedure_id": "proc-general-principles-mechanics-model-selection-v1",
+      "micro_skill_code": "mechanics_model_selection",
+      "signature_status": "signed_off",
+      "overview": "Introduce mechanics model selection as a signed procedure within General Principles."
+    },
+    {
+      "sequence": 2,
+      "procedure_id": "proc-general-principles-particle-vs-rigid-body-modeling-v1",
+      "micro_skill_code": "particle_vs_rigid_body_modeling",
+      "signature_status": "signed_off",
+      "overview": "Introduce particle vs rigid body modeling as a signed procedure within General Principles."
+    },
+    {
+      "sequence": 3,
+      "procedure_id": "proc-general-principles-units-dimensional-consistency-v1",
+      "micro_skill_code": "units_dimensional_consistency",
+      "signature_status": "signed_off",
+      "overview": "Introduce units dimensional consistency as a signed procedure within General Principles."
+    },
+    {
+      "sequence": 4,
+      "procedure_id": "proc-general-principles-si-unit-conversion-v1",
+      "micro_skill_code": "si_unit_conversion",
+      "signature_status": "signed_off",
+      "overview": "Introduce si unit conversion as a signed procedure within General Principles."
+    },
+    {
+      "sequence": 5,
+      "procedure_id": "proc-general-principles-numerical-significant-figures-v1",
+      "micro_skill_code": "numerical_significant_figures",
+      "signature_status": "signed_off",
+      "overview": "Introduce numerical significant figures as a signed procedure within General Principles."
+    },
+    {
+      "sequence": 6,
+      "procedure_id": "proc-general-principles-general-analysis-procedure-v1",
+      "micro_skill_code": "general_analysis_procedure",
+      "signature_status": "signed_off",
+      "overview": "Introduce general analysis procedure as a signed procedure within General Principles."
+    },
+    {
+      "sequence": 7,
+      "procedure_id": "proc-general-principles-virtual-work-v1",
+      "micro_skill_code": "virtual_work",
+      "signature_status": "signed_off",
+      "overview": "Introduce virtual work as a signed procedure within General Principles."
+    }
+  ],
+  "procedure_coverage": {
+    "expected_signed_count": 7,
+    "covered_signed_count": 7,
+    "complete": true
+  },
+  "worked_example_entry_point": {
+    "procedure_id": "proc-general-principles-mechanics-model-selection-v1",
+    "scenario": "A loaded bracket is classified as a particle or rigid body, its governing quantities are written with consistent SI dimensions, and the analysis path is selected before calculation.",
+    "launch_state": "static_fallback_available_diagram_pending_v1_1_registry"
+  },
+  "accessible_static_fallback": {
+    "artifact_path": "module_intro_general_principles_static_fallback.json",
+    "required": true,
+    "available": true
+  },
+  "interactive_diagram": {
+    "draft_artifact_path": "module_intro_general_principles_diagram_draft.json",
+    "production_bound": true,
+    "target_schema_version": "1.1.0",
+    "registry_digest": null,
+    "status": "DRAFT_PENDING_PUBLISHED_REGISTRY"
+  },
+  "deterministic_validation": {
+    "artifact_path": "module_intro_general_principles_validation.json",
+    "content_validation": "PASS",
+    "diagram_schema_validation": "PENDING_PUBLISHED_V1_1_0"
+  },
+  "human_review_required": true,
+  "student_visible": false,
+  "database_eligible": false,
+  "is_active": false
+}
