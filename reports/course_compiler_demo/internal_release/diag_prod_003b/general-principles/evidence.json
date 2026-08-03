@@ -1,0 +1,43 @@
+{
+  "base_commit": "b188c7db7faaed3835d41e6870cf36a4902aecfa",
+  "branch": "task/diag-prod-003b-general-principles",
+  "diagrams_produced": 135,
+  "explanations_covered_by_type": {
+    "concept": 7,
+    "procedure": 7,
+    "remediation": 7,
+    "solution": 107,
+    "worked_example": 7
+  },
+  "lane_id": "DIAG-PROD-003B-EXPLANATIONS-1218",
+  "renderer_breakdown": {
+    "dimensional_relationship_diagram": 55,
+    "measurement_precision_diagram": 14,
+    "statics_model_or_free_body_schematic": 39,
+    "unit_conversion_scale_diagram": 27
+  },
+  "safety": {
+    "database_eligible": false,
+    "human_review_required": true,
+    "is_active": false,
+    "student_visible": false
+  },
+  "schema_version": "explanation_diagram_lane_evidence_v1",
+  "topic": "GENERAL_PRINCIPLES",
+  "validation": {
+    "alt_text_covered": 135,
+    "answer_not_revealed_passed": 135,
+    "asset_resolution_passed": 135,
+    "diagram_to_content_passed": 135,
+    "failed": 0,
+    "no_executable_content_passed": 135,
+    "procedure_linkage_passed": 135,
+    "responsive_passed": 135
+  },
+  "verdict": "EXPLANATION_DIAGRAM_LANE_COMPLETE",
+  "worked_examples": {
+    "failed": 0,
+    "total": 7,
+    "value_match_passed": 7
+  }
+}
