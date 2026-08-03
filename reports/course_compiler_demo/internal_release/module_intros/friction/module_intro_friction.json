@@ -1,121 +1,256 @@
 {
-  "schema": "axiomiq_module_introduction_draft_v1",
-  "module_intro_id": "module-intro-friction-001",
+  "accessible_static_fallback": {
+    "artifact_path": "module_intro_friction_static_fallback.json",
+    "available": true,
+    "required": true
+  },
   "canonical_identity": {
     "course_code": "STATICS",
     "topic_code": "STATICS_FRICTION",
     "topic_title": "Friction"
   },
-  "topic_objective": "Model dry-friction contacts and determine static, impending, or kinetic regimes across sliding, tipping, wedges, screws, belts, collars, bearings, and rolling resistance.",
-  "prerequisite_framing": "Use contact free-body diagrams, normal-force direction, equilibrium, impending-motion sense, moments, and consistent force and angle units.",
-  "procedure_overview": [
-    {
-      "sequence": 1,
-      "procedure_id": "proc-statics-friction-dry-friction-static-kinetic-v1",
-      "micro_skill_code": "dry_friction_static_kinetic",
-      "signature_status": "signed_off",
-      "overview": "Introduce dry friction static kinetic as a signed procedure within Friction."
-    },
-    {
-      "sequence": 2,
-      "procedure_id": "proc-statics-friction-friction-fbd-normal-force-v1",
-      "micro_skill_code": "friction_fbd_normal_force",
-      "signature_status": "signed_off",
-      "overview": "Introduce friction fbd normal force as a signed procedure within Friction."
-    },
-    {
-      "sequence": 3,
-      "procedure_id": "STATICS_FRICTION_coulomb_friction_impending",
-      "micro_skill_code": "coulomb_friction_impending",
-      "signature_status": "signed_off",
-      "overview": "Introduce coulomb friction impending as a signed procedure within Friction."
-    },
-    {
-      "sequence": 4,
-      "procedure_id": "proc-statics-friction-friction-equilibrium-sliding-v1",
-      "micro_skill_code": "friction_equilibrium_sliding",
-      "signature_status": "signed_off",
-      "overview": "Introduce friction equilibrium sliding as a signed procedure within Friction."
-    },
-    {
-      "sequence": 5,
-      "procedure_id": "proc-statics-friction-friction-tipping-vs-sliding-v1",
-      "micro_skill_code": "friction_tipping_vs_sliding",
-      "signature_status": "signed_off",
-      "overview": "Introduce friction tipping vs sliding as a signed procedure within Friction."
-    },
-    {
-      "sequence": 6,
-      "procedure_id": "proc-statics-friction-wedge-friction-v1",
-      "micro_skill_code": "wedge_friction",
-      "signature_status": "signed_off",
-      "overview": "Introduce wedge friction as a signed procedure within Friction."
-    },
-    {
-      "sequence": 7,
-      "procedure_id": "proc-statics-friction-screw-friction-v1",
-      "micro_skill_code": "screw_friction",
-      "signature_status": "signed_off",
-      "overview": "Introduce screw friction as a signed procedure within Friction."
-    },
-    {
-      "sequence": 8,
-      "procedure_id": "STATICS_FRICTION_belt_friction_tension",
-      "micro_skill_code": "belt_friction_tension",
-      "signature_status": "signed_off",
-      "overview": "Introduce belt friction tension as a signed procedure within Friction."
-    },
-    {
-      "sequence": 9,
-      "procedure_id": "proc-statics-friction-collar-bearing-friction-v1",
-      "micro_skill_code": "collar_bearing_friction",
-      "signature_status": "signed_off",
-      "overview": "Introduce collar bearing friction as a signed procedure within Friction."
-    },
-    {
-      "sequence": 10,
-      "procedure_id": "proc-statics-friction-journal-bearing-friction-v1",
-      "micro_skill_code": "journal_bearing_friction",
-      "signature_status": "signed_off",
-      "overview": "Introduce journal bearing friction as a signed procedure within Friction."
-    },
-    {
-      "sequence": 11,
-      "procedure_id": "proc-statics-friction-rolling-resistance-v1",
-      "micro_skill_code": "rolling_resistance",
-      "signature_status": "signed_off",
-      "overview": "Introduce rolling resistance as a signed procedure within Friction."
-    }
-  ],
-  "procedure_coverage": {
-    "expected_signed_count": 11,
-    "covered_signed_count": 11,
-    "complete": true
-  },
-  "worked_example_entry_point": {
-    "procedure_id": "proc-statics-friction-dry-friction-static-kinetic-v1",
-    "scenario": "Adjust normal force, static and kinetic coefficients, and required tangential force; classify the regime and reveal the actual friction force without assuming static friction is always at its maximum.",
-    "launch_state": "static_fallback_available_diagram_pending_v1_1_registry"
-  },
-  "accessible_static_fallback": {
-    "artifact_path": "module_intro_friction_static_fallback.json",
-    "required": true,
-    "available": true
-  },
-  "interactive_diagram": {
-    "draft_artifact_path": "module_intro_friction_diagram_draft.json",
-    "production_bound": true,
-    "target_schema_version": "1.1.0",
-    "registry_digest": null,
-    "status": "DRAFT_PENDING_PUBLISHED_REGISTRY"
-  },
+  "database_eligible": false,
   "deterministic_validation": {
     "artifact_path": "module_intro_friction_validation.json",
     "content_validation": "PASS",
-    "diagram_schema_validation": "PENDING_PUBLISHED_V1_1_0"
+    "static_diagram_validation": "PASS",
+    "topic_scope_binding_validation": "PASS"
   },
   "human_review_required": true,
+  "is_active": false,
+  "module_intro_id": "module-intro-friction-001",
+  "prerequisite_framing": "Use contact free-body diagrams, normal-force direction, equilibrium, impending-motion sense, moments, and consistent force and angle units.",
+  "procedure_coverage": {
+    "complete": true,
+    "covered_signed_count": 11,
+    "expected_signed_count": 11
+  },
+  "procedure_overview": [
+    {
+      "micro_skill_code": "dry_friction_static_kinetic",
+      "overview": "Introduce dry friction static kinetic as a signed procedure within Friction.",
+      "procedure_id": "proc-statics-friction-dry-friction-static-kinetic-v1",
+      "sequence": 1,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "friction_fbd_normal_force",
+      "overview": "Introduce friction fbd normal force as a signed procedure within Friction.",
+      "procedure_id": "proc-statics-friction-friction-fbd-normal-force-v1",
+      "sequence": 2,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "coulomb_friction_impending",
+      "overview": "Introduce coulomb friction impending as a signed procedure within Friction.",
+      "procedure_id": "STATICS_FRICTION_coulomb_friction_impending",
+      "sequence": 3,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "friction_equilibrium_sliding",
+      "overview": "Introduce friction equilibrium sliding as a signed procedure within Friction.",
+      "procedure_id": "proc-statics-friction-friction-equilibrium-sliding-v1",
+      "sequence": 4,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "friction_tipping_vs_sliding",
+      "overview": "Introduce friction tipping vs sliding as a signed procedure within Friction.",
+      "procedure_id": "proc-statics-friction-friction-tipping-vs-sliding-v1",
+      "sequence": 5,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "wedge_friction",
+      "overview": "Introduce wedge friction as a signed procedure within Friction.",
+      "procedure_id": "proc-statics-friction-wedge-friction-v1",
+      "sequence": 6,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "screw_friction",
+      "overview": "Introduce screw friction as a signed procedure within Friction.",
+      "procedure_id": "proc-statics-friction-screw-friction-v1",
+      "sequence": 7,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "belt_friction_tension",
+      "overview": "Introduce belt friction tension as a signed procedure within Friction.",
+      "procedure_id": "STATICS_FRICTION_belt_friction_tension",
+      "sequence": 8,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "collar_bearing_friction",
+      "overview": "Introduce collar bearing friction as a signed procedure within Friction.",
+      "procedure_id": "proc-statics-friction-collar-bearing-friction-v1",
+      "sequence": 9,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "journal_bearing_friction",
+      "overview": "Introduce journal bearing friction as a signed procedure within Friction.",
+      "procedure_id": "proc-statics-friction-journal-bearing-friction-v1",
+      "sequence": 10,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "rolling_resistance",
+      "overview": "Introduce rolling resistance as a signed procedure within Friction.",
+      "procedure_id": "proc-statics-friction-rolling-resistance-v1",
+      "sequence": 11,
+      "signature_status": "signed_off"
+    }
+  ],
+  "schema": "axiomiq_module_introduction_static_v1",
+  "static_diagram": {
+    "alt_text": "Static Friction overview showing the topic model and entry geometry; all 11 signed procedures are represented by the accompanying ordered procedure overview.",
+    "artifact_path": "module_intro_friction_static_diagram.svg",
+    "contains_adjustable_variables": false,
+    "contains_interactive_controls": false,
+    "contains_step_states": false,
+    "diagram_fingerprint": "1dc5b4a613e908256acfc437fc623de157294b61ac583b9e1b1e53da7025cd4d",
+    "renderer_category": "friction_free_body_or_contact_diagram",
+    "sha256": "e8a16918728f8f3ddcbb714e1640aaf05ca1ecd7549abc97a5ba3b69a21164c1",
+    "specification_path": "module_intro_friction_diagram_draft.json",
+    "static_only": true
+  },
   "student_visible": false,
-  "database_eligible": false,
-  "is_active": false
+  "topic_objective": "Model dry-friction contacts and determine static, impending, or kinetic regimes across sliding, tipping, wedges, screws, belts, collars, bearings, and rolling resistance.",
+  "topic_scope_binding": {
+    "binding_rule": "021B_TOPIC_SCOPE_COMPLETE_SIGNED_PROCEDURE_SET",
+    "canonical_topic_code": "STATICS_FRICTION",
+    "complete": true,
+    "procedure_count": 11,
+    "procedures": [
+      {
+        "micro_skill_code": "dry_friction_static_kinetic",
+        "procedure_id": "proc-statics-friction-dry-friction-static-kinetic-v1",
+        "topic_code": "STATICS_FRICTION",
+        "verified_signature": {
+          "date": "2026-07-15",
+          "notes": "Batch 4C skill 5/5 — closes the batch. Scope per Architect E2: friction-regime characterization only. Every step verified by Operator to stop before full equilibrium solve, unknown reaction computation, and the tipping-vs-sliding comparison (friction_tipping_vs_sliding, already signed). N and f_req are given in the prompt precisely so no step crosses that boundary. Central misconception addressed: static friction is a RANGE (0 to mu_s*N), not automatically mu_s*N. Worked example independently re-derived by Operator: N = 250 N, mu_s = 0.32, mu_k = 0.22, f_req = 72 N; f_max = mu_s*N = 80 N; 72 < 80 so the regime is static below threshold and f = f_req = 72 N. The comparison genuinely decides: at a ~90 percent ratio the regime is not resolvable by inspection, and the reflex f = mu_s*N yields 80 N while mu_k*N yields 55 N — both differ from the correct 72 N. 2-signal mapping content-earned, matching the Architect E2 prediction on content grounds rather than by template: sign_or_placement_error at step 6 (assigning the wrong constitutive value for the classified regime), unclassified at step 7 (regime reporting). axis_confusion correctly absent — E2 scope contains no component-resolution step, contrasting friction_equilibrium_sliding which earned it at its step 5. simple_average_used omitted: Centroids-family signal, no averaging step. Two review-beat corrections: procedure step 5 now states that f_req > f_max ENTAILS sliding (equilibrium cannot be maintained statically) rather than presenting sliding as a co-condition; and 'impending' no longer describes the below-threshold regime's friction direction — step 7 and solution step 7 now use tendency-toward-relative-motion, which covers all three regimes. 'Impending slip' remains reserved for the f_req = f_max regime it names. OPERATOR NOTE FOR ARCHITECT: sign_or_placement_error is a strained fit for a wrong-constitutive-law error, which is neither a sign nor a placement error. The canonical four have no slot for it and unclassified is occupied by step 7. Recorded for a future ruling on signal-vocabulary coverage; not blocking.",
+          "reviewer": "Phase D sign-off review (PHASE-D-DRY-FRICTION-STATIC-KINETIC-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "friction_fbd_normal_force",
+        "procedure_id": "proc-statics-friction-friction-fbd-normal-force-v1",
+        "topic_code": "STATICS_FRICTION",
+        "verified_signature": {
+          "date": "2026-07-16",
+          "notes": "Batch 4E skill 2/6 — RETIRES the coulomb_friction_impending unsigned-prereq inversion. SCOPE WAS OPERATOR-DERIVED, not Architect-ruled: the Batch 4E ruling detailed skill 1/6's scope only while explicitly ordering this skill opened after contact_force_modeling signed. Scope derived from graph truth and the signed boundaries, and recorded here as such. The gap it fills is precise: dry_friction_static_kinetic (ca18a52a, parent) takes N as GIVEN — its prompt hands the student N = 250 N; contact_force_modeling (2ae7e45d, parent) PLACES N with magnitude explicitly unknown; coulomb_friction_impending (signed, downstream) CONSUMES N in the friction law. Nobody determined N's magnitude. This skill does, from normal-direction equilibrium only. Misconception owned: N is not the weight — students carry N = W from horizontal-surface problems, and a wrong N silently corrupts every downstream friction calculation because N is the friction law's input. Duplicate hazard against the signed friction_equilibrium_sliding cleared at the review beat: that skill selects mu_k or mu_s, writes BOTH force equations, and solves a full sliding or verge problem; this one writes the normal equation only and stops. Four hard stops verified absent from every step: no mu*N, no static/kinetic/impending regime, no tangential solve, no 3D. Worked example independently re-derived by Operator: block W = 100 N on a rough plane at 36.9 degrees (cos 0.80, sin 0.60), applied force P = 50 N perpendicular into the plane; SumFn = 0 gives N - 80 - 50 = 0, N = 130 N, and N = 130 does not equal W = 100. This is the multi-parent composition case (prereq_n = 2), and Architect Batch 4E Decision B governs: canonical four only, signals mapped to authored procedural steps. 3-signal mapping, content-earned: axis_confusion at step 3 (resolving weight and applied forces onto surface-aligned axes) — this is the skill's OWN contribution, since neither parent has a resolution step; sign_or_placement_error at step 4 (writing the normal equilibrium equation); unclassified at step 6 (reporting and scope boundary). simple_average_used omitted: Centroids-family signal. Review-beat correction: the original example used P = 40 N, under which the sine/cosine swap (axis_confusion at step 3) gave W sin theta + P = 100 N and the N = W error (named in sign_or_placement_error at step 4's own trigger) ALSO gave 100 N — two distinct signals collided on one wrong answer, so a student reporting 100 N could not be routed to the right remediation. P changed to 50 N, separating all four paths: correct 130, sine/cosine swap 110, N = W 100, omitted P 80. Same defect family as the symmetric load on general_distributed_load_resultant, the inclined force at the moment centre on rigid_body_equilibrium_2d, and the single rough interface on contact_force_modeling — applied to signal DISCRIMINATION rather than signal liveness. The symbol f was also declared: it does real work in this skill's solution steps, unlike mu_s and mu_k, which appear only where they name the ruled-out boundary and are correctly left undeclared.",
+          "reviewer": "Phase D sign-off review (PHASE-D-FRICTION-FBD-NORMAL-FORCE-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "coulomb_friction_impending",
+        "procedure_id": "STATICS_FRICTION_coulomb_friction_impending",
+        "topic_code": "STATICS_FRICTION",
+        "verified_signature": {
+          "date": "2026-07-05",
+          "notes": "Ninth Phase D sign-off; metadata-only upgrade of existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_FRICTION:DRY_FRICTION_EQUILIBRIUM; worked example answer preserved as P = 352 N from approved audit; failure_signal_mappings preserved byte-identical by hash; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-COULOMB-FRICTION-IMPENDING-UPGRADE-SIGNOFF-001-v2)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "friction_equilibrium_sliding",
+        "procedure_id": "proc-statics-friction-friction-equilibrium-sliding-v1",
+        "topic_code": "STATICS_FRICTION",
+        "verified_signature": {
+          "date": "2026-07-11",
+          "notes": "Dry-friction sliding equilibrium; F=μ_k N steady sliding (μ_s at verge per coulomb_friction_impending). Setup includes incline component resolution. 3-signal {axis_confusion:5, sign_or_placement_error:3, unclassified:8} — third signal added at review beat to match the explicit resolve-onto-axes step. Scope excludes tipping-vs-sliding decision (sibling, R4). Worked example independently re-derived (P=28.7 N). Batch 4A routine under closed-field enforcement.",
+          "reviewer": "Phase D sign-off review (PHASE-D-FRICTION-EQUILIBRIUM-SLIDING-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "friction_tipping_vs_sliding",
+        "procedure_id": "proc-statics-friction-friction-tipping-vs-sliding-v1",
+        "topic_code": "STATICS_FRICTION",
+        "verified_signature": {
+          "date": "2026-07-15",
+          "notes": "Decision procedure (R4): computes BOTH sliding threshold (F=μ_s N) and tipping threshold (moment about trailing edge, N at leading edge), compares, reports governing mode. Distinct from signed friction_equilibrium_sliding (single-mode solve); R4 option A, fold-in rejected. 2-signal {sign_or_placement_error:4, unclassified:6}; axis_confusion absent — horizontal floor + horizontal pull, no component-resolution step (contrast friction_equilibrium_sliding's 15° pull which warranted 3-signal). Both thresholds independently re-derived (P_slide=75 N, P_tip=60 N → TIPS at 60 N). Batch 4B skill 4 of 4 — batch close.",
+          "reviewer": "Phase D sign-off review (PHASE-D-FRICTION-TIPPING-VS-SLIDING-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "wedge_friction",
+        "procedure_id": "proc-statics-friction-wedge-friction-v1",
+        "topic_code": "STATICS_FRICTION",
+        "verified_signature": {
+          "date": "2026-07-21",
+          "notes": "Batch 4H skill 3/4 (four-skill exception). Scope Operator-derived. The multi-surface dry-friction MACHINE specialization off the signed coulomb_friction_impending: a wedge driven by P raises/holds a load through contact on inclined and supporting faces, with friction on each contact. Owns the multi-body wedge analysis; single-surface friction FBDs (friction_fbd_normal_force, friction_equilibrium_sliding, dry_friction_static_kinetic) are the signed parallel and are cited, not re-taught; screw_friction is the sibling unwrapped-wedge and is NOT solved here; belt, rolling resistance, bearing, and stress are excluded. FRICTION DISTINCTION (directive-mandated) BITES: the premise is IMPENDING motion, so |F| = mu_s N holds AT THE LIMIT on each impending surface - stated as a limit condition, not the reflexive F = muN in every statics problem - and friction DIRECTION opposes each surface's OWN impending relative motion, shown to DIFFER by face (incline: friction on the load acts DOWN the face as the load rises relative to the wedge; floor: friction on the wedge acts LEFT as the wedge slides right) rather than uniformly opposing P. Worked example Operator-re-derived from the on-disk prompt (source-locked): W=650 N block against a smooth vertical wall and on a wedge face at alpha from the HORIZONTAL with sin alpha = 3/5, cos alpha = 4/5; mu_s = 0.25 on the incline and the floor; P horizontal, impending raise. Load body first: SigmaFy N1 cos a - F1 sin a - W = 0 -> N1(0.8 - 0.15) = 650 -> N1 = 1000 N, F1 = 250 N; SigmaFx -> Nw = 600 + 200 = 800 N. Wedge: SigmaFy Ng = N1 cos a - F1 sin a = 800 - 150 = 650 N, Fg = 162.5 N; SigmaFx P = Fg + N1 sin a + F1 cos a = 162.5 + 600 + 200 = 962.5 N. TRIG-RESOLUTION CROSS-CHECK APPLIED (the standing rule adopted from the Batch 4G finding) and PASSED: angle reference stated explicitly as alpha FROM THE HORIZONTAL; N1 -> (600, 800) with 600^2 + 800^2 = 1000^2; F1 down-incline -> (200, -150) with 200^2 + 150^2 = 250^2; larger leg on the axis adjacent to the smaller angle; no memorized cos->x. FOUR-signal mapping: axis_confusion at step 4 (resolving N and F on the INCLINED face - wrong alpha reference or swapping along-face vs normal-to-face components; a genuine axis-assignment earn), sign_or_placement_error at step 3 (per-surface friction DIRECTION - the crux the skill measures), solution_sequencing_error at step 5 (GENUINELY EARNED: the wedge equilibrium contains N1 and F1 as unknowns that only the load-body solve supplies, so attempting the wedge first strands them - the wedge alone is underdetermined; evidence-gated by the authored solve-load-first step; same class as frame_machine_equilibrium's member coupling and shear_moment_diagram_construction's construction order), unclassified at step 7 (boundary fallback: reflexive muN without the impending premise, missing friction decision, or reaching into screw/belt/rolling/bearing/stress). The unclassified mapping was ADDED in correction lane PHASE-D-WEDGE-FRICTION-CORRECTION-001 after Operator review found the boundary fallback omitted while the three sharp signals were all correctly earned; the correction added exactly one mapping entry with the prior three byte-identical and the derivation untouched. simple_average_used omitted (Centroids-family).",
+          "reviewer": "Phase D sign-off review (PHASE-D-WEDGE-FRICTION-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "screw_friction",
+        "procedure_id": "proc-statics-friction-screw-friction-v1",
+        "topic_code": "STATICS_FRICTION",
+        "verified_signature": {
+          "date": "2026-07-21",
+          "notes": "Batch 4H skill 4/4, BATCH CLOSER (four-skill exception). Scope Operator-derived. The unwrapped-wedge specialization: a square thread is an inclined plane wrapped around a cylinder of mean radius r; unwrapping one turn gives a right triangle with base 2*pi*r and rise L, so the lead angle theta FROM THE HORIZONTAL satisfies tan theta = L/(2*pi*r), and the screw analysis is the wedge analysis on that incline with the applied moment M replacing the wedge driving force. wedge_friction (signed same batch) is cited as the direct analogy, not re-solved; coulomb_friction_impending supplies F = mu_s N at impending; dry_friction_static_kinetic and friction_fbd_normal_force are the signed single-surface parallel. Excluded: belt friction, rolling resistance, collar/journal bearing friction, thread stress, screw efficiency/power design. FRICTION DISTINCTION BITES: the impending-motion premise is stated (slip impends at the thread, so |F| = mu_s N holds AT THE LIMIT - not the reflexive F = muN in every statics problem), and friction DIRECTION opposes the impending RELATIVE motion of the thread surfaces, not the applied moment - raising puts friction DOWN the unwrapped incline, lowering FLIPS it UP, and that flip is shown to be what CHANGES the tangent argument from theta+phi_s to phi_s-theta rather than the arguments being asserted from memorized formulas. Worked example Operator-re-derived (source-locked to the on-disk prompt): square-threaded screw jack, r = 25 mm, single-start lead L = 10 mm, mu_s = 0.20, W = 5000 N. tan theta = 10/(2*pi*25) = 1/(5*pi) = 0.063662 -> theta = 3.64 deg (ratio NOT inverted); tan phi_s = 0.20 -> phi_s = 11.31 deg (friction angle referenced from the surface normal; both angle references stated and distinct). RAISING: tan(theta+phi_s) = (0.063662+0.20)/(1-0.063662*0.20) = 0.267063 -> M_raise = 5000*0.025*0.267063 = 33.4 N.m. SELF-LOCKING: phi_s 11.31 deg > theta 3.64 deg (equivalently mu_s 0.20 > tan theta 0.0637), so the screw holds the load with no applied moment and lowering still requires a moment. LOWERING: tan(phi_s-theta) = (0.20-0.063662)/(1+0.20*0.063662) = 0.134624 -> M_lower = 16.8 N.m. Both distinguishing decisions are exercised - the self-locking test AND the lowering moment - so a raising-only plug-in is detectably incomplete; M_lower < M_raise with both positive, correct for a self-locking screw. TRIG-RESOLUTION CROSS-CHECK APPLIED and PASSED (standing rule from the Batch 4G finding): both angle references explicitly stated, the lead ratio not inverted, tangent addition and subtraction identities verified numerically. THREE-signal mapping under AXIOMIQ_CANONICAL_FAILURE_SIGNAL_VOCABULARY_V1: axis_confusion at step 3 (angle-reference assignment - measuring theta from the vertical, confusing theta with phi_s, or inverting tan theta = L/(2*pi*r); a reference-assignment earn), sign_or_placement_error at step 6 (the raising/lowering friction-direction flip - opposing the applied moment instead of impending relative motion, or swapping the tangent arguments), unclassified at step 7 (boundary fallback, content-earned: a raising-only plug-in that never touches the flip or self-locking, reflexive muN, or reaching into belt/rolling/bearing/stress/efficiency). solution_sequencing_error OMITTED: theta and phi_s are independent prerequisite computations feeding one moment expression - no authored step exposes an out-of-order solve that strands an unknown, unlike wedge_friction's two-body coupling where the wedge FBD is underdetermined without the load body. simple_average_used omitted (Centroids-family only). CLOSES BATCH 4H at 53/98: internal_force_sign_convention, torque_internal_loading, wedge_friction, screw_friction.",
+          "reviewer": "Phase D sign-off review (PHASE-D-SCREW-FRICTION-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "belt_friction_tension",
+        "procedure_id": "STATICS_FRICTION_belt_friction_tension",
+        "topic_code": "STATICS_FRICTION",
+        "verified_signature": {
+          "date": "2026-07-05",
+          "notes": "Tenth Phase D sign-off; metadata-only upgrade of existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_FRICTION:FULL_HIBBELER_BELT_FRICTION; worked example answer preserved as T_tight = 513 N from approved audit; failure_signal_mappings preserved byte-identical by hash; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-BELT-FRICTION-TENSION-UPGRADE-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "collar_bearing_friction",
+        "procedure_id": "proc-statics-friction-collar-bearing-friction-v1",
+        "topic_code": "STATICS_FRICTION",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "Collar bearing friction — the friction moment of a flat annular thrust bearing under an axial load, authored to the Architect scope ruling for the collar / contact annulus model. Independently re-derived: with P = 4000 N, R1 = 0.02 m, R2 = 0.05 m and mu = 0.3, the uniform-pressure collar formula M = (2/3) mu P (R2^3 - R1^3)/(R2^2 - R1^2) gives R2^3 - R1^3 = 0.000125 - 0.000008 = 0.000117, R2^2 - R1^2 = 0.0021, ratio 0.055714 m, and M = (0.2)(4000)(0.055714) = 44.571 N*m. The solid-shaft case M = (2/3) mu P R2 = (0.2)(4000)(0.05) = 40.0 N*m, and the general formula degenerates to it correctly when R1 = 0. THE DELIVERABLE IS A MOMENT, which is the distinguishing content: friction force mu p dA at each element acts at radius r and its moment integrates mu p r over the annulus to the closed form, and the artifact never collapses to a bare force, flagging report of mu P as the top common error. The ordering 44.571 > 40.0 is verified and explained: the annulus places all contact material at larger average radius than a solid disk of the same outer radius. THE simple_average_used SIGNAL IS EARNED HERE, the first genuine earning outside the Centroids family in the corpus, and the mapping is precise: using the unweighted mean radius (R1+R2)/2 as the moment arm is an arithmetic average substituted for the area-weighted integral ratio (R2^3-R1^3)/(R2^2-R1^2), structurally the error the signal was defined for, and it is additionally the uniform-WEAR result, a different physical assumption, so the student both averages wrongly and switches models. It is mapped at step 3, distinct from sign_or_placement_error at step 2, which is omitting the two-radius annular placement by using a single radius; the two triggers state their mutual distinction and share no step. This retroactively vindicates holding simple_average_used as unearnable through the many prior skills whose average-shaped operations did not fit it, so that its first firing is a real area-weighting-versus-arithmetic-mean error. BOTH BOUNDARIES are drawn in one sentence each on their real basis: dry_friction_static_kinetic gives the friction FORCE at a contact and this skill integrates it to a MOMENT over a flat annulus, with F = mu N used as the local law inside the integral and not re-derived; and the collar bears AXIALLY on a FLAT ANNULUS while the journal bears RADIALLY on a CYLINDRICAL surface, the journal case explicitly not authored and left clean for position 6, the distinction being contact geometry rather than a label. The uniform-pressure basis is stated and the uniform-wear alternative M = (1/2) mu P (R1 + R2) is named not computed, correctly bounding the worked example and explaining that (R1+R2)/2 is the right answer to a different question. unclassified at step 1 is the boundary fallback for reporting a force, authoring the journal case, introducing wear-rate or power, or omitting the uniform-pressure basis. axis_confusion and solution_sequencing_error cannot be earned. SYMBOL COLLISION handled: the pre-check found screw_friction binds M, and this artifact uses M for the shaft-axis friction moment with an explicit distinctness note; mu and P reuse the friction-coefficient and normal-load meanings from dry_friction_static_kinetic; no binding of u, d, k, I, theta, A_gen or V. Fifth skill of Batch 4N, first of the three bearing/rolling friction nodes in the newly created subtopic; signed from its re-parented BEARING_AND_ROLLING_FRICTION location; required no correction at review.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "journal_bearing_friction",
+        "procedure_id": "proc-statics-friction-journal-bearing-friction-v1",
+        "topic_code": "STATICS_FRICTION",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "Journal bearing friction — the friction moment of a radial cylindrical bearing via the friction circle, authored to the Architect scope ruling for the journal model and inheriting the collar-versus-journal complement drawn in collar_bearing_friction. Independently re-derived without relying on a calculator arctan: from tan phi = mu = 0.25, sin phi = 0.25/sqrt(1.0625) = 0.242536, so the friction-circle radius r_f = r sin phi = 0.03 x 0.242536 = 0.0072761 m and the exact friction moment M = W r_f = W r sin phi = 2000 x 0.0072761 = 14.552 N*m, while the small-angle approximation M = mu W r = 0.25 x 2000 x 0.03 = 15.0 N*m. THE EXACT-VERSUS-APPROXIMATE STRUCTURE is handled precisely: the approximation overestimates because it swaps sin phi for tan phi = mu, and the overestimate is exactly the factor 1/cos phi = sqrt(1.0625) = 1.0308, confirmed two ways as 15.0/14.552 = 1.0308 and 1/cos phi = 1.0308, so the relationship is verified internally rather than asserted. THE FRICTION CIRCLE is the distinguishing geometry that makes this a journal skill and not a collar one: the moment arises from the radial reaction's line of action being offset from the shaft center and tangent to the circle of radius r sin phi, a different mechanism from integrating axial pressure over an annulus, and no annular integral is reached for. All three sibling boundaries are clean: the collar complement in one sentence, axial pressure over a flat annulus versus the friction circle of a radial contact, with the collar integral not re-authored and the W-versus-P distinction carrying it concretely as a radial transverse load explicitly distinct from the collar's axial load; the dry_friction_static_kinetic complement, F = mu N used only to define tan phi = mu and not re-derived; and rolling_resistance explicitly not conflated, named as a different deformation-offset mechanism, which matters because it is the next sibling in this subtopic. The r-is-journal-radius-not-bore point bites at step 2, where using the bore or the diameter 2r in place of the journal radius is the placement error mapped to sign_or_placement_error, a real and specific journal-bearing trap, distinct from the unclassified boundary fallback at step 1. THE simple_average_used DISPOSITION IS CORRECT AND INSTRUCTIVE ONE SKILL AFTER IT FIRED: the collar earned that signal by averaging two bounding radii as (R1+R2)/2, but the journal has no bounding-quantity average, the friction circle being a single-radius offset r_f = r sin phi, so the signal correctly does not fire here — earned in skill 5 where a real area-weighting error existed and unearned in skill 6 where none does, the discipline working in both directions one skill apart. axis_confusion cannot be earned since phi is a friction angle rather than a coordinate assignment, and solution_sequencing_error cannot be earned on a linear pipeline. Symbol discipline: mu and M reused with identical meaning from collar_bearing_friction, M preserved as the shaft-axis friction moment now from the friction-circle offset rather than the annular integral, W introduced as the radial load distinct from the collar's axial P, and phi and r_f introduced for the friction circle; no binding of u, d, k, I, M_O, A_gen or V. Honest limitation recorded: M = W r sin phi is the friction-circle statics model on the verge of slipping, the small-phi approximation overestimates slightly, and hydrodynamic lubrication, distributed contact pressure, wear, and power loss are outside scope, with r the journal radius not the bore. Sixth skill of Batch 4N, second of the three bearing/rolling friction nodes; signed from its re-parented BEARING_AND_ROLLING_FRICTION location; required no correction at review; completes the collar/journal friction-moment reciprocal.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "rolling_resistance",
+        "procedure_id": "proc-statics-friction-rolling-resistance-v1",
+        "topic_code": "STATICS_FRICTION",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "Rolling resistance — the statics deformation-offset model, authored to the Architect scope ruling for the resistance moment / equivalent offset with vehicle dynamics excluded, and the last of the three bearing/rolling friction nodes. Independently re-derived: with W = 800 N, a = 0.0005 m and r = 0.4 m, the moment balance about the offset contact point P r = W a gives P = W a / r = 800 x 0.0005 / 0.4 = 1.0 N, and the resistance moment M = W a = 0.4 N*m equals P r = 1.0 x 0.4 = 0.4 N*m, the two expressions agreeing and confirming that P = W a / r is the moment equation rather than an asserted formula. The ratio a/r = 0.00125 matches P/W = 0.00125. THE a-IS-A-LENGTH POINT IS THE SPINE and is held in every field: concept, formula, procedure, and variable meaning all state that the coefficient of rolling resistance a is a forward offset with units of distance, explicitly not a dimensionless mu, and the dimensional check does real work because a being a length makes W a a moment in N*m, which confirms a cannot be a friction coefficient and that a student writing mu W would produce a force where a moment belongs. This is the cleanest discriminator from the three friction siblings. THE DEFORMATION MECHANISM is stated as the physics rather than asserted: the surface deforms so the resultant normal reaction acts a distance a AHEAD of the point below the center, and the artifact states explicitly that rolling resistance is NOT friction at the contact but deformation hysteresis, correcting head-on the common rolling-friction misconception. The forward-offset direction is the second bite and is the home of sign_or_placement_error at step 2: the reaction shifts ahead to resist rolling, and a rearward placement would drive rolling instead, a genuine directional error with physical consequence, distinct from the unclassified boundary fallback at step 1. All three sibling boundaries are complemented in one sentence on the real basis: the dry-friction, collar, and journal skills use a dimensionless mu at a contact while this uses a length a from deformation, none re-authored, and rolling resistance is not modeled as mu N. THE simple_average_used DISPOSITION COMPLETES THE SUBTOPIC ARC: it fired for the collar via the (R1+R2)/2 average of two bounding radii, and here as in the journal there is no bounding-quantity average, so it correctly does not fire — earned exactly once across the three-node subtopic, in the single place a real area-weighting error existed. axis_confusion cannot be earned since forward-versus-aft is a placement not a coordinate assignment, and solution_sequencing_error cannot be earned on a linear pipeline. Vehicle dynamics is excluded per the ruling: velocity, acceleration, drivetrain, and tractive effort are named and excluded, and hysteresis is named as the cause without computing hysteresis energy, the correct line between naming a mechanism and authoring out of scope. Symbol discipline: P disambiguated from the collar's axial P as the center-applied horizontal driving force, a flagged as a length distinct from the generic distance d, and W, r, M clean; no binding of u, k, I, M_O, theta, A_gen or V. Honest limitation recorded: the statics lumped-offset model treats the wheel on the verge of rolling under a center-applied horizontal force with a as a single empirical length, and does not model deformation-hysteresis energy, velocity dependence, or vehicle dynamics; a is not a friction coefficient and must not be used as mu N. Seventh skill of Batch 4N; signed from its re-parented BEARING_AND_ROLLING_FRICTION location; required no correction at review; completes the three-node bearing and rolling friction subtopic with two friction-moment mechanisms and one deformation mechanism, each distinguished on its real physical basis.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      }
+    ]
+  },
+  "worked_example_entry_point": {
+    "launch_state": "static_diagram_available_human_review_required",
+    "procedure_id": "proc-statics-friction-dry-friction-static-kinetic-v1",
+    "scenario": "Adjust normal force, static and kinetic coefficients, and required tangential force; classify the regime and reveal the actual friction force without assuming static friction is always at its maximum."
+  }
 }

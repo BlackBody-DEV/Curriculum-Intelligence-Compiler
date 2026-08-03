@@ -1,11 +1,7 @@
 {
-  "schema": "axiomiq_module_intro_static_fallback_v1",
-  "fallback_id": "module-intro-friction-static-001",
-  "canonical_topic_code": "STATICS_FRICTION",
-  "language": "en",
   "accessibility": {
-    "role": "figure",
-    "title": "Friction module introduction static overview",
+    "color_independent": true,
+    "keyboard_interaction_required": false,
     "long_description": "A text-first overview of Friction. Model dry-friction contacts and determine static, impending, or kinetic regimes across sliding, tipping, wedges, screws, belts, collars, bearings, and rolling resistance.",
     "reading_order": [
       "objective",
@@ -14,75 +10,102 @@
       "worked-example entry",
       "diagram description"
     ],
-    "color_independent": true,
-    "keyboard_interaction_required": false
+    "role": "figure",
+    "title": "Friction module introduction static overview"
   },
+  "canonical_topic_code": "STATICS_FRICTION",
+  "database_eligible": false,
+  "diagram_asset": {
+    "alt_text": "Static Friction overview showing the topic model and entry geometry; all 11 signed procedures are represented by the accompanying ordered procedure overview.",
+    "diagram_fingerprint": "1dc5b4a613e908256acfc437fc623de157294b61ac583b9e1b1e53da7025cd4d",
+    "path": "module_intro_friction_static_diagram.svg",
+    "renderer_category": "friction_free_body_or_contact_diagram",
+    "sha256": "e8a16918728f8f3ddcbb714e1640aaf05ca1ecd7549abc97a5ba3b69a21164c1"
+  },
+  "diagram_description": "Static Friction overview showing the topic model and entry geometry; all 11 signed procedures are represented by the accompanying ordered procedure overview.",
+  "fallback_id": "module-intro-friction-static-001",
+  "human_review_required": true,
+  "is_active": false,
+  "language": "en",
   "objective": "Model dry-friction contacts and determine static, impending, or kinetic regimes across sliding, tipping, wedges, screws, belts, collars, bearings, and rolling resistance.",
   "prerequisites": "Use contact free-body diagrams, normal-force direction, equilibrium, impending-motion sense, moments, and consistent force and angle units.",
   "procedure_map": [
     {
-      "sequence": 1,
+      "micro_skill_code": "dry_friction_static_kinetic",
       "procedure_id": "proc-statics-friction-dry-friction-static-kinetic-v1",
-      "micro_skill_code": "dry_friction_static_kinetic"
+      "sequence": 1
     },
     {
-      "sequence": 2,
+      "micro_skill_code": "friction_fbd_normal_force",
       "procedure_id": "proc-statics-friction-friction-fbd-normal-force-v1",
-      "micro_skill_code": "friction_fbd_normal_force"
+      "sequence": 2
     },
     {
-      "sequence": 3,
+      "micro_skill_code": "coulomb_friction_impending",
       "procedure_id": "STATICS_FRICTION_coulomb_friction_impending",
-      "micro_skill_code": "coulomb_friction_impending"
+      "sequence": 3
     },
     {
-      "sequence": 4,
+      "micro_skill_code": "friction_equilibrium_sliding",
       "procedure_id": "proc-statics-friction-friction-equilibrium-sliding-v1",
-      "micro_skill_code": "friction_equilibrium_sliding"
+      "sequence": 4
     },
     {
-      "sequence": 5,
+      "micro_skill_code": "friction_tipping_vs_sliding",
       "procedure_id": "proc-statics-friction-friction-tipping-vs-sliding-v1",
-      "micro_skill_code": "friction_tipping_vs_sliding"
+      "sequence": 5
     },
     {
-      "sequence": 6,
+      "micro_skill_code": "wedge_friction",
       "procedure_id": "proc-statics-friction-wedge-friction-v1",
-      "micro_skill_code": "wedge_friction"
+      "sequence": 6
     },
     {
-      "sequence": 7,
+      "micro_skill_code": "screw_friction",
       "procedure_id": "proc-statics-friction-screw-friction-v1",
-      "micro_skill_code": "screw_friction"
+      "sequence": 7
     },
     {
-      "sequence": 8,
+      "micro_skill_code": "belt_friction_tension",
       "procedure_id": "STATICS_FRICTION_belt_friction_tension",
-      "micro_skill_code": "belt_friction_tension"
+      "sequence": 8
     },
     {
-      "sequence": 9,
+      "micro_skill_code": "collar_bearing_friction",
       "procedure_id": "proc-statics-friction-collar-bearing-friction-v1",
-      "micro_skill_code": "collar_bearing_friction"
+      "sequence": 9
     },
     {
-      "sequence": 10,
+      "micro_skill_code": "journal_bearing_friction",
       "procedure_id": "proc-statics-friction-journal-bearing-friction-v1",
-      "micro_skill_code": "journal_bearing_friction"
+      "sequence": 10
     },
     {
-      "sequence": 11,
+      "micro_skill_code": "rolling_resistance",
       "procedure_id": "proc-statics-friction-rolling-resistance-v1",
-      "micro_skill_code": "rolling_resistance"
+      "sequence": 11
     }
   ],
-  "worked_example": {
-    "procedure_id": "proc-statics-friction-dry-friction-static-kinetic-v1",
-    "entry_description": "Adjust normal force, static and kinetic coefficients, and required tangential force; classify the regime and reveal the actual friction force without assuming static friction is always at its maximum."
-  },
-  "diagram_description": "The planned contact and friction-regime workspace will support: adjust normal force; adjust static friction coefficient; adjust kinetic friction coefficient; adjust required tangential force; classify static impending or kinetic regime; show actual and limiting friction vectors; toggle contact free-body diagram; compare tipping and sliding thresholds; adjust wedge screw belt bearing and rolling-resistance parameters. Until v1.1.0 is published, this description and procedure map are the complete accessible fallback.",
-  "human_review_required": true,
+  "schema": "axiomiq_module_intro_static_fallback_v2",
   "student_visible": false,
-  "database_eligible": false,
-  "is_active": false
+  "topic_scope_binding": {
+    "procedure_count": 11,
+    "procedure_ids": [
+      "proc-statics-friction-dry-friction-static-kinetic-v1",
+      "proc-statics-friction-friction-fbd-normal-force-v1",
+      "STATICS_FRICTION_coulomb_friction_impending",
+      "proc-statics-friction-friction-equilibrium-sliding-v1",
+      "proc-statics-friction-friction-tipping-vs-sliding-v1",
+      "proc-statics-friction-wedge-friction-v1",
+      "proc-statics-friction-screw-friction-v1",
+      "STATICS_FRICTION_belt_friction_tension",
+      "proc-statics-friction-collar-bearing-friction-v1",
+      "proc-statics-friction-journal-bearing-friction-v1",
+      "proc-statics-friction-rolling-resistance-v1"
+    ]
+  },
+  "worked_example": {
+    "entry_description": "Adjust normal force, static and kinetic coefficients, and required tangential force; classify the regime and reveal the actual friction force without assuming static friction is always at its maximum.",
+    "procedure_id": "proc-statics-friction-dry-friction-static-kinetic-v1"
+  }
 }

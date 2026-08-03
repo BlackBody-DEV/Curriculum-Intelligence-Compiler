@@ -1,55 +1,34 @@
 {
-  "schema": "axiomiq_interactive_instructional_diagram_draft_v1_1",
-  "draft_id": "module-intro-friction-diagram-001",
-  "explanation_type": "module introduction",
+  "alt_text": "Static Friction overview showing the topic model and entry geometry; all 11 signed procedures are represented by the accompanying ordered procedure overview.",
+  "artifact_path": "module_intro_friction_static_diagram.svg",
   "canonical_topic_code": "STATICS_FRICTION",
-  "linked_module_intro_id": "module-intro-friction-001",
-  "production_bound": true,
-  "renderer_category": "contact and friction-regime workspace",
-  "required_operations": [
-    "adjust normal force",
-    "adjust static friction coefficient",
-    "adjust kinetic friction coefficient",
-    "adjust required tangential force",
-    "classify static impending or kinetic regime",
-    "show actual and limiting friction vectors",
-    "toggle contact free-body diagram",
-    "compare tipping and sliding thresholds",
-    "adjust wedge screw belt bearing and rolling-resistance parameters"
-  ],
-  "target_contract": {
-    "interaction_schema": "axiomiq_interactive_instructional_diagram_interaction_v1_1",
-    "schema_version": "1.1.0",
-    "renderer_registry_version": "1.1.0",
-    "renderer_registry_sha256": null,
-    "formula_registry_version": "1.1.0",
-    "formula_registry_sha256": null,
-    "binding_status": "PENDING_LANE_A_PUBLISHED_DIGESTS"
-  },
-  "v1_0_0_expressibility": {
-    "complete": false,
-    "renderer_allowlist": [
-      "statics_vector_plane_v1",
-      "statics_force_vector_v1",
-      "statics_fbd_v1",
-      "statics_composite_area_v1"
-    ],
-    "formula_allowlist": [
-      "cartesian_fx_from_magnitude_angle_deg",
-      "cartesian_fy_from_magnitude_angle_deg",
-      "sum_selected",
-      "resultant_magnitude_from_rx_ry",
-      "resultant_direction_deg_from_rx_ry"
-    ],
-    "exact_gaps": [
-      "The v1.0.0 FBD renderer cannot express friction-regime state, limiting-versus-actual friction, tipping/sliding threshold comparison, or specialized wedge, screw, belt, bearing, and rolling-resistance geometry.",
-      "The v1.0.0 formula allowlist has no Coulomb limit, kinetic friction, capstan, screw, bearing, or rolling-resistance operation."
-    ]
-  },
-  "completion_gate": "Does not count as complete until validated against Lane A's published v1.1.0 schema and registry digests.",
+  "contains_adjustable_variables": false,
   "contains_executable_code": false,
-  "human_review_required": true,
-  "student_visible": false,
+  "contains_interactive_controls": false,
+  "contains_step_states": false,
   "database_eligible": false,
-  "is_active": false
+  "diagram_fingerprint": "1dc5b4a613e908256acfc437fc623de157294b61ac583b9e1b1e53da7025cd4d",
+  "diagram_sha256": "e8a16918728f8f3ddcbb714e1640aaf05ca1ecd7549abc97a5ba3b69a21164c1",
+  "explanation_type": "module_introduction",
+  "human_review_required": true,
+  "is_active": false,
+  "linked_module_intro_id": "module-intro-friction-001",
+  "renderer_category": "friction_free_body_or_contact_diagram",
+  "schema": "axiomiq_module_intro_static_diagram_spec_v1",
+  "static_diagram_id": "module-intro-friction-static-diagram-001",
+  "static_only": true,
+  "student_visible": false,
+  "topic_scope_procedure_ids": [
+    "proc-statics-friction-dry-friction-static-kinetic-v1",
+    "proc-statics-friction-friction-fbd-normal-force-v1",
+    "STATICS_FRICTION_coulomb_friction_impending",
+    "proc-statics-friction-friction-equilibrium-sliding-v1",
+    "proc-statics-friction-friction-tipping-vs-sliding-v1",
+    "proc-statics-friction-wedge-friction-v1",
+    "proc-statics-friction-screw-friction-v1",
+    "STATICS_FRICTION_belt_friction_tension",
+    "proc-statics-friction-collar-bearing-friction-v1",
+    "proc-statics-friction-journal-bearing-friction-v1",
+    "proc-statics-friction-rolling-resistance-v1"
+  ]
 }
