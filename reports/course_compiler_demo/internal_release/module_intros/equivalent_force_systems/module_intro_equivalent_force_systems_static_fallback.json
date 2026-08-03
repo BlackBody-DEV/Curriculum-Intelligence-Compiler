@@ -1,11 +1,7 @@
 {
-  "schema": "axiomiq_module_intro_static_fallback_v1",
-  "fallback_id": "module-intro-equivalent_force_systems-static-001",
-  "canonical_topic_code": "STATICS_RESULTANT_FORCES",
-  "language": "en",
   "accessibility": {
-    "role": "figure",
-    "title": "Equivalent Force Systems module introduction static overview",
+    "color_independent": true,
+    "keyboard_interaction_required": false,
     "long_description": "A text-first overview of Equivalent Force Systems. Resolve and combine coplanar forces, then determine the magnitude and direction of the single resultant while preserving axis and quadrant conventions.",
     "reading_order": [
       "objective",
@@ -14,35 +10,54 @@
       "worked-example entry",
       "diagram description"
     ],
-    "color_independent": true,
-    "keyboard_interaction_required": false
+    "role": "figure",
+    "title": "Equivalent Force Systems module introduction static overview"
   },
+  "canonical_topic_code": "STATICS_RESULTANT_FORCES",
+  "database_eligible": false,
+  "diagram_asset": {
+    "alt_text": "Static Equivalent Force Systems overview showing the topic model and entry geometry; all 3 signed procedures are represented by the accompanying ordered procedure overview.",
+    "diagram_fingerprint": "8633ab0e59bac4c26e3a75fba2303ec5bafc63e3b2d020c41b9a67da4aa318ca",
+    "path": "module_intro_equivalent_force_systems_static_diagram.svg",
+    "renderer_category": "resultant_force_and_equivalent_system_diagram",
+    "sha256": "775741d6bc8bebbfa1777b7a6b7ea873643b3563bbc8ea70f13183ca34202d6d"
+  },
+  "diagram_description": "Static Equivalent Force Systems overview showing the topic model and entry geometry; all 3 signed procedures are represented by the accompanying ordered procedure overview.",
+  "fallback_id": "module-intro-equivalent_force_systems-static-001",
+  "human_review_required": true,
+  "is_active": false,
+  "language": "en",
   "objective": "Resolve and combine coplanar forces, then determine the magnitude and direction of the single resultant while preserving axis and quadrant conventions.",
   "prerequisites": "Use signed Cartesian components, degree-based angles, vector addition, the Pythagorean magnitude relation, and atan2 quadrant handling.",
   "procedure_map": [
     {
-      "sequence": 1,
+      "micro_skill_code": "resultant_magnitude",
       "procedure_id": "proc-statics-resultant-forces-resultant-magnitude-v1",
-      "micro_skill_code": "resultant_magnitude"
+      "sequence": 1
     },
     {
-      "sequence": 2,
+      "micro_skill_code": "resultant_2d_addition",
       "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
-      "micro_skill_code": "resultant_2d_addition"
+      "sequence": 2
     },
     {
-      "sequence": 3,
+      "micro_skill_code": "resultant_direction_2d",
       "procedure_id": "cdc80a84-110f-4eca-967b-d2b8b0dad982",
-      "micro_skill_code": "resultant_direction_2d"
+      "sequence": 3
     }
   ],
-  "worked_example": {
-    "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
-    "entry_description": "Resolve two coplanar forces into x and y components, sum them, and reveal the resultant magnitude and atan2 direction."
-  },
-  "diagram_description": "The planned vectors and coordinate systems will support: drag force magnitude; drag force angle in degrees; resolve each force into Cartesian components; sum selected x components; sum selected y components; compute resultant magnitude; compute atan2 resultant direction; toggle component and resultant overlays. Until v1.1.0 is published, this description and procedure map are the complete accessible fallback.",
-  "human_review_required": true,
+  "schema": "axiomiq_module_intro_static_fallback_v2",
   "student_visible": false,
-  "database_eligible": false,
-  "is_active": false
+  "topic_scope_binding": {
+    "procedure_count": 3,
+    "procedure_ids": [
+      "proc-statics-resultant-forces-resultant-magnitude-v1",
+      "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+      "cdc80a84-110f-4eca-967b-d2b8b0dad982"
+    ]
+  },
+  "worked_example": {
+    "entry_description": "Resolve two coplanar forces into x and y components, sum them, and reveal the resultant magnitude and atan2 direction.",
+    "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition"
+  }
 }

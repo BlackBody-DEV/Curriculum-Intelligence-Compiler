@@ -1,65 +1,112 @@
 {
-  "schema": "axiomiq_module_introduction_draft_v1",
-  "module_intro_id": "module-intro-equivalent_force_systems-001",
+  "accessible_static_fallback": {
+    "artifact_path": "module_intro_equivalent_force_systems_static_fallback.json",
+    "available": true,
+    "required": true
+  },
   "canonical_identity": {
     "course_code": "STATICS",
     "topic_code": "STATICS_RESULTANT_FORCES",
     "topic_title": "Equivalent Force Systems"
   },
-  "topic_objective": "Resolve and combine coplanar forces, then determine the magnitude and direction of the single resultant while preserving axis and quadrant conventions.",
-  "prerequisite_framing": "Use signed Cartesian components, degree-based angles, vector addition, the Pythagorean magnitude relation, and atan2 quadrant handling.",
-  "procedure_overview": [
-    {
-      "sequence": 1,
-      "procedure_id": "proc-statics-resultant-forces-resultant-magnitude-v1",
-      "micro_skill_code": "resultant_magnitude",
-      "signature_status": "signed_off",
-      "overview": "Introduce resultant magnitude as a signed procedure within Equivalent Force Systems."
-    },
-    {
-      "sequence": 2,
-      "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
-      "micro_skill_code": "resultant_2d_addition",
-      "signature_status": "signed_off",
-      "overview": "Introduce resultant 2d addition as a signed procedure within Equivalent Force Systems."
-    },
-    {
-      "sequence": 3,
-      "procedure_id": "cdc80a84-110f-4eca-967b-d2b8b0dad982",
-      "micro_skill_code": "resultant_direction_2d",
-      "signature_status": "signed_off",
-      "overview": "Introduce resultant direction 2d as a signed procedure within Equivalent Force Systems."
-    }
-  ],
-  "procedure_coverage": {
-    "expected_signed_count": 3,
-    "covered_signed_count": 3,
-    "complete": true
-  },
-  "worked_example_entry_point": {
-    "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
-    "scenario": "Resolve two coplanar forces into x and y components, sum them, and reveal the resultant magnitude and atan2 direction.",
-    "launch_state": "static_fallback_available_diagram_pending_v1_1_registry"
-  },
-  "accessible_static_fallback": {
-    "artifact_path": "module_intro_equivalent_force_systems_static_fallback.json",
-    "required": true,
-    "available": true
-  },
-  "interactive_diagram": {
-    "draft_artifact_path": "module_intro_equivalent_force_systems_diagram_draft.json",
-    "production_bound": true,
-    "target_schema_version": "1.1.0",
-    "registry_digest": null,
-    "status": "DRAFT_PENDING_PUBLISHED_REGISTRY"
-  },
+  "database_eligible": false,
   "deterministic_validation": {
     "artifact_path": "module_intro_equivalent_force_systems_validation.json",
     "content_validation": "PASS",
-    "diagram_schema_validation": "PENDING_PUBLISHED_V1_1_0"
+    "static_diagram_validation": "PASS",
+    "topic_scope_binding_validation": "PASS"
   },
   "human_review_required": true,
+  "is_active": false,
+  "module_intro_id": "module-intro-equivalent_force_systems-001",
+  "prerequisite_framing": "Use signed Cartesian components, degree-based angles, vector addition, the Pythagorean magnitude relation, and atan2 quadrant handling.",
+  "procedure_coverage": {
+    "complete": true,
+    "covered_signed_count": 3,
+    "expected_signed_count": 3
+  },
+  "procedure_overview": [
+    {
+      "micro_skill_code": "resultant_magnitude",
+      "overview": "Introduce resultant magnitude as a signed procedure within Equivalent Force Systems.",
+      "procedure_id": "proc-statics-resultant-forces-resultant-magnitude-v1",
+      "sequence": 1,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "resultant_2d_addition",
+      "overview": "Introduce resultant 2d addition as a signed procedure within Equivalent Force Systems.",
+      "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+      "sequence": 2,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "resultant_direction_2d",
+      "overview": "Introduce resultant direction 2d as a signed procedure within Equivalent Force Systems.",
+      "procedure_id": "cdc80a84-110f-4eca-967b-d2b8b0dad982",
+      "sequence": 3,
+      "signature_status": "signed_off"
+    }
+  ],
+  "schema": "axiomiq_module_introduction_static_v1",
+  "static_diagram": {
+    "alt_text": "Static Equivalent Force Systems overview showing the topic model and entry geometry; all 3 signed procedures are represented by the accompanying ordered procedure overview.",
+    "artifact_path": "module_intro_equivalent_force_systems_static_diagram.svg",
+    "contains_adjustable_variables": false,
+    "contains_interactive_controls": false,
+    "contains_step_states": false,
+    "diagram_fingerprint": "8633ab0e59bac4c26e3a75fba2303ec5bafc63e3b2d020c41b9a67da4aa318ca",
+    "renderer_category": "resultant_force_and_equivalent_system_diagram",
+    "sha256": "775741d6bc8bebbfa1777b7a6b7ea873643b3563bbc8ea70f13183ca34202d6d",
+    "specification_path": "module_intro_equivalent_force_systems_diagram_draft.json",
+    "static_only": true
+  },
   "student_visible": false,
-  "database_eligible": false,
-  "is_active": false
+  "topic_objective": "Resolve and combine coplanar forces, then determine the magnitude and direction of the single resultant while preserving axis and quadrant conventions.",
+  "topic_scope_binding": {
+    "binding_rule": "021B_TOPIC_SCOPE_COMPLETE_SIGNED_PROCEDURE_SET",
+    "canonical_topic_code": "STATICS_RESULTANT_FORCES",
+    "complete": true,
+    "procedure_count": 3,
+    "procedures": [
+      {
+        "micro_skill_code": "resultant_magnitude",
+        "procedure_id": "proc-statics-resultant-forces-resultant-magnitude-v1",
+        "topic_code": "STATICS_RESULTANT_FORCES",
+        "verified_signature": {
+          "date": "2026-07-04",
+          "notes": "Third Phase D sign-off; worked example independently re-verified R_x=200, R_y=450, R=492.4; schema-valid v1_1; canonical-four live mappings; magnitude-only scope with direction covered by resultant_direction_2d; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-MAGNITUDE-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "resultant_2d_addition",
+        "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+        "topic_code": "STATICS_RESULTANT_FORCES",
+        "verified_signature": {
+          "date": "2026-07-05",
+          "notes": "Seventh Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_RESULTANT_FORCES:MAGNITUDE_AND_ADDITION; full integrated 2D resultant-addition scope (component form plus magnitude and direction); worked example independently re-verified F_R=<40,30> N, |F_R|=50 N, phi=36.9 deg; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-2D-ADDITION-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "resultant_direction_2d",
+        "procedure_id": "cdc80a84-110f-4eca-967b-d2b8b0dad982",
+        "topic_code": "STATICS_RESULTANT_FORCES",
+        "verified_signature": {
+          "date": "2026-07-05",
+          "notes": "Phase D sign-off; worked example independently re-verified R=<-40,30> N, alpha=36.9 degrees, theta=143.1 degrees in Quadrant II; schema-valid v1_1; canonical mappings axis_confusion->1, sign_or_placement_error->2, unclassified->5; direction-only scope; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-DIRECTION-2D-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        }
+      }
+    ]
+  },
+  "worked_example_entry_point": {
+    "launch_state": "static_diagram_available_human_review_required",
+    "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+    "scenario": "Resolve two coplanar forces into x and y components, sum them, and reveal the resultant magnitude and atan2 direction."
+  }
 }
