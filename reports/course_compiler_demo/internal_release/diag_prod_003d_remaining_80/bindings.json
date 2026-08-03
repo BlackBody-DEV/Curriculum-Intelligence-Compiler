@@ -4,6 +4,561 @@
     "compiler_main": "b188c7db7faaed3835d41e6870cf36a4902aecfa",
     "resolution_sha256": "9519d1354ff3839abbbd8e9f65f3d4024213a4eb5d39403e08cb9fffd76f3c6e"
   },
+  "binding_correction_003e": {
+    "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722",
+    "records_corrected": 12,
+    "svg_assets_modified": false,
+    "task_id": "diag-prod-003e-binding-correction",
+    "transitions": [
+      {
+        "explanation_id": "module-assessment:STATICS_FORCE_SYSTEMS:statics.STATICS_PARTICLE_EQUILIBRIUM.free_body_diagram_and_force_balance_2d:diagnostic_question:assessment_review",
+        "new_binding_scope": "per_item_procedure",
+        "new_procedure": {
+          "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
+          "signature": {
+            "algorithm": "sha256",
+            "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
+            "signed_at": "2026-07-13",
+            "signed_digest": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
+            "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
+            "status": "signed_off"
+          }
+        },
+        "old_binding_scope": "set_scope_extension_021B",
+        "old_procedures": [
+          {
+            "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-13",
+              "signed_digest": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
+              "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+              "signed_at": "2026-07-05",
+              "signed_digest": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
+              "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
+              "status": "signed_off"
+            }
+          }
+        ]
+      },
+      {
+        "explanation_id": "module-assessment:STATICS_FORCE_SYSTEMS:statics.STATICS_PARTICLE_EQUILIBRIUM.free_body_diagram_and_force_balance_2d:practice_question_template:assessment_review",
+        "new_binding_scope": "per_item_procedure",
+        "new_procedure": {
+          "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+          "signature": {
+            "algorithm": "sha256",
+            "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+            "signed_at": "2026-07-05",
+            "signed_digest": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
+            "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
+            "status": "signed_off"
+          }
+        },
+        "old_binding_scope": "set_scope_extension_021B",
+        "old_procedures": [
+          {
+            "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-13",
+              "signed_digest": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
+              "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+              "signed_at": "2026-07-05",
+              "signed_digest": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
+              "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
+              "status": "signed_off"
+            }
+          }
+        ]
+      },
+      {
+        "explanation_id": "module-assessment:STATICS_FORCE_SYSTEMS:statics.STATICS_PARTICLE_EQUILIBRIUM.free_body_diagram_and_force_balance_2d:readiness_check:assessment_review",
+        "new_binding_scope": "per_item_procedure",
+        "new_procedure": {
+          "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+          "signature": {
+            "algorithm": "sha256",
+            "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+            "signed_at": "2026-07-05",
+            "signed_digest": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
+            "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
+            "status": "signed_off"
+          }
+        },
+        "old_binding_scope": "set_scope_extension_021B",
+        "old_procedures": [
+          {
+            "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-13",
+              "signed_digest": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
+              "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+              "signed_at": "2026-07-05",
+              "signed_digest": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
+              "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
+              "status": "signed_off"
+            }
+          }
+        ]
+      },
+      {
+        "explanation_id": "module-assessment:STATICS_MOMENTS_AND_COUPLES:statics.STATICS_RIGID_BODY_EQUILIBRIUM.support_reactions_and_moment_balance_2d:diagnostic_question:assessment_review",
+        "new_binding_scope": "per_item_procedure",
+        "new_procedure": {
+          "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+          "signature": {
+            "algorithm": "sha256",
+            "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+            "signed_at": "2026-07-16",
+            "signed_digest": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+            "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+            "status": "signed_off"
+          }
+        },
+        "old_binding_scope": "set_scope_extension_021B",
+        "old_procedures": [
+          {
+            "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
+              "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+              "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
+              "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
+              "status": "signed_off"
+            }
+          }
+        ]
+      },
+      {
+        "explanation_id": "module-assessment:STATICS_MOMENTS_AND_COUPLES:statics.STATICS_RIGID_BODY_EQUILIBRIUM.support_reactions_and_moment_balance_2d:practice_question_template:assessment_review",
+        "new_binding_scope": "per_item_procedure",
+        "new_procedure": {
+          "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+          "signature": {
+            "algorithm": "sha256",
+            "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+            "signed_at": "2026-07-16",
+            "signed_digest": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+            "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+            "status": "signed_off"
+          }
+        },
+        "old_binding_scope": "set_scope_extension_021B",
+        "old_procedures": [
+          {
+            "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
+              "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+              "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
+              "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
+              "status": "signed_off"
+            }
+          }
+        ]
+      },
+      {
+        "explanation_id": "module-assessment:STATICS_MOMENTS_AND_COUPLES:statics.STATICS_RIGID_BODY_EQUILIBRIUM.support_reactions_and_moment_balance_2d:readiness_check:assessment_review",
+        "new_binding_scope": "per_item_procedure",
+        "new_procedure": {
+          "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+          "signature": {
+            "algorithm": "sha256",
+            "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+            "signed_at": "2026-07-16",
+            "signed_digest": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+            "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+            "status": "signed_off"
+          }
+        },
+        "old_binding_scope": "set_scope_extension_021B",
+        "old_procedures": [
+          {
+            "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
+              "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+              "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
+              "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
+              "status": "signed_off"
+            }
+          }
+        ]
+      },
+      {
+        "explanation_id": "module-assessment:STATICS_PARTICLE_EQUILIBRIUM:statics.STATICS_PARTICLE_EQUILIBRIUM.free_body_diagram_and_force_balance_2d:diagnostic_question:assessment_review",
+        "new_binding_scope": "per_item_procedure",
+        "new_procedure": {
+          "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
+          "signature": {
+            "algorithm": "sha256",
+            "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
+            "signed_at": "2026-07-13",
+            "signed_digest": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
+            "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
+            "status": "signed_off"
+          }
+        },
+        "old_binding_scope": "set_scope_extension_021B",
+        "old_procedures": [
+          {
+            "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-13",
+              "signed_digest": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
+              "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+              "signed_at": "2026-07-05",
+              "signed_digest": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
+              "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
+              "status": "signed_off"
+            }
+          }
+        ]
+      },
+      {
+        "explanation_id": "module-assessment:STATICS_PARTICLE_EQUILIBRIUM:statics.STATICS_PARTICLE_EQUILIBRIUM.free_body_diagram_and_force_balance_2d:practice_question_template:assessment_review",
+        "new_binding_scope": "per_item_procedure",
+        "new_procedure": {
+          "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+          "signature": {
+            "algorithm": "sha256",
+            "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+            "signed_at": "2026-07-05",
+            "signed_digest": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
+            "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
+            "status": "signed_off"
+          }
+        },
+        "old_binding_scope": "set_scope_extension_021B",
+        "old_procedures": [
+          {
+            "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-13",
+              "signed_digest": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
+              "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+              "signed_at": "2026-07-05",
+              "signed_digest": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
+              "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
+              "status": "signed_off"
+            }
+          }
+        ]
+      },
+      {
+        "explanation_id": "module-assessment:STATICS_PARTICLE_EQUILIBRIUM:statics.STATICS_PARTICLE_EQUILIBRIUM.free_body_diagram_and_force_balance_2d:readiness_check:assessment_review",
+        "new_binding_scope": "per_item_procedure",
+        "new_procedure": {
+          "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+          "signature": {
+            "algorithm": "sha256",
+            "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+            "signed_at": "2026-07-05",
+            "signed_digest": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
+            "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
+            "status": "signed_off"
+          }
+        },
+        "old_binding_scope": "set_scope_extension_021B",
+        "old_procedures": [
+          {
+            "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-13",
+              "signed_digest": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
+              "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+              "signed_at": "2026-07-05",
+              "signed_digest": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
+              "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
+              "status": "signed_off"
+            }
+          }
+        ]
+      },
+      {
+        "explanation_id": "module-assessment:STATICS_RIGID_BODY_EQUILIBRIUM:statics.STATICS_RIGID_BODY_EQUILIBRIUM.support_reactions_and_moment_balance_2d:diagnostic_question:assessment_review",
+        "new_binding_scope": "per_item_procedure",
+        "new_procedure": {
+          "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+          "signature": {
+            "algorithm": "sha256",
+            "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+            "signed_at": "2026-07-16",
+            "signed_digest": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+            "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+            "status": "signed_off"
+          }
+        },
+        "old_binding_scope": "set_scope_extension_021B",
+        "old_procedures": [
+          {
+            "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
+              "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+              "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
+              "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
+              "status": "signed_off"
+            }
+          }
+        ]
+      },
+      {
+        "explanation_id": "module-assessment:STATICS_RIGID_BODY_EQUILIBRIUM:statics.STATICS_RIGID_BODY_EQUILIBRIUM.support_reactions_and_moment_balance_2d:practice_question_template:assessment_review",
+        "new_binding_scope": "per_item_procedure",
+        "new_procedure": {
+          "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+          "signature": {
+            "algorithm": "sha256",
+            "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+            "signed_at": "2026-07-16",
+            "signed_digest": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+            "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+            "status": "signed_off"
+          }
+        },
+        "old_binding_scope": "set_scope_extension_021B",
+        "old_procedures": [
+          {
+            "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
+              "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+              "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
+              "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
+              "status": "signed_off"
+            }
+          }
+        ]
+      },
+      {
+        "explanation_id": "module-assessment:STATICS_RIGID_BODY_EQUILIBRIUM:statics.STATICS_RIGID_BODY_EQUILIBRIUM.support_reactions_and_moment_balance_2d:readiness_check:assessment_review",
+        "new_binding_scope": "per_item_procedure",
+        "new_procedure": {
+          "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+          "signature": {
+            "algorithm": "sha256",
+            "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+            "signed_at": "2026-07-16",
+            "signed_digest": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+            "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+            "status": "signed_off"
+          }
+        },
+        "old_binding_scope": "set_scope_extension_021B",
+        "old_procedures": [
+          {
+            "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
+              "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+              "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+              "status": "signed_off"
+            }
+          },
+          {
+            "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+            "signature": {
+              "algorithm": "sha256",
+              "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
+              "signed_at": "2026-07-16",
+              "signed_digest": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
+              "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
+              "status": "signed_off"
+            }
+          }
+        ]
+      }
+    ],
+    "verdict": "BINDINGS_CORRECTED"
+  },
   "bindings": [
     {
       "alt_text": "dimensional relationship diagram for Computing mass moment of inertia for discrete point masses about a fixed axis using I = Σmr²; authored configuration from curriculum/modules/examples/inertia_mass_moment_intro_point_masses.json, bound under topic scope.",
@@ -3941,7 +4496,13 @@
     },
     {
       "alt_text": "force vector and coordinate system diagram for Building a 2D particle free-body diagram and writing force-balance equations; authored configuration from curriculum/modules/synthesized/particle_equilibrium_free_body_diagram_and_force_balance_2d_synthesized.json, bound under set scope extension 021B.",
-      "binding_scope": "set_scope_extension_021B",
+      "binding_correction": {
+        "authorization": "021B per-item assessment binding",
+        "diagram_unchanged": true,
+        "original_diagram_fingerprint": "7626e05e03345413475cdb97fef316ffe971601af00b381dbb9970c464423ebf",
+        "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722"
+      },
+      "binding_scope": "per_item_procedure",
       "canonical_topic": "STATICS_FORCE_VECTORS",
       "database_eligible": false,
       "diagram_fingerprint": "7626e05e03345413475cdb97fef316ffe971601af00b381dbb9970c464423ebf",
@@ -3973,86 +4534,11 @@
             "status": "signed_off"
           },
           "topic_code": "STATICS_FORCE_SYSTEMS"
-        },
-        {
-          "micro_skill_code": "solve_particle_equil_2d",
-          "ordered_steps": [
-            {
-              "actions": [
-                "Isolate the particle from its surroundings.",
-                "Show all applied loads, weights, and cable or link forces.",
-                "Label unknown magnitudes or directions clearly."
-              ],
-              "reasoning": "Every force on the particle must be visible before equilibrium can be applied.",
-              "step": 1,
-              "title": "Draw or interpret the 2D free-body diagram"
-            },
-            {
-              "actions": [
-                "Draw x and y axes.",
-                "State which directions are positive.",
-                "Keep the same convention for every force."
-              ],
-              "reasoning": "All force components must use the same reference frame.",
-              "step": 2,
-              "title": "Establish coordinate axes and sign convention"
-            },
-            {
-              "actions": [
-                "Write each force in component form.",
-                "Use trigonometry for angled forces.",
-                "Assign the correct sign to each component."
-              ],
-              "reasoning": "Equilibrium is applied component by component.",
-              "step": 3,
-              "title": "Resolve all forces into x and y components"
-            },
-            {
-              "actions": [
-                "Write the x-direction equilibrium equation.",
-                "Write the y-direction equilibrium equation.",
-                "Include every force shown on the FBD."
-              ],
-              "reasoning": "A particle in equilibrium has zero net force in both coordinate directions.",
-              "step": 4,
-              "title": "Apply ΣFx = 0 and ΣFy = 0"
-            },
-            {
-              "actions": [
-                "Count unknowns and equations.",
-                "Solve algebraically for the requested unknowns.",
-                "Keep units consistent throughout."
-              ],
-              "reasoning": "The unknown force magnitudes or angles come from the two equilibrium equations.",
-              "step": 5,
-              "title": "Solve the simultaneous equations"
-            },
-            {
-              "actions": [
-                "Substitute solved values back into both equilibrium equations.",
-                "Verify cable tensions are positive if tension-only members were assumed.",
-                "Confirm the result matches the geometry of the problem."
-              ],
-              "reasoning": "Negative magnitudes often indicate an incorrect direction assumption.",
-              "step": 6,
-              "title": "Check signs and physical plausibility"
-            }
-          ],
-          "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
-            "signed_at": "2026-07-05",
-            "signed_digest": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
-            "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_PARTICLE_EQUILIBRIUM"
         }
       ],
       "renderer_category": "force_vector_and_coordinate_system_diagram",
       "renderer_spec": {
-        "binding_scope": "set_scope_extension_021B",
+        "binding_scope": "per_item_procedure",
         "explanation_id": "module-assessment:STATICS_FORCE_SYSTEMS:statics.STATICS_PARTICLE_EQUILIBRIUM.free_body_diagram_and_force_balance_2d:diagnostic_question:assessment_review",
         "geometry_seed": "339170619b7c25f1bcd8ba8fcb94088da89947eaeceba52a83b90a82f97bf60c",
         "labels_values_units_state": [
@@ -4066,8 +4552,7 @@
           "0.05"
         ],
         "procedure_ids": [
-          "proc-statics-force-systems-particle-fbd-2d-v1",
-          "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d"
+          "proc-statics-force-systems-particle-fbd-2d-v1"
         ],
         "renderer_category": "force_vector_and_coordinate_system_diagram",
         "source": {
@@ -4103,7 +4588,13 @@
     },
     {
       "alt_text": "force vector and coordinate system diagram for Building a 2D particle free-body diagram and writing force-balance equations; authored configuration from curriculum/modules/synthesized/particle_equilibrium_free_body_diagram_and_force_balance_2d_synthesized.json, bound under set scope extension 021B.",
-      "binding_scope": "set_scope_extension_021B",
+      "binding_correction": {
+        "authorization": "021B per-item assessment binding",
+        "diagram_unchanged": true,
+        "original_diagram_fingerprint": "3ebd19e5bb65865290bbd42170f60b7c7c205ec507203d2345e86418f1a8de25",
+        "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722"
+      },
+      "binding_scope": "per_item_procedure",
       "canonical_topic": "STATICS_FORCE_VECTORS",
       "database_eligible": false,
       "diagram_fingerprint": "3ebd19e5bb65865290bbd42170f60b7c7c205ec507203d2345e86418f1a8de25",
@@ -4115,27 +4606,6 @@
       "is_active": false,
       "micro_skill": "Building a 2D particle free-body diagram and writing force-balance equations",
       "procedures": [
-        {
-          "micro_skill_code": "particle_fbd_2d",
-          "ordered_steps": [
-            "Identify the specific particle or point-mass body to isolate (e.g., a ring, pin, knot, or block treated as a particle).",
-            "Survey the physical setup and list every external interaction on that body: applied loads, weight, cable/link tensions, normal or contact reactions, and friction if explicitly part of the setup.",
-            "Draw the isolated particle as a dot or small symbol at its location, separated from supports and attached members.",
-            "For each external force, draw a labeled arrow on the particle at the correct point of application, along the correct line of action, and with the correct sense (direction along that line).",
-            "Verify completeness: every contact and field force is shown; no internal forces; no invented forces; each force is named and its line of action is stated.",
-            "Confirm the diagram stops at the force inventory — do not resolve forces into x/y components and do not write ΣFx = 0 or ΣFy = 0 (those are downstream skills)."
-          ],
-          "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
-            "signed_at": "2026-07-13",
-            "signed_digest": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
-            "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_FORCE_SYSTEMS"
-        },
         {
           "micro_skill_code": "solve_particle_equil_2d",
           "ordered_steps": [
@@ -4214,7 +4684,7 @@
       ],
       "renderer_category": "force_vector_and_coordinate_system_diagram",
       "renderer_spec": {
-        "binding_scope": "set_scope_extension_021B",
+        "binding_scope": "per_item_procedure",
         "explanation_id": "module-assessment:STATICS_FORCE_SYSTEMS:statics.STATICS_PARTICLE_EQUILIBRIUM.free_body_diagram_and_force_balance_2d:practice_question_template:assessment_review",
         "geometry_seed": "adc8c3e5d89cd2e5ba9398ac031d6625791516bc03aa9816a18d1288bda50b23",
         "labels_values_units_state": [
@@ -4228,7 +4698,6 @@
           "0.05"
         ],
         "procedure_ids": [
-          "proc-statics-force-systems-particle-fbd-2d-v1",
           "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d"
         ],
         "renderer_category": "force_vector_and_coordinate_system_diagram",
@@ -4265,7 +4734,13 @@
     },
     {
       "alt_text": "force vector and coordinate system diagram for Building a 2D particle free-body diagram and writing force-balance equations; authored configuration from curriculum/modules/synthesized/particle_equilibrium_free_body_diagram_and_force_balance_2d_synthesized.json, bound under set scope extension 021B.",
-      "binding_scope": "set_scope_extension_021B",
+      "binding_correction": {
+        "authorization": "021B per-item assessment binding",
+        "diagram_unchanged": true,
+        "original_diagram_fingerprint": "1f9f4e735bb5952b966f05f00ebe57c707b701a63ee97561ee1c1a8f2e0fae34",
+        "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722"
+      },
+      "binding_scope": "per_item_procedure",
       "canonical_topic": "STATICS_FORCE_VECTORS",
       "database_eligible": false,
       "diagram_fingerprint": "1f9f4e735bb5952b966f05f00ebe57c707b701a63ee97561ee1c1a8f2e0fae34",
@@ -4277,27 +4752,6 @@
       "is_active": false,
       "micro_skill": "Building a 2D particle free-body diagram and writing force-balance equations",
       "procedures": [
-        {
-          "micro_skill_code": "particle_fbd_2d",
-          "ordered_steps": [
-            "Identify the specific particle or point-mass body to isolate (e.g., a ring, pin, knot, or block treated as a particle).",
-            "Survey the physical setup and list every external interaction on that body: applied loads, weight, cable/link tensions, normal or contact reactions, and friction if explicitly part of the setup.",
-            "Draw the isolated particle as a dot or small symbol at its location, separated from supports and attached members.",
-            "For each external force, draw a labeled arrow on the particle at the correct point of application, along the correct line of action, and with the correct sense (direction along that line).",
-            "Verify completeness: every contact and field force is shown; no internal forces; no invented forces; each force is named and its line of action is stated.",
-            "Confirm the diagram stops at the force inventory — do not resolve forces into x/y components and do not write ΣFx = 0 or ΣFy = 0 (those are downstream skills)."
-          ],
-          "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
-            "signed_at": "2026-07-13",
-            "signed_digest": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
-            "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_FORCE_SYSTEMS"
-        },
         {
           "micro_skill_code": "solve_particle_equil_2d",
           "ordered_steps": [
@@ -4376,7 +4830,7 @@
       ],
       "renderer_category": "force_vector_and_coordinate_system_diagram",
       "renderer_spec": {
-        "binding_scope": "set_scope_extension_021B",
+        "binding_scope": "per_item_procedure",
         "explanation_id": "module-assessment:STATICS_FORCE_SYSTEMS:statics.STATICS_PARTICLE_EQUILIBRIUM.free_body_diagram_and_force_balance_2d:readiness_check:assessment_review",
         "geometry_seed": "08b71682929c85dadcb18052c1f6d673d41beb8be5bde1a052378a90123be945",
         "labels_values_units_state": [
@@ -4390,7 +4844,6 @@
           "0.05"
         ],
         "procedure_ids": [
-          "proc-statics-force-systems-particle-fbd-2d-v1",
           "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d"
         ],
         "renderer_category": "force_vector_and_coordinate_system_diagram",
@@ -5207,7 +5660,13 @@
     },
     {
       "alt_text": "moment couple geometry diagram for Solving for support reactions using force and moment equilibrium for a coplanar rigid body; authored configuration from curriculum/modules/synthesized/rigid_body_equilibrium_support_reactions_and_moment_balance_2d_synthesized.json, bound under set scope extension 021B.",
-      "binding_scope": "set_scope_extension_021B",
+      "binding_correction": {
+        "authorization": "021B per-item assessment binding",
+        "diagram_unchanged": true,
+        "original_diagram_fingerprint": "d6d39371009c6fb897a0139fbd9d7287c55f5cd372bfa828b60d1cfe2c60cdde",
+        "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722"
+      },
+      "binding_scope": "per_item_procedure",
       "canonical_topic": "STATICS_MOMENTS_AND_COUPLES",
       "database_eligible": false,
       "diagram_fingerprint": "d6d39371009c6fb897a0139fbd9d7287c55f5cd372bfa828b60d1cfe2c60cdde",
@@ -5219,28 +5678,6 @@
       "is_active": false,
       "micro_skill": "Solving for support reactions using force and moment equilibrium for a coplanar rigid body",
       "procedures": [
-        {
-          "micro_skill_code": "support_reaction_modeling",
-          "ordered_steps": [
-            "Identify every support or connecting member on the body that supplies a reaction and classify each by type: pin, frictionless roller, fixed (built-in), or cable/two-force link (as present in the setup).",
-            "For each classified support, state which rigid-body translations and/or rotations it prevents in 2D.",
-            "Map those prevented motions to reaction components using the constraint → reaction principle: one force component per prevented translation direction; one couple-moment reaction if rotation is prevented (fixed supports only among the common 2D types).",
-            "Assign a symbol and an assumed positive direction (or clockwise/counterclockwise sense for a couple) to every reaction component in the mapping — do not compute magnitudes.",
-            "Label each reaction component on the free-body diagram at the support location with its symbol and assumed sense, matching the mapped set for that support type.",
-            "Verify the component count for each support against its type: pin → 2 force components; frictionless roller → 1 force perpendicular to the surface; fixed → 2 force components + 1 couple moment; cable/two-force link → 1 force along the member.",
-            "Confirm the deliverable is the support-type → reaction-components mapping only — do not write ΣFx = 0, ΣFy = 0, or ΣM = 0, and do not solve for any reaction value (those belong to rigid_body_equilibrium_2d and support_reactions_2d)."
-          ],
-          "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
-            "signed_at": "2026-07-16",
-            "signed_digest": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
-            "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_FORCE_SYSTEMS"
-        },
         {
           "micro_skill_code": "support_reactions_2d",
           "ordered_steps": [
@@ -5265,35 +5702,11 @@
             "status": "signed_off"
           },
           "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
-        },
-        {
-          "micro_skill_code": "rigid_body_equilibrium_2d",
-          "ordered_steps": [
-            "Confirm a complete 2D rigid-body free-body diagram is already given. List every labeled force and couple and identify the unknown force or moment variables to solve for. Do not remodel support types or invent reaction components that are not already on the FBD.",
-            "Establish rectangular axes (+x, +y) and a moment sign convention (state which sense of rotation is positive).",
-            "Resolve every inclined force on the FBD into x and y components using the stated axes and the given angle (or given cos/sin).",
-            "Count the independent unknowns and confirm they do not exceed the three available equilibrium equations (ΣFx = 0, ΣFy = 0, ΣM = 0).",
-            "Choose a moment center O and state why it is useful (for example, a point that removes known forces from the moment equation or simplifies arithmetic).",
-            "Write the three scalar equilibrium equations ΣFx = 0, ΣFy = 0, and ΣM_O = 0, substituting resolved components and including every couple with the stated sign convention.",
-            "Solve the equation set for the unknown force and/or couple variables.",
-            "Interpret each signed result: a negative unknown means the true sense is opposite the assumed positive direction; confirm physical direction against the FBD.",
-            "Report each unknown with magnitude, direction or rotational sense, and units. Stop — do not convert the solve into a named-support-reaction beam analysis."
-          ],
-          "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
-            "signed_at": "2026-07-16",
-            "signed_digest": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
-            "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
         }
       ],
       "renderer_category": "moment_couple_geometry_diagram",
       "renderer_spec": {
-        "binding_scope": "set_scope_extension_021B",
+        "binding_scope": "per_item_procedure",
         "explanation_id": "module-assessment:STATICS_MOMENTS_AND_COUPLES:statics.STATICS_RIGID_BODY_EQUILIBRIUM.support_reactions_and_moment_balance_2d:diagnostic_question:assessment_review",
         "geometry_seed": "b462f99cfd79cd649e60be407cc06522435e0e433d0c34edd2ad435e409bae6d",
         "labels_values_units_state": [
@@ -5307,9 +5720,7 @@
           "1"
         ],
         "procedure_ids": [
-          "proc-statics-force-systems-support-reaction-modeling-v1",
-          "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
-          "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1"
+          "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1"
         ],
         "renderer_category": "moment_couple_geometry_diagram",
         "source": {
@@ -5345,7 +5756,13 @@
     },
     {
       "alt_text": "moment couple geometry diagram for Solving for support reactions using force and moment equilibrium for a coplanar rigid body; authored configuration from curriculum/modules/synthesized/rigid_body_equilibrium_support_reactions_and_moment_balance_2d_synthesized.json, bound under set scope extension 021B.",
-      "binding_scope": "set_scope_extension_021B",
+      "binding_correction": {
+        "authorization": "021B per-item assessment binding",
+        "diagram_unchanged": true,
+        "original_diagram_fingerprint": "79fd9f2080b95f3d58987e597d48bfdd729222e0b5b5897447661cedc8426680",
+        "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722"
+      },
+      "binding_scope": "per_item_procedure",
       "canonical_topic": "STATICS_MOMENTS_AND_COUPLES",
       "database_eligible": false,
       "diagram_fingerprint": "79fd9f2080b95f3d58987e597d48bfdd729222e0b5b5897447661cedc8426680",
@@ -5357,28 +5774,6 @@
       "is_active": false,
       "micro_skill": "Solving for support reactions using force and moment equilibrium for a coplanar rigid body",
       "procedures": [
-        {
-          "micro_skill_code": "support_reaction_modeling",
-          "ordered_steps": [
-            "Identify every support or connecting member on the body that supplies a reaction and classify each by type: pin, frictionless roller, fixed (built-in), or cable/two-force link (as present in the setup).",
-            "For each classified support, state which rigid-body translations and/or rotations it prevents in 2D.",
-            "Map those prevented motions to reaction components using the constraint → reaction principle: one force component per prevented translation direction; one couple-moment reaction if rotation is prevented (fixed supports only among the common 2D types).",
-            "Assign a symbol and an assumed positive direction (or clockwise/counterclockwise sense for a couple) to every reaction component in the mapping — do not compute magnitudes.",
-            "Label each reaction component on the free-body diagram at the support location with its symbol and assumed sense, matching the mapped set for that support type.",
-            "Verify the component count for each support against its type: pin → 2 force components; frictionless roller → 1 force perpendicular to the surface; fixed → 2 force components + 1 couple moment; cable/two-force link → 1 force along the member.",
-            "Confirm the deliverable is the support-type → reaction-components mapping only — do not write ΣFx = 0, ΣFy = 0, or ΣM = 0, and do not solve for any reaction value (those belong to rigid_body_equilibrium_2d and support_reactions_2d)."
-          ],
-          "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
-            "signed_at": "2026-07-16",
-            "signed_digest": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
-            "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_FORCE_SYSTEMS"
-        },
         {
           "micro_skill_code": "support_reactions_2d",
           "ordered_steps": [
@@ -5403,35 +5798,11 @@
             "status": "signed_off"
           },
           "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
-        },
-        {
-          "micro_skill_code": "rigid_body_equilibrium_2d",
-          "ordered_steps": [
-            "Confirm a complete 2D rigid-body free-body diagram is already given. List every labeled force and couple and identify the unknown force or moment variables to solve for. Do not remodel support types or invent reaction components that are not already on the FBD.",
-            "Establish rectangular axes (+x, +y) and a moment sign convention (state which sense of rotation is positive).",
-            "Resolve every inclined force on the FBD into x and y components using the stated axes and the given angle (or given cos/sin).",
-            "Count the independent unknowns and confirm they do not exceed the three available equilibrium equations (ΣFx = 0, ΣFy = 0, ΣM = 0).",
-            "Choose a moment center O and state why it is useful (for example, a point that removes known forces from the moment equation or simplifies arithmetic).",
-            "Write the three scalar equilibrium equations ΣFx = 0, ΣFy = 0, and ΣM_O = 0, substituting resolved components and including every couple with the stated sign convention.",
-            "Solve the equation set for the unknown force and/or couple variables.",
-            "Interpret each signed result: a negative unknown means the true sense is opposite the assumed positive direction; confirm physical direction against the FBD.",
-            "Report each unknown with magnitude, direction or rotational sense, and units. Stop — do not convert the solve into a named-support-reaction beam analysis."
-          ],
-          "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
-            "signed_at": "2026-07-16",
-            "signed_digest": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
-            "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
         }
       ],
       "renderer_category": "moment_couple_geometry_diagram",
       "renderer_spec": {
-        "binding_scope": "set_scope_extension_021B",
+        "binding_scope": "per_item_procedure",
         "explanation_id": "module-assessment:STATICS_MOMENTS_AND_COUPLES:statics.STATICS_RIGID_BODY_EQUILIBRIUM.support_reactions_and_moment_balance_2d:practice_question_template:assessment_review",
         "geometry_seed": "522365132076208acee6e26c2baaa8ebd4d80746c6faeef11775770d63a85cb4",
         "labels_values_units_state": [
@@ -5445,9 +5816,7 @@
           "1"
         ],
         "procedure_ids": [
-          "proc-statics-force-systems-support-reaction-modeling-v1",
-          "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
-          "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1"
+          "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1"
         ],
         "renderer_category": "moment_couple_geometry_diagram",
         "source": {
@@ -5483,7 +5852,13 @@
     },
     {
       "alt_text": "moment couple geometry diagram for Solving for support reactions using force and moment equilibrium for a coplanar rigid body; authored configuration from curriculum/modules/synthesized/rigid_body_equilibrium_support_reactions_and_moment_balance_2d_synthesized.json, bound under set scope extension 021B.",
-      "binding_scope": "set_scope_extension_021B",
+      "binding_correction": {
+        "authorization": "021B per-item assessment binding",
+        "diagram_unchanged": true,
+        "original_diagram_fingerprint": "ab2f52300d161246fe686a8ea341ca68284244efbdd80444fbc19f36b89c46f1",
+        "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722"
+      },
+      "binding_scope": "per_item_procedure",
       "canonical_topic": "STATICS_MOMENTS_AND_COUPLES",
       "database_eligible": false,
       "diagram_fingerprint": "ab2f52300d161246fe686a8ea341ca68284244efbdd80444fbc19f36b89c46f1",
@@ -5495,28 +5870,6 @@
       "is_active": false,
       "micro_skill": "Solving for support reactions using force and moment equilibrium for a coplanar rigid body",
       "procedures": [
-        {
-          "micro_skill_code": "support_reaction_modeling",
-          "ordered_steps": [
-            "Identify every support or connecting member on the body that supplies a reaction and classify each by type: pin, frictionless roller, fixed (built-in), or cable/two-force link (as present in the setup).",
-            "For each classified support, state which rigid-body translations and/or rotations it prevents in 2D.",
-            "Map those prevented motions to reaction components using the constraint → reaction principle: one force component per prevented translation direction; one couple-moment reaction if rotation is prevented (fixed supports only among the common 2D types).",
-            "Assign a symbol and an assumed positive direction (or clockwise/counterclockwise sense for a couple) to every reaction component in the mapping — do not compute magnitudes.",
-            "Label each reaction component on the free-body diagram at the support location with its symbol and assumed sense, matching the mapped set for that support type.",
-            "Verify the component count for each support against its type: pin → 2 force components; frictionless roller → 1 force perpendicular to the surface; fixed → 2 force components + 1 couple moment; cable/two-force link → 1 force along the member.",
-            "Confirm the deliverable is the support-type → reaction-components mapping only — do not write ΣFx = 0, ΣFy = 0, or ΣM = 0, and do not solve for any reaction value (those belong to rigid_body_equilibrium_2d and support_reactions_2d)."
-          ],
-          "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
-            "signed_at": "2026-07-16",
-            "signed_digest": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
-            "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_FORCE_SYSTEMS"
-        },
         {
           "micro_skill_code": "support_reactions_2d",
           "ordered_steps": [
@@ -5541,35 +5894,11 @@
             "status": "signed_off"
           },
           "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
-        },
-        {
-          "micro_skill_code": "rigid_body_equilibrium_2d",
-          "ordered_steps": [
-            "Confirm a complete 2D rigid-body free-body diagram is already given. List every labeled force and couple and identify the unknown force or moment variables to solve for. Do not remodel support types or invent reaction components that are not already on the FBD.",
-            "Establish rectangular axes (+x, +y) and a moment sign convention (state which sense of rotation is positive).",
-            "Resolve every inclined force on the FBD into x and y components using the stated axes and the given angle (or given cos/sin).",
-            "Count the independent unknowns and confirm they do not exceed the three available equilibrium equations (ΣFx = 0, ΣFy = 0, ΣM = 0).",
-            "Choose a moment center O and state why it is useful (for example, a point that removes known forces from the moment equation or simplifies arithmetic).",
-            "Write the three scalar equilibrium equations ΣFx = 0, ΣFy = 0, and ΣM_O = 0, substituting resolved components and including every couple with the stated sign convention.",
-            "Solve the equation set for the unknown force and/or couple variables.",
-            "Interpret each signed result: a negative unknown means the true sense is opposite the assumed positive direction; confirm physical direction against the FBD.",
-            "Report each unknown with magnitude, direction or rotational sense, and units. Stop — do not convert the solve into a named-support-reaction beam analysis."
-          ],
-          "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
-            "signed_at": "2026-07-16",
-            "signed_digest": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
-            "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
         }
       ],
       "renderer_category": "moment_couple_geometry_diagram",
       "renderer_spec": {
-        "binding_scope": "set_scope_extension_021B",
+        "binding_scope": "per_item_procedure",
         "explanation_id": "module-assessment:STATICS_MOMENTS_AND_COUPLES:statics.STATICS_RIGID_BODY_EQUILIBRIUM.support_reactions_and_moment_balance_2d:readiness_check:assessment_review",
         "geometry_seed": "d511bd61baf2d7787bd10fdb2bd33758dbbd4abb9898f828b9119a62e751423c",
         "labels_values_units_state": [
@@ -5583,9 +5912,7 @@
           "1"
         ],
         "procedure_ids": [
-          "proc-statics-force-systems-support-reaction-modeling-v1",
-          "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
-          "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1"
+          "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1"
         ],
         "renderer_category": "moment_couple_geometry_diagram",
         "source": {
@@ -6401,7 +6728,13 @@
     },
     {
       "alt_text": "particle free body diagram for Building a 2D particle free-body diagram and writing force-balance equations; authored configuration from curriculum/modules/synthesized/particle_equilibrium_free_body_diagram_and_force_balance_2d_synthesized.json, bound under set scope extension 021B.",
-      "binding_scope": "set_scope_extension_021B",
+      "binding_correction": {
+        "authorization": "021B per-item assessment binding",
+        "diagram_unchanged": true,
+        "original_diagram_fingerprint": "8c3f1b77bfcbd62b8674df347fc5bd0147e397f0d7f4f7164a1130647bd87b7b",
+        "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722"
+      },
+      "binding_scope": "per_item_procedure",
       "canonical_topic": "STATICS_PARTICLE_EQUILIBRIUM",
       "database_eligible": false,
       "diagram_fingerprint": "8c3f1b77bfcbd62b8674df347fc5bd0147e397f0d7f4f7164a1130647bd87b7b",
@@ -6433,86 +6766,11 @@
             "status": "signed_off"
           },
           "topic_code": "STATICS_FORCE_SYSTEMS"
-        },
-        {
-          "micro_skill_code": "solve_particle_equil_2d",
-          "ordered_steps": [
-            {
-              "actions": [
-                "Isolate the particle from its surroundings.",
-                "Show all applied loads, weights, and cable or link forces.",
-                "Label unknown magnitudes or directions clearly."
-              ],
-              "reasoning": "Every force on the particle must be visible before equilibrium can be applied.",
-              "step": 1,
-              "title": "Draw or interpret the 2D free-body diagram"
-            },
-            {
-              "actions": [
-                "Draw x and y axes.",
-                "State which directions are positive.",
-                "Keep the same convention for every force."
-              ],
-              "reasoning": "All force components must use the same reference frame.",
-              "step": 2,
-              "title": "Establish coordinate axes and sign convention"
-            },
-            {
-              "actions": [
-                "Write each force in component form.",
-                "Use trigonometry for angled forces.",
-                "Assign the correct sign to each component."
-              ],
-              "reasoning": "Equilibrium is applied component by component.",
-              "step": 3,
-              "title": "Resolve all forces into x and y components"
-            },
-            {
-              "actions": [
-                "Write the x-direction equilibrium equation.",
-                "Write the y-direction equilibrium equation.",
-                "Include every force shown on the FBD."
-              ],
-              "reasoning": "A particle in equilibrium has zero net force in both coordinate directions.",
-              "step": 4,
-              "title": "Apply ΣFx = 0 and ΣFy = 0"
-            },
-            {
-              "actions": [
-                "Count unknowns and equations.",
-                "Solve algebraically for the requested unknowns.",
-                "Keep units consistent throughout."
-              ],
-              "reasoning": "The unknown force magnitudes or angles come from the two equilibrium equations.",
-              "step": 5,
-              "title": "Solve the simultaneous equations"
-            },
-            {
-              "actions": [
-                "Substitute solved values back into both equilibrium equations.",
-                "Verify cable tensions are positive if tension-only members were assumed.",
-                "Confirm the result matches the geometry of the problem."
-              ],
-              "reasoning": "Negative magnitudes often indicate an incorrect direction assumption.",
-              "step": 6,
-              "title": "Check signs and physical plausibility"
-            }
-          ],
-          "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
-            "signed_at": "2026-07-05",
-            "signed_digest": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
-            "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_PARTICLE_EQUILIBRIUM"
         }
       ],
       "renderer_category": "particle_free_body_diagram",
       "renderer_spec": {
-        "binding_scope": "set_scope_extension_021B",
+        "binding_scope": "per_item_procedure",
         "explanation_id": "module-assessment:STATICS_PARTICLE_EQUILIBRIUM:statics.STATICS_PARTICLE_EQUILIBRIUM.free_body_diagram_and_force_balance_2d:diagnostic_question:assessment_review",
         "geometry_seed": "c6e643fd9ea0a826f58eda48f7b2190f43eb753c2cec9e6c7a337d3f1549d656",
         "labels_values_units_state": [
@@ -6526,8 +6784,7 @@
           "0.05"
         ],
         "procedure_ids": [
-          "proc-statics-force-systems-particle-fbd-2d-v1",
-          "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d"
+          "proc-statics-force-systems-particle-fbd-2d-v1"
         ],
         "renderer_category": "particle_free_body_diagram",
         "source": {
@@ -6563,7 +6820,13 @@
     },
     {
       "alt_text": "particle free body diagram for Building a 2D particle free-body diagram and writing force-balance equations; authored configuration from curriculum/modules/synthesized/particle_equilibrium_free_body_diagram_and_force_balance_2d_synthesized.json, bound under set scope extension 021B.",
-      "binding_scope": "set_scope_extension_021B",
+      "binding_correction": {
+        "authorization": "021B per-item assessment binding",
+        "diagram_unchanged": true,
+        "original_diagram_fingerprint": "f9821cda0ab2cd8d2a932a2e2b4732700d37f6ba03e490b1696d1cbdec64cc00",
+        "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722"
+      },
+      "binding_scope": "per_item_procedure",
       "canonical_topic": "STATICS_PARTICLE_EQUILIBRIUM",
       "database_eligible": false,
       "diagram_fingerprint": "f9821cda0ab2cd8d2a932a2e2b4732700d37f6ba03e490b1696d1cbdec64cc00",
@@ -6575,27 +6838,6 @@
       "is_active": false,
       "micro_skill": "Building a 2D particle free-body diagram and writing force-balance equations",
       "procedures": [
-        {
-          "micro_skill_code": "particle_fbd_2d",
-          "ordered_steps": [
-            "Identify the specific particle or point-mass body to isolate (e.g., a ring, pin, knot, or block treated as a particle).",
-            "Survey the physical setup and list every external interaction on that body: applied loads, weight, cable/link tensions, normal or contact reactions, and friction if explicitly part of the setup.",
-            "Draw the isolated particle as a dot or small symbol at its location, separated from supports and attached members.",
-            "For each external force, draw a labeled arrow on the particle at the correct point of application, along the correct line of action, and with the correct sense (direction along that line).",
-            "Verify completeness: every contact and field force is shown; no internal forces; no invented forces; each force is named and its line of action is stated.",
-            "Confirm the diagram stops at the force inventory — do not resolve forces into x/y components and do not write ΣFx = 0 or ΣFy = 0 (those are downstream skills)."
-          ],
-          "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
-            "signed_at": "2026-07-13",
-            "signed_digest": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
-            "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_FORCE_SYSTEMS"
-        },
         {
           "micro_skill_code": "solve_particle_equil_2d",
           "ordered_steps": [
@@ -6674,7 +6916,7 @@
       ],
       "renderer_category": "particle_free_body_diagram",
       "renderer_spec": {
-        "binding_scope": "set_scope_extension_021B",
+        "binding_scope": "per_item_procedure",
         "explanation_id": "module-assessment:STATICS_PARTICLE_EQUILIBRIUM:statics.STATICS_PARTICLE_EQUILIBRIUM.free_body_diagram_and_force_balance_2d:practice_question_template:assessment_review",
         "geometry_seed": "b7f2a3561f69ef9e84f6a1b8ea590987bb7dd96eac6d608eb0657c8b45944038",
         "labels_values_units_state": [
@@ -6688,7 +6930,6 @@
           "0.05"
         ],
         "procedure_ids": [
-          "proc-statics-force-systems-particle-fbd-2d-v1",
           "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d"
         ],
         "renderer_category": "particle_free_body_diagram",
@@ -6725,7 +6966,13 @@
     },
     {
       "alt_text": "particle free body diagram for Building a 2D particle free-body diagram and writing force-balance equations; authored configuration from curriculum/modules/synthesized/particle_equilibrium_free_body_diagram_and_force_balance_2d_synthesized.json, bound under set scope extension 021B.",
-      "binding_scope": "set_scope_extension_021B",
+      "binding_correction": {
+        "authorization": "021B per-item assessment binding",
+        "diagram_unchanged": true,
+        "original_diagram_fingerprint": "561d79e8ca4d97282f8c611da822b00f9dc987af0f5fc2901749969fd44a1992",
+        "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722"
+      },
+      "binding_scope": "per_item_procedure",
       "canonical_topic": "STATICS_PARTICLE_EQUILIBRIUM",
       "database_eligible": false,
       "diagram_fingerprint": "561d79e8ca4d97282f8c611da822b00f9dc987af0f5fc2901749969fd44a1992",
@@ -6737,27 +6984,6 @@
       "is_active": false,
       "micro_skill": "Building a 2D particle free-body diagram and writing force-balance equations",
       "procedures": [
-        {
-          "micro_skill_code": "particle_fbd_2d",
-          "ordered_steps": [
-            "Identify the specific particle or point-mass body to isolate (e.g., a ring, pin, knot, or block treated as a particle).",
-            "Survey the physical setup and list every external interaction on that body: applied loads, weight, cable/link tensions, normal or contact reactions, and friction if explicitly part of the setup.",
-            "Draw the isolated particle as a dot or small symbol at its location, separated from supports and attached members.",
-            "For each external force, draw a labeled arrow on the particle at the correct point of application, along the correct line of action, and with the correct sense (direction along that line).",
-            "Verify completeness: every contact and field force is shown; no internal forces; no invented forces; each force is named and its line of action is stated.",
-            "Confirm the diagram stops at the force inventory — do not resolve forces into x/y components and do not write ΣFx = 0 or ΣFy = 0 (those are downstream skills)."
-          ],
-          "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
-            "signed_at": "2026-07-13",
-            "signed_digest": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
-            "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_FORCE_SYSTEMS"
-        },
         {
           "micro_skill_code": "solve_particle_equil_2d",
           "ordered_steps": [
@@ -6836,7 +7062,7 @@
       ],
       "renderer_category": "particle_free_body_diagram",
       "renderer_spec": {
-        "binding_scope": "set_scope_extension_021B",
+        "binding_scope": "per_item_procedure",
         "explanation_id": "module-assessment:STATICS_PARTICLE_EQUILIBRIUM:statics.STATICS_PARTICLE_EQUILIBRIUM.free_body_diagram_and_force_balance_2d:readiness_check:assessment_review",
         "geometry_seed": "1abfa0118d6ca9e11aec47247651fe7203e9771ef971a3892dc5679f1c8be361",
         "labels_values_units_state": [
@@ -6850,7 +7076,6 @@
           "0.05"
         ],
         "procedure_ids": [
-          "proc-statics-force-systems-particle-fbd-2d-v1",
           "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d"
         ],
         "renderer_category": "particle_free_body_diagram",
@@ -7307,7 +7532,13 @@
     },
     {
       "alt_text": "rigid body free body diagram for Solving for support reactions using force and moment equilibrium for a coplanar rigid body; authored configuration from curriculum/modules/synthesized/rigid_body_equilibrium_support_reactions_and_moment_balance_2d_synthesized.json, bound under set scope extension 021B.",
-      "binding_scope": "set_scope_extension_021B",
+      "binding_correction": {
+        "authorization": "021B per-item assessment binding",
+        "diagram_unchanged": true,
+        "original_diagram_fingerprint": "34e3f9448c75266731f59f08a03a128627ae2556c9161c5241c302a6754fc325",
+        "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722"
+      },
+      "binding_scope": "per_item_procedure",
       "canonical_topic": "STATICS_RIGID_BODY_EQUILIBRIUM",
       "database_eligible": false,
       "diagram_fingerprint": "34e3f9448c75266731f59f08a03a128627ae2556c9161c5241c302a6754fc325",
@@ -7319,28 +7550,6 @@
       "is_active": false,
       "micro_skill": "Solving for support reactions using force and moment equilibrium for a coplanar rigid body",
       "procedures": [
-        {
-          "micro_skill_code": "support_reaction_modeling",
-          "ordered_steps": [
-            "Identify every support or connecting member on the body that supplies a reaction and classify each by type: pin, frictionless roller, fixed (built-in), or cable/two-force link (as present in the setup).",
-            "For each classified support, state which rigid-body translations and/or rotations it prevents in 2D.",
-            "Map those prevented motions to reaction components using the constraint → reaction principle: one force component per prevented translation direction; one couple-moment reaction if rotation is prevented (fixed supports only among the common 2D types).",
-            "Assign a symbol and an assumed positive direction (or clockwise/counterclockwise sense for a couple) to every reaction component in the mapping — do not compute magnitudes.",
-            "Label each reaction component on the free-body diagram at the support location with its symbol and assumed sense, matching the mapped set for that support type.",
-            "Verify the component count for each support against its type: pin → 2 force components; frictionless roller → 1 force perpendicular to the surface; fixed → 2 force components + 1 couple moment; cable/two-force link → 1 force along the member.",
-            "Confirm the deliverable is the support-type → reaction-components mapping only — do not write ΣFx = 0, ΣFy = 0, or ΣM = 0, and do not solve for any reaction value (those belong to rigid_body_equilibrium_2d and support_reactions_2d)."
-          ],
-          "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
-            "signed_at": "2026-07-16",
-            "signed_digest": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
-            "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_FORCE_SYSTEMS"
-        },
         {
           "micro_skill_code": "support_reactions_2d",
           "ordered_steps": [
@@ -7365,35 +7574,11 @@
             "status": "signed_off"
           },
           "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
-        },
-        {
-          "micro_skill_code": "rigid_body_equilibrium_2d",
-          "ordered_steps": [
-            "Confirm a complete 2D rigid-body free-body diagram is already given. List every labeled force and couple and identify the unknown force or moment variables to solve for. Do not remodel support types or invent reaction components that are not already on the FBD.",
-            "Establish rectangular axes (+x, +y) and a moment sign convention (state which sense of rotation is positive).",
-            "Resolve every inclined force on the FBD into x and y components using the stated axes and the given angle (or given cos/sin).",
-            "Count the independent unknowns and confirm they do not exceed the three available equilibrium equations (ΣFx = 0, ΣFy = 0, ΣM = 0).",
-            "Choose a moment center O and state why it is useful (for example, a point that removes known forces from the moment equation or simplifies arithmetic).",
-            "Write the three scalar equilibrium equations ΣFx = 0, ΣFy = 0, and ΣM_O = 0, substituting resolved components and including every couple with the stated sign convention.",
-            "Solve the equation set for the unknown force and/or couple variables.",
-            "Interpret each signed result: a negative unknown means the true sense is opposite the assumed positive direction; confirm physical direction against the FBD.",
-            "Report each unknown with magnitude, direction or rotational sense, and units. Stop — do not convert the solve into a named-support-reaction beam analysis."
-          ],
-          "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
-            "signed_at": "2026-07-16",
-            "signed_digest": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
-            "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
         }
       ],
       "renderer_category": "rigid_body_free_body_diagram",
       "renderer_spec": {
-        "binding_scope": "set_scope_extension_021B",
+        "binding_scope": "per_item_procedure",
         "explanation_id": "module-assessment:STATICS_RIGID_BODY_EQUILIBRIUM:statics.STATICS_RIGID_BODY_EQUILIBRIUM.support_reactions_and_moment_balance_2d:diagnostic_question:assessment_review",
         "geometry_seed": "1ecbe58ab2f762ec3c039c839fed9b648b13dcd780e75398c5ae433088e6f918",
         "labels_values_units_state": [
@@ -7407,9 +7592,7 @@
           "1"
         ],
         "procedure_ids": [
-          "proc-statics-force-systems-support-reaction-modeling-v1",
-          "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
-          "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1"
+          "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1"
         ],
         "renderer_category": "rigid_body_free_body_diagram",
         "source": {
@@ -7445,7 +7628,13 @@
     },
     {
       "alt_text": "rigid body free body diagram for Solving for support reactions using force and moment equilibrium for a coplanar rigid body; authored configuration from curriculum/modules/synthesized/rigid_body_equilibrium_support_reactions_and_moment_balance_2d_synthesized.json, bound under set scope extension 021B.",
-      "binding_scope": "set_scope_extension_021B",
+      "binding_correction": {
+        "authorization": "021B per-item assessment binding",
+        "diagram_unchanged": true,
+        "original_diagram_fingerprint": "7a93882dd8c3d12fd3a4018855ac31e5f0282746b755a0f1e26ef44786cac451",
+        "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722"
+      },
+      "binding_scope": "per_item_procedure",
       "canonical_topic": "STATICS_RIGID_BODY_EQUILIBRIUM",
       "database_eligible": false,
       "diagram_fingerprint": "7a93882dd8c3d12fd3a4018855ac31e5f0282746b755a0f1e26ef44786cac451",
@@ -7457,28 +7646,6 @@
       "is_active": false,
       "micro_skill": "Solving for support reactions using force and moment equilibrium for a coplanar rigid body",
       "procedures": [
-        {
-          "micro_skill_code": "support_reaction_modeling",
-          "ordered_steps": [
-            "Identify every support or connecting member on the body that supplies a reaction and classify each by type: pin, frictionless roller, fixed (built-in), or cable/two-force link (as present in the setup).",
-            "For each classified support, state which rigid-body translations and/or rotations it prevents in 2D.",
-            "Map those prevented motions to reaction components using the constraint → reaction principle: one force component per prevented translation direction; one couple-moment reaction if rotation is prevented (fixed supports only among the common 2D types).",
-            "Assign a symbol and an assumed positive direction (or clockwise/counterclockwise sense for a couple) to every reaction component in the mapping — do not compute magnitudes.",
-            "Label each reaction component on the free-body diagram at the support location with its symbol and assumed sense, matching the mapped set for that support type.",
-            "Verify the component count for each support against its type: pin → 2 force components; frictionless roller → 1 force perpendicular to the surface; fixed → 2 force components + 1 couple moment; cable/two-force link → 1 force along the member.",
-            "Confirm the deliverable is the support-type → reaction-components mapping only — do not write ΣFx = 0, ΣFy = 0, or ΣM = 0, and do not solve for any reaction value (those belong to rigid_body_equilibrium_2d and support_reactions_2d)."
-          ],
-          "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
-            "signed_at": "2026-07-16",
-            "signed_digest": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
-            "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_FORCE_SYSTEMS"
-        },
         {
           "micro_skill_code": "support_reactions_2d",
           "ordered_steps": [
@@ -7503,35 +7670,11 @@
             "status": "signed_off"
           },
           "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
-        },
-        {
-          "micro_skill_code": "rigid_body_equilibrium_2d",
-          "ordered_steps": [
-            "Confirm a complete 2D rigid-body free-body diagram is already given. List every labeled force and couple and identify the unknown force or moment variables to solve for. Do not remodel support types or invent reaction components that are not already on the FBD.",
-            "Establish rectangular axes (+x, +y) and a moment sign convention (state which sense of rotation is positive).",
-            "Resolve every inclined force on the FBD into x and y components using the stated axes and the given angle (or given cos/sin).",
-            "Count the independent unknowns and confirm they do not exceed the three available equilibrium equations (ΣFx = 0, ΣFy = 0, ΣM = 0).",
-            "Choose a moment center O and state why it is useful (for example, a point that removes known forces from the moment equation or simplifies arithmetic).",
-            "Write the three scalar equilibrium equations ΣFx = 0, ΣFy = 0, and ΣM_O = 0, substituting resolved components and including every couple with the stated sign convention.",
-            "Solve the equation set for the unknown force and/or couple variables.",
-            "Interpret each signed result: a negative unknown means the true sense is opposite the assumed positive direction; confirm physical direction against the FBD.",
-            "Report each unknown with magnitude, direction or rotational sense, and units. Stop — do not convert the solve into a named-support-reaction beam analysis."
-          ],
-          "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
-            "signed_at": "2026-07-16",
-            "signed_digest": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
-            "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
         }
       ],
       "renderer_category": "rigid_body_free_body_diagram",
       "renderer_spec": {
-        "binding_scope": "set_scope_extension_021B",
+        "binding_scope": "per_item_procedure",
         "explanation_id": "module-assessment:STATICS_RIGID_BODY_EQUILIBRIUM:statics.STATICS_RIGID_BODY_EQUILIBRIUM.support_reactions_and_moment_balance_2d:practice_question_template:assessment_review",
         "geometry_seed": "1014e7b015bbb3dde415c4c5e0e50fd7acf1dd05f75353be37b4fe93bdab2c77",
         "labels_values_units_state": [
@@ -7545,9 +7688,7 @@
           "1"
         ],
         "procedure_ids": [
-          "proc-statics-force-systems-support-reaction-modeling-v1",
-          "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
-          "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1"
+          "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1"
         ],
         "renderer_category": "rigid_body_free_body_diagram",
         "source": {
@@ -7583,7 +7724,13 @@
     },
     {
       "alt_text": "rigid body free body diagram for Solving for support reactions using force and moment equilibrium for a coplanar rigid body; authored configuration from curriculum/modules/synthesized/rigid_body_equilibrium_support_reactions_and_moment_balance_2d_synthesized.json, bound under set scope extension 021B.",
-      "binding_scope": "set_scope_extension_021B",
+      "binding_correction": {
+        "authorization": "021B per-item assessment binding",
+        "diagram_unchanged": true,
+        "original_diagram_fingerprint": "7be63c07a2b2a82a4e2a19e6676080e1b797abb53f9f93e107073bec4e15f236",
+        "reclassification_sha256": "691d4b83f914b516b4b27835bd82db0865c40d46565374bb4ddbb7d113e7b722"
+      },
+      "binding_scope": "per_item_procedure",
       "canonical_topic": "STATICS_RIGID_BODY_EQUILIBRIUM",
       "database_eligible": false,
       "diagram_fingerprint": "7be63c07a2b2a82a4e2a19e6676080e1b797abb53f9f93e107073bec4e15f236",
@@ -7595,28 +7742,6 @@
       "is_active": false,
       "micro_skill": "Solving for support reactions using force and moment equilibrium for a coplanar rigid body",
       "procedures": [
-        {
-          "micro_skill_code": "support_reaction_modeling",
-          "ordered_steps": [
-            "Identify every support or connecting member on the body that supplies a reaction and classify each by type: pin, frictionless roller, fixed (built-in), or cable/two-force link (as present in the setup).",
-            "For each classified support, state which rigid-body translations and/or rotations it prevents in 2D.",
-            "Map those prevented motions to reaction components using the constraint → reaction principle: one force component per prevented translation direction; one couple-moment reaction if rotation is prevented (fixed supports only among the common 2D types).",
-            "Assign a symbol and an assumed positive direction (or clockwise/counterclockwise sense for a couple) to every reaction component in the mapping — do not compute magnitudes.",
-            "Label each reaction component on the free-body diagram at the support location with its symbol and assumed sense, matching the mapped set for that support type.",
-            "Verify the component count for each support against its type: pin → 2 force components; frictionless roller → 1 force perpendicular to the surface; fixed → 2 force components + 1 couple moment; cable/two-force link → 1 force along the member.",
-            "Confirm the deliverable is the support-type → reaction-components mapping only — do not write ΣFx = 0, ΣFy = 0, or ΣM = 0, and do not solve for any reaction value (those belong to rigid_body_equilibrium_2d and support_reactions_2d)."
-          ],
-          "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
-            "signed_at": "2026-07-16",
-            "signed_digest": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
-            "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_FORCE_SYSTEMS"
-        },
         {
           "micro_skill_code": "support_reactions_2d",
           "ordered_steps": [
@@ -7641,35 +7766,11 @@
             "status": "signed_off"
           },
           "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
-        },
-        {
-          "micro_skill_code": "rigid_body_equilibrium_2d",
-          "ordered_steps": [
-            "Confirm a complete 2D rigid-body free-body diagram is already given. List every labeled force and couple and identify the unknown force or moment variables to solve for. Do not remodel support types or invent reaction components that are not already on the FBD.",
-            "Establish rectangular axes (+x, +y) and a moment sign convention (state which sense of rotation is positive).",
-            "Resolve every inclined force on the FBD into x and y components using the stated axes and the given angle (or given cos/sin).",
-            "Count the independent unknowns and confirm they do not exceed the three available equilibrium equations (ΣFx = 0, ΣFy = 0, ΣM = 0).",
-            "Choose a moment center O and state why it is useful (for example, a point that removes known forces from the moment equation or simplifies arithmetic).",
-            "Write the three scalar equilibrium equations ΣFx = 0, ΣFy = 0, and ΣM_O = 0, substituting resolved components and including every couple with the stated sign convention.",
-            "Solve the equation set for the unknown force and/or couple variables.",
-            "Interpret each signed result: a negative unknown means the true sense is opposite the assumed positive direction; confirm physical direction against the FBD.",
-            "Report each unknown with magnitude, direction or rotational sense, and units. Stop — do not convert the solve into a named-support-reaction beam analysis."
-          ],
-          "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
-          "signature": {
-            "algorithm": "sha256",
-            "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
-            "signed_at": "2026-07-16",
-            "signed_digest": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
-            "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
-            "status": "signed_off"
-          },
-          "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
         }
       ],
       "renderer_category": "rigid_body_free_body_diagram",
       "renderer_spec": {
-        "binding_scope": "set_scope_extension_021B",
+        "binding_scope": "per_item_procedure",
         "explanation_id": "module-assessment:STATICS_RIGID_BODY_EQUILIBRIUM:statics.STATICS_RIGID_BODY_EQUILIBRIUM.support_reactions_and_moment_balance_2d:readiness_check:assessment_review",
         "geometry_seed": "3568e35d02268cb0241ee8a0c6b9df6fb9952ba89ab50a4f435c49ad51ce5bc3",
         "labels_values_units_state": [
@@ -7683,9 +7784,7 @@
           "1"
         ],
         "procedure_ids": [
-          "proc-statics-force-systems-support-reaction-modeling-v1",
-          "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
-          "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1"
+          "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1"
         ],
         "renderer_category": "rigid_body_free_body_diagram",
         "source": {
@@ -9983,7 +10082,8 @@
     }
   ],
   "by_binding_scope": {
-    "set_scope_extension_021B": 12,
+    "per_item_procedure": 12,
+    "set_scope_extension_021B": 0,
     "single_procedure": 50,
     "topic_scope": 18
   },
