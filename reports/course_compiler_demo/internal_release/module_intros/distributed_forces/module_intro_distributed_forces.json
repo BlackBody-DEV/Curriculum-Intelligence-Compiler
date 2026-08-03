@@ -1,0 +1,65 @@
+{
+  "schema": "axiomiq_module_introduction_draft_v1",
+  "module_intro_id": "module-intro-distributed_forces-001",
+  "canonical_identity": {
+    "course_code": "STATICS",
+    "topic_code": "STATICS_DISTRIBUTED_FORCES",
+    "topic_title": "Distributed Forces"
+  },
+  "topic_objective": "Replace uniform and general distributed loads or fluid-pressure distributions by statically equivalent resultants with correct magnitude, direction, and line of action.",
+  "prerequisite_framing": "Use force resultants, moments about a reference point, area and centroid ideas, units of load intensity, and pressure variation with depth.",
+  "procedure_overview": [
+    {
+      "sequence": 1,
+      "procedure_id": "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
+      "micro_skill_code": "simple_distributed_load_resultant",
+      "signature_status": "signed_off",
+      "overview": "Introduce simple distributed load resultant as a signed procedure within Distributed Forces."
+    },
+    {
+      "sequence": 2,
+      "procedure_id": "proc-statics-distributed-forces-general-distributed-load-resultant-v1",
+      "micro_skill_code": "general_distributed_load_resultant",
+      "signature_status": "signed_off",
+      "overview": "Introduce general distributed load resultant as a signed procedure within Distributed Forces."
+    },
+    {
+      "sequence": 3,
+      "procedure_id": "proc-statics-distributed-forces-fluid-pressure-v1",
+      "micro_skill_code": "fluid_pressure",
+      "signature_status": "signed_off",
+      "overview": "Introduce fluid pressure as a signed procedure within Distributed Forces."
+    }
+  ],
+  "procedure_coverage": {
+    "expected_signed_count": 3,
+    "covered_signed_count": 3,
+    "complete": true
+  },
+  "worked_example_entry_point": {
+    "procedure_id": "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
+    "scenario": "Adjust a uniform load over a beam interval and compare the load diagram with its area-equivalent resultant located at the distribution centroid.",
+    "launch_state": "static_fallback_available_diagram_pending_v1_1_registry"
+  },
+  "accessible_static_fallback": {
+    "artifact_path": "module_intro_distributed_forces_static_fallback.json",
+    "required": true,
+    "available": true
+  },
+  "interactive_diagram": {
+    "draft_artifact_path": "module_intro_distributed_forces_diagram_draft.json",
+    "production_bound": true,
+    "target_schema_version": "1.1.0",
+    "registry_digest": null,
+    "status": "DRAFT_PENDING_PUBLISHED_REGISTRY"
+  },
+  "deterministic_validation": {
+    "artifact_path": "module_intro_distributed_forces_validation.json",
+    "content_validation": "PASS",
+    "diagram_schema_validation": "PENDING_PUBLISHED_V1_1_0"
+  },
+  "human_review_required": true,
+  "student_visible": false,
+  "database_eligible": false,
+  "is_active": false
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "axiomiq_module_intro_static_fallback_v1",
+  "fallback_id": "module-intro-distributed_forces-static-001",
+  "canonical_topic_code": "STATICS_DISTRIBUTED_FORCES",
+  "language": "en",
+  "accessibility": {
+    "role": "figure",
+    "title": "Distributed Forces module introduction static overview",
+    "long_description": "A text-first overview of Distributed Forces. Replace uniform and general distributed loads or fluid-pressure distributions by statically equivalent resultants with correct magnitude, direction, and line of action.",
+    "reading_order": [
+      "objective",
+      "prerequisites",
+      "procedure map",
+      "worked-example entry",
+      "diagram description"
+    ],
+    "color_independent": true,
+    "keyboard_interaction_required": false
+  },
+  "objective": "Replace uniform and general distributed loads or fluid-pressure distributions by statically equivalent resultants with correct magnitude, direction, and line of action.",
+  "prerequisites": "Use force resultants, moments about a reference point, area and centroid ideas, units of load intensity, and pressure variation with depth.",
+  "procedure_map": [
+    {
+      "sequence": 1,
+      "procedure_id": "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
+      "micro_skill_code": "simple_distributed_load_resultant"
+    },
+    {
+      "sequence": 2,
+      "procedure_id": "proc-statics-distributed-forces-general-distributed-load-resultant-v1",
+      "micro_skill_code": "general_distributed_load_resultant"
+    },
+    {
+      "sequence": 3,
+      "procedure_id": "proc-statics-distributed-forces-fluid-pressure-v1",
+      "micro_skill_code": "fluid_pressure"
+    }
+  ],
+  "worked_example": {
+    "procedure_id": "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
+    "entry_description": "Adjust a uniform load over a beam interval and compare the load diagram with its area-equivalent resultant located at the distribution centroid."
+  },
+  "diagram_description": "The planned distributed load and pressure-resultant workspace will support: adjust a uniform load intensity; drag distribution endpoints; edit a piecewise load profile; integrate distribution area; compute distribution centroid; replace distribution with a resultant arrow; adjust fluid depth and density; show hydrostatic pressure profile. Until v1.1.0 is published, this description and procedure map are the complete accessible fallback.",
+  "human_review_required": true,
+  "student_visible": false,
+  "database_eligible": false,
+  "is_active": false
+}
