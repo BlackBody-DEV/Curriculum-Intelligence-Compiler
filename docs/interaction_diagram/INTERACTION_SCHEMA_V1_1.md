@@ -6,7 +6,7 @@ Version 1.1.0 is an additive trusted-registry expansion of the audited 1.0.0 con
 
 The security envelope is unchanged: specifications are closed, declarative JSON data. Scripts, HTML event surfaces, remote code or assets, arbitrary expressions, and unknown renderer or formula identifiers fail closed. Mathematics is selected only by a versioned `formula_id` whose typed implementation is compiler-owned and whose registry entry declares inputs, output, dimensional/unit rules, bounds, invariants, deterministic reference cases, negative cases, and a trusted Beta implementation identifier.
 
-Compiler packages carrying interaction specifications must declare `interaction_schema_id`, `interaction_schema_version`, and `interaction_schema_sha256`. The digest is SHA-256 of the exact canonical schema bytes.
+Compiler packages carrying interaction specifications must declare `interaction_schema_id`, `interaction_schema_version`, and `interaction_schema_sha256`. They also integrity-bind the trusted registries with `interaction_formula_registry_sha256` and `interaction_renderer_registry_sha256`. Every digest is SHA-256 of the exact canonical artifact bytes.
 
 Canonical artifacts:
 
