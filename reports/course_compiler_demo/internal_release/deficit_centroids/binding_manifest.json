@@ -1,0 +1,273 @@
+{
+  "schema": "axiomiq_diagram_procedure_signature_binding_manifest_v1",
+  "task_id": "proc-sig-retro",
+  "lane_id": "PROC-SIG-RETRO",
+  "source_lane": "PROD-135-CENTROIDS",
+  "authorization": "FULL-STATICS-DIAGRAM-BINDING-AND-PROCEDURE-AUTHORITY-021C §3",
+  "created_at_utc": "2026-08-03T18:55:56.790753+00:00",
+  "repo": "/Users/fanarichardson/Documents/AxiomIQ",
+  "branch": "task/deficit-centroids-001",
+  "authority_bundle_commit": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+  "topic_code": "STATICS_CENTROIDS",
+  "package_id": "deficit_centroids",
+  "db_writes": false,
+  "diagram_regeneration": false,
+  "procedure_changes": false,
+  "binding_count": 12,
+  "signatures_backfilled": 12,
+  "unresolved_count": 0,
+  "bindings": [
+    {
+      "artifact_id": "DEF-CEN-001-820cfdada904",
+      "question_id": "DEF-CEN-001-820cfdada904",
+      "topic_code": "STATICS_CENTROIDS",
+      "diagram_type": "composite_area_centroid_geometry",
+      "spec_path": "reports/course_compiler_demo/internal_release/deficit_centroids/artifacts/diagrams/001_DEF-CEN-001-820cfdada904.diagram.json",
+      "diagram_fingerprint": "d853608b60149b71c11520785adc0364d96955ec1e9bb0cbdd4f8088bcb9ca60",
+      "carried_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_sha256": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+      "procedure_signature": {
+        "algorithm": "sha256",
+        "signed_digest": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+        "status": "signed_off",
+        "date": "2026-07-01",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116"
+      },
+      "signature_resolution_source": "binding.procedure_id",
+      "unresolved": false
+    },
+    {
+      "artifact_id": "DEF-CEN-002-75bc0991ba28",
+      "question_id": "DEF-CEN-002-75bc0991ba28",
+      "topic_code": "STATICS_CENTROIDS",
+      "diagram_type": "composite_area_centroid_geometry",
+      "spec_path": "reports/course_compiler_demo/internal_release/deficit_centroids/artifacts/diagrams/002_DEF-CEN-002-75bc0991ba28.diagram.json",
+      "diagram_fingerprint": "f3b60adb85b3349a209ed6c3e29550e6eac4cd3e27229fc790afe5f1a30d1e84",
+      "carried_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_sha256": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+      "procedure_signature": {
+        "algorithm": "sha256",
+        "signed_digest": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+        "status": "signed_off",
+        "date": "2026-07-01",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116"
+      },
+      "signature_resolution_source": "binding.procedure_id",
+      "unresolved": false
+    },
+    {
+      "artifact_id": "DEF-CEN-003-60498d19ac99",
+      "question_id": "DEF-CEN-003-60498d19ac99",
+      "topic_code": "STATICS_CENTROIDS",
+      "diagram_type": "composite_area_centroid_geometry",
+      "spec_path": "reports/course_compiler_demo/internal_release/deficit_centroids/artifacts/diagrams/003_DEF-CEN-003-60498d19ac99.diagram.json",
+      "diagram_fingerprint": "76072d2ef8795f703e4446704cddfb58c51c209a8c04a0267ba96df163e1764a",
+      "carried_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_sha256": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+      "procedure_signature": {
+        "algorithm": "sha256",
+        "signed_digest": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+        "status": "signed_off",
+        "date": "2026-07-01",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116"
+      },
+      "signature_resolution_source": "binding.procedure_id",
+      "unresolved": false
+    },
+    {
+      "artifact_id": "DEF-CEN-004-bdf854b13fdc",
+      "question_id": "DEF-CEN-004-bdf854b13fdc",
+      "topic_code": "STATICS_CENTROIDS",
+      "diagram_type": "composite_area_centroid_geometry",
+      "spec_path": "reports/course_compiler_demo/internal_release/deficit_centroids/artifacts/diagrams/004_DEF-CEN-004-bdf854b13fdc.diagram.json",
+      "diagram_fingerprint": "c7dc3db36269455846d6d16b8974dca3dac30cfbd7c0de0428cc2c7d413674ab",
+      "carried_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_sha256": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+      "procedure_signature": {
+        "algorithm": "sha256",
+        "signed_digest": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+        "status": "signed_off",
+        "date": "2026-07-01",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116"
+      },
+      "signature_resolution_source": "binding.procedure_id",
+      "unresolved": false
+    },
+    {
+      "artifact_id": "DEF-CEN-005-9307a681b770",
+      "question_id": "DEF-CEN-005-9307a681b770",
+      "topic_code": "STATICS_CENTROIDS",
+      "diagram_type": "composite_area_centroid_geometry",
+      "spec_path": "reports/course_compiler_demo/internal_release/deficit_centroids/artifacts/diagrams/005_DEF-CEN-005-9307a681b770.diagram.json",
+      "diagram_fingerprint": "f4bb89c96ddaf2326a142c2ea4ad9b0587ec6ba8953ed075772dc7dbc1c2cc53",
+      "carried_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_sha256": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+      "procedure_signature": {
+        "algorithm": "sha256",
+        "signed_digest": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+        "status": "signed_off",
+        "date": "2026-07-01",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116"
+      },
+      "signature_resolution_source": "binding.procedure_id",
+      "unresolved": false
+    },
+    {
+      "artifact_id": "DEF-CEN-006-8b17d639c991",
+      "question_id": "DEF-CEN-006-8b17d639c991",
+      "topic_code": "STATICS_CENTROIDS",
+      "diagram_type": "composite_area_centroid_geometry",
+      "spec_path": "reports/course_compiler_demo/internal_release/deficit_centroids/artifacts/diagrams/006_DEF-CEN-006-8b17d639c991.diagram.json",
+      "diagram_fingerprint": "3fb37d19ff4f5ab6a45b9bb13afa7a2f9f2fd919581d7bc6f9d9d2d78c410692",
+      "carried_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_sha256": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+      "procedure_signature": {
+        "algorithm": "sha256",
+        "signed_digest": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+        "status": "signed_off",
+        "date": "2026-07-01",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116"
+      },
+      "signature_resolution_source": "binding.procedure_id",
+      "unresolved": false
+    },
+    {
+      "artifact_id": "DEF-CEN-007-824a03950a2c",
+      "question_id": "DEF-CEN-007-824a03950a2c",
+      "topic_code": "STATICS_CENTROIDS",
+      "diagram_type": "composite_area_centroid_geometry",
+      "spec_path": "reports/course_compiler_demo/internal_release/deficit_centroids/artifacts/diagrams/007_DEF-CEN-007-824a03950a2c.diagram.json",
+      "diagram_fingerprint": "e25b3c69b88022e7386957a524b245cd2576c2578421579010155bd5805d2980",
+      "carried_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_sha256": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+      "procedure_signature": {
+        "algorithm": "sha256",
+        "signed_digest": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+        "status": "signed_off",
+        "date": "2026-07-01",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116"
+      },
+      "signature_resolution_source": "binding.procedure_id",
+      "unresolved": false
+    },
+    {
+      "artifact_id": "DEF-CEN-008-1185ced018a1",
+      "question_id": "DEF-CEN-008-1185ced018a1",
+      "topic_code": "STATICS_CENTROIDS",
+      "diagram_type": "composite_area_centroid_geometry",
+      "spec_path": "reports/course_compiler_demo/internal_release/deficit_centroids/artifacts/diagrams/008_DEF-CEN-008-1185ced018a1.diagram.json",
+      "diagram_fingerprint": "643953d28fff8547bed8a4067a07653f95194d1c1942c9a645dd18aae9255d9c",
+      "carried_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_sha256": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+      "procedure_signature": {
+        "algorithm": "sha256",
+        "signed_digest": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+        "status": "signed_off",
+        "date": "2026-07-01",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116"
+      },
+      "signature_resolution_source": "binding.procedure_id",
+      "unresolved": false
+    },
+    {
+      "artifact_id": "DEF-CEN-009-8492f05a85b8",
+      "question_id": "DEF-CEN-009-8492f05a85b8",
+      "topic_code": "STATICS_CENTROIDS",
+      "diagram_type": "composite_area_centroid_geometry",
+      "spec_path": "reports/course_compiler_demo/internal_release/deficit_centroids/artifacts/diagrams/009_DEF-CEN-009-8492f05a85b8.diagram.json",
+      "diagram_fingerprint": "7b84ec36ab587fb0aba4e0dcdae6e63ac5d9c928aa8cbc1ad2c09a83f964453c",
+      "carried_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_sha256": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+      "procedure_signature": {
+        "algorithm": "sha256",
+        "signed_digest": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+        "status": "signed_off",
+        "date": "2026-07-01",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116"
+      },
+      "signature_resolution_source": "binding.procedure_id",
+      "unresolved": false
+    },
+    {
+      "artifact_id": "DEF-CEN-010-7e48fb993d28",
+      "question_id": "DEF-CEN-010-7e48fb993d28",
+      "topic_code": "STATICS_CENTROIDS",
+      "diagram_type": "composite_area_centroid_geometry",
+      "spec_path": "reports/course_compiler_demo/internal_release/deficit_centroids/artifacts/diagrams/010_DEF-CEN-010-7e48fb993d28.diagram.json",
+      "diagram_fingerprint": "9a8745571c24fde23169b00b0eb9e862f583bc3aa85d4da8808d3cfadc121855",
+      "carried_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_sha256": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+      "procedure_signature": {
+        "algorithm": "sha256",
+        "signed_digest": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+        "status": "signed_off",
+        "date": "2026-07-01",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116"
+      },
+      "signature_resolution_source": "binding.procedure_id",
+      "unresolved": false
+    },
+    {
+      "artifact_id": "DEF-CEN-011-9850b411e4df",
+      "question_id": "DEF-CEN-011-9850b411e4df",
+      "topic_code": "STATICS_CENTROIDS",
+      "diagram_type": "composite_area_centroid_geometry",
+      "spec_path": "reports/course_compiler_demo/internal_release/deficit_centroids/artifacts/diagrams/011_DEF-CEN-011-9850b411e4df.diagram.json",
+      "diagram_fingerprint": "53bd96a14f6a1ee0423695df956d3ccfa3776cbdd0d4b0bdfb7751ff199fff72",
+      "carried_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_sha256": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+      "procedure_signature": {
+        "algorithm": "sha256",
+        "signed_digest": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+        "status": "signed_off",
+        "date": "2026-07-01",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116"
+      },
+      "signature_resolution_source": "binding.procedure_id",
+      "unresolved": false
+    },
+    {
+      "artifact_id": "DEF-CEN-012-07aa9f6449df",
+      "question_id": "DEF-CEN-012-07aa9f6449df",
+      "topic_code": "STATICS_CENTROIDS",
+      "diagram_type": "composite_area_centroid_geometry",
+      "spec_path": "reports/course_compiler_demo/internal_release/deficit_centroids/artifacts/diagrams/012_DEF-CEN-012-07aa9f6449df.diagram.json",
+      "diagram_fingerprint": "04114d85c2abffe97bc1e76953cea858c8ffa4efbc1367d8a66252264fea0cf6",
+      "carried_procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_id": "proc-statics-centroids-composite-centroid-v1",
+      "procedure_sha256": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+      "procedure_signature": {
+        "algorithm": "sha256",
+        "signed_digest": "88b3a28d8931c9d1fd599a7bcf1efc2f98e06ac18e72e5e4aa1b9e77edad2e93",
+        "status": "signed_off",
+        "date": "2026-07-01",
+        "reviewer": "Phase D sign-off review (PHASE-D-COMPOSITE-CENTROID-SIGNOFF-002)",
+        "notes": "First Phase D sign-off; worked example independently re-verified 1.67/1.67; schema-valid v1_1; canonical-four; module_intro render confirmed; geometry fix 4b6d8521 + normalization f518a116"
+      },
+      "signature_resolution_source": "binding.procedure_id",
+      "unresolved": false
+    }
+  ]
+}
