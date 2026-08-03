@@ -1,0 +1,125 @@
+{
+  "schema": "axiomiq_module_introduction_draft_v1",
+  "module_intro_id": "module-intro-structural_analysis-001",
+  "canonical_identity": {
+    "course_code": "STATICS",
+    "topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+    "topic_title": "Structural Analysis",
+    "runtime_aliases": [
+      "TRUSSES"
+    ],
+    "alias_policy": "runtime alias only; canonical identity remains STATICS_STRUCTURAL_ANALYSIS"
+  },
+  "topic_objective": "Model trusses, frames, machines, and cables; select joint or section equilibrium; identify zero-force members; classify member force sense; and preserve action-reaction and support behavior.",
+  "prerequisite_framing": "Bring rigid-body free-body diagrams, support reactions, two-force-member behavior, planar equilibrium, and consistent tension/compression sign conventions.",
+  "procedure_overview": [
+    {
+      "sequence": 1,
+      "procedure_id": "proc-statics-structural-analysis-simple-truss-modeling-v1",
+      "micro_skill_code": "simple_truss_modeling",
+      "signature_status": "signed_off",
+      "overview": "Introduce simple truss modeling as a signed procedure within Structural Analysis."
+    },
+    {
+      "sequence": 2,
+      "procedure_id": "proc-statics-structural-analysis-method-of-joints-v1",
+      "micro_skill_code": "method_of_joints",
+      "signature_status": "signed_off",
+      "overview": "Introduce method of joints as a signed procedure within Structural Analysis."
+    },
+    {
+      "sequence": 3,
+      "procedure_id": "proc-statics-structural-analysis-zero-force-members-v1",
+      "micro_skill_code": "zero_force_members",
+      "signature_status": "signed_off",
+      "overview": "Introduce zero force members as a signed procedure within Structural Analysis."
+    },
+    {
+      "sequence": 4,
+      "procedure_id": "proc-statics-structural-analysis-truss-support-reactions-v1",
+      "micro_skill_code": "truss_support_reactions",
+      "signature_status": "signed_off",
+      "overview": "Introduce truss support reactions as a signed procedure within Structural Analysis."
+    },
+    {
+      "sequence": 5,
+      "procedure_id": "proc-statics-structural-analysis-method-of-sections-v1",
+      "micro_skill_code": "method_of_sections",
+      "signature_status": "signed_off",
+      "overview": "Introduce method of sections as a signed procedure within Structural Analysis."
+    },
+    {
+      "sequence": 6,
+      "procedure_id": "proc-statics-structural-analysis-member-tension-compression-signs-v1",
+      "micro_skill_code": "member_tension_compression_signs",
+      "signature_status": "signed_off",
+      "overview": "Introduce member tension compression signs as a signed procedure within Structural Analysis."
+    },
+    {
+      "sequence": 7,
+      "procedure_id": "proc-statics-structural-analysis-frame-machine-fbd-v1",
+      "micro_skill_code": "frame_machine_fbd",
+      "signature_status": "signed_off",
+      "overview": "Introduce frame machine fbd as a signed procedure within Structural Analysis."
+    },
+    {
+      "sequence": 8,
+      "procedure_id": "proc-statics-structural-analysis-frame-machine-equilibrium-v1",
+      "micro_skill_code": "frame_machine_equilibrium",
+      "signature_status": "signed_off",
+      "overview": "Introduce frame machine equilibrium as a signed procedure within Structural Analysis."
+    },
+    {
+      "sequence": 9,
+      "procedure_id": "proc-statics-structural-analysis-pin-action-reaction-forces-v1",
+      "micro_skill_code": "pin_action_reaction_forces",
+      "signature_status": "signed_off",
+      "overview": "Introduce pin action reaction forces as a signed procedure within Structural Analysis."
+    },
+    {
+      "sequence": 10,
+      "procedure_id": "proc-statics-structural-analysis-space-trusses-v1",
+      "micro_skill_code": "space_trusses",
+      "signature_status": "signed_off",
+      "overview": "Introduce space trusses as a signed procedure within Structural Analysis."
+    },
+    {
+      "sequence": 11,
+      "procedure_id": "proc-statics-structural-analysis-cables-v1",
+      "micro_skill_code": "cables",
+      "signature_status": "signed_off",
+      "overview": "Introduce cables as a signed procedure within Structural Analysis."
+    }
+  ],
+  "procedure_coverage": {
+    "expected_signed_count": 11,
+    "covered_signed_count": 11,
+    "complete": true
+  },
+  "worked_example_entry_point": {
+    "procedure_id": "proc-statics-structural-analysis-simple-truss-modeling-v1",
+    "scenario": "Inspect a pin-connected structure, test the simple-truss assumptions and determinacy counts, then choose a joint or section entry point without collapsing the canonical topic to the TRUSSES runtime alias.",
+    "launch_state": "static_fallback_available_diagram_pending_v1_1_registry"
+  },
+  "accessible_static_fallback": {
+    "artifact_path": "module_intro_structural_analysis_static_fallback.json",
+    "required": true,
+    "available": true
+  },
+  "interactive_diagram": {
+    "draft_artifact_path": "module_intro_structural_analysis_diagram_draft.json",
+    "production_bound": true,
+    "target_schema_version": "1.1.0",
+    "registry_digest": null,
+    "status": "DRAFT_PENDING_PUBLISHED_REGISTRY"
+  },
+  "deterministic_validation": {
+    "artifact_path": "module_intro_structural_analysis_validation.json",
+    "content_validation": "PASS",
+    "diagram_schema_validation": "PENDING_PUBLISHED_V1_1_0"
+  },
+  "human_review_required": true,
+  "student_visible": false,
+  "database_eligible": false,
+  "is_active": false
+}

@@ -1,0 +1,88 @@
+{
+  "schema": "axiomiq_module_intro_static_fallback_v1",
+  "fallback_id": "module-intro-structural_analysis-static-001",
+  "canonical_topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+  "language": "en",
+  "accessibility": {
+    "role": "figure",
+    "title": "Structural Analysis module introduction static overview",
+    "long_description": "A text-first overview of Structural Analysis. Model trusses, frames, machines, and cables; select joint or section equilibrium; identify zero-force members; classify member force sense; and preserve action-reaction and support behavior.",
+    "reading_order": [
+      "objective",
+      "prerequisites",
+      "procedure map",
+      "worked-example entry",
+      "diagram description"
+    ],
+    "color_independent": true,
+    "keyboard_interaction_required": false
+  },
+  "objective": "Model trusses, frames, machines, and cables; select joint or section equilibrium; identify zero-force members; classify member force sense; and preserve action-reaction and support behavior.",
+  "prerequisites": "Bring rigid-body free-body diagrams, support reactions, two-force-member behavior, planar equilibrium, and consistent tension/compression sign conventions.",
+  "procedure_map": [
+    {
+      "sequence": 1,
+      "procedure_id": "proc-statics-structural-analysis-simple-truss-modeling-v1",
+      "micro_skill_code": "simple_truss_modeling"
+    },
+    {
+      "sequence": 2,
+      "procedure_id": "proc-statics-structural-analysis-method-of-joints-v1",
+      "micro_skill_code": "method_of_joints"
+    },
+    {
+      "sequence": 3,
+      "procedure_id": "proc-statics-structural-analysis-zero-force-members-v1",
+      "micro_skill_code": "zero_force_members"
+    },
+    {
+      "sequence": 4,
+      "procedure_id": "proc-statics-structural-analysis-truss-support-reactions-v1",
+      "micro_skill_code": "truss_support_reactions"
+    },
+    {
+      "sequence": 5,
+      "procedure_id": "proc-statics-structural-analysis-method-of-sections-v1",
+      "micro_skill_code": "method_of_sections"
+    },
+    {
+      "sequence": 6,
+      "procedure_id": "proc-statics-structural-analysis-member-tension-compression-signs-v1",
+      "micro_skill_code": "member_tension_compression_signs"
+    },
+    {
+      "sequence": 7,
+      "procedure_id": "proc-statics-structural-analysis-frame-machine-fbd-v1",
+      "micro_skill_code": "frame_machine_fbd"
+    },
+    {
+      "sequence": 8,
+      "procedure_id": "proc-statics-structural-analysis-frame-machine-equilibrium-v1",
+      "micro_skill_code": "frame_machine_equilibrium"
+    },
+    {
+      "sequence": 9,
+      "procedure_id": "proc-statics-structural-analysis-pin-action-reaction-forces-v1",
+      "micro_skill_code": "pin_action_reaction_forces"
+    },
+    {
+      "sequence": 10,
+      "procedure_id": "proc-statics-structural-analysis-space-trusses-v1",
+      "micro_skill_code": "space_trusses"
+    },
+    {
+      "sequence": 11,
+      "procedure_id": "proc-statics-structural-analysis-cables-v1",
+      "micro_skill_code": "cables"
+    }
+  ],
+  "worked_example": {
+    "procedure_id": "proc-statics-structural-analysis-simple-truss-modeling-v1",
+    "entry_description": "Inspect a pin-connected structure, test the simple-truss assumptions and determinacy counts, then choose a joint or section entry point without collapsing the canonical topic to the TRUSSES runtime alias."
+  },
+  "diagram_description": "The planned structural systems, trusses, frames, and cables will support: drag joint geometry; toggle pin roller and fixed supports; apply joint loads; highlight two-force and zero-force members; select a joint free-body diagram; place a section cut through members; toggle tension and compression assumptions; show pin action-reaction pairs; rotate a space-truss view; adjust cable geometry. Until v1.1.0 is published, this description and procedure map are the complete accessible fallback.",
+  "human_review_required": true,
+  "student_visible": false,
+  "database_eligible": false,
+  "is_active": false
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "axiomiq_interactive_instructional_diagram_draft_v1_1",
+  "draft_id": "module-intro-structural_analysis-diagram-001",
+  "explanation_type": "module introduction",
+  "canonical_topic_code": "STATICS_STRUCTURAL_ANALYSIS",
+  "linked_module_intro_id": "module-intro-structural_analysis-001",
+  "production_bound": true,
+  "renderer_category": "structural systems, trusses, frames, and cables",
+  "required_operations": [
+    "drag joint geometry",
+    "toggle pin roller and fixed supports",
+    "apply joint loads",
+    "highlight two-force and zero-force members",
+    "select a joint free-body diagram",
+    "place a section cut through members",
+    "toggle tension and compression assumptions",
+    "show pin action-reaction pairs",
+    "rotate a space-truss view",
+    "adjust cable geometry"
+  ],
+  "target_contract": {
+    "interaction_schema": "axiomiq_interactive_instructional_diagram_interaction_v1_1",
+    "schema_version": "1.1.0",
+    "renderer_registry_version": "1.1.0",
+    "renderer_registry_sha256": null,
+    "formula_registry_version": "1.1.0",
+    "formula_registry_sha256": null,
+    "binding_status": "PENDING_LANE_A_PUBLISHED_DIGESTS"
+  },
+  "v1_0_0_expressibility": {
+    "complete": false,
+    "renderer_allowlist": [
+      "statics_vector_plane_v1",
+      "statics_force_vector_v1",
+      "statics_fbd_v1",
+      "statics_composite_area_v1"
+    ],
+    "formula_allowlist": [
+      "cartesian_fx_from_magnitude_angle_deg",
+      "cartesian_fy_from_magnitude_angle_deg",
+      "sum_selected",
+      "resultant_magnitude_from_rx_ry",
+      "resultant_direction_deg_from_rx_ry"
+    ],
+    "exact_gaps": [
+      "No v1.0.0 renderer represents connected joints, members, section cuts, frame-machine parts, cable geometry, or a rotatable space truss.",
+      "The v1.0.0 formula allowlist has no truss determinacy, joint equilibrium, section equilibrium, member-force classification, or cable-geometry operation."
+    ]
+  },
+  "completion_gate": "Does not count as complete until validated against Lane A's published v1.1.0 schema and registry digests.",
+  "contains_executable_code": false,
+  "human_review_required": true,
+  "student_visible": false,
+  "database_eligible": false,
+  "is_active": false
+}
