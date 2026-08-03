@@ -1,0 +1,50 @@
+{
+  "artifact": "spec_w1_equilibrium_particles_stage_1_4_evidence",
+  "schema_version": "1.0.0",
+  "topic": "Equilibrium of Particles",
+  "topic_codes": ["STATICS_PARTICLE_EQUILIBRIUM"],
+  "branch": "task/spec-w1-equilibrium-particles-001",
+  "worktree": "/Users/fanarichardson/AxiomIQ_Work/worktrees/spec-w1/equilibrium-particles",
+  "verdict": "SPEC_W1_LANE_BLOCKED",
+  "authority": {
+    "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+    "interaction_schema_id": "axiomiq_interactive_instructional_diagram_interaction_v1",
+    "interaction_schema_sha256": "5b8cc1c43a63e21a87ccce134769aee0529e49728b5ecbe43680a1ee18b55c88"
+  },
+  "explanation_inventory": {
+    "available_census_count": 16,
+    "signed_procedure_explanations": 15,
+    "module_introductions": 1,
+    "explanations_covered": 0
+  },
+  "specifications_produced": 0,
+  "renderer_categories_required": ["particle and rigid-body equilibrium"],
+  "frozen_allowlist": {
+    "renderers": ["statics_vector_plane_v1", "statics_force_vector_v1", "statics_fbd_v1", "statics_composite_area_v1"],
+    "formula_ids": ["cartesian_fx_from_magnitude_angle_deg", "cartesian_fy_from_magnitude_angle_deg", "sum_selected", "resultant_magnitude_from_rx_ry", "resultant_direction_deg_from_rx_ry"]
+  },
+  "mathematical_validation": {
+    "passed": 0,
+    "failed": 1,
+    "result": "NOT_RUN_REPRESENTABILITY_STOP",
+    "reason": "The schema can draw an FBD but cannot declaratively reproduce particle equilibrium residuals, solve unknown force components or tensions, or enforce sum_Fx=0 and sum_Fy=0 with the frozen formula and constraint allowlists."
+  },
+  "stages_1_4": {
+    "stage_1_compiler_emits": "BLOCKED_BEFORE_EMIT",
+    "stage_2_schema_and_security": "BLOCKED_ALLOWLIST_INSUFFICIENT",
+    "stage_3_mathematical_adapter": "NOT_RUN",
+    "stage_4_procedure_auditor": "NOT_RUN"
+  },
+  "positive_validation_cases": 0,
+  "negative_validation_cases": 1,
+  "static_fallbacks_produced": 0,
+  "blockers": [
+    {
+      "code": "FROZEN_FORMULA_ALLOWLIST_CANNOT_REPRESENT_PARTICLE_EQUILIBRIUM",
+      "stop_condition": "formula allowlist needs material security redesign",
+      "detail": "Correct instructional states require deterministic force-balance residual and unknown-equilibrium solution formulas absent from the frozen schema. Substituting vector-resultant formulas would be mathematically and instructionally incorrect."
+    }
+  ],
+  "shared_files_modified": false,
+  "executable_code_in_specs": false
+}
