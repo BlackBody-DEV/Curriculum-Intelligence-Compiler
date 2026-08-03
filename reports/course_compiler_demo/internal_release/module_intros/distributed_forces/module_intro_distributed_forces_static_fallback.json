@@ -1,11 +1,7 @@
 {
-  "schema": "axiomiq_module_intro_static_fallback_v1",
-  "fallback_id": "module-intro-distributed_forces-static-001",
-  "canonical_topic_code": "STATICS_DISTRIBUTED_FORCES",
-  "language": "en",
   "accessibility": {
-    "role": "figure",
-    "title": "Distributed Forces module introduction static overview",
+    "color_independent": true,
+    "keyboard_interaction_required": false,
     "long_description": "A text-first overview of Distributed Forces. Replace uniform and general distributed loads or fluid-pressure distributions by statically equivalent resultants with correct magnitude, direction, and line of action.",
     "reading_order": [
       "objective",
@@ -14,35 +10,54 @@
       "worked-example entry",
       "diagram description"
     ],
-    "color_independent": true,
-    "keyboard_interaction_required": false
+    "role": "figure",
+    "title": "Distributed Forces module introduction static overview"
   },
+  "canonical_topic_code": "STATICS_DISTRIBUTED_FORCES",
+  "database_eligible": false,
+  "diagram_asset": {
+    "alt_text": "Static Distributed Forces overview showing the topic model and entry geometry; all 3 signed procedures are represented by the accompanying ordered procedure overview.",
+    "diagram_fingerprint": "8dcbe57bbcfce07a25eea5ff145259fd3a92a709c680471e8e0cc633d62970cb",
+    "path": "module_intro_distributed_forces_static_diagram.svg",
+    "renderer_category": "distributed_load_or_pressure_diagram",
+    "sha256": "b5c82c945506d2c5592458d900ad62be4c4cfb5aae7bbef62818ff696013594b"
+  },
+  "diagram_description": "Static Distributed Forces overview showing the topic model and entry geometry; all 3 signed procedures are represented by the accompanying ordered procedure overview.",
+  "fallback_id": "module-intro-distributed_forces-static-001",
+  "human_review_required": true,
+  "is_active": false,
+  "language": "en",
   "objective": "Replace uniform and general distributed loads or fluid-pressure distributions by statically equivalent resultants with correct magnitude, direction, and line of action.",
   "prerequisites": "Use force resultants, moments about a reference point, area and centroid ideas, units of load intensity, and pressure variation with depth.",
   "procedure_map": [
     {
-      "sequence": 1,
+      "micro_skill_code": "simple_distributed_load_resultant",
       "procedure_id": "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
-      "micro_skill_code": "simple_distributed_load_resultant"
+      "sequence": 1
     },
     {
-      "sequence": 2,
+      "micro_skill_code": "general_distributed_load_resultant",
       "procedure_id": "proc-statics-distributed-forces-general-distributed-load-resultant-v1",
-      "micro_skill_code": "general_distributed_load_resultant"
+      "sequence": 2
     },
     {
-      "sequence": 3,
+      "micro_skill_code": "fluid_pressure",
       "procedure_id": "proc-statics-distributed-forces-fluid-pressure-v1",
-      "micro_skill_code": "fluid_pressure"
+      "sequence": 3
     }
   ],
-  "worked_example": {
-    "procedure_id": "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
-    "entry_description": "Adjust a uniform load over a beam interval and compare the load diagram with its area-equivalent resultant located at the distribution centroid."
-  },
-  "diagram_description": "The planned distributed load and pressure-resultant workspace will support: adjust a uniform load intensity; drag distribution endpoints; edit a piecewise load profile; integrate distribution area; compute distribution centroid; replace distribution with a resultant arrow; adjust fluid depth and density; show hydrostatic pressure profile. Until v1.1.0 is published, this description and procedure map are the complete accessible fallback.",
-  "human_review_required": true,
+  "schema": "axiomiq_module_intro_static_fallback_v2",
   "student_visible": false,
-  "database_eligible": false,
-  "is_active": false
+  "topic_scope_binding": {
+    "procedure_count": 3,
+    "procedure_ids": [
+      "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
+      "proc-statics-distributed-forces-general-distributed-load-resultant-v1",
+      "proc-statics-distributed-forces-fluid-pressure-v1"
+    ]
+  },
+  "worked_example": {
+    "entry_description": "Adjust a uniform load over a beam interval and compare the load diagram with its area-equivalent resultant located at the distribution centroid.",
+    "procedure_id": "proc-statics-distributed-forces-simple-distributed-load-resultant-v1"
+  }
 }

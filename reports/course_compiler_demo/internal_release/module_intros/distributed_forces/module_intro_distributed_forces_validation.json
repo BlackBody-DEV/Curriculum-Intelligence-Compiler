@@ -1,70 +1,82 @@
 {
-  "schema": "axiomiq_module_intro_validation_v1",
-  "validation_id": "module-intro-distributed_forces-validation-001",
-  "deterministic_policy": {
-    "canonical_json_sort_keys": true,
-    "sha256_sidecars_required": true,
-    "authority_bundle": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
-    "authority_commit": "0ae79257dc2ed256ce32332130766d6170a98f3e"
-  },
+  "binding_validation": "PASS",
+  "blockers": [],
   "checks": [
     {
       "check": "canonical_topic_identity",
-      "status": "PASS",
-      "observed": "STATICS_DISTRIBUTED_FORCES"
+      "observed": "STATICS_DISTRIBUTED_FORCES",
+      "status": "PASS"
     },
     {
       "check": "required_intro_sections",
-      "status": "PASS",
       "observed": [
         "topic_objective",
         "prerequisite_framing",
         "procedure_overview",
         "worked_example_entry_point",
-        "accessible_static_fallback"
-      ]
+        "static_diagram"
+      ],
+      "status": "PASS"
     },
     {
-      "check": "signed_procedure_coverage",
-      "status": "PASS",
+      "all_verified_signatures_present": true,
+      "check": "topic_scope_signed_procedure_coverage",
       "expected": 3,
-      "observed": 3
+      "observed": 3,
+      "status": "PASS"
+    },
+    {
+      "check": "static_diagram_asset",
+      "observed": "module_intro_distributed_forces_static_diagram.svg",
+      "renderer_category": "distributed_load_or_pressure_diagram",
+      "sha256": "b5c82c945506d2c5592458d900ad62be4c4cfb5aae7bbef62818ff696013594b",
+      "status": "PASS"
+    },
+    {
+      "check": "static_only_no_interaction_semantics",
+      "observed": {
+        "adjustable_variables": false,
+        "interactive_controls": false,
+        "parked_interaction_schema_binding": false,
+        "step_states": false
+      },
+      "status": "PASS"
+    },
+    {
+      "alt_text": "Static Distributed Forces overview showing the topic model and entry geometry; all 3 signed procedures are represented by the accompanying ordered procedure overview.",
+      "check": "accessible_alt_text",
+      "coverage": "1/1",
+      "status": "PASS"
     },
     {
       "check": "mandatory_labels",
-      "status": "PASS",
       "observed": {
-        "human_review_required": true,
-        "student_visible": false,
         "database_eligible": false,
-        "is_active": false
-      }
-    },
-    {
-      "check": "static_fallback_accessibility",
-      "status": "PASS",
-      "observed": "module_intro_distributed_forces_static_fallback.json"
-    },
-    {
-      "check": "diagram_draft_non_executable",
-      "status": "PASS",
-      "observed": true
-    },
-    {
-      "check": "v1_1_0_schema_and_registry_validation",
-      "status": "PENDING",
-      "observed": "Lane A published digests unavailable"
+        "human_review_required": true,
+        "is_active": false,
+        "student_visible": false
+      },
+      "status": "PASS"
     }
   ],
   "content_validation": "PASS",
-  "diagram_validation": "PENDING_PUBLISHED_V1_1_0",
-  "verdict": "MODULE_INTRO_LANE_DRAFT_PENDING_SCHEMA",
-  "blockers": [
-    "Lane A must publish the v1.1.0 interaction schema and renderer/formula registry digests.",
-    "The diagram draft must then bind those digests and pass the published validator."
-  ],
-  "human_review_required": true,
-  "student_visible": false,
   "database_eligible": false,
-  "is_active": false
+  "deterministic_policy": {
+    "authority_commit": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+    "canonical_json_sort_keys": true,
+    "diagram_fingerprint_inputs": [
+      "canonical_topic_code",
+      "complete_signed_procedure_set",
+      "worked_example_entry_point",
+      "renderer_category"
+    ],
+    "sha256_sidecars_required": true
+  },
+  "diagram_validation": "PASS",
+  "human_review_required": true,
+  "is_active": false,
+  "schema": "axiomiq_module_intro_static_validation_v2",
+  "student_visible": false,
+  "validation_id": "module-intro-distributed_forces-static-validation-001",
+  "verdict": "MODULE_INTROS_COMPLETE"
 }

@@ -1,54 +1,26 @@
 {
-  "schema": "axiomiq_interactive_instructional_diagram_draft_v1_1",
-  "draft_id": "module-intro-distributed_forces-diagram-001",
-  "explanation_type": "module introduction",
+  "alt_text": "Static Distributed Forces overview showing the topic model and entry geometry; all 3 signed procedures are represented by the accompanying ordered procedure overview.",
+  "artifact_path": "module_intro_distributed_forces_static_diagram.svg",
   "canonical_topic_code": "STATICS_DISTRIBUTED_FORCES",
-  "linked_module_intro_id": "module-intro-distributed_forces-001",
-  "production_bound": true,
-  "renderer_category": "distributed load and pressure-resultant workspace",
-  "required_operations": [
-    "adjust a uniform load intensity",
-    "drag distribution endpoints",
-    "edit a piecewise load profile",
-    "integrate distribution area",
-    "compute distribution centroid",
-    "replace distribution with a resultant arrow",
-    "adjust fluid depth and density",
-    "show hydrostatic pressure profile"
-  ],
-  "target_contract": {
-    "interaction_schema": "axiomiq_interactive_instructional_diagram_interaction_v1_1",
-    "schema_version": "1.1.0",
-    "renderer_registry_version": "1.1.0",
-    "renderer_registry_sha256": null,
-    "formula_registry_version": "1.1.0",
-    "formula_registry_sha256": null,
-    "binding_status": "PENDING_LANE_A_PUBLISHED_DIGESTS"
-  },
-  "v1_0_0_expressibility": {
-    "complete": false,
-    "renderer_allowlist": [
-      "statics_vector_plane_v1",
-      "statics_force_vector_v1",
-      "statics_fbd_v1",
-      "statics_composite_area_v1"
-    ],
-    "formula_allowlist": [
-      "cartesian_fx_from_magnitude_angle_deg",
-      "cartesian_fy_from_magnitude_angle_deg",
-      "sum_selected",
-      "resultant_magnitude_from_rx_ry",
-      "resultant_direction_deg_from_rx_ry"
-    ],
-    "exact_gaps": [
-      "No v1.0.0 renderer represents distributed-load or hydrostatic-pressure profiles and their equivalent resultant location.",
-      "The v1.0.0 formula allowlist has no area integral, first-moment centroid, or pressure-with-depth operation."
-    ]
-  },
-  "completion_gate": "Does not count as complete until validated against Lane A's published v1.1.0 schema and registry digests.",
+  "contains_adjustable_variables": false,
   "contains_executable_code": false,
-  "human_review_required": true,
-  "student_visible": false,
+  "contains_interactive_controls": false,
+  "contains_step_states": false,
   "database_eligible": false,
-  "is_active": false
+  "diagram_fingerprint": "8dcbe57bbcfce07a25eea5ff145259fd3a92a709c680471e8e0cc633d62970cb",
+  "diagram_sha256": "b5c82c945506d2c5592458d900ad62be4c4cfb5aae7bbef62818ff696013594b",
+  "explanation_type": "module_introduction",
+  "human_review_required": true,
+  "is_active": false,
+  "linked_module_intro_id": "module-intro-distributed_forces-001",
+  "renderer_category": "distributed_load_or_pressure_diagram",
+  "schema": "axiomiq_module_intro_static_diagram_spec_v1",
+  "static_diagram_id": "module-intro-distributed_forces-static-diagram-001",
+  "static_only": true,
+  "student_visible": false,
+  "topic_scope_procedure_ids": [
+    "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
+    "proc-statics-distributed-forces-general-distributed-load-resultant-v1",
+    "proc-statics-distributed-forces-fluid-pressure-v1"
+  ]
 }

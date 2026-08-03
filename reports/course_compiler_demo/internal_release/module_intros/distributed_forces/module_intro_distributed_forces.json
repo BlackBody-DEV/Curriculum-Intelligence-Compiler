@@ -1,65 +1,112 @@
 {
-  "schema": "axiomiq_module_introduction_draft_v1",
-  "module_intro_id": "module-intro-distributed_forces-001",
+  "accessible_static_fallback": {
+    "artifact_path": "module_intro_distributed_forces_static_fallback.json",
+    "available": true,
+    "required": true
+  },
   "canonical_identity": {
     "course_code": "STATICS",
     "topic_code": "STATICS_DISTRIBUTED_FORCES",
     "topic_title": "Distributed Forces"
   },
-  "topic_objective": "Replace uniform and general distributed loads or fluid-pressure distributions by statically equivalent resultants with correct magnitude, direction, and line of action.",
-  "prerequisite_framing": "Use force resultants, moments about a reference point, area and centroid ideas, units of load intensity, and pressure variation with depth.",
-  "procedure_overview": [
-    {
-      "sequence": 1,
-      "procedure_id": "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
-      "micro_skill_code": "simple_distributed_load_resultant",
-      "signature_status": "signed_off",
-      "overview": "Introduce simple distributed load resultant as a signed procedure within Distributed Forces."
-    },
-    {
-      "sequence": 2,
-      "procedure_id": "proc-statics-distributed-forces-general-distributed-load-resultant-v1",
-      "micro_skill_code": "general_distributed_load_resultant",
-      "signature_status": "signed_off",
-      "overview": "Introduce general distributed load resultant as a signed procedure within Distributed Forces."
-    },
-    {
-      "sequence": 3,
-      "procedure_id": "proc-statics-distributed-forces-fluid-pressure-v1",
-      "micro_skill_code": "fluid_pressure",
-      "signature_status": "signed_off",
-      "overview": "Introduce fluid pressure as a signed procedure within Distributed Forces."
-    }
-  ],
-  "procedure_coverage": {
-    "expected_signed_count": 3,
-    "covered_signed_count": 3,
-    "complete": true
-  },
-  "worked_example_entry_point": {
-    "procedure_id": "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
-    "scenario": "Adjust a uniform load over a beam interval and compare the load diagram with its area-equivalent resultant located at the distribution centroid.",
-    "launch_state": "static_fallback_available_diagram_pending_v1_1_registry"
-  },
-  "accessible_static_fallback": {
-    "artifact_path": "module_intro_distributed_forces_static_fallback.json",
-    "required": true,
-    "available": true
-  },
-  "interactive_diagram": {
-    "draft_artifact_path": "module_intro_distributed_forces_diagram_draft.json",
-    "production_bound": true,
-    "target_schema_version": "1.1.0",
-    "registry_digest": null,
-    "status": "DRAFT_PENDING_PUBLISHED_REGISTRY"
-  },
+  "database_eligible": false,
   "deterministic_validation": {
     "artifact_path": "module_intro_distributed_forces_validation.json",
     "content_validation": "PASS",
-    "diagram_schema_validation": "PENDING_PUBLISHED_V1_1_0"
+    "static_diagram_validation": "PASS",
+    "topic_scope_binding_validation": "PASS"
   },
   "human_review_required": true,
+  "is_active": false,
+  "module_intro_id": "module-intro-distributed_forces-001",
+  "prerequisite_framing": "Use force resultants, moments about a reference point, area and centroid ideas, units of load intensity, and pressure variation with depth.",
+  "procedure_coverage": {
+    "complete": true,
+    "covered_signed_count": 3,
+    "expected_signed_count": 3
+  },
+  "procedure_overview": [
+    {
+      "micro_skill_code": "simple_distributed_load_resultant",
+      "overview": "Introduce simple distributed load resultant as a signed procedure within Distributed Forces.",
+      "procedure_id": "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
+      "sequence": 1,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "general_distributed_load_resultant",
+      "overview": "Introduce general distributed load resultant as a signed procedure within Distributed Forces.",
+      "procedure_id": "proc-statics-distributed-forces-general-distributed-load-resultant-v1",
+      "sequence": 2,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "fluid_pressure",
+      "overview": "Introduce fluid pressure as a signed procedure within Distributed Forces.",
+      "procedure_id": "proc-statics-distributed-forces-fluid-pressure-v1",
+      "sequence": 3,
+      "signature_status": "signed_off"
+    }
+  ],
+  "schema": "axiomiq_module_introduction_static_v1",
+  "static_diagram": {
+    "alt_text": "Static Distributed Forces overview showing the topic model and entry geometry; all 3 signed procedures are represented by the accompanying ordered procedure overview.",
+    "artifact_path": "module_intro_distributed_forces_static_diagram.svg",
+    "contains_adjustable_variables": false,
+    "contains_interactive_controls": false,
+    "contains_step_states": false,
+    "diagram_fingerprint": "8dcbe57bbcfce07a25eea5ff145259fd3a92a709c680471e8e0cc633d62970cb",
+    "renderer_category": "distributed_load_or_pressure_diagram",
+    "sha256": "b5c82c945506d2c5592458d900ad62be4c4cfb5aae7bbef62818ff696013594b",
+    "specification_path": "module_intro_distributed_forces_diagram_draft.json",
+    "static_only": true
+  },
   "student_visible": false,
-  "database_eligible": false,
-  "is_active": false
+  "topic_objective": "Replace uniform and general distributed loads or fluid-pressure distributions by statically equivalent resultants with correct magnitude, direction, and line of action.",
+  "topic_scope_binding": {
+    "binding_rule": "021B_TOPIC_SCOPE_COMPLETE_SIGNED_PROCEDURE_SET",
+    "canonical_topic_code": "STATICS_DISTRIBUTED_FORCES",
+    "complete": true,
+    "procedure_count": 3,
+    "procedures": [
+      {
+        "micro_skill_code": "simple_distributed_load_resultant",
+        "procedure_id": "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
+        "topic_code": "STATICS_DISTRIBUTED_FORCES",
+        "verified_signature": {
+          "date": "2026-07-11",
+          "notes": "Uniform-only distributed load resultant R=wL at midspan. 2-signal {sign_or_placement_error:5, unclassified:7}. Worked example independently re-derived (R=20 kN @ x=2.0 m). First compact-contract pilot.",
+          "reviewer": "Phase D sign-off review (PHASE-D-SIMPLE-DISTRIBUTED-LOAD-RESULTANT-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "general_distributed_load_resultant",
+        "procedure_id": "proc-statics-distributed-forces-general-distributed-load-resultant-v1",
+        "topic_code": "STATICS_DISTRIBUTED_FORCES",
+        "verified_signature": {
+          "date": "2026-07-15",
+          "notes": "Batch 4C skill 3/5. Scope per Architect E3: integral method only — R = integral w(x) dx, line of action from the first-moment integral. Composite-area decomposition explicitly deferred to distributed_load_resultant_by_centroid (skill 4/5). Worked example independently re-derived by Operator: w(x) = 2 + x^2/4 kN/m on [0, 6]; R = [2x + x^3/12] from 0 to 6 = 12 + 18 = 30 kN; M = [x^2 + x^4/16] from 0 to 6 = 36 + 81 = 117 kN-m; x_bar = 117/30 = 3.9 m. Load is asymmetric (w(0)=2, w(6)=11 kN/m), so x_bar > L/2 as physically expected. First worked example REPLACED at the review beat: the original w(x) = x(6-x) was symmetric, making x_bar = 3.0 m obtainable by the centroid_symmetry shortcut and rewarding the exact L/2 assumption that sign_or_placement_error@6 exists to catch. 2-signal mapping content-earned: sign_or_placement_error at step 6 (line-of-action computation), unclassified at step 8 (final reporting and sanity check). axis_confusion omitted: all work is along a single beam-axis coordinate, no step resolves components. simple_average_used omitted: Centroids-family signal, no averaging step exists in the integral method. Method-escape errors (uniform wL, area-by-inspection, composite decomposition) are covered in common_errors and intentionally carry no signal rather than being attached to a step where they do not occur.",
+          "reviewer": "Phase D sign-off review (PHASE-D-GENERAL-DISTRIBUTED-LOAD-RESULTANT-SIGNOFF-001)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "fluid_pressure",
+        "procedure_id": "proc-statics-distributed-forces-fluid-pressure-v1",
+        "topic_code": "STATICS_DISTRIBUTED_FORCES",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "Fluid pressure — equivalent resultant and line of action for hydrostatic loading on a submerged plane surface, authored to the Architect scope ruling with fluid dynamics excluded. This artifact was reviewed by FULL independent re-derivation because the packet transmission to Cursor truncated and the worked example was reconstructed rather than echoed from supplied data; every value was verified from scratch. Re-derived: gauge pressure p = rho g h zero at the free surface and rising linearly to p_bottom = rho g H = 1000 x 9.81 x 3 = 29430 Pa = 29.43 kPa at the base, giving a triangular distribution of height 3 m and base 29.43 kPa. The equivalent resultant per unit width equals the pressure-triangle area, R = (1/2)(29430)(3) = 44145 N/m = 44.145 kN/m, confirmed independently by the closed form R = (1/2) rho g H^2 = (1/2)(1000)(9.81)(9) = 44145 N/m, two routes to the same value, and R acts perpendicular to the gate. THE LINE-OF-ACTION POINT BITES, which is the whole reason hydrostatic loading is not a uniform-load problem: the resultant acts through the centroid of the triangular distribution at one-third the height from the bottom, h_R = (2/3) H = 2.0 m below the free surface, and the artifact explicitly rejects the mid-depth 1.5 m that a uniform load would give, presenting the 1.5-to-2.0 shift as the physical content — more load is concentrated deep where pressure is highest — with the sanity check h_R = 2.0 > 1.5 confirming the resultant acts below mid-depth. BOUNDARY to simple_distributed_load_resultant drawn cleanly in one sentence: that skill gives the general area-and-centroid rule for any loading curve, and this skill specializes it to the hydrostatic case where the curve is fixed by p = rho g h and is therefore triangular from the free surface; the general rule is applied-as-specialized, not re-derived, and the triangle one-third centroid is cited rather than re-derived by integration. Fluid dynamics is excluded explicitly — no velocity, Bernoulli, or dynamic pressure — along with buoyancy-of-floating-body and surface sizing. Two earned signals at distinct steps: sign_or_placement_error at step 4 where the line of action is located and placing it at mid-depth is the failure, and unclassified at step 1 as the boundary fallback covering fluid dynamics, uniform-pressure treatment, re-deriving the general rule, and sizing. THE simple_average_used DISPOSITION IS ARGUED CORRECTLY: averaging top and bottom pressure to invent a mid-depth line of action is the same wrong placement already covered by sign_or_placement_error at step 4, not a separate Centroids-family averaging error, so it is not double-mapped — the correct reading of simple_average_used as coordinate averaging without area weighting rather than any average anywhere. axis_confusion and solution_sequencing_error cannot be earned: no axis-pair choice or transform, and no stranded phase order. Honest limitation recorded: the one-third rule and the closed form (1/2) rho g H^2 hold only for the free-surface triangular case, a submerged-top surface being trapezoidal with a differently located centroid, and the result is per unit width for a static fluid on a rigid fixed surface. Symbol discipline: R reused with the resultant framing from simple_distributed_load_resultant, hydrostatic-specific rho, g, h, H, p, p_bottom and h_R introduced distinctly, and no binding of u, d, k, I, M_O, theta, A_gen or V. Fourth skill of Batch 4N, third in a newly created subtopic; signed from its re-parented FLUID_PRESSURE location; required no correction, though it required full re-derivation rather than a fingerprint match owing to the transmission truncation.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      }
+    ]
+  },
+  "worked_example_entry_point": {
+    "launch_state": "static_diagram_available_human_review_required",
+    "procedure_id": "proc-statics-distributed-forces-simple-distributed-load-resultant-v1",
+    "scenario": "Adjust a uniform load over a beam interval and compare the load diagram with its area-equivalent resultant located at the distribution centroid."
+  }
 }
