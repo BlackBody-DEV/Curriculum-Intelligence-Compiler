@@ -1,11 +1,7 @@
 {
-  "schema": "axiomiq_module_intro_static_fallback_v1",
-  "fallback_id": "module-intro-general_principles-static-001",
-  "canonical_topic_code": "GENERAL_PRINCIPLES",
-  "language": "en",
   "accessibility": {
-    "role": "figure",
-    "title": "General Principles module introduction static overview",
+    "color_independent": true,
+    "keyboard_interaction_required": false,
     "long_description": "A text-first overview of General Principles. Select an appropriate mechanics model, preserve dimensional consistency, convert SI units, report justified precision, follow a general analysis workflow, and recognize when virtual work is useful.",
     "reading_order": [
       "objective",
@@ -14,55 +10,78 @@
       "worked-example entry",
       "diagram description"
     ],
-    "color_independent": true,
-    "keyboard_interaction_required": false
+    "role": "figure",
+    "title": "General Principles module introduction static overview"
   },
+  "canonical_topic_code": "GENERAL_PRINCIPLES",
+  "database_eligible": false,
+  "diagram_asset": {
+    "alt_text": "Static General Principles overview showing the topic model and entry geometry; all 7 signed procedures are represented by the accompanying ordered procedure overview.",
+    "diagram_fingerprint": "b0a4988be7ebd6c495af422b4b401e794058322440e72c4156010e218fdb967f",
+    "path": "module_intro_general_principles_static_diagram.svg",
+    "renderer_category": "statics_model_and_dimensional_relationship_diagram",
+    "sha256": "6c350fa1b2f22ecd56ad75ca860b9c9c4763dbebd107a8f9e99698ca78659760"
+  },
+  "diagram_description": "Static General Principles overview showing the topic model and entry geometry; all 7 signed procedures are represented by the accompanying ordered procedure overview.",
+  "fallback_id": "module-intro-general_principles-static-001",
+  "human_review_required": true,
+  "is_active": false,
+  "language": "en",
   "objective": "Select an appropriate mechanics model, preserve dimensional consistency, convert SI units, report justified precision, follow a general analysis workflow, and recognize when virtual work is useful.",
   "prerequisites": "Begin with algebra, trigonometry, vector notation, SI base and derived units, and the distinction between a particle and a rigid body. These are framing prerequisites, not replacements for the signed procedures.",
   "procedure_map": [
     {
-      "sequence": 1,
+      "micro_skill_code": "mechanics_model_selection",
       "procedure_id": "proc-general-principles-mechanics-model-selection-v1",
-      "micro_skill_code": "mechanics_model_selection"
+      "sequence": 1
     },
     {
-      "sequence": 2,
+      "micro_skill_code": "particle_vs_rigid_body_modeling",
       "procedure_id": "proc-general-principles-particle-vs-rigid-body-modeling-v1",
-      "micro_skill_code": "particle_vs_rigid_body_modeling"
+      "sequence": 2
     },
     {
-      "sequence": 3,
+      "micro_skill_code": "units_dimensional_consistency",
       "procedure_id": "proc-general-principles-units-dimensional-consistency-v1",
-      "micro_skill_code": "units_dimensional_consistency"
+      "sequence": 3
     },
     {
-      "sequence": 4,
+      "micro_skill_code": "si_unit_conversion",
       "procedure_id": "proc-general-principles-si-unit-conversion-v1",
-      "micro_skill_code": "si_unit_conversion"
+      "sequence": 4
     },
     {
-      "sequence": 5,
+      "micro_skill_code": "numerical_significant_figures",
       "procedure_id": "proc-general-principles-numerical-significant-figures-v1",
-      "micro_skill_code": "numerical_significant_figures"
+      "sequence": 5
     },
     {
-      "sequence": 6,
+      "micro_skill_code": "general_analysis_procedure",
       "procedure_id": "proc-general-principles-general-analysis-procedure-v1",
-      "micro_skill_code": "general_analysis_procedure"
+      "sequence": 6
     },
     {
-      "sequence": 7,
+      "micro_skill_code": "virtual_work",
       "procedure_id": "proc-general-principles-virtual-work-v1",
-      "micro_skill_code": "virtual_work"
+      "sequence": 7
     }
   ],
-  "worked_example": {
-    "procedure_id": "proc-general-principles-mechanics-model-selection-v1",
-    "entry_description": "A loaded bracket is classified as a particle or rigid body, its governing quantities are written with consistent SI dimensions, and the analysis path is selected before calculation."
-  },
-  "diagram_description": "The planned mechanics model and dimensional-analysis workspace will support: select particle or rigid-body model; toggle modeling assumptions; convert a displayed quantity between allowed SI units; check dimensional consistency across an equation; step through the general analysis procedure; compare direct-equilibrium and virtual-work entry paths. Until v1.1.0 is published, this description and procedure map are the complete accessible fallback.",
-  "human_review_required": true,
+  "schema": "axiomiq_module_intro_static_fallback_v2",
   "student_visible": false,
-  "database_eligible": false,
-  "is_active": false
+  "topic_scope_binding": {
+    "procedure_count": 7,
+    "procedure_ids": [
+      "proc-general-principles-mechanics-model-selection-v1",
+      "proc-general-principles-particle-vs-rigid-body-modeling-v1",
+      "proc-general-principles-units-dimensional-consistency-v1",
+      "proc-general-principles-si-unit-conversion-v1",
+      "proc-general-principles-numerical-significant-figures-v1",
+      "proc-general-principles-general-analysis-procedure-v1",
+      "proc-general-principles-virtual-work-v1"
+    ]
+  },
+  "worked_example": {
+    "entry_description": "A loaded bracket is classified as a particle or rigid body, its governing quantities are written with consistent SI dimensions, and the analysis path is selected before calculation.",
+    "procedure_id": "proc-general-principles-mechanics-model-selection-v1"
+  }
 }

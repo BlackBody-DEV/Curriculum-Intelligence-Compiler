@@ -1,52 +1,30 @@
 {
-  "schema": "axiomiq_interactive_instructional_diagram_draft_v1_1",
-  "draft_id": "module-intro-general_principles-diagram-001",
-  "explanation_type": "module introduction",
+  "alt_text": "Static General Principles overview showing the topic model and entry geometry; all 7 signed procedures are represented by the accompanying ordered procedure overview.",
+  "artifact_path": "module_intro_general_principles_static_diagram.svg",
   "canonical_topic_code": "GENERAL_PRINCIPLES",
-  "linked_module_intro_id": "module-intro-general_principles-001",
-  "production_bound": true,
-  "renderer_category": "mechanics model and dimensional-analysis workspace",
-  "required_operations": [
-    "select particle or rigid-body model",
-    "toggle modeling assumptions",
-    "convert a displayed quantity between allowed SI units",
-    "check dimensional consistency across an equation",
-    "step through the general analysis procedure",
-    "compare direct-equilibrium and virtual-work entry paths"
-  ],
-  "target_contract": {
-    "interaction_schema": "axiomiq_interactive_instructional_diagram_interaction_v1_1",
-    "schema_version": "1.1.0",
-    "renderer_registry_version": "1.1.0",
-    "renderer_registry_sha256": null,
-    "formula_registry_version": "1.1.0",
-    "formula_registry_sha256": null,
-    "binding_status": "PENDING_LANE_A_PUBLISHED_DIGESTS"
-  },
-  "v1_0_0_expressibility": {
-    "complete": false,
-    "renderer_allowlist": [
-      "statics_vector_plane_v1",
-      "statics_force_vector_v1",
-      "statics_fbd_v1",
-      "statics_composite_area_v1"
-    ],
-    "formula_allowlist": [
-      "cartesian_fx_from_magnitude_angle_deg",
-      "cartesian_fy_from_magnitude_angle_deg",
-      "sum_selected",
-      "resultant_magnitude_from_rx_ry",
-      "resultant_direction_deg_from_rx_ry"
-    ],
-    "exact_gaps": [
-      "No v1.0.0 renderer represents a mechanics-model decision workspace or dimensional-analysis equation map.",
-      "The v1.0.0 formula allowlist has no SI conversion, dimensional-equivalence, significant-figure, or virtual-work operation."
-    ]
-  },
-  "completion_gate": "Does not count as complete until validated against Lane A's published v1.1.0 schema and registry digests.",
+  "contains_adjustable_variables": false,
   "contains_executable_code": false,
-  "human_review_required": true,
-  "student_visible": false,
+  "contains_interactive_controls": false,
+  "contains_step_states": false,
   "database_eligible": false,
-  "is_active": false
+  "diagram_fingerprint": "b0a4988be7ebd6c495af422b4b401e794058322440e72c4156010e218fdb967f",
+  "diagram_sha256": "6c350fa1b2f22ecd56ad75ca860b9c9c4763dbebd107a8f9e99698ca78659760",
+  "explanation_type": "module_introduction",
+  "human_review_required": true,
+  "is_active": false,
+  "linked_module_intro_id": "module-intro-general_principles-001",
+  "renderer_category": "statics_model_and_dimensional_relationship_diagram",
+  "schema": "axiomiq_module_intro_static_diagram_spec_v1",
+  "static_diagram_id": "module-intro-general_principles-static-diagram-001",
+  "static_only": true,
+  "student_visible": false,
+  "topic_scope_procedure_ids": [
+    "proc-general-principles-mechanics-model-selection-v1",
+    "proc-general-principles-particle-vs-rigid-body-modeling-v1",
+    "proc-general-principles-units-dimensional-consistency-v1",
+    "proc-general-principles-si-unit-conversion-v1",
+    "proc-general-principles-numerical-significant-figures-v1",
+    "proc-general-principles-general-analysis-procedure-v1",
+    "proc-general-principles-virtual-work-v1"
+  ]
 }

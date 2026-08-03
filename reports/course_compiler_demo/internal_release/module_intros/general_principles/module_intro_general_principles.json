@@ -1,93 +1,184 @@
 {
-  "schema": "axiomiq_module_introduction_draft_v1",
-  "module_intro_id": "module-intro-general_principles-001",
+  "accessible_static_fallback": {
+    "artifact_path": "module_intro_general_principles_static_fallback.json",
+    "available": true,
+    "required": true
+  },
   "canonical_identity": {
     "course_code": "STATICS",
     "topic_code": "GENERAL_PRINCIPLES",
     "topic_title": "General Principles"
   },
-  "topic_objective": "Select an appropriate mechanics model, preserve dimensional consistency, convert SI units, report justified precision, follow a general analysis workflow, and recognize when virtual work is useful.",
-  "prerequisite_framing": "Begin with algebra, trigonometry, vector notation, SI base and derived units, and the distinction between a particle and a rigid body. These are framing prerequisites, not replacements for the signed procedures.",
-  "procedure_overview": [
-    {
-      "sequence": 1,
-      "procedure_id": "proc-general-principles-mechanics-model-selection-v1",
-      "micro_skill_code": "mechanics_model_selection",
-      "signature_status": "signed_off",
-      "overview": "Introduce mechanics model selection as a signed procedure within General Principles."
-    },
-    {
-      "sequence": 2,
-      "procedure_id": "proc-general-principles-particle-vs-rigid-body-modeling-v1",
-      "micro_skill_code": "particle_vs_rigid_body_modeling",
-      "signature_status": "signed_off",
-      "overview": "Introduce particle vs rigid body modeling as a signed procedure within General Principles."
-    },
-    {
-      "sequence": 3,
-      "procedure_id": "proc-general-principles-units-dimensional-consistency-v1",
-      "micro_skill_code": "units_dimensional_consistency",
-      "signature_status": "signed_off",
-      "overview": "Introduce units dimensional consistency as a signed procedure within General Principles."
-    },
-    {
-      "sequence": 4,
-      "procedure_id": "proc-general-principles-si-unit-conversion-v1",
-      "micro_skill_code": "si_unit_conversion",
-      "signature_status": "signed_off",
-      "overview": "Introduce si unit conversion as a signed procedure within General Principles."
-    },
-    {
-      "sequence": 5,
-      "procedure_id": "proc-general-principles-numerical-significant-figures-v1",
-      "micro_skill_code": "numerical_significant_figures",
-      "signature_status": "signed_off",
-      "overview": "Introduce numerical significant figures as a signed procedure within General Principles."
-    },
-    {
-      "sequence": 6,
-      "procedure_id": "proc-general-principles-general-analysis-procedure-v1",
-      "micro_skill_code": "general_analysis_procedure",
-      "signature_status": "signed_off",
-      "overview": "Introduce general analysis procedure as a signed procedure within General Principles."
-    },
-    {
-      "sequence": 7,
-      "procedure_id": "proc-general-principles-virtual-work-v1",
-      "micro_skill_code": "virtual_work",
-      "signature_status": "signed_off",
-      "overview": "Introduce virtual work as a signed procedure within General Principles."
-    }
-  ],
-  "procedure_coverage": {
-    "expected_signed_count": 7,
-    "covered_signed_count": 7,
-    "complete": true
-  },
-  "worked_example_entry_point": {
-    "procedure_id": "proc-general-principles-mechanics-model-selection-v1",
-    "scenario": "A loaded bracket is classified as a particle or rigid body, its governing quantities are written with consistent SI dimensions, and the analysis path is selected before calculation.",
-    "launch_state": "static_fallback_available_diagram_pending_v1_1_registry"
-  },
-  "accessible_static_fallback": {
-    "artifact_path": "module_intro_general_principles_static_fallback.json",
-    "required": true,
-    "available": true
-  },
-  "interactive_diagram": {
-    "draft_artifact_path": "module_intro_general_principles_diagram_draft.json",
-    "production_bound": true,
-    "target_schema_version": "1.1.0",
-    "registry_digest": null,
-    "status": "DRAFT_PENDING_PUBLISHED_REGISTRY"
-  },
+  "database_eligible": false,
   "deterministic_validation": {
     "artifact_path": "module_intro_general_principles_validation.json",
     "content_validation": "PASS",
-    "diagram_schema_validation": "PENDING_PUBLISHED_V1_1_0"
+    "static_diagram_validation": "PASS",
+    "topic_scope_binding_validation": "PASS"
   },
   "human_review_required": true,
+  "is_active": false,
+  "module_intro_id": "module-intro-general_principles-001",
+  "prerequisite_framing": "Begin with algebra, trigonometry, vector notation, SI base and derived units, and the distinction between a particle and a rigid body. These are framing prerequisites, not replacements for the signed procedures.",
+  "procedure_coverage": {
+    "complete": true,
+    "covered_signed_count": 7,
+    "expected_signed_count": 7
+  },
+  "procedure_overview": [
+    {
+      "micro_skill_code": "mechanics_model_selection",
+      "overview": "Introduce mechanics model selection as a signed procedure within General Principles.",
+      "procedure_id": "proc-general-principles-mechanics-model-selection-v1",
+      "sequence": 1,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "particle_vs_rigid_body_modeling",
+      "overview": "Introduce particle vs rigid body modeling as a signed procedure within General Principles.",
+      "procedure_id": "proc-general-principles-particle-vs-rigid-body-modeling-v1",
+      "sequence": 2,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "units_dimensional_consistency",
+      "overview": "Introduce units dimensional consistency as a signed procedure within General Principles.",
+      "procedure_id": "proc-general-principles-units-dimensional-consistency-v1",
+      "sequence": 3,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "si_unit_conversion",
+      "overview": "Introduce si unit conversion as a signed procedure within General Principles.",
+      "procedure_id": "proc-general-principles-si-unit-conversion-v1",
+      "sequence": 4,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "numerical_significant_figures",
+      "overview": "Introduce numerical significant figures as a signed procedure within General Principles.",
+      "procedure_id": "proc-general-principles-numerical-significant-figures-v1",
+      "sequence": 5,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "general_analysis_procedure",
+      "overview": "Introduce general analysis procedure as a signed procedure within General Principles.",
+      "procedure_id": "proc-general-principles-general-analysis-procedure-v1",
+      "sequence": 6,
+      "signature_status": "signed_off"
+    },
+    {
+      "micro_skill_code": "virtual_work",
+      "overview": "Introduce virtual work as a signed procedure within General Principles.",
+      "procedure_id": "proc-general-principles-virtual-work-v1",
+      "sequence": 7,
+      "signature_status": "signed_off"
+    }
+  ],
+  "schema": "axiomiq_module_introduction_static_v1",
+  "static_diagram": {
+    "alt_text": "Static General Principles overview showing the topic model and entry geometry; all 7 signed procedures are represented by the accompanying ordered procedure overview.",
+    "artifact_path": "module_intro_general_principles_static_diagram.svg",
+    "contains_adjustable_variables": false,
+    "contains_interactive_controls": false,
+    "contains_step_states": false,
+    "diagram_fingerprint": "b0a4988be7ebd6c495af422b4b401e794058322440e72c4156010e218fdb967f",
+    "renderer_category": "statics_model_and_dimensional_relationship_diagram",
+    "sha256": "6c350fa1b2f22ecd56ad75ca860b9c9c4763dbebd107a8f9e99698ca78659760",
+    "specification_path": "module_intro_general_principles_diagram_draft.json",
+    "static_only": true
+  },
   "student_visible": false,
-  "database_eligible": false,
-  "is_active": false
+  "topic_objective": "Select an appropriate mechanics model, preserve dimensional consistency, convert SI units, report justified precision, follow a general analysis workflow, and recognize when virtual work is useful.",
+  "topic_scope_binding": {
+    "binding_rule": "021B_TOPIC_SCOPE_COMPLETE_SIGNED_PROCEDURE_SET",
+    "canonical_topic_code": "GENERAL_PRINCIPLES",
+    "complete": true,
+    "procedure_count": 7,
+    "procedures": [
+      {
+        "micro_skill_code": "mechanics_model_selection",
+        "procedure_id": "proc-general-principles-mechanics-model-selection-v1",
+        "topic_code": "GENERAL_PRINCIPLES",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "Mechanics model selection, the FIRST procedure authored under GENERAL_PRINCIPLES and the first written after the Architect ruled conceptual schema-fit PASS. Four discriminators authored — equilibrium, size-and-shape, deformation, dimensionality — applied before any analysis, with the governing point that a wrongly chosen model cannot be rescued by correct arithmetic downstream because the wrong equations will already have been written. DISTINGUISHING PAIRS verified to bite rather than be asserted. Cases A and B use the same 500 kg crate, the same floor and the same cable, differing in exactly one discriminator: the crate is at rest in A and accelerating in B, and they select DIFFERENT SUBJECTS — statics and dynamics. A student classifying by physical setup rather than by discriminator would treat them identically and be wrong about B. Cases A and C are the subtler pair: both are stationary bodies within statics, yet A selects a particle model and C a rigid-body model, and the artifact names the discriminator as whether GEOMETRY ENTERS THE QUESTION while explicitly rejecting physical size as the criterion — the 500 kg crate not being small makes that rejection concrete rather than rhetorical. Cases C and D differ only in deformation: D seeks midspan deflection, which a rigid body cannot exhibit, so the problem passes to mechanics of materials, with the artifact adding honestly that statics still supplies the reactions as inputs, so the conclusion is that statics alone is insufficient rather than useless. CONSISTENCY CHECK verified independently: each pair differing in model differs in at least one discriminator answer — A/B in equilibrium alone, A/C in size-and-shape alone, C/D in deformation alone. BOUNDARY: particle_vs_rigid_body_modeling is an UNSIGNED sibling in the SAME subtopic at position 5 which owns the detailed criteria distinguishing particle from rigid-body treatment; this skill RAISES that question as one of its four discriminators and hands it off in one sentence without authoring the criteria or mapping a signal to them, so that node's scope is intact. general_analysis_procedure owns the solution sequence after a model is chosen and is excluded; the four signed FBD skills own diagram construction and none is drawn here, with the ordering stated that model selection PRECEDES the diagram; determinacy is owned elsewhere and no verdict is issued; dynamics is named as a destination with no dynamics content authored, no acceleration computed and no equation of motion applied. Verified that no equilibrium equation is written, no FBD drawn, and no numeric quantity reported as a deliverable. One earned signal, unclassified at step 1 as the boundary fallback, with the required cannot-be-earned analysis supplied for all four others: axis_confusion cannot be earned because no axis is chosen or transformed; sign_or_placement_error because no signed quantity or force placement is authored; simple_average_used because this is not a Centroids-family skill and no averaging step exists; solution_sequencing_error because the discriminators are independent and their order is free. Signals were not padded to reach a familiar count. Honest limitation recorded in the artifact: the consistency check confirms that selections follow from the discriminators as applied, but establishes neither that the discriminator set is COMPLETE — a situation could turn on a consideration outside it — nor that each discriminator was answered correctly from the physical situation, since misreading the situation would propagate into a self-consistent but wrong selection. SCHEMA-FIT FINDING, third conceptual data point and the first under the PASS ruling: formula.notation carries a genuine DECISION RULE with no invented algebra; worked_example.answer carries a model label set with discriminator summary rather than a computed result, real but strained; failure_signal_mappings is honestly thin at one signal. PRECEDENT RECORDED FOR THE ARCHITECT: formula.variables is EMPTY, the first such artifact in the corpus. This is compliant rather than thinned — the notation contains no symbols, so declaring none is correct and preferable to inventing algebra the skill does not perform — but the five remaining GENERAL_PRINCIPLES skills will likely follow the same pattern, and the precedent is named here rather than left to be discovered later.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "particle_vs_rigid_body_modeling",
+        "procedure_id": "proc-general-principles-particle-vs-rigid-body-modeling-v1",
+        "topic_code": "GENERAL_PRINCIPLES",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "Particle-versus-rigid-body modeling, the reciprocal of mechanics_model_selection signed immediately prior in the same subtopic. Three criteria authored — concurrency, question-dependence, rotational tendency — with the governing point that SIZE IS NOT THE CRITERION. DISTINGUISHING PAIR verified to bite: a 12 m radio mast is correctly modelled as a PARTICLE and a 40 mm bracket as a RIGID BODY, so size runs exactly opposite to the model choice across the pair and cannot be mistaken for the discriminator. Case 3 turns on the question alone — the same ladder with the same forces selects a particle treatment for a force-balance question and a rigid body for the slip angle — and the artifact records the caveat honestly that a particle treatment sufficing for one question is NOT evidence that the ladder is a particle, and cannot confirm full equilibrium. EQUATION-COUNT CONSEQUENCE, the sharpest teaching point: in the bracket case a particle model supplies two force equations in 2D and no moment equation, so the sought moment could not be obtained at all — the wrong model does not produce a wrong number, it produces no equation capable of answering the question. FIRST DRAFT BLOCKED on the Case 1 concurrency argument, a defect originating in Operator packet data rather than executor transcription. As drafted it claimed the three cable forces and the weight all act through the top attachment point, which is false of the weight — it acts at the centre of gravity — and it omitted the ball-and-socket base reaction from the force inventory entirely. In a skill whose subject is which forces act where, that is precisely the error the skill exists to prevent. Corrected under PHASE-D-PARTICLE-VS-RIGID-BODY-MODELING-CURSOR-CORRECTION-001 to state that concurrency is a property of LINES OF ACTION rather than points of application, to identify the weight's line of action as the vertical through the centre of gravity which is the mast axis and therefore passes through the top attachment point, and to inventory the base reaction with its axial direction derived from the stated premise that the three guy cables are symmetrically arranged and equally tensioned so their horizontal components cancel. All four force lines of action then meet at the top attachment point and the PARTICLE conclusion follows soundly. The correction improves the artifact beyond correctness: it now teaches that concurrency is tested on lines of action, a non-obvious point, where the original would have taught a student to check points of application — the wrong habit. A common_errors entry was added naming both failure modes. RECIPROCAL BOUNDARY, the central requirement of this lane: mechanics_model_selection owns the four-discriminator frame of equilibrium, size-and-shape, deformation and dimensionality, and raised the particle-versus-rigid-body question within its size-and-shape discriminator; this skill answers it. Verified that the four-discriminator frame is NOT re-authored and the complement is named in one sentence, so the two nodes compose without overlap. The signed FBD skills own diagram construction and none is drawn here; no equilibrium equation is written or solved; no numeric quantity is reported as a deliverable; no determinacy verdict; no deformation content, both particle and rigid body being rigid treatments. Equation counts are stated in prose as a consequence of the choice, which the scope requires, without any equation being written. One earned signal, unclassified at step 1, with the required cannot-be-earned analysis for all four others: axis_confusion no axis chosen or transformed; sign_or_placement_error no signed quantity or force placement authored; simple_average_used not a Centroids-family skill and no averaging step; solution_sequencing_error the criteria being independent with free order. Not padded. Honest limitation recorded: agreement of the three criteria confirms consistent application to the same reading of the situation but does not establish that the situation was read correctly — a misjudged concurrency would be applied consistently and all three criteria would still agree. SCHEMA-FIT FINDING, fourth conceptual data point: formula.notation carries a genuine decision rule with no invented algebra; formula.variables is EMPTY with symbol-free notation, following the precedent set by the signed sibling and consistent with the Architect ruling that conceptual skills carry a governing rule rather than an equation; worked_example.answer carries a classification label set rather than a computed result, real but strained; failure_signal_mappings honestly thin at one signal.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "units_dimensional_consistency",
+        "procedure_id": "proc-general-principles-units-dimensional-consistency-v1",
+        "topic_code": "GENERAL_PRINCIPLES",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "Dimensional consistency checking in base dimensions M, L, T. Every derived dimension in the reference list independently verified. Case 1 re-derived: load intensity w has dimensions of force per length, (M L T^-2)/L = M T^-2, so w L_b^2 / 2 carries M L^2 T^-2 and is a moment, while P carries M L T^-2 and is a force — a genuine additive mismatch, with the offending term correctly located as P and the diagnosis correctly limited to stating that a length is missing without inventing which physical length supplies it. Verified by an independent reduction that does not repeat the term-by-term comparison: dividing the required M L^2 T^-2 by P's M L T^-2 returns a pure L, confirming exactly one missing factor of length. CASE 2 IS THE CENTRAL DEMONSTRATION AND IT IS STRONGER THAN A CONTRIVED EXAMPLE WOULD BE. The proposed I = b h^3 / 3 is dimensionally consistent at L^4 and wrong by a factor of four against the centroidal b h^3 / 12. The Operator independently confirmed that b h^3 / 3 is the genuine base-axis value, since b h^3/12 + b h (h/2)^2 = b h^3/12 + b h^3/4 = b h^3/3 — so the error demonstrated is one a student will actually make, not a fabricated one, and it passes every dimensional test untouched because the coefficient is dimensionless. This establishes the one-way nature of the check by exhibition rather than assertion: inconsistency proves an equation wrong, consistency does not prove it right. Case 3 exercises the transcendental-argument rule: theta in radians is dimensionless, L_b carries L, so the cosine argument carries L and the relation is invalid regardless of numerical values, with the artifact noting that this fault survives a careless left-versus-right comparison and that the argument must be checked separately. BOUNDARY: si_unit_conversion is an UNSIGNED sibling in the SAME subtopic owning conversion between units and unit systems; verified excluded, with no conversion factor authored and no conversion performed, and the complement named in one sentence — dimensions are what a quantity IS, units are how it is MEASURED. numerical_significant_figures and general_analysis_procedure excluded; no statics problem solved, no relation derived, and no inconsistent equation rewritten beyond locating the fault. FIRST CONCEPTUAL SKILL WITH POPULATED formula.variables: thirteen symbols declared against the two signed siblings' empty arrays, which is correct rather than divergent — their notation carried decision rules requiring no symbols, while this notation carries dimensional relationships written in base dimensions, so symbols are real content here. SCHEMA-FIT FINDING, fifth conceptual data point and the first exercising the Architect's dimensional-relationship form: that form fits the formula field BETTER than the decision-rule form, because base and derived dimensions and the symbols under check are genuine content for both notation and variables rather than prose occupying an equation field. worked_example.answer remains a diagnosis label set rather than a computed result, real but strained. failure_signal_mappings honestly thin at one earned signal, unclassified at step 1, with the required cannot-be-earned analysis supplied for all four others: axis_confusion no axis authored; sign_or_placement_error no signed quantity or force placement, the Case 2 coefficient error being dimensionless rather than a sign or placement fault; simple_average_used not a Centroids-family skill; solution_sequencing_error the checks being independent with free order. Not padded. FIRST DRAFT BLOCKED on the formula-variable audit: I appeared in notation inside the cited relation I = b h^3 / 3 but was absent from variables, while b, h and theta from the same cited relations were declared with citation framing — an inconsistency visible within a single field. The defect originated in conflicting Operator packet instructions, which required every notation symbol to be declared while separately forbidding I to be bound; corrected under PHASE-D-UNITS-DIMENSIONAL-CONSISTENCY-CURSOR-CORRECTION-001 by declaring I with the same citation framing as its siblings, with a two-way symbol audit confirming every notation symbol declared and every declared symbol used. This is the same class of gap as the y_i omission blocked in Batch 4L, and it is invisible to json.tool, to the content validator and to a key count. SYMBOL COLLISION RECORDED: M is bound here as the base dimension of MASS, while signed couple_moment and moment_of_force_scalar_2d bind M and M_O as MOMENTS. This is the first cross-topic same-string collision in the corpus where the meanings genuinely differ. It is retained deliberately — dimensional analysis universally writes mass as M, the topics are distinct, and both meanings are declared in-variable — but it is named here rather than left implicit, for Architect awareness.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "si_unit_conversion",
+        "procedure_id": "proc-general-principles-si-unit-conversion-v1",
+        "topic_code": "GENERAL_PRINCIPLES",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "SI unit conversion by the unity-factor method, completing the UNITS_AND_DIMENSIONAL_CONSISTENCY subtopic as the reciprocal of units_dimensional_consistency. Every conversion independently re-derived. Case 1: the millimetre-to-metre factor 10^-3 raised to the fourth power for mm^4, (10^-3)^4 = 10^-12, gives I = 40 x 10^6 mm^4 x 10^-12 = 4.0 x 10^-5 m^4; the characteristic once-only error 40 x 10^6 x 10^-3 = 4.0 x 10^4 m^4 is wrong by a factor of 10^9. Case 2: weight W = m_b g = 50 x 9.81 = 490.5 N. Case 3: force by two routes, 2 N/mm^2 x 300 mm^2 = 600 N and 2 x 10^6 N/m^2 x 3.0 x 10^-4 m^2 = 600 N, exact by both. Verified by an independent round-trip on the powered conversion: the correct value round-trips to 40 x 10^6 mm^4 exactly, while the erroneous 4.0 x 10^4 m^4 round-trips to 4.0 x 10^16 mm^4 and does not recover the original. THE CENTRAL CROSS-SKILL LINK IS EXHIBITED RATHER THAN ASSERTED: the erroneous 4.0 x 10^4 m^4 carries the units m^4, the correct dimension of a second moment of area, so it is dimensionally consistent and would pass the dimensional check owned by units_dimensional_consistency — while the round trip catches it. Each of the two sibling skills therefore catches the other's blind spot, and the artifact records honestly that neither catches a wrong starting value. MASS-VERSUS-FORCE handled correctly: the kilogram measures mass and the newton force, there is no unity factor between them, weight is the physical product m_b g, and the artifact states plainly that \"50 kg = 490.5 N\" would be false, with the mass invariant while the weight varies with location. The exact identity 1 MPa = 1 N/mm^2 is used and the agreement of the two Case 3 routes demonstrates the unity-factor principle that the physical quantity is unchanged by which unit system carries the arithmetic. RECIPROCAL BOUNDARY, the central requirement: units_dimensional_consistency owns dimensional analysis and the one-way check; verified that no dimensional consistency check is authored as a step here and the complement is named in one sentence — dimensions are what a quantity IS, units are how it is MEASURED, that skill checks the former and this one converts the latter. numerical_significant_figures excluded: a rounding is named where g's precision is used but no significant-figure rule is authored. No statics problem solved beyond conversion arithmetic, no relation derived. formula.variables populated with fourteen entries, continuing the dimensional sibling's populated pattern rather than the empty decision-rule arrays of the two model-selection skills; I declared with citation framing as a supplied value being converted, not as an owned quantity; a two-way symbol audit confirmed every notation symbol declared and every declared symbol used, with the Operator additionally confirming that single-letter symbols function in their declared roles rather than merely matching as substrings. One earned signal, unclassified at step 1, with the cannot-be-earned analysis supplied for all four others: sign_or_placement_error unearned because omitting a conversion factor's power is an exponent or unity-factor fault rather than a signed quantity or force-placement error; axis_confusion no axis authored; simple_average_used not a Centroids-family skill; solution_sequencing_error the Case 3 routes being free-order alternatives with no stranded prerequisite. Not padded. Honest limitation recorded: the round trip confirms consistent application of the factor in both directions but cannot detect an error in the original value and does not detect a mass-for-force substitution, which is an identification error rather than an arithmetic one. SCHEMA-FIT FINDING, sixth conceptual data point: the conversion identity and exponent rule are genuine content for formula.notation and the unit symbols make populated formula.variables correct, confirming that conceptual skills whose governing rule involves symbols populate the field naturally while pure decision-rule skills correctly leave it empty — the two patterns are both valid under the Architect's rule rather than one being a defect.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "numerical_significant_figures",
+        "procedure_id": "proc-general-principles-numerical-significant-figures-v1",
+        "topic_code": "GENERAL_PRINCIPLES",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "Significant-figure reporting, completing the NUMERICAL_CALCULATIONS subtopic and the third of the three precision-adjacent GENERAL_PRINCIPLES concepts. All four cases independently re-derived. Case 1: 3.5 x 12.47 = 43.645 reported 44 m^2, two significant figures governed by the width; the length's four figures do not help. Case 2: 120.4 + 6.75 + 0.333 = 127.483 reported 127.5 m to one decimal place governed by 120.4, which carries four significant figures — the artifact making the correct point that the addition rule is about DECIMAL PLACE while the multiplication rule of Case 1 is about FIGURE COUNT, so the two rules give different-looking counts and the operation determines the rule. Case 3, the divergence case: 8.15 / 2.04 = 3.995098 carried to 3.9951, times 1.67 = 6.6718 reported 6.67, against the premature path that rounds 8.15 / 2.04 to 4.00 first and yields 4.00 x 1.67 = 6.68. The divergence 6.67 versus 6.68 is real and was confirmed by an arithmetic pre-check before authoring, demonstrating why intermediate figures are carried and rounding done once. Case 4: 47.3 / 8 = 5.9125 reported 5.91 N, with the 8 an EXACT count excluded from the fewest-input comparison, and the artifact noting that treating it as one significant figure would wrongly force 6 N. Verified by an independent re-count check confirming each result carries exactly the precision its governing input allows. BOUNDARY completes the three-way mutual boundary of the precision cluster: units_dimensional_consistency owns dimensional analysis and si_unit_conversion owns conversion, and this skill states in one sentence each that significant figures are independent of dimensions and of units, with no dimensional check and no conversion authored, and the fact that an exact conversion factor carries unlimited figures noted without a conversion being performed. general_analysis_procedure excluded; no statics problem solved, no relation derived, no formal uncertainty or error-bar analysis authored, that being a separate subject. One earned signal, unclassified at step 1, with the cannot-be-earned analysis for all four others. The simple_average_used disposition was scrutinized specifically because Case 4 divides a load among bolts and superficially resembles averaging: it is ruled cannot-earn on the correct ground that the signal denotes an unweighted mean used where a weighted computation was required, whereas dividing by an exact count to obtain a per-unit share is exact division and not an averaging error at all. axis_confusion, sign_or_placement_error and solution_sequencing_error cannot be earned: no axis, no signed quantity or force placement, and independent cases with no stranded prerequisite. Not padded. Honest limitation recorded: the significant-figure convention communicates precision approximately and tracks the precision the inputs CLAIM rather than a rigorous uncertainty bound; the re-count confirms the figures follow the rules from the stated inputs but validates neither the inputs' measurement nor the arithmetic. SCHEMA-FIT FINDING, seventh conceptual data point: formula.variables is EMPTY, correctly, because the governing rules are stated as prose without algebraic symbols, following the model-selection precedent; this consolidates the dual pattern established across the batch — conceptual skills whose governing rule involves symbols populate variables (the dimensional and conversion skills), while those whose rule is a decision or counting convention leave it empty (the two model-selection skills and this one), both valid under the Architect ruling rather than either being a defect. This draft required no correction, the arithmetic pre-check on the Case 3 divergence having caught before authoring the class of packet-data error that recurred earlier in the batch.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "general_analysis_procedure",
+        "procedure_id": "proc-general-principles-general-analysis-procedure-v1",
+        "topic_code": "GENERAL_PRINCIPLES",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "General analysis procedure, completing the GENERAL_ANALYSIS_PROCEDURE subtopic and the entire GENERAL_PRINCIPLES topic. The widest-bordering skill in the corpus: it sequences five phases owned by mechanics_model_selection, the FBD skills, the equilibrium skills, and the three precision-cluster skills, and it references every one without re-authoring any. The forced order is established as a dependency chain in which each phase consumes the previous phase's output, and the dependency audit independently confirms that Phase 2 requires the model, Phase 3 the FBD, Phase 4 the equations, and Phase 5 the solution, with no phase requiring an input produced by a later phase — the property that makes the sequence forced rather than conventional. THE DEPENDENCY VIOLATION IS SHOWN IMPOSSIBLE, NOT MERELY UNWISE: attempting the equilibrium equations before the free-body diagram fails because an equilibrium equation is a statement that a named set of forces sums to zero, and which forces those are is precisely the FBD's output, so the missing input is the content of the later phase rather than a convenience. The check-phase feedback closes the loop correctly: a physically impossible roller-pull reaction returns the solver to the FBD, the earliest implicated phase, rather than to the solution or to forcing the arithmetic, establishing the procedure as a feedback loop. solution_sequencing_error IS EARNED HERE, at step 2 where the forced order is established, distinct from unclassified at step 1 — and this is the first and only natural home for that signal across Batches 4L and 4M. It was omitted with argument in every prior skill because no authored step stranded a prerequisite; here the entire subject is prerequisite dependency, which retroactively confirms the discipline of never forcing the signal into skills that did not earn it. axis_confusion, sign_or_placement_error and simple_average_used cannot be earned: no axis, no signed quantity or force placement authored here (the impossible-sign example being check feedback rather than a placement step), and no averaging. Verified that no phase is performed — no FBD drawn, no equilibrium equation written, no number computed, no dimensional check, conversion, significant-figure count, or determinacy authored — and that every named phase is attributed to its owning skill. Honest limitation recorded: the dependency audit confirms the phases are correctly ordered by their inputs and outputs but does not confirm that any phase is performed correctly; it validates the skeleton, not the flesh, and the check phase rather than the audit catches within-phase failure. SCHEMA-FIT FINDING, eighth conceptual data point and the consolidated read for the completed GENERAL_PRINCIPLES topic: the 11-key contract served all six conceptual skills cleanly under the single Architect rule, with two valid and now well-attested patterns — populated formula.variables where the notation carries symbols, as in units_dimensional_consistency and si_unit_conversion, and empty formula.variables where the notation carries a decision, counting, or sequence rule, as in mechanics_model_selection, particle_vs_rigid_body_modeling, numerical_significant_figures, and this sequencing skill. worked_example.answer ranged from diagnosis, model, and sequence label sets to conversion and rounding numerics without breaking the schema, and failure_signal_mappings stayed honestly thin, usually a single unclassified at step 1 and here additionally solution_sequencing_error at step 2. Where the fields strained — prose occupying formula for rule-based skills, non-numeric answers for meta-skills — the strain was real but tolerable and is a property of applying one schema across computational and conceptual skills, not a defect of the contract. This draft required no correction, the second consecutive clean draft closing the topic.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      },
+      {
+        "micro_skill_code": "virtual_work",
+        "procedure_id": "proc-general-principles-virtual-work-v1",
+        "topic_code": "GENERAL_PRINCIPLES",
+        "verified_signature": {
+          "date": "2026-07-24",
+          "notes": "Virtual work — the principle of virtual work for equilibrium of a rigid one-degree-of-freedom system, the FINAL node of Phase D, authored to the Architect scope ruling for equilibrium analysis by compatible virtual displacement with deformation-energy and dynamics methods excluded. Independently re-derived: for a weightless bar of length L = 2 m pinned at O with a vertical load F = 100 N at the free end B and an applied couple M at the pin, the one-DOF coordinate theta gives y_B = L sin theta and the compatible virtual displacement delta y_B = L cos theta delta-theta, so delta U = M delta-theta - F L cos theta delta-theta = 0 yields M = F L cos theta = 100 x 2 x cos 30 = 173.21 N*m, and the direct-moment cross-check about O gives the identical 173.21 N*m by the other route. THE DROP-OUT IS THE ENTIRE POINT AND IS VISIBLE: the pin reaction at O does no virtual work because O is stationary under the compatible virtual displacement, so it never enters delta U = 0, and virtual work reaches the answer without the reaction appearing while the direct-equilibrium cross-check reaches the same number by a route that must reason about moments — the different route reaching the shared answer, one of them sidestepping the constraint force, being what makes virtual work its own method rather than a restatement of sum M = 0. The artifact never collapses it back into direct equilibrium: the cross-check is verification only, and re-deriving sum F = 0 / sum M = 0 as the primary route is flagged as a common error. The compatible virtual displacement is handled correctly, parameterized by one coordinate with positions differentiated to components and compatibility confirmed, and delta x_B = -L sin theta delta-theta is carried to note what a horizontal force would contribute without cluttering the vertical-load case. THE THREE-SIGNAL MAPPING is the most refined axis-versus-sign split in the corpus and is correct: axis_confusion at step 2 is pairing a force with the wrong virtual-displacement component, a vertical force with delta x_B instead of delta y_B, while sign_or_placement_error at step 3 is the wrong sign on a correctly paired term, the downward load taken as doing positive work when B rises; these are the two dominant virtual-work error modes, genuinely distinct acts at distinct steps with each trigger stating the distinction, and unclassified at step 1 carries the method-defeating boundary errors of including a non-working reaction in delta U, strain or kinetic energy, or an incompatible displacement. simple_average_used and solution_sequencing_error cannot be earned. THE SCOPE RULING HELD UNDER REAL TEMPTATION since virtual work is the gateway to energy and stability methods: the analysis stays rigid-body virtual work of applied forces only, with no strain energy, no kinetic energy, and no dynamics, and it names that delta U = 0 locates equilibrium while the stability second-derivative test is a separate question not authored, acknowledging the adjacent topic without entering it. The honest limitation is precise: virtual work gives the relation among active forces and not the constraint reactions, which need direct equilibrium if wanted, and it assumes frictionless constraints so reactions do no work, with friction they would contribute. The categorical-mismatch placement in GENERAL_PRINCIPLES among six meta-skills is handled by reading as the full method it is rather than meta-skilling itself to match neighbors, vindicating the FULL_HIBBELER_CORE tier. Symbol discipline: the virtual quantities delta-theta, delta U, delta x_B and delta y_B are introduced in distinct delta notation without rebinding any force or moment symbol as a virtual quantity, and M and theta reuse their applied-couple and angle meanings with M noted as found via delta U = 0 rather than sum M = 0. Eighth and final skill of Batch 4N; signed from its re-parented VIRTUAL_WORK location; required no correction at review; brings Phase D to 98 of 98 and completes the procedure authoring phase. Reviewed at full discipline with no relaxation for being the last node.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        }
+      }
+    ]
+  },
+  "worked_example_entry_point": {
+    "launch_state": "static_diagram_available_human_review_required",
+    "procedure_id": "proc-general-principles-mechanics-model-selection-v1",
+    "scenario": "A loaded bracket is classified as a particle or rigid body, its governing quantities are written with consistent SI dimensions, and the analysis path is selected before calculation."
+  }
 }
