@@ -1,0 +1,48 @@
+{
+  "schema": "axiomiq_module_intro_static_fallback_v1",
+  "fallback_id": "module-intro-equivalent_force_systems-static-001",
+  "canonical_topic_code": "STATICS_RESULTANT_FORCES",
+  "language": "en",
+  "accessibility": {
+    "role": "figure",
+    "title": "Equivalent Force Systems module introduction static overview",
+    "long_description": "A text-first overview of Equivalent Force Systems. Resolve and combine coplanar forces, then determine the magnitude and direction of the single resultant while preserving axis and quadrant conventions.",
+    "reading_order": [
+      "objective",
+      "prerequisites",
+      "procedure map",
+      "worked-example entry",
+      "diagram description"
+    ],
+    "color_independent": true,
+    "keyboard_interaction_required": false
+  },
+  "objective": "Resolve and combine coplanar forces, then determine the magnitude and direction of the single resultant while preserving axis and quadrant conventions.",
+  "prerequisites": "Use signed Cartesian components, degree-based angles, vector addition, the Pythagorean magnitude relation, and atan2 quadrant handling.",
+  "procedure_map": [
+    {
+      "sequence": 1,
+      "procedure_id": "proc-statics-resultant-forces-resultant-magnitude-v1",
+      "micro_skill_code": "resultant_magnitude"
+    },
+    {
+      "sequence": 2,
+      "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+      "micro_skill_code": "resultant_2d_addition"
+    },
+    {
+      "sequence": 3,
+      "procedure_id": "cdc80a84-110f-4eca-967b-d2b8b0dad982",
+      "micro_skill_code": "resultant_direction_2d"
+    }
+  ],
+  "worked_example": {
+    "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+    "entry_description": "Resolve two coplanar forces into x and y components, sum them, and reveal the resultant magnitude and atan2 direction."
+  },
+  "diagram_description": "The planned vectors and coordinate systems will support: drag force magnitude; drag force angle in degrees; resolve each force into Cartesian components; sum selected x components; sum selected y components; compute resultant magnitude; compute atan2 resultant direction; toggle component and resultant overlays. Until v1.1.0 is published, this description and procedure map are the complete accessible fallback.",
+  "human_review_required": true,
+  "student_visible": false,
+  "database_eligible": false,
+  "is_active": false
+}
