@@ -117,3 +117,25 @@ def test_v11_fingerprint_binds_deterministic_cases():
     report=validate_interaction_spec(spec)
     assert not report.passed
     assert any('interaction_fingerprint mismatch' in e for g in report.gate_results for e in g.errors)
+
+@pytest.mark.parametrize(('formula_id','input_units','output_unit'),[
+ ('friction_limit',{'coefficient':'N','normal_force':'deg'},'N'),
+ ('uniform_distributed_load_resultant',{'intensity':'deg','length':'N'},'N'),
+ ('area_first_moment',{'signed_area':'N','coordinate':'deg'},'m^3'),
+])
+def test_registry_input_dimensions_fail_closed(formula_id,input_units,output_unit):
+    registry=json.loads((ROOT/'schemas/interaction_formula_registry_v1_1.json').read_text())
+    entry=next(x for x in registry['entries'] if x['formula_id']==formula_id)
+    variables=[]; state={}; inputs={}
+    for index,item in enumerate(entry['typed_inputs']):
+        name=item['name']; unit=input_units[name]; var_id=f'v{index}'
+        variables.append({'id':var_id,'label':name,'value_type':'number','unit':unit,'minimum':-10,'maximum':10,'increment':1,'interaction':'numeric_spinner'})
+        state[var_id]=1; inputs[name]=var_id
+    calc={'id':'answer','label':'answer','unit':output_unit,'formula_id':formula_id,'inputs':inputs}
+    spec=load(FIX11); spec['student_adjustable_variables']=variables; spec['initial_state']['variables']=state; spec['reset_state']['variables']=dict(state); spec['dependent_calculated_values']=[calc]
+    spec['visible_labels'][0]['binds_to']='answer'; spec['deterministic_validation_cases']=[{'case_id':'bad_units','input_variables':state,'expected_calculated':{'answer':evaluate_formula(formula_id,state,inputs)},'tolerance':{'answer':1e-9}}]
+    keys=('student_adjustable_variables','available_toggles','dependent_calculated_values','geometric_constraints','mathematical_constraints','procedural_step_states','expected_state_transitions','keyboard_interaction_model','initial_state','reset_state','deterministic_validation_cases')
+    spec['interaction_fingerprint']=hashlib.sha256(json.dumps({k:spec[k] for k in keys},sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()).hexdigest()
+    report=validate_interaction_spec(spec)
+    assert not report.passed
+    assert any('dimension' in e for g in report.gate_results for e in g.errors)

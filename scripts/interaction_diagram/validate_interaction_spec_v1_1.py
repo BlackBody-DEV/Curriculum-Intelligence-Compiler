@@ -53,16 +53,39 @@ def _eval(spec,variables):
 
 UNIT_DIMENSIONS={'N':'force','kN':'force','lb':'force','m':'length','mm':'length','cm':'length','ft':'length','in':'length','deg':'angle','rad':'angle','dimensionless':'dimensionless','N*m':'moment','kN*m':'moment','N/m':'force_per_length','kN/m':'force_per_length','m^2':'area','m^3':'volume','m^4':'length_fourth','kg':'mass','kg*m^2':'mass_length_squared','Pa':'pressure','MPa':'pressure'}
 CONCRETE_OUTPUTS={'force','moment','length','angle','dimensionless','area','volume','length_fourth','mass_length_squared'}
+def _compatible(actual,required):
+    if actual==required: return True
+    if required=='length_cubed' and actual=='volume': return True
+    if required=='area_or_mass' and actual in {'area','mass'}: return True
+    return False
+def _refs(value): return value if isinstance(value,list) else [value]
+def _input_dimension_errors(calc,meta,units):
+    errors=[]; rules=meta.get('input_dimension_rules') or {}; inputs=calc.get('inputs') or {}
+    for input_name,required in (rules.get('required_dimensions') or {}).items():
+        for ref in _refs(inputs.get(input_name,[])):
+            actual=UNIT_DIMENSIONS.get(units.get(ref))
+            if actual is None: errors.append(f"{calc['id']} input {input_name} has unknown unit")
+            elif not _compatible(actual,required): errors.append(f"{calc['id']} input {input_name} dimension {actual} does not match {required}")
+    for group in rules.get('same_dimension_groups') or []:
+        dimensions=[]
+        for input_name in group:
+            for ref in _refs(inputs.get(input_name,[])):
+                actual=UNIT_DIMENSIONS.get(units.get(ref))
+                if actual is None: errors.append(f"{calc['id']} input {input_name} has unknown unit")
+                else: dimensions.append(actual)
+        if dimensions and len(set(dimensions))!=1: errors.append(f"{calc['id']} inputs in {group} must share one dimension")
+    return errors
 def _unit_contract_errors(spec):
     errors=[]
     units={x['id']:x['unit'] for x in spec.get('student_adjustable_variables',[])}
     for calc in spec.get('dependent_calculated_values',[]):
         meta=FORMULA_METADATA[calc['formula_id']]; declared=UNIT_DIMENSIONS.get(calc['unit']); expected=meta['typed_output']['dimension']
+        errors.extend(_input_dimension_errors(calc,meta,units))
         if expected in CONCRETE_OUTPUTS and declared!=expected: errors.append(f"{calc['id']} unit dimension {declared} does not match {expected}")
         if expected=='inertia' and declared not in {'length_fourth','mass_length_squared'}: errors.append(f"{calc['id']} must use area or mass inertia units")
         if expected.startswith('same_as'):
             refs=[]
-            for value in calc['inputs'].values(): refs.extend(value if isinstance(value,list) else [value])
+            for value in calc['inputs'].values(): refs.extend(_refs(value))
             input_dims={UNIT_DIMENSIONS.get(units.get(ref)) for ref in refs if units.get(ref)}
             input_dims.discard(None)
             if input_dims and declared not in input_dims: errors.append(f"{calc['id']} output unit does not match input dimension")

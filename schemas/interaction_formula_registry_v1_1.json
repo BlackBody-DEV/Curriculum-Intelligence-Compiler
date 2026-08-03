@@ -16,6 +16,14 @@
         "output_force_unit_matches_magnitude"
       ],
       "formula_id": "cartesian_fx_from_magnitude_angle_deg",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "angle_deg": "angle",
+          "magnitude": "force"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "fx_squared_plus_fy_squared_equals_magnitude_squared"
       ],
@@ -70,6 +78,14 @@
         "output_force_unit_matches_magnitude"
       ],
       "formula_id": "cartesian_fy_from_magnitude_angle_deg",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "angle_deg": "angle",
+          "magnitude": "force"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "fx_squared_plus_fy_squared_equals_magnitude_squared"
       ],
@@ -126,6 +142,15 @@
         "all_terms_and_output_share_dimension"
       ],
       "formula_id": "sum_selected",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "terms"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "commutative_sum"
       ],
@@ -171,6 +196,16 @@
         "components_share_dimension"
       ],
       "formula_id": "resultant_magnitude_from_rx_ry",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "rx",
+            "ry"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "result_nonnegative"
       ],
@@ -221,6 +256,16 @@
         "output_is_degrees"
       ],
       "formula_id": "resultant_direction_deg_from_rx_ry",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "rx",
+            "ry"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "range_zero_inclusive_360_exclusive"
       ],
@@ -233,11 +278,11 @@
       "operation": "direction2",
       "parameter_bounds": {
         "not_both_zero": true,
-        "x": {
+        "rx": {
           "maximum": 1000000,
           "minimum": -1000000
         },
-        "y": {
+        "ry": {
           "maximum": 1000000,
           "minimum": -1000000
         }
@@ -276,6 +321,13 @@
         "direction_cosine_dimensionless"
       ],
       "formula_id": "vector_component_from_magnitude_direction_cosine",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "direction_cosine": "dimensionless"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "absolute_component_not_greater_than_magnitude"
       ],
@@ -330,6 +382,16 @@
         "inputs_and_output_share_dimension"
       ],
       "formula_id": "vector_subtract_component",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "head",
+            "tail"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "head_equals_output_plus_tail"
       ],
@@ -380,6 +442,13 @@
         "scalar_dimensionless"
       ],
       "formula_id": "vector_scale_component",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "scalar": "dimensionless"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "zero_scalar_gives_zero"
       ],
@@ -430,6 +499,16 @@
         "components_share_dimension"
       ],
       "formula_id": "vector_norm_2d",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "x",
+            "y"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "result_nonnegative"
       ],
@@ -481,6 +560,17 @@
         "components_share_dimension"
       ],
       "formula_id": "vector_norm_3d",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "x",
+            "y",
+            "z"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "result_nonnegative"
       ],
@@ -536,6 +626,16 @@
         "component_and_norm_share_dimension"
       ],
       "formula_id": "unit_vector_component",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "component",
+            "norm"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "components_collectively_have_unit_norm"
       ],
@@ -588,6 +688,25 @@
         "output_dimension_is_product_of_vector_dimensions"
       ],
       "formula_id": "dot_product_2d",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "ax": "force",
+          "ay": "force",
+          "bx": "dimensionless",
+          "by": "dimensionless"
+        },
+        "same_dimension_groups": [
+          [
+            "ax",
+            "ay"
+          ],
+          [
+            "bx",
+            "by"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "commutative"
       ],
@@ -652,6 +771,29 @@
         "output_dimension_is_product_of_vector_dimensions"
       ],
       "formula_id": "dot_product_3d",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "ax": "force",
+          "ay": "force",
+          "az": "force",
+          "bx": "dimensionless",
+          "by": "dimensionless",
+          "bz": "dimensionless"
+        },
+        "same_dimension_groups": [
+          [
+            "ax",
+            "ay",
+            "az"
+          ],
+          [
+            "bx",
+            "by",
+            "bz"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "commutative"
       ],
@@ -722,6 +864,14 @@
         "dot_dimension_divided_by_target_dimension"
       ],
       "formula_id": "scalar_projection",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "dot": "force",
+          "target_norm": "dimensionless"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "cauchy_schwarz_bound"
       ],
@@ -772,6 +922,16 @@
         "output_is_degrees"
       ],
       "formula_id": "direction_angle_deg_from_component_norm",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "component",
+            "norm"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "range_zero_to_180"
       ],
@@ -828,6 +988,25 @@
         "output_dimension_is_product_of_vector_dimensions"
       ],
       "formula_id": "cross_product_x",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "ay": "length",
+          "az": "length",
+          "by": "force",
+          "bz": "force"
+        },
+        "same_dimension_groups": [
+          [
+            "ay",
+            "az"
+          ],
+          [
+            "by",
+            "bz"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "antisymmetric_cross_product"
       ],
@@ -890,6 +1069,25 @@
         "output_dimension_is_product_of_vector_dimensions"
       ],
       "formula_id": "cross_product_y",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "ax": "length",
+          "az": "length",
+          "bx": "force",
+          "bz": "force"
+        },
+        "same_dimension_groups": [
+          [
+            "az",
+            "ax"
+          ],
+          [
+            "bz",
+            "bx"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "antisymmetric_cross_product"
       ],
@@ -952,6 +1150,25 @@
         "output_dimension_is_product_of_vector_dimensions"
       ],
       "formula_id": "cross_product_z",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "ax": "length",
+          "ay": "length",
+          "bx": "force",
+          "by": "force"
+        },
+        "same_dimension_groups": [
+          [
+            "ax",
+            "ay"
+          ],
+          [
+            "bx",
+            "by"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "antisymmetric_cross_product"
       ],
@@ -1014,6 +1231,25 @@
         "length_times_force"
       ],
       "formula_id": "signed_moment_2d",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "fx": "force",
+          "fy": "force",
+          "rx": "length",
+          "ry": "length"
+        },
+        "same_dimension_groups": [
+          [
+            "rx",
+            "ry"
+          ],
+          [
+            "fx",
+            "fy"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "positive_is_counterclockwise"
       ],
@@ -1078,6 +1314,29 @@
         "axis_vector_dimensionless_and_unit_length"
       ],
       "formula_id": "moment_axis_projection",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "mx": "moment",
+          "my": "moment",
+          "mz": "moment",
+          "ux": "dimensionless",
+          "uy": "dimensionless",
+          "uz": "dimensionless"
+        },
+        "same_dimension_groups": [
+          [
+            "ux",
+            "uy",
+            "uz"
+          ],
+          [
+            "mx",
+            "my",
+            "mz"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "absolute_projection_not_greater_than_moment_norm"
       ],
@@ -1148,6 +1407,14 @@
         "force_times_length"
       ],
       "formula_id": "couple_moment_signed",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "force": "force",
+          "signed_distance": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "couple_is_free_vector"
       ],
@@ -1198,6 +1465,19 @@
         "both_inputs_are_moments"
       ],
       "formula_id": "force_couple_resultant_moment",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "applied_couple": "moment",
+          "force_moment": "moment"
+        },
+        "same_dimension_groups": [
+          [
+            "force_moment",
+            "applied_couple"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "reference_point_reduction_equivalence"
       ],
@@ -1248,6 +1528,14 @@
         "moment_divided_by_force"
       ],
       "formula_id": "resultant_line_of_action_offset",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "resultant_force": "force",
+          "resultant_moment": "moment"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "force_times_offset_equals_moment"
       ],
@@ -1297,6 +1585,19 @@
         "all_terms_are_force"
       ],
       "formula_id": "equilibrium_force_residual",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "force_a": "force",
+          "force_b": "force"
+        },
+        "same_dimension_groups": [
+          [
+            "force_a",
+            "force_b"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "equilibrium_when_zero"
       ],
@@ -1347,6 +1648,19 @@
         "all_terms_are_moment"
       ],
       "formula_id": "equilibrium_moment_residual",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "moment_a": "moment",
+          "moment_b": "moment"
+        },
+        "same_dimension_groups": [
+          [
+            "moment_a",
+            "moment_b"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "equilibrium_when_zero"
       ],
@@ -1397,6 +1711,13 @@
         "coefficient_times_unknown_matches_negative_known_sum"
       ],
       "formula_id": "unknown_from_linear_equilibrium",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "coefficient": "dimensionless"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "residual_equals_zero"
       ],
@@ -1446,6 +1767,14 @@
         "force_per_length_times_length"
       ],
       "formula_id": "uniform_distributed_load_resultant",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "intensity": "force_per_length",
+          "length": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "resultant_nonnegative_for_nonnegative_intensity"
       ],
@@ -1496,6 +1825,14 @@
         "force_per_length_times_length"
       ],
       "formula_id": "triangular_distributed_load_resultant",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "length": "length",
+          "peak_intensity": "force_per_length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "half_base_times_height"
       ],
@@ -1547,6 +1884,20 @@
         "force_per_length_times_length"
       ],
       "formula_id": "trapezoidal_distributed_load_resultant",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "end_intensity": "force_per_length",
+          "length": "length",
+          "start_intensity": "force_per_length"
+        },
+        "same_dimension_groups": [
+          [
+            "start_intensity",
+            "end_intensity"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "equals_rectangle_plus_triangle_decomposition"
       ],
@@ -1601,6 +1952,13 @@
         "same_length_unit"
       ],
       "formula_id": "uniform_load_centroid_from_start",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "length": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "centroid_at_midspan"
       ],
@@ -1645,6 +2003,13 @@
         "same_length_unit"
       ],
       "formula_id": "triangular_load_centroid_from_zero_end",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "length": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "centroid_two_thirds_from_zero_end"
       ],
@@ -1691,6 +2056,20 @@
         "intensities_share_unit_and_output_matches_length"
       ],
       "formula_id": "trapezoidal_load_centroid_from_start",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "end_intensity": "force_per_length",
+          "length": "length",
+          "start_intensity": "force_per_length"
+        },
+        "same_dimension_groups": [
+          [
+            "start_intensity",
+            "end_intensity"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "centroid_within_loaded_interval"
       ],
@@ -1749,6 +2128,14 @@
         "moment_divided_by_length"
       ],
       "formula_id": "simply_supported_reaction_from_moment",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "load_moment_about_other_support": "moment",
+          "support_span": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "moment_equilibrium"
       ],
@@ -1798,6 +2185,13 @@
         "same_force_unit"
       ],
       "formula_id": "internal_force_from_section_equilibrium",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "external_component": "force"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "section_residual_zero"
       ],
@@ -1842,6 +2236,13 @@
         "same_moment_unit"
       ],
       "formula_id": "internal_moment_from_section_equilibrium",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "external_moment": "moment"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "section_moment_residual_zero"
       ],
@@ -1888,6 +2289,20 @@
         "force_per_length_times_length"
       ],
       "formula_id": "linear_load_integral",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "length": "length",
+          "load_end": "force_per_length",
+          "load_start": "force_per_length"
+        },
+        "same_dimension_groups": [
+          [
+            "load_start",
+            "load_end"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "shear_change_equals_negative_load_area_by_sign_convention"
       ],
@@ -1944,6 +2359,20 @@
         "force_times_length"
       ],
       "formula_id": "linear_shear_integral",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "length": "length",
+          "shear_end": "force",
+          "shear_start": "force"
+        },
+        "same_dimension_groups": [
+          [
+            "shear_start",
+            "shear_end"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "moment_change_equals_shear_area"
       ],
@@ -1999,6 +2428,14 @@
         "direction_component_dimensionless"
       ],
       "formula_id": "two_force_member_axial",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "direction_component": "dimensionless",
+          "joint_load_component": "force"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "joint_component_equilibrium"
       ],
@@ -2048,6 +2485,14 @@
         "area_times_length"
       ],
       "formula_id": "area_first_moment",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "coordinate": "length",
+          "signed_area": "area"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "cutouts_use_negative_signed_area"
       ],
@@ -2098,6 +2543,14 @@
         "first_moment_divided_by_area_or_volume"
       ],
       "formula_id": "weighted_centroid_coordinate",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "first_moment_sum": "length_cubed",
+          "signed_measure_sum": "area"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "translation_covariance"
       ],
@@ -2148,6 +2601,20 @@
         "radians_dimensionless_times_length_squared"
       ],
       "formula_id": "pappus_surface_area",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "centroid_radius": "length",
+          "curve_length": "length",
+          "sweep_angle_rad": "angle"
+        },
+        "same_dimension_groups": [
+          [
+            "centroid_radius",
+            "curve_length"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "full_sweep_equals_two_pi_r_times_length"
       ],
@@ -2204,6 +2671,15 @@
         "radians_dimensionless_times_length_cubed"
       ],
       "formula_id": "pappus_volume",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "centroid_radius": "length",
+          "generating_area": "area",
+          "sweep_angle_rad": "angle"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "full_sweep_equals_two_pi_r_times_area"
       ],
@@ -2258,6 +2734,13 @@
         "same_length_unit"
       ],
       "formula_id": "symmetry_axis_centroid_coordinate",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "axis_coordinate": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "centroid_lies_on_selected_symmetry_axis"
       ],
@@ -2303,6 +2786,14 @@
         "coefficient_dimensionless"
       ],
       "formula_id": "friction_limit",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "coefficient": "dimensionless",
+          "normal_force": "force"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "limit_nonnegative"
       ],
@@ -2357,6 +2848,19 @@
         "inputs_share_force_unit"
       ],
       "formula_id": "friction_actual_before_slip",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "friction_limit": "force",
+          "required_tangential_force": "force"
+        },
+        "same_dimension_groups": [
+          [
+            "required_tangential_force",
+            "friction_limit"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "absolute_friction_not_above_limit"
       ],
@@ -2407,6 +2911,14 @@
         "coefficient_and_radians_dimensionless"
       ],
       "formula_id": "belt_tension_ratio",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "coefficient": "dimensionless",
+          "wrap_angle_rad": "angle"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "ratio_at_least_one"
       ],
@@ -2462,6 +2974,13 @@
         "area_or_mass_inertia_plus_measure_times_length_squared"
       ],
       "formula_id": "parallel_axis_inertia",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "offset": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "result_not_less_than_centroidal_for_nonnegative_measure"
       ],
@@ -2517,6 +3036,13 @@
         "inertia_divided_by_area_or_mass_then_square_root"
       ],
       "formula_id": "radius_of_gyration",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "measure": "area_or_mass"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "measure_times_radius_squared_equals_inertia"
       ],
@@ -2571,6 +3097,19 @@
         "base_times_height_cubed_over_12"
       ],
       "formula_id": "rectangle_area_inertia_centroid",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "base": "length",
+          "height": "length"
+        },
+        "same_dimension_groups": [
+          [
+            "base",
+            "height"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "nonnegative"
       ],
@@ -2624,6 +3163,13 @@
         "pi_times_radius_fourth_over_4"
       ],
       "formula_id": "circle_area_inertia_centroid",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "radius": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "nonnegative"
       ],
@@ -2669,6 +3215,14 @@
         "mass_times_length_squared_over_12"
       ],
       "formula_id": "rod_mass_inertia_centroid",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "length": "length",
+          "mass": "mass"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "nonnegative"
       ],
@@ -2723,6 +3277,14 @@
         "mass_times_radius_squared_over_2"
       ],
       "formula_id": "disk_mass_inertia_center",
+      "input_dimension_rules": {
+        "required_dimensions": {
+          "mass": "mass",
+          "radius": "length"
+        },
+        "same_dimension_groups": [],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "nonnegative"
       ],
@@ -2777,6 +3339,16 @@
         "all_terms_share_inertia_dimension"
       ],
       "formula_id": "composite_inertia_sum",
+      "input_dimension_rules": {
+        "required_dimensions": {},
+        "same_dimension_groups": [
+          [
+            "component_a",
+            "component_b"
+          ]
+        ],
+        "unknown_units_rejected": true
+      },
       "mathematical_invariants": [
         "signed_void_terms_may_be_negative"
       ],
