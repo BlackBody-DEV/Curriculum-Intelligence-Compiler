@@ -1,0 +1,561 @@
+{
+  "artifact_type": "wave1r_duplicates",
+  "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+  "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+  "bundle_verification": {
+    "computed_bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+    "digest_entry_total": 894,
+    "manifest_payload_total": 893,
+    "manifest_sha256": "0479a67f000196551515935062d045be707b2b7657c5ceb0e772c8d284d4b59f",
+    "manifest_sidecar_match": true,
+    "passed": true,
+    "payload_ledger_match_count": 893,
+    "payload_sidecar_match_count": 893
+  },
+  "candidate_checks": {
+    "candidate_count": 0,
+    "exact_duplicates": 0,
+    "near_duplicates": 0,
+    "replacements": 0,
+    "structural_duplicates": 0
+  },
+  "canonical_checks": {
+    "payload_sha256_checked": 100,
+    "question_ids_checked": 100,
+    "unique_payload_sha256": 100,
+    "unique_question_ids": 100
+  },
+  "closure_digest": "8a1b3a84ac66ca295221764e5c7f5f58eea86f01b13e13371d1a94334ccfd51e",
+  "closure_pair_total": 458,
+  "compiler_checks": {
+    "audited_total": 300,
+    "by_topic": {
+      "STATICS_PARTICLE_EQUILIBRIUM": {
+        "candidate_count": 30,
+        "disposition": "missing_procedure",
+        "eligible_count": 0
+      },
+      "STATICS_RIGID_BODY_EQUILIBRIUM": {
+        "candidate_count": 30,
+        "disposition": "repairable",
+        "eligible_count": 0
+      }
+    },
+    "canonical_id_matches": 0,
+    "canonical_sha_or_fingerprint_matches": 0,
+    "eligible_total": 0,
+    "equilibrium_candidate_total": 60,
+    "questions_per_domain": 30,
+    "reason": "Compiler candidates use generic STATICS_PRODUCTION_01/04 and STATICS_PROC identifiers; committed crosswalk classifies particle rows missing_procedure and rigid-body rows repairable, not canonical coverage.",
+    "signed_procedure_id_matches": 0
+  },
+  "compiler_reconciliation": {
+    "audited_total": 300,
+    "by_topic": {
+      "STATICS_PARTICLE_EQUILIBRIUM": {
+        "candidate_count": 30,
+        "disposition": "missing_procedure",
+        "eligible_count": 0
+      },
+      "STATICS_RIGID_BODY_EQUILIBRIUM": {
+        "candidate_count": 30,
+        "disposition": "repairable",
+        "eligible_count": 0
+      }
+    },
+    "canonical_id_matches": 0,
+    "canonical_sha_or_fingerprint_matches": 0,
+    "eligible_total": 0,
+    "equilibrium_candidate_total": 60,
+    "questions_per_domain": 30,
+    "reason": "Compiler candidates use generic STATICS_PRODUCTION_01/04 and STATICS_PROC identifiers; committed crosswalk classifies particle rows missing_procedure and rigid-body rows repairable, not canonical coverage.",
+    "signed_procedure_id_matches": 0
+  },
+  "count_semantics": {
+    "canonical_before_total": 100,
+    "canonical_by_topic": {
+      "STATICS_PARTICLE_EQUILIBRIUM": 30,
+      "STATICS_RIGID_BODY_EQUILIBRIUM": 70
+    },
+    "compiler_candidate_total": 60,
+    "compiler_eligible_total": 0,
+    "completion_unit": "Equilibrium display family",
+    "graph_topic_codes": [
+      "STATICS_PARTICLE_EQUILIBRIUM",
+      "STATICS_RIGID_BODY_EQUILIBRIUM"
+    ],
+    "machine_proven_gap": 0,
+    "rule": "target_total - canonical_before_total; compiler candidates count only if canonical identity/fingerprint and signed-procedure reconciliation pass",
+    "target_source": "committed/curriculum/statics/questions/STATICS_PARTICLE_EQUILIBRIUM/_manifest/phase_e_equilibrium_100_manifest_v1.json",
+    "target_source_sha256": "2206f873164d31e76f8fe80100fee5aebc8b1757047f08b78ed737334381d4d8",
+    "target_total": 100
+  },
+  "database_eligible": false,
+  "declared_thresholds": {
+    "canonical_identity": "reject",
+    "canonical_payload_sha256": "reject",
+    "exact_prompt_sha256": "reject",
+    "normalized_prompt_similarity_gte": 0.92,
+    "structural_fingerprint": "reject"
+  },
+  "duplicate_records": [],
+  "duplicate_validation_status": "PASS_NO_CANDIDATES",
+  "evidence_slug": "equilibrium_split",
+  "full_closure_loaded": true,
+  "generation_outcome": "NO_GENERATION_REQUIRED",
+  "generation_outcome_reason": "Verified canonical coverage equals the committed combined Equilibrium target; machine-proven generation gap is zero.",
+  "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+  "human_review_required": true,
+  "is_active": false,
+  "owned_procedure_ids": [
+    "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+    "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d",
+    "proc-statics-particle-equilibrium-equilibrant-force-v1",
+    "proc-statics-rigid-body-equilibrium-beam-reactions-v1",
+    "proc-statics-rigid-body-equilibrium-constraints-static-determinacy-v1",
+    "proc-statics-rigid-body-equilibrium-improper-constraint-detection-v1",
+    "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+    "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+    "proc-statics-rigid-body-equilibrium-three-force-member-identification-v1",
+    "proc-statics-rigid-body-equilibrium-two-force-member-identification-v1"
+  ],
+  "owned_topic_codes": [
+    "STATICS_PARTICLE_EQUILIBRIUM",
+    "STATICS_RIGID_BODY_EQUILIBRIUM"
+  ],
+  "prerequisite_graph_digest": "7c60fb9a6f4f0bcfc416bda8d5e75160c406b890e465cf7538a5dc2f98c89a34",
+  "procedure_ids": [
+    "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+    "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d",
+    "e96a80cc-3573-4f38-94ae-3c6c90ad25b9",
+    "proc-statics-force-systems-particle-fbd-2d-v1",
+    "proc-statics-force-systems-particle-fbd-3d-v1",
+    "proc-statics-force-systems-rigid-body-fbd-2d-v1",
+    "proc-statics-force-systems-support-reaction-modeling-v1",
+    "proc-statics-particle-equilibrium-equilibrant-force-v1",
+    "proc-statics-rigid-body-equilibrium-beam-reactions-v1",
+    "proc-statics-rigid-body-equilibrium-constraints-static-determinacy-v1",
+    "proc-statics-rigid-body-equilibrium-improper-constraint-detection-v1",
+    "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+    "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+    "proc-statics-rigid-body-equilibrium-three-force-member-identification-v1",
+    "proc-statics-rigid-body-equilibrium-two-force-member-identification-v1",
+    "proc-statics-vectors-cartesian-vector-components-3d-v1",
+    "proc-statics-vectors-vector-components-2d-v1"
+  ],
+  "procedure_signatures": [
+    {
+      "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+      "sha256": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
+      "signature": {
+        "date": "2026-07-05",
+        "notes": "Sixth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:EQUILIBRIUM_CONDITIONS; worked example independently re-verified F_3=<-100,-75> N and |F_3|=125 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d",
+      "sha256": "e6299888efafb8a3620ebd02c854534c92fe5765c5c9cc5b13276c7e40334c2d",
+      "signature": {
+        "date": "2026-07-05",
+        "notes": "Eighth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:THREE_DIMENSIONAL_SYSTEMS; 3D concurrent particle equilibrium scope (unit vectors/direction cosines; SigmaF_x=SigmaF_y=SigmaF_z=0; up to three unknown scalar force magnitudes when statically determinate); worked example independently re-verified unit vectors normalized and T_1=T_2=312.5 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-3D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "e96a80cc-3573-4f38-94ae-3c6c90ad25b9",
+      "sha256": "768219d68a532fce2d419fed45012a6a430f2ac12612bbda42dbb4733d17a0a3",
+      "signature": {
+        "date": "2026-07-05",
+        "notes": "Phase D sign-off; worked example independently re-verified r=<2,1> m, F=<20,-40> N, M_O=-100 N*m clockwise; schema-valid v1_1; canonical mappings axis_confusion->3, sign_or_placement_error->4, unclassified->5; scalar 2D moment scope; legacy orphan moments_moment_of_force.json detected but untouched; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-MOMENT-OF-FORCE-SCALAR-2D-SIGNOFF-FAST-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
+      "sha256": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
+      "signature": {
+        "date": "2026-07-13",
+        "notes": "Diagnostic particle FBD (2D): isolate + label all external forces; stops before component resolution and equilibrium (downstream vector_components_2d / solve_particle_equil_2d). 2-signal {sign_or_placement_error:4, unclassified:5}; axis_confusion absent (no component step). Non-numeric worked example \u2014 force-inventory answer string per Batch 4B format ruling. Force inventory independently verified (T_AB, T_AC, W; no normal at smooth junction, no internal forces). First novel_lane / first diagnostic skill. Batch 4B skill 1 of 4.",
+        "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-force-systems-particle-fbd-3d-v1",
+      "sha256": "6837a15ca879f3c6938b495ae4a3459312e706c62ed73f46489e2abd01fa0b07",
+      "signature": {
+        "date": "2026-07-17",
+        "notes": "Batch 4E skill 4/6 \u2014 RETIRES THE LAST UNSIGNED-PREREQ INVERSION (solve_particle_equil_3d). Every signed node's prerequisites are now signed, for the first time since the 98-node graph was committed. SCOPE WAS OPERATOR-DERIVED, not Architect-ruled: the Batch 4E ruling detailed skill 1/6's scope only. Derived from graph truth and the signed boundaries. The Architect's binding 3D ruling was honored \u2014 particle-equilibrium debt retirement, not 3D rigid-body expansion: no rigid_body_fbd_3d, no 3D rigid-body equilibrium, and no moment equation, since a particle's forces are concurrent and no moment arises. Three boundaries cleared at the review beat. Against particle_fbd_2d (parent): the 3D case is genuinely new because direction cannot be fixed by one in-plane angle and forces need not share a plane. Against cartesian_vector_components_3d (parent, signed one lane earlier): this skill REPRESENTS each force's given 3D line of action and does NOT resolve it into components \u2014 a resolution step would duplicate the parent. Against solve_particle_equil_3d (downstream, signed before its prerequisites existed): that skill's worked example HANDS the student unit vectors and writes SumF = 0 in one line; it consumes a 3D FBD without teaching the inventory. This skill supplies it. Worked example: ring at A with FOUR concurrent forces \u2014 W = 100 N along -z from a hanging load, applied P = 60 N along -y, cable AB into the +x/+y/+z octant (phi_AB = 36.9 degrees from +z, theta_AB = 53.1 degrees from +x), cable AC into the -x/+y/+z octant (phi_AC = 36.9 degrees, theta_AC = 126.9 degrees from +x). Deliverable is the labeled inventory with known/unknown classification; magnitudes are not solved. Operator independently verified that this configuration ADMITS equilibrium \u2014 u_AB = (0.36, 0.48, 0.80), u_AC = (-0.36, 0.48, 0.80); SumFx gives T_AB = T_AC, SumFy gives 0.96T = 60, SumFz gives 1.60T = 100, both yielding T = 62.5 N consistently \u2014 which matters because this FBD must be a valid input to solve_particle_equil_3d. Non-coplanarity verified from the correct criterion: W and P both lie in the yz-plane, so any plane containing both IS the yz-plane, and cable AB has a nonzero +x sense, so no single plane contains all four force lines. 2-signal mapping, content-earned: sign_or_placement_error at step 5 (drawing each force on its 3D line with the right sense), unclassified at step 7 (inventory completeness and scope boundary). axis_confusion correctly OMITTED \u2014 no authored step resolves components, consistent with every signed FBD/inventory skill (particle_fbd_2d, rigid_body_fbd_2d, contact_force_modeling); adding it would require a resolution step and duplicate the parent. simple_average_used omitted: Centroids-family signal. PREREQ_N is 2, the multi-parent case, and Architect Batch 4E Decision B governs: canonical four only, mapped to authored steps. Review-beat correction, and the root cause was the OPERATOR CONTRACT rather than the authoring: the original example had THREE forces with both cables pulling +y and nothing opposing them, so no equilibrium existed (SumFy forced both tensions to zero while SumFz demanded their sum be 125). The contract had required at least three forces AND a non-planar layout \u2014 jointly unsatisfiable, because three concurrent forces in equilibrium are necessarily coplanar: if F1 + F2 + F3 = 0 then F3 = -(F1 + F2), which lies in the plane of F1 and F2. Genuine 3D particle statics needs four or more forces; the contract never said four, and the draft resolved the conflict by sacrificing the requirement that was left implicit. A fourth force P was added. Three smaller corrections: theta_AC was 53.1 degrees, but a ray into -x/+y makes 126.9 degrees with +x (the parent's 53.1 degrees into +x/-y was legitimate because that unsigned angle from +x really is 53.1 degrees; the -x case is not symmetric that way); the non-coplanarity argument reasoned from COORDINATE planes, which does not establish non-coplanarity \u2014 not lying in any plane is what the term means; and formula.variables carried a single 'x, y, z' entry naming three symbols (the same defect corrected on support_reaction_modeling's 'Ax, Ay' entry) while declaring phi and theta generically though the file uses phi_AB, phi_AC, theta_AB, theta_AC. The axes entry was removed, following the just-signed cartesian_vector_components_3d, which declares i/j/k but not the axes. OPERATOR OBSERVATION FOR ARCHITECT, recorded as content debt and not actionable in this lane: the signed solve_particle_equil_3d's own worked example is coplanar in the xz-plane, with y = 0 on both cables. That is not sloppiness \u2014 with only three forces it could not have been otherwise, by the coplanarity theorem above. A signed 3D equilibrium skill whose example is necessarily planar is worth an Architect look when the legacy audit reaches it.",
+        "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-3D-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-force-systems-rigid-body-fbd-2d-v1",
+      "sha256": "d84d15d2da6b34e492ac54a8673775499acb06be75607dcbf25f67fe10c7ea22",
+      "signature": {
+        "date": "2026-07-15",
+        "notes": "Batch 4C skill 2/5. Second diagnostic skill; follows the particle_fbd_2d precedent (principle in formula block, natural-language inventory answer, no numeric answer). Scope per Architect E1: FBD inventory only \u2014 every step verified by Operator to stop before equilibrium equations, component resolution, and reaction solving. 2-signal mapping per E1: sign_or_placement_error at step 4 (forces drawn: point of application, line of action, sense, support-type appropriateness \u2014 the roller-given-a-horizontal-reaction error lands here), unclassified at step 7 (scope boundary). axis_confusion correctly absent: E1 forbids component resolution, so no step can earn it. Worked example verified: beam AD, pin at A (Ax, Ay), frictionless roller at D (Dy only), P at B, couple M at C, weight not given and explicitly neglected. Roller reaction relabeled By->Dy at review beat to remove collision with labeled point B. Downstream claim on beam_reactions verified by BFS: rigid_body_fbd_2d -> support_reaction_modeling -> support_reactions_2d -> beam_reactions. Unlocks rigid_body_equilibrium_2d, support_reaction_modeling, frame_machine_fbd, rigid_body_fbd_3d.",
+        "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-FBD-2D-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
+      "sha256": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
+      "signature": {
+        "date": "2026-07-16",
+        "notes": "Batch 4D skill 1/3 \u2014 opens the rigid-body/support-reaction spine. Scope per Architect Batch 4D ruling: support-type to reaction-component mapping only; every step verified by Operator to stop before equilibrium equations and before solving for reactions (those are skills 2/3 and 3/3). Boundary against the already-signed rigid_body_fbd_2d (325894c7) verified at the review beat: that skill touches pin and roller INCIDENTALLY to complete one body's inventory; this one is the SYSTEMATIC catalog and covers the fixed support's couple-moment reaction MA and the two-force link F_CD, neither of which appears in rigid_body_fbd_2d. A couple appears there only as an applied load, never as a support reaction. Concept leads with the generative rule \u2014 the reactions a support exerts are exactly the motions it prevents \u2014 rather than a memorized table. 2-signal mapping per the Architect's pre-ruling: sign_or_placement_error at step 3 (the constraint-to-reaction mapping step), unclassified at step 7 (scope-boundary confirmation). axis_confusion correctly absent: the scope contains no component-resolution step, so no step can earn it. simple_average_used omitted: Centroids-family signal. Review-beat corrections: sign_or_placement_error retargeted 5 -> 3 because three of its four trigger clauses are mapping errors decided at step 3, while step 5 only transcribes the mapping onto the FBD (same retarget precedent as rigid_body_fbd_2d, 5 -> 4); formula.variables reduced to the five real symbols after declaring support TYPES as symbols and a combined 'Ax, Ay' entry; the worked example's count check now records that 5 reaction unknowns against 3 equilibrium equations makes the body statically indeterminate and that determinacy is not assessed in this skill \u2014 a fixed support alone exhausts all three 2D equilibrium equations, so any single body exercising fixed + roller + link is necessarily indeterminate, which is correct for a modeling-only scope but must not be left implying solvability.",
+        "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-particle-equilibrium-equilibrant-force-v1",
+      "sha256": "2684323aff2a80d79ea4a4e4db7e27a4875b5b282aa4092534fd5f4d27ec9a90",
+      "signature": {
+        "date": "2026-07-04",
+        "notes": "Fourth Phase D sign-off; worked example independently re-verified R=<300,400>, E=<-300,-400>, |E|=500, direction=233.1 degrees, equilibrium check zero; schema-valid v1_1; canonical-four live mappings; magnitude+direction scope (equilibrant equal magnitude and opposite direction to resultant); MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-EQUILIBRANT-FORCE-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-rigid-body-equilibrium-beam-reactions-v1",
+      "sha256": "265ec495fe5ea42bc2a2ecbc1426587e3f417336819776a8e8d66be2f886b0ae",
+      "signature": {
+        "date": "2026-07-04",
+        "notes": "Fifth Phase D sign-off; worked example independently re-verified B_y=20, A_y=10, A_x=0, SigmaM_B=0; schema-valid v1_1; canonical-four live mappings; 2D statically determinate support reactions; closes first Phase D batch; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-BEAM-REACTIONS-SIGNOFF-COMMIT-PUSH-FAST-002)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-rigid-body-equilibrium-constraints-static-determinacy-v1",
+      "sha256": "713e6a58157eb017496b02642816bcb3433396239a99f8716c6f303094fe561b",
+      "signature": {
+        "date": "2026-07-17",
+        "notes": "Batch 4E skill 5/6 \u2014 closes the signed deferral created inside support_reactions_2d (d95c53a8), whose step 4 reads: 'Treat the count as a screening check, not a full determinacy verdict: proper-versus-improper constraint (concurrent or parallel reaction arrangements) belongs to constraints_static_determinacy.' That was a signed promise to an unsigned node; this sign-off honors it. SCOPE WAS OPERATOR-DERIVED, not Architect-ruled: the Batch 4E ruling detailed skill 1/6's scope only. Scope: count independent reaction unknowns taking the support-type catalog as an INPUT from support_reaction_modeling (a3e5cba6), count the three available 2D equilibrium equations, classify, and state why the count is necessary but not sufficient. THE CEILING, an Operator ruling verified at the review beat: improper_constraint_detection is a DOWNSTREAM node whose prerequisite is this skill. This skill NAMES concurrent or parallel reaction lines as the reason the count is insufficient and points at that node; it does NOT perform the geometric test on any arrangement. Crossing the ceiling would mean concluding 'these reactions are parallel, therefore improperly constrained' \u2014 no step does that. Hard stops verified absent: no concurrency or parallelism test, no solving for reactions, no re-derivation of the support catalog, no equilibrium equations, no 3D. Worked example independently re-derived by Operator across THREE arrangements covering all three count-based classes, each unknown count following from the catalog: A, pin plus roller, n_r = 2 + 1 = 3 = n_e, determinate by count; B, fixed plus roller, n_r = 3 + 1 = 4 > 3, indeterminate with degree n_i = 1; C, roller plus roller, n_r = 1 + 1 = 2 < 3, partially constrained. THE CAVEAT IS LOAD-BEARING: arrangement A's reported classification is 'statically determinate by count, subject to a proper-constraint check', not bare 'determinate', so a student who treats the count as a complete verdict is WRONG on the deliverable \u2014 which is the point the deferral promised someone would make. Precision preserved on partial constraint: the supports cannot hold the body under GENERAL loading, though a special load case may still balance; the false claim that it can never be in equilibrium is listed as an error rather than asserted. 1-SIGNAL MAPPING, content-earned and not padded: unclassified at step 6, the report-and-caveat step, which carries its own content and is not a bare re-report of step 5. axis_confusion OMITTED: no authored step resolves components. sign_or_placement_error OMITTED: no step assigns senses or places anything, and attaching it to step 2 would duplicate support_reaction_modeling's own sign_or_placement_error at its step 3 \u2014 the exact catch made on support_reactions_2d. The strained dry_friction_static_kinetic precedent, where that signal was accepted once under protest for a wrong-law error, was deliberately not reached for. simple_average_used omitted: Centroids-family signal. SIGNAL-POLICY DEBT recorded per Architect Batch 4E Decision B: miscounting, misclassifying, and omitting the caveat are three distinct error classes that the canonical four cannot distinguish; all three land on unclassified. Recorded rather than forced, and rather than inventing a signal. Review-beat correction: the draft declared the indeterminacy degree as `i`, but cartesian_vector_components_3d \u2014 signed 312148f6, the SAME BATCH \u2014 declares `i` as the unit vector along +x. Two signed procedures in one batch cannot carry `i` as both a unit vector and a scalar count; renamed to n_i, which joins the n_r / n_e counting family. Same defect class as the alpha-to-phi rename on cartesian_vector_components_3d itself: a symbol reserved by universal convention elsewhere in the corpus. Counts, classifications, caveat, ceiling language, step counts, and the single signal were unchanged by the rename. PROCESS NOTE: this is the first skill signed under the published Agent Bus. The lane took five attempts, four of them blocked by defective gates rather than by content \u2014 two Operator gates that could not be satisfied as written, the Bus's expected_dirty_paths key being dead in every spec against an ap_state gate that reads expected_dirty, and an Operator rule that no compiled packet could pass because the compiler emits its stage-and-commit section unconditionally. Cursor blocked and diagnosed each rather than editing content to pass. The content itself needed exactly one edit.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CONSTRAINTS-STATIC-DETERMINACY-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-rigid-body-equilibrium-improper-constraint-detection-v1",
+      "sha256": "54dad2a3b00564804dd42b411f7111f9ad7ca033f157d30260b5ad41ef007940",
+      "signature": {
+        "date": "2026-07-24",
+        "notes": "Improper constraint detection \u2014 a body may pass the count-based determinacy test yet be unable to hold equilibrium because its reactions are arranged all parallel or all concurrent, so a correct reaction count is necessary but not sufficient for proper constraint. THE EQUAL-COUNT CONSTRUCTION IS THE SPINE AND IT HOLDS: all three worked bodies carry n_r = n_e = 3 and pass the count test identically, so arrangement alone separates the verdicts and the skill does not collapse into the determinacy test it extends. Body A, a beam on three vertical rollers, is improper by PARALLEL reactions \u2014 with no horizontal reaction component, sum Fx = 0 becomes 0 = the horizontal load and cannot be satisfied, so the beam slides. Body B, a plate held by three links whose lines of action all pass through a common point O, is improper by CONCURRENT reactions \u2014 producing no moment about O, sum M about O = 0 becomes 0 = the applied moment about O and cannot be satisfied, so the plate rotates. Each improper mode is made concrete as an equilibrium equation that cannot be satisfied rather than asserted. Body C, a pin plus roller at the SAME count of three, is proper: the pin supplies two independent directions and the roller keeps the lines non-concurrent, so a horizontal load and a moment both find resistance. The arrangement test verifies all three verdicts WITHOUT counting, by two questions \u2014 are components present in two independent directions, and do the reaction lines fail to share a common point \u2014 with proper constraint requiring both yes: Body A fails the first, Body B the second, Body C passes both. BOUNDARY: constraints_static_determinacy, the signed prerequisite and subtopic sibling, owns the count test, which is cited and taken as given and not re-authored, the complement stated in one sentence that it counts reactions against equations while this skill examines the arrangement of a body that already passes that count. The reaction inventory is taken from the FBD skills, and this artifact explicitly completes the deferral recorded in rigid_body_fbd_3d that six unknowns do not imply proper constraint. No reaction values are solved; improper constraint is detected from geometry as inconsistent or indeterminate equilibrium equations for a general load. The common point O is declared distinct from a computed moment point M_O. Honest limitation recorded: the arrangement screen catches the classic all-parallel and all-concurrent modes for a count-adequate planar body and is not a general proof of stability for every loading, with complex 3D mixed cases possibly needing fuller analysis \u2014 passing the screen means the classic improper modes are absent, not that every instability is excluded. One earned signal, unclassified at step 1, the boundary and method fallback for concluding proper constraint from count alone, re-authoring the count test, solving for reactions, or skipping the arrangement exam. axis_confusion was scrutinized specifically, since the parallel and concurrent modes concern directions and lines of action, and correctly omitted: the failure this skill guards against is not examining arrangement at all, a method error caught at step 1, rather than misreading which axis is involved, so mapping axis_confusion onto a geometric-reasoning skill would be padding. sign_or_placement_error, simple_average_used and solution_sequencing_error cannot be earned: no signed quantity or force placement authored, no averaging, and no stranded prerequisite chain. This draft required no correction, the fourth consecutive clean draft, and its artifact was re-delivered in full for the review beat after the lane-closure notice arrived without it.",
+        "reviewer": "Operator (independent re-derivation)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+      "sha256": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
+      "signature": {
+        "date": "2026-07-16",
+        "notes": "Batch 4D skill 2/3. Scope per Architect Decision C \u2014 the mirror image of E1: rigid_body_fbd_2d (325894c7) builds the FBD and stops; this skill takes that FBD as given and exercises the equilibrium machinery. Boundaries verified at the review beat against BOTH neighbours: no step models support types (support_reaction_modeling, a3e5cba6), and the worked example is not a named-support-reaction solve \u2014 every force is given and pre-labeled on the FBD, and the sole unknown is an applied couple, not a reaction derived from a support type (support_reactions_2d, skill 3/3). Worked example independently re-derived by Operator: bar AB 4.0 m; at A given components F_Ax = 60 N in -x and F_Ay = 120 N in +y; W = 200 N down at midpoint G; at B inclined F_B = 100 N at 53.1 degrees (cos 0.60, sin 0.80) resolving to F_Bx = 60 N, F_By = 80 N; SumFx = -60 + 60 = 0; SumFy = 120 + 80 - 200 = 0; SumM_A = M + 320 - 400 = 0 giving M = +80 N-m counterclockwise. The moment equation is REQUIRED: M appears in neither force equation, so force equilibrium alone leaves it wholly undetermined \u2014 that is the rigid-body distinction from solve_particle_equil_2d. 3-signal mapping per the Architect's pre-ruling, and this is the first Batch 4D skill to carry axis_confusion: axis_confusion at step 3 (inclined-force resolution), sign_or_placement_error at step 6 (writing the three scalar equations), unclassified at step 9 (reporting and scope boundary). simple_average_used omitted: Centroids-family signal. axis_confusion is verified LIVE rather than asserted \u2014 a sine/cosine swap gives F_Bx = 80, F_By = 60, which breaks SumFx (+20), breaks SumFy (-20), and yields M = 160 N-m instead of 80. Review-beat correction: the original example placed the inclined force AT A, the chosen moment centre, so its moment was zero however it resolved and a sine/cosine swap still produced the correct answer \u2014 the flagship signal could not bite. The inclined force was moved to B, giving it a nonzero moment arm. Same defect class as the symmetric worked example caught on general_distributed_load_resultant. The answer's sense flipped from clockwise to counterclockwise as a result, and the step-8 sign check now reflects that a positive result confirms the assumed sense.",
+        "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+      "sha256": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+      "signature": {
+        "date": "2026-07-16",
+        "notes": "Batch 4D skill 3/3 \u2014 closes the batch and retires the beam_reactions unsigned-prereq inversion (Architect Pass #2 Decision C). The synthesis skill: composes support_reaction_modeling (a3e5cba6, which components exist) with rigid_body_equilibrium_2d (fa62fbe8, what their values are). Both parents stopped deliberately short of it. Duplicate hazard against the already-signed beam_reactions cleared at the review beat: that skill is a simply supported beam, pin plus roller, vertical point loads, no inclined-force resolution and no couple reaction; this is the general 2D method taught on a fixed cantilever with an inclined end load, matching the graph's general-to-specific direction (support_reactions_2d is beam_reactions' prerequisite). Worked example independently re-derived by Operator and cross-checked by the vector moment r x F: bar AB, L = 4.0 m, fixed at A, F = 100 N at B at 53.1 degrees (cos 0.60, sin 0.80) resolving to Fx = 60 N, Fy = 80 N; SumFx = 0 gives Ax = -60 N (60 N left); SumFy = 0 gives Ay = -80 N (80 N down); SumM_A = MA + 320 = 0 gives MA = -320 N-m (320 N-m clockwise). Fx acts along the bar's own line through A, so its moment arm is zero. The moment equation is required: MA appears in neither force equation. Determinacy verified: exactly 3 reaction unknowns against 3 equations, and properly constrained \u2014 a fixed support supplies two force components plus a couple, not three concurrent or parallel force lines of action. This deliberately REVERSES support_reaction_modeling's example, which was indeterminate by design because modeling does not require solvability. 3-signal mapping, content-earned: axis_confusion at step 5 (inclined-force resolution) \u2014 verified LIVE, a sine/cosine swap gives Fx = 80, Fy = 60 and changes all three reactions to 80 N left, 60 N down, 240 N-m clockwise; sign_or_placement_error at step 7 (writing the three scalar equations including the couple reaction); unclassified at step 10 (reporting). simple_average_used omitted: Centroids-family signal. Review-beat corrections: sign_or_placement_error retargeted 2 -> 7 because its original trigger at the support-mapping step was near-verbatim support_reaction_modeling's own signal at ITS step 3 \u2014 this skill would have been diagnosing its prerequisite's content, while its own equation-writing step carried no signal; procedure step 4 amended from a determinacy VERDICT to a screening check, since a count of three is necessary but not sufficient and proper-versus-improper constraint belongs to the downstream constraints_static_determinacy node; and an author instruction that had leaked into the worked example was removed. OPERATOR NOTE FOR ARCHITECT: a synthesis skill's failure signals structurally overlap its parents' \u2014 the skill IS the composition. Resolved here by attaching signals to this skill's own contribution rather than to inherited steps. No ruling exists; frame_machine_equilibrium and simple_truss_modeling will meet the same question.",
+        "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-rigid-body-equilibrium-three-force-member-identification-v1",
+      "sha256": "8bdaca186d3a99624a33f9817c51b18a3dc37125e20d3842fecf60f52ef20232",
+      "signature": {
+        "date": "2026-07-17",
+        "notes": "Batch 4F skill 1/5. Scope Operator-derived (the 4F ruling gave order, not per-skill scope). Downstream sibling of two_force_member_identification (3ba94601): that skill proved collinearity for two loaded points; this proves concurrency for three. The property is that the three lines MEET AT A POINT, not the count of three \u2014 a body with three non-concurrent forces is not in equilibrium. Boundary against support_reaction_modeling verified: the catalog gives a pin two components and no direction; concurrency supplies the direction from geometry, worked here as O the intersection of the horizontal roller line y=3.0 and the vertical load line x=4.0 at (4.0, 3.0), giving the pin force at B the unit direction (0.8, 0.6), 36.9 degrees above +x \u2014 Operator-re-derived. Boundary against rigid_body_equilibrium_2d: the moment argument is qualitative, no equation solved. Example qualifies ABC (three concurrent forces) and disqualifies DE (applied couple M), so a single-body degenerate example was avoided; the two known lines are non-parallel so concurrency does real geometric work rather than restating a fact \u2014 same defect family as the single rough interface on contact_force_modeling. 2-signal mapping, content-earned: sign_or_placement_error at step 3 (locating the concurrency point O by intersecting two known lines \u2014 this skill's own geometric act, distinct from two_force_member_identification's step 3 which draws the chord between two points, so no duplication), unclassified at step 6 (report-and-stop). axis_confusion omitted: no component-resolution step, consistent with every signed identification skill. simple_average_used omitted: Centroids-family. Seven hard stops verified absent: no magnitude solve, no equilibrium equations solved, no force triangle or Lami, no frame/machine disassembly, no truss method, no support-catalog re-authoring, no 3D. No review-beat correction was needed on content; the worked example, both triggers, and common_errors were read in full and were clean, including no diagnostic narration in the solution. Unlocks nothing (leaf).",
+        "reviewer": "Phase D sign-off review (PHASE-D-THREE-FORCE-MEMBER-IDENTIFICATION-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-rigid-body-equilibrium-two-force-member-identification-v1",
+      "sha256": "d7b8ea8f66e9022ef776fed06fb68f46ad09da4e3bc5da00297040e3306fc1ae",
+      "signature": {
+        "date": "2026-07-17",
+        "notes": "Batch 4E skill 6/6 \u2014 CLOSES BATCH 4E at 39 of 98. SCOPE WAS OPERATOR-DERIVED, not Architect-ruled: the Batch 4E ruling detailed skill 1/6's scope only. STRUCTURAL REASON: the signed support_reaction_modeling (a3e5cba6) catalogs a cable or two-force link as 'one force along the member axis' \u2014 a bare assertion. It never states when a body qualifies as a two-force member, and never justifies why the force lies along that line. This skill supplies both: the qualification test and the equilibrium argument. Boundary against support_reaction_modeling verified at the review beat: that skill asserts the reaction shape; this one tests qualification and proves collinearity, and it teaches the chord-versus-shape distinction that skill never mentions. Boundary against rigid_body_equilibrium_2d (the prerequisite): that skill writes and solves the three equations for magnitudes; this one uses the equilibrium argument QUALITATIVELY to establish a structural property and computes nothing. THE ARGUMENT, authored qualitatively as procedure step 4: moments about one application point vanish for the force at the other point only if that force's line of action passes through the first point, so both forces lie on the chord; force equilibrium then makes them equal and opposite. No moment value is computed. THE MISCONCEPTION THIS SKILL OWNS, and the reason the example is built as it is: students believe two pins means two-force, and that the forces run along the member. Both are false. The worked example punishes both. Member AB is an L-shaped BENT link, pinned at A (0,0) and B (4.0, 3.0), with the bar running A to (4.0, 0) to B: the chord direction is the diagonal, verified by Operator as (0.8, 0.6), while the L-legs run (1,0) and (0,1) \u2014 so 'along the member' and 'along the chord' are visibly different directions, and a student who follows the member's shape is wrong. Member BC is pinned at B and C with a downward load P at midspan: it FAILS qualification on a real disqualifier, an intermediate applied load between the pins, so a student who treats every two-pin body as two-force misclassifies it. A single qualifying member would have made the test unmeasurable \u2014 the same defect family as the single rough interface caught on contact_force_modeling and the symmetric load caught on general_distributed_load_resultant. Hard stops verified absent from every step: no force magnitude computed, no moment value computed, no three-force concurrency (that is the downstream sibling three_force_member_identification, which this sign-off unlocks), no frame or machine disassembly, no truss method, no re-authoring of the support catalog, no 3D. 2-signal mapping, content-earned: sign_or_placement_error at step 3, where the chord is drawn \u2014 directing a bent member's forces along its shape instead of along the chord is a placement error, and it is this skill's OWN content, not support_reaction_modeling's, whose sign_or_placement_error sits at its own step 3 on a different decision (the support_reactions_2d catch was checked and does not apply). unclassified at step 6, the report-and-stop step, covering misclassification, omitted disqualifiers, and scope exits. axis_confusion correctly OMITTED: no authored step resolves a force into components, consistent with every signed identification and FBD skill \u2014 contact_force_modeling, particle_fbd_3d, rigid_body_fbd_2d, constraints_static_determinacy. simple_average_used omitted: Centroids-family signal. Review-beat corrections, both notation hygiene rather than physics: formula.variables declared F, which appeared nowhere else in the artifact, while P did real work in the prompt, a solution step, and the answer and was undeclared \u2014 the declare-what-you-use rule, failing in both directions at once, and the same defect as the undeclared f corrected on friction_fbd_normal_force. F was removed rather than inserted into the text, because this skill deliberately never names a magnitude. Separately, a solution step carried the sentence 'A student who treats every two-pin body as two-force would wrongly classify BC' \u2014 a statement about the diagnostic inside a worked solution. Removed; that the example punishes the misconception is a property of the artifact, established at the review beat and recorded here, not solution content. The chord-versus-L contrast in the solution was preserved: that is physics.",
+        "reviewer": "Phase D sign-off review (PHASE-D-TWO-FORCE-MEMBER-IDENTIFICATION-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-vectors-cartesian-vector-components-3d-v1",
+      "sha256": "ec285b16e8b92fe5cae687fd7a8659f0c326f0aa36bbec3a639a9c8d21e301af",
+      "signature": {
+        "date": "2026-07-17",
+        "notes": "Batch 4E skill 3/6 \u2014 opens the 3D chain. SCOPE WAS OPERATOR-DERIVED, not Architect-ruled: the Batch 4E ruling detailed skill 1/6's scope only. Derived from graph truth and the signed boundaries. The Architect's binding 3D ruling was honored: this is particle-equilibrium debt retirement, not 3D rigid-body expansion \u2014 no rigid_body_fbd_3d, no 3D rigid-body equilibrium. Narrow by construction: one force in, three components out. Every adjacent capability is a separate graph node and none appears as an authored step \u2014 coordinate direction angles, 3D vector addition, position vectors, unit vectors along a line, dot and cross products, 3D FBDs, and equilibrium are all excluded, and step 7 names them explicitly. Boundary against the signed solve_particle_equil_3d (downstream; its unsigned-prereq inversion is retired by skill 4/6, not this one) verified at the review beat: that skill's worked example HANDS the student unit vectors and writes SumF = 0; it consumes 3D components without ever teaching the two-angle projection geometry. Boundary against the parent vector_components_2d: that skill is one angle into two components; this one requires TWO angular data and produces three nonzero components. Worked example independently re-derived by Operator: F = 100 N, phi = 36.9 degrees from +z (cos 0.80, sin 0.60), xy-projection at theta = 53.1 degrees from +x into the +x/-y region (cos 0.60, sin 0.80); F_xy = 60 N, Fz = 80 N, Fx = +36 N, Fy = -48 N, giving F = 36 i - 48 j + 80 k N. All three components nonzero. Magnitude check closes exactly: 1296 + 2304 + 6400 = 10000 = 100 squared. 3-signal mapping, content-earned: axis_confusion at step 3 (the out-of-plane projection \u2014 this skill's own 3D contribution, since the parent has no such step); sign_or_placement_error at step 5 (assigning algebraic signs, genuinely distinct from the resolution steps: correct magnitudes, wrong sense); unclassified at step 7 (verification and scope boundary). simple_average_used omitted: Centroids-family signal. HONEST FINDING, recorded because it is a real property of the verification step: a clean sine/cosine swap PRESERVES the magnitude check, because it permutes which axis receives which magnitude \u2014 the swap at phi gives 48/-64/60 and the swap at theta gives 48/-36/80, and both close to 10000. The magnitude relation catches dropped or mis-scaled components, not a clean trig swap; axis_confusion is what routes the swap, and the procedure does not claim otherwise. Procedure step 4 (the in-plane split) is deliberately LEFT UNMAPPED: that is vector_components_2d's content, and a student failing there needs the parent skill, which already diagnoses it \u2014 the same principle applied on support_reactions_2d. SIGNAL-POLICY DEBT recorded per Architect Batch 4E Decision B: a theta-swap at step 4 yields (48, -36, 80), which is wrong AND closes the magnitude check, so no signal on this skill catches it. Mapping a duplicate axis_confusion there is forbidden by Decision B, and inventing a signal is not authorized; the hole is recorded rather than forced. Review-beat correction: the draft used alpha for the angle from +z while common_errors warned students against the coordinate direction angles alpha/beta/gamma \u2014 but those are conventionally measured from +x/+y/+z, so the angle this skill called alpha is conventionally gamma. The artifact was using a coordinate-direction-angle symbol for a different meaning while telling students that convention belongs elsewhere, and coordinate_direction_angles is a downstream node this skill unlocks, where alpha will mean angle-from-+x. Renamed to phi, the standard polar angle from +z, which pairs conventionally with theta azimuthal. Alpha now survives only inside the literal string alpha/beta/gamma where it correctly names the other skill's convention. Numbers, components, answer, step count, and signal targets all unchanged by the rename. PROCESS NOTE: the correction lane BLOCKED on a defective Operator verification gate that compared a six-character slice against a five-character string and therefore could never pass. Cursor refused to edit content to satisfy it and escalated with a diagnosis \u2014 the correct call, and the standing rule.",
+        "reviewer": "Phase D sign-off review (PHASE-D-CARTESIAN-VECTOR-COMPONENTS-3D-SIGNOFF-001)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    },
+    {
+      "procedure_id": "proc-statics-vectors-vector-components-2d-v1",
+      "sha256": "ee0f621896e433b530dc358ca155ec370440bd6dfd0c5782f90e30febc6982b2",
+      "signature": {
+        "date": "2026-07-04",
+        "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+        "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+        "status": "signed_off"
+      },
+      "status": "signed_off"
+    }
+  ],
+  "required_prerequisite_closure": {
+    "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d": {
+      "micro_skill": "solve_particle_equil_2d",
+      "prerequisite_micro_skills": [
+        "equilibrant_force",
+        "particle_fbd_2d",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-particle-equilibrium-equilibrant-force-v1",
+        "proc-statics-force-systems-particle-fbd-2d-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_3d": {
+      "micro_skill": "solve_particle_equil_3d",
+      "prerequisite_micro_skills": [
+        "cartesian_vector_components_3d",
+        "equilibrant_force",
+        "particle_fbd_2d",
+        "particle_fbd_3d",
+        "solve_particle_equil_2d",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-vectors-cartesian-vector-components-3d-v1",
+        "proc-statics-particle-equilibrium-equilibrant-force-v1",
+        "proc-statics-force-systems-particle-fbd-2d-v1",
+        "proc-statics-force-systems-particle-fbd-3d-v1",
+        "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "proc-statics-particle-equilibrium-equilibrant-force-v1": {
+      "micro_skill": "equilibrant_force",
+      "prerequisite_micro_skills": [
+        "particle_fbd_2d",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-force-systems-particle-fbd-2d-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "proc-statics-rigid-body-equilibrium-beam-reactions-v1": {
+      "micro_skill": "beam_reactions",
+      "prerequisite_micro_skills": [
+        "equilibrant_force",
+        "moment_of_force_scalar_2d",
+        "particle_fbd_2d",
+        "rigid_body_equilibrium_2d",
+        "rigid_body_fbd_2d",
+        "solve_particle_equil_2d",
+        "support_reaction_modeling",
+        "support_reactions_2d",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-particle-equilibrium-equilibrant-force-v1",
+        "e96a80cc-3573-4f38-94ae-3c6c90ad25b9",
+        "proc-statics-force-systems-particle-fbd-2d-v1",
+        "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+        "proc-statics-force-systems-rigid-body-fbd-2d-v1",
+        "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+        "proc-statics-force-systems-support-reaction-modeling-v1",
+        "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "proc-statics-rigid-body-equilibrium-constraints-static-determinacy-v1": {
+      "micro_skill": "constraints_static_determinacy",
+      "prerequisite_micro_skills": [
+        "equilibrant_force",
+        "moment_of_force_scalar_2d",
+        "particle_fbd_2d",
+        "rigid_body_equilibrium_2d",
+        "rigid_body_fbd_2d",
+        "solve_particle_equil_2d",
+        "support_reaction_modeling",
+        "support_reactions_2d",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-particle-equilibrium-equilibrant-force-v1",
+        "e96a80cc-3573-4f38-94ae-3c6c90ad25b9",
+        "proc-statics-force-systems-particle-fbd-2d-v1",
+        "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+        "proc-statics-force-systems-rigid-body-fbd-2d-v1",
+        "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+        "proc-statics-force-systems-support-reaction-modeling-v1",
+        "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "proc-statics-rigid-body-equilibrium-improper-constraint-detection-v1": {
+      "micro_skill": "improper_constraint_detection",
+      "prerequisite_micro_skills": [
+        "constraints_static_determinacy",
+        "equilibrant_force",
+        "moment_of_force_scalar_2d",
+        "particle_fbd_2d",
+        "rigid_body_equilibrium_2d",
+        "rigid_body_fbd_2d",
+        "solve_particle_equil_2d",
+        "support_reaction_modeling",
+        "support_reactions_2d",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-rigid-body-equilibrium-constraints-static-determinacy-v1",
+        "proc-statics-particle-equilibrium-equilibrant-force-v1",
+        "e96a80cc-3573-4f38-94ae-3c6c90ad25b9",
+        "proc-statics-force-systems-particle-fbd-2d-v1",
+        "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+        "proc-statics-force-systems-rigid-body-fbd-2d-v1",
+        "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+        "proc-statics-force-systems-support-reaction-modeling-v1",
+        "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1": {
+      "micro_skill": "rigid_body_equilibrium_2d",
+      "prerequisite_micro_skills": [
+        "equilibrant_force",
+        "moment_of_force_scalar_2d",
+        "particle_fbd_2d",
+        "rigid_body_fbd_2d",
+        "solve_particle_equil_2d",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-particle-equilibrium-equilibrant-force-v1",
+        "e96a80cc-3573-4f38-94ae-3c6c90ad25b9",
+        "proc-statics-force-systems-particle-fbd-2d-v1",
+        "proc-statics-force-systems-rigid-body-fbd-2d-v1",
+        "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1": {
+      "micro_skill": "support_reactions_2d",
+      "prerequisite_micro_skills": [
+        "equilibrant_force",
+        "moment_of_force_scalar_2d",
+        "particle_fbd_2d",
+        "rigid_body_equilibrium_2d",
+        "rigid_body_fbd_2d",
+        "solve_particle_equil_2d",
+        "support_reaction_modeling",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-particle-equilibrium-equilibrant-force-v1",
+        "e96a80cc-3573-4f38-94ae-3c6c90ad25b9",
+        "proc-statics-force-systems-particle-fbd-2d-v1",
+        "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+        "proc-statics-force-systems-rigid-body-fbd-2d-v1",
+        "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+        "proc-statics-force-systems-support-reaction-modeling-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "proc-statics-rigid-body-equilibrium-three-force-member-identification-v1": {
+      "micro_skill": "three_force_member_identification",
+      "prerequisite_micro_skills": [
+        "equilibrant_force",
+        "moment_of_force_scalar_2d",
+        "particle_fbd_2d",
+        "rigid_body_equilibrium_2d",
+        "rigid_body_fbd_2d",
+        "solve_particle_equil_2d",
+        "two_force_member_identification",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-particle-equilibrium-equilibrant-force-v1",
+        "e96a80cc-3573-4f38-94ae-3c6c90ad25b9",
+        "proc-statics-force-systems-particle-fbd-2d-v1",
+        "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+        "proc-statics-force-systems-rigid-body-fbd-2d-v1",
+        "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+        "proc-statics-rigid-body-equilibrium-two-force-member-identification-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "proc-statics-rigid-body-equilibrium-two-force-member-identification-v1": {
+      "micro_skill": "two_force_member_identification",
+      "prerequisite_micro_skills": [
+        "equilibrant_force",
+        "moment_of_force_scalar_2d",
+        "particle_fbd_2d",
+        "rigid_body_equilibrium_2d",
+        "rigid_body_fbd_2d",
+        "solve_particle_equil_2d",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-particle-equilibrium-equilibrant-force-v1",
+        "e96a80cc-3573-4f38-94ae-3c6c90ad25b9",
+        "proc-statics-force-systems-particle-fbd-2d-v1",
+        "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+        "proc-statics-force-systems-rigid-body-fbd-2d-v1",
+        "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    }
+  },
+  "required_prerequisite_procedure_ids": [
+    "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+    "e96a80cc-3573-4f38-94ae-3c6c90ad25b9",
+    "proc-statics-force-systems-particle-fbd-2d-v1",
+    "proc-statics-force-systems-particle-fbd-3d-v1",
+    "proc-statics-force-systems-rigid-body-fbd-2d-v1",
+    "proc-statics-force-systems-support-reaction-modeling-v1",
+    "proc-statics-particle-equilibrium-equilibrant-force-v1",
+    "proc-statics-rigid-body-equilibrium-constraints-static-determinacy-v1",
+    "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+    "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+    "proc-statics-rigid-body-equilibrium-two-force-member-identification-v1",
+    "proc-statics-vectors-cartesian-vector-components-3d-v1",
+    "proc-statics-vectors-vector-components-2d-v1"
+  ],
+  "split_ownership_preserved": true,
+  "student_visible": false,
+  "verdict": "WAVE_1R_LANE_COMPLETE"
+}
