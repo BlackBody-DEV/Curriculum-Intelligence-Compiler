@@ -1,0 +1,1482 @@
+{
+  "artifact_type": "duplicate_and_fingerprint_validation",
+  "authority": {
+    "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+    "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+    "closure": {
+      "closure_digest": "8a1b3a84ac66ca295221764e5c7f5f58eea86f01b13e13371d1a94334ccfd51e",
+      "closure_pair_total": 458,
+      "direct_edge_total": 99,
+      "direction": "prerequisite_to_dependent",
+      "distributed_forces_prerequisite": {
+        "loaded": false,
+        "named_nodes_found_in_full_closure": [
+          "distributed_load_resultant_by_centroid",
+          "general_distributed_load_resultant",
+          "simple_distributed_load_resultant"
+        ],
+        "reason": "No distributed-forces node is an ancestor of an owned node; candidates use point loads or resolved axial torques only.",
+        "required_by_internal_forces_closure": []
+      },
+      "full_closure_loaded": true,
+      "node_total": 98,
+      "relevant_pairs": [
+        {
+          "dependent": "bending_moment_internal_loading",
+          "prerequisite": "beam_reactions"
+        },
+        {
+          "dependent": "internal_force_sign_convention",
+          "prerequisite": "beam_reactions"
+        },
+        {
+          "dependent": "internal_loading_at_section",
+          "prerequisite": "beam_reactions"
+        },
+        {
+          "dependent": "normal_force_internal_loading",
+          "prerequisite": "beam_reactions"
+        },
+        {
+          "dependent": "shear_force_internal_loading",
+          "prerequisite": "beam_reactions"
+        },
+        {
+          "dependent": "torque_internal_loading",
+          "prerequisite": "beam_reactions"
+        },
+        {
+          "dependent": "bending_moment_internal_loading",
+          "prerequisite": "equilibrant_force"
+        },
+        {
+          "dependent": "internal_force_sign_convention",
+          "prerequisite": "equilibrant_force"
+        },
+        {
+          "dependent": "internal_loading_at_section",
+          "prerequisite": "equilibrant_force"
+        },
+        {
+          "dependent": "normal_force_internal_loading",
+          "prerequisite": "equilibrant_force"
+        },
+        {
+          "dependent": "shear_force_internal_loading",
+          "prerequisite": "equilibrant_force"
+        },
+        {
+          "dependent": "torque_internal_loading",
+          "prerequisite": "equilibrant_force"
+        },
+        {
+          "dependent": "bending_moment_internal_loading",
+          "prerequisite": "internal_loading_at_section"
+        },
+        {
+          "dependent": "internal_force_sign_convention",
+          "prerequisite": "internal_loading_at_section"
+        },
+        {
+          "dependent": "normal_force_internal_loading",
+          "prerequisite": "internal_loading_at_section"
+        },
+        {
+          "dependent": "shear_force_internal_loading",
+          "prerequisite": "internal_loading_at_section"
+        },
+        {
+          "dependent": "torque_internal_loading",
+          "prerequisite": "internal_loading_at_section"
+        },
+        {
+          "dependent": "bending_moment_internal_loading",
+          "prerequisite": "moment_of_force_scalar_2d"
+        },
+        {
+          "dependent": "internal_force_sign_convention",
+          "prerequisite": "moment_of_force_scalar_2d"
+        },
+        {
+          "dependent": "internal_loading_at_section",
+          "prerequisite": "moment_of_force_scalar_2d"
+        },
+        {
+          "dependent": "normal_force_internal_loading",
+          "prerequisite": "moment_of_force_scalar_2d"
+        },
+        {
+          "dependent": "shear_force_internal_loading",
+          "prerequisite": "moment_of_force_scalar_2d"
+        },
+        {
+          "dependent": "torque_internal_loading",
+          "prerequisite": "moment_of_force_scalar_2d"
+        },
+        {
+          "dependent": "bending_moment_internal_loading",
+          "prerequisite": "particle_fbd_2d"
+        },
+        {
+          "dependent": "internal_force_sign_convention",
+          "prerequisite": "particle_fbd_2d"
+        },
+        {
+          "dependent": "internal_loading_at_section",
+          "prerequisite": "particle_fbd_2d"
+        },
+        {
+          "dependent": "normal_force_internal_loading",
+          "prerequisite": "particle_fbd_2d"
+        },
+        {
+          "dependent": "shear_force_internal_loading",
+          "prerequisite": "particle_fbd_2d"
+        },
+        {
+          "dependent": "torque_internal_loading",
+          "prerequisite": "particle_fbd_2d"
+        },
+        {
+          "dependent": "bending_moment_internal_loading",
+          "prerequisite": "rigid_body_equilibrium_2d"
+        },
+        {
+          "dependent": "internal_force_sign_convention",
+          "prerequisite": "rigid_body_equilibrium_2d"
+        },
+        {
+          "dependent": "internal_loading_at_section",
+          "prerequisite": "rigid_body_equilibrium_2d"
+        },
+        {
+          "dependent": "normal_force_internal_loading",
+          "prerequisite": "rigid_body_equilibrium_2d"
+        },
+        {
+          "dependent": "shear_force_internal_loading",
+          "prerequisite": "rigid_body_equilibrium_2d"
+        },
+        {
+          "dependent": "torque_internal_loading",
+          "prerequisite": "rigid_body_equilibrium_2d"
+        },
+        {
+          "dependent": "bending_moment_internal_loading",
+          "prerequisite": "rigid_body_fbd_2d"
+        },
+        {
+          "dependent": "internal_force_sign_convention",
+          "prerequisite": "rigid_body_fbd_2d"
+        },
+        {
+          "dependent": "internal_loading_at_section",
+          "prerequisite": "rigid_body_fbd_2d"
+        },
+        {
+          "dependent": "normal_force_internal_loading",
+          "prerequisite": "rigid_body_fbd_2d"
+        },
+        {
+          "dependent": "shear_force_internal_loading",
+          "prerequisite": "rigid_body_fbd_2d"
+        },
+        {
+          "dependent": "torque_internal_loading",
+          "prerequisite": "rigid_body_fbd_2d"
+        },
+        {
+          "dependent": "bending_moment_internal_loading",
+          "prerequisite": "shear_force_internal_loading"
+        },
+        {
+          "dependent": "bending_moment_internal_loading",
+          "prerequisite": "solve_particle_equil_2d"
+        },
+        {
+          "dependent": "internal_force_sign_convention",
+          "prerequisite": "solve_particle_equil_2d"
+        },
+        {
+          "dependent": "internal_loading_at_section",
+          "prerequisite": "solve_particle_equil_2d"
+        },
+        {
+          "dependent": "normal_force_internal_loading",
+          "prerequisite": "solve_particle_equil_2d"
+        },
+        {
+          "dependent": "shear_force_internal_loading",
+          "prerequisite": "solve_particle_equil_2d"
+        },
+        {
+          "dependent": "torque_internal_loading",
+          "prerequisite": "solve_particle_equil_2d"
+        },
+        {
+          "dependent": "bending_moment_internal_loading",
+          "prerequisite": "support_reaction_modeling"
+        },
+        {
+          "dependent": "internal_force_sign_convention",
+          "prerequisite": "support_reaction_modeling"
+        },
+        {
+          "dependent": "internal_loading_at_section",
+          "prerequisite": "support_reaction_modeling"
+        },
+        {
+          "dependent": "normal_force_internal_loading",
+          "prerequisite": "support_reaction_modeling"
+        },
+        {
+          "dependent": "shear_force_internal_loading",
+          "prerequisite": "support_reaction_modeling"
+        },
+        {
+          "dependent": "torque_internal_loading",
+          "prerequisite": "support_reaction_modeling"
+        },
+        {
+          "dependent": "bending_moment_internal_loading",
+          "prerequisite": "support_reactions_2d"
+        },
+        {
+          "dependent": "internal_force_sign_convention",
+          "prerequisite": "support_reactions_2d"
+        },
+        {
+          "dependent": "internal_loading_at_section",
+          "prerequisite": "support_reactions_2d"
+        },
+        {
+          "dependent": "normal_force_internal_loading",
+          "prerequisite": "support_reactions_2d"
+        },
+        {
+          "dependent": "shear_force_internal_loading",
+          "prerequisite": "support_reactions_2d"
+        },
+        {
+          "dependent": "torque_internal_loading",
+          "prerequisite": "support_reactions_2d"
+        },
+        {
+          "dependent": "bending_moment_internal_loading",
+          "prerequisite": "vector_components_2d"
+        },
+        {
+          "dependent": "internal_force_sign_convention",
+          "prerequisite": "vector_components_2d"
+        },
+        {
+          "dependent": "internal_loading_at_section",
+          "prerequisite": "vector_components_2d"
+        },
+        {
+          "dependent": "normal_force_internal_loading",
+          "prerequisite": "vector_components_2d"
+        },
+        {
+          "dependent": "shear_force_internal_loading",
+          "prerequisite": "vector_components_2d"
+        },
+        {
+          "dependent": "torque_internal_loading",
+          "prerequisite": "vector_components_2d"
+        }
+      ]
+    },
+    "database_eligible": false,
+    "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+    "human_review_required": true,
+    "is_active": false,
+    "owned_graph_nodes": [
+      "internal_loading_at_section",
+      "internal_force_sign_convention",
+      "normal_force_internal_loading",
+      "shear_force_internal_loading",
+      "bending_moment_internal_loading",
+      "torque_internal_loading"
+    ],
+    "owned_procedures": [
+      {
+        "micro_skill_code": "internal_loading_at_section",
+        "procedure_id": "proc-statics-internal-forces-beams-internal-loading-at-section-v1",
+        "sha256": "5212fc2fe181454db8652f18b59c5f7643e4a921825b808950171e0300902406",
+        "signature": {
+          "date": "2026-07-13",
+          "notes": "Internal N/V/M at a single section via method of sections; reactions from beam_reactions prereq. 2-signal {sign_or_placement_error:4, unclassified:9}; axis_confusion correctly absent (straight horizontal beam, vertical loads, no component-resolution step). Scope excludes full shear/moment diagrams (separate downstream skill). Worked example independently re-derived (N=0, V=10 kN, M=10 kN·m). Batch 4A routine, skill 3 of 3, under closed-field enforcement.",
+          "reviewer": "Phase D sign-off review (PHASE-D-INTERNAL-LOADING-AT-SECTION-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_INTERNAL_FORCES_BEAMS_internal_loading_at_section.json",
+        "subtopic_code": "STATICS_INTERNAL_FORCES_BEAMS:INTERNAL_LOADING_AT_SECTIONS",
+        "topic_code": "STATICS_INTERNAL_FORCES_BEAMS"
+      },
+      {
+        "micro_skill_code": "internal_force_sign_convention",
+        "procedure_id": "proc-statics-internal-forces-beams-internal-force-sign-convention-v1",
+        "sha256": "fee888add09d0228c3e10943d9313a1785ccc900220cba6e7dbc6141b2ef2389",
+        "signature": {
+          "date": "2026-07-20",
+          "notes": "Batch 4H skill 1/4 (four-skill exception). Scope Operator-derived. Owns the internal-force SIGN CONVENTION itself, distinct from the computation specializations: declaring a consistent positive sense for N/V/M, interpreting a negative result as the opposite physical sense on the chosen face, the equal-and-opposite relationship between opposite cut faces, reporting SIGNED internal loadings (not bare magnitudes), and reconciling the same internal state solved from either segment. The signed specializations shear_force_internal_loading, bending_moment_internal_loading, normal_force_internal_loading own the actual V/M/N computation and are CITED as equation sources, not re-taught. Does not own diagram construction, dV/dx or dM/dx relations, stress, or deflection. Worked example Operator-re-derived (source-locked to the on-disk prompt; no inclined vector, trig cross-check N/A): SS 6 m beam, P=30 kN at 2 m, Ay=20/By=10 given; convention N+/tension, V+/upward-on-left-face, M+/sagging-CCW-on-left-face; cut at x=4 m. Left portion: SigmaFy Ay-P-V=0 -> V=-10 kN (NEGATIVE under the convention = 10 kN downward on the left face); SigmaM about the cut M-Ay(4)+P(2)=0 -> M=+20 kN·m (sagging). Two resultants shown; the negative V is the mandated at-least-one-negative result; a magnitude-only answer (V=10, M=20) is explicitly rejected as incomplete. Opposite faces equal-and-opposite: left face V=10 down/M=20 CCW pairs with right face V=10 up/M=20 CW. Right-segment reconciliation closes: By-V_rightface = 10-10 = 0 and By(2)-20 = 0 - same internal state from both segments. The distinguishing feature (the convention makes the answer signed and face/segment-consistent, not a bare magnitude) is decisive throughout. TWO-signal mapping: sign_or_placement_error at step 6 (CENTRAL - correct magnitude but wrong sense/face under the declared convention, or treating opposite-face resultants as same-sense), unclassified at step 8 (missing convention declaration, magnitude-only report, or skipped reconciliation). axis_confusion OMITTED: a convention skill with no inclined-load/component-resolution step - genuine omission, no axis assignment authored. solution_sequencing_error OMITTED: no order dependency that strands an unknown. simple_average_used omitted (Centroids-family). Opens Batch 4H.",
+          "reviewer": "Phase D sign-off review (PHASE-D-INTERNAL-FORCE-SIGN-CONVENTION-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_INTERNAL_FORCES_BEAMS_internal_force_sign_convention.json",
+        "subtopic_code": "STATICS_INTERNAL_FORCES_BEAMS:INTERNAL_LOADING_AT_SECTIONS",
+        "topic_code": "STATICS_INTERNAL_FORCES_BEAMS"
+      },
+      {
+        "micro_skill_code": "normal_force_internal_loading",
+        "procedure_id": "proc-statics-internal-forces-beams-normal-force-internal-loading-v1",
+        "sha256": "f488b1570341b5ec9c1f1d4f34acf28d2de2210e43b0ff5b7e650f9018350c17",
+        "signature": {
+          "date": "2026-07-20",
+          "notes": "Batch 4G skill 5/5, batch closer. Scope Operator-derived. The third member of the N/V/M trio and the axial parallel to shear_force_internal_loading: shear owns V (transverse, SigmaFy), bending_moment owns M (SigmaM about the cut), this owns N - the internal normal/axial force at a cut, from SigmaFx = 0 on the isolated portion, tension-positive / compression-negative. Same parent internal_loading_at_section, same cut-and-equilibrate method, different equation (axial) and sign convention. V and M are the siblings (cited, not solved); axial stress (N/A) and deformation out of scope. Worked example Operator-re-derived (and re-verified after a first-pass review error): inclined F=50 kN at 36.9 deg below +x on a horizontal member, so the 3-4-5 components are Fx = F cos 36.9 = 40 kN (AXIAL, along the member) and Fy = F sin 36.9 = 30 kN (transverse). Overall axial equilibrium gives Ax = -40 kN. Cut at x=1 m (before the load at 2 m); left portion carries Ax to the cut; SigmaFx = 0: Ax - N = 0 -> N = -40 kN = 40 kN COMPRESSION under the tension-positive convention. N is genuinely nonzero because the example carries a real axial load - a transverse-only beam gives N=0 vacuously; the inclined-load resolution makes N real and signed. THREE-signal mapping: axis_confusion at step 3 (the resolution step - assigning the wrong resolved component as axial, e.g. feeding Fy into SigmaFx, or swapping which component is parallel to the member), sign_or_placement_error at step 6 (the tension/compression sign under the convention and the axial-inclusion of Ax), unclassified at step 8 (report/convention boundary). axis_confusion is GENUINELY EARNED and this is the FIRST internal-forces skill to earn it - shear, bending-moment, and the relations/diagram skills had transverse-only or pre-resolved loads with no resolution step, so it was correctly omitted there four times; the inclined load here CREATES a resolution step and the axis-assignment error becomes real. Signal placed by error model, not reflex. solution_sequencing_error OMITTED: single-cut axial solve with given axial reaction, no out-of-order-strands-prerequisite step. simple_average_used omitted (Centroids-family). NOTE the axial component is F cos(36.9)=40 (cos of the smaller angle), not 30 - the resolution is unambiguous from the stated 36.9-deg geometry. CLOSES Batch 4G: skills 45-49 = bending_moment_internal_loading, shear_moment_load_relationships, shear_moment_diagram_construction, maximum_moment_from_zero_shear, normal_force_internal_loading.",
+          "reviewer": "Phase D sign-off review (PHASE-D-NORMAL-FORCE-INTERNAL-LOADING-SIGNOFF-002)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_INTERNAL_FORCES_BEAMS_normal_force_internal_loading.json",
+        "subtopic_code": "STATICS_INTERNAL_FORCES_BEAMS:NORMAL_SHEAR_BENDING_TORQUE",
+        "topic_code": "STATICS_INTERNAL_FORCES_BEAMS"
+      },
+      {
+        "micro_skill_code": "shear_force_internal_loading",
+        "procedure_id": "proc-statics-internal-forces-beams-shear-force-internal-loading-v1",
+        "sha256": "7cb3ca26d91f4237e92a93584bbd22139ccd5e8b6053a9346ddfe6dfed441db2",
+        "signature": {
+          "date": "2026-07-19",
+          "notes": "Batch 4F skill 5/5, batch closer. Scope Operator-derived. The shear specialization of internal_loading_at_section (the signed parent that finds the full N/V/M trio at a section): this skill owns the internal shear force V, the SigmaFy step that determines it, and the sign convention that makes V a signed quantity rather than a magnitude. Bending moment M is owned by bending_moment_internal_loading; shear/moment diagrams and the dV/dx relations are downstream; none are solved here. Worked example Operator-re-derived: simply-supported 6 m beam, P=30 kN down at 2 m, reactions Ay=20/By=10 kN given; cut at x=4 m, left portion SigmaFy: Ay - P - V = 20 - 30 - V = 0 -> V = -10 kN under the stated convention (positive upward on the left face). The cut is placed AFTER the load so the inclusion rule bites - forgetting P gives the wrong V=20; this is the distinguishing-feature-must-bite discipline, the same family as contact_force_modeling's single interface, applied and satisfied. Two-portion action-reaction check confirms V. TWO-signal mapping, both content-earned: sign_or_placement_error at step 5 (the SigmaFy/sign/inclusion step - the skill's crux, since V is meaningless without its sign), unclassified at step 7 (report/convention/diagram boundary). axis_confusion OMITTED: all loads transverse, no component-resolution step. solution_sequencing_error OMITTED although newly live this batch (adopted at 35c2ddb7): considered honestly and declined - reactions are given and no authored step strands a prerequisite unknown on an out-of-order solve, unlike the multi-member frame that earned the signal. The fifth signal is mapped only where earned, not defaulted onto a skill that does not exhibit its error class. simple_average_used omitted (Centroids-family). This closes Batch 4F: skills 40-44 = three_force_member_identification, simple_truss_modeling, frame_machine_fbd, frame_machine_equilibrium, shear_force_internal_loading.",
+          "reviewer": "Phase D sign-off review (PHASE-D-SHEAR-FORCE-INTERNAL-LOADING-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_INTERNAL_FORCES_BEAMS_shear_force_internal_loading.json",
+        "subtopic_code": "STATICS_INTERNAL_FORCES_BEAMS:NORMAL_SHEAR_BENDING_TORQUE",
+        "topic_code": "STATICS_INTERNAL_FORCES_BEAMS"
+      },
+      {
+        "micro_skill_code": "bending_moment_internal_loading",
+        "procedure_id": "proc-statics-internal-forces-beams-bending-moment-internal-loading-v1",
+        "sha256": "ff8095f92db81c7dd2a1347ec9f570ae1c65187f1007e6483b73dd05e5a81a83",
+        "signature": {
+          "date": "2026-07-19",
+          "notes": "Batch 4G skill 1/5. Scope Operator-derived. The bending-moment specialization of internal_loading_at_section (the signed parent that finds the full N/V/M trio at a section): this skill owns the internal bending moment M at one cut, the SigmaM=0 about the cut that determines it, the force lever arms about the cut, and the sign convention that makes M signed rather than a magnitude. Shear V at the same cut is owned by the signed sibling shear_force_internal_loading (cited, not re-solved); shear/moment diagrams (shear_moment_diagram_construction, downstream skill 3) and the load-shear-moment relations (shear_moment_load_relationships, downstream skill 2) are excluded; stress/deflection out of scope. Worked example Operator-re-derived, continuous with the shear skill's beam: simply-supported 6 m beam, P=30 kN down at 2 m, reactions Ay=20/By=10 kN given; cut at x=4 m (after the load), left portion SigmaM about the cut (CCW+): M - Ay(4) + P(2) = M - 80 + 60 = 0 -> M = +20 kN·m, sagging under the stated convention. The sign is meaningful, not a bare magnitude: Ay's CCW moment exceeds P's CW moment, netting sagging; a flipped convention or lever-arm sense gives the wrong sign. The cut is placed after the load so the nonzero-lever-arm feature bites - forgetting P gives the wrong M=80; distinguishing-feature-must-bite discipline satisfied. Opposite-segment check closes: right portion By(2)-20 = 20-20 = 0, confirming +20 CCW left face pairs with 20 CW right face. TWO-signal mapping, both content-earned: sign_or_placement_error at step 5 (the SigmaM/sign/lever-arm crux - M is meaningless without its sign), unclassified at step 7 (report/convention/diagram boundary). axis_confusion OMITTED: transverse loads, no component-resolution step. solution_sequencing_error OMITTED although live: single-cut solve with given reactions, no step strands a prerequisite unknown on an out-of-order solve - the fifth signal mapped only where earned, consistent with its omission on shear_force_internal_loading. simple_average_used omitted (Centroids-family). Opens Batch 4G; unlocks shear_moment_load_relationships (skill 2).",
+          "reviewer": "Phase D sign-off review (PHASE-D-BENDING-MOMENT-INTERNAL-LOADING-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_INTERNAL_FORCES_BEAMS_bending_moment_internal_loading.json",
+        "subtopic_code": "STATICS_INTERNAL_FORCES_BEAMS:NORMAL_SHEAR_BENDING_TORQUE",
+        "topic_code": "STATICS_INTERNAL_FORCES_BEAMS"
+      },
+      {
+        "micro_skill_code": "torque_internal_loading",
+        "procedure_id": "proc-statics-internal-forces-beams-torque-internal-loading-v1",
+        "sha256": "e0f7dc6d59d5fcca96b2fb8a65d980581e837668ff483a515f6ae2ba493f0f53",
+        "signature": {
+          "date": "2026-07-20",
+          "notes": "Batch 4H skill 2/4 (four-skill exception). Scope Operator-derived. The FOURTH member of the N/V/M/T family: owns the internal TORQUE T - the twisting moment about the member's LONGITUDINAL axis - from SigmaM_axis = 0 on the isolated portion, under a stated RHR (+x) sign convention. Normal owns N (SigmaFx), shear owns V (SigmaFy), bending owns M (SigmaM about a transverse axis); T is the axial-moment counterpart. STATICS SCOPE ONLY: finds the internal torque value by equilibrium and STOPS - the scope ceiling excludes torsional stress, member rotation under load, section torsional constants, allowable-stress sizing, and rotational power (stated in MoM-mechanism-term-free language after a review-scan false-positive on the exclusion sentence was correctly resolved by rephrasing the boundary, NOT deleting it; the torque-vs-torsion boundary is preserved). Worked example Operator-re-derived: shaft along x, A(0)/B(2.5)/C(4), applied axial torques TA=+120, TB=-45, TC=-75 N·m (RHR+x), overall equilibrium 120-45-75=0; cut at x=3 (after A,B, before C), left portion SigmaM_x: TA+TB-T = 120-45-T = 0 -> T = +75 N·m. Net torque NONZERO (120-45=75, the torques do not cancel before the cut - non-vacuous per the directive); signed and meaningful under RHR+x (not a bare magnitude); forgetting TB gives the wrong 120 (inclusion rule bites); right-portion check closes against TC. THREE-signal mapping: axis_confusion at step 1 (confusing the LONGITUDINAL torque axis with a transverse bending axis - feeding an M into SigmaM_axis; earned by the axis-IDENTIFICATION step, a legitimately different earn than the normal-force skill's component-RESOLUTION earn), sign_or_placement_error at step 5 (RHR sign, torque inclusion), unclassified at step 7 (boundary; reaching into stress/rotation/section-constants/power). solution_sequencing_error OMITTED: single-cut solve with given torques, no stranded prerequisite. Trig cross-check N/A: torques stated as already resolved about the axis, no inclined-vector resolution. simple_average_used omitted (Centroids-family).",
+          "reviewer": "Phase D sign-off review (PHASE-D-TORQUE-INTERNAL-LOADING-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_INTERNAL_FORCES_BEAMS_torque_internal_loading.json",
+        "subtopic_code": "STATICS_INTERNAL_FORCES_BEAMS:NORMAL_SHEAR_BENDING_TORQUE",
+        "topic_code": "STATICS_INTERNAL_FORCES_BEAMS"
+      }
+    ],
+    "prerequisite_graph_digest": "7c60fb9a6f4f0bcfc416bda8d5e75160c406b890e465cf7538a5dc2f98c89a34",
+    "prerequisite_procedures": [
+      {
+        "micro_skill_code": "beam_reactions",
+        "procedure_id": "proc-statics-rigid-body-equilibrium-beam-reactions-v1",
+        "sha256": "265ec495fe5ea42bc2a2ecbc1426587e3f417336819776a8e8d66be2f886b0ae",
+        "signature": {
+          "date": "2026-07-04",
+          "notes": "Fifth Phase D sign-off; worked example independently re-verified B_y=20, A_y=10, A_x=0, SigmaM_B=0; schema-valid v1_1; canonical-four live mappings; 2D statically determinate support reactions; closes first Phase D batch; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-BEAM-REACTIONS-SIGNOFF-COMMIT-PUSH-FAST-002)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_beam_reactions.json",
+        "subtopic_code": "STATICS_RIGID_BODY_EQUILIBRIUM:SUPPORT_REACTIONS",
+        "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
+      },
+      {
+        "micro_skill_code": "equilibrant_force",
+        "procedure_id": "proc-statics-particle-equilibrium-equilibrant-force-v1",
+        "sha256": "2684323aff2a80d79ea4a4e4db7e27a4875b5b282aa4092534fd5f4d27ec9a90",
+        "signature": {
+          "date": "2026-07-04",
+          "notes": "Fourth Phase D sign-off; worked example independently re-verified R=<300,400>, E=<-300,-400>, |E|=500, direction=233.1 degrees, equilibrium check zero; schema-valid v1_1; canonical-four live mappings; magnitude+direction scope (equilibrant equal magnitude and opposite direction to resultant); MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-EQUILIBRANT-FORCE-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_equilibrant_force.json",
+        "subtopic_code": "STATICS_PARTICLE_EQUILIBRIUM:EQUILIBRIUM_CONDITIONS",
+        "topic_code": "STATICS_PARTICLE_EQUILIBRIUM"
+      },
+      {
+        "micro_skill_code": "moment_of_force_scalar_2d",
+        "procedure_id": "e96a80cc-3573-4f38-94ae-3c6c90ad25b9",
+        "sha256": "768219d68a532fce2d419fed45012a6a430f2ac12612bbda42dbb4733d17a0a3",
+        "signature": {
+          "date": "2026-07-05",
+          "notes": "Phase D sign-off; worked example independently re-verified r=<2,1> m, F=<20,-40> N, M_O=-100 N*m clockwise; schema-valid v1_1; canonical mappings axis_confusion->3, sign_or_placement_error->4, unclassified->5; scalar 2D moment scope; legacy orphan moments_moment_of_force.json detected but untouched; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-MOMENT-OF-FORCE-SCALAR-2D-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_MOMENTS_AND_COUPLES_moment_of_force_scalar_2d.json",
+        "subtopic_code": "STATICS_MOMENTS_AND_COUPLES:SCALAR_AND_VECTOR_MOMENTS",
+        "topic_code": "STATICS_MOMENTS_AND_COUPLES"
+      },
+      {
+        "micro_skill_code": "particle_fbd_2d",
+        "procedure_id": "proc-statics-force-systems-particle-fbd-2d-v1",
+        "sha256": "b59620427a14cd4210e2d52e8e15ab849e624a7b3ff814041a03aec061db3a4f",
+        "signature": {
+          "date": "2026-07-13",
+          "notes": "Diagnostic particle FBD (2D): isolate + label all external forces; stops before component resolution and equilibrium (downstream vector_components_2d / solve_particle_equil_2d). 2-signal {sign_or_placement_error:4, unclassified:5}; axis_confusion absent (no component step). Non-numeric worked example — force-inventory answer string per Batch 4B format ruling. Force inventory independently verified (T_AB, T_AC, W; no normal at smooth junction, no internal forces). First novel_lane / first diagnostic skill. Batch 4B skill 1 of 4.",
+          "reviewer": "Phase D sign-off review (PHASE-D-PARTICLE-FBD-2D-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_particle_fbd_2d.json",
+        "subtopic_code": "STATICS_FORCE_SYSTEMS:PARTICLE_FBD",
+        "topic_code": "STATICS_FORCE_SYSTEMS"
+      },
+      {
+        "micro_skill_code": "rigid_body_equilibrium_2d",
+        "procedure_id": "proc-statics-rigid-body-equilibrium-rigid-body-equilibrium-2d-v1",
+        "sha256": "56e21263d2e705a927989fb9175cce21e186bb30105bf3fd6d7cb8b2a8bc3153",
+        "signature": {
+          "date": "2026-07-16",
+          "notes": "Batch 4D skill 2/3. Scope per Architect Decision C — the mirror image of E1: rigid_body_fbd_2d (325894c7) builds the FBD and stops; this skill takes that FBD as given and exercises the equilibrium machinery. Boundaries verified at the review beat against BOTH neighbours: no step models support types (support_reaction_modeling, a3e5cba6), and the worked example is not a named-support-reaction solve — every force is given and pre-labeled on the FBD, and the sole unknown is an applied couple, not a reaction derived from a support type (support_reactions_2d, skill 3/3). Worked example independently re-derived by Operator: bar AB 4.0 m; at A given components F_Ax = 60 N in -x and F_Ay = 120 N in +y; W = 200 N down at midpoint G; at B inclined F_B = 100 N at 53.1 degrees (cos 0.60, sin 0.80) resolving to F_Bx = 60 N, F_By = 80 N; SumFx = -60 + 60 = 0; SumFy = 120 + 80 - 200 = 0; SumM_A = M + 320 - 400 = 0 giving M = +80 N-m counterclockwise. The moment equation is REQUIRED: M appears in neither force equation, so force equilibrium alone leaves it wholly undetermined — that is the rigid-body distinction from solve_particle_equil_2d. 3-signal mapping per the Architect's pre-ruling, and this is the first Batch 4D skill to carry axis_confusion: axis_confusion at step 3 (inclined-force resolution), sign_or_placement_error at step 6 (writing the three scalar equations), unclassified at step 9 (reporting and scope boundary). simple_average_used omitted: Centroids-family signal. axis_confusion is verified LIVE rather than asserted — a sine/cosine swap gives F_Bx = 80, F_By = 60, which breaks SumFx (+20), breaks SumFy (-20), and yields M = 160 N-m instead of 80. Review-beat correction: the original example placed the inclined force AT A, the chosen moment centre, so its moment was zero however it resolved and a sine/cosine swap still produced the correct answer — the flagship signal could not bite. The inclined force was moved to B, giving it a nonzero moment arm. Same defect class as the symmetric worked example caught on general_distributed_load_resultant. The answer's sense flipped from clockwise to counterclockwise as a result, and the step-8 sign check now reflects that a positive result confirms the assumed sense.",
+          "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-EQUILIBRIUM-2D-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_rigid_body_equilibrium_2d.json",
+        "subtopic_code": "STATICS_RIGID_BODY_EQUILIBRIUM:EQUILIBRIUM_CONDITIONS",
+        "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
+      },
+      {
+        "micro_skill_code": "rigid_body_fbd_2d",
+        "procedure_id": "proc-statics-force-systems-rigid-body-fbd-2d-v1",
+        "sha256": "d84d15d2da6b34e492ac54a8673775499acb06be75607dcbf25f67fe10c7ea22",
+        "signature": {
+          "date": "2026-07-15",
+          "notes": "Batch 4C skill 2/5. Second diagnostic skill; follows the particle_fbd_2d precedent (principle in formula block, natural-language inventory answer, no numeric answer). Scope per Architect E1: FBD inventory only — every step verified by Operator to stop before equilibrium equations, component resolution, and reaction solving. 2-signal mapping per E1: sign_or_placement_error at step 4 (forces drawn: point of application, line of action, sense, support-type appropriateness — the roller-given-a-horizontal-reaction error lands here), unclassified at step 7 (scope boundary). axis_confusion correctly absent: E1 forbids component resolution, so no step can earn it. Worked example verified: beam AD, pin at A (Ax, Ay), frictionless roller at D (Dy only), P at B, couple M at C, weight not given and explicitly neglected. Roller reaction relabeled By->Dy at review beat to remove collision with labeled point B. Downstream claim on beam_reactions verified by BFS: rigid_body_fbd_2d -> support_reaction_modeling -> support_reactions_2d -> beam_reactions. Unlocks rigid_body_equilibrium_2d, support_reaction_modeling, frame_machine_fbd, rigid_body_fbd_3d.",
+          "reviewer": "Phase D sign-off review (PHASE-D-RIGID-BODY-FBD-2D-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_rigid_body_fbd_2d.json",
+        "subtopic_code": "STATICS_FORCE_SYSTEMS:RIGID_BODY_FBD",
+        "topic_code": "STATICS_FORCE_SYSTEMS"
+      },
+      {
+        "micro_skill_code": "solve_particle_equil_2d",
+        "procedure_id": "STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d",
+        "sha256": "af5012510436404f678c17bf94236e1d3b44d8287a98323eaad71aab53037cc9",
+        "signature": {
+          "date": "2026-07-05",
+          "notes": "Sixth Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_PARTICLE_EQUILIBRIUM:EQUILIBRIUM_CONDITIONS; worked example independently re-verified F_3=<-100,-75> N and |F_3|=125 N; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-SOLVE-PARTICLE-EQUIL-2D-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_PARTICLE_EQUILIBRIUM_solve_particle_equil_2d.json",
+        "subtopic_code": "STATICS_PARTICLE_EQUILIBRIUM:EQUILIBRIUM_CONDITIONS",
+        "topic_code": "STATICS_PARTICLE_EQUILIBRIUM"
+      },
+      {
+        "micro_skill_code": "support_reaction_modeling",
+        "procedure_id": "proc-statics-force-systems-support-reaction-modeling-v1",
+        "sha256": "a3381e1ea98f5ab09bf3e6570ea7db3d8a563cc63250af978631e3b0226b465b",
+        "signature": {
+          "date": "2026-07-16",
+          "notes": "Batch 4D skill 1/3 — opens the rigid-body/support-reaction spine. Scope per Architect Batch 4D ruling: support-type to reaction-component mapping only; every step verified by Operator to stop before equilibrium equations and before solving for reactions (those are skills 2/3 and 3/3). Boundary against the already-signed rigid_body_fbd_2d (325894c7) verified at the review beat: that skill touches pin and roller INCIDENTALLY to complete one body's inventory; this one is the SYSTEMATIC catalog and covers the fixed support's couple-moment reaction MA and the two-force link F_CD, neither of which appears in rigid_body_fbd_2d. A couple appears there only as an applied load, never as a support reaction. Concept leads with the generative rule — the reactions a support exerts are exactly the motions it prevents — rather than a memorized table. 2-signal mapping per the Architect's pre-ruling: sign_or_placement_error at step 3 (the constraint-to-reaction mapping step), unclassified at step 7 (scope-boundary confirmation). axis_confusion correctly absent: the scope contains no component-resolution step, so no step can earn it. simple_average_used omitted: Centroids-family signal. Review-beat corrections: sign_or_placement_error retargeted 5 -> 3 because three of its four trigger clauses are mapping errors decided at step 3, while step 5 only transcribes the mapping onto the FBD (same retarget precedent as rigid_body_fbd_2d, 5 -> 4); formula.variables reduced to the five real symbols after declaring support TYPES as symbols and a combined 'Ax, Ay' entry; the worked example's count check now records that 5 reaction unknowns against 3 equilibrium equations makes the body statically indeterminate and that determinacy is not assessed in this skill — a fixed support alone exhausts all three 2D equilibrium equations, so any single body exercising fixed + roller + link is necessarily indeterminate, which is correct for a modeling-only scope but must not be left implying solvability.",
+          "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTION-MODELING-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_FORCE_SYSTEMS_support_reaction_modeling.json",
+        "subtopic_code": "STATICS_FORCE_SYSTEMS:CONTACT_AND_SUPPORTS",
+        "topic_code": "STATICS_FORCE_SYSTEMS"
+      },
+      {
+        "micro_skill_code": "support_reactions_2d",
+        "procedure_id": "proc-statics-rigid-body-equilibrium-support-reactions-2d-v1",
+        "sha256": "297c0cd25cca71b4f808ac66c2349bed5f27e029649f3f7fc69e8a65ce57a0b3",
+        "signature": {
+          "date": "2026-07-16",
+          "notes": "Batch 4D skill 3/3 — closes the batch and retires the beam_reactions unsigned-prereq inversion (Architect Pass #2 Decision C). The synthesis skill: composes support_reaction_modeling (a3e5cba6, which components exist) with rigid_body_equilibrium_2d (fa62fbe8, what their values are). Both parents stopped deliberately short of it. Duplicate hazard against the already-signed beam_reactions cleared at the review beat: that skill is a simply supported beam, pin plus roller, vertical point loads, no inclined-force resolution and no couple reaction; this is the general 2D method taught on a fixed cantilever with an inclined end load, matching the graph's general-to-specific direction (support_reactions_2d is beam_reactions' prerequisite). Worked example independently re-derived by Operator and cross-checked by the vector moment r x F: bar AB, L = 4.0 m, fixed at A, F = 100 N at B at 53.1 degrees (cos 0.60, sin 0.80) resolving to Fx = 60 N, Fy = 80 N; SumFx = 0 gives Ax = -60 N (60 N left); SumFy = 0 gives Ay = -80 N (80 N down); SumM_A = MA + 320 = 0 gives MA = -320 N-m (320 N-m clockwise). Fx acts along the bar's own line through A, so its moment arm is zero. The moment equation is required: MA appears in neither force equation. Determinacy verified: exactly 3 reaction unknowns against 3 equations, and properly constrained — a fixed support supplies two force components plus a couple, not three concurrent or parallel force lines of action. This deliberately REVERSES support_reaction_modeling's example, which was indeterminate by design because modeling does not require solvability. 3-signal mapping, content-earned: axis_confusion at step 5 (inclined-force resolution) — verified LIVE, a sine/cosine swap gives Fx = 80, Fy = 60 and changes all three reactions to 80 N left, 60 N down, 240 N-m clockwise; sign_or_placement_error at step 7 (writing the three scalar equations including the couple reaction); unclassified at step 10 (reporting). simple_average_used omitted: Centroids-family signal. Review-beat corrections: sign_or_placement_error retargeted 2 -> 7 because its original trigger at the support-mapping step was near-verbatim support_reaction_modeling's own signal at ITS step 3 — this skill would have been diagnosing its prerequisite's content, while its own equation-writing step carried no signal; procedure step 4 amended from a determinacy VERDICT to a screening check, since a count of three is necessary but not sufficient and proper-versus-improper constraint belongs to the downstream constraints_static_determinacy node; and an author instruction that had leaked into the worked example was removed. OPERATOR NOTE FOR ARCHITECT: a synthesis skill's failure signals structurally overlap its parents' — the skill IS the composition. Resolved here by attaching signals to this skill's own contribution rather than to inherited steps. No ruling exists; frame_machine_equilibrium and simple_truss_modeling will meet the same question.",
+          "reviewer": "Phase D sign-off review (PHASE-D-SUPPORT-REACTIONS-2D-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_RIGID_BODY_EQUILIBRIUM_support_reactions_2d.json",
+        "subtopic_code": "STATICS_RIGID_BODY_EQUILIBRIUM:SUPPORT_REACTIONS",
+        "topic_code": "STATICS_RIGID_BODY_EQUILIBRIUM"
+      },
+      {
+        "micro_skill_code": "vector_components_2d",
+        "procedure_id": "proc-statics-vectors-vector-components-2d-v1",
+        "sha256": "ee0f621896e433b530dc358ca155ec370440bd6dfd0c5782f90e30febc6982b2",
+        "signature": {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        },
+        "source_path": "curriculum/statics/procedures/STATICS_VECTORS_vector_components_2d.json",
+        "subtopic_code": "STATICS_VECTORS:SCALARS_AND_VECTOR_OPERATIONS",
+        "topic_code": "STATICS_VECTORS"
+      }
+    ],
+    "procedure_library_digest": "666493b4eb5e0a49331505cc2dcb581edad51927e0350aaad15984b362b346f0",
+    "student_visible": false,
+    "topic_code": "STATICS_INTERNAL_FORCES_BEAMS"
+  },
+  "candidate_fingerprints": [
+    {
+      "candidate_fingerprint": "e2a96f90fd476de8d76d82481ebf62abfd42dbda75b78b4232f3d5b04f61425b",
+      "candidate_id": "W1R-IFB-001",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "2145aa9ba5f748b705deedf7bd8027aeb6b9d75496c6ecae6369c2044db668e1",
+      "candidate_id": "W1R-IFB-002",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "0db1e15ea6eae43d7c255c43c1612e2becda136192dd067e94af9aba9f666e33",
+      "candidate_id": "W1R-IFB-003",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "2cd3e7de6d11943ab3e5670683139131702e624182270c8732de125a90287e41",
+      "candidate_id": "W1R-IFB-004",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "0c541b69a97f626661e757e2e1a67053f50a5b4e3d7c728c8a7c284cf804f42b",
+      "candidate_id": "W1R-IFB-005",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "b460e97ad929cf6f350041cb14302f7a1ed1ecb2738aab0133b3439a69589c35",
+      "candidate_id": "W1R-IFB-006",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "f46e827bc8396d27947a3c25d852d66ed901edd05f4048e6864d6c33928f352d",
+      "candidate_id": "W1R-IFB-007",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "7ec141dcbead845dc934c678cd92a81acec4caa4102d3d33c6478a44b438f5fc",
+      "candidate_id": "W1R-IFB-008",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "18eab5ef8ffb86d7efedd3828cfdc1592f73419ffe2e1e930718cc6bcf023e6e",
+      "candidate_id": "W1R-IFB-009",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "81399b48d692944ff90bc515ea0b741ecb41ad90f57dfe9dcc88ef6d8f3c41dd",
+      "candidate_id": "W1R-IFB-010",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "db0d902a1b24cb13eee5bdfd08ff66711a1534dbcff3a58de0cdbfa3779f896f",
+      "candidate_id": "W1R-IFB-011",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "5947a4fe1b7e37ff20eb9b7badc8d205bf21564ad2c7d812581720510589ccfd",
+      "candidate_id": "W1R-IFB-012",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "22d48c4bb06168d2985231dcd95141d72a80b72aafd69d31b96bdcc98473cc53",
+      "candidate_id": "W1R-IFB-013",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "d3e6d7f66243853dca6b604eb0b0ca7d499a25f6174c0d28e9c54a1d558552d8",
+      "candidate_id": "W1R-IFB-014",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "f19d1271cf7cd76d7b7bb3c0a3a10f4bb2f49c0e5862a192abd2496ffb176281",
+      "candidate_id": "W1R-IFB-015",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "f0a3a71622860c24e2aee006a86ef2d69a5fe721e02875784422d5415d6c9162",
+      "candidate_id": "W1R-IFB-016",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "082af7ac77f70543e67639c054aa763062b81a41c0eba891f5282be7b76f7c17",
+      "candidate_id": "W1R-IFB-017",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "a8f6ac89d9f7cb06e34930e4960ab588621b8e37e8617b30874a3e3e2829c0ef",
+      "candidate_id": "W1R-IFB-018",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "00832980ef4b1ea0b1ddfa12563221977449256c40f4a72c3048ccd31ab00e94",
+      "candidate_id": "W1R-IFB-019",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "55985415df0695ffe7cbcc48a1359db4deee3cb20b6755eb65670579ddb27e40",
+      "candidate_id": "W1R-IFB-020",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "da89421885b38a0d85b9553ea8f5e3adbc46685dcbc588d0326db51da3747472",
+      "candidate_id": "W1R-IFB-021",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "0a80dc17596f254b09bab4063beaba09dd87b7a214335e1496b582dd0248b280",
+      "candidate_id": "W1R-IFB-022",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "69a0c72faea38589a91879d042fc360b26714c7e52d57d32e918911c76f1f928",
+      "candidate_id": "W1R-IFB-023",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "ad30069d1d95a06ce66aa1e8667d2c425ff3ab75b6ae18989944047fc0b10825",
+      "candidate_id": "W1R-IFB-024",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "bf5173d24b691673373fbd45723aaac458fcc1978ad6942a9c2281eaa1c1fc47",
+      "candidate_id": "W1R-IFB-025",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "5d4f486bb629e067377770cb3c78b597ca6deee4a2b8c1f308642ea10465798e",
+      "candidate_id": "W1R-IFB-026",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "158f58ec7b2b811bba9bcdab56b989983483dbd5e0599566a5806853846899f1",
+      "candidate_id": "W1R-IFB-027",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "93cf857fadb2f7ccdfa933fd1135b71c0923240d96cd76d2ded2f976267f6474",
+      "candidate_id": "W1R-IFB-028",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "28d42f0b1aa06ce051a588cbebdb689185ed874ee6c08ddf73e9c874859f1bd5",
+      "candidate_id": "W1R-IFB-029",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "3edbfd04b946bf53ebe45243588a57298b28e52f4948a4804ad6472f3b2d87a3",
+      "candidate_id": "W1R-IFB-030",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "9d5702ebd0c8a244f27a7a82612cdd7ffb3ddfae7cfa28d0ccb1ccb829715bba",
+      "candidate_id": "W1R-IFB-031",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "db4a95e2cb339123023cef59b35d8e59947f9b384e547c8f5af9110f121b6669",
+      "candidate_id": "W1R-IFB-032",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "7082581233e2c0b8ef3cef49eced981cd6e604bf8c88c117d182a7f6b2e826e9",
+      "candidate_id": "W1R-IFB-033",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "e80b81986dddb78274cbc9ff4e9a6d40d479adf8254069403e4edf43dcc2b14e",
+      "candidate_id": "W1R-IFB-034",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "e68317b6f5f69e750fcfdd627c3a550ba04b78b27eec4e27b36fc2c06af004e6",
+      "candidate_id": "W1R-IFB-035",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "7dfbfe55cb85ccdb801bbd241e0907a7aa3c9e5dc6cd402e4298ba43f09481c1",
+      "candidate_id": "W1R-IFB-036",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "66947e39934016f4f72c99aa087f2d6f1c7a470680650dec9cda350d262d20e5",
+      "candidate_id": "W1R-IFB-037",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "d9eba72f6219377a953b536165e1ff9289730aaa7bd022e2d181a5b737bbeb9d",
+      "candidate_id": "W1R-IFB-038",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "ce17a7ec619eb8200b21b9c56bd99043518ad06a6c2870716d3e54b52b2fd7f2",
+      "candidate_id": "W1R-IFB-039",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "902e3480eb41be80f8a842dacf684ad48de80bd469e207841c2aeed32ca604c1",
+      "candidate_id": "W1R-IFB-040",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "ff103bc883048a6824b6f8df91d2065e34a64e53187f7b9398c8de5f80b23768",
+      "candidate_id": "W1R-IFB-041",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "d438296b9b4620dbb123ba9cbeb2745e7007a921d31a1ccead5f62f1a53ca25d",
+      "candidate_id": "W1R-IFB-042",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "a1c658f1e7c4336cb781bd9dfba6a0782d1b23176efd823bae2df8f9d7671f0f",
+      "candidate_id": "W1R-IFB-043",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "18730550a2d8b3b7227b79ea94b59727327dbdaf5be21d389ae031d746047879",
+      "candidate_id": "W1R-IFB-044",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "c78fc5eaa0257d398067b601aee966b3830bac7b99a006e9de92ef021cffa3db",
+      "candidate_id": "W1R-IFB-045",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "dc743b8ece79844b64ef49f5ada9c31a0f9469ff989776027bb40cdc46d542dd",
+      "candidate_id": "W1R-IFB-046",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "ac7a2f9ead5b4372ea89e1dca96f9ddca09dad96b4c8f029be35785670b466b0",
+      "candidate_id": "W1R-IFB-047",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "ae0efaaf5edb3adb8106559d19c58a38b8cca698eed2b7c61bebb03085aade3c",
+      "candidate_id": "W1R-IFB-048",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "0d48097fb5af51364e69716a63675e644efd7bfee9293217ede1853803207a56",
+      "candidate_id": "W1R-IFB-049",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "a0899a9eff9783c9a349afc1d65a316d3f89f2367054eb944e43d29d2574cfa3",
+      "candidate_id": "W1R-IFB-050",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "cab98d52592f5897747f4950dba4e5aa0368c314536752413520a6a51d9795b6",
+      "candidate_id": "W1R-IFB-051",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "6ef384ec1a1fc45e58f80ed43f441fbdf3a25ea065ebe36d10261202d4308ee7",
+      "candidate_id": "W1R-IFB-052",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "5a3a930ef8302fbf5a3c99efeb53ec067c01f02dd88742121689cd0593990b91",
+      "candidate_id": "W1R-IFB-053",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "755e5742dfd6964e05e62ee766c4371532beed0d38d6be87adb19c3450fc0016",
+      "candidate_id": "W1R-IFB-054",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "d750b1d69665e14216498f38249c9720d2dc163bd79ec04b185fb741a2d9c00e",
+      "candidate_id": "W1R-IFB-055",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "fe08db24a3ff211b21f032785efb6f8241e401bee51e4fddb05c35bc8337f377",
+      "candidate_id": "W1R-IFB-056",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "b6da2f4b6a464c0261c82e6d36410716d40b47a2584387d1d7e6c7041fbf180d",
+      "candidate_id": "W1R-IFB-057",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "381195d2b0fdd8a17fc3290cb03fcbdd1d94b51739d58568eaabf64706ea557a",
+      "candidate_id": "W1R-IFB-058",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "5026f5a36006fa70516b5df2f641202efcd0dbea594a751564d438320dc28d0a",
+      "candidate_id": "W1R-IFB-059",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "4df6e34a3fb7dc20194f552ff38d4e3b41b88e4395655823948b717bed5d9609",
+      "candidate_id": "W1R-IFB-060",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "75e39b323a0aeeeacd2ca68c34b2615b29883cc910e3e199a3c4908608bc72e8",
+      "candidate_id": "W1R-IFB-061",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "475d1c79c73df6a2dadeca3f5be5007d7d49055b46b4dc57c28e3d38b4b68cd4",
+      "candidate_id": "W1R-IFB-062",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "68edf9f70b4e2f6a4e8814f1de3b6a3671f799a27b69331f25ef988f9f8a4b4e",
+      "candidate_id": "W1R-IFB-063",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "9cf1bebc59713fc66fd2dbc01a7960f6d71c82445d4b914552c7045d340b8e34",
+      "candidate_id": "W1R-IFB-064",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "ed6a7768dcc55c3db9b28811719ade7656c87bc6027b351e934e621cd195d9c0",
+      "candidate_id": "W1R-IFB-065",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "ed0bb277d3c08ebc46f905c72d994668c2582d668005e8197a7f7899379e1130",
+      "candidate_id": "W1R-IFB-066",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "68818d7654fd379a6bd2448f54046861b5e7a141470f703cbefb82110b2da11e",
+      "candidate_id": "W1R-IFB-067",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "b71e1de122e922cd50b174227f4cdfa1961e3ca46cf53681642becddb52c9b24",
+      "candidate_id": "W1R-IFB-068",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "d59e0e52cc62e4e260fd109cbd8187dfa62906cb34ca0c4482fb71cbf1ebbeb7",
+      "candidate_id": "W1R-IFB-069",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "1ba5f687383c995b32dd9c2c27e1d17f2f50588118c07296e6e9a0aacf8514b2",
+      "candidate_id": "W1R-IFB-070",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "8f2c20b0d9889f1e55ca930ab8274c0f2603f47fd678e9f3a925afc9c7287af6",
+      "candidate_id": "W1R-IFB-071",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "f809de257b2ac673852f84b4fe5befaa4344b1c76ffc3a9987cfedf90104d211",
+      "candidate_id": "W1R-IFB-072",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "04bc0f65de1f8113e566b5c1ad614982dedcbef8703b5bac06c6f9743133d7fd",
+      "candidate_id": "W1R-IFB-073",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "22b3e94393ffe1bf5dc5755541a2d099821df92da5eff66cd1f6d5b2cf157d7e",
+      "candidate_id": "W1R-IFB-074",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "92c436d229aae09b09f0a10bbe0f758f7d4650a1e31acc1690b5521a1ac67b16",
+      "candidate_id": "W1R-IFB-075",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "bdabb360171212251c425c9559ca8ac2d5a4c8567ecd84db16557cde8e0317d6",
+      "candidate_id": "W1R-IFB-076",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "424a509fe98109e671cc3a317c071b6dd81c1ea643adf007055e88f18cd1334a",
+      "candidate_id": "W1R-IFB-077",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "3186bd093a3a6a947c12af4bdea8cc07b637303dab5055495b3b89be29b63c75",
+      "candidate_id": "W1R-IFB-078",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "783e48c78065e2f4c61d5709f12b4b8f695248a2d92067e4df5c33435184e116",
+      "candidate_id": "W1R-IFB-079",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "f658b5dcd7c916b6b0dd49c05ad79529d2257a7105756f0abc1c27ec51119203",
+      "candidate_id": "W1R-IFB-080",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "be55c884d63043c1329f9e256e559031b3048cf886400a6be5c9f5678cebc673",
+      "candidate_id": "W1R-IFB-081",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "924f0b25c635875c3cb5c2607981b012346b834fc8aa5be4778cade0473e4e30",
+      "candidate_id": "W1R-IFB-082",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "bf0edf6f7cab190a477f46b609827d0d3b9d7832d68ce4dfa713c0a5fc787525",
+      "candidate_id": "W1R-IFB-083",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "3ab66f11490c03daadbf535b3cc0fc62dacb8a4d20f4045a25d1d1b728fedbf5",
+      "candidate_id": "W1R-IFB-084",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "f0869d4c7101b736c3709b66d6a906d9c273584445392465bf6fc3bf9e25a852",
+      "candidate_id": "W1R-IFB-085",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "c61391e5dce4a8de70f50950e5aea42f9f9f0ce41827407196bfd9e63a5d79bd",
+      "candidate_id": "W1R-IFB-086",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "72f81b39c3a120882d1b64c1a49930efb1c8f2e3a4b0690683d8671f0601cba8",
+      "candidate_id": "W1R-IFB-087",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "8e487cadaa739c6cb0226b03cc802dc4a7424def90cc5d1fefb2b6537372919d",
+      "candidate_id": "W1R-IFB-088",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "78805adf2a5056203e54d800e419fc760d8f1901336a89ec4274d430ffcb8e66",
+      "candidate_id": "W1R-IFB-089",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "796b4789688f5f2e2d0004b11dd9473e1df29970e85f3ed9dc5b35c6d221c5fa",
+      "candidate_id": "W1R-IFB-090",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "6eba382e3268f36b65ed5acd009ffe0222f0a8badafd359b432a09ecc0488cce",
+      "candidate_id": "W1R-IFB-091",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "69ffdd69ff0877323335039e8a1bc8bb16c97e00c238c5e07418edf9de079dc5",
+      "candidate_id": "W1R-IFB-092",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "fc9037dd5cb74bcc7c83c8ff196b3e860d9987891247488bb1bba093998fa81c",
+      "candidate_id": "W1R-IFB-093",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "0c66027c20b636ec505fadade0cf5704d14651dae957cc754492b4b5b4a54a41",
+      "candidate_id": "W1R-IFB-094",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "0404bd39d65836a9e15247526e05da9b9c3ba821f82f94babdcba5cd6d146364",
+      "candidate_id": "W1R-IFB-095",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "1133ab5ead6b8ffe0f26377b5d169e100db55378d5031de712f1e2a15b7c622b",
+      "candidate_id": "W1R-IFB-096",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "a31d18642998d4d13e06b97b9b66c689fc56c21d4b4065749862609beb320a1a",
+      "candidate_id": "W1R-IFB-097",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "f34d2212f48ace40843a5666efa01976fb0e2f31f0b0b90564ea92fe9dfe139d",
+      "candidate_id": "W1R-IFB-098",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "16abcf5fb408ac6ec3cd17305dc77018194cb2cbfb8f99a61908da5ecd102493",
+      "candidate_id": "W1R-IFB-099",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    },
+    {
+      "candidate_fingerprint": "2cbf0805d22cb6ce0088aef537544240345f001cada58cc0a024d8c177924805",
+      "candidate_id": "W1R-IFB-100",
+      "database_eligible": false,
+      "human_review_required": true,
+      "is_active": false,
+      "record_type": "candidate_fingerprint",
+      "student_visible": false
+    }
+  ],
+  "database_eligible": false,
+  "declared_checks": {
+    "candidate_pair_total_checked": 4950,
+    "canonical_immutable_fingerprint_total_checked": 597,
+    "canonical_prompt_total_checked": 597,
+    "fingerprint_algorithm": "sha256(canonical JSON of prompt, correct_answer, procedure_id, generation_family)",
+    "prompt_similarity_algorithm": "lowercase word-trigram Jaccard similarity",
+    "similarity_threshold_inclusive": 0.8
+  },
+  "final_duplicate_count": 0,
+  "human_review_required": true,
+  "is_active": false,
+  "reconciliation": {
+    "answer_contract_total": 597,
+    "canonical_identity_total": 597,
+    "capacity_sufficient": true,
+    "diagram_contract_total": 597,
+    "existing_internal_forces_candidates": 0,
+    "fully_joined_by_canonical_identifier": true,
+    "generation_family_contract_total": 204,
+    "identity_fingerprint_match_total": 597,
+    "proven_gap": 100,
+    "question_inventory_total": 597,
+    "target_candidate_total": 100,
+    "unusable_contracts": [
+      {
+        "generation_family": "UNDECLARED",
+        "question_total": 34,
+        "reason": "UNDECLARED is unusable by lane instruction."
+      }
+    ],
+    "unusable_generation_family_contract_total": 1,
+    "usable_contract_represented_question_capacity": 563,
+    "usable_generation_family_contract_total": 203
+  },
+  "replacement_count": 0,
+  "replacement_log": [],
+  "schema_version": "wave1r-lane-evidence-v1",
+  "student_visible": false,
+  "threshold_duplicate_hits": {
+    "candidate_to_candidate": [],
+    "candidate_to_canonical": [],
+    "candidate_to_canonical_immutable_fingerprint": []
+  },
+  "validation_status": "passed"
+}
