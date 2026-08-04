@@ -1,0 +1,1871 @@
+{
+  "artifact_type": "wave1r_generation_families",
+  "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+  "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+  "bundle_verification": {
+    "manifest_payload_total": 893,
+    "manifest_sha256": "0479a67f000196551515935062d045be707b2b7657c5ceb0e772c8d284d4b59f",
+    "manifest_sidecar_match": true,
+    "passed": true,
+    "payload_ledger_match_count": 893,
+    "payload_sidecar_match_count": 893
+  },
+  "capacity_reconciliation": {
+    "canonical_counts": {
+      "STATICS_FORCE_VECTORS": 23,
+      "STATICS_RESULTANT_FORCES": 49
+    },
+    "compiler_candidates_eligible": 0,
+    "compiler_candidates_inspected": 20,
+    "family_contract_total": 204,
+    "generated_total": 128,
+    "owned_declared_contract_count": 15,
+    "proven_gaps": {
+      "STATICS_FORCE_VECTORS": 77,
+      "STATICS_RESULTANT_FORCES": 51
+    },
+    "undeclared_contracts_usable": false
+  },
+  "classification_procedure_capacity_finding": {
+    "acted_on": false,
+    "needed_for_target_capacity": false,
+    "owned_recorded": true,
+    "procedure_id": "proc-statics-vectors-scalar-vector-classification-v1",
+    "question_referenced": false
+  },
+  "closure_digest": "8a1b3a84ac66ca295221764e5c7f5f58eea86f01b13e13371d1a94334ccfd51e",
+  "closure_pair_total": 458,
+  "compiler_reconciliation": [
+    {
+      "candidate_id": "candidate:cba3696e3aa96012c36f209f",
+      "compiler_family_id": "STATICS_PRODUCTION_00",
+      "compiler_topic_id": "STATICS_TOPIC_001",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "TOPIC_IDENTITY_OUTSIDE_OWNED_SPLIT",
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_001",
+      "prompt_fingerprint": "dfce4b984e80606563a1d2392639f20ec7f95e7565e81c1b536ab8daa2da4bfe",
+      "semantic_topic_code": "STATICS_VECTORS",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:acccbcc60003554730e8922c",
+      "compiler_family_id": "STATICS_PRODUCTION_02",
+      "compiler_topic_id": "STATICS_TOPIC_003",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_003",
+      "prompt_fingerprint": "a1f4ee80d505fdf42d5d763b44bd5fb4fd74bf59a2e9248a5ba01e94769139b6",
+      "semantic_topic_code": "STATICS_RESULTANT_FORCES",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:2d9af4f7880d1fc99fee9528",
+      "compiler_family_id": "STATICS_PRODUCTION_00",
+      "compiler_topic_id": "STATICS_TOPIC_001",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "TOPIC_IDENTITY_OUTSIDE_OWNED_SPLIT",
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_001",
+      "prompt_fingerprint": "3f8789b9a106a1339091544584dd7b94f4918923d8daf466f0c666c9d4aeb3f5",
+      "semantic_topic_code": "STATICS_VECTORS",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:8f6aeaa30d99c74d03793a8c",
+      "compiler_family_id": "STATICS_PRODUCTION_02",
+      "compiler_topic_id": "STATICS_TOPIC_003",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_003",
+      "prompt_fingerprint": "9aaeeb8fd9f15a73b1b81ff1f26c80f550c801e5a6e98cd1ffad70022696ca6d",
+      "semantic_topic_code": "STATICS_RESULTANT_FORCES",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:7aaf05ccda2dd81dfd701c5c",
+      "compiler_family_id": "STATICS_PRODUCTION_00",
+      "compiler_topic_id": "STATICS_TOPIC_001",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "TOPIC_IDENTITY_OUTSIDE_OWNED_SPLIT",
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_001",
+      "prompt_fingerprint": "de66173ca38a6bd89094758ca1a48b77d0d7b0c2e8933f2063b4ad02e97084ef",
+      "semantic_topic_code": "STATICS_VECTORS",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:a938d19a720ce778f5725e3a",
+      "compiler_family_id": "STATICS_PRODUCTION_02",
+      "compiler_topic_id": "STATICS_TOPIC_003",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_003",
+      "prompt_fingerprint": "f957e839e58f0624b0465fd4d25289b1a4e29a0bbd7ace12dfa3b180f034d0ba",
+      "semantic_topic_code": "STATICS_RESULTANT_FORCES",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:2043f4d806d95149aab37bd2",
+      "compiler_family_id": "STATICS_PRODUCTION_00",
+      "compiler_topic_id": "STATICS_TOPIC_001",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "TOPIC_IDENTITY_OUTSIDE_OWNED_SPLIT",
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_001",
+      "prompt_fingerprint": "5821e0c728ec73cb84aa89487ee0f6a083d5dcd0c5c004093ed0f03460c8bd1f",
+      "semantic_topic_code": "STATICS_VECTORS",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:85d7cbf6bd9035d2761c3e73",
+      "compiler_family_id": "STATICS_PRODUCTION_02",
+      "compiler_topic_id": "STATICS_TOPIC_003",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_003",
+      "prompt_fingerprint": "7928db4fb6d2fc1d4ac50d19c4daea6c6200c948d94343ab39d63529c03d0d44",
+      "semantic_topic_code": "STATICS_RESULTANT_FORCES",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:78e1bafbe0fc76aefbea6584",
+      "compiler_family_id": "STATICS_PRODUCTION_00",
+      "compiler_topic_id": "STATICS_TOPIC_001",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "TOPIC_IDENTITY_OUTSIDE_OWNED_SPLIT",
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_001",
+      "prompt_fingerprint": "3194c12371e3614066affaaab29f1b6d3e78cb593d1dadbc441b8ccef68eda2d",
+      "semantic_topic_code": "STATICS_VECTORS",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:286b5856b830db01de10aa26",
+      "compiler_family_id": "STATICS_PRODUCTION_02",
+      "compiler_topic_id": "STATICS_TOPIC_003",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_003",
+      "prompt_fingerprint": "d640623f9510b9db5e2c59e80555a571cd206f3e905c5cf9b321fcc4c1b8b686",
+      "semantic_topic_code": "STATICS_RESULTANT_FORCES",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:db063219f78dfa08c9ef8e11",
+      "compiler_family_id": "STATICS_PRODUCTION_00",
+      "compiler_topic_id": "STATICS_TOPIC_001",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "TOPIC_IDENTITY_OUTSIDE_OWNED_SPLIT",
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_001",
+      "prompt_fingerprint": "95ac71e31432840c0f4f2ead0f590ac0f110f9b4831d63e1da136bfb989e62ae",
+      "semantic_topic_code": "STATICS_VECTORS",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:ddb332bb7a9d882f83199b30",
+      "compiler_family_id": "STATICS_PRODUCTION_02",
+      "compiler_topic_id": "STATICS_TOPIC_003",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_003",
+      "prompt_fingerprint": "acd203f6c5c682a5191ddbf785627ca4d4af5ff79dea9bd5de983540c7a59f04",
+      "semantic_topic_code": "STATICS_RESULTANT_FORCES",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:e1ccfd38f6bd25e3651c5d36",
+      "compiler_family_id": "STATICS_PRODUCTION_00",
+      "compiler_topic_id": "STATICS_TOPIC_001",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "TOPIC_IDENTITY_OUTSIDE_OWNED_SPLIT",
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_001",
+      "prompt_fingerprint": "6622c290a03f74f99dd0e3a3e11d8573b157edf08b12bbcfe0ba620d68ce703b",
+      "semantic_topic_code": "STATICS_VECTORS",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:4e10add6ee0395a2a17b3426",
+      "compiler_family_id": "STATICS_PRODUCTION_02",
+      "compiler_topic_id": "STATICS_TOPIC_003",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_003",
+      "prompt_fingerprint": "f4c1e15677b4f4fb520ac948ad8bb1c7c0aeab7a7c870aca69bb6813f5fd1fc0",
+      "semantic_topic_code": "STATICS_RESULTANT_FORCES",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:e935d1f94fd44a900c2e13e4",
+      "compiler_family_id": "STATICS_PRODUCTION_00",
+      "compiler_topic_id": "STATICS_TOPIC_001",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "TOPIC_IDENTITY_OUTSIDE_OWNED_SPLIT",
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_001",
+      "prompt_fingerprint": "0a414a8a027d00e694719d77d36566998d049f1af73cd4768392ff2211d2e1d5",
+      "semantic_topic_code": "STATICS_VECTORS",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:58c1f96ac535633e67ad9d1a",
+      "compiler_family_id": "STATICS_PRODUCTION_02",
+      "compiler_topic_id": "STATICS_TOPIC_003",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_003",
+      "prompt_fingerprint": "6f37d4d1b4a5a7ef64092955a816f76a7dd6abae3d1766afffa9199f3327cce8",
+      "semantic_topic_code": "STATICS_RESULTANT_FORCES",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:291f65aaddc16609567a4fca",
+      "compiler_family_id": "STATICS_PRODUCTION_00",
+      "compiler_topic_id": "STATICS_TOPIC_001",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "TOPIC_IDENTITY_OUTSIDE_OWNED_SPLIT",
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_001",
+      "prompt_fingerprint": "38d46a6dff0585cbd8054a19ed1030a17dd88bb820bc5613df17c42dde1f242c",
+      "semantic_topic_code": "STATICS_VECTORS",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:2e5c2731c1b495c2caed1e69",
+      "compiler_family_id": "STATICS_PRODUCTION_02",
+      "compiler_topic_id": "STATICS_TOPIC_003",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_003",
+      "prompt_fingerprint": "50a2a3001d2ab47fdabf6576686b53cc170841e214392d3a1ca2092feece78e2",
+      "semantic_topic_code": "STATICS_RESULTANT_FORCES",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:d4aa0389ab51dcc3fa2e938c",
+      "compiler_family_id": "STATICS_PRODUCTION_00",
+      "compiler_topic_id": "STATICS_TOPIC_001",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "TOPIC_IDENTITY_OUTSIDE_OWNED_SPLIT",
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_001",
+      "prompt_fingerprint": "a811d613f346fab0b556c3d257b510924da624d2e139c20fc0d844d423fec568",
+      "semantic_topic_code": "STATICS_VECTORS",
+      "validation_passed": true
+    },
+    {
+      "candidate_id": "candidate:1143ac8cddeb552c4c060476",
+      "compiler_family_id": "STATICS_PRODUCTION_02",
+      "compiler_topic_id": "STATICS_TOPIC_003",
+      "eligible_toward_target": false,
+      "exclusion_reasons": [
+        "UNDECLARED_FAMILY_ID",
+        "UNSIGNED_OR_UNKNOWN_PROCEDURE_ID",
+        "NO_CANONICAL_IDENTITY_MATCH"
+      ],
+      "procedure_id": "STATICS_PROC_003",
+      "prompt_fingerprint": "d027fd239fa5f9c49bc24ca3f9e3808d3867ee3dc78ec5c8d6f97f49a5717e99",
+      "semantic_topic_code": "STATICS_RESULTANT_FORCES",
+      "validation_passed": true
+    }
+  ],
+  "database_eligible": false,
+  "evidence_slug": "force_systems_split",
+  "families": [
+    {
+      "allocated_gap_count": 13,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "dot_product_projection",
+        "prerequisite_micro_skills": [
+          "cartesian_vector_components_3d",
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "proc-statics-vectors-cartesian-vector-components-3d-v1",
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 4,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/019_f2cb2532-e094-4c5f-9443-22319091e24e.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/022_28170e5e-9a79-4cd8-bfaf-2e7f41a26437.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/025_7efb3d28-b2a3-46f6-804e-54f8746f1c62.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/028_3edc24de-0635-4da1-b234-9fde3b71fa49.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 13,
+      "generated_accepted_count": 13,
+      "generation_family": "dot2d_acute_projection",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-force-vectors-dot-product-projection-v1",
+      "procedure_ids": [
+        "proc-statics-force-vectors-dot-product-projection-v1",
+        "proc-statics-vectors-cartesian-vector-components-3d-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-23",
+          "notes": "Batch 4I skill 4/5. Owns the dot product AS A PROJECTION TOOL: the component form A . B = Ax Bx + Ay By + Az Bz, the geometric form A . B = |A||B| cos theta, and the signed SCALAR projection of A onto the direction of B, A_par = (A . B)/|B|, including what a negative projection means (obtuse theta; A has a component opposite to B). Boundary: cartesian_vector_components_3d (signed parent) supplies components, cited not re-derived. RECIPROCAL BOUNDARY with cross_product_moment_3d (signed earlier this batch) is stated in the artifact: that skill uses a dot product ONLY as a perpendicularity check and computes no projection, while this skill owns the dot product as a projection tool and computes no moment or cross product - naming the complement was required because the sibling already states its half. unit_vector_along_line (downstream, planned) owns FORMING a unit direction; this skill uses the general form (A . B)/|B|, which needs no unit vector, and never binds or constructs one. The VECTOR projection (scalar times a unit direction) therefore requires that ceded construction and is explicitly OUT OF SCOPE - the deliverable is the signed SCALAR projection. position_vector_3d, coordinate_direction_angles and cartesian_vector_addition_3d excluded. Worked example Operator-re-derived from the on-disk prompt: A = -6i -6j -3k (|A| = 9), B = 2i +2j -1k (|B| = 3); A . B = (-6)(2) + (-6)(2) + (-3)(-1) = -12 - 12 + 3 = -21; A_par = -21/3 = -7; cos theta = -21/27 = -7/9 = -0.7778 -> theta = 141.1 deg. Distinguishing feature bites: the geometry is neither parallel nor perpendicular and theta sits clear of both 90 and 180 degrees; the projection is NEGATIVE so its sign carries meaning and the obtuse angle explains it; |A| != |B| so dividing by the wrong magnitude is detectable; and the four outcomes are mutually distinct - correct -7, wrong denominator -2.33, undivided -21, signs dropped +9 - so each mapped signal routes to its own answer. VERIFICATION PRECEDES REPORT in both arrays (verify at index 5, report at index 6), matching the three skills signed earlier in this batch: the bound |A_par| < |A|, valid because A and B are not parallel, gives 7 < 9. HONEST LIMITATION recorded: the bound catches an undivided product sum (21 > 9) and a sign-dropped product sum (27/3 = 9, not strictly less than 9) but does NOT catch dividing by |A| instead of |B| (2.33 < 9 passes while being wrong) - stated as a property of the check rather than overstated. THREE-signal mapping: axis_confusion at step 2 (like-component pairing in the product sum - multiplying Ax by By or Az by Bx), sign_or_placement_error at step 3 (sign retention through the division AND selection of |B| rather than |A| as the divisor, since dividing by |A| projects the wrong way round and is a placement error about which vector is the direction; both acts are explicitly authored in that step, distinct from the pairing act at step 2), unclassified at step 7 (report and boundary - incomplete result, omitted sign, skipped bound check, treating the bound as catching a wrong-denominator error, forming a unit vector or vector projection, or reaching into the ceded siblings). solution_sequencing_error OMITTED with explicit argument: A . B and |B| are independent computations combined by one division, so no authored step strands a prerequisite unknown; it was not mapped merely because the division follows the dot product. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: components are given already resolved and no inclined vector is decomposed. NO ARCHETYPE IS ASSERTED for this skill: the Architect flagged its family fit for independent review and directed that it not be forced into a component-combination template, so the artifact carries no archetype reference and the assignment is deferred to PROCEDURE-ARCHETYPE-LIBRARY-V1 review. Operator observation recorded, not corrected: the bound-check step cites a sign-dropped sum of 27 without restating that 27 is the sum of the product magnitudes from two steps earlier - terse but inferable, and the instructional point of the sentence lands. Review beat cleared at first pass; no correction lane.",
+          "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4I-SKILL-4-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-17",
+          "notes": "Batch 4E skill 3/6 — opens the 3D chain. SCOPE WAS OPERATOR-DERIVED, not Architect-ruled: the Batch 4E ruling detailed skill 1/6's scope only. Derived from graph truth and the signed boundaries. The Architect's binding 3D ruling was honored: this is particle-equilibrium debt retirement, not 3D rigid-body expansion — no rigid_body_fbd_3d, no 3D rigid-body equilibrium. Narrow by construction: one force in, three components out. Every adjacent capability is a separate graph node and none appears as an authored step — coordinate direction angles, 3D vector addition, position vectors, unit vectors along a line, dot and cross products, 3D FBDs, and equilibrium are all excluded, and step 7 names them explicitly. Boundary against the signed solve_particle_equil_3d (downstream; its unsigned-prereq inversion is retired by skill 4/6, not this one) verified at the review beat: that skill's worked example HANDS the student unit vectors and writes SumF = 0; it consumes 3D components without ever teaching the two-angle projection geometry. Boundary against the parent vector_components_2d: that skill is one angle into two components; this one requires TWO angular data and produces three nonzero components. Worked example independently re-derived by Operator: F = 100 N, phi = 36.9 degrees from +z (cos 0.80, sin 0.60), xy-projection at theta = 53.1 degrees from +x into the +x/-y region (cos 0.60, sin 0.80); F_xy = 60 N, Fz = 80 N, Fx = +36 N, Fy = -48 N, giving F = 36 i - 48 j + 80 k N. All three components nonzero. Magnitude check closes exactly: 1296 + 2304 + 6400 = 10000 = 100 squared. 3-signal mapping, content-earned: axis_confusion at step 3 (the out-of-plane projection — this skill's own 3D contribution, since the parent has no such step); sign_or_placement_error at step 5 (assigning algebraic signs, genuinely distinct from the resolution steps: correct magnitudes, wrong sense); unclassified at step 7 (verification and scope boundary). simple_average_used omitted: Centroids-family signal. HONEST FINDING, recorded because it is a real property of the verification step: a clean sine/cosine swap PRESERVES the magnitude check, because it permutes which axis receives which magnitude — the swap at phi gives 48/-64/60 and the swap at theta gives 48/-36/80, and both close to 10000. The magnitude relation catches dropped or mis-scaled components, not a clean trig swap; axis_confusion is what routes the swap, and the procedure does not claim otherwise. Procedure step 4 (the in-plane split) is deliberately LEFT UNMAPPED: that is vector_components_2d's content, and a student failing there needs the parent skill, which already diagnoses it — the same principle applied on support_reactions_2d. SIGNAL-POLICY DEBT recorded per Architect Batch 4E Decision B: a theta-swap at step 4 yields (48, -36, 80), which is wrong AND closes the magnitude check, so no signal on this skill catches it. Mapping a duplicate axis_confusion there is forbidden by Decision B, and inventing a signal is not authorized; the hole is recorded rather than forced. Review-beat correction: the draft used alpha for the angle from +z while common_errors warned students against the coordinate direction angles alpha/beta/gamma — but those are conventionally measured from +x/+y/+z, so the angle this skill called alpha is conventionally gamma. The artifact was using a coordinate-direction-angle symbol for a different meaning while telling students that convention belongs elsewhere, and coordinate_direction_angles is a downstream node this skill unlocks, where alpha will mean angle-from-+x. Renamed to phi, the standard polar angle from +z, which pairs conventionally with theta azimuthal. Alpha now survives only inside the literal string alpha/beta/gamma where it correctly names the other skill's convention. Numbers, components, answer, step count, and signal targets all unchanged by the rename. PROCESS NOTE: the correction lane BLOCKED on a defective Operator verification gate that compared a six-character slice against a five-character string and therefore could never pass. Cursor refused to edit content to satisfy it and escalated with a diagnosis — the correct call, and the standing rule.",
+          "reviewer": "Phase D sign-off review (PHASE-D-CARTESIAN-VECTOR-COMPONENTS-3D-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:dot2d_acute_projection",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts",
+        "answer_parts_contract",
+        "answer_type",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "failure_signal_mappings_complete",
+        "failure_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "record_type",
+        "solution",
+        "submit_format_guidance"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_FORCE_VECTORS",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 13,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "dot_product_projection",
+        "prerequisite_micro_skills": [
+          "cartesian_vector_components_3d",
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "proc-statics-vectors-cartesian-vector-components-3d-v1",
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 4,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/020_08f67cb2-a712-41a6-8edc-06e66ce7427a.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/023_3a1c276d-249a-4396-958e-8cc8d2fe4f56.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/026_56842faf-c48c-4d74-af68-b926529a2c97.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/029_dd2a2a60-7c0e-45ea-a432-508504870b42.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 13,
+      "generated_accepted_count": 13,
+      "generation_family": "dot2d_obtuse_projection",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-force-vectors-dot-product-projection-v1",
+      "procedure_ids": [
+        "proc-statics-force-vectors-dot-product-projection-v1",
+        "proc-statics-vectors-cartesian-vector-components-3d-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-23",
+          "notes": "Batch 4I skill 4/5. Owns the dot product AS A PROJECTION TOOL: the component form A . B = Ax Bx + Ay By + Az Bz, the geometric form A . B = |A||B| cos theta, and the signed SCALAR projection of A onto the direction of B, A_par = (A . B)/|B|, including what a negative projection means (obtuse theta; A has a component opposite to B). Boundary: cartesian_vector_components_3d (signed parent) supplies components, cited not re-derived. RECIPROCAL BOUNDARY with cross_product_moment_3d (signed earlier this batch) is stated in the artifact: that skill uses a dot product ONLY as a perpendicularity check and computes no projection, while this skill owns the dot product as a projection tool and computes no moment or cross product - naming the complement was required because the sibling already states its half. unit_vector_along_line (downstream, planned) owns FORMING a unit direction; this skill uses the general form (A . B)/|B|, which needs no unit vector, and never binds or constructs one. The VECTOR projection (scalar times a unit direction) therefore requires that ceded construction and is explicitly OUT OF SCOPE - the deliverable is the signed SCALAR projection. position_vector_3d, coordinate_direction_angles and cartesian_vector_addition_3d excluded. Worked example Operator-re-derived from the on-disk prompt: A = -6i -6j -3k (|A| = 9), B = 2i +2j -1k (|B| = 3); A . B = (-6)(2) + (-6)(2) + (-3)(-1) = -12 - 12 + 3 = -21; A_par = -21/3 = -7; cos theta = -21/27 = -7/9 = -0.7778 -> theta = 141.1 deg. Distinguishing feature bites: the geometry is neither parallel nor perpendicular and theta sits clear of both 90 and 180 degrees; the projection is NEGATIVE so its sign carries meaning and the obtuse angle explains it; |A| != |B| so dividing by the wrong magnitude is detectable; and the four outcomes are mutually distinct - correct -7, wrong denominator -2.33, undivided -21, signs dropped +9 - so each mapped signal routes to its own answer. VERIFICATION PRECEDES REPORT in both arrays (verify at index 5, report at index 6), matching the three skills signed earlier in this batch: the bound |A_par| < |A|, valid because A and B are not parallel, gives 7 < 9. HONEST LIMITATION recorded: the bound catches an undivided product sum (21 > 9) and a sign-dropped product sum (27/3 = 9, not strictly less than 9) but does NOT catch dividing by |A| instead of |B| (2.33 < 9 passes while being wrong) - stated as a property of the check rather than overstated. THREE-signal mapping: axis_confusion at step 2 (like-component pairing in the product sum - multiplying Ax by By or Az by Bx), sign_or_placement_error at step 3 (sign retention through the division AND selection of |B| rather than |A| as the divisor, since dividing by |A| projects the wrong way round and is a placement error about which vector is the direction; both acts are explicitly authored in that step, distinct from the pairing act at step 2), unclassified at step 7 (report and boundary - incomplete result, omitted sign, skipped bound check, treating the bound as catching a wrong-denominator error, forming a unit vector or vector projection, or reaching into the ceded siblings). solution_sequencing_error OMITTED with explicit argument: A . B and |B| are independent computations combined by one division, so no authored step strands a prerequisite unknown; it was not mapped merely because the division follows the dot product. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: components are given already resolved and no inclined vector is decomposed. NO ARCHETYPE IS ASSERTED for this skill: the Architect flagged its family fit for independent review and directed that it not be forced into a component-combination template, so the artifact carries no archetype reference and the assignment is deferred to PROCEDURE-ARCHETYPE-LIBRARY-V1 review. Operator observation recorded, not corrected: the bound-check step cites a sign-dropped sum of 27 without restating that 27 is the sum of the product magnitudes from two steps earlier - terse but inferable, and the instructional point of the sentence lands. Review beat cleared at first pass; no correction lane.",
+          "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4I-SKILL-4-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-17",
+          "notes": "Batch 4E skill 3/6 — opens the 3D chain. SCOPE WAS OPERATOR-DERIVED, not Architect-ruled: the Batch 4E ruling detailed skill 1/6's scope only. Derived from graph truth and the signed boundaries. The Architect's binding 3D ruling was honored: this is particle-equilibrium debt retirement, not 3D rigid-body expansion — no rigid_body_fbd_3d, no 3D rigid-body equilibrium. Narrow by construction: one force in, three components out. Every adjacent capability is a separate graph node and none appears as an authored step — coordinate direction angles, 3D vector addition, position vectors, unit vectors along a line, dot and cross products, 3D FBDs, and equilibrium are all excluded, and step 7 names them explicitly. Boundary against the signed solve_particle_equil_3d (downstream; its unsigned-prereq inversion is retired by skill 4/6, not this one) verified at the review beat: that skill's worked example HANDS the student unit vectors and writes SumF = 0; it consumes 3D components without ever teaching the two-angle projection geometry. Boundary against the parent vector_components_2d: that skill is one angle into two components; this one requires TWO angular data and produces three nonzero components. Worked example independently re-derived by Operator: F = 100 N, phi = 36.9 degrees from +z (cos 0.80, sin 0.60), xy-projection at theta = 53.1 degrees from +x into the +x/-y region (cos 0.60, sin 0.80); F_xy = 60 N, Fz = 80 N, Fx = +36 N, Fy = -48 N, giving F = 36 i - 48 j + 80 k N. All three components nonzero. Magnitude check closes exactly: 1296 + 2304 + 6400 = 10000 = 100 squared. 3-signal mapping, content-earned: axis_confusion at step 3 (the out-of-plane projection — this skill's own 3D contribution, since the parent has no such step); sign_or_placement_error at step 5 (assigning algebraic signs, genuinely distinct from the resolution steps: correct magnitudes, wrong sense); unclassified at step 7 (verification and scope boundary). simple_average_used omitted: Centroids-family signal. HONEST FINDING, recorded because it is a real property of the verification step: a clean sine/cosine swap PRESERVES the magnitude check, because it permutes which axis receives which magnitude — the swap at phi gives 48/-64/60 and the swap at theta gives 48/-36/80, and both close to 10000. The magnitude relation catches dropped or mis-scaled components, not a clean trig swap; axis_confusion is what routes the swap, and the procedure does not claim otherwise. Procedure step 4 (the in-plane split) is deliberately LEFT UNMAPPED: that is vector_components_2d's content, and a student failing there needs the parent skill, which already diagnoses it — the same principle applied on support_reactions_2d. SIGNAL-POLICY DEBT recorded per Architect Batch 4E Decision B: a theta-swap at step 4 yields (48, -36, 80), which is wrong AND closes the magnitude check, so no signal on this skill catches it. Mapping a duplicate axis_confusion there is forbidden by Decision B, and inventing a signal is not authorized; the hole is recorded rather than forced. Review-beat correction: the draft used alpha for the angle from +z while common_errors warned students against the coordinate direction angles alpha/beta/gamma — but those are conventionally measured from +x/+y/+z, so the angle this skill called alpha is conventionally gamma. The artifact was using a coordinate-direction-angle symbol for a different meaning while telling students that convention belongs elsewhere, and coordinate_direction_angles is a downstream node this skill unlocks, where alpha will mean angle-from-+x. Renamed to phi, the standard polar angle from +z, which pairs conventionally with theta azimuthal. Alpha now survives only inside the literal string alpha/beta/gamma where it correctly names the other skill's convention. Numbers, components, answer, step count, and signal targets all unchanged by the rename. PROCESS NOTE: the correction lane BLOCKED on a defective Operator verification gate that compared a six-character slice against a five-character string and therefore could never pass. Cursor refused to edit content to satisfy it and escalated with a diagnosis — the correct call, and the standing rule.",
+          "reviewer": "Phase D sign-off review (PHASE-D-CARTESIAN-VECTOR-COMPONENTS-3D-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:dot2d_obtuse_projection",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts",
+        "answer_parts_contract",
+        "answer_type",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "failure_signal_mappings_complete",
+        "failure_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "record_type",
+        "solution",
+        "submit_format_guidance"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_FORCE_VECTORS",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 13,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "dot_product_projection",
+        "prerequisite_micro_skills": [
+          "cartesian_vector_components_3d",
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "proc-statics-vectors-cartesian-vector-components-3d-v1",
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 4,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/021_b3d75fe0-56b3-4a6d-ab50-ec7c4372e7db.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/024_52724dc5-547f-4143-b30c-18a07c133743.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/027_08688250-afad-4d46-b9f7-f73ea0cdc406.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/030_f6c478c7-f8f0-45d9-934b-d6d958221e3e.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 13,
+      "generated_accepted_count": 13,
+      "generation_family": "dot2d_axis_aligned_direction",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-force-vectors-dot-product-projection-v1",
+      "procedure_ids": [
+        "proc-statics-force-vectors-dot-product-projection-v1",
+        "proc-statics-vectors-cartesian-vector-components-3d-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-23",
+          "notes": "Batch 4I skill 4/5. Owns the dot product AS A PROJECTION TOOL: the component form A . B = Ax Bx + Ay By + Az Bz, the geometric form A . B = |A||B| cos theta, and the signed SCALAR projection of A onto the direction of B, A_par = (A . B)/|B|, including what a negative projection means (obtuse theta; A has a component opposite to B). Boundary: cartesian_vector_components_3d (signed parent) supplies components, cited not re-derived. RECIPROCAL BOUNDARY with cross_product_moment_3d (signed earlier this batch) is stated in the artifact: that skill uses a dot product ONLY as a perpendicularity check and computes no projection, while this skill owns the dot product as a projection tool and computes no moment or cross product - naming the complement was required because the sibling already states its half. unit_vector_along_line (downstream, planned) owns FORMING a unit direction; this skill uses the general form (A . B)/|B|, which needs no unit vector, and never binds or constructs one. The VECTOR projection (scalar times a unit direction) therefore requires that ceded construction and is explicitly OUT OF SCOPE - the deliverable is the signed SCALAR projection. position_vector_3d, coordinate_direction_angles and cartesian_vector_addition_3d excluded. Worked example Operator-re-derived from the on-disk prompt: A = -6i -6j -3k (|A| = 9), B = 2i +2j -1k (|B| = 3); A . B = (-6)(2) + (-6)(2) + (-3)(-1) = -12 - 12 + 3 = -21; A_par = -21/3 = -7; cos theta = -21/27 = -7/9 = -0.7778 -> theta = 141.1 deg. Distinguishing feature bites: the geometry is neither parallel nor perpendicular and theta sits clear of both 90 and 180 degrees; the projection is NEGATIVE so its sign carries meaning and the obtuse angle explains it; |A| != |B| so dividing by the wrong magnitude is detectable; and the four outcomes are mutually distinct - correct -7, wrong denominator -2.33, undivided -21, signs dropped +9 - so each mapped signal routes to its own answer. VERIFICATION PRECEDES REPORT in both arrays (verify at index 5, report at index 6), matching the three skills signed earlier in this batch: the bound |A_par| < |A|, valid because A and B are not parallel, gives 7 < 9. HONEST LIMITATION recorded: the bound catches an undivided product sum (21 > 9) and a sign-dropped product sum (27/3 = 9, not strictly less than 9) but does NOT catch dividing by |A| instead of |B| (2.33 < 9 passes while being wrong) - stated as a property of the check rather than overstated. THREE-signal mapping: axis_confusion at step 2 (like-component pairing in the product sum - multiplying Ax by By or Az by Bx), sign_or_placement_error at step 3 (sign retention through the division AND selection of |B| rather than |A| as the divisor, since dividing by |A| projects the wrong way round and is a placement error about which vector is the direction; both acts are explicitly authored in that step, distinct from the pairing act at step 2), unclassified at step 7 (report and boundary - incomplete result, omitted sign, skipped bound check, treating the bound as catching a wrong-denominator error, forming a unit vector or vector projection, or reaching into the ceded siblings). solution_sequencing_error OMITTED with explicit argument: A . B and |B| are independent computations combined by one division, so no authored step strands a prerequisite unknown; it was not mapped merely because the division follows the dot product. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: components are given already resolved and no inclined vector is decomposed. NO ARCHETYPE IS ASSERTED for this skill: the Architect flagged its family fit for independent review and directed that it not be forced into a component-combination template, so the artifact carries no archetype reference and the assignment is deferred to PROCEDURE-ARCHETYPE-LIBRARY-V1 review. Operator observation recorded, not corrected: the bound-check step cites a sign-dropped sum of 27 without restating that 27 is the sum of the product magnitudes from two steps earlier - terse but inferable, and the instructional point of the sentence lands. Review beat cleared at first pass; no correction lane.",
+          "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4I-SKILL-4-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-17",
+          "notes": "Batch 4E skill 3/6 — opens the 3D chain. SCOPE WAS OPERATOR-DERIVED, not Architect-ruled: the Batch 4E ruling detailed skill 1/6's scope only. Derived from graph truth and the signed boundaries. The Architect's binding 3D ruling was honored: this is particle-equilibrium debt retirement, not 3D rigid-body expansion — no rigid_body_fbd_3d, no 3D rigid-body equilibrium. Narrow by construction: one force in, three components out. Every adjacent capability is a separate graph node and none appears as an authored step — coordinate direction angles, 3D vector addition, position vectors, unit vectors along a line, dot and cross products, 3D FBDs, and equilibrium are all excluded, and step 7 names them explicitly. Boundary against the signed solve_particle_equil_3d (downstream; its unsigned-prereq inversion is retired by skill 4/6, not this one) verified at the review beat: that skill's worked example HANDS the student unit vectors and writes SumF = 0; it consumes 3D components without ever teaching the two-angle projection geometry. Boundary against the parent vector_components_2d: that skill is one angle into two components; this one requires TWO angular data and produces three nonzero components. Worked example independently re-derived by Operator: F = 100 N, phi = 36.9 degrees from +z (cos 0.80, sin 0.60), xy-projection at theta = 53.1 degrees from +x into the +x/-y region (cos 0.60, sin 0.80); F_xy = 60 N, Fz = 80 N, Fx = +36 N, Fy = -48 N, giving F = 36 i - 48 j + 80 k N. All three components nonzero. Magnitude check closes exactly: 1296 + 2304 + 6400 = 10000 = 100 squared. 3-signal mapping, content-earned: axis_confusion at step 3 (the out-of-plane projection — this skill's own 3D contribution, since the parent has no such step); sign_or_placement_error at step 5 (assigning algebraic signs, genuinely distinct from the resolution steps: correct magnitudes, wrong sense); unclassified at step 7 (verification and scope boundary). simple_average_used omitted: Centroids-family signal. HONEST FINDING, recorded because it is a real property of the verification step: a clean sine/cosine swap PRESERVES the magnitude check, because it permutes which axis receives which magnitude — the swap at phi gives 48/-64/60 and the swap at theta gives 48/-36/80, and both close to 10000. The magnitude relation catches dropped or mis-scaled components, not a clean trig swap; axis_confusion is what routes the swap, and the procedure does not claim otherwise. Procedure step 4 (the in-plane split) is deliberately LEFT UNMAPPED: that is vector_components_2d's content, and a student failing there needs the parent skill, which already diagnoses it — the same principle applied on support_reactions_2d. SIGNAL-POLICY DEBT recorded per Architect Batch 4E Decision B: a theta-swap at step 4 yields (48, -36, 80), which is wrong AND closes the magnitude check, so no signal on this skill catches it. Mapping a duplicate axis_confusion there is forbidden by Decision B, and inventing a signal is not authorized; the hole is recorded rather than forced. Review-beat correction: the draft used alpha for the angle from +z while common_errors warned students against the coordinate direction angles alpha/beta/gamma — but those are conventionally measured from +x/+y/+z, so the angle this skill called alpha is conventionally gamma. The artifact was using a coordinate-direction-angle symbol for a different meaning while telling students that convention belongs elsewhere, and coordinate_direction_angles is a downstream node this skill unlocks, where alpha will mean angle-from-+x. Renamed to phi, the standard polar angle from +z, which pairs conventionally with theta azimuthal. Alpha now survives only inside the literal string alpha/beta/gamma where it correctly names the other skill's convention. Numbers, components, answer, step count, and signal targets all unchanged by the rename. PROCESS NOTE: the correction lane BLOCKED on a defective Operator verification gate that compared a six-character slice against a five-character string and therefore could never pass. Cursor refused to edit content to satisfy it and escalated with a diagnosis — the correct call, and the standing rule.",
+          "reviewer": "Phase D sign-off review (PHASE-D-CARTESIAN-VECTOR-COMPONENTS-3D-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:dot2d_axis_aligned_direction",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts",
+        "answer_parts_contract",
+        "answer_type",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "failure_signal_mappings_complete",
+        "failure_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "record_type",
+        "solution",
+        "submit_format_guidance"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_FORCE_VECTORS",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 13,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "force_directed_along_line",
+        "prerequisite_micro_skills": [
+          "cartesian_vector_components_3d",
+          "position_vector_3d",
+          "unit_vector_along_line",
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "proc-statics-vectors-cartesian-vector-components-3d-v1",
+          "proc-statics-vectors-position-vector-3d-v1",
+          "proc-statics-vectors-unit-vector-along-line-v1",
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 4,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/090_38a94b46-f0fb-47bd-acab-234a3f475927.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/093_da7a6f98-01b3-461b-a5fb-37564a3f56f4.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/096_f225e3d6-b47c-4ba4-9720-2250965c1ea1.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/099_871f0920-a613-42aa-a804-d6ccbae701cd.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 13,
+      "generated_accepted_count": 13,
+      "generation_family": "fdal_endpoints_positive",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-force-vectors-force-directed-along-line-v1",
+      "procedure_ids": [
+        "proc-statics-force-vectors-force-directed-along-line-v1",
+        "proc-statics-vectors-cartesian-vector-components-3d-v1",
+        "proc-statics-vectors-position-vector-3d-v1",
+        "proc-statics-vectors-unit-vector-along-line-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-24",
+          "notes": "Force of known magnitude directed along a line expressed as a Cartesian vector, F_vec = F u_AB. Independently re-derived: |r_AB| = sqrt(16 + 144 + 9) = sqrt(169) = 13 m; u_AB = (4/13, -12/13, 3/13), mixed sign on all three axes; 390 / 13 = 30 exactly, so F_vec = (120, -360, 90) N, whose components are clean integers visibly distinct from the unit-vector fractions so that the unit vector cannot be mistaken for the force. Verified by a route independent of the multiplication: |F_vec| = sqrt(14400 + 129600 + 8100) = sqrt(152100) = 390 N, recovering the given scalar, and F_vec / 390 = (4/13, -12/13, 3/13) recovering u_AB. Reversed-order contrast confirmed: u_BA = -u_AB gives (-120, 360, -90) N, every component negated, establishing that the point order is part of the answer. RECIPROCAL BOUNDARY, the central requirement and cleanly met: unit_vector_along_line, the signed prerequisite, builds the direction and explicitly excluded the force multiplication, reserving it here; this skill completes the handoff by scaling the cited unit vector into a force without re-deriving the normalization as the objective, with the complement named in one sentence. dot_product_projection shares the topic and is excluded — no projection and no dot product appears, this skill building a force vector rather than projecting one; no moment is formed; no equilibrium equations or reaction inventory. Symbol continuity: u_AB, u_BA, r_AB, |r_AB| and the point coordinate names reused with identical meaning from unit_vector_along_line and position_vector_3d, with scalar F and F_vec introduced and F declared explicitly as a scalar magnitude distinct from the vector F bound by the moment skills; bare u not rebound. Three earned signals at distinct steps: axis_confusion at step 2 where axis-matched products are formed and transposition is the failure, sign_or_placement_error at step 3 where the vector is assembled and the point order fixed and reversal is the failure, and unclassified at step 1 as the boundary fallback. simple_average_used cannot be earned, not a Centroids-family skill. solution_sequencing_error omitted: F_vec cannot form before u_AB exists, so an ordering dependence is real, but the chain is strictly linear with no branching stranded unknown — the same disposition reached for unit_vector_along_line, and the correct ground, though the draft report worded it loosely as the dependence being absorbed into obtaining the direction; the omission is correct and is recorded here with the cleaner justification. Honest limitation recorded in the artifact: the magnitude check confirms the scalar was multiplied through consistently and that the unit vector had magnitude one, but cannot detect a reversed point order, since the opposite force also has magnitude 390 N, and does not validate the given magnitude or the endpoint coordinates; direction must be checked against the stated tail and head.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-17",
+          "notes": "Batch 4E skill 3/6 — opens the 3D chain. SCOPE WAS OPERATOR-DERIVED, not Architect-ruled: the Batch 4E ruling detailed skill 1/6's scope only. Derived from graph truth and the signed boundaries. The Architect's binding 3D ruling was honored: this is particle-equilibrium debt retirement, not 3D rigid-body expansion — no rigid_body_fbd_3d, no 3D rigid-body equilibrium. Narrow by construction: one force in, three components out. Every adjacent capability is a separate graph node and none appears as an authored step — coordinate direction angles, 3D vector addition, position vectors, unit vectors along a line, dot and cross products, 3D FBDs, and equilibrium are all excluded, and step 7 names them explicitly. Boundary against the signed solve_particle_equil_3d (downstream; its unsigned-prereq inversion is retired by skill 4/6, not this one) verified at the review beat: that skill's worked example HANDS the student unit vectors and writes SumF = 0; it consumes 3D components without ever teaching the two-angle projection geometry. Boundary against the parent vector_components_2d: that skill is one angle into two components; this one requires TWO angular data and produces three nonzero components. Worked example independently re-derived by Operator: F = 100 N, phi = 36.9 degrees from +z (cos 0.80, sin 0.60), xy-projection at theta = 53.1 degrees from +x into the +x/-y region (cos 0.60, sin 0.80); F_xy = 60 N, Fz = 80 N, Fx = +36 N, Fy = -48 N, giving F = 36 i - 48 j + 80 k N. All three components nonzero. Magnitude check closes exactly: 1296 + 2304 + 6400 = 10000 = 100 squared. 3-signal mapping, content-earned: axis_confusion at step 3 (the out-of-plane projection — this skill's own 3D contribution, since the parent has no such step); sign_or_placement_error at step 5 (assigning algebraic signs, genuinely distinct from the resolution steps: correct magnitudes, wrong sense); unclassified at step 7 (verification and scope boundary). simple_average_used omitted: Centroids-family signal. HONEST FINDING, recorded because it is a real property of the verification step: a clean sine/cosine swap PRESERVES the magnitude check, because it permutes which axis receives which magnitude — the swap at phi gives 48/-64/60 and the swap at theta gives 48/-36/80, and both close to 10000. The magnitude relation catches dropped or mis-scaled components, not a clean trig swap; axis_confusion is what routes the swap, and the procedure does not claim otherwise. Procedure step 4 (the in-plane split) is deliberately LEFT UNMAPPED: that is vector_components_2d's content, and a student failing there needs the parent skill, which already diagnoses it — the same principle applied on support_reactions_2d. SIGNAL-POLICY DEBT recorded per Architect Batch 4E Decision B: a theta-swap at step 4 yields (48, -36, 80), which is wrong AND closes the magnitude check, so no signal on this skill catches it. Mapping a duplicate axis_confusion there is forbidden by Decision B, and inventing a signal is not authorized; the hole is recorded rather than forced. Review-beat correction: the draft used alpha for the angle from +z while common_errors warned students against the coordinate direction angles alpha/beta/gamma — but those are conventionally measured from +x/+y/+z, so the angle this skill called alpha is conventionally gamma. The artifact was using a coordinate-direction-angle symbol for a different meaning while telling students that convention belongs elsewhere, and coordinate_direction_angles is a downstream node this skill unlocks, where alpha will mean angle-from-+x. Renamed to phi, the standard polar angle from +z, which pairs conventionally with theta azimuthal. Alpha now survives only inside the literal string alpha/beta/gamma where it correctly names the other skill's convention. Numbers, components, answer, step count, and signal targets all unchanged by the rename. PROCESS NOTE: the correction lane BLOCKED on a defective Operator verification gate that compared a six-character slice against a five-character string and therefore could never pass. Cursor refused to edit content to satisfy it and escalated with a diagnosis — the correct call, and the standing rule.",
+          "reviewer": "Phase D sign-off review (PHASE-D-CARTESIAN-VECTOR-COMPONENTS-3D-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-23",
+          "notes": "Batch 4I skill 5/5, BATCH CLOSER. Owns forming a position vector between two points from their Cartesian coordinates by the HEAD-MINUS-TAIL rule, r_AB = (xB - xA)i + (yB - yA)j + (zB - zA)k; the directed meaning that r_AB runs FROM A TO B; the order relation r_BA = -r_AB; and |r_AB| as the straight-line distance. Boundary: cartesian_vector_components_3d (signed parent) supplies Cartesian form, cited not re-derived. This node is the CEDED OWNER OF r for two siblings signed earlier in this batch, and both reciprocal statements appear in the artifact: cross_product_moment_3d takes r as GIVEN and cedes its construction here, while this skill forms r and computes no moment or cross product; dot_product_projection owns the dot product as a projection tool, and this skill computes no dot product and no projection. unit_vector_along_line (downstream, planned - this node is its prerequisite and unlocks it) owns forming the unit vector from r; this skill stops at r and |r| and never normalises. cartesian_vector_addition_3d and coordinate_direction_angles (signed this batch) are excluded, and the reconstruction check is explicitly framed as a per-coordinate check on the differencing rather than the general vector-addition operation. Worked example Operator-re-derived from the on-disk prompt: A(5, -2, 1) m and B(2, 2, 13) m; r_AB = (2-5)i + (2-(-2))j + (13-1)k = -3i + 4j + 12k m, with the j-term exercising the double negative 2 - (-2) = +4; |r_AB| = sqrt(9+16+144) = sqrt(169) = 13 m; r_BA = 3i - 4j - 12k m = -r_AB with the SAME magnitude. Distinguishing feature bites: subtraction order is decisive and the two orders are visibly different vectors; all three coordinate differences are nonzero and distinct in magnitude (3, 4, 12) so the points are not axis-aligned and the skill cannot collapse to a 1D or 2D reading; one difference is negative; and one subtraction crosses zero from a negative coordinate so a double negative must be handled explicitly. HONEST LIMITATION recorded in concept, procedure, solution and common_errors: |r_AB| = |r_BA| exactly, and flipping the sign of any single component leaves the magnitude unchanged, so the magnitude is the distance between the points and is SIGN-BLIND - it can neither distinguish the two orders nor catch a sign slip. VERIFICATION PRECEDES REPORT in both arrays (verify at index 5, report at index 6), matching the four skills signed earlier in this batch, and the verification is the RECONSTRUCTION check rather than the magnitude precisely because the magnitude cannot do the job: 5 + (-3) = 2 = xB, -2 + 4 = 2 = yB, 1 + 12 = 13 = zB reproduces B. The reconstruction rejects the reversed order (8, -6, -11), rejects a single flipped sign (2, -6, 13), and rejects a dropped double negative (2, -2, 13), while the magnitude catches only the last of those three. This is the first skill in the batch where the conventional check is the one that fails, and the artifact says so plainly rather than overstating it. THREE-signal mapping: axis_confusion at step 2 (the axis-matching act - differencing coordinates across axes or assigning a difference to the wrong unit vector), sign_or_placement_error at step 3 (head-minus-tail order and double-negative handling; its trigger opens by stipulating matching-axis differences, which cleanly partitions it from step 2 rather than duplicating the crux), unclassified at step 7 (report and boundary - incomplete result, treating the magnitude as distinguishing order, skipped reconstruction, unit-vector normalisation, or reaching into moments, cross products, dot products, projections, direction angles or general vector addition). solution_sequencing_error OMITTED with explicit argument: the three coordinate differences are independent and no authored step strands a prerequisite unknown. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: coordinates are given and no inclined vector is decomposed. No archetype is asserted, consistent with the batch-wide instruction while PROCEDURE-ARCHETYPE-LIBRARY-V1 remains unapproved. Operator observation recorded, not corrected: the concept and common_errors name the ceded unit vector as u = r/|r| when assigning it to unit_vector_along_line; u is not declared as a variable, is never computed, and the usage matches what the downstream skill will mean, so this is a forward cession rather than a symbol collision, and naming the ceded deliverable precisely is preferable to naming it vaguely. Review beat cleared at first pass; no correction lane. CLOSES BATCH 4I 5/5.",
+          "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4I-SKILL-5-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-23",
+          "notes": "Unit vector along a directed line in 3D by forming the position vector head minus tail and normalizing. Independently re-derived: r_AB = (6-2, 0-(-3), -6-6) = (4, 3, -12) m with components nonzero on all three axes and of mixed sign; |r_AB| = sqrt(16+9+144) = sqrt(169) = 13 m exactly; u_AB = (4/13, 3/13, -12/13), dimensionless. Verified by a route that does not reuse the division: (16+9+144)/169 = 1, so the magnitude is exactly one, and metres over metres leaves u dimensionless. Reversed order independently confirmed: r_BA = (-4, -3, 12), magnitude also 13, u_BA = -u_AB, establishing that tail-to-head order is part of the answer rather than a convention. The 3-4-12 / 13 triple makes the normalization exact and the mixed signs make a reversed order detectable. Boundary recorded: position_vector_3d owns the head-minus-tail construction, which is formed and normalized here but not re-derived from first principles; vector_components_2d owns angle-based resolution, and this skill takes direction from two points rather than a stated angle; no dot product, cross product, or projection. force_directed_along_line is a downstream UNSIGNED node that owns multiplying a force magnitude by this unit vector — verified EXCLUDED, with no force symbol and no force multiplication anywhere in the artifact, so that node's scope is intact for later authorship. Three earned signals: axis_confusion at step 2 where components are paired to matching axes, sign_or_placement_error at step 3 where head-minus-tail order and subtraction of a negative coordinate are performed, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL, step 1 being the earliest general recovery step stating the required direction and the exclusions. solution_sequencing_error omitted as unearned, not trimmed: the magnitude cannot be formed before the components exist, so an ordering dependence is real, but the chain is strictly linear with no branching stranded unknown, and normalizing without a magnitude is an incomplete procedure rather than a stranded prerequisite. simple_average_used unearned: no averaging step is authored. Honest limitation recorded in the artifact: the unit-magnitude check confirms the division was performed correctly but cannot detect a reversed point order, since the opposite unit vector also has magnitude one, and cannot detect a misread coordinate; direction must be checked against the stated tail and head. OPERATOR NOTE, non-blocking: step 2 declares axis pairing without producing a quantity, existing so that axis_confusion and sign_or_placement_error land on distinct authored acts. This follows the composite-moment precedent separating axis identification from contribution forming, but is recorded as a case where signal-mapping granularity shaped step structure; logged alongside the Batch 4L schema-fit findings.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:fdal_endpoints_positive",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts_contract",
+        "answer_type",
+        "answers",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "dimension_class",
+        "diversity_signature",
+        "failure_signal_mappings_complete",
+        "family_id",
+        "feedback_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "micro_skill",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "source",
+        "submit_format_guidance",
+        "subtopic_code",
+        "topic_code",
+        "verification_checks",
+        "worked_derivation"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_FORCE_VECTORS",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 13,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "force_directed_along_line",
+        "prerequisite_micro_skills": [
+          "cartesian_vector_components_3d",
+          "position_vector_3d",
+          "unit_vector_along_line",
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "proc-statics-vectors-cartesian-vector-components-3d-v1",
+          "proc-statics-vectors-position-vector-3d-v1",
+          "proc-statics-vectors-unit-vector-along-line-v1",
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 4,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/091_f73a68c7-61ec-468a-a218-3f38a5304e78.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/094_4c0f5073-c48c-4f7d-bbdc-d9987db49978.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/097_ab884fe5-a329-4d64-8e0a-83c3cec1f54a.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/100_6f13bd09-0b9b-4629-94b2-6e3808765f87.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 13,
+      "generated_accepted_count": 13,
+      "generation_family": "fdal_endpoints_mixed",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-force-vectors-force-directed-along-line-v1",
+      "procedure_ids": [
+        "proc-statics-force-vectors-force-directed-along-line-v1",
+        "proc-statics-vectors-cartesian-vector-components-3d-v1",
+        "proc-statics-vectors-position-vector-3d-v1",
+        "proc-statics-vectors-unit-vector-along-line-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-24",
+          "notes": "Force of known magnitude directed along a line expressed as a Cartesian vector, F_vec = F u_AB. Independently re-derived: |r_AB| = sqrt(16 + 144 + 9) = sqrt(169) = 13 m; u_AB = (4/13, -12/13, 3/13), mixed sign on all three axes; 390 / 13 = 30 exactly, so F_vec = (120, -360, 90) N, whose components are clean integers visibly distinct from the unit-vector fractions so that the unit vector cannot be mistaken for the force. Verified by a route independent of the multiplication: |F_vec| = sqrt(14400 + 129600 + 8100) = sqrt(152100) = 390 N, recovering the given scalar, and F_vec / 390 = (4/13, -12/13, 3/13) recovering u_AB. Reversed-order contrast confirmed: u_BA = -u_AB gives (-120, 360, -90) N, every component negated, establishing that the point order is part of the answer. RECIPROCAL BOUNDARY, the central requirement and cleanly met: unit_vector_along_line, the signed prerequisite, builds the direction and explicitly excluded the force multiplication, reserving it here; this skill completes the handoff by scaling the cited unit vector into a force without re-deriving the normalization as the objective, with the complement named in one sentence. dot_product_projection shares the topic and is excluded — no projection and no dot product appears, this skill building a force vector rather than projecting one; no moment is formed; no equilibrium equations or reaction inventory. Symbol continuity: u_AB, u_BA, r_AB, |r_AB| and the point coordinate names reused with identical meaning from unit_vector_along_line and position_vector_3d, with scalar F and F_vec introduced and F declared explicitly as a scalar magnitude distinct from the vector F bound by the moment skills; bare u not rebound. Three earned signals at distinct steps: axis_confusion at step 2 where axis-matched products are formed and transposition is the failure, sign_or_placement_error at step 3 where the vector is assembled and the point order fixed and reversal is the failure, and unclassified at step 1 as the boundary fallback. simple_average_used cannot be earned, not a Centroids-family skill. solution_sequencing_error omitted: F_vec cannot form before u_AB exists, so an ordering dependence is real, but the chain is strictly linear with no branching stranded unknown — the same disposition reached for unit_vector_along_line, and the correct ground, though the draft report worded it loosely as the dependence being absorbed into obtaining the direction; the omission is correct and is recorded here with the cleaner justification. Honest limitation recorded in the artifact: the magnitude check confirms the scalar was multiplied through consistently and that the unit vector had magnitude one, but cannot detect a reversed point order, since the opposite force also has magnitude 390 N, and does not validate the given magnitude or the endpoint coordinates; direction must be checked against the stated tail and head.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-17",
+          "notes": "Batch 4E skill 3/6 — opens the 3D chain. SCOPE WAS OPERATOR-DERIVED, not Architect-ruled: the Batch 4E ruling detailed skill 1/6's scope only. Derived from graph truth and the signed boundaries. The Architect's binding 3D ruling was honored: this is particle-equilibrium debt retirement, not 3D rigid-body expansion — no rigid_body_fbd_3d, no 3D rigid-body equilibrium. Narrow by construction: one force in, three components out. Every adjacent capability is a separate graph node and none appears as an authored step — coordinate direction angles, 3D vector addition, position vectors, unit vectors along a line, dot and cross products, 3D FBDs, and equilibrium are all excluded, and step 7 names them explicitly. Boundary against the signed solve_particle_equil_3d (downstream; its unsigned-prereq inversion is retired by skill 4/6, not this one) verified at the review beat: that skill's worked example HANDS the student unit vectors and writes SumF = 0; it consumes 3D components without ever teaching the two-angle projection geometry. Boundary against the parent vector_components_2d: that skill is one angle into two components; this one requires TWO angular data and produces three nonzero components. Worked example independently re-derived by Operator: F = 100 N, phi = 36.9 degrees from +z (cos 0.80, sin 0.60), xy-projection at theta = 53.1 degrees from +x into the +x/-y region (cos 0.60, sin 0.80); F_xy = 60 N, Fz = 80 N, Fx = +36 N, Fy = -48 N, giving F = 36 i - 48 j + 80 k N. All three components nonzero. Magnitude check closes exactly: 1296 + 2304 + 6400 = 10000 = 100 squared. 3-signal mapping, content-earned: axis_confusion at step 3 (the out-of-plane projection — this skill's own 3D contribution, since the parent has no such step); sign_or_placement_error at step 5 (assigning algebraic signs, genuinely distinct from the resolution steps: correct magnitudes, wrong sense); unclassified at step 7 (verification and scope boundary). simple_average_used omitted: Centroids-family signal. HONEST FINDING, recorded because it is a real property of the verification step: a clean sine/cosine swap PRESERVES the magnitude check, because it permutes which axis receives which magnitude — the swap at phi gives 48/-64/60 and the swap at theta gives 48/-36/80, and both close to 10000. The magnitude relation catches dropped or mis-scaled components, not a clean trig swap; axis_confusion is what routes the swap, and the procedure does not claim otherwise. Procedure step 4 (the in-plane split) is deliberately LEFT UNMAPPED: that is vector_components_2d's content, and a student failing there needs the parent skill, which already diagnoses it — the same principle applied on support_reactions_2d. SIGNAL-POLICY DEBT recorded per Architect Batch 4E Decision B: a theta-swap at step 4 yields (48, -36, 80), which is wrong AND closes the magnitude check, so no signal on this skill catches it. Mapping a duplicate axis_confusion there is forbidden by Decision B, and inventing a signal is not authorized; the hole is recorded rather than forced. Review-beat correction: the draft used alpha for the angle from +z while common_errors warned students against the coordinate direction angles alpha/beta/gamma — but those are conventionally measured from +x/+y/+z, so the angle this skill called alpha is conventionally gamma. The artifact was using a coordinate-direction-angle symbol for a different meaning while telling students that convention belongs elsewhere, and coordinate_direction_angles is a downstream node this skill unlocks, where alpha will mean angle-from-+x. Renamed to phi, the standard polar angle from +z, which pairs conventionally with theta azimuthal. Alpha now survives only inside the literal string alpha/beta/gamma where it correctly names the other skill's convention. Numbers, components, answer, step count, and signal targets all unchanged by the rename. PROCESS NOTE: the correction lane BLOCKED on a defective Operator verification gate that compared a six-character slice against a five-character string and therefore could never pass. Cursor refused to edit content to satisfy it and escalated with a diagnosis — the correct call, and the standing rule.",
+          "reviewer": "Phase D sign-off review (PHASE-D-CARTESIAN-VECTOR-COMPONENTS-3D-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-23",
+          "notes": "Batch 4I skill 5/5, BATCH CLOSER. Owns forming a position vector between two points from their Cartesian coordinates by the HEAD-MINUS-TAIL rule, r_AB = (xB - xA)i + (yB - yA)j + (zB - zA)k; the directed meaning that r_AB runs FROM A TO B; the order relation r_BA = -r_AB; and |r_AB| as the straight-line distance. Boundary: cartesian_vector_components_3d (signed parent) supplies Cartesian form, cited not re-derived. This node is the CEDED OWNER OF r for two siblings signed earlier in this batch, and both reciprocal statements appear in the artifact: cross_product_moment_3d takes r as GIVEN and cedes its construction here, while this skill forms r and computes no moment or cross product; dot_product_projection owns the dot product as a projection tool, and this skill computes no dot product and no projection. unit_vector_along_line (downstream, planned - this node is its prerequisite and unlocks it) owns forming the unit vector from r; this skill stops at r and |r| and never normalises. cartesian_vector_addition_3d and coordinate_direction_angles (signed this batch) are excluded, and the reconstruction check is explicitly framed as a per-coordinate check on the differencing rather than the general vector-addition operation. Worked example Operator-re-derived from the on-disk prompt: A(5, -2, 1) m and B(2, 2, 13) m; r_AB = (2-5)i + (2-(-2))j + (13-1)k = -3i + 4j + 12k m, with the j-term exercising the double negative 2 - (-2) = +4; |r_AB| = sqrt(9+16+144) = sqrt(169) = 13 m; r_BA = 3i - 4j - 12k m = -r_AB with the SAME magnitude. Distinguishing feature bites: subtraction order is decisive and the two orders are visibly different vectors; all three coordinate differences are nonzero and distinct in magnitude (3, 4, 12) so the points are not axis-aligned and the skill cannot collapse to a 1D or 2D reading; one difference is negative; and one subtraction crosses zero from a negative coordinate so a double negative must be handled explicitly. HONEST LIMITATION recorded in concept, procedure, solution and common_errors: |r_AB| = |r_BA| exactly, and flipping the sign of any single component leaves the magnitude unchanged, so the magnitude is the distance between the points and is SIGN-BLIND - it can neither distinguish the two orders nor catch a sign slip. VERIFICATION PRECEDES REPORT in both arrays (verify at index 5, report at index 6), matching the four skills signed earlier in this batch, and the verification is the RECONSTRUCTION check rather than the magnitude precisely because the magnitude cannot do the job: 5 + (-3) = 2 = xB, -2 + 4 = 2 = yB, 1 + 12 = 13 = zB reproduces B. The reconstruction rejects the reversed order (8, -6, -11), rejects a single flipped sign (2, -6, 13), and rejects a dropped double negative (2, -2, 13), while the magnitude catches only the last of those three. This is the first skill in the batch where the conventional check is the one that fails, and the artifact says so plainly rather than overstating it. THREE-signal mapping: axis_confusion at step 2 (the axis-matching act - differencing coordinates across axes or assigning a difference to the wrong unit vector), sign_or_placement_error at step 3 (head-minus-tail order and double-negative handling; its trigger opens by stipulating matching-axis differences, which cleanly partitions it from step 2 rather than duplicating the crux), unclassified at step 7 (report and boundary - incomplete result, treating the magnitude as distinguishing order, skipped reconstruction, unit-vector normalisation, or reaching into moments, cross products, dot products, projections, direction angles or general vector addition). solution_sequencing_error OMITTED with explicit argument: the three coordinate differences are independent and no authored step strands a prerequisite unknown. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: coordinates are given and no inclined vector is decomposed. No archetype is asserted, consistent with the batch-wide instruction while PROCEDURE-ARCHETYPE-LIBRARY-V1 remains unapproved. Operator observation recorded, not corrected: the concept and common_errors name the ceded unit vector as u = r/|r| when assigning it to unit_vector_along_line; u is not declared as a variable, is never computed, and the usage matches what the downstream skill will mean, so this is a forward cession rather than a symbol collision, and naming the ceded deliverable precisely is preferable to naming it vaguely. Review beat cleared at first pass; no correction lane. CLOSES BATCH 4I 5/5.",
+          "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4I-SKILL-5-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-23",
+          "notes": "Unit vector along a directed line in 3D by forming the position vector head minus tail and normalizing. Independently re-derived: r_AB = (6-2, 0-(-3), -6-6) = (4, 3, -12) m with components nonzero on all three axes and of mixed sign; |r_AB| = sqrt(16+9+144) = sqrt(169) = 13 m exactly; u_AB = (4/13, 3/13, -12/13), dimensionless. Verified by a route that does not reuse the division: (16+9+144)/169 = 1, so the magnitude is exactly one, and metres over metres leaves u dimensionless. Reversed order independently confirmed: r_BA = (-4, -3, 12), magnitude also 13, u_BA = -u_AB, establishing that tail-to-head order is part of the answer rather than a convention. The 3-4-12 / 13 triple makes the normalization exact and the mixed signs make a reversed order detectable. Boundary recorded: position_vector_3d owns the head-minus-tail construction, which is formed and normalized here but not re-derived from first principles; vector_components_2d owns angle-based resolution, and this skill takes direction from two points rather than a stated angle; no dot product, cross product, or projection. force_directed_along_line is a downstream UNSIGNED node that owns multiplying a force magnitude by this unit vector — verified EXCLUDED, with no force symbol and no force multiplication anywhere in the artifact, so that node's scope is intact for later authorship. Three earned signals: axis_confusion at step 2 where components are paired to matching axes, sign_or_placement_error at step 3 where head-minus-tail order and subtraction of a negative coordinate are performed, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL, step 1 being the earliest general recovery step stating the required direction and the exclusions. solution_sequencing_error omitted as unearned, not trimmed: the magnitude cannot be formed before the components exist, so an ordering dependence is real, but the chain is strictly linear with no branching stranded unknown, and normalizing without a magnitude is an incomplete procedure rather than a stranded prerequisite. simple_average_used unearned: no averaging step is authored. Honest limitation recorded in the artifact: the unit-magnitude check confirms the division was performed correctly but cannot detect a reversed point order, since the opposite unit vector also has magnitude one, and cannot detect a misread coordinate; direction must be checked against the stated tail and head. OPERATOR NOTE, non-blocking: step 2 declares axis pairing without producing a quantity, existing so that axis_confusion and sign_or_placement_error land on distinct authored acts. This follows the composite-moment precedent separating axis identification from contribution forming, but is recorded as a case where signal-mapping granularity shaped step structure; logged alongside the Batch 4L schema-fit findings.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:fdal_endpoints_mixed",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts_contract",
+        "answer_type",
+        "answers",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "dimension_class",
+        "diversity_signature",
+        "failure_signal_mappings_complete",
+        "family_id",
+        "feedback_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "micro_skill",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "source",
+        "submit_format_guidance",
+        "subtopic_code",
+        "topic_code",
+        "verification_checks",
+        "worked_derivation"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_FORCE_VECTORS",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 12,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "force_directed_along_line",
+        "prerequisite_micro_skills": [
+          "cartesian_vector_components_3d",
+          "position_vector_3d",
+          "unit_vector_along_line",
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "proc-statics-vectors-cartesian-vector-components-3d-v1",
+          "proc-statics-vectors-position-vector-3d-v1",
+          "proc-statics-vectors-unit-vector-along-line-v1",
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 3,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/092_5e513072-81ab-4919-852b-e110a4e9e077.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/095_98d5a1fd-31a0-42d6-96ac-7c99d79d5835.json",
+        "curriculum/statics/questions/STATICS_FORCE_VECTORS/098_2d06e0f5-0fe0-4b75-b11b-2b4d4da9f187.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 12,
+      "generated_accepted_count": 12,
+      "generation_family": "fdal_reversed_direction",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-force-vectors-force-directed-along-line-v1",
+      "procedure_ids": [
+        "proc-statics-force-vectors-force-directed-along-line-v1",
+        "proc-statics-vectors-cartesian-vector-components-3d-v1",
+        "proc-statics-vectors-position-vector-3d-v1",
+        "proc-statics-vectors-unit-vector-along-line-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-24",
+          "notes": "Force of known magnitude directed along a line expressed as a Cartesian vector, F_vec = F u_AB. Independently re-derived: |r_AB| = sqrt(16 + 144 + 9) = sqrt(169) = 13 m; u_AB = (4/13, -12/13, 3/13), mixed sign on all three axes; 390 / 13 = 30 exactly, so F_vec = (120, -360, 90) N, whose components are clean integers visibly distinct from the unit-vector fractions so that the unit vector cannot be mistaken for the force. Verified by a route independent of the multiplication: |F_vec| = sqrt(14400 + 129600 + 8100) = sqrt(152100) = 390 N, recovering the given scalar, and F_vec / 390 = (4/13, -12/13, 3/13) recovering u_AB. Reversed-order contrast confirmed: u_BA = -u_AB gives (-120, 360, -90) N, every component negated, establishing that the point order is part of the answer. RECIPROCAL BOUNDARY, the central requirement and cleanly met: unit_vector_along_line, the signed prerequisite, builds the direction and explicitly excluded the force multiplication, reserving it here; this skill completes the handoff by scaling the cited unit vector into a force without re-deriving the normalization as the objective, with the complement named in one sentence. dot_product_projection shares the topic and is excluded — no projection and no dot product appears, this skill building a force vector rather than projecting one; no moment is formed; no equilibrium equations or reaction inventory. Symbol continuity: u_AB, u_BA, r_AB, |r_AB| and the point coordinate names reused with identical meaning from unit_vector_along_line and position_vector_3d, with scalar F and F_vec introduced and F declared explicitly as a scalar magnitude distinct from the vector F bound by the moment skills; bare u not rebound. Three earned signals at distinct steps: axis_confusion at step 2 where axis-matched products are formed and transposition is the failure, sign_or_placement_error at step 3 where the vector is assembled and the point order fixed and reversal is the failure, and unclassified at step 1 as the boundary fallback. simple_average_used cannot be earned, not a Centroids-family skill. solution_sequencing_error omitted: F_vec cannot form before u_AB exists, so an ordering dependence is real, but the chain is strictly linear with no branching stranded unknown — the same disposition reached for unit_vector_along_line, and the correct ground, though the draft report worded it loosely as the dependence being absorbed into obtaining the direction; the omission is correct and is recorded here with the cleaner justification. Honest limitation recorded in the artifact: the magnitude check confirms the scalar was multiplied through consistently and that the unit vector had magnitude one, but cannot detect a reversed point order, since the opposite force also has magnitude 390 N, and does not validate the given magnitude or the endpoint coordinates; direction must be checked against the stated tail and head.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-17",
+          "notes": "Batch 4E skill 3/6 — opens the 3D chain. SCOPE WAS OPERATOR-DERIVED, not Architect-ruled: the Batch 4E ruling detailed skill 1/6's scope only. Derived from graph truth and the signed boundaries. The Architect's binding 3D ruling was honored: this is particle-equilibrium debt retirement, not 3D rigid-body expansion — no rigid_body_fbd_3d, no 3D rigid-body equilibrium. Narrow by construction: one force in, three components out. Every adjacent capability is a separate graph node and none appears as an authored step — coordinate direction angles, 3D vector addition, position vectors, unit vectors along a line, dot and cross products, 3D FBDs, and equilibrium are all excluded, and step 7 names them explicitly. Boundary against the signed solve_particle_equil_3d (downstream; its unsigned-prereq inversion is retired by skill 4/6, not this one) verified at the review beat: that skill's worked example HANDS the student unit vectors and writes SumF = 0; it consumes 3D components without ever teaching the two-angle projection geometry. Boundary against the parent vector_components_2d: that skill is one angle into two components; this one requires TWO angular data and produces three nonzero components. Worked example independently re-derived by Operator: F = 100 N, phi = 36.9 degrees from +z (cos 0.80, sin 0.60), xy-projection at theta = 53.1 degrees from +x into the +x/-y region (cos 0.60, sin 0.80); F_xy = 60 N, Fz = 80 N, Fx = +36 N, Fy = -48 N, giving F = 36 i - 48 j + 80 k N. All three components nonzero. Magnitude check closes exactly: 1296 + 2304 + 6400 = 10000 = 100 squared. 3-signal mapping, content-earned: axis_confusion at step 3 (the out-of-plane projection — this skill's own 3D contribution, since the parent has no such step); sign_or_placement_error at step 5 (assigning algebraic signs, genuinely distinct from the resolution steps: correct magnitudes, wrong sense); unclassified at step 7 (verification and scope boundary). simple_average_used omitted: Centroids-family signal. HONEST FINDING, recorded because it is a real property of the verification step: a clean sine/cosine swap PRESERVES the magnitude check, because it permutes which axis receives which magnitude — the swap at phi gives 48/-64/60 and the swap at theta gives 48/-36/80, and both close to 10000. The magnitude relation catches dropped or mis-scaled components, not a clean trig swap; axis_confusion is what routes the swap, and the procedure does not claim otherwise. Procedure step 4 (the in-plane split) is deliberately LEFT UNMAPPED: that is vector_components_2d's content, and a student failing there needs the parent skill, which already diagnoses it — the same principle applied on support_reactions_2d. SIGNAL-POLICY DEBT recorded per Architect Batch 4E Decision B: a theta-swap at step 4 yields (48, -36, 80), which is wrong AND closes the magnitude check, so no signal on this skill catches it. Mapping a duplicate axis_confusion there is forbidden by Decision B, and inventing a signal is not authorized; the hole is recorded rather than forced. Review-beat correction: the draft used alpha for the angle from +z while common_errors warned students against the coordinate direction angles alpha/beta/gamma — but those are conventionally measured from +x/+y/+z, so the angle this skill called alpha is conventionally gamma. The artifact was using a coordinate-direction-angle symbol for a different meaning while telling students that convention belongs elsewhere, and coordinate_direction_angles is a downstream node this skill unlocks, where alpha will mean angle-from-+x. Renamed to phi, the standard polar angle from +z, which pairs conventionally with theta azimuthal. Alpha now survives only inside the literal string alpha/beta/gamma where it correctly names the other skill's convention. Numbers, components, answer, step count, and signal targets all unchanged by the rename. PROCESS NOTE: the correction lane BLOCKED on a defective Operator verification gate that compared a six-character slice against a five-character string and therefore could never pass. Cursor refused to edit content to satisfy it and escalated with a diagnosis — the correct call, and the standing rule.",
+          "reviewer": "Phase D sign-off review (PHASE-D-CARTESIAN-VECTOR-COMPONENTS-3D-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-23",
+          "notes": "Batch 4I skill 5/5, BATCH CLOSER. Owns forming a position vector between two points from their Cartesian coordinates by the HEAD-MINUS-TAIL rule, r_AB = (xB - xA)i + (yB - yA)j + (zB - zA)k; the directed meaning that r_AB runs FROM A TO B; the order relation r_BA = -r_AB; and |r_AB| as the straight-line distance. Boundary: cartesian_vector_components_3d (signed parent) supplies Cartesian form, cited not re-derived. This node is the CEDED OWNER OF r for two siblings signed earlier in this batch, and both reciprocal statements appear in the artifact: cross_product_moment_3d takes r as GIVEN and cedes its construction here, while this skill forms r and computes no moment or cross product; dot_product_projection owns the dot product as a projection tool, and this skill computes no dot product and no projection. unit_vector_along_line (downstream, planned - this node is its prerequisite and unlocks it) owns forming the unit vector from r; this skill stops at r and |r| and never normalises. cartesian_vector_addition_3d and coordinate_direction_angles (signed this batch) are excluded, and the reconstruction check is explicitly framed as a per-coordinate check on the differencing rather than the general vector-addition operation. Worked example Operator-re-derived from the on-disk prompt: A(5, -2, 1) m and B(2, 2, 13) m; r_AB = (2-5)i + (2-(-2))j + (13-1)k = -3i + 4j + 12k m, with the j-term exercising the double negative 2 - (-2) = +4; |r_AB| = sqrt(9+16+144) = sqrt(169) = 13 m; r_BA = 3i - 4j - 12k m = -r_AB with the SAME magnitude. Distinguishing feature bites: subtraction order is decisive and the two orders are visibly different vectors; all three coordinate differences are nonzero and distinct in magnitude (3, 4, 12) so the points are not axis-aligned and the skill cannot collapse to a 1D or 2D reading; one difference is negative; and one subtraction crosses zero from a negative coordinate so a double negative must be handled explicitly. HONEST LIMITATION recorded in concept, procedure, solution and common_errors: |r_AB| = |r_BA| exactly, and flipping the sign of any single component leaves the magnitude unchanged, so the magnitude is the distance between the points and is SIGN-BLIND - it can neither distinguish the two orders nor catch a sign slip. VERIFICATION PRECEDES REPORT in both arrays (verify at index 5, report at index 6), matching the four skills signed earlier in this batch, and the verification is the RECONSTRUCTION check rather than the magnitude precisely because the magnitude cannot do the job: 5 + (-3) = 2 = xB, -2 + 4 = 2 = yB, 1 + 12 = 13 = zB reproduces B. The reconstruction rejects the reversed order (8, -6, -11), rejects a single flipped sign (2, -6, 13), and rejects a dropped double negative (2, -2, 13), while the magnitude catches only the last of those three. This is the first skill in the batch where the conventional check is the one that fails, and the artifact says so plainly rather than overstating it. THREE-signal mapping: axis_confusion at step 2 (the axis-matching act - differencing coordinates across axes or assigning a difference to the wrong unit vector), sign_or_placement_error at step 3 (head-minus-tail order and double-negative handling; its trigger opens by stipulating matching-axis differences, which cleanly partitions it from step 2 rather than duplicating the crux), unclassified at step 7 (report and boundary - incomplete result, treating the magnitude as distinguishing order, skipped reconstruction, unit-vector normalisation, or reaching into moments, cross products, dot products, projections, direction angles or general vector addition). solution_sequencing_error OMITTED with explicit argument: the three coordinate differences are independent and no authored step strands a prerequisite unknown. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: coordinates are given and no inclined vector is decomposed. No archetype is asserted, consistent with the batch-wide instruction while PROCEDURE-ARCHETYPE-LIBRARY-V1 remains unapproved. Operator observation recorded, not corrected: the concept and common_errors name the ceded unit vector as u = r/|r| when assigning it to unit_vector_along_line; u is not declared as a variable, is never computed, and the usage matches what the downstream skill will mean, so this is a forward cession rather than a symbol collision, and naming the ceded deliverable precisely is preferable to naming it vaguely. Review beat cleared at first pass; no correction lane. CLOSES BATCH 4I 5/5.",
+          "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4I-SKILL-5-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-23",
+          "notes": "Unit vector along a directed line in 3D by forming the position vector head minus tail and normalizing. Independently re-derived: r_AB = (6-2, 0-(-3), -6-6) = (4, 3, -12) m with components nonzero on all three axes and of mixed sign; |r_AB| = sqrt(16+9+144) = sqrt(169) = 13 m exactly; u_AB = (4/13, 3/13, -12/13), dimensionless. Verified by a route that does not reuse the division: (16+9+144)/169 = 1, so the magnitude is exactly one, and metres over metres leaves u dimensionless. Reversed order independently confirmed: r_BA = (-4, -3, 12), magnitude also 13, u_BA = -u_AB, establishing that tail-to-head order is part of the answer rather than a convention. The 3-4-12 / 13 triple makes the normalization exact and the mixed signs make a reversed order detectable. Boundary recorded: position_vector_3d owns the head-minus-tail construction, which is formed and normalized here but not re-derived from first principles; vector_components_2d owns angle-based resolution, and this skill takes direction from two points rather than a stated angle; no dot product, cross product, or projection. force_directed_along_line is a downstream UNSIGNED node that owns multiplying a force magnitude by this unit vector — verified EXCLUDED, with no force symbol and no force multiplication anywhere in the artifact, so that node's scope is intact for later authorship. Three earned signals: axis_confusion at step 2 where components are paired to matching axes, sign_or_placement_error at step 3 where head-minus-tail order and subtraction of a negative coordinate are performed, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL, step 1 being the earliest general recovery step stating the required direction and the exclusions. solution_sequencing_error omitted as unearned, not trimmed: the magnitude cannot be formed before the components exist, so an ordering dependence is real, but the chain is strictly linear with no branching stranded unknown, and normalizing without a magnitude is an incomplete procedure rather than a stranded prerequisite. simple_average_used unearned: no averaging step is authored. Honest limitation recorded in the artifact: the unit-magnitude check confirms the division was performed correctly but cannot detect a reversed point order, since the opposite unit vector also has magnitude one, and cannot detect a misread coordinate; direction must be checked against the stated tail and head. OPERATOR NOTE, non-blocking: step 2 declares axis pairing without producing a quantity, existing so that axis_confusion and sign_or_placement_error land on distinct authored acts. This follows the composite-moment precedent separating axis identification from contribution forming, but is recorded as a case where signal-mapping granularity shaped step structure; logged alongside the Batch 4L schema-fit findings.",
+          "reviewer": "Operator (independent re-derivation)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:fdal_reversed_direction",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts_contract",
+        "answer_type",
+        "answers",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "dimension_class",
+        "diversity_signature",
+        "failure_signal_mappings_complete",
+        "family_id",
+        "feedback_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "micro_skill",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "source",
+        "submit_format_guidance",
+        "subtopic_code",
+        "topic_code",
+        "verification_checks",
+        "worked_derivation"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_FORCE_VECTORS",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 6,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "resultant_magnitude",
+        "prerequisite_micro_skills": [
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 5,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/010_96735418-8618-4e9a-9392-ead04fe73fb5.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/020_dde8cf9d-388a-4fe5-af4b-ddadbde7a814.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/074_717257a9-8acc-41f7-924e-f94a50246ac3.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/077_9afca5da-86e6-4721-b5eb-0382611d378a.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/080_2413d695-83e3-4be1-8462-6524421c9f5e.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 6,
+      "generated_accepted_count": 6,
+      "generation_family": "given_components_three_forces",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-resultant-forces-resultant-magnitude-v1",
+      "procedure_ids": [
+        "proc-statics-resultant-forces-resultant-magnitude-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-04",
+          "notes": "Third Phase D sign-off; worked example independently re-verified R_x=200, R_y=450, R=492.4; schema-valid v1_1; canonical-four live mappings; magnitude-only scope with direction covered by resultant_direction_2d; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-MAGNITUDE-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:given_components_three_forces",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts_contract",
+        "answer_type",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "dimensional_mode",
+        "failure_signal_mappings_complete",
+        "failure_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "record_type",
+        "reserved_canonical_path",
+        "solution",
+        "submit_format_guidance"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_RESULTANT_FORCES",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 6,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "resultant_magnitude",
+        "prerequisite_micro_skills": [
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 5,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/011_45bd62d1-3182-421c-9c3b-9f3f7d86c37e.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/021_30ad6459-1eaf-475f-be6c-db18a37230f9.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/072_b93919b1-4625-4196-a4c7-459f321ea1ca.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/075_2a3c5536-1d6c-49b3-8c3b-69c84bc2ddee.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/078_b3af5b2f-afa7-448e-b48b-52592d2d2710.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 6,
+      "generated_accepted_count": 6,
+      "generation_family": "axis_aligned_components",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-resultant-forces-resultant-magnitude-v1",
+      "procedure_ids": [
+        "proc-statics-resultant-forces-resultant-magnitude-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-04",
+          "notes": "Third Phase D sign-off; worked example independently re-verified R_x=200, R_y=450, R=492.4; schema-valid v1_1; canonical-four live mappings; magnitude-only scope with direction covered by resultant_direction_2d; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-MAGNITUDE-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:axis_aligned_components",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts_contract",
+        "answer_type",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "dimensional_mode",
+        "failure_signal_mappings_complete",
+        "failure_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "record_type",
+        "reserved_canonical_path",
+        "solution",
+        "submit_format_guidance"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_RESULTANT_FORCES",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 6,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "resultant_magnitude",
+        "prerequisite_micro_skills": [
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 5,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/019_ec5be177-ee7f-4c61-b861-c881ac95693f.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/028_127d9a26-8346-4570-9c1f-ed58898ec304.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/073_b63d14b1-2e89-4f83-b21c-27f5b7b1d696.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/076_054e0ad3-4e12-4fda-9f27-86b23b1bacc3.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/079_a01be82a-a2eb-48e7-b5ec-1841a056b9ab.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 6,
+      "generated_accepted_count": 6,
+      "generation_family": "given_components_two_forces",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "proc-statics-resultant-forces-resultant-magnitude-v1",
+      "procedure_ids": [
+        "proc-statics-resultant-forces-resultant-magnitude-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-04",
+          "notes": "Third Phase D sign-off; worked example independently re-verified R_x=200, R_y=450, R=492.4; schema-valid v1_1; canonical-four live mappings; magnitude-only scope with direction covered by resultant_direction_2d; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-MAGNITUDE-SIGNOFF-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:given_components_two_forces",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts_contract",
+        "answer_type",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "dimensional_mode",
+        "failure_signal_mappings_complete",
+        "failure_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "record_type",
+        "reserved_canonical_path",
+        "solution",
+        "submit_format_guidance"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_RESULTANT_FORCES",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 6,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "resultant_direction_2d",
+        "prerequisite_micro_skills": [
+          "resultant_2d_addition",
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 6,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/029_1e58ef94-80c6-4215-a437-d62749715d82.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/039_e2d40302-f177-4025-a690-da861639719e.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/049_f38facbd-7e55-4e8b-8a29-1e719c0691dd.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/093_a6f41021-2068-490c-be66-7faa0d3ceff6.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/096_8c089f62-50e4-4ea4-bf99-03c7230dbbf9.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/099_24110c6f-2623-4c42-ba9e-ee1bbad51bfe.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 6,
+      "generated_accepted_count": 6,
+      "generation_family": "component_quadrant_direction",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "cdc80a84-110f-4eca-967b-d2b8b0dad982",
+      "procedure_ids": [
+        "cdc80a84-110f-4eca-967b-d2b8b0dad982",
+        "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-05",
+          "notes": "Phase D sign-off; worked example independently re-verified R=<-40,30> N, alpha=36.9 degrees, theta=143.1 degrees in Quadrant II; schema-valid v1_1; canonical mappings axis_confusion->1, sign_or_placement_error->2, unclassified->5; direction-only scope; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-DIRECTION-2D-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-05",
+          "notes": "Seventh Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_RESULTANT_FORCES:MAGNITUDE_AND_ADDITION; full integrated 2D resultant-addition scope (component form plus magnitude and direction); worked example independently re-verified F_R=<40,30> N, |F_R|=50 N, phi=36.9 deg; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-2D-ADDITION-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:component_quadrant_direction",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts_contract",
+        "answer_type",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "dimensional_mode",
+        "failure_signal_mappings_complete",
+        "failure_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "record_type",
+        "reserved_canonical_path",
+        "solution",
+        "submit_format_guidance"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_RESULTANT_FORCES",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 6,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "resultant_direction_2d",
+        "prerequisite_micro_skills": [
+          "resultant_2d_addition",
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 6,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/031_dddf1966-327f-46bd-8a3f-7eb3c0016249.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/041_41075a18-b3f1-4985-8d64-6fa543525ad9.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/092_57c267db-1f36-4f5f-85e2-4ae1d3b6abcf.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/095_929de538-cb4a-423a-9029-28eeaf9664e0.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/097_88071260-2e7b-47b9-a7ea-b0d84fb6f246.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/098_c42b04d9-1673-4831-8598-8b6c4600a38d.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 6,
+      "generated_accepted_count": 6,
+      "generation_family": "reference_angle_conversion",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "cdc80a84-110f-4eca-967b-d2b8b0dad982",
+      "procedure_ids": [
+        "cdc80a84-110f-4eca-967b-d2b8b0dad982",
+        "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-05",
+          "notes": "Phase D sign-off; worked example independently re-verified R=<-40,30> N, alpha=36.9 degrees, theta=143.1 degrees in Quadrant II; schema-valid v1_1; canonical mappings axis_confusion->1, sign_or_placement_error->2, unclassified->5; direction-only scope; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-DIRECTION-2D-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-05",
+          "notes": "Seventh Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_RESULTANT_FORCES:MAGNITUDE_AND_ADDITION; full integrated 2D resultant-addition scope (component form plus magnitude and direction); worked example independently re-verified F_R=<40,30> N, |F_R|=50 N, phi=36.9 deg; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-2D-ADDITION-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:reference_angle_conversion",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts_contract",
+        "answer_type",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "dimensional_mode",
+        "failure_signal_mappings_complete",
+        "failure_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "record_type",
+        "reserved_canonical_path",
+        "solution",
+        "submit_format_guidance"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_RESULTANT_FORCES",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 6,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "resultant_direction_2d",
+        "prerequisite_micro_skills": [
+          "resultant_2d_addition",
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 4,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/040_78a98f07-50a2-4b67-9fca-971388cea0fc.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/091_7e25fb54-39e9-4b5a-a183-ee6c42556b15.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/094_981593a4-223c-4798-b198-50c3ecbead4f.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/100_9d46488b-1afb-4737-bb0c-7c6c6aa4ddf7.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 6,
+      "generated_accepted_count": 6,
+      "generation_family": "axis_aligned_direction",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "cdc80a84-110f-4eca-967b-d2b8b0dad982",
+      "procedure_ids": [
+        "cdc80a84-110f-4eca-967b-d2b8b0dad982",
+        "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-05",
+          "notes": "Phase D sign-off; worked example independently re-verified R=<-40,30> N, alpha=36.9 degrees, theta=143.1 degrees in Quadrant II; schema-valid v1_1; canonical mappings axis_confusion->1, sign_or_placement_error->2, unclassified->5; direction-only scope; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-DIRECTION-2D-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-05",
+          "notes": "Seventh Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_RESULTANT_FORCES:MAGNITUDE_AND_ADDITION; full integrated 2D resultant-addition scope (component form plus magnitude and direction); worked example independently re-verified F_R=<40,30> N, |F_R|=50 N, phi=36.9 deg; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-2D-ADDITION-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:axis_aligned_direction",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts_contract",
+        "answer_type",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "dimensional_mode",
+        "failure_signal_mappings_complete",
+        "failure_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "record_type",
+        "reserved_canonical_path",
+        "solution",
+        "submit_format_guidance"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_RESULTANT_FORCES",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 5,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "resultant_2d_addition",
+        "prerequisite_micro_skills": [
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 6,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/050_b900d626-df16-4d1b-9a8a-336ae5ed2913.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/060_8a18b7d7-4ca6-4f63-9412-626ebd5089d3.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/070_59a31979-d7ef-4110-bd84-8a595d36ad7e.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/082_633b613c-3f84-4a12-ab50-1f287e322da4.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/085_31e0c44d-f0c0-42a0-a382-e279afa6c894.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/088_bbad9a9d-0b69-4cc1-a055-e2abf41c54ae.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 5,
+      "generated_accepted_count": 5,
+      "generation_family": "two_angled_forces_full_resultant",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+      "procedure_ids": [
+        "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-05",
+          "notes": "Seventh Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_RESULTANT_FORCES:MAGNITUDE_AND_ADDITION; full integrated 2D resultant-addition scope (component form plus magnitude and direction); worked example independently re-verified F_R=<40,30> N, |F_R|=50 N, phi=36.9 deg; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-2D-ADDITION-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:two_angled_forces_full_resultant",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts_contract",
+        "answer_type",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "dimensional_mode",
+        "failure_signal_mappings_complete",
+        "failure_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "record_type",
+        "reserved_canonical_path",
+        "solution",
+        "submit_format_guidance"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_RESULTANT_FORCES",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 5,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "resultant_2d_addition",
+        "prerequisite_micro_skills": [
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 6,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/051_e64dae88-dc94-42a6-8a29-abcf5e2584d0.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/061_97a34774-0d59-4841-bc4a-50548d1da875.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/071_b9748708-87af-421f-9eae-3fb5fa99cedf.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/083_bf3b20a2-a74c-401b-9c07-b160546bed44.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/086_7a1c5e49-43fe-423a-bda7-6332a5b4c5d7.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/089_43d1ec63-929b-4aa2-ae75-ca8b6316955c.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 5,
+      "generated_accepted_count": 5,
+      "generation_family": "three_concurrent_forces_full_resultant",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+      "procedure_ids": [
+        "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-05",
+          "notes": "Seventh Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_RESULTANT_FORCES:MAGNITUDE_AND_ADDITION; full integrated 2D resultant-addition scope (component form plus magnitude and direction); worked example independently re-verified F_R=<40,30> N, |F_R|=50 N, phi=36.9 deg; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-2D-ADDITION-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:three_concurrent_forces_full_resultant",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts_contract",
+        "answer_type",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "dimensional_mode",
+        "failure_signal_mappings_complete",
+        "failure_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "record_type",
+        "reserved_canonical_path",
+        "solution",
+        "submit_format_guidance"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_RESULTANT_FORCES",
+      "undeclared": false
+    },
+    {
+      "allocated_gap_count": 5,
+      "authority_sha": "0ae79257dc2ed256ce32332130766d6170a98f3e",
+      "bundle_digest": "e807c698517bdfb9e51e22e32d4c3ecd814a7c904a9a77545c55c164ec171987",
+      "closure": {
+        "micro_skill": "resultant_2d_addition",
+        "prerequisite_micro_skills": [
+          "vector_components_2d"
+        ],
+        "prerequisite_procedure_ids": [
+          "proc-statics-vectors-vector-components-2d-v1"
+        ]
+      },
+      "contract_question_total_observed": 6,
+      "contract_source_paths": [
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/059_8f179665-601a-4272-9283-1433b3812f22.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/069_adae0324-ecbb-40f0-9421-f3bef574696e.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/081_5d755398-3a21-455e-8c22-ec6a5768b4a4.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/084_b10ae37b-9ae8-4f10-a9e7-8e0cc78bfbc5.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/087_c5360c63-0b07-4ad8-9b81-201676270ca2.json",
+        "curriculum/statics/questions/STATICS_RESULTANT_FORCES/090_29d03105-7dba-4a38-a487-049c43df6a74.json"
+      ],
+      "database_eligible": false,
+      "deterministic_capacity_proven_to": 5,
+      "generated_accepted_count": 5,
+      "generation_family": "mixed_sign_quadrant_resultant",
+      "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+      "human_review_required": true,
+      "is_active": false,
+      "procedure_id": "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+      "procedure_ids": [
+        "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ],
+      "procedure_signatures": [
+        {
+          "date": "2026-07-05",
+          "notes": "Seventh Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_RESULTANT_FORCES:MAGNITUDE_AND_ADDITION; full integrated 2D resultant-addition scope (component form plus magnitude and direction); worked example independently re-verified F_R=<40,30> N, |F_R|=50 N, phi=36.9 deg; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-2D-ADDITION-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+          "status": "signed_off"
+        },
+        {
+          "date": "2026-07-04",
+          "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+          "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+          "status": "signed_off"
+        }
+      ],
+      "record_id": "family:mixed_sign_quadrant_resultant",
+      "record_type": "generation_family_proof",
+      "required_observed_fields": [
+        "answer_parts_contract",
+        "answer_type",
+        "author_status",
+        "diagram_required",
+        "difficulty_level",
+        "dimensional_mode",
+        "failure_signal_mappings_complete",
+        "failure_signals",
+        "frozen_manifest_row",
+        "generation_family",
+        "givens",
+        "image_ref",
+        "ordinal",
+        "packet",
+        "permitted_failure_signals",
+        "procedure_id",
+        "procedure_path",
+        "procedure_sha256",
+        "procedure_steps_verbatim",
+        "prompt",
+        "question_id",
+        "question_type",
+        "record_type",
+        "reserved_canonical_path",
+        "solution",
+        "submit_format_guidance"
+      ],
+      "status": "PASS",
+      "student_visible": false,
+      "topic_code": "STATICS_RESULTANT_FORCES",
+      "undeclared": false
+    }
+  ],
+  "full_closure_loaded": true,
+  "graph_digest": "fea2161e7ccf8e433ebd7dc498d3f8ada9e8272c37a047bd9bc2247bd588b961",
+  "human_review_required": true,
+  "is_active": false,
+  "owned_topic_codes": [
+    "STATICS_FORCE_VECTORS",
+    "STATICS_RESULTANT_FORCES"
+  ],
+  "prerequisite_graph_digest": "7c60fb9a6f4f0bcfc416bda8d5e75160c406b890e465cf7538a5dc2f98c89a34",
+  "procedure_ids": [
+    "proc-statics-force-vectors-dot-product-projection-v1",
+    "proc-statics-force-vectors-force-directed-along-line-v1",
+    "proc-statics-resultant-forces-resultant-magnitude-v1",
+    "cdc80a84-110f-4eca-967b-d2b8b0dad982",
+    "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+    "proc-statics-vectors-vector-components-2d-v1",
+    "proc-statics-vectors-cartesian-vector-components-3d-v1",
+    "proc-statics-vectors-position-vector-3d-v1",
+    "proc-statics-vectors-unit-vector-along-line-v1"
+  ],
+  "procedure_signatures": [
+    {
+      "date": "2026-07-23",
+      "notes": "Batch 4I skill 4/5. Owns the dot product AS A PROJECTION TOOL: the component form A . B = Ax Bx + Ay By + Az Bz, the geometric form A . B = |A||B| cos theta, and the signed SCALAR projection of A onto the direction of B, A_par = (A . B)/|B|, including what a negative projection means (obtuse theta; A has a component opposite to B). Boundary: cartesian_vector_components_3d (signed parent) supplies components, cited not re-derived. RECIPROCAL BOUNDARY with cross_product_moment_3d (signed earlier this batch) is stated in the artifact: that skill uses a dot product ONLY as a perpendicularity check and computes no projection, while this skill owns the dot product as a projection tool and computes no moment or cross product - naming the complement was required because the sibling already states its half. unit_vector_along_line (downstream, planned) owns FORMING a unit direction; this skill uses the general form (A . B)/|B|, which needs no unit vector, and never binds or constructs one. The VECTOR projection (scalar times a unit direction) therefore requires that ceded construction and is explicitly OUT OF SCOPE - the deliverable is the signed SCALAR projection. position_vector_3d, coordinate_direction_angles and cartesian_vector_addition_3d excluded. Worked example Operator-re-derived from the on-disk prompt: A = -6i -6j -3k (|A| = 9), B = 2i +2j -1k (|B| = 3); A . B = (-6)(2) + (-6)(2) + (-3)(-1) = -12 - 12 + 3 = -21; A_par = -21/3 = -7; cos theta = -21/27 = -7/9 = -0.7778 -> theta = 141.1 deg. Distinguishing feature bites: the geometry is neither parallel nor perpendicular and theta sits clear of both 90 and 180 degrees; the projection is NEGATIVE so its sign carries meaning and the obtuse angle explains it; |A| != |B| so dividing by the wrong magnitude is detectable; and the four outcomes are mutually distinct - correct -7, wrong denominator -2.33, undivided -21, signs dropped +9 - so each mapped signal routes to its own answer. VERIFICATION PRECEDES REPORT in both arrays (verify at index 5, report at index 6), matching the three skills signed earlier in this batch: the bound |A_par| < |A|, valid because A and B are not parallel, gives 7 < 9. HONEST LIMITATION recorded: the bound catches an undivided product sum (21 > 9) and a sign-dropped product sum (27/3 = 9, not strictly less than 9) but does NOT catch dividing by |A| instead of |B| (2.33 < 9 passes while being wrong) - stated as a property of the check rather than overstated. THREE-signal mapping: axis_confusion at step 2 (like-component pairing in the product sum - multiplying Ax by By or Az by Bx), sign_or_placement_error at step 3 (sign retention through the division AND selection of |B| rather than |A| as the divisor, since dividing by |A| projects the wrong way round and is a placement error about which vector is the direction; both acts are explicitly authored in that step, distinct from the pairing act at step 2), unclassified at step 7 (report and boundary - incomplete result, omitted sign, skipped bound check, treating the bound as catching a wrong-denominator error, forming a unit vector or vector projection, or reaching into the ceded siblings). solution_sequencing_error OMITTED with explicit argument: A . B and |B| are independent computations combined by one division, so no authored step strands a prerequisite unknown; it was not mapped merely because the division follows the dot product. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: components are given already resolved and no inclined vector is decomposed. NO ARCHETYPE IS ASSERTED for this skill: the Architect flagged its family fit for independent review and directed that it not be forced into a component-combination template, so the artifact carries no archetype reference and the assignment is deferred to PROCEDURE-ARCHETYPE-LIBRARY-V1 review. Operator observation recorded, not corrected: the bound-check step cites a sign-dropped sum of 27 without restating that 27 is the sum of the product magnitudes from two steps earlier - terse but inferable, and the instructional point of the sentence lands. Review beat cleared at first pass; no correction lane.",
+      "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4I-SKILL-4-SIGNOFF-001)",
+      "status": "signed_off"
+    },
+    {
+      "date": "2026-07-24",
+      "notes": "Force of known magnitude directed along a line expressed as a Cartesian vector, F_vec = F u_AB. Independently re-derived: |r_AB| = sqrt(16 + 144 + 9) = sqrt(169) = 13 m; u_AB = (4/13, -12/13, 3/13), mixed sign on all three axes; 390 / 13 = 30 exactly, so F_vec = (120, -360, 90) N, whose components are clean integers visibly distinct from the unit-vector fractions so that the unit vector cannot be mistaken for the force. Verified by a route independent of the multiplication: |F_vec| = sqrt(14400 + 129600 + 8100) = sqrt(152100) = 390 N, recovering the given scalar, and F_vec / 390 = (4/13, -12/13, 3/13) recovering u_AB. Reversed-order contrast confirmed: u_BA = -u_AB gives (-120, 360, -90) N, every component negated, establishing that the point order is part of the answer. RECIPROCAL BOUNDARY, the central requirement and cleanly met: unit_vector_along_line, the signed prerequisite, builds the direction and explicitly excluded the force multiplication, reserving it here; this skill completes the handoff by scaling the cited unit vector into a force without re-deriving the normalization as the objective, with the complement named in one sentence. dot_product_projection shares the topic and is excluded — no projection and no dot product appears, this skill building a force vector rather than projecting one; no moment is formed; no equilibrium equations or reaction inventory. Symbol continuity: u_AB, u_BA, r_AB, |r_AB| and the point coordinate names reused with identical meaning from unit_vector_along_line and position_vector_3d, with scalar F and F_vec introduced and F declared explicitly as a scalar magnitude distinct from the vector F bound by the moment skills; bare u not rebound. Three earned signals at distinct steps: axis_confusion at step 2 where axis-matched products are formed and transposition is the failure, sign_or_placement_error at step 3 where the vector is assembled and the point order fixed and reversal is the failure, and unclassified at step 1 as the boundary fallback. simple_average_used cannot be earned, not a Centroids-family skill. solution_sequencing_error omitted: F_vec cannot form before u_AB exists, so an ordering dependence is real, but the chain is strictly linear with no branching stranded unknown — the same disposition reached for unit_vector_along_line, and the correct ground, though the draft report worded it loosely as the dependence being absorbed into obtaining the direction; the omission is correct and is recorded here with the cleaner justification. Honest limitation recorded in the artifact: the magnitude check confirms the scalar was multiplied through consistently and that the unit vector had magnitude one, but cannot detect a reversed point order, since the opposite force also has magnitude 390 N, and does not validate the given magnitude or the endpoint coordinates; direction must be checked against the stated tail and head.",
+      "reviewer": "Operator (independent re-derivation)",
+      "status": "signed_off"
+    },
+    {
+      "date": "2026-07-04",
+      "notes": "Third Phase D sign-off; worked example independently re-verified R_x=200, R_y=450, R=492.4; schema-valid v1_1; canonical-four live mappings; magnitude-only scope with direction covered by resultant_direction_2d; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+      "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-MAGNITUDE-SIGNOFF-001)",
+      "status": "signed_off"
+    },
+    {
+      "date": "2026-07-05",
+      "notes": "Phase D sign-off; worked example independently re-verified R=<-40,30> N, alpha=36.9 degrees, theta=143.1 degrees in Quadrant II; schema-valid v1_1; canonical mappings axis_confusion->1, sign_or_placement_error->2, unclassified->5; direction-only scope; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+      "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-DIRECTION-2D-SIGNOFF-FAST-001)",
+      "status": "signed_off"
+    },
+    {
+      "date": "2026-07-05",
+      "notes": "Seventh Phase D sign-off; upgraded existing procedure_backed artifact to AXIOMIQ_PROCEDURE_v1_1; reconciled subtopic_code to graph value STATICS_RESULTANT_FORCES:MAGNITUDE_AND_ADDITION; full integrated 2D resultant-addition scope (component form plus magnitude and direction); worked example independently re-verified F_R=<40,30> N, |F_R|=50 N, phi=36.9 deg; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+      "reviewer": "Phase D sign-off review (PHASE-D-RESULTANT-2D-ADDITION-V1_1-UPGRADE-SIGNOFF-FAST-001)",
+      "status": "signed_off"
+    },
+    {
+      "date": "2026-07-04",
+      "notes": "Second Phase D sign-off; worked example independently re-verified 433.0/250.0/approx 500; schema-valid v1_1; canonical-four live mappings; MODULE_INTRO_RENDER_DEFERRED_FRONTEND_TOPIC_FIXTURE_GAP; SOURCE_REFS_DEFERRED_SCHEMA_UNSUPPORTED",
+      "reviewer": "Phase D sign-off review (PHASE-D-VECTOR-COMPONENTS-2D-SIGNOFF-001-CONTINUE)",
+      "status": "signed_off"
+    },
+    {
+      "date": "2026-07-17",
+      "notes": "Batch 4E skill 3/6 — opens the 3D chain. SCOPE WAS OPERATOR-DERIVED, not Architect-ruled: the Batch 4E ruling detailed skill 1/6's scope only. Derived from graph truth and the signed boundaries. The Architect's binding 3D ruling was honored: this is particle-equilibrium debt retirement, not 3D rigid-body expansion — no rigid_body_fbd_3d, no 3D rigid-body equilibrium. Narrow by construction: one force in, three components out. Every adjacent capability is a separate graph node and none appears as an authored step — coordinate direction angles, 3D vector addition, position vectors, unit vectors along a line, dot and cross products, 3D FBDs, and equilibrium are all excluded, and step 7 names them explicitly. Boundary against the signed solve_particle_equil_3d (downstream; its unsigned-prereq inversion is retired by skill 4/6, not this one) verified at the review beat: that skill's worked example HANDS the student unit vectors and writes SumF = 0; it consumes 3D components without ever teaching the two-angle projection geometry. Boundary against the parent vector_components_2d: that skill is one angle into two components; this one requires TWO angular data and produces three nonzero components. Worked example independently re-derived by Operator: F = 100 N, phi = 36.9 degrees from +z (cos 0.80, sin 0.60), xy-projection at theta = 53.1 degrees from +x into the +x/-y region (cos 0.60, sin 0.80); F_xy = 60 N, Fz = 80 N, Fx = +36 N, Fy = -48 N, giving F = 36 i - 48 j + 80 k N. All three components nonzero. Magnitude check closes exactly: 1296 + 2304 + 6400 = 10000 = 100 squared. 3-signal mapping, content-earned: axis_confusion at step 3 (the out-of-plane projection — this skill's own 3D contribution, since the parent has no such step); sign_or_placement_error at step 5 (assigning algebraic signs, genuinely distinct from the resolution steps: correct magnitudes, wrong sense); unclassified at step 7 (verification and scope boundary). simple_average_used omitted: Centroids-family signal. HONEST FINDING, recorded because it is a real property of the verification step: a clean sine/cosine swap PRESERVES the magnitude check, because it permutes which axis receives which magnitude — the swap at phi gives 48/-64/60 and the swap at theta gives 48/-36/80, and both close to 10000. The magnitude relation catches dropped or mis-scaled components, not a clean trig swap; axis_confusion is what routes the swap, and the procedure does not claim otherwise. Procedure step 4 (the in-plane split) is deliberately LEFT UNMAPPED: that is vector_components_2d's content, and a student failing there needs the parent skill, which already diagnoses it — the same principle applied on support_reactions_2d. SIGNAL-POLICY DEBT recorded per Architect Batch 4E Decision B: a theta-swap at step 4 yields (48, -36, 80), which is wrong AND closes the magnitude check, so no signal on this skill catches it. Mapping a duplicate axis_confusion there is forbidden by Decision B, and inventing a signal is not authorized; the hole is recorded rather than forced. Review-beat correction: the draft used alpha for the angle from +z while common_errors warned students against the coordinate direction angles alpha/beta/gamma — but those are conventionally measured from +x/+y/+z, so the angle this skill called alpha is conventionally gamma. The artifact was using a coordinate-direction-angle symbol for a different meaning while telling students that convention belongs elsewhere, and coordinate_direction_angles is a downstream node this skill unlocks, where alpha will mean angle-from-+x. Renamed to phi, the standard polar angle from +z, which pairs conventionally with theta azimuthal. Alpha now survives only inside the literal string alpha/beta/gamma where it correctly names the other skill's convention. Numbers, components, answer, step count, and signal targets all unchanged by the rename. PROCESS NOTE: the correction lane BLOCKED on a defective Operator verification gate that compared a six-character slice against a five-character string and therefore could never pass. Cursor refused to edit content to satisfy it and escalated with a diagnosis — the correct call, and the standing rule.",
+      "reviewer": "Phase D sign-off review (PHASE-D-CARTESIAN-VECTOR-COMPONENTS-3D-SIGNOFF-001)",
+      "status": "signed_off"
+    },
+    {
+      "date": "2026-07-23",
+      "notes": "Batch 4I skill 5/5, BATCH CLOSER. Owns forming a position vector between two points from their Cartesian coordinates by the HEAD-MINUS-TAIL rule, r_AB = (xB - xA)i + (yB - yA)j + (zB - zA)k; the directed meaning that r_AB runs FROM A TO B; the order relation r_BA = -r_AB; and |r_AB| as the straight-line distance. Boundary: cartesian_vector_components_3d (signed parent) supplies Cartesian form, cited not re-derived. This node is the CEDED OWNER OF r for two siblings signed earlier in this batch, and both reciprocal statements appear in the artifact: cross_product_moment_3d takes r as GIVEN and cedes its construction here, while this skill forms r and computes no moment or cross product; dot_product_projection owns the dot product as a projection tool, and this skill computes no dot product and no projection. unit_vector_along_line (downstream, planned - this node is its prerequisite and unlocks it) owns forming the unit vector from r; this skill stops at r and |r| and never normalises. cartesian_vector_addition_3d and coordinate_direction_angles (signed this batch) are excluded, and the reconstruction check is explicitly framed as a per-coordinate check on the differencing rather than the general vector-addition operation. Worked example Operator-re-derived from the on-disk prompt: A(5, -2, 1) m and B(2, 2, 13) m; r_AB = (2-5)i + (2-(-2))j + (13-1)k = -3i + 4j + 12k m, with the j-term exercising the double negative 2 - (-2) = +4; |r_AB| = sqrt(9+16+144) = sqrt(169) = 13 m; r_BA = 3i - 4j - 12k m = -r_AB with the SAME magnitude. Distinguishing feature bites: subtraction order is decisive and the two orders are visibly different vectors; all three coordinate differences are nonzero and distinct in magnitude (3, 4, 12) so the points are not axis-aligned and the skill cannot collapse to a 1D or 2D reading; one difference is negative; and one subtraction crosses zero from a negative coordinate so a double negative must be handled explicitly. HONEST LIMITATION recorded in concept, procedure, solution and common_errors: |r_AB| = |r_BA| exactly, and flipping the sign of any single component leaves the magnitude unchanged, so the magnitude is the distance between the points and is SIGN-BLIND - it can neither distinguish the two orders nor catch a sign slip. VERIFICATION PRECEDES REPORT in both arrays (verify at index 5, report at index 6), matching the four skills signed earlier in this batch, and the verification is the RECONSTRUCTION check rather than the magnitude precisely because the magnitude cannot do the job: 5 + (-3) = 2 = xB, -2 + 4 = 2 = yB, 1 + 12 = 13 = zB reproduces B. The reconstruction rejects the reversed order (8, -6, -11), rejects a single flipped sign (2, -6, 13), and rejects a dropped double negative (2, -2, 13), while the magnitude catches only the last of those three. This is the first skill in the batch where the conventional check is the one that fails, and the artifact says so plainly rather than overstating it. THREE-signal mapping: axis_confusion at step 2 (the axis-matching act - differencing coordinates across axes or assigning a difference to the wrong unit vector), sign_or_placement_error at step 3 (head-minus-tail order and double-negative handling; its trigger opens by stipulating matching-axis differences, which cleanly partitions it from step 2 rather than duplicating the crux), unclassified at step 7 (report and boundary - incomplete result, treating the magnitude as distinguishing order, skipped reconstruction, unit-vector normalisation, or reaching into moments, cross products, dot products, projections, direction angles or general vector addition). solution_sequencing_error OMITTED with explicit argument: the three coordinate differences are independent and no authored step strands a prerequisite unknown. simple_average_used omitted (Centroids-family). Trig-resolution cross-check N/A recorded affirmatively: coordinates are given and no inclined vector is decomposed. No archetype is asserted, consistent with the batch-wide instruction while PROCEDURE-ARCHETYPE-LIBRARY-V1 remains unapproved. Operator observation recorded, not corrected: the concept and common_errors name the ceded unit vector as u = r/|r| when assigning it to unit_vector_along_line; u is not declared as a variable, is never computed, and the usage matches what the downstream skill will mean, so this is a forward cession rather than a symbol collision, and naming the ceded deliverable precisely is preferable to naming it vaguely. Review beat cleared at first pass; no correction lane. CLOSES BATCH 4I 5/5.",
+      "reviewer": "Phase D sign-off review (PHASE-D-BATCH-4I-SKILL-5-SIGNOFF-001)",
+      "status": "signed_off"
+    },
+    {
+      "date": "2026-07-23",
+      "notes": "Unit vector along a directed line in 3D by forming the position vector head minus tail and normalizing. Independently re-derived: r_AB = (6-2, 0-(-3), -6-6) = (4, 3, -12) m with components nonzero on all three axes and of mixed sign; |r_AB| = sqrt(16+9+144) = sqrt(169) = 13 m exactly; u_AB = (4/13, 3/13, -12/13), dimensionless. Verified by a route that does not reuse the division: (16+9+144)/169 = 1, so the magnitude is exactly one, and metres over metres leaves u dimensionless. Reversed order independently confirmed: r_BA = (-4, -3, 12), magnitude also 13, u_BA = -u_AB, establishing that tail-to-head order is part of the answer rather than a convention. The 3-4-12 / 13 triple makes the normalization exact and the mixed signs make a reversed order detectable. Boundary recorded: position_vector_3d owns the head-minus-tail construction, which is formed and normalized here but not re-derived from first principles; vector_components_2d owns angle-based resolution, and this skill takes direction from two points rather than a stated angle; no dot product, cross product, or projection. force_directed_along_line is a downstream UNSIGNED node that owns multiplying a force magnitude by this unit vector — verified EXCLUDED, with no force symbol and no force multiplication anywhere in the artifact, so that node's scope is intact for later authorship. Three earned signals: axis_confusion at step 2 where components are paired to matching axes, sign_or_placement_error at step 3 where head-minus-tail order and subtraction of a negative coordinate are performed, and unclassified at step 1 per Architect ruling MAPPING_DEFECT / NOT_NEW_SIGNAL, step 1 being the earliest general recovery step stating the required direction and the exclusions. solution_sequencing_error omitted as unearned, not trimmed: the magnitude cannot be formed before the components exist, so an ordering dependence is real, but the chain is strictly linear with no branching stranded unknown, and normalizing without a magnitude is an incomplete procedure rather than a stranded prerequisite. simple_average_used unearned: no averaging step is authored. Honest limitation recorded in the artifact: the unit-magnitude check confirms the division was performed correctly but cannot detect a reversed point order, since the opposite unit vector also has magnitude one, and cannot detect a misread coordinate; direction must be checked against the stated tail and head. OPERATOR NOTE, non-blocking: step 2 declares axis pairing without producing a quantity, existing so that axis_confusion and sign_or_placement_error land on distinct authored acts. This follows the composite-moment precedent separating axis identification from contribution forming, but is recorded as a case where signal-mapping granularity shaped step structure; logged alongside the Batch 4L schema-fit findings.",
+      "reviewer": "Operator (independent re-derivation)",
+      "status": "signed_off"
+    }
+  ],
+  "required_prerequisite_closure": {
+    "STATICS_RESULTANT_FORCES_resultant_2d_addition": {
+      "micro_skill": "resultant_2d_addition",
+      "prerequisite_micro_skills": [
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "cdc80a84-110f-4eca-967b-d2b8b0dad982": {
+      "micro_skill": "resultant_direction_2d",
+      "prerequisite_micro_skills": [
+        "resultant_2d_addition",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "STATICS_RESULTANT_FORCES_resultant_2d_addition",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "proc-statics-force-vectors-dot-product-projection-v1": {
+      "micro_skill": "dot_product_projection",
+      "prerequisite_micro_skills": [
+        "cartesian_vector_components_3d",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-vectors-cartesian-vector-components-3d-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "proc-statics-force-vectors-force-directed-along-line-v1": {
+      "micro_skill": "force_directed_along_line",
+      "prerequisite_micro_skills": [
+        "cartesian_vector_components_3d",
+        "position_vector_3d",
+        "unit_vector_along_line",
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-vectors-cartesian-vector-components-3d-v1",
+        "proc-statics-vectors-position-vector-3d-v1",
+        "proc-statics-vectors-unit-vector-along-line-v1",
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    },
+    "proc-statics-resultant-forces-resultant-magnitude-v1": {
+      "micro_skill": "resultant_magnitude",
+      "prerequisite_micro_skills": [
+        "vector_components_2d"
+      ],
+      "prerequisite_procedure_ids": [
+        "proc-statics-vectors-vector-components-2d-v1"
+      ]
+    }
+  },
+  "student_visible": false,
+  "target_semantics": {
+    "compiler_eligible_count": 0,
+    "count_basis": "canonical bundle identities plus compiler candidates only when topic, family, procedure, identity and fingerprint reconcile",
+    "target_per_owned_source_topic": 100
+  },
+  "verdict": "WAVE_1R_LANE_COMPLETE"
+}
